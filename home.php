@@ -21,11 +21,12 @@
 	$goalType = isset($_REQUEST['goalType'])? $_REQUEST['goalType']: 'now';
 	$results = get_goals($goalType);
 	
+	//构造每一个 Goal 的 HTML 块
 	foreach($results as $row){
 		echo "<div class='goal-item goal-item-". $goalType. "'>";
 		
 		//简要信息
-		echo "<a class='goal-link' href='goal_page_details.php?type=started&goalID=". $row['GoalID']. "'>";
+		echo "<a class='goal-link' href='goal_page_details.php?&goalID=". $row['GoalID']. "'>";
 		echo "<p class='goal-title'>". stripslashes($row['Title']). "</p>";
 		if($goalType == 'future'){
 			echo "<p class='goal-starttime'>将于 ". stripslashes($row['StartTime']). " 启动</p>";
@@ -54,7 +55,7 @@
 <div id='dialog-delay' title='推迟启动'>
 	<form id='form-delay-goal' action='goal_proc.php' method='post'>
 		<label for='goal-starttime'>启动时间：</label>
-		<input type='text' name='startTime' id='goal-starttime' />
+		<input type='text' name='startTime' autocomplete="off" id='goal-starttime' />
 		<input type='hidden' name='goalID' value='' />
 		<input type='hidden' name='proc' value='delay' />
 	</form>

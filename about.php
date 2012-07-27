@@ -7,10 +7,10 @@
 </script>
 
 <p class="subTitle">记录梦想</p>
-<p class="indent-2em">无论看起来伟大还是渺小，敢想才敢做</p>
+<p class="indent-2em">无论梦想看起来伟大还是渺小，敢想才敢做</p>
 
 <p class="subTitle">规划梦想</p>
-<p class="indent-2em">只要一步一个脚印，就会越走越远</p>
+<p class="indent-2em">梦想太大？把它切成三十块吧！</p>
 
 <p class="subTitle">追寻梦想</p>
 <p class="indent-2em">只要一步一个脚印，就会越走越远</p>

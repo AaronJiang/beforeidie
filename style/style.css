@@ -49,6 +49,7 @@ body{
 	padding:0 0 10px 0;
 	background-color:#F9F9F9;
 	font-family:'微软雅黑';
+	font-size:15px;
 }
 
 /* jQuery Plugin
@@ -263,13 +264,42 @@ body{
 	width:202px;
 }
 
+/* Dynamics
+------------------------------------------------------------*/
+.dynamic-item{
+	clear:both;
+	margin:0 0px 10px 0;
+	border-bottom:1px dashed lightgray;
+	padding-bottom:5px;
+}
+
+.dynamic-goal-title{
+	font-weight:bold;
+	color:black;
+	cursor:pointer;
+	text-decoration:none;
+	border-bottom:1px dashed black;
+}
+
+.dynamic-content{
+	padding:15px 2em 0 2em;
+	font-family:'宋体';
+	line-height:22px;
+}
+
+.dynamic-time{
+	text-align:right;
+	font-size:12px;
+	color:gray;
+	margin:5px 0 0 0;
+}
+
 /* New & Edit goal
 ------------------------------------------------------------*/
 
 #form-new-goal, #form-edit-goal{
 	width:500px;
 	margin:20px 0 0 0;
-	/*margin:20px auto 0 auto;*/
 }
 
 #form-new-goal label, #form-edit-goal label{
@@ -379,7 +409,6 @@ body{
 	text-decoration:none;
 	color:black;
 	display:block;
-	margin:0 0 0px 0;
 	padding:5px 10px;
 }
 
@@ -425,7 +454,7 @@ body{
 #content-goal-logs #form-new-log #log-content{
 	margin:5px 0 0px 0;
 	padding:6px;
-	width:648px;
+	width:646px;
 	font-size:14px;
 }
 

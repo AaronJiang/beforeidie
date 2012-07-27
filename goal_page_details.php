@@ -42,9 +42,9 @@
 	<div class='subTitle'>动态</div>
 	
 	<ul id="mode-links">
-		<li><a id="mode-sound" href="#">声音</a></li>
-		<li><a id="mode-img" href="#">影像</a></li>
-		<li><a id="mode-text" href="#">日志</a></li>
+		<li><a id="mode-sound" href="#">视频</a></li>
+		<li><a id="mode-img" href="#">图片</a></li>
+		<li><a id="mode-text" href="#">文字</a></li>
 	</ul>
 	
 	<form id="form-new-log" action="log_proc.php" method="post">
@@ -62,13 +62,6 @@
 	
 	<?php
 	
-	//若为未启动的梦想，则不显示记录
-	$isStarted = trim($_GET['type']);
-	if($isStarted == "unstarted"){
-		echo "<p style='font-size:14px;'>还未启动哦~</p>";
-		exit;
-	}
-	
 	//显示动态
 	$logs = get_logs($goalID);
 
@@ -77,8 +70,8 @@
 	} else {
 		foreach($logs as $log){
 			echo "<div class='log-item'>";
-			echo "<p class='log-content'>". $log['logContent']. "</p>";
-			echo "<p class='log-time'>". $log['logTime']. "</p>";
+			echo "<p class='log-content'>". $log['LogContent']. "</p>";
+			echo "<p class='log-time'>". $log['LogTime']. "</p>";
 			echo "</div>";
 		}
 	}
