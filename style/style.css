@@ -1,0 +1,449 @@
+/* Reset
+------------------------------------------------------------*/
+
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockqoute,th,td,select{
+	margin:0;
+	padding:0;
+}
+
+textarea, input, select{
+	/*outline:none;*/
+}
+
+/* Functions
+------------------------------------------------------------*/
+
+.clearfix:before{
+	content:".";
+	display:block;
+	height:0px;
+	clear:both;
+	visibility:hidden;
+}
+
+.clearfix:after{
+	content:".";
+	display:block;
+	height:0px;
+	clear:both;
+	visibility:hidden;
+}
+
+.subTitle{
+	font-size:18px;
+	font-weight:bold;
+	margin:10px 0;
+	font-family:"微软雅黑";
+}
+
+.indent-2em{
+	text-indent:1em;
+}
+
+/* Layout
+------------------------------------------------------------*/
+
+body{
+	width:1000px;
+	margin:0 auto;
+	padding:0 0 10px 0;
+	background-color:#F9F9F9;
+	font-family:'微软雅黑';
+}
+
+/* jQuery Plugin
+------------------------------------------------------------*/
+
+/* datapicker */
+.ui-datepicker{
+	font-size:12px;
+}
+
+.ui-datepicker select.ui-datepicker-year{
+	width:40%;
+	margin-right:5px;
+}
+
+.ui-datepicker select.ui-datepicker-month{
+	width:40%;
+	margin-left:5px;
+}
+
+/* dialog */
+
+.ui-button-text-only .ui-button-text {
+	padding: .2em 1em;
+}
+
+.ui-dialog{
+	font-size:15px;
+}
+
+/* Header
+------------------------------------------------------------*/
+
+/* Logo */
+#header{
+	background-image:url('../imgs/small-logo.png');
+    background-repeat:no-repeat;
+	height:45px;
+	margin:20px 0 15px 0;
+}
+
+#header #logo-link{
+	display:block;
+	height:45px;
+	width:450px;
+}
+
+/* Nav */
+#nav{
+	padding-left:15px;
+	margin-bottom:15px;
+	background-color:#222;
+	list-style:none;
+}
+
+#nav li{
+	float:left;
+}
+
+#nav a{
+	text-decoration:none;
+	font-size:20px;
+	color:white;
+	padding:5px;
+	margin:0 10px 0 0;
+	display:block;
+}
+
+#nav a:hover{
+	color:black;
+	background-color:#F9F9F9;
+}
+
+#page-starts #nav-starts, #page-unstarts #nav-unstarts, #page-newgoal #nav-newgoal, #page-about #nav-about{
+	/*
+	color:black;
+	background-color:#F9F9F9;
+	*/
+}
+
+/* Starts & Unstarts
+------------------------------------------------------------*/
+
+/* Goal Selector */
+#goal-selector{
+	list-style:none;
+	display:inline-block;
+	margin:0 0 10px 0;
+	float:right;
+	width:120px;
+	text-align:center;
+}
+
+#goal-selector li a{
+	text-decoration:none;
+	color:black;
+	padding:8px 0px;
+	margin:0 0 8px 0;
+	display:block;
+	font-size:15px;
+	font-weight:bold;
+	border:0px solid lightgray;
+	border-radius:0px;
+}
+
+#goal-selector #select-now{
+	background-color:orange;
+}
+
+#goal-selector #select-future{
+	background-color:yellowgreen;
+}
+
+#goal-selector #select-finish{
+	background-color:deepskyblue;
+}
+
+/* Goals */
+#content-goals{
+	position:relative;
+}
+#content-goals .goal-item{
+	margin:0 15px 15px 0;
+	background-color:white;
+	width:160px;
+	position:absolute;
+	overflow:hidden;
+}
+
+#content-goals .goal-item-now{
+	border-top:5px solid darkorange;
+}
+#content-goals .goal-item-future{
+	border-top:5px solid yellowgreen;
+}
+#content-goals .goal-item-finish{
+	border-top:5px solid deepskyblue;
+}
+
+#content-goals .goal-item:hover{
+	background-color:#F7F7F7;
+}
+
+#content-goals .goal-item .goal-link{
+	display:block;
+	padding:8px 10px 10px 10px;
+	color:black;
+	border-right:1px solid #bcbcbc;
+	border-bottom:1px solid #bcbcbc;
+	border-left:1px solid #bcbcbc;
+	text-decoration:none;
+}
+
+#content-goals .goal-item .goal-title{
+	font-size:20px;
+	font-weight:bold;
+	margin:0 0 5px 0;
+}
+
+#content-goals .goal-item .goal-title a{
+	text-decoration:none;
+	color:black;
+}
+
+#content-goals .goal-item .goal-why{
+	font-size:15px;
+	line-height:20px;
+	margin-top:5px;
+	color:#666;
+	font-family:"宋体";
+}
+
+#content-goals .goal-item-future .goal-starttime{
+	font-size:12px;
+	color:gray;
+}
+
+#content-goals .goal-item .goal-cmd-wap{
+	position:absolute;
+	bottom:-32px;
+	left:0;
+	width:160px;
+	background:black;
+	opacity:0.8;
+	text-align:right;
+}
+
+#content-goals .goal-item .goal-cmd{
+	color:black;
+	font-size:12px;
+	font-family:'宋体';
+	display:inline-block;
+	margin:6px 6px 6px 0;
+	border-radius:3px;
+	background-color:white;
+	text-decoration:none;
+	padding:3px 5px;
+	cursor:pointer;
+}
+
+#content-goals .goal-item .goal-cmd:hover{
+
+}
+
+/* dialog */
+
+#form-delay-goal #goal-starttime{
+	font-size:15px;
+	padding:4px 3px;
+	margin-top:10px;
+	border:1px solid lightgray;
+	width:202px;
+}
+
+/* New & Edit goal
+------------------------------------------------------------*/
+
+#form-new-goal, #form-edit-goal{
+	width:500px;
+	margin:20px 0 0 0;
+	/*margin:20px auto 0 auto;*/
+}
+
+#form-new-goal label, #form-edit-goal label{
+	display:block;
+	float:left;
+	margin-right:5px;
+	font-size:15px;
+}
+
+#form-new-goal #goal-title, #form-edit-goal #goal-title{
+	width:482px;
+	font-size:15px;
+	padding:8px;
+	margin:0 0 10px 0;
+	border:1px solid lightgray;
+}
+
+#form-new-goal #goal-why, #form-edit-goal #goal-why{
+	display:inline-block;
+	margin:5px 0 15px 0;
+	font-size:15px;
+	padding:8px;
+	width:482px;
+	border:1px solid lightgray;
+}
+
+#form-new-goal #goal-type, #form-edit-goal #goal-type{
+	margin:0 6px 12px 0;
+	font-size:15px;
+	padding:3px 3px 3px 2px;
+	border:1px solid lightgray;
+}
+
+#form-new-goal #goal-starttime, #form-edit-goal #goal-starttime{
+	font-size:15px;
+	padding:4px 3px;
+	display:none;
+	border:1px solid lightgray;
+	width:202px;
+}
+
+#form-new-goal #create-goal, #form-edit-goal #update-goal{
+	font-size:15px;
+	padding:3px 15px;
+	cursor:pointer;
+	border:1px solid gray;
+}
+
+#form-new-goal #create-goal:hover, #form-edit-goal #update-goal:hover{
+	background-color:white;
+}
+
+
+/* Goal Details
+------------------------------------------------------------*/
+
+/* Title */
+#goal-details-title{
+	font-size:20px;
+	margin-bottom:15px;
+}
+
+/* Details */
+#content-goal-details{
+	width:26%;
+	float:left;
+	background-color:white;
+	padding:0px 15px 5px 15px;
+	border:1px solid lightgray;
+	border-radius:0px;
+}
+
+#content-goal-details #goal-why{
+	margin-bottom:5px;
+	font-size:14px;
+	line-height:22px;
+}
+
+#content-goal-details #goal-steps li{
+	list-style-position:inside;
+	list-style-type:square;
+	margin:0 0 5px 0;
+	padding:0 0 2px 0;
+	font-size:14px;
+	line-height:22px;
+}
+
+/* Post entries */
+#mode-links{
+	list-style:none;
+	position:absolute;
+	top:0px;
+	right:15px;
+	background:lightgray;
+	border-left:1px solid gray;
+	border-right:1px solid gray;
+	border-bottom:1px solid gray;
+	border-bottom-left-radius:5px;
+	border-bottom-right-radius:5px;
+}
+
+#mode-links li{
+	float:right;
+}
+
+#mode-links li a{
+	text-decoration:none;
+	color:black;
+	display:block;
+	margin:0 0 0px 0;
+	padding:5px 10px;
+}
+
+#mode-links #mode-sound{
+	border-left:1px solid gray;
+}
+
+#mode-links #mode-text{
+	border-right:1px solid gray;
+}
+
+/* logs */
+#content-goal-logs{
+	width:66%;
+	float:right;
+	position:relative;
+	background-color:white;
+	padding:0px 15px 10px 15px;
+	margin-bottom:20px;
+	border:1px solid lightgray;
+	border-radius:0px;
+}
+
+#content-goal-logs .log-item{
+	margin-bottom:5px;
+	padding:5px 0 0px 0;
+	border-top:1px dotted lightgray;
+	clear:both;
+}
+
+#content-goal-logs .log-content{
+	font-size:14px;
+	line-height:22px;
+}
+
+#content-goal-logs .log-time{
+	text-align:right;
+	font-size:12px;
+	margin-top:8px;
+	color:gray;
+}
+
+#content-goal-logs #form-new-log #log-content{
+	margin:5px 0 0px 0;
+	padding:6px;
+	width:648px;
+	font-size:14px;
+}
+
+#content-goal-logs #form-new-log #create-log{
+	margin:10px 0 10px 0;
+	font-size:15px;
+	padding:3px 15px;
+	cursor:pointer;
+	border:1px solid gray;
+	float:right;
+}
+
+#content-goal-logs #form-new-log #create-log:hover{
+	background-color:white;
+}
+
+/* About
+------------------------------------------------------------*/
+
+
+

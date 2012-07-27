@@ -1,0 +1,1 @@
+<?php	require('header.php');?><p>动态</p><?php	require('footer.php');?>

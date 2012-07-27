@@ -1,0 +1,65 @@
+<?php
+	require('header.php');
+	require('data_funs.inc');
+?>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#goal-starttime').datepicker({
+			changeMonth: true,
+			changeYear: true,
+			showOtherMonths: true,
+			selectOtherMonths: true
+		});
+	
+		if($('#goal-type')[0].selectedIndex == 1){
+			$('#goal-starttime').show();
+		}
+		
+		$('#goal-type').change(function(){
+			var $time = $('#goal-starttime');
+			if(this.selectedIndex == 1){
+				$time.fadeIn('fast');
+				$('#goal-starttime').datepicker('show');
+			}
+			else{
+				$time.fadeOut('fast');
+			}
+		});
+	});
+</script>
+
+<?php
+ 	$goal = get_goal_by_ID($_REQUEST['goalID']);
+?>
+
+<form id="form-edit-goal" action="goal_proc.php" method="post">
+	<div>
+		<!--<label for="goal-title">目标：</label>-->
+		<input type="text" name="title" id="goal-title" autocomplete="off" value="<?php echo $goal['Title']?>" />
+	</div>
+			
+	<div>
+		<!--<label for="goal-why">愿景：</label>-->
+		<textarea rows="8" name="why" id="goal-why"><?php echo $goal['Reason'] ?></textarea>
+	</div>
+	
+	<div style="display:<?php echo $goal['GoalType'] == 'finish'? 'none': 'block' ?>">
+		<!--<label for="goal-type">启动：</label>-->
+		<select name="goalType" id="goal-type">
+			<option value="now" <?php if($goal['GoalType'] == 'now') echo "selected='selected'";?>>立即启动梦想</option>
+			<option value="future" <?php if($goal['GoalType'] == 'future') echo "selected='selected'";?>>在未来启动梦想</option>
+			<option value="finish" style="display:none" <?php if($goal['GoalType'] == 'finish') echo "selected='selected'";?>></option>
+		</select>
+		<input type="text" name="startTime" id="goal-starttime" value="<?php echo $goal['StartTime'] ?>" autocomplete="off"/>
+	</div>
+
+	<input type="submit" value="修改" id="update-goal" />
+
+	<input type="hidden" name="goalID" value="<?php echo $goal['GoalID'] ?>">
+	<input type="hidden" name="proc" value="update">
+</form>
+
+<?php
+	require('footer.php');	
+?>
