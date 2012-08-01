@@ -32,6 +32,7 @@
 			
 		case "update":
 			update_goal($_REQUEST['goalID'], $_REQUEST['title'], $_REQUEST['why'], $_REQUEST['goalType'], $_REQUEST['startTime']);
+			//page_jump($_SERVER['HTTP_REFERER']);
 			page_jump('home.php?goalType='. $_REQUEST['goalType']);
 			break;
 	}

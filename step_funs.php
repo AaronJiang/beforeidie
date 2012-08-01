@@ -19,13 +19,33 @@
 	//新的步骤
 	function new_step($goalID, $stepContent){
 		$goalID = trim($goalID);
-		$stepContent = trim($_POST['stepContent']);
+		$stepContent = trim($stepContent);
 	
 		$query = "insert into steps values (NULL, '". $goalID. "', 0, '". $stepContent. "', NULL)";
 		$result = db_exec($query);
 	
-		if(!$result){
-			echo "Item was not added!";
-		}
+		return $result? "true": "false";
+	}
+	
+	//更新步骤
+	function update_step($stepID, $stepContent){
+		$stepID = trim($stepID);
+		$stepContent = trim($stepContent);
+		
+		$query = "update steps set StepContent = '". $stepContent. "' where StepID = ". $stepID;
+		echo $query;
+		$result = db_exec($query);
+		
+		return $result? "true": "false";
+	}
+	
+	//删除步骤
+	function delete_step($stepID){
+		$stepID = trim($stepID);
+		
+		$query = "delete from steps where StepID = ". $stepID;
+		$result = db_exec($query);
+		
+		return $result? "true": "false";
 	}
 ?>

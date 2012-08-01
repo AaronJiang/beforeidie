@@ -20,6 +20,8 @@
 	
 		$query = "insert into goal_logs values (NULL, '". $logTime. "', '". $logContent. "', '". $goalID. "')";
 		$result = db_exec($query);
+		
+		return $result? "true": "false";
 	}
 	
 	//获取某目标的所有动态

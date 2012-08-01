@@ -68,12 +68,31 @@ $(document).ready(function(){
 	var topArray = [0, 0, 0, 0, 0],
 		leftArray = [0, 175, 350, 525, 700];
 				
-	$('#content-goals .goal-item').each(function(index, entry){
+	$('#content-goals .goal-item').each(function(){
+		//找到 topArray 中最小的、且最靠左的项的 index
+		var minValue = 10000,
+			minIndex = 0;
+		
+		$.each(topArray, function(index, entry){
+			if(entry < minValue){
+				minValue = entry;
+				minIndex = index;
+			}	
+		});
+		
+		$(this).css({
+			'top' : topArray[minIndex] + "px",
+			'left' : leftArray[minIndex] + "px"
+		});
+		
+		topArray[minIndex] += $(this).outerHeight() + 15;
+		/*
 		$(this).css({
 			'top' : topArray[index % 5] + "px",
 			'left' : leftArray[index % 5] + "px"
 		});
 		topArray[index % 5] += $(this).outerHeight() + 15;
+		*/
 	});
 	
 	//弹出命令栏
@@ -90,7 +109,7 @@ $(document).ready(function(){
 	$('#dialog-delay').dialog({
 		autoOpen: false,
 		modal: true,
-		width: 325,
+		width: 320,
 		draggable: false,
 		resizable: false,
 		buttons: {
