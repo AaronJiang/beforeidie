@@ -48,4 +48,14 @@
 		
 		return $result? "true": "false";
 	}
+	
+	//获取步骤的数目
+	function get_steps_num($goalID){
+		$query = "select count(*) from steps where GoalID = ". $goalID;
+		$result = db_exec($query);
+		
+		$num = $result->fetch_assoc();
+
+		return $num['count(*)'];
+	}
 ?>

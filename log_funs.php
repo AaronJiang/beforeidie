@@ -44,4 +44,13 @@
 	
 		return db_exec($query);
 	}
+	
+	function get_logs_num($goalID){
+		$query = "select count(*) from goal_logs where GoalID = ". $goalID;
+		$result = db_exec($query);
+		
+		$num = $result->fetch_assoc();
+
+		return $num['count(*)'];
+	}
 ?>

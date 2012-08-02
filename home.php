@@ -4,7 +4,7 @@
 ?>
 
 <script type="text/javascript">
-	$('body').prop('id', 'page-starts');
+	$('body').prop('id', 'page-goals');
 </script>
 
 <?php autostart_goals(); ?>
@@ -28,6 +28,7 @@
 		//简要信息
 		echo "<a class='goal-link' href='goal_page_details.php?&goalID=". $row['GoalID']. "'>";
 		echo "<p class='goal-title'>". stripslashes($row['Title']). "</p>";
+		echo "<p class='goal-logs-num'><b>". get_steps_num($row['GoalID']) . "</b>&nbsp;项计划 | <b>". get_logs_num($row['GoalID']) . "</b>&nbsp;条记录</p>";
 		if($goalType == 'future'){
 			echo "<p class='goal-starttime'>将于 ". stripslashes($row['StartTime']). " 启动</p>";
 		}

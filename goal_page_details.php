@@ -5,10 +5,6 @@
 
 <script type="text/javascript">
 
-//$("#dialog-edit-steps"){
-
-//};
-
 $(function(){
 	//全局变量
 	var GOAL_ID = <?php echo $_REQUEST['goalID'] ?>;
@@ -141,7 +137,7 @@ $(function(){
 	});
 
 	//修改步骤
-	$('#step-edit-list .step-edit-area').keydown(function(){
+	$('#step-edit-list .step-edit-area').live('keydown', function(){
 		var stepType = $(this).attr('data-type');
 		if(stepType == 'original'){
 			$(this).attr('data-type', 'modified');
@@ -157,60 +153,51 @@ $(function(){
 	$goal = get_goal_by_ID($goalID);
 ?>
 
-<!-- 左面板 -->
-<div id='content-goal-details'>
-
-	<!-- 目标和愿景 -->
-	<div class='single-panel'>
-		<div class='cmd-panel'>
-			<a class="cmd-btn" href="goal_page_edit.php?goalID=<?php echo $goal['GoalID']; ?>" id='cmd-edit-goal'>编辑</a>
-		</div>
+<!-- 标题 -->
+<div class='clearfix' id='goal-title-panel'>
+	<div class='floatleft'>
 		<h2 id='goal-details-title'> <?php echo $goal['Title']; ?> </h2>
-		<?php
-		if($goal['GoalType'] == 'future'){
-			echo "<p id='goal-starttime'>将于 ". $goal['StartTime']. " 启动</p>";
-		}
-		?>
 		<p id='goal-why'> <?php echo $goal['Reason']; ?> </p>
+		<p id='goal-logs-num'>
+			<span><b> <?php echo get_steps_num($goalID); ?> </b>&nbsp;项计划 |</span>
+			<span><b> <?php echo get_logs_num($goalID); ?> </b>&nbsp;条记录</span>
+		</p>
 	</div>
-	
-	<!-- 步骤 -->
-	<div class='single-panel'>
-		<div class='cmd-panel'>
-			<a class="cmd-btn" id='cmd-edit-steps'>编辑</a>
-		</div>
-		
-		<div class='subTitle'>步骤</div>
-	
-		<?php
-		$steps = get_steps($goalID);
-		if(count($steps) == 0){
-			echo "<p id='no-step-caution' style='margin-bottom:5px;font-size:14px;'>还没有任何规划哦~</p>";
-		}
-		?>
-	
-		<ul id='goal-steps'>
-			<?php
-			foreach($steps as $step){
-				echo "<li>". $step['StepContent']. "</li>";
-			}
-			?>
-		</ul>
-	</div>
-
+	<!--<span id='cmd-finish-goal'>我做到了！</span>-->
 </div>
 
-<!-- 右面板 -->
+<!-- 步骤  -->
+<div id='content-goal-steps'>		
+	<div class='panel-header'>
+		<div class='panel-title'>计划</div>
+		<div class='panel-cmd-wapper'>......（<span class='panel-cmd' id='cmd-edit-steps'>编辑</span>）</div>
+	</div>
+	
+	<?php
+	$steps = get_steps($goalID);
+	if(count($steps) == 0){
+		echo "<p id='no-step-caution' style='margin-bottom:5px;font-size:14px;'>还没有任何规划哦~</p>";
+	}
+	?>
+	
+	<ul id='goal-steps'>
+		<?php
+		foreach($steps as $step){
+			echo "<li>". $step['StepContent']. "</li>";
+		}
+		?>
+	</ul>
+</div>
+
+<!-- 记录 -->
 <div id="content-goal-logs">
 	
-	<div class='subTitle'>动态</div>
+	<div class='panel-header'>
+		<div class='panel-title'>记录</div>
+		<div class='panel-cmd-wapper'>......（<span class='panel-cmd' id='cmd-edit-steps'>记录</span>）</div>
+	</div>
 	
-	<ul id="mode-links">
-		<li><a id="mode-sound" href="#">视频</a></li>
-		<li><a id="mode-img" href="#">图片</a></li>
-		<li><a id="mode-text" href="#">文字</a></li>
-	</ul>
-	
+	<!--
 	<form id="form-new-log" action="log_proc.php" method="post">
 		<div>
 			<textarea id="log-content" placeholder="说点啥~" rows="3" name="logContent"></textarea>
@@ -223,10 +210,9 @@ $(function(){
 		<input type="hidden" name="goalID" value="<?php echo $goalID ?>" />
 		<input type="hidden" name="proc" value="new" />
 	</form>
+	-->
 	
 	<?php
-	
-	//显示动态
 	$logs = get_logs($goalID);
 
 	if(count($logs) == 0){

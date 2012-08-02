@@ -32,12 +32,16 @@ textarea, input, select{
 .subTitle{
 	font-size:18px;
 	font-weight:bold;
-	margin:10px 0;
+	margin:10px 0 10px 0;
 	font-family:"微软雅黑";
 }
 
 .indent-2em{
 	text-indent:1em;
+}
+
+.floatleft{
+	float:left;
 }
 
 /* Layout
@@ -47,7 +51,7 @@ body{
 	width:1000px;
 	margin:0 auto;
 	padding:0 0 10px 0;
-	background-color:#F9F9F9;
+	background-color:white;
 	font-family:'微软雅黑';
 	font-size:15px;
 }
@@ -123,15 +127,11 @@ body{
 }
 
 #nav a:hover{
-	color:black;
-	background-color:#F9F9F9;
+	font-weight:bold;
 }
 
-#page-starts #nav-starts, #page-unstarts #nav-unstarts, #page-newgoal #nav-newgoal, #page-about #nav-about{
-	/*
-	color:black;
-	background-color:#F9F9F9;
-	*/
+#page-goals #nav-goals, #page-dynamic #nav-dynamic, #page-newgoal #nav-newgoal, #page-about #nav-about{
+	font-weight:bold;
 }
 
 /* Starts & Unstarts
@@ -218,17 +218,21 @@ body{
 	color:black;
 }
 
+#content-goals .goal-logs-num{
+	font-size:12px;	
+}
+
+#content-goals .goal-item-future .goal-starttime{
+	font-size:12px;
+	color:gray;
+}
+
 #content-goals .goal-item .goal-why{
 	font-size:15px;
 	line-height:20px;
 	margin-top:5px;
 	color:#666;
 	font-family:"宋体";
-}
-
-#content-goals .goal-item-future .goal-starttime{
-	font-size:12px;
-	color:gray;
 }
 
 #content-goals .goal-item .goal-cmd-wap{
@@ -360,74 +364,103 @@ body{
 /* Goal Details
 ------------------------------------------------------------*/
 
-/* Details */
-#content-goal-details{
-	width:29%;
-	float:left;
+/* Goal Infomation */
+#goal-title-panel{
+	margin:0 0 10px 0;
+	padding:0 0 10px 0;
 }
 
-.single-panel{
-	padding:0px 15px 5px 15px;
-	margin-bottom:15px;
-	border:1px solid lightgray;
+#goal-details-title{
+	font-size:25px;
+}
+
+#goal-why{
+	font-size:14px;
+	font-family:'宋体';
+	margin:5px 0 5px 0;
+	color:#666;
+}
+
+#goal-logs-num{
+	font-size:12px;
+	color:#666;
+}
+
+#cmd-finish-goal{
+	float:right;
+	display:block;
+	border:1px solid gray;
+	padding:5px 5px 5px 10px;
+	font-size:15px;
+	cursor:pointer;
+	background-color:lightgray;
+	border-radius:5px;
+}
+
+#cmd-finish-goal:hover{
 	background-color:white;
-	position:relative;
 }
 
-#content-goal-details #goal-details-title{
-	font-size:20px;
-	margin:10px 0;
-}
-
-#content-goal-details #goal-starttime{
+#content-goal-steps #goal-starttime{
 	font-size:12px;
 	color:gray;
 	margin-bottom:5px;
 }
 
-.cmd-panel{
-	position:absolute;
-	top:-1px;
-	right:-1px;
-	border-bottom-left-radius:6px;
-	background-color:black;
-	opacity:0.8;
-	padding-left:5px;
+/* Steps */
+#content-goal-steps{
+	width:30%;
+	float:left;
+	position:relative;
 }
 
-.cmd-btn{
-	text-decoration:none;
-	padding:3px 5px 3px 0;
-	font-size:12px;
-	display:block;
-	float:right;
-	color:white;
-	cursor:pointer;
-}
-
-.cmd-btn:hover{
-}
-
-#content-goal-details #goal-why{
-	margin-bottom:5px;
-	font-size:14px;
-	line-height:22px;
-}
-
-#content-goal-details #goal-steps li{
+#content-goal-steps #goal-steps li{
 	list-style-position:inside;
 	list-style-type:square;
 	margin:0 0 5px 0;
-	padding:5px 0;
+	padding:0 0 5px 0;
 	font-size:14px;
 	line-height:22px;
-	border-top:1px dashed gray;
+	border-bottom:1px dashed lightgray;
 }
+
+/* Panel Header */
+.panel-header{
+	margin:0 0 10px 0;
+	padding-bottom:0px;
+	border-bottom:0px solid gray;
+}
+
+.panel-header .panel-title{
+	font-size:16px;
+	font-weight:bold;
+	display:inline-block;
+	font-family:'宋体';
+}
+
+.panel-header .panel-cmd-wapper{
+	font-size:12px;
+	display:inline-block;
+	font-family:'宋体';
+}
+
+.panel-header .panel-cmd{
+	text-decoration:none;
+	color:#669;
+	cursor:pointer;
+	padding:1px;
+}
+
+.panel-header .panel-cmd:hover{
+	background-color:#039;
+	color:white;
+}
+
+
 
 /* Step Dialog */
 
 #step-edit-list li{
-	/*list-style-position: inside;*/
 	list-style-type: none;
 }
 
@@ -460,55 +493,19 @@ body{
 	color:white;
 }
 
-/* Post entries */
-#mode-links{
-	list-style:none;
-	position:absolute;
-	top:0px;
-	right:15px;
-	background:lightgray;
-	border-left:1px solid gray;
-	border-right:1px solid gray;
-	border-bottom:1px solid gray;
-	border-bottom-left-radius:5px;
-	border-bottom-right-radius:5px;
-}
-
-#mode-links li{
-	float:right;
-}
-
-#mode-links li a{
-	text-decoration:none;
-	color:black;
-	display:block;
-	padding:5px 10px;
-}
-
-#mode-links #mode-sound{
-	border-left:1px solid gray;
-}
-
-#mode-links #mode-text{
-	border-right:1px solid gray;
-}
-
 /* logs */
 #content-goal-logs{
-	width:66%;
+	width:67%;
 	float:right;
 	position:relative;
 	background-color:white;
-	padding:0px 15px 10px 15px;
 	margin-bottom:20px;
-	border:1px solid lightgray;
-	border-radius:0px;
 }
 
 #content-goal-logs .log-item{
 	margin-bottom:5px;
-	padding:5px 0 0px 0;
-	border-top:1px dotted lightgray;
+	padding:0 0 5px 0;
+	border-bottom:1px dashed lightgray;
 	clear:both;
 }
 
@@ -525,7 +522,7 @@ body{
 }
 
 #content-goal-logs #form-new-log #log-content{
-	margin:5px 0 0px 0;
+	margin:5px 0 0 0;
 	padding:6px;
 	width:646px;
 	font-size:14px;
@@ -534,7 +531,7 @@ body{
 }
 
 #content-goal-logs #form-new-log #create-log{
-	margin:10px 0 10px 0;
+	margin:10px 0;
 	font-size:15px;
 	padding:3px 15px;
 	cursor:pointer;
