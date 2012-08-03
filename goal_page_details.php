@@ -158,10 +158,6 @@ $(function(){
 	<div class='floatleft'>
 		<h2 id='goal-details-title'> <?php echo $goal['Title']; ?> </h2>
 		<p id='goal-why'> <?php echo $goal['Reason']; ?> </p>
-		<p id='goal-logs-num'>
-			<span><b> <?php echo get_steps_num($goalID); ?> </b>&nbsp;项计划 |</span>
-			<span><b> <?php echo get_logs_num($goalID); ?> </b>&nbsp;条记录</span>
-		</p>
 	</div>
 	<!--<span id='cmd-finish-goal'>我做到了！</span>-->
 </div>
@@ -187,12 +183,8 @@ $(function(){
 		}
 		?>
 	</ul>
-</div>
-
-<!-- 记录 -->
-<div id="content-goal-logs">
 	
-	<div class='panel-header'>
+	<div class='panel-header panel-log-header'>
 		<div class='panel-title'>记录</div>
 		<div class='panel-cmd-wapper'>......（<span class='panel-cmd' id='cmd-edit-steps'>记录</span>）</div>
 	</div>
@@ -226,6 +218,12 @@ $(function(){
 		}
 	}
 	?>
+</div>
+
+<!-- 记录 -->
+<div id="content-goal-logs">
+	
+
 	
 </div>
 
