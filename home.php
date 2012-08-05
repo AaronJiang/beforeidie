@@ -4,67 +4,10 @@
 ?>
 
 <script type="text/javascript">
+
+$(document).ready(function(){
 	$('body').prop('id', 'page-goals');
-</script>
 
-<?php autostart_goals(); ?>
-
-<ul id="goal-selector" class="clearfix">
-	<li><a href="home.php?goalType=now" id="select-now">进 行 中 [<?php echo get_goal_num("now"); ?>]</a></li>
-	<li><a href="home.php?goalType=future" id="select-future">待 启 动 [<?php echo get_goal_num("future"); ?>]</a></li>
-	<li><a href="home.php?goalType=finish" id="select-finish">已 完 成 [<?php echo get_goal_num("finish"); ?>]</a></li>
-</ul>
-
-<div id="content-goals">
-
-<?php
-	$goalType = isset($_REQUEST['goalType'])? $_REQUEST['goalType']: 'now';
-	$results = get_goals($goalType);
-	
-	//构造每一个 Goal 的 HTML 块
-	foreach($results as $row){
-		echo "<div class='goal-item goal-item-". $goalType. "'>";
-		
-		//简要信息
-		echo "<a class='goal-link' href='goal_page_details.php?goalID=". $row['GoalID']. "'>";
-		echo "<p class='goal-title'>". stripslashes($row['Title']). "</p>";
-		echo "<p class='goal-logs-num'><b>". get_steps_num($row['GoalID']) . "</b>&nbsp;项计划 | <b>". get_logs_num($row['GoalID']) . "</b>&nbsp;条记录</p>";
-		if($goalType == 'future'){
-			echo "<p class='goal-starttime'>将于 ". stripslashes($row['StartTime']). " 启动</p>";
-		}
-		echo "<p class='goal-why'>". stripslashes($row['Reason']). "</p>";
-		echo "</a>";
-		
-		
-		//命令按钮
-		echo "<div class='goal-cmd-wap'>";
-		echo "<a class='goal-cmd goal-cmd-edit' href='goal_page_edit.php?goalID=". $row['GoalID']. "'>编辑</a>";
-		if($goalType == "now"){
-			echo "<a class='goal-cmd goal-cmd-delay' data-goalid='". $row['GoalID']. "' data-title='". $row['Title']. "'>推迟</a>";
-		}
-		else if($goalType == "future"){
-			echo "<a class='goal-cmd goal-cmd-start' href='goal_proc.php?proc=start&goalID=". $row['GoalID']. "'>启动</a>";				
-		}
-		echo "</div>";
-		
-		echo "</div>";
-	}
-?>
-
-</div>
-
-<div id='dialog-delay' title='推迟启动'>
-	<form id='form-delay-goal' action='goal_proc.php' method='post'>
-		<label for='goal-starttime'>启动时间：</label>
-		<input type='text' name='startTime' autocomplete="off" id='goal-starttime' />
-		<input type='hidden' name='goalID' value='' />
-		<input type='hidden' name='proc' value='delay' />
-	</form>
-</div>
-
-<script type="text/javascript">
-
-$(document).ready(function(){	
 	//实现元素纵向排布
 	var topArray = [0, 0, 0, 0, 0],
 		leftArray = [0, 175, 350, 525, 700];
@@ -87,6 +30,7 @@ $(document).ready(function(){
 		});
 		
 		topArray[minIndex] += $(this).outerHeight() + 15;
+		
 		/*
 		$(this).css({
 			'top' : topArray[index % 5] + "px",
@@ -146,6 +90,61 @@ $(document).ready(function(){
 	});
 });
 </script>
+
+<?php autostart_goals(); ?>
+
+<ul id="goal-selector" class="clearfix">
+	<li><a href="home.php?goalType=now" id="select-now">进 行 中 [<?php echo get_goal_num("now"); ?>]</a></li>
+	<li><a href="home.php?goalType=future" id="select-future">待 启 动 [<?php echo get_goal_num("future"); ?>]</a></li>
+	<li><a href="home.php?goalType=finish" id="select-finish">已 完 成 [<?php echo get_goal_num("finish"); ?>]</a></li>
+</ul>
+
+<div id="content-goals">
+
+<?php
+	$goalType = isset($_REQUEST['goalType'])? $_REQUEST['goalType']: 'now';
+	$results = get_goals($goalType);
+	
+	//构造每一个 Goal 的 HTML 块
+	foreach($results as $row){
+		echo "<div class='goal-item goal-item-". $goalType. "'>";
+		
+		//简要信息
+		echo "<a class='goal-link' href='goal_page_details.php?goalID=". $row['GoalID']. "'>";
+		echo "<p class='goal-title'>". stripslashes($row['Title']). "</p>";
+		echo "<p class='goal-logs-num'><b>". get_steps_num($row['GoalID']) . "</b>&nbsp;项计划 | <b>". get_logs_num($row['GoalID']) . "</b>&nbsp;条记录</p>";
+		if($goalType == 'future'){
+			echo "<p class='goal-starttime'>将于 ". stripslashes($row['StartTime']). " 启动</p>";
+		}
+		echo "<p class='goal-why'>". stripslashes($row['Reason']). "</p>";
+		echo "</a>";
+		
+		
+		//命令按钮
+		echo "<div class='goal-cmd-wap'>";
+		echo "<a class='goal-cmd goal-cmd-edit' href='goal_page_edit.php?goalID=". $row['GoalID']. "'>编辑</a>";
+		if($goalType == "now"){
+			echo "<a class='goal-cmd goal-cmd-delay' data-goalid='". $row['GoalID']. "' data-title='". $row['Title']. "'>推迟</a>";
+		}
+		else if($goalType == "future"){
+			echo "<a class='goal-cmd goal-cmd-start' href='goal_proc.php?proc=start&goalID=". $row['GoalID']. "'>启动</a>";				
+		}
+		echo "</div>";
+		
+		echo "</div>";
+	}
+?>
+
+</div>
+
+<div id='dialog-delay' title='推迟启动'>
+	<form id='form-delay-goal' action='goal_proc.php' method='post'>
+		<label for='goal-starttime'>启动时间：</label>
+		<input type='text' name='startTime' autocomplete="off" id='goal-starttime' />
+		<input type='hidden' name='goalID' value='' />
+		<input type='hidden' name='proc' value='delay' />
+	</form>
+</div>
 
 <?php
 	require('footer.php');	

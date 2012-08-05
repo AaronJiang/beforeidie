@@ -189,7 +189,6 @@ textarea{
 /* Login */
 
 
-
 /* Starts & Unstarts
 ------------------------------------------------------------*/
 
@@ -280,7 +279,8 @@ textarea{
 
 #content-goals .goal-item-future .goal-starttime{
 	font-size:12px;
-	color:gray;
+	color:#666;
+	margin-top:2px;
 }
 
 #content-goals .goal-item .goal-why{

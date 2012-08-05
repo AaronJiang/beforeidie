@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
@@ -20,10 +21,13 @@
 				<li><a id="nav-newgoal" href="goal_page_new.php">新建</a></li>
 				<li><a id="nav-about" href="about.php">关于</a></li>
 			</ul>
-			
 			<div id="account-info">
-				<?php //account_html_output(); ?>
+			<?php if(isset($_SESSION['valid_user'])){ ?>		
+				<span><a href='account_page_details.php'><?php echo $_SESSION['valid_user']; ?>的账号</a><span>
+				<span><a href='account_proc.php?proc=logout'>退出</a></span>			
+			<?php } else { ?>
 				<span><a href='account_page_login.php'>登陆</a><span>
 				<span><a href='account_page_register.php'>注册</a></span>
+			<?php } ?>
 			</div>	
 		</div>
