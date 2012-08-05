@@ -1,6 +1,5 @@
 /* Reset
 ------------------------------------------------------------*/
-
 body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockqoute,th,td,select{
 	margin:0;
 	padding:0;
@@ -12,7 +11,6 @@ textarea, input, select{
 
 /* Functions
 ------------------------------------------------------------*/
-
 .clearfix:before{
 	content:".";
 	display:block;
@@ -44,9 +42,8 @@ textarea, input, select{
 	float:left;
 }
 
-/* Layout
+/* 皮肤
 ------------------------------------------------------------*/
-
 body{
 	width:1000px;
 	margin:0 auto;
@@ -54,6 +51,39 @@ body{
 	background-color:white;
 	font-family:'微软雅黑';
 	font-size:15px;
+}
+
+/* 表单 */
+input{
+	border:1px solid lightgray;
+}
+
+input[type="text"], input[type="password"]{
+	padding:5px 7px;
+	font-size:14px;
+	font-family:'宋体';
+	margin:0 0 10px 0;
+	width:200px;
+}
+
+input[type='submit']{
+	font-size:14px;
+	font-family:'宋体';
+	padding:3px 10px;
+	cursor:pointer;
+}
+
+input[type='submit']:hover{
+	background-color:white;
+}
+
+textarea{
+	padding:5px 7px;
+	font-size:14px;
+	font-family:'宋体';
+	line-height:20px;
+	border:1px solid lightgray;
+	margin:0 0 10px 0;
 }
 
 /* jQuery Plugin
@@ -95,7 +125,8 @@ body{
 #header{
     background-repeat:no-repeat;
 	height:40px;
-	margin:25px 0 20px 0;
+	padding:20px 0 20px 0;
+	position:relative;
 }
 
 #logo-link{
@@ -135,6 +166,29 @@ body{
 #page-goals #nav-goals, #page-dynamic #nav-dynamic, #page-newgoal #nav-newgoal, #page-about #nav-about{
 	font-weight:bold;
 }
+
+/* Nav */
+#account-info{
+	position:absolute;
+	top:2px;
+	right:0px;
+}
+
+#account-info a{
+	display:inline-block;
+	text-decoration:underline;
+	font-size:12px;
+	font-family:'宋体';
+	cursor:pointer;
+	margin-left:2px;
+}
+
+/* User Account
+------------------------------------------------------------*/
+
+/* Login */
+
+
 
 /* Starts & Unstarts
 ------------------------------------------------------------*/
@@ -264,8 +318,7 @@ body{
 
 }
 
-/* dialog */
-
+/* Delay Dialog */
 #form-delay-goal #goal-starttime{
 	font-size:15px;
 	padding:4px 3px;
@@ -278,7 +331,7 @@ body{
 ------------------------------------------------------------*/
 .dynamic-item{
 	clear:both;
-	margin:0 0px 10px 0;
+	margin:0 0 10px 0;
 	border-bottom:1px dashed lightgray;
 	padding-bottom:5px;
 }
@@ -292,7 +345,7 @@ body{
 }
 
 .dynamic-content{
-	padding:15px 2em 0 2em;
+	padding:10px 15px 0 15px;
 	font-family:'宋体';
 	line-height:22px;
 }
@@ -304,126 +357,32 @@ body{
 	margin:5px 0 0 0;
 }
 
-/* New & Edit goal
+/* New & Edit Goal
 ------------------------------------------------------------*/
 
-#form-new-goal, #form-edit-goal{
-	width:500px;
-	margin:20px 0 0 0;
-}
-
-#form-new-goal label, #form-edit-goal label{
-	display:block;
-	float:left;
-	margin-right:5px;
-	font-size:15px;
-}
-
 #form-new-goal #goal-title, #form-edit-goal #goal-title{
-	width:482px;
-	font-size:15px;
-	padding:8px;
-	margin:0 0 10px 0;
-	border:1px solid gray;
+	width:500px;
 }
 
 #form-new-goal #goal-why, #form-edit-goal #goal-why{
-	display:inline-block;
-	margin:5px 0 15px 0;
-	font-size:15px;
-	padding:8px;
-	width:482px;
-	border:1px solid gray;
+	width:500px;
 }
 
 #form-new-goal #goal-type, #form-edit-goal #goal-type{
 	margin:0 6px 12px 0;
 	font-size:15px;
 	padding:3px 3px 3px 2px;
-	border:1px solid gray;
+	border:1px solid lightgray;
 }
 
 #form-new-goal #goal-starttime, #form-edit-goal #goal-starttime{
-	font-size:15px;
 	padding:4px 3px;
 	display:none;
-	border:1px solid gray;
 	width:202px;
 }
 
-#form-new-goal #create-goal, #form-edit-goal #update-goal{
-	font-size:15px;
-	padding:3px 15px;
-	cursor:pointer;
-	border:1px solid gray;
-}
-
-#form-new-goal #create-goal:hover, #form-edit-goal #update-goal:hover{
-	background-color:white;
-}
-
-
 /* Goal Details
 ------------------------------------------------------------*/
-
-/* Goal Infomation */
-#goal-title-panel{
-	margin:0 0 10px 0;
-	padding:0 0 10px 0;
-}
-
-#goal-details-title{
-	font-size:20px;
-}
-
-#goal-why{
-	font-size:14px;
-	font-family:'宋体';
-	margin:5px 0 0 0;
-}
-
-#goal-logs-num{
-	font-size:12px;
-	color:#666;
-}
-
-#cmd-finish-goal{
-	float:right;
-	display:block;
-	border:1px solid gray;
-	padding:5px 5px 5px 10px;
-	font-size:15px;
-	cursor:pointer;
-	background-color:lightgray;
-	border-radius:5px;
-}
-
-#cmd-finish-goal:hover{
-	background-color:white;
-}
-
-#content-goal-steps #goal-starttime{
-	font-size:12px;
-	color:gray;
-	margin-bottom:5px;
-}
-
-/* Steps */
-#content-goal-steps{
-	width:67%;
-	float:left;
-	position:relative;
-}
-
-#content-goal-steps #goal-steps li{
-	list-style-position:inside;
-	list-style-type:square;
-	margin:0 0 5px 0;
-	padding:0 0 5px 0;
-	font-size:14px;
-	line-height:22px;
-	border-bottom:1px dashed lightgray;
-}
 
 /* Panel Header */
 .panel-header{
@@ -458,6 +417,55 @@ body{
 	color:white;
 }
 
+/* Layout */
+#goal-title-panel{
+	margin:0 0 15px 0;
+}
+
+#goal-details-panel{
+	width:67%;
+	float:left;
+	position:relative;
+}
+
+#goal-sidebar-panel{
+	width:30%;
+	float:right;
+	position:relative;
+}
+
+/* Goal Infomation */
+#goal-title-panel #goal-title{
+	font-size:20px;
+}
+
+#goal-title-panel #goal-why{
+	font-size:14px;
+	font-family:'宋体';
+	margin:5px 0 0 0;
+}
+
+#content-goal-steps #goal-starttime{
+	font-size:12px;
+	color:gray;
+	margin-bottom:5px;
+}
+
+/* Steps */
+#goal-details-panel #goal-steps{
+	margin:0 0 15px 0;
+}
+
+#goal-details-panel #goal-steps li{
+	list-style-position:inside;
+	list-style-type:square;
+	margin:0 0 5px 0;
+	padding:0 0 5px 0;
+	font-size:14px;
+	line-height:22px;
+	border-bottom:1px dashed lightgray;
+}
+
 /* Step Dialog */
 #step-edit-list li{
 	list-style-type: none;
@@ -467,7 +475,7 @@ body{
 	padding:5px 8px;
 	margin-top:10px;
 	font-size:14px;
-	line-height:22px;
+	line-height:20px;
 	width:310px;
 	border:1px solid lightgray;
 	outline:none;
@@ -493,61 +501,40 @@ body{
 }
 
 /* logs */
-#content-goal-logs{
-	width:30%;
-	float:right;
-	position:relative;
-	background-color:white;
-	margin-bottom:20px;
-}
-
-.panel-log-header{
-	margin-top:15px;
-}
-
-.log-item{
-	margin-bottom:5px;
-	padding:0 0 5px 0;
+#goal-details-panel .log-item{
 	border-bottom:1px dashed lightgray;
-	clear:both;
+	margin:0 0 10px 0;
 }
 
-.log-content{
+#goal-details-panel .log-title{
+	font-size:15px;
+	font-family:'宋体';
+	font-weight:bold;
+}
+
+#goal-details-panel .log-content{
 	font-size:14px;
 	line-height:22px;
+	padding:5px 5px 0 5px;
 }
 
-.log-time{
+#goal-details-panel .log-time{
 	text-align:right;
 	font-size:12px;
-	margin-top:8px;
+	margin:5px 0;
 	color:gray;
 }
 
+/* Log Dialog */
+#form-new-log #log-title{
+	margin:10px 0 10px 0;
+	width:456px;
+}
+
 #form-new-log #log-content{
-	margin:5px 0 0 0;
-	padding:6px;
-	width:646px;
-	font-size:14px;
-	line-height:20px;
-	border:1px solid lightgray;
-}
-
-#form-new-log #create-log{
-	margin:10px 0;
-	font-size:15px;
-	padding:3px 15px;
-	cursor:pointer;
-	border:1px solid gray;
-	float:right;
-}
-
-#form-new-log #create-log:hover{
-	background-color:white;
+	width:456px;
+	height:200px;
 }
 
 /* About
 ------------------------------------------------------------*/
-
-
-

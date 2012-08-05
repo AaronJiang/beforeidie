@@ -1,0 +1,1 @@
+<?php	require('header.php');?><form id='form-login'>	<div>		<input type='text' placeholder='用户名' autocomplete='off' name='username' />	<div>		<div>		<input type='password' placeholder='密码' autocomplete='off' name='password' />		</div>		<input type='submit' value='登陆'></form><?php	require('footer.php');?>

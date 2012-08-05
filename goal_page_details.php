@@ -9,6 +9,30 @@ $(function(){
 	//全局变量
 	var GOAL_ID = <?php echo $_REQUEST['goalID'] ?>;
 	
+	//初始化记录添加框
+	$('#dialog-add-log').dialog({
+		autoOpen: false,
+		modal: true,
+		draggable: false,
+		resizable: false,
+		title: '记录点滴',
+		width: 500,
+		buttons: {
+			'添加': function(){
+				$('#form-new-log').submit();
+			},
+			'取消': function(){
+				$(this).dialog('close');
+			}
+		}	
+	});
+	
+	//打开记录增加框
+	$('#cmd-add-log').click(function(){
+		$('#dialog-add-log').dialog('open');
+	});
+	
+	//初始化步骤编辑框
 	$("#dialog-edit-steps").dialog({
 		autoOpen: false,
 		modal: true,
@@ -84,15 +108,15 @@ $(function(){
 	$("#cmd-edit-steps").click(function(){
 		$.ajax({
 			url: 'step_proc.php',
+			type: 'POST',
 			data: {
 				proc: 'getSteps',
 				goalID: GOAL_ID
 			},
 			dataType: 'json',
-			async: false,	//使用同步 Ajax，以解决
+			async: false,	//使用同步 Ajax，解决对话框居中问题
 			success: function(data){
 				var html = "<ul id='step-edit-list'>";
-				
 				//若不存在步骤
 				if(data.length == 0){
 					html += "<li>";
@@ -113,6 +137,7 @@ $(function(){
 				html += '</ul>';
 
 				$("#dialog-edit-steps").html(html);
+				
 			}
 		});
 		
@@ -153,17 +178,17 @@ $(function(){
 	$goal = get_goal_by_ID($goalID);
 ?>
 
-<!-- 标题 -->
+<!-- Title 和 Prospect -->
 <div class='clearfix' id='goal-title-panel'>
 	<div class='floatleft'>
 		<h2 id='goal-details-title'> <?php echo $goal['Title']; ?> </h2>
 		<p id='goal-why'> <?php echo $goal['Reason']; ?> </p>
 	</div>
-	<!--<span id='cmd-finish-goal'>我做到了！</span>-->
 </div>
 
-<!-- 步骤  -->
-<div id='content-goal-steps'>		
+<!-- Steps 和 Logs -->
+<div id='goal-details-panel'>	
+	
 	<div class='panel-header'>
 		<div class='panel-title'>计划</div>
 		<div class='panel-cmd-wapper'>......（<span class='panel-cmd' id='cmd-edit-steps'>编辑</span>）</div>
@@ -186,23 +211,8 @@ $(function(){
 	
 	<div class='panel-header panel-log-header'>
 		<div class='panel-title'>记录</div>
-		<div class='panel-cmd-wapper'>......（<span class='panel-cmd' id='cmd-edit-steps'>记录</span>）</div>
+		<div class='panel-cmd-wapper'>......（<span class='panel-cmd' id='cmd-add-log'>记录</span>）</div>
 	</div>
-	
-	<!--
-	<form id="form-new-log" action="log_proc.php" method="post">
-		<div>
-			<textarea id="log-content" placeholder="说点啥~" rows="3" name="logContent"></textarea>
-		</div>
-		
-		<div>
-			<input type="submit" id="create-log" value="发表" />
-		</div>
-		
-		<input type="hidden" name="goalID" value="<?php echo $goalID ?>" />
-		<input type="hidden" name="proc" value="new" />
-	</form>
-	-->
 	
 	<?php
 	$logs = get_logs($goalID);
@@ -212,6 +222,9 @@ $(function(){
 	} else {
 		foreach($logs as $log){
 			echo "<div class='log-item'>";
+			if($log['LogTitle'] != ''){
+				echo "<p class='log-title'>". $log['LogTitle']. "</p>";			
+			}
 			echo "<p class='log-content'>". $log['LogContent']. "</p>";
 			echo "<p class='log-time'>". $log['LogTime']. "</p>";
 			echo "</div>";
@@ -220,14 +233,25 @@ $(function(){
 	?>
 </div>
 
-<!-- 记录 -->
-<div id="content-goal-logs">
-	
-
-	
-</div>
+<!-- 边栏 -->
+<div id="goal-sidebar-panel"></div>
 
 <div id='dialog-edit-steps'></div>
+
+<div id='dialog-add-log'>
+	<form id="form-new-log" action="log_proc.php" method="post">
+		<div>
+			<input type='text' id='log-title' placeholder='标题（可不填）' name='logTitle'>
+		</div>
+		
+		<div>
+			<textarea id="log-content" placeholder="内容" rows="3" name="logContent"></textarea>
+		</div>
+		
+		<input type="hidden" name="goalID" value="<?php echo $goalID ?>" />
+		<input type="hidden" name="proc" value="new" />
+	</form>	
+</div>
 
 <?php
 	require('footer.php');	

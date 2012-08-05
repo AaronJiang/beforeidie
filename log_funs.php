@@ -1,11 +1,11 @@
 <?php
-
 	require_once('public_funs.php');
-
+	
 	//插入新动态
-	function new_log($logContent, $goalID){
+	function new_log($logTitle, $logContent, $goalID){
 		$goalID = trim($goalID);
 		$logTime = now_time();
+		$logTitle = trim($logTitle);
 		$logContent = trim($logContent);
 		
 		if(!$logContent){
@@ -15,10 +15,11 @@
 	
 		if(!get_magic_quotes_gpc()){
 			$logTime = addslashes($logTime);
+			$logTitle = addslashes($logTitle);
 			$logContent = addslashes($logContent);
 		}
 	
-		$query = "insert into goal_logs values (NULL, '". $logTime. "', '". $logContent. "', '". $goalID. "')";
+		$query = "insert into goal_logs values (NULL, '". $logTime. "', '". $logTitle. "', '". $logContent. "', '". $goalID. "')";
 		$result = db_exec($query);
 		
 		return $result? "true": "false";

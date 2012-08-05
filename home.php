@@ -26,7 +26,7 @@
 		echo "<div class='goal-item goal-item-". $goalType. "'>";
 		
 		//简要信息
-		echo "<a class='goal-link' href='goal_page_details.php?&goalID=". $row['GoalID']. "'>";
+		echo "<a class='goal-link' href='goal_page_details.php?goalID=". $row['GoalID']. "'>";
 		echo "<p class='goal-title'>". stripslashes($row['Title']). "</p>";
 		echo "<p class='goal-logs-num'><b>". get_steps_num($row['GoalID']) . "</b>&nbsp;项计划 | <b>". get_logs_num($row['GoalID']) . "</b>&nbsp;条记录</p>";
 		if($goalType == 'future'){

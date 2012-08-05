@@ -1,5 +1,4 @@
-<?php	
-	require_once("public_funs.php");
+<?php
 	require_once("data_funs.inc");
 	
 	$proc = trim($_REQUEST['proc']);
