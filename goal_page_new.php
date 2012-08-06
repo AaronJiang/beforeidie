@@ -1,5 +1,10 @@
 <?php
 	require('header.php');
+	require_once('data_funs.inc');
+	
+	if(!check_valid_user()){
+		page_jump('account_page_login.php');
+	}
 ?>
 
 <script type="text/javascript">
@@ -48,7 +53,7 @@
 	</div>
 	
 	<input type="hidden" name="proc" value="new"/>
-	<input type="hidden" name="">
+	<input type="hidden" name="userID" value=<?php echo $_SESSION['valid_user_id']; ?>>
 	
 	<input type="submit" id="create-goal" value="添加" />
 

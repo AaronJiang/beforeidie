@@ -16,4 +16,17 @@
 		
 		return $result? true: false;
 	}
+	
+	//验证用户是否登录
+	function check_valid_user(){
+		return isset($_SESSION['valid_user']);
+	}
+	
+	//获取用户ID
+	function get_userID($username){
+		$query = "select UserID from users where Username = '". $username. "'";
+		$result = db_exec($query);
+		$row = $result->fetch_assoc();
+		return $row['UserID'];
+	}
 ?>

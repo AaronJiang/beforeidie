@@ -6,9 +6,12 @@
 	switch($proc){
 		case "login":
 			session_start();
-			$isExist = login($_REQUEST['username'], $_REQUEST['password']);
+			$username = $_REQUEST['username'];
+			$pwd = $_REQUEST['password'];
+			$isExist = login($username, $pwd);
 			if($isExist){
-				$_SESSION['valid_user'] = $_REQUEST['username'];
+				$_SESSION['valid_user'] = $username;
+				$_SESSION['valid_user_id'] = get_userID($username);
 				page_jump('home.php');
 			}
 			else{
@@ -29,5 +32,4 @@
 			page_jump('home.php');
 			break;
 	}
-
 ?>

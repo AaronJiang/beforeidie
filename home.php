@@ -1,6 +1,10 @@
 <?php
 	require('header.php');
 	require_once('data_funs.inc');
+	
+	if(!check_valid_user()){
+		page_jump('account_page_login.php');
+	}
 ?>
 
 <script type="text/javascript">
@@ -91,19 +95,22 @@ $(document).ready(function(){
 });
 </script>
 
-<?php autostart_goals(); ?>
+<?php
+	$userID = $_SESSION['valid_user_id'];
+	autostart_goals($userID); 
+?>
 
 <ul id="goal-selector" class="clearfix">
-	<li><a href="home.php?goalType=now" id="select-now">进 行 中 [<?php echo get_goal_num("now"); ?>]</a></li>
-	<li><a href="home.php?goalType=future" id="select-future">待 启 动 [<?php echo get_goal_num("future"); ?>]</a></li>
-	<li><a href="home.php?goalType=finish" id="select-finish">已 完 成 [<?php echo get_goal_num("finish"); ?>]</a></li>
+	<li><a href="home.php?goalType=now" id="select-now">进 行 中 [<?php echo get_goal_num($userID, "now"); ?>]</a></li>
+	<li><a href="home.php?goalType=future" id="select-future">待 启 动 [<?php echo get_goal_num($userID, "future"); ?>]</a></li>
+	<li><a href="home.php?goalType=finish" id="select-finish">已 完 成 [<?php echo get_goal_num($userID, "finish"); ?>]</a></li>
 </ul>
 
 <div id="content-goals">
 
 <?php
 	$goalType = isset($_REQUEST['goalType'])? $_REQUEST['goalType']: 'now';
-	$results = get_goals($goalType);
+	$results = get_goals($userID, $goalType);
 	
 	//构造每一个 Goal 的 HTML 块
 	foreach($results as $row){

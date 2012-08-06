@@ -39,9 +39,10 @@
 	}
 	
 	//获取个人的所有动态
-	function get_all_logs(){
-		$query = "select goal_logs.LogContent, goal_logs.LogTime, goals.Title, goals.GoalID from goal_logs, goals ";
-		$query .= "where goal_logs.GoalID = goals.GoalID order by goal_logs.LogTime desc";
+	function get_all_logs($userID){
+		$query = "select goal_logs.LogContent, goal_logs.LogTime, goals.Title, goals.GoalID ";
+		$query .= "from goals, goal_logs ";
+		$query .= "where goals.UserID = ".$userID. " and goals.GoalID = goal_logs.GoalID order by goal_logs.LogTime desc";
 	
 		return db_exec($query);
 	}

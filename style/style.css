@@ -6,7 +6,7 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,
 }
 
 textarea, input, select{
-	/*outline:none;*/
+	outline:none;
 }
 
 /* Functions
@@ -55,20 +55,18 @@ body{
 
 /* 表单 */
 input{
+	font-size:14px;
 	border:1px solid lightgray;
+	font-family:'宋体';	
 }
 
 input[type="text"], input[type="password"]{
 	padding:5px 7px;
-	font-size:14px;
-	font-family:'宋体';
 	margin:0 0 10px 0;
 	width:200px;
 }
 
 input[type='submit']{
-	font-size:14px;
-	font-family:'宋体';
 	padding:3px 10px;
 	cursor:pointer;
 }
@@ -167,7 +165,7 @@ textarea{
 	font-weight:bold;
 }
 
-/* Nav */
+/* Account Info */
 #account-info{
 	position:absolute;
 	top:2px;

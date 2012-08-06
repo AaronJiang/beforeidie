@@ -3,9 +3,9 @@
 	require_once('public_funs.php');
 
 	//获取多个目标
-	function get_goals($goalType){
+	function get_goals($userID, $goalType){
 	
-		$query = "select * from goals where GoalType = '". $goalType. "'";
+		$query = "select * from goals where UserID = ".$userID. " and GoalType = '". $goalType. "'";
 		$results = db_exec($query);
 		
 		$array = array();
@@ -34,7 +34,7 @@
 	}
 	
 	//新增目标
-	function new_goal($title, $reason, $goalType, $startTime){
+	function new_goal($userID, $title, $reason, $goalType, $startTime){
 		$title = trim($title);
 		$reason = trim($reason);
 		$goalType = trim($goalType);
@@ -61,9 +61,10 @@
 			$startTime = addslashes($startTime);
 		}
 		
-		$query = "insert into goals (Title, Reason, GoalType, StartTime, CreateTime, UpdateTime) ";
-		$query .= "values ('". $title. "', '". $reason. "', '". $goalType. "', '". $startTime. "', '". $createTime. "', '". $updateTime. "')";
-
+		$query = "insert into goals (UserID, Title, Reason, GoalType, StartTime, CreateTime, UpdateTime) ";
+		$query .= "values (". $userID. ", '". $title. "', '". $reason. "', '". $goalType. "', '". $startTime. "', '". $createTime. "', '". $updateTime. "')";
+		//$query .= "values ($userID, $title, $reason, $goalType, $startTime, $createTime, $updateTime)";
+		
 		$result = db_exec($query);
 		
 		return $result? 'true': 'false';
@@ -80,8 +81,8 @@
 	}
 	
 	//自动启动到达预定日期的目标
-	function autostart_goals(){
-		$query = "select GoalID from goals where GoalType = 'future' and StartTime <= '". now_date(). "'";
+	function autostart_goals($userID){
+		$query = "select GoalID from goals where UserID = ". $userID. " and GoalType = 'future' and StartTime <= '". now_date(). "'";
 		$result = db_exec($query);
 		
 		if($result->num_rows != 0){
@@ -161,8 +162,8 @@
 	
 	
 	//获取对应类型的目标个数
-	function get_goal_num($goalType){	
-		$query = "select count(*) from goals where GoalType = '". $goalType ."'";
+	function get_goal_num($userID, $goalType){	
+		$query = "select count(*) from goals where UserID = ". $userID. " and GoalType = '". $goalType ."'";
 		$result = db_exec($query);
 		
 		$num = $result->fetch_assoc();
