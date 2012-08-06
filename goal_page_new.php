@@ -2,7 +2,7 @@
 	require('header.php');
 	require_once('data_funs.inc');
 	
-	if(!check_valid_user()){
+	if(!is_auth()){
 		page_jump('account_page_login.php');
 	}
 ?>

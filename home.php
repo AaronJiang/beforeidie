@@ -2,7 +2,7 @@
 	require('header.php');
 	require_once('data_funs.inc');
 	
-	if(!check_valid_user()){
+	if(!is_auth()){
 		page_jump('account_page_login.php');
 	}
 ?>
@@ -97,7 +97,7 @@ $(document).ready(function(){
 
 <?php
 	$userID = $_SESSION['valid_user_id'];
-	autostart_goals($userID); 
+	autostart_goals($userID);
 ?>
 
 <ul id="goal-selector" class="clearfix">

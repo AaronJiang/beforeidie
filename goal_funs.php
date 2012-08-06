@@ -63,7 +63,6 @@
 		
 		$query = "insert into goals (UserID, Title, Reason, GoalType, StartTime, CreateTime, UpdateTime) ";
 		$query .= "values (". $userID. ", '". $title. "', '". $reason. "', '". $goalType. "', '". $startTime. "', '". $createTime. "', '". $updateTime. "')";
-		//$query .= "values ($userID, $title, $reason, $goalType, $startTime, $createTime, $updateTime)";
 		
 		$result = db_exec($query);
 		
