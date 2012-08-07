@@ -13,8 +13,8 @@ $(document).ready(function(){
 	$('body').prop('id', 'page-goals');
 
 	//实现元素纵向排布
-	var topArray = [0, 0, 0, 0, 0],
-		leftArray = [0, 175, 350, 525, 700];
+	var topArray = [0, 0, 0, 0],
+		leftArray = [0, 200, 400, 600];
 				
 	$('#content-goals .goal-item').each(function(){
 		//找到 topArray 中最小的、且最靠左的项的 index
@@ -33,7 +33,7 @@ $(document).ready(function(){
 			'left' : leftArray[minIndex] + "px"
 		});
 		
-		topArray[minIndex] += $(this).outerHeight() + 15;
+		topArray[minIndex] += $(this).outerHeight() + 20;
 		
 		/*
 		$(this).css({
@@ -119,13 +119,18 @@ $(document).ready(function(){
 		//简要信息
 		echo "<a class='goal-link' href='goal_page_details.php?goalID=". $row['GoalID']. "'>";
 		echo "<p class='goal-title'>". stripslashes($row['Title']). "</p>";
-		echo "<p class='goal-logs-num'><b>". get_steps_num($row['GoalID']) . "</b>&nbsp;项计划 | <b>". get_logs_num($row['GoalID']) . "</b>&nbsp;条记录</p>";
+		echo "<p class='goal-why'>". stripslashes($row['Reason']). "</p>";
+		echo "<div class='goal-info-wap'>";
+		echo "<div>";
+			echo "<b class='goal-info-num'>". get_steps_num($row['GoalID']). "</b> 计划";
+			echo " | ";
+			echo "<b>". get_logs_num($row['GoalID']). "</b> 记录</b>";
+		echo "</div>";
 		if($goalType == 'future'){
 			echo "<p class='goal-starttime'>将于 ". stripslashes($row['StartTime']). " 启动</p>";
 		}
-		echo "<p class='goal-why'>". stripslashes($row['Reason']). "</p>";
+		echo "</div>";
 		echo "</a>";
-		
 		
 		//命令按钮
 		echo "<div class='goal-cmd-wap'>";

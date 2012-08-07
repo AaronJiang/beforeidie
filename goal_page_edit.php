@@ -53,6 +53,13 @@
 		</select>
 		<input type="text" name="startTime" id="goal-starttime" value="<?php echo $goal['StartTime'] ?>" autocomplete="off"/>
 	</div>
+	
+	<div>
+		<select name="isPublic" id="goal-ispublic">
+			<option value="1" <?php if($goal['IsPublic'] == 1) echo "selected='selected'";?>>公开</option>
+			<option value="0" <?php if($goal['IsPublic'] == 0) echo "selected='selected'";?>>私密</option>
+		</select>
+	</div>
 
 	<input type="submit" value="修改" id="update-goal" />
 

@@ -16,6 +16,28 @@
 		return $array;
 	}
 	
+	//获取热门目标
+	function get_hot_goals(){
+		$sql = "SELECT goals.GoalID, goals.Title, goals.Reason, users.Username, c1.LogsNum, c2.StepNum\n"
+	    	. "FROM goals, users,\n"
+	    	. "(SELECT goal_logs.GoalID, COUNT(*) AS LogsNum FROM goal_logs GROUP BY goal_logs.GoalID) AS c1,\n"
+	    	. "(SELECT steps.GoalID, COUNT(*) AS StepNum FROM steps GROUP BY steps.GoalID) AS c2\n"
+	    	. "WHERE goals.UserID = users.UserID\n"
+	    	. "AND c1.GoalID = goals.GoalID\n"
+	    	. "AND c2.GoalID = goals.GoalID\n"
+	    	. "AND goals.GoalType = 'now'\n"
+			. "AND goals.isPublic = 1";
+		
+		$result = db_exec($sql);
+		
+		$array = array();
+		while($row = $result->fetch_assoc()){
+			array_push($array, $row);
+		}
+		
+		return $array;		
+	}
+	
 	//获取单个目标
 	function get_goal_by_ID($goalID){
 		$query = "select * from goals where GoalID = ". $goalID;
@@ -34,7 +56,7 @@
 	}
 	
 	//新增目标
-	function new_goal($userID, $title, $reason, $goalType, $startTime){
+	function new_goal($userID, $title, $reason, $goalType, $startTime, $isPublic){
 		$title = trim($title);
 		$reason = trim($reason);
 		$goalType = trim($goalType);
@@ -49,7 +71,7 @@
 		$createTime = now_time();
 		$updateTime = now_time();
 	
-		if(!$title || !$reason || !$goalType || !$startTime){
+		if(!$title || !$reason || !$startTime){
 			echo "You have not enter all the required details!";
 			exit;
 		}
@@ -61,8 +83,8 @@
 			$startTime = addslashes($startTime);
 		}
 		
-		$query = "insert into goals (UserID, Title, Reason, GoalType, StartTime, CreateTime, UpdateTime) ";
-		$query .= "values (". $userID. ", '". $title. "', '". $reason. "', '". $goalType. "', '". $startTime. "', '". $createTime. "', '". $updateTime. "')";
+		$query = "insert into goals (UserID, Title, Reason, GoalType, StartTime, CreateTime, UpdateTime, IsPublic) ";
+		$query .= "values (". $userID. ", '". $title. "', '". $reason. "', '". $goalType. "', '". $startTime. "', '". $createTime. "', '". $updateTime. "', ". $isPublic. ")";
 		
 		$result = db_exec($query);
 		
@@ -113,14 +135,14 @@
 	}
 	
 	//更新目标
-	function update_goal($goalID, $title, $reason, $goalType, $startTime){
+	function update_goal($goalID, $title, $reason, $goalType, $startTime, $isPublic){
 		$goalID = trim($goalID);
 		$title = trim($title);
 		$reason = trim($reason);
 		$goalType = trim($goalType);
 		$startTime = trim($startTime);
 	
-		if(!$title || !$reason || !$goalType){
+		if(!$title || !$reason){
 			echo "You have not enter all the required details!";
 			exit;
 		}
@@ -132,7 +154,7 @@
 			$startTime = addslashes($startTime);
 		}
 	
-		$query = "update goals set Title = '". $title. "', Reason = '". $reason. "', GoalType = '". $goalType. "', StartTime = '". $startTime. "', UpdateTime = '". now_time(). "' where GoalID = ". $goalID;
+		$query = "update goals set Title = '". $title. "', Reason = '". $reason. "', GoalType = '". $goalType. "', StartTime = '". $startTime. "', UpdateTime = '". now_time(). "', IsPublic = ". $isPublic. " where GoalID = ". $goalID;
 		$result = db_exec($query);
 		
 		return $result? "true": "false";

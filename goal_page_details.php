@@ -211,7 +211,7 @@ $(function(){
 	
 	<div class='panel-header panel-log-header'>
 		<div class='panel-title'>记录</div>
-		<div class='panel-cmd-wapper'>......（<span class='panel-cmd' id='cmd-add-log'>记录</span>）</div>
+		<div class='panel-cmd-wapper'>......（<span class='panel-cmd' id='cmd-add-log'>我说</span>）</div>
 	</div>
 	
 	<?php
@@ -234,18 +234,31 @@ $(function(){
 </div>
 
 <!-- 边栏 -->
-<div id="goal-sidebar-panel"></div>
+<div id="goal-sidebar-panel">
+	<div class='panel-header'>
+		<div class='panel-title'>关注者</div>
+	</div>
+
+	<div class='panel-header'>
+		<div class='panel-title'>关注它的人也关注了</div>
+	</div>
+	
+	<div class='panel-header'>
+		<div class='panel-title'>关注它的人的梦想</div>
+	</div>
+
+</div>
 
 <div id='dialog-edit-steps'></div>
 
 <div id='dialog-add-log'>
 	<form id="form-new-log" action="log_proc.php" method="post">
 		<div>
-			<input type='text' id='log-title' placeholder='标题（可不填）' name='logTitle'>
+			<input type='text' id='log-title' autocomplete='off' placeholder='标题（可不填）' name='logTitle'>
 		</div>
 		
 		<div>
-			<textarea id="log-content" placeholder="内容" rows="3" name="logContent"></textarea>
+			<textarea id="log-content" autocomplete='off' placeholder="内容" rows="3" name="logContent"></textarea>
 		</div>
 		
 		<input type="hidden" name="goalID" value="<?php echo $goalID ?>" />

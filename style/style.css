@@ -27,10 +27,10 @@ textarea, input, select{
 	visibility:hidden;
 }
 
-.subTitle{
-	font-size:18px;
+.subtitle{
+	font-size:20px;
 	font-weight:bold;
-	margin:10px 0 10px 0;
+	margin:0 0 10px 0;
 	font-family:"微软雅黑";
 }
 
@@ -83,6 +83,12 @@ textarea{
 	line-height:20px;
 	border:1px solid lightgray;
 	margin:0 0 10px 0;
+}
+
+select{
+	font-size:14px;
+	border:1px solid lightgray;
+	font-family:'宋体';	
 }
 
 .link-cmd{
@@ -245,9 +251,13 @@ textarea{
 #content-goals .goal-item{
 	margin:0 15px 15px 0;
 	background-color:white;
-	width:160px;
+	width:180px;
+	height:200px;
 	position:absolute;
 	overflow:hidden;
+	border-right:1px solid #bcbcbc;
+	border-bottom:1px solid #bcbcbc;
+	border-left:1px solid #bcbcbc;
 }
 
 #content-goals .goal-item-now{
@@ -268,9 +278,6 @@ textarea{
 	display:block;
 	padding:8px 10px 10px 10px;
 	color:black;
-	border-right:1px solid #bcbcbc;
-	border-bottom:1px solid #bcbcbc;
-	border-left:1px solid #bcbcbc;
 	text-decoration:none;
 }
 
@@ -285,8 +292,16 @@ textarea{
 	color:black;
 }
 
-#content-goals .goal-logs-num{
+#content-goals .goal-item .goal-info-wap{
+	position:absolute;
 	font-size:12px;	
+	bottom:10px;
+	left:11px;
+	z-index:0	
+}
+
+#content-goals .goal-logs-num{
+
 }
 
 #content-goals .goal-item-future .goal-starttime{
@@ -307,7 +322,8 @@ textarea{
 	position:absolute;
 	bottom:-32px;
 	left:0;
-	width:160px;
+	z-index:100;
+	width:180px;
 	background:black;
 	opacity:0.8;
 	text-align:right;
@@ -341,11 +357,28 @@ textarea{
 
 /* Dynamics
 ------------------------------------------------------------*/
+#dynamic-panel{
+	width:68%;
+	float:left;
+}
+
+#dynamic-sidebar-panel{
+	width:28%;
+	float:right;
+}
+
 .dynamic-item{
 	clear:both;
 	margin:0 0 10px 0;
 	border-bottom:1px dashed lightgray;
 	padding-bottom:5px;
+}
+.dynamic-goal-creater{
+	font-weight:bold;
+	color:black;
+	cursor:pointer;
+	text-decoration:none;
+	border-bottom:1px dashed black;
 }
 
 .dynamic-goal-title{
@@ -381,10 +414,13 @@ textarea{
 }
 
 #form-new-goal #goal-type, #form-edit-goal #goal-type{
-	margin:0 6px 12px 0;
-	font-size:15px;
-	padding:3px 3px 3px 2px;
-	border:1px solid lightgray;
+	margin:0 6px 10px 0;
+	padding:3px 2px;
+}
+
+#form-new-goal #goal-ispublic, #form-edit-goal #goal-ispublic{
+	margin:0 0 10px 0;
+	padding:3px 2px;
 }
 
 #form-new-goal #goal-starttime, #form-edit-goal #goal-starttime{
@@ -408,7 +444,6 @@ textarea{
 	font-size:16px;
 	font-weight:bold;
 	display:inline-block;
-	font-family:'宋体';
 }
 
 .panel-header .panel-cmd-wapper{
@@ -515,19 +550,20 @@ textarea{
 /* logs */
 #goal-details-panel .log-item{
 	border-bottom:1px dashed lightgray;
-	margin:0 0 10px 0;
+	margin:0 0 8px 0;
 }
 
 #goal-details-panel .log-title{
-	font-size:15px;
-	font-family:'宋体';
+	font-size:18px;
 	font-weight:bold;
+	margin:0 0 5px 0;
 }
 
 #goal-details-panel .log-content{
 	font-size:14px;
 	line-height:22px;
-	padding:5px 5px 0 5px;
+	padding:0 0px;
+	font-family:Times New Roman,'微软雅黑';
 }
 
 #goal-details-panel .log-time{
@@ -546,6 +582,70 @@ textarea{
 #form-new-log #log-content{
 	width:456px;
 	height:200px;
+}
+
+/* Discover
+------------------------------------------------------------*/
+#discover-goal-type-list{
+	list-style:none;
+	border-bottom:1px solid gray;
+	padding:0 0 10px 0;
+	width:600px;
+}
+
+#discover-goal-type-list li{
+	display:inline-block;
+}
+
+#discover-goal-type-list li a{
+	display:block;
+	padding:5px 0;
+	width:60px;
+	text-decoration:none;
+	cursor:pointer;
+	font-size:14px;
+	font-family:'宋体';
+	text-align:center;
+}
+
+#discover-goal-type-list li a:hover{
+	background:deepSkyBlue;
+	color:white;
+}
+
+.discover-goal-item{
+	border:1px solid lightgray;
+	margin:0 15px 15px 0;
+	width:450px;
+	float:left;
+}
+
+.discover-goal-item a{
+	display:block;
+	text-decoration:none;
+	color:black;
+	padding:5px 10px;
+}
+
+.discover-goal-item a:hover{
+	background-color:#FAFAFA;
+}
+
+.discover-goal-title{
+	font-size:16px;
+	font-weight:bold;
+	margin:0 0 3px 0;
+}
+
+.discover-goal-reason{
+	font-size:12px;
+	font-family:'宋体';
+	margin:0 0 3px 0;
+}
+
+.discover-goal-creator{
+	font-size:12px;
+	font-family:'宋体';
 }
 
 /* About

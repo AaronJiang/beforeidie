@@ -40,13 +40,14 @@
 	
 	//获取个人的所有动态
 	function get_all_logs($userID){
-		$query = "select goal_logs.LogContent, goal_logs.LogTime, goals.Title, goals.GoalID ";
-		$query .= "from goals, goal_logs ";
-		$query .= "where goals.UserID = ".$userID. " and goals.GoalID = goal_logs.GoalID order by goal_logs.LogTime desc";
+		$query = "select users.Username, users.UserID, goal_logs.LogContent, goal_logs.LogTime, goals.Title, goals.GoalID ";
+		$query .= "from goals, goal_logs, users ";
+		$query .= "where users.UserID = ". $userID. " and goals.UserID = ".$userID. " and goals.GoalID = goal_logs.GoalID order by goal_logs.LogTime desc";
 	
 		return db_exec($query);
 	}
 	
+	//获取某Goal的动态数目
 	function get_logs_num($goalID){
 		$query = "select count(*) from goal_logs where GoalID = ". $goalID;
 		$result = db_exec($query);

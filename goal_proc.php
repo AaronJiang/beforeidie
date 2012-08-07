@@ -16,7 +16,7 @@
 			break;
 			
 		case "new":
-			new_goal($_REQUEST['userID'], $_REQUEST['title'], $_REQUEST['why'], $_REQUEST['goalType'], $_REQUEST['startTime']);
+			new_goal($_REQUEST['userID'], $_REQUEST['title'], $_REQUEST['why'], $_REQUEST['goalType'], $_REQUEST['startTime'], $_REQUEST['isPublic']);
 			page_jump('home.php?goalType='. $_REQUEST['goalType']);
 			break;
 			
@@ -31,7 +31,7 @@
 			break;
 			
 		case "update":
-			update_goal($_REQUEST['goalID'], $_REQUEST['title'], $_REQUEST['why'], $_REQUEST['goalType'], $_REQUEST['startTime']);
+			update_goal($_REQUEST['goalID'], $_REQUEST['title'], $_REQUEST['why'], $_REQUEST['goalType'], $_REQUEST['startTime'], $_REQUEST['isPublic']);
 			page_jump('home.php?goalType='. $_REQUEST['goalType']);
 			break;
 	}

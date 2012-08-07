@@ -49,8 +49,14 @@
 			<option value="future">在未来启动梦想</option>
 		</select>
 		<input type="text" name="startTime" id="goal-starttime" autocomplete="off"/>
-
 	</div>
+	
+	<div>
+		<select id='goal-ispublic' name='isPublic'>
+			<option value='1'>公开</option>
+			<option value='0'>私密</option>
+		</select>
+	<div>
 	
 	<input type="hidden" name="proc" value="new"/>
 	<input type="hidden" name="userID" value=<?php echo $_SESSION['valid_user_id']; ?>>
