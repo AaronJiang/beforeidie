@@ -1,6 +1,8 @@
 <?php
 	require('header.php');
 	require('data_funs.inc');
+	
+	$isCreator = check_goal_ownership($_REQUEST['goalID'], $_SESSION['valid_user_id']);
 ?>
 
 <script type="text/javascript">
@@ -8,6 +10,11 @@
 $(function(){
 	//全局变量
 	var GOAL_ID = <?php echo $_REQUEST['goalID'] ?>;
+	
+	var isCreator = <?php echo $isCreator ?>;
+	if(!isCreator){
+		return;
+	}
 	
 	//初始化记录添加框
 	$('#dialog-add-log').dialog({
@@ -173,16 +180,42 @@ $(function(){
 </script>
 
 <?php
-	global $goalID;
-	$goalID	= trim($_REQUEST['goalID']);
-	$goal = get_goal_by_ID($goalID);
+	global $GOAL_ID;
+	$GOAL_ID = trim($_REQUEST['goalID']);
+	$goal = get_goal_by_ID($GOAL_ID);
 ?>
 
 <!-- Title 和 Prospect -->
-<div class='clearfix' id='goal-title-panel'>
-	<div class='floatleft'>
-		<h2 id='goal-details-title'> <?php echo $goal['Title']; ?> </h2>
+<div id='goal-title-panel'>
+	<div>
+		<p id='goal-details-title'> <?php echo $goal['Title']; ?> </p>
 		<p id='goal-why'> <?php echo $goal['Reason']; ?> </p>
+		
+		<div id='goal-cmd-wap'>
+		<?php
+		//若为所有者
+		if($isCreator){ 
+			$isFinished = check_goal_is_finished($GOAL_ID);
+			if(!$isFinished){
+		?>
+		<span><a href='goal_proc.php?proc=finish&goalID=<?php echo $GOAL_ID ?>'>完成</a></span>
+		<?php
+			}
+		//若不是所有者
+		} else {
+			$isFollowed = check_goal_is_followed($GOAL_ID, $_SESSION['valid_user_id']);
+			//若已经关注
+			if($isFollowed){	
+		?>
+		<span><a href='follower_proc.php?proc=disfollow&goalID=<?php echo $GOAL_ID ?>&followerID=<?php echo $_SESSION['valid_user_id'] ?>'>取消关注</a></span>
+		<?php
+			//若尚未关注
+			} else {  ?>
+		<span><a href='follower_proc.php?proc=follow&goalID=<?php echo $GOAL_ID ?>&followerID=<?php echo $_SESSION['valid_user_id'] ?>'>关注</a></span>
+		<?php 
+			}
+		} ?>
+		</div>
 	</div>
 </div>
 
@@ -191,11 +224,13 @@ $(function(){
 	
 	<div class='panel-header'>
 		<div class='panel-title'>计划</div>
+		<?php if($isCreator){ ?>
 		<div class='panel-cmd-wapper'>......（<span class='panel-cmd' id='cmd-edit-steps'>编辑</span>）</div>
+		<?php } ?>
 	</div>
 	
 	<?php
-	$steps = get_steps($goalID);
+	$steps = get_steps($GOAL_ID);
 	if(count($steps) == 0){
 		echo "<p id='no-step-caution' style='margin-bottom:5px;font-size:14px;'>还没有任何规划哦~</p>";
 	}
@@ -211,11 +246,13 @@ $(function(){
 	
 	<div class='panel-header panel-log-header'>
 		<div class='panel-title'>记录</div>
+		<?php if($isCreator){ ?>
 		<div class='panel-cmd-wapper'>......（<span class='panel-cmd' id='cmd-add-log'>我说</span>）</div>
+		<?php } ?>
 	</div>
 	
 	<?php
-	$logs = get_logs($goalID);
+	$logs = get_logs($GOAL_ID);
 
 	if(count($logs) == 0){
 		echo "<p style='font-size:14px;clear:both;'>还没有任何记录哦~</p>";
@@ -235,6 +272,15 @@ $(function(){
 
 <!-- 边栏 -->
 <div id="goal-sidebar-panel">
+	<?php if(!$isCreator){ 
+		$goalOwner = get_goal_owner($GOAL_ID);
+	?>
+	<div class='panel-header'>
+		<div class='panel-title'>创建者</div>
+	</div>
+	<p><a href='person.php?userID=<?php echo $goalOwner['UserID'] ?>'> <?php echo $goalOwner['Username'] ?> </a></p>
+	<?php } ?>
+	
 	<div class='panel-header'>
 		<div class='panel-title'>关注者</div>
 	</div>
@@ -249,6 +295,7 @@ $(function(){
 
 </div>
 
+<?php if($isCreator){ ?>
 <div id='dialog-edit-steps'></div>
 
 <div id='dialog-add-log'>
@@ -266,6 +313,7 @@ $(function(){
 	</form>	
 </div>
 
-<?php
+<?php 
+	}
 	require('footer.php');	
 ?>

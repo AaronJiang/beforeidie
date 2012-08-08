@@ -2,7 +2,7 @@
 
 	require_once('public_funs.php');
 
-	//获取多个目标
+	//获取某个用户的某种类型的全部目标
 	function get_goals($userID, $goalType){
 	
 		$query = "select * from goals where UserID = ".$userID. " and GoalType = '". $goalType. "'";
@@ -165,7 +165,7 @@
 		$goalID = trim($goalID);
 		$updateTime = trim($updateTime);
 		
-		if(!$goalID  || !$updateTime){
+		if(!$goalID || !$updateTime){
 			echo "You have not enter all the required details!";
 			exit;
 		}
@@ -179,8 +179,7 @@
 		$result = db_exec($query);
 		
 		return $result? 'true': 'false';
-	}
-	
+	}	
 	
 	//获取对应类型的目标个数
 	function get_goal_num($userID, $goalType){	
@@ -190,5 +189,32 @@
 		$num = $result->fetch_assoc();
 
 		return $num['count(*)'];
+	}
+	
+	//检查 Goal 的所有权
+	function check_goal_ownership($goalID, $userID){
+		$query = "select * from goals where GoalID = ". $goalID. " and UserID = ". $userID;
+		$result = db_exec($query);
+		
+		return ($result->num_rows > 0)? true: false;
+	}
+	
+	//检查是否已经完成
+	function check_goal_is_finished($goalID){
+		$query = "select GoalType from goals where GoalID = ". $goalID;
+		$result = db_exec($query);
+		
+		$row = $result->fetch_assoc();
+		
+		return $row['GoalType'] == "finish"? true: false;
+	}
+	
+	//获取某个 Goal 的创建者信息
+	function get_goal_owner($goalID){
+		$query = "select users.Username, users.UserID from users, goals "
+			. "where users.UserID = goals.UserID and goals.GoalID = ". $goalID;
+		$result = db_exec($query);
+		
+		return $result->fetch_assoc();
 	}
 ?>

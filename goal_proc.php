@@ -34,5 +34,10 @@
 			update_goal($_REQUEST['goalID'], $_REQUEST['title'], $_REQUEST['why'], $_REQUEST['goalType'], $_REQUEST['startTime'], $_REQUEST['isPublic']);
 			page_jump('home.php?goalType='. $_REQUEST['goalType']);
 			break;
+		
+		case "finish":
+			//todo
+			page_jump($_SERVER['HTTP_REFERER']);			
+			break;
 	}
 ?>

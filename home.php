@@ -9,14 +9,14 @@
 
 <script type="text/javascript">
 
-$(document).ready(function(){
-	$('body').prop('id', 'page-goals');
+function arrangeBlocks(selector, hGap, vGap){
+	var width = $(selector).first().outerWidth();
 
 	//实现元素纵向排布
 	var topArray = [0, 0, 0, 0],
-		leftArray = [0, 200, 400, 600];
+		leftArray = [0, width+hGap, 2*(width+hGap), 3*(width+hGap)];
 				
-	$('#content-goals .goal-item').each(function(){
+	$(selector).each(function(){
 		//找到 topArray 中最小的、且最靠左的项的 index
 		var minValue = 10000,
 			minIndex = 0;
@@ -33,16 +33,21 @@ $(document).ready(function(){
 			'left' : leftArray[minIndex] + "px"
 		});
 		
-		topArray[minIndex] += $(this).outerHeight() + 20;
+		topArray[minIndex] += $(this).outerHeight() + vGap;
 		
-		/*
-		$(this).css({
-			'top' : topArray[index % 5] + "px",
-			'left' : leftArray[index % 5] + "px"
-		});
-		topArray[index % 5] += $(this).outerHeight() + 15;
-		*/
+		//$(this).css({
+		//	'top' : topArray[index % 5] + "px",
+		//	'left' : leftArray[index % 5] + "px"
+		//});
+		//topArray[index % 5] += $(this).outerHeight() + 15;
 	});
+}
+
+$(document).ready(function(){
+	$('body').prop('id', 'page-goals');
+
+	//排列区块
+	arrangeBlocks('#content-goals .goal-item', 20, 15);
 	
 	//弹出命令栏
 	$('.goal-item').live("hover",function(event){
@@ -90,7 +95,6 @@ $(document).ready(function(){
 		$("#form-delay-goal input[name='goalID']").val(goalID);
 	
 		$('#dialog-delay').dialog('open');
-		
 	});
 });
 </script>
