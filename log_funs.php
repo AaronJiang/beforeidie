@@ -67,7 +67,7 @@
 	}
 	
 	//获取某种类型的 Goal 的动态数目
-	function get_logs_num($goalID){
+	function get_goal_logs_num($goalID){
 		$query = "select count(*) from goal_logs where GoalID = ". $goalID;
 		$result = db_exec($query);
 		

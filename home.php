@@ -118,36 +118,35 @@ $(document).ready(function(){
 	
 	//构造每一个 Goal 的 HTML 块
 	foreach($results as $row){
-		echo "<div class='goal-item goal-item-". $goalType. "'>";
-		
-		//简要信息
-		echo "<a class='goal-link' href='goal_page_details.php?goalID=". $row['GoalID']. "'>";
-		echo "<p class='goal-title'>". stripslashes($row['Title']). "</p>";
-		echo "<p class='goal-why'>". stripslashes($row['Reason']). "</p>";
-		echo "<div class='goal-info-wap'>";
-		echo "<div>";
-			echo "<b class='goal-info-num'>". get_steps_num($row['GoalID']). "</b> 计划";
-			echo " | ";
-			echo "<b>". get_logs_num($row['GoalID']). "</b> 记录</b>";
-		echo "</div>";
-		if($goalType == 'future'){
-			echo "<p class='goal-starttime'>将于 ". stripslashes($row['StartTime']). " 启动</p>";
-		}
-		echo "</div>";
-		echo "</a>";
-		
-		//命令按钮
-		echo "<div class='goal-cmd-wap'>";
-		echo "<a class='goal-cmd goal-cmd-edit' href='goal_page_edit.php?goalID=". $row['GoalID']. "'>编辑</a>";
-		if($goalType == "now"){
-			echo "<a class='goal-cmd goal-cmd-delay' data-goalid='". $row['GoalID']. "' data-title='". $row['Title']. "'>推迟</a>";
-		}
-		else if($goalType == "future"){
-			echo "<a class='goal-cmd goal-cmd-start' href='goal_proc.php?proc=start&goalID=". $row['GoalID']. "'>启动</a>";				
-		}
-		echo "</div>";
-		
-		echo "</div>";
+		echo "<div class='goal-item goal-item-". $goalType. "'>"
+				//简要信息
+				. "<a class='goal-link' href='goal_page_details.php?goalID=". $row['GoalID']. "'>"
+					. "<p class='goal-title'>". stripslashes($row['Title']). "</p>"
+					. "<p class='goal-why'>". stripslashes($row['Reason']). "</p>"
+					. "<div class='goal-info-wap'>"
+						. "<div>"
+							. "<b>". get_goal_steps_num($row['GoalID']). "</b> 计划"
+							. " | "
+							. "<b>". get_goal_logs_num($row['GoalID']). "</b> 记录"
+							. " | "
+							. "<b>". get_goal_followers_num($row['GoalID']). "</b> 关注"
+						. "</div>";
+						if($goalType == 'future'){
+							echo "<p class='goal-starttime'>将于 ". stripslashes($row['StartTime']). " 启动</p>";
+						}
+					echo "</div>"
+				. "</a>"
+				//命令按钮
+				. "<div class='goal-cmd-wap'>"
+			 		. "<a class='goal-cmd goal-cmd-edit' href='goal_page_edit.php?goalID=". $row['GoalID']. "'>编辑</a>";
+					if($goalType == "now"){
+						echo "<a class='goal-cmd goal-cmd-delay' data-goalid='". $row['GoalID']. "' data-title='". $row['Title']. "'>推迟</a>";
+					}
+					else if($goalType == "future"){
+						echo "<a class='goal-cmd goal-cmd-start' href='goal_proc.php?proc=start&goalID=". $row['GoalID']. "'>启动</a>";
+					}
+				echo "</div>"
+			. "</div>";
 	}
 ?>
 

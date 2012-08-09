@@ -50,7 +50,7 @@
 	}
 	
 	//获取步骤的数目
-	function get_steps_num($goalID){
+	function get_goal_steps_num($goalID){
 		$query = "select count(*) from steps where GoalID = ". $goalID;
 		$result = db_exec($query);
 		

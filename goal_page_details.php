@@ -272,27 +272,36 @@ $(function(){
 
 <!-- 边栏 -->
 <div id="goal-sidebar-panel">
+	<!-- 创建者 -->
 	<?php if(!$isCreator){ 
 		$goalOwner = get_goal_owner($GOAL_ID);
 	?>
 	<div class='panel-header'>
 		<div class='panel-title'>创建者</div>
 	</div>
-	<p><a href='person.php?userID=<?php echo $goalOwner['UserID'] ?>'> <?php echo $goalOwner['Username'] ?> </a></p>
+	<a class='user-icon' href='person.php?userID=<?php echo $goalOwner['UserID'] ?>' title='<?php echo $goalOwner['Username'] ?>' >
+		<img src='./imgs/gravatar-140.png' />
+	</a>
 	<?php } ?>
 	
+	<!-- 创建者 -->
 	<div class='panel-header'>
 		<div class='panel-title'>关注者</div>
 	</div>
-
-	<div class='panel-header'>
-		<div class='panel-title'>关注它的人也关注了</div>
-	</div>
 	
-	<div class='panel-header'>
-		<div class='panel-title'>关注它的人的梦想</div>
-	</div>
+	<?php 
+		$followers = get_goal_followers($GOAL_ID);
+		
+		foreach($followers as $follower){
+			echo "<a class='user-icon' href='person.php?userID=". $follower['UserID']. "' title='". $follower['Username']. "'>"
+					. "<img src='./imgs/gravatar-140.png' />"
+				. "</a>";
+		}
+	?>
 
+	<!--<div class='panel-header'>
+		<div class='panel-title'>关注它的人也关注了</div>
+	</div>-->
 </div>
 
 <?php if($isCreator){ ?>
@@ -308,7 +317,7 @@ $(function(){
 			<textarea id="log-content" autocomplete='off' placeholder="内容" rows="3" name="logContent"></textarea>
 		</div>
 		
-		<input type="hidden" name="goalID" value="<?php echo $goalID ?>" />
+		<input type="hidden" name="goalID" value="<?php echo $GOAL_ID ?>" />
 		<input type="hidden" name="proc" value="new" />
 	</form>	
 </div>

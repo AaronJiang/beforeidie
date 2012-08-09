@@ -2,6 +2,13 @@
 
 	require_once('public_funs.php');
 
+	//获取单个目标
+	function get_goal_by_ID($goalID){
+		$query = "select * from goals where GoalID = ". $goalID;
+		$results = db_exec($query);
+		return $results->fetch_assoc();	
+	}
+	
 	//获取某个用户的某种类型的全部目标
 	function get_goals($userID, $goalType){
 	
@@ -17,16 +24,19 @@
 	}
 	
 	//获取热门目标
-	function get_hot_goals(){
-		$sql = "SELECT goals.GoalID, goals.Title, goals.Reason, users.Username, c1.LogsNum, c2.StepNum\n"
-	    	. "FROM goals, users,\n"
-	    	. "(SELECT goal_logs.GoalID, COUNT(*) AS LogsNum FROM goal_logs GROUP BY goal_logs.GoalID) AS c1,\n"
-	    	. "(SELECT steps.GoalID, COUNT(*) AS StepNum FROM steps GROUP BY steps.GoalID) AS c2\n"
-	    	. "WHERE goals.UserID = users.UserID\n"
-	    	. "AND c1.GoalID = goals.GoalID\n"
-	    	. "AND c2.GoalID = goals.GoalID\n"
-	    	. "AND goals.GoalType = 'now'\n"
-			. "AND goals.isPublic = 1";
+	function get_hot_goals($userID){
+		$sql = "SELECT goals.GoalID, goals.Title, goals.Reason\n"
+	    	. "FROM goals\n"
+	    	. "WHERE goals.GoalType = 'now'\n"
+			. "AND goals.isPublic = 1\n"
+			. "AND goals.UserID != ". $userID. "\n"
+			. "AND goals.GoalID IN\n"
+				. "(SELECT GoalID FROM\n"
+					. "(SELECT goal_logs.GoalID, COUNT(*) AS LogsNum\n"
+					. "FROM goal_logs GROUP BY goal_logs.GoalID) AS c1\n"
+					. "WHERE logsNum > 5)\n"
+			. "AND goals.GoalID NOT IN\n"
+				. "(SELECT GoalID FROM goal_followers where FollowerID = ". $userID. ")\n";
 		
 		$result = db_exec($sql);
 		
@@ -36,13 +46,6 @@
 		}
 		
 		return $array;		
-	}
-	
-	//获取单个目标
-	function get_goal_by_ID($goalID){
-		$query = "select * from goals where GoalID = ". $goalID;
-		$results = db_exec($query);
-		return $results->fetch_assoc();	
 	}
 
 	//删除目标

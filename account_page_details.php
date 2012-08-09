@@ -16,6 +16,14 @@
 	</tr>
 
 	<tr>
+		<td>头像：</td>
+		<td>
+			<img src='./imgs/gravatar-140.png' />
+			<span><a href='account_change_head_img.php' class='link-cmd'>更换</span>
+		</td>
+	</tr>
+
+	<tr>
 		<td>邮箱：</td>
 		<td>
 			<?php echo get_email($_SESSION['valid_user_id']); ?>

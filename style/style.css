@@ -48,6 +48,7 @@ textarea, input, select{
 	padding:3px 5px;
 	border-bottom:0px solid gray;
 	background-color:deepSkyBlue;
+	clear:both;
 }
 
 .panel-header .panel-title{
@@ -239,7 +240,7 @@ select{
 /* Login */
 
 
-/* Starts & Unstarts
+/* My Goals
 ------------------------------------------------------------*/
 
 /* Goal Selector */
@@ -323,12 +324,21 @@ select{
 	color:black;
 }
 
+#content-goals .goal-item .goal-why{
+	font-size:15px;
+	line-height:20px;
+	margin-top:5px;
+	color:#666;
+	font-family:"宋体";
+}
+
 #content-goals .goal-item .goal-info-wap{
 	position:absolute;
 	font-size:12px;	
 	bottom:10px;
 	left:11px;
-	z-index:0	
+	z-index:0;
+	color:#666;
 }
 
 #content-goals .goal-logs-num{
@@ -339,14 +349,6 @@ select{
 	font-size:12px;
 	color:#666;
 	margin-top:2px;
-}
-
-#content-goals .goal-item .goal-why{
-	font-size:15px;
-	line-height:20px;
-	margin-top:5px;
-	color:#666;
-	font-family:"宋体";
 }
 
 #content-goals .goal-item .goal-cmd-wap{
@@ -388,53 +390,102 @@ select{
 
 /* Dynamics
 ------------------------------------------------------------*/
+
+/* Layout */
 #dynamic-panel{
-	width:68%;
+	width:70%;
 	float:left;
 }
 
 #dynamic-sidebar-panel{
-	width:28%;
+	width:27%;
 	float:right;
 }
 
+/* Dynamics */
 .dynamic-item{
 	clear:both;
 	margin:0 0 10px 0;
 	border-bottom:1px dashed lightgray;
 	padding-bottom:5px;
 }
-.dynamic-goal-creater{
+
+.dynamic-item .dynamic-goal-creater{
 	font-weight:bold;
 	color:black;
 	cursor:pointer;
 	text-decoration:none;
-	border-bottom:1px dashed black;
+}
+.dynamic-item .dynamic-goal-creater:hover{
+	text-shadow:0 0 2px gray;
 }
 
-.dynamic-goal-title{
+.dynamic-item .dynamic-goal-title{
 	font-weight:bold;
 	color:black;
 	cursor:pointer;
 	text-decoration:none;
-	border-bottom:1px dashed black;
+}
+.dynamic-item .dynamic-goal-title:hover{
+	text-shadow:0 0 2px gray;
 }
 
-.dynamic-content{
+.dynamic-item .dynamic-content{
 	padding:10px 15px 0 15px;
 	font-family:'宋体';
 	line-height:22px;
 	font-size:14px;
 }
 
-.dynamic-time{
+.dynamic-item .dynamic-time{
 	text-align:right;
 	font-size:12px;
 	color:gray;
 	margin:5px 0 0 0;
 }
 
-/* New & Edit Goal
+/* My Follow Goals */
+.followed-goal-item{
+	border:1px solid lightgray;
+	padding:5px 8px;
+	margin:0 0 10px 0;
+	position:relative;
+}
+
+.followed-goal-item .followed-goal-title a{
+	display:block;
+	text-decoration:none;
+	margin:0 0 5px 0;
+	color:black;
+	font-weight:bold;
+}
+
+.followed-goal-item .followed-goal-title a:hover{
+	text-shadow:0 0 1px black;
+}
+
+.followed-goal-item .followed-goal-creator{
+	font-size:12px;
+}
+
+.followed-goal-item .disfollow-cmd{
+	position:absolute;
+	top:-1px;
+	right:-1px;
+	text-decoration:none;
+	color:black;
+	border-bottom-left-radius:5px;
+	padding:3px 8px;
+	background-color:lightgray;	
+	font-size:12px;
+}
+
+.followed-goal-item .disfollow-cmd:hover{
+	color:white;
+	background-color:black;
+}
+
+/* New & Edit Goal Form
 ------------------------------------------------------------*/
 
 #form-new-goal #goal-title, #form-edit-goal #goal-title{
@@ -469,17 +520,17 @@ select{
 	margin:0 0 15px 0;
 	position:relative;
 	clear:both;
-	width:67%;
+	width:70%;
 }
 
 #goal-details-panel{
-	width:67%;
+	width:70%;
 	float:left;
 	position:relative;
 }
 
 #goal-sidebar-panel{
-	width:30%;
+	width:28%;
 	float:right;
 	position:relative;
 }
@@ -515,15 +566,16 @@ select{
 #goal-title-panel #goal-cmd-wap span a{
 	text-decoration:none;
 	color:black;
-	border:1px solid gray;
-	border-radius:3px;
+	border-bottom-left-radius:5px;
 	display:block;
 	padding:2px 8px;
-	background-color:lightblue;
+	background-color:lightgray;
+	font-size:12px;
 }
 
 #goal-title-panel #goal-cmd-wap span a:hover{
-	background-color:white;
+	background-color:black;
+	color:white;
 }
 
 /* Steps */
@@ -612,6 +664,22 @@ select{
 	height:200px;
 }
 
+/* Creator and Followers */
+.user-icon{
+	text-decoration:none;
+	display:block;
+	padding:3px;
+	border:1px solid lightgray;
+	float:left;
+	margin:0 10px 10px 0;
+}
+
+.user-icon img{
+	width:40px;
+	height:40px;
+	border:none;
+}
+
 /* Discover
 ------------------------------------------------------------*/
 #discover-goal-type-list{
@@ -643,37 +711,66 @@ select{
 
 .discover-goal-item{
 	border:1px solid lightgray;
-	margin:0 15px 15px 0;
+	margin:0 18px 15px 0;
 	width:450px;
 	float:left;
-}
-
-.discover-goal-item a{
-	display:block;
-	text-decoration:none;
-	color:black;
+	font-size:12px;
+	font-family:'宋体';
+	position:relative;
 	padding:8px 10px;
 }
 
-.discover-goal-item a:hover{
-	background-color:#FAFAFA;
-}
-
-.discover-goal-title{
+.discover-goal-item .discover-goal-title{
 	font-size:16px;
 	font-weight:bold;
+	font-family:'微软雅黑';
 	margin:0 0 3px 0;
 }
 
-.discover-goal-reason{
-	font-size:12px;
-	font-family:'宋体';
+.discover-goal-item .discover-goal-title a{
+	text-decoration:none;
+	color:black;
+}
+
+.discover-goal-item .discover-goal-title a:hover{
+	text-shadow:0 0 1px black;
+}
+
+.discover-goal-item .discover-goal-reason{
+	color:gray;
 	margin:0 0 3px 0;
 }
 
-.discover-goal-creator{
-	font-size:12px;
-	font-family:'宋体';
+.discover-goal-item .discover-goal-creator{
+	color:gray;
+}
+
+.discover-goal-item .goal-num-wap{
+	position:absolute;
+	bottom:5px;
+	right:5px;
+	font-family:'微软雅黑';
+}
+
+.discover-goal-item .goal-num-wap span{
+	display:inline-block;
+}
+
+.discover-goal-item .follow-cmd{
+	position:absolute;
+	top:-1px;
+	right:-1px;
+	text-decoration:none;
+	color:black;
+	border-bottom-left-radius:5px;
+	padding:3px 8px;
+	background-color:lightgray;
+	font-family:'微软雅黑';
+}
+
+.discover-goal-item .follow-cmd:hover{
+	color:white;
+	background-color:black;
 }
 
 /* About
