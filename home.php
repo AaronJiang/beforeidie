@@ -9,10 +9,11 @@
 
 <script type="text/javascript">
 
+//元素纵向排布
 function arrangeBlocks(selector, hGap, vGap){
 	var width = $(selector).first().outerWidth();
 
-	//实现元素纵向排布
+
 	var topArray = [0, 0, 0, 0],
 		leftArray = [0, width+hGap, 2*(width+hGap), 3*(width+hGap)];
 				
@@ -50,7 +51,7 @@ $(document).ready(function(){
 	arrangeBlocks('#content-goals .goal-item', 20, 15);
 	
 	//弹出命令栏
-	$('.goal-item').live("hover",function(event){
+	$('.goal-item').live("hover", function(event){
 		if(event.type == 'mouseenter'){
 			$(this).find('.goal-cmd-wap').animate({'bottom':'0px'}, 'fast');
 		} 
@@ -124,17 +125,19 @@ $(document).ready(function(){
 					. "<p class='goal-title'>". stripslashes($row['Title']). "</p>"
 					. "<p class='goal-why'>". stripslashes($row['Reason']). "</p>"
 					. "<div class='goal-info-wap'>"
-						. "<div>"
-							. "<b>". get_goal_steps_num($row['GoalID']). "</b> 计划"
+						. "<div>";
+						if($goalType == 'future'){
+							echo "<p class='goal-starttime'>将于 <b>". stripslashes($row['StartTime']). "</b> 启动</p>";
+						}
+						else {
+							echo "<b>". get_goal_steps_num($row['GoalID']). "</b> 计划"
 							. " | "
 							. "<b>". get_goal_logs_num($row['GoalID']). "</b> 记录"
 							. " | "
-							. "<b>". get_goal_followers_num($row['GoalID']). "</b> 关注"
-						. "</div>";
-						if($goalType == 'future'){
-							echo "<p class='goal-starttime'>将于 ". stripslashes($row['StartTime']). " 启动</p>";
+							. "<b>". get_goal_followers_num($row['GoalID']). "</b> 关注";
 						}
-					echo "</div>"
+						echo "</div>"
+					. "</div>"
 				. "</a>"
 				//命令按钮
 				. "<div class='goal-cmd-wap'>"

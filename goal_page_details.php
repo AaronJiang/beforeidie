@@ -223,8 +223,7 @@ $(function(){
 <div id='goal-details-panel'>	
 	
 	<div class='panel-header'>
-		<div class='panel-title'>计划</div>
-		<?php if($isCreator){ ?>
+		<div class='panel-title'>计划</div><?php if($isCreator){ ?>
 		<div class='panel-cmd-wapper'>......（<span class='panel-cmd' id='cmd-edit-steps'>编辑</span>）</div>
 		<?php } ?>
 	</div>

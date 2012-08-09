@@ -21,6 +21,7 @@
 				<li><a id="nav-dynamic" href="dynamic.php">动态</a></li>
 				<li><a id="nav-newgoal" href="goal_page_new.php">新建</a></li>
 				<li><a id="nav-discover" href="discover.php">发现</a></li>
+				<li><a id="nav-about" href="about.php">关于</a></li>
 			</ul>
 			<div id="account-info">
 			<?php if(isset($_SESSION['valid_user'])){ ?>		

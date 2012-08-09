@@ -45,22 +45,31 @@ textarea, input, select{
 /* Panel Header */
 .panel-header{
 	margin:0 0 10px 0;
-	padding:3px 5px;
+	padding:4px 5px;
 	border-bottom:0px solid gray;
 	background-color:deepSkyBlue;
 	clear:both;
+}
+
+.panel-header:after{
+	content:".";
+	display:block;
+	height:0px;
+	clear:both;
+	visibility:hidden;
 }
 
 .panel-header .panel-title{
 	font-size:15px;
 	font-weight:bold;
 	font-family:'宋体';
-	display:inline-block;
+	float:left;
 }
 
 .panel-header .panel-cmd-wapper{
 	font-size:12px;
-	display:inline-block;
+	float:left;
+	margin-top:3px;
 	font-family:'宋体';
 }
 
@@ -218,6 +227,11 @@ select{
 	font-weight:bold;
 }
 
+
+
+/* User Account
+------------------------------------------------------------*/
+
 /* Account Info */
 #account-info{
 	position:absolute;
@@ -228,14 +242,11 @@ select{
 #account-info a{
 	display:inline-block;
 	text-decoration:underline;
-	font-size:12px;
+	font-size:13px;
 	font-family:'宋体';
 	cursor:pointer;
 	margin-left:2px;
 }
-
-/* User Account
-------------------------------------------------------------*/
 
 /* Login */
 
@@ -335,7 +346,7 @@ select{
 #content-goals .goal-item .goal-info-wap{
 	position:absolute;
 	font-size:12px;	
-	bottom:10px;
+	bottom:7px;
 	left:11px;
 	z-index:0;
 	color:#666;
@@ -398,16 +409,16 @@ select{
 }
 
 #dynamic-sidebar-panel{
-	width:27%;
+	width:28%;
 	float:right;
 }
 
 /* Dynamics */
 .dynamic-item{
 	clear:both;
-	margin:0 0 10px 0;
-	border-bottom:1px dashed lightgray;
-	padding-bottom:5px;
+	margin:0 0 6px 0;
+	border-bottom:1px DASHED #E6E6E6;
+	padding-bottom:4px;
 }
 
 .dynamic-item .dynamic-goal-creater{
@@ -431,7 +442,7 @@ select{
 }
 
 .dynamic-item .dynamic-content{
-	padding:10px 15px 0 15px;
+	padding:8px 15px 0 15px;
 	font-family:'宋体';
 	line-height:22px;
 	font-size:14px;
@@ -455,7 +466,7 @@ select{
 .followed-goal-item .followed-goal-title a{
 	display:block;
 	text-decoration:none;
-	margin:0 0 5px 0;
+	margin:0 0 2px 0;
 	color:black;
 	font-weight:bold;
 }
@@ -478,6 +489,7 @@ select{
 	padding:3px 8px;
 	background-color:lightgray;	
 	font-size:12px;
+	display:none;
 }
 
 .followed-goal-item .disfollow-cmd:hover{
@@ -555,7 +567,7 @@ select{
 
 #goal-title-panel #goal-cmd-wap{
 	position:absolute;
-	top:0;
+	top:8px;
 	right:0;
 }
 
@@ -566,16 +578,16 @@ select{
 #goal-title-panel #goal-cmd-wap span a{
 	text-decoration:none;
 	color:black;
-	border-bottom-left-radius:5px;
+	border-radius:2px;
 	display:block;
 	padding:2px 8px;
 	background-color:lightgray;
-	font-size:12px;
+	font-size:15px;
 }
 
 #goal-title-panel #goal-cmd-wap span a:hover{
-	background-color:black;
-	color:white;
+	background-color:orange;
+	color:black;
 }
 
 /* Steps */
@@ -590,7 +602,7 @@ select{
 	padding:0 0 5px 0;
 	font-size:14px;
 	line-height:22px;
-	border-bottom:1px dashed lightgray;
+	border-bottom:1px DASHED #E6E6E6;
 }
 
 /* Step Dialog */
@@ -629,7 +641,7 @@ select{
 
 /* logs */
 #goal-details-panel .log-item{
-	border-bottom:1px dashed lightgray;
+	border-bottom:1px DASHED #E6E6E6;
 	margin:0 0 8px 0;
 }
 
@@ -649,7 +661,7 @@ select{
 #goal-details-panel .log-time{
 	text-align:right;
 	font-size:12px;
-	margin:5px 0;
+	margin:5px 0 4px 0;
 	color:gray;
 }
 

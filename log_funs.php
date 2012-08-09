@@ -54,7 +54,8 @@
 				. "WHERE fows.FollowerID = ". $userID. "\n"
 				. "AND fows.GoalID = logs.GoalID\n"
 				. "AND logs.GoalID = goals.GoalID\n"
-				. "AND users.UserID = goals.UserID";
+				. "AND users.UserID = goals.UserID\n"
+				. "ORDER BY logs.LogTime desc";
 
 		$result = db_exec($query);
 		
