@@ -48,6 +48,15 @@
 		return $array;		
 	}
 
+	//获取所有目标的总数
+	function get_all_goals_num(){
+		$query = "select count(*) as goals_num from goals";
+		$result = db_exec($query);
+		$row = $result->fetch_assoc();
+		
+		return $row['goals_num'];	
+	}
+	
 	//删除目标
 	function delete_goal($goalID){
 		$goalID	= trim($goalID);

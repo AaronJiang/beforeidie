@@ -45,9 +45,9 @@ textarea, input, select{
 /* Panel Header */
 .panel-header{
 	margin:0 0 10px 0;
-	padding:4px 5px;
-	border-bottom:0px solid gray;
+	padding:5px 0 5px 6px;
 	background-color:deepSkyBlue;
+	border-radius:2px;
 	clear:both;
 }
 
@@ -63,13 +63,13 @@ textarea, input, select{
 	font-size:15px;
 	font-weight:bold;
 	font-family:'宋体';
-	float:left;
+	display:inline-block;
+	padding:0 5px 0 0;
 }
 
 .panel-header .panel-cmd-wapper{
 	font-size:12px;
-	float:left;
-	margin-top:3px;
+	display:inline-block;
 	font-family:'宋体';
 }
 
@@ -84,7 +84,7 @@ textarea, input, select{
 	color:white;
 }
 
-/* 皮肤
+/* 
 ------------------------------------------------------------*/
 body{
 	width:1000px;
@@ -232,7 +232,7 @@ select{
 /* User Account
 ------------------------------------------------------------*/
 
-/* Account Info */
+/* Login State Panel */
 #account-info{
 	position:absolute;
 	top:2px;
@@ -248,8 +248,56 @@ select{
 	margin-left:2px;
 }
 
-/* Login */
+/* Account Details */
+#table-account-details{
+	
+}
 
+#table-account-details td{
+	padding:10px 10px 0px 0;
+}
+
+#table-account-details .item-header{
+	vertical-align:bottom;
+}
+
+/* Login Page */
+#login-page{
+	background-color:#EEE;
+}
+
+#login-slogan{
+	font-size:22px;
+	margin:150px auto 30px auto;
+	text-align:center;
+}
+
+#form-login{
+	width:350px;
+	margin:0 auto 0 auto;
+	padding:40px 30px 20px 30px;
+	border:1px solid #AAA;
+	box-shadow:0 0 5px #AAA;
+	border-radius:10px;
+	background-color:white;
+}
+
+#form-login #login-user, #form-login #login-pwd{
+	width:334px;
+	font-size:20px;
+	font-family:'微软雅黑';
+	margin-bottom:25px;
+	border-radius:3px;
+	clear:both;
+}
+
+#form-login input[type='submit']{
+	font-family:'微软雅黑';
+	font-size:20px;
+	border-radius:3px;
+	float:right;
+	padding:3px 15px;
+}
 
 /* My Goals
 ------------------------------------------------------------*/
@@ -414,41 +462,41 @@ select{
 }
 
 /* Dynamics */
-.dynamic-item{
+#dynamic-panel .dynamic-item{
 	clear:both;
-	margin:0 0 6px 0;
+	margin:0 5px 6px 2px;
 	border-bottom:1px DASHED #E6E6E6;
 	padding-bottom:4px;
 }
 
-.dynamic-item .dynamic-goal-creater{
+#dynamic-panel .dynamic-item .dynamic-goal-creater{
 	font-weight:bold;
 	color:black;
 	cursor:pointer;
 	text-decoration:none;
 }
-.dynamic-item .dynamic-goal-creater:hover{
+#dynamic-panel .dynamic-item .dynamic-goal-creater:hover{
 	text-shadow:0 0 2px gray;
 }
 
-.dynamic-item .dynamic-goal-title{
+#dynamic-panel .dynamic-item .dynamic-goal-title{
 	font-weight:bold;
 	color:black;
 	cursor:pointer;
 	text-decoration:none;
 }
-.dynamic-item .dynamic-goal-title:hover{
+#dynamic-panel .dynamic-item .dynamic-goal-title:hover{
 	text-shadow:0 0 2px gray;
 }
 
-.dynamic-item .dynamic-content{
+#dynamic-panel .dynamic-item .dynamic-content{
 	padding:8px 15px 0 15px;
 	font-family:'宋体';
 	line-height:22px;
 	font-size:14px;
 }
 
-.dynamic-item .dynamic-time{
+#dynamic-panel .dynamic-item .dynamic-time{
 	text-align:right;
 	font-size:12px;
 	color:gray;
@@ -456,14 +504,14 @@ select{
 }
 
 /* My Follow Goals */
-.followed-goal-item{
+#dynamic-sidebar-panel .followed-goal-item{
 	border:1px solid lightgray;
 	padding:5px 8px;
 	margin:0 0 10px 0;
 	position:relative;
 }
 
-.followed-goal-item .followed-goal-title a{
+#dynamic-sidebar-panel .followed-goal-item .followed-goal-title a{
 	display:block;
 	text-decoration:none;
 	margin:0 0 2px 0;
@@ -471,15 +519,15 @@ select{
 	font-weight:bold;
 }
 
-.followed-goal-item .followed-goal-title a:hover{
+#dynamic-sidebar-panel .followed-goal-item .followed-goal-title a:hover{
 	text-shadow:0 0 1px black;
 }
 
-.followed-goal-item .followed-goal-creator{
+#dynamic-sidebar-panel .followed-goal-item .followed-goal-creator{
 	font-size:12px;
 }
 
-.followed-goal-item .disfollow-cmd{
+#dynamic-sidebar-panel .followed-goal-item .disfollow-cmd{
 	position:absolute;
 	top:-1px;
 	right:-1px;
@@ -492,7 +540,7 @@ select{
 	display:none;
 }
 
-.followed-goal-item .disfollow-cmd:hover{
+#dynamic-sidebar-panel .followed-goal-item .disfollow-cmd:hover{
 	color:white;
 	background-color:black;
 }
@@ -532,7 +580,6 @@ select{
 	margin:0 0 15px 0;
 	position:relative;
 	clear:both;
-	width:70%;
 }
 
 #goal-details-panel{
@@ -568,14 +615,10 @@ select{
 #goal-title-panel #goal-cmd-wap{
 	position:absolute;
 	top:8px;
-	right:0;
+	right:30%;
 }
 
-#goal-title-panel #goal-cmd-wap span{
-
-}
-
-#goal-title-panel #goal-cmd-wap span a{
+#goal-title-panel #goal-cmd-wap a{
 	text-decoration:none;
 	color:black;
 	border-radius:2px;
@@ -585,9 +628,31 @@ select{
 	font-size:15px;
 }
 
-#goal-title-panel #goal-cmd-wap span a:hover{
+#goal-title-panel #goal-cmd-wap a:hover{
 	background-color:orange;
 	color:black;
+}
+
+
+#goal-title-panel #goal-num-wap{
+	position:absolute;
+	top:5px;
+	right:0px;
+}
+
+#goal-title-panel #goal-num-wap .goal-num-item{
+	display:inline-block;
+	padding:0 12px;
+}
+
+#goal-title-panel #goal-num-wap .goal-num-item-border{
+	border-right:1px solid lightgray;
+}
+
+#goal-title-panel #goal-num-wap .goal-num-item .goal-num{
+	text-align:center;
+	font-weight:bold;
+	font-size:20px;
 }
 
 /* Steps */
@@ -783,6 +848,90 @@ select{
 .discover-goal-item .follow-cmd:hover{
 	color:white;
 	background-color:black;
+}
+
+/* Person Page
+------------------------------------------------------------*/
+
+/* User Info */
+#person-page #user-info{
+	margin:0 0 15px 0;
+}
+
+#person-page #user-info #user-name{
+	font-size:25px;
+	font-weight:bold;
+}
+
+/* User Goals */
+#person-page .goal-wap{
+	float:left;
+	margin:0 20px 0 0;
+	width:220px;
+}
+
+#person-page .goal-wap-header{
+	font-size:20px;
+	font-weight:bold;
+	margin:0 0 10px 0;
+	clear:both;
+}
+
+#person-page .goal-wap .goal-item{
+	border:1px solid lightgray;
+	padding:5px 8px;
+
+	margin:0 0 15px 0;
+}
+
+#person-page .goal-wap .goal-item .goal-title{
+	font-size:15px;
+	font-weight:bold;
+	margin:0 0 2px 0;
+}
+
+#person-page .goal-wap .goal-item .goal-reason{
+	font-size:12px;
+	color:gray;
+}
+
+/* Personal Dynamics */
+#person-page #personal-dynamics{
+	float:left;
+	width:260px;
+}
+
+#person-page #dynamic-header{
+	font-size:20px;
+	font-weight:bold;
+	margin:0 0 10px 0;
+	clear:both;
+}
+
+#person-page .dynamic-item{
+	padding:5px 0 0 0;
+	border-top:1px solid #EEE;
+	margin:0 0 5px 0;
+}
+
+#person-page .dynamic-item .dynamic-goal-title{
+	font-size:15px;
+	margin:0 0 5px 0;
+}
+
+#person-page .dynamic-item .dynamic-content{
+	font-size:13px;
+	font-family:'宋体';
+	line-height:20px;
+	text-indent:1em;
+	word-wrap:break-all;
+	color:gray;
+}
+
+#person-page .dynamic-item .dynamic-time{
+	text-align:right;
+	color:gray;
+	font-size:12px;
 }
 
 /* About

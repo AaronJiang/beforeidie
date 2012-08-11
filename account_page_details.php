@@ -7,32 +7,32 @@
 	}
 ?>
 
-<table>
+<table id='table-account-details'>
 	<tr>
-		<td>用户名：</td>
+		<td class='item-header'>用户：</td>
 		<td>
 			<?php echo $_SESSION['valid_user']; ?>
 		</td>
 	</tr>
 
 	<tr>
-		<td>头像：</td>
+		<td class='item-header'>头像：</td>
 		<td>
 			<img src='./imgs/gravatar-140.png' />
-			<span><a href='account_change_head_img.php' class='link-cmd'>更换</span>
+			<span><a href='account_change_head_img.php' class='link-cmd'>更换</a></span>
 		</td>
 	</tr>
 
 	<tr>
-		<td>邮箱：</td>
+		<td class='item-header'>邮箱：</td>
 		<td>
 			<?php echo get_email($_SESSION['valid_user_id']); ?>
-			<span><a href='account_change_email.php' class='link-cmd'>更换</span>
+			<span><a href='account_change_email.php' class='link-cmd'>更换</a></span>
 		</td>
 	</tr>
 	
 	<tr>
-		<td>密码：</td>
+		<td class='item-header'>密码：</td>
 		<td>
 			<span><a href='account_page_change_pwd.php' class='link-cmd'>更改</a></span>
 		</td>

@@ -38,6 +38,14 @@
 		return $row['UserID'];
 	}
 	
+	//获取用户名
+	function get_username_by_id($userID){
+		$query = "select Username from users where UserId = ". $userID;
+		$result = db_exec($query);
+		$row = $result->fetch_assoc();
+		return $row['Username'];
+	}
+	
 	//获取用户邮箱
 	function get_email($userID){
 		$query = "select Email from users where UserID = ". $userID;
@@ -51,5 +59,14 @@
 		$query = "update users set Password = '". sha1($newPwd). "' where UserID = ". $userID;
 		$result = db_exec($query);
 		return $result? true: false;
+	}
+	
+	//获取用户总数
+	function get_all_users_num(){
+		$query = "select count(*) as users_num from users";
+		$result = db_exec($query);
+		$row = $result->fetch_assoc();
+		
+		return $row['users_num'];
 	}
 ?>

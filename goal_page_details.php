@@ -198,7 +198,7 @@ $(function(){
 			$isFinished = check_goal_is_finished($GOAL_ID);
 			if(!$isFinished){
 		?>
-		<span><a href='goal_proc.php?proc=finish&goalID=<?php echo $GOAL_ID ?>'>完成</a></span>
+		<a href='goal_proc.php?proc=finish&goalID=<?php echo $GOAL_ID ?>'>完成</a>
 		<?php
 			}
 		//若不是所有者
@@ -207,14 +207,31 @@ $(function(){
 			//若已经关注
 			if($isFollowed){	
 		?>
-		<span><a href='follower_proc.php?proc=disfollow&goalID=<?php echo $GOAL_ID ?>&followerID=<?php echo $_SESSION['valid_user_id'] ?>'>取消关注</a></span>
+		<a href='follower_proc.php?proc=disfollow&goalID=<?php echo $GOAL_ID ?>&followerID=<?php echo $_SESSION['valid_user_id'] ?>'>取消关注</a>
 		<?php
 			//若尚未关注
 			} else {  ?>
-		<span><a href='follower_proc.php?proc=follow&goalID=<?php echo $GOAL_ID ?>&followerID=<?php echo $_SESSION['valid_user_id'] ?>'>关注</a></span>
+		<a href='follower_proc.php?proc=follow&goalID=<?php echo $GOAL_ID ?>&followerID=<?php echo $_SESSION['valid_user_id'] ?>'>关注</a>
 		<?php 
 			}
 		} ?>
+		</div>
+		
+		<div id='goal-num-wap'>
+			<div class='goal-num-item goal-num-item-border'>
+				<div class='goal-num'><?php echo get_goal_steps_num($GOAL_ID) ?></div>
+				<div>计划</div>
+			</div
+			
+			><div class='goal-num-item goal-num-item-border'>
+				<div class='goal-num'><?php echo get_goal_logs_num($GOAL_ID) ?></div>
+				<div>记录</div>
+			</div
+			
+			><div class='goal-num-item'>
+				<div class='goal-num'><?php echo get_goal_followers_num($GOAL_ID) ?></div>
+				<div>关注</div>
+			</div>
 		</div>
 	</div>
 </div>
@@ -223,31 +240,40 @@ $(function(){
 <div id='goal-details-panel'>	
 	
 	<div class='panel-header'>
-		<div class='panel-title'>计划</div><?php if($isCreator){ ?>
-		<div class='panel-cmd-wapper'>......（<span class='panel-cmd' id='cmd-edit-steps'>编辑</span>）</div>
+		<div class='panel-title'>计划</div
+		><div class='panel-cmd-wapper'>	
+		<?php if($isCreator){ ?>
+			<span>......（</span
+			><span class='panel-cmd' id='cmd-edit-steps'>编辑</span
+			><span>）<span>
 		<?php } ?>
+		</div>
 	</div>
 	
 	<?php
 	$steps = get_steps($GOAL_ID);
 	if(count($steps) == 0){
 		echo "<p id='no-step-caution' style='margin-bottom:5px;font-size:14px;'>还没有任何规划哦~</p>";
-	}
-	?>
+	} ?>
 	
 	<ul id='goal-steps'>
 		<?php
 		foreach($steps as $step){
 			echo "<li>". $step['StepContent']. "</li>";
-		}
-		?>
+		} ?>
 	</ul>
 	
 	<div class='panel-header panel-log-header'>
-		<div class='panel-title'>记录</div>
+		<div class='panel-title'>记录</div
+		><div class='panel-cmd-wapper'>
 		<?php if($isCreator){ ?>
-		<div class='panel-cmd-wapper'>......（<span class='panel-cmd' id='cmd-add-log'>我说</span>）</div>
+			<span>......（<span
+			><span class='panel-cmd' id='cmd-add-log'>说说</span
+			><span>|</span
+			><span class='panel-cmd'>日记</span
+			><span>）</span>
 		<?php } ?>
+		</div>
 	</div>
 	
 	<?php

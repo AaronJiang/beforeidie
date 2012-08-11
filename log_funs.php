@@ -25,6 +25,15 @@
 		return $result? "true": "false";
 	}
 	
+	//获取所有记录的总数
+	function get_all_logs_num(){
+		$query = "select count(*) as logs_num from goal_logs";
+		$result = db_exec($query);
+		$row = $result->fetch_assoc();
+		
+		return $row['logs_num'];
+	}
+	
 	//获取某目标的所有动态
 	function get_logs($goalID){
 		$query = "select * from goal_logs where GoalID = ". $goalID. " order by logTime desc";
@@ -40,11 +49,18 @@
 	
 	//获取个人的所有动态
 	function get_all_logs($userID){
-		$query = "select users.Username, users.UserID, goal_logs.LogContent, goal_logs.LogTime, goals.Title, goals.GoalID ";
-		$query .= "from goals, goal_logs, users ";
-		$query .= "where users.UserID = ". $userID. " and goals.UserID = ". $userID. " and goals.GoalID = goal_logs.GoalID order by goal_logs.LogTime desc";
-	
-		return db_exec($query);
+		$query = "select goal_logs.LogContent, goal_logs.LogTime, goals.Title, goals.GoalID\n"
+				. "from goals, goal_logs\n"
+				. "where goals.UserID = ". $userID. " and goals.GoalID = goal_logs.GoalID order by goal_logs.LogTime desc";
+				
+		$results = db_exec($query);
+		
+		$logs = array();
+		while($row = $results->fetch_assoc()){
+			array_push($logs, $row);
+		}
+		
+		return $logs;
 	}
 	
 	//获取某用户所关注的 Goal 的所有动态
