@@ -203,17 +203,7 @@ $(function(){
 			}
 		//若不是所有者
 		} else {
-			$isFollowed = check_goal_is_followed($GOAL_ID, $_SESSION['valid_user_id']);
-			//若已经关注
-			if($isFollowed){	
-		?>
-		<a href='follower_proc.php?proc=disfollow&goalID=<?php echo $GOAL_ID ?>&followerID=<?php echo $_SESSION['valid_user_id'] ?>'>取消关注</a>
-		<?php
-			//若尚未关注
-			} else {  ?>
-		<a href='follower_proc.php?proc=follow&goalID=<?php echo $GOAL_ID ?>&followerID=<?php echo $_SESSION['valid_user_id'] ?>'>关注</a>
-		<?php 
-			}
+		
 		} ?>
 		</div>
 		
@@ -223,14 +213,9 @@ $(function(){
 				<div>计划</div>
 			</div
 			
-			><div class='goal-num-item goal-num-item-border'>
+			><div class='goal-num-item'>
 				<div class='goal-num'><?php echo get_goal_logs_num($GOAL_ID) ?></div>
 				<div>记录</div>
-			</div
-			
-			><div class='goal-num-item'>
-				<div class='goal-num'><?php echo get_goal_followers_num($GOAL_ID) ?></div>
-				<div>关注</div>
 			</div>
 		</div>
 	</div>
@@ -309,24 +294,10 @@ $(function(){
 	</a>
 	<?php } ?>
 	
-	<!-- 创建者 -->
 	<div class='panel-header'>
-		<div class='panel-title'>关注者</div>
+		<div class='panel-title'>活跃度</div>
 	</div>
-	
-	<?php 
-		$followers = get_goal_followers($GOAL_ID);
-		
-		foreach($followers as $follower){
-			echo "<a class='user-icon' href='person.php?userID=". $follower['UserID']. "' title='". $follower['Username']. "'>"
-					. "<img src='./imgs/gravatar-140.png' />"
-				. "</a>";
-		}
-	?>
 
-	<!--<div class='panel-header'>
-		<div class='panel-title'>关注它的人也关注了</div>
-	</div>-->
 </div>
 
 <?php if($isCreator){ ?>

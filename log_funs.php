@@ -64,6 +64,7 @@
 	}
 	
 	//获取某用户所关注的 Goal 的所有动态
+	/*
 	function get_followed_logs($userID){
 		$query = "SELECT logs.LogTitle, logs.LogID, logs.LogContent, logs.LogTime, goals.GoalID, goals.Title, users.Username, users.UserID\n"
     			. "FROM goal_logs as logs, goal_followers as fows, goals, users\n"
@@ -73,6 +74,28 @@
 				. "AND users.UserID = goals.UserID\n"
 				. "ORDER BY logs.LogTime desc";
 
+		$result = db_exec($query);
+		
+		$logs = array();
+		while($row = $result->fetch_assoc()){
+			array_push($logs, $row);
+		}
+
+		return $logs;
+	}
+	*/
+	
+	//获取某用户所关注的 User 的所有动态
+	function get_followed_logs($followerID){
+		$query = "SELECT logs.LogTitle, logs.LogID, logs.LogContent, logs.LogTime, goals.GoalID, goals.Title, users.Username, users.UserID\n"
+				. "FROM followers as fows, goals, goal_logs as logs, users\n"
+				. "WHERE fows.FollowerID = ". $followerID. "\n"
+				. "AND fows.UserID = goals.UserID\n"
+				. "AND goals.GoalID = logs.GoalID\n"
+				. "AND goals.IsPublic = 1\n"
+				. "AND users.UserID = fows.UserID\n"
+				. "ORDER BY logs.LogTime desc";
+				
 		$result = db_exec($query);
 		
 		$logs = array();

@@ -322,8 +322,10 @@ select{
 	font-weight:bold;
 	border:0px solid lightgray;
 	border-radius:0px;
+	background-color:lightgray;
 }
 
+/*
 #goal-selector #select-now{
 	background-color:orange;
 }
@@ -335,6 +337,7 @@ select{
 #goal-selector #select-finish{
 	background-color:deepskyblue;
 }
+*/
 
 /* Goals */
 #content-goals{
@@ -346,11 +349,11 @@ select{
 	height:200px;
 	position:absolute;
 	overflow:hidden;
-	border-right:1px solid #bcbcbc;
-	border-bottom:1px solid #bcbcbc;
-	border-left:1px solid #bcbcbc;
+	border:1px solid #BBB;
+	box-shadow:1px 1px 5px #AAA;
 }
 
+/*
 #content-goals .goal-item-now{
 	border-top:5px solid darkorange;
 }
@@ -359,7 +362,7 @@ select{
 }
 #content-goals .goal-item-finish{
 	border-top:5px solid deepskyblue;
-}
+}*/
 
 #content-goals .goal-item:hover{
 	background-color:#F7F7F7;
@@ -504,27 +507,39 @@ select{
 }
 
 /* My Follow Goals */
-#dynamic-sidebar-panel .followed-goal-item{
-	border:1px solid lightgray;
-	padding:5px 8px;
+#dynamic-sidebar-panel .followee-item{
+	border-bottom:1px solid #EEE;
 	margin:0 0 10px 0;
+	padding:0 0 8px 0;
 	position:relative;
 }
 
-#dynamic-sidebar-panel .followed-goal-item .followed-goal-title a{
-	display:block;
+#dynamic-sidebar-panel .followee-profile{
+	border: 0px solid lightgray;
+	margin: 0 8px 0 0;
+	float:left;
+}
+
+#dynamic-sidebar-panel .followee-info-wap{
+	float:left;
+}
+
+#dynamic-sidebar-panel .followee-name{
 	text-decoration:none;
-	margin:0 0 2px 0;
 	color:black;
+	font-size:15px;
 	font-weight:bold;
+	display:block;
+	margin:0 0 5px 0;
 }
 
-#dynamic-sidebar-panel .followed-goal-item .followed-goal-title a:hover{
-	text-shadow:0 0 1px black;
+#dynamic-sidebar-panel .followee-name:hover{
+	text-shadow:0 0 1px gray;
 }
 
-#dynamic-sidebar-panel .followed-goal-item .followed-goal-creator{
+#dynamic-sidebar-panel .followee-goals-info-wap{
 	font-size:12px;
+	color:gray;
 }
 
 #dynamic-sidebar-panel .followed-goal-item .disfollow-cmd{
@@ -856,7 +871,7 @@ select{
 /* Loyout */
 #person-page #user-info-panel{
 	clear:both;
-	margin:0 0 10px 0;
+	margin:0 0 15px 0;
 }
 
 #person-page #goals-panel{
@@ -870,16 +885,24 @@ select{
 }
 
 /* User Info */
-#person-page #user-info #user-name{
-	font-size:25px;
+#person-page #user-info-panel #user-profile{
+	float:left;
+	margin:0 8px 0 0;
+}
+
+#person-page #user-info-panel #user-info-wap{
+	float:left;
+}
+
+#person-page #user-info-panel #user-info-wap #user-name{
+	font-size:18px;
 	font-weight:bold;
 }
 
 /* User Goals */
-
 #person-page #goal-wap-header{
 	list-style:none;
-	margin:0 0 10px 0;
+	margin:0 0 15px 0;
 }
 
 #person-page #goal-wap-header li{
@@ -912,6 +935,7 @@ select{
 	border:1px solid lightgray;
 	padding:5px 8px;
 	margin:0 0 10px 0;
+	position:relative;
 }
 
 #person-page .goal-title{
@@ -933,10 +957,36 @@ select{
 #person-page .goal-reason{
 	font-size:12px;
 	color:gray;
+	margin:0 0 2px 0;
+}
+
+#person-page .goal-num-wap{
+	font-size:12px;
+	color:gray;
+}
+
+#person-page .goal-cmd-wap{
+	position:absolute;
+	top:-1px;
+	right:-1px;
+}
+
+#person-page .goal-cmd{
+	text-decoration:none;
+	color:black;
+	display:block;
+	background-color:#BABABA;
+	border-bottom-left-radius:5px;
+	padding:2px 7px;
+	font-size:12px;
+	cursor:pointer;
+}
+
+#person-page .goal-cmd:hover{
+	background-color:lightgray;
 }
 
 /* Personal Dynamics */
-
 #person-page #dynamic-header{
 	font-size:18px;
 	font-weight:bold;
@@ -953,6 +1003,15 @@ select{
 #person-page .dynamic-goal-title{
 	font-size:15px;
 	margin:0 0 5px 0;
+}
+
+#person-page .dynamic-goal-title a{
+	text-decoration:none;
+	color:black;
+}
+
+#person-page .dynamic-goal-title a:hover{
+	text-shadow:0 0 1px gray;
 }
 
 #person-page .dynamic-content{

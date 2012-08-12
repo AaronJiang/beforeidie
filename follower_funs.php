@@ -48,6 +48,7 @@
 		return $array;		
 	}
 	
+	/*
 	//获取某 User 所关注的 Goals
 	function get_followed_goals($userID){
 		$query = "SELECT goals.GoalID, goals.Title, goals.Reason\n"
@@ -64,6 +65,22 @@
 		
 		return $array;	
 	}
+	*/
 	
-
+	//获取某用户所关注的 User
+	function get_followed_users($followerID){
+		$query = "SELECT users.Username, users.UserID\n"
+				. "FROM followers as fows, users\n"
+				. "WHERE fows.FollowerID = ". $followerID. "\n"
+				. "AND fows.UserID = users.UserID";
+				
+		$result = db_exec($query);
+		
+		$array = array();
+		while($row = $result->fetch_assoc()){
+			array_push($array, $row);
+		}
+		
+		return $array;
+	}
 ?>

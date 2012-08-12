@@ -7,9 +7,11 @@
 
 <div id='person-page'>
 	<!-- 用户信息 -->
-	<div id='user-info-panel'>
-		<img src='./imgs/gravatar-140.png' />
-		<span id='user-name'> <?php echo get_username_by_id($userID); ?> </span>
+	<div id='user-info-panel' class='clearfix'>
+		<img id='user-profile' src='./imgs/gravatar-140.png' />
+		<div id='user-info-wap'>
+			<span id='user-name'> <?php echo get_username_by_id($userID); ?> </span>
+		</div>
 	</div>
 	
 	<!-- 用户的 Goals -->
@@ -18,9 +20,21 @@
 		function goal_html_output($userID, $type){
 			$goals = get_goals($userID, $type);
 			foreach($goals as $goal){
+				$goalID = $goal['GoalID'];
 				echo "<div class='goal-item goal-item-". $type ."'>"
-						."<p class='goal-title'><a href='goal_page_details.php?goalID=". $goal['GoalID']. "'>". $goal['Title']. "</a></p>"
+						."<p class='goal-title'><a href='goal_page_details.php?goalID=". $goalID. "'>". $goal['Title']. "</a></p>"
 						."<p class='goal-reason'>". $goal['Reason']. "</p>"
+						. "<div class='goal-num-wap'>"
+							. "<span><b>". get_goal_steps_num($goalID). "</b> 规划</span>"
+							. " | "
+							. "<span><b>". get_goal_logs_num($goalID). "</b> 记录</span>"
+							. " | "
+							. "<span><b>". get_goal_followers_num($goalID). "</b> 赞</span>"
+						. "</div>"
+						. "<div class='goal-cmd-wap'>"
+							//. "<a class='goal-cmd' href='follower_proc.php?proc=follow&goalID=". $goalID. "&followerID=". $userID. "'>关注</a>"
+							."<a class='goal-cmd'>赞</a>"
+						. "</div>"
 					. "</div>";
 			}
 		} ?>
@@ -36,16 +50,6 @@
 			$goalType = isset($_REQUEST['goalType'])? $_REQUEST['goalType']: 'now';		
 			goal_html_output($userID, $goalType) ?>
 		</div>
-		
-		<!--
-		<div class='goal-wap'>
-			<?php goal_html_output($userID, 'future') ?>
-		</div>
-		
-		<div class='goal-wap'>
-			<?php goal_html_output($userID, 'finish') ?>
-		</div>
-		-->		
 	</div>
 
 	<!-- 用户的个人动态 -->	
@@ -56,9 +60,9 @@
 		$dynamics = get_all_logs($userID);
 		foreach($dynamics as $dyn){
 			echo "<div class='dynamic-item'>"
-				. "<p class='dynamic-goal-title'>在 <b>". $dyn['Title']. "</b> 中写道:</p>"
-				. "<p class='dynamic-content'>". $dyn['LogContent']. "</p>"
-				. "<p class='dynamic-time'>". $dyn['LogTime']. "</p>"
+					. "<p class='dynamic-goal-title'>在 <b><a href=goal_page_details.php?goalID=". $dyn['GoalID'] .">". $dyn['Title']. "</b></a> 中写道:</p>"
+					. "<p class='dynamic-content'>". $dyn['LogContent']. "</p>"
+					. "<p class='dynamic-time'>". $dyn['LogTime']. "</p>"
 				. "</div>";
 		}
 		?>
