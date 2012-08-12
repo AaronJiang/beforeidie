@@ -278,7 +278,7 @@ select{
 	padding:40px 30px 20px 30px;
 	border:1px solid #AAA;
 	box-shadow:0 0 5px #AAA;
-	border-radius:10px;
+	border-radius:8px;
 	background-color:white;
 }
 
@@ -853,56 +853,92 @@ select{
 /* Person Page
 ------------------------------------------------------------*/
 
-/* User Info */
-#person-page #user-info{
-	margin:0 0 15px 0;
+/* Loyout */
+#person-page #user-info-panel{
+	clear:both;
+	margin:0 0 10px 0;
 }
 
+#person-page #goals-panel{
+	width:60%;
+	float:left;
+}
+
+#person-page #personal-dynamics-panel{
+	width:38%;
+	float:right;
+}
+
+/* User Info */
 #person-page #user-info #user-name{
 	font-size:25px;
 	font-weight:bold;
 }
 
 /* User Goals */
+
+#person-page #goal-wap-header{
+	list-style:none;
+	margin:0 0 10px 0;
+}
+
+#person-page #goal-wap-header li{
+	display:inline-block;
+	margin:0 10px 0 0;
+}
+
+#person-page #goal-wap-header li a{
+	display:block;
+	padding:5px 10px;
+	background-color:lightgray;
+	text-decoration:none;
+	color:black;	
+	cursor:pointer;
+	font-size:18px;
+	font-weight:bold;
+}
+
+#person-page #goal-wap-header li a:hover{
+	
+}
+
 #person-page .goal-wap{
 	float:left;
 	margin:0 20px 0 0;
-	width:220px;
+	width:100%;
 }
 
-#person-page .goal-wap-header{
-	font-size:20px;
-	font-weight:bold;
-	margin:0 0 10px 0;
-	clear:both;
-}
-
-#person-page .goal-wap .goal-item{
+#person-page .goal-item{
 	border:1px solid lightgray;
 	padding:5px 8px;
-
-	margin:0 0 15px 0;
+	margin:0 0 10px 0;
 }
 
-#person-page .goal-wap .goal-item .goal-title{
+#person-page .goal-title{
 	font-size:15px;
 	font-weight:bold;
 	margin:0 0 2px 0;
 }
 
-#person-page .goal-wap .goal-item .goal-reason{
+#person-page .goal-title a{
+	text-decoration:none;
+	color:black;
+	cursor:pointer;
+}
+
+#person-page .goal-title a:hover{
+	text-shadow:0 0 1px gray;
+}
+
+#person-page .goal-reason{
 	font-size:12px;
 	color:gray;
 }
 
 /* Personal Dynamics */
-#person-page #personal-dynamics{
-	float:left;
-	width:260px;
-}
 
 #person-page #dynamic-header{
-	font-size:20px;
+	font-size:18px;
 	font-weight:bold;
 	margin:0 0 10px 0;
 	clear:both;
@@ -914,12 +950,12 @@ select{
 	margin:0 0 5px 0;
 }
 
-#person-page .dynamic-item .dynamic-goal-title{
+#person-page .dynamic-goal-title{
 	font-size:15px;
 	margin:0 0 5px 0;
 }
 
-#person-page .dynamic-item .dynamic-content{
+#person-page .dynamic-content{
 	font-size:13px;
 	font-family:'宋体';
 	line-height:20px;
@@ -928,7 +964,7 @@ select{
 	color:gray;
 }
 
-#person-page .dynamic-item .dynamic-time{
+#person-page .dynamic-time{
 	text-align:right;
 	color:gray;
 	font-size:12px;
