@@ -143,8 +143,7 @@ $(function(){
 				
 				html += '</ul>';
 
-				$("#dialog-edit-steps").html(html);
-				
+				$("#dialog-edit-steps").html(html);	
 			}
 		});
 		
@@ -192,19 +191,20 @@ $(function(){
 		<p id='goal-why'> <?php echo $goal['Reason']; ?> </p>
 		
 		<div id='goal-cmd-wap'>
-		<?php
-		//若为所有者
-		if($isCreator){ 
-			$isFinished = check_goal_is_finished($GOAL_ID);
-			if(!$isFinished){
-		?>
-		<a href='goal_proc.php?proc=finish&goalID=<?php echo $GOAL_ID ?>'>完成</a>
-		<?php
-			}
-		//若不是所有者
-		} else {
-		
-		} ?>
+			<?php
+			//若为所有者
+			if($isCreator){ 
+				$isFinished = check_goal_is_finished($GOAL_ID);
+				if(!$isFinished){
+			?>
+			<a href='goal_proc.php?proc=finish&goalID=<?php echo $GOAL_ID ?>'>完成</a>
+			<?php
+				}
+			//若不是所有者
+			} else { ?>
+			<a href='goal_proc.php?proc=finish&goalID=<?php echo $GOAL_ID ?>'>留言</a>
+			<a href='goal_proc.php?proc=finish&goalID=<?php echo $GOAL_ID ?>'>赞</a>
+			<?php } ?>
 		</div>
 		
 		<div id='goal-num-wap'>
@@ -213,9 +213,13 @@ $(function(){
 				<div>计划</div>
 			</div
 			
-			><div class='goal-num-item'>
+			><div class='goal-num-item goal-num-item-border'>
 				<div class='goal-num'><?php echo get_goal_logs_num($GOAL_ID) ?></div>
 				<div>记录</div>
+			</div
+			><div class='goal-num-item'>
+				<div class='goal-num'><?php echo get_cheers_num($GOAL_ID) ?></div>
+				<div>赞</div>
 			</div>
 		</div>
 	</div>
@@ -297,7 +301,10 @@ $(function(){
 	<div class='panel-header'>
 		<div class='panel-title'>活跃度</div>
 	</div>
-
+	
+	<div class='panel-header'>
+		<div class='panel-title'>留言板</div>
+	</div>
 </div>
 
 <?php if($isCreator){ ?>
@@ -306,7 +313,7 @@ $(function(){
 <div id='dialog-add-log'>
 	<form id="form-new-log" action="log_proc.php" method="post">
 		<div>
-			<input type='text' id='log-title' autocomplete='off' placeholder='标题（可不填）' name='logTitle'>
+			<input type='text' id='log-title' autocomplete='off' placeholder='标题' name='logTitle'>
 		</div>
 		
 		<div>

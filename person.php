@@ -28,11 +28,8 @@
 							. "<span><b>". get_goal_steps_num($goalID). "</b> 规划</span>"
 							. " | "
 							. "<span><b>". get_goal_logs_num($goalID). "</b> 记录</span>"
-							. " | "
-							. "<span><b>". get_goal_followers_num($goalID). "</b> 赞</span>"
 						. "</div>"
 						. "<div class='goal-cmd-wap'>"
-							//. "<a class='goal-cmd' href='follower_proc.php?proc=follow&goalID=". $goalID. "&followerID=". $userID. "'>关注</a>"
 							."<a class='goal-cmd'>赞</a>"
 						. "</div>"
 					. "</div>";

@@ -8,7 +8,7 @@
 		$logTitle = trim($logTitle);
 		$logContent = trim($logContent);
 		
-		if(!$logContent){
+		if(!$logContent || !$logTitle){
 			echo "You have not enter all the required details!";
 			exit;
 		}
@@ -62,28 +62,6 @@
 		
 		return $logs;
 	}
-	
-	//获取某用户所关注的 Goal 的所有动态
-	/*
-	function get_followed_logs($userID){
-		$query = "SELECT logs.LogTitle, logs.LogID, logs.LogContent, logs.LogTime, goals.GoalID, goals.Title, users.Username, users.UserID\n"
-    			. "FROM goal_logs as logs, goal_followers as fows, goals, users\n"
-				. "WHERE fows.FollowerID = ". $userID. "\n"
-				. "AND fows.GoalID = logs.GoalID\n"
-				. "AND logs.GoalID = goals.GoalID\n"
-				. "AND users.UserID = goals.UserID\n"
-				. "ORDER BY logs.LogTime desc";
-
-		$result = db_exec($query);
-		
-		$logs = array();
-		while($row = $result->fetch_assoc()){
-			array_push($logs, $row);
-		}
-
-		return $logs;
-	}
-	*/
 	
 	//获取某用户所关注的 User 的所有动态
 	function get_followed_logs($followerID){

@@ -131,10 +131,8 @@ $(document).ready(function(){
 						}
 						else {
 							echo "<b>". get_goal_steps_num($row['GoalID']). "</b> 计划"
-							. " | "
-							. "<b>". get_goal_logs_num($row['GoalID']). "</b> 记录"
-							. " | "
-							. "<b>". get_goal_followers_num($row['GoalID']). "</b> 关注";
+								. " | "
+								. "<b>". get_goal_logs_num($row['GoalID']). "</b> 记录";
 						}
 						echo "</div>"
 					. "</div>"

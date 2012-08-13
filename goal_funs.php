@@ -34,9 +34,7 @@
 				. "(SELECT GoalID FROM\n"
 					. "(SELECT goal_logs.GoalID, COUNT(*) AS LogsNum\n"
 					. "FROM goal_logs GROUP BY goal_logs.GoalID) AS c1\n"
-					. "WHERE logsNum > 5)\n"
-			. "AND goals.GoalID NOT IN\n"
-				. "(SELECT GoalID FROM goal_followers where FollowerID = ". $userID. ")\n";
+					. "WHERE logsNum > 5)\n";
 		
 		$result = db_exec($sql);
 		
@@ -57,6 +55,15 @@
 		return $row['goals_num'];	
 	}
 	
+	//获取赞的总数
+	function get_cheers_num($goalID){
+		$query = "SELECT CheerNum FROM goals WHERE GoalID = ". $goalID;
+		$result = db_exec($query);
+		$row = $result->fetch_assoc();
+		
+		return $row['CheerNum'];	
+	}
+
 	//删除目标
 	function delete_goal($goalID){
 		$goalID	= trim($goalID);
