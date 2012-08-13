@@ -3,6 +3,10 @@
 	require_once('data_funs.inc');
 	
 	$userID = $_REQUEST['userID'];
+	
+	$isMe = ($userID == $_SESSION['valid_user_id']);
+	
+	$isFollowed = check_is_followed($_SESSION['valid_user_id'], $userID);
 ?>
 
 <div id='person-page'>
@@ -12,6 +16,16 @@
 		<div id='user-info-wap'>
 			<span id='user-name'> <?php echo get_username_by_id($userID); ?> </span>
 		</div>
+		<?php if(!$isMe){
+			echo "<div id='user-cmd-wap'>";
+			if(!$isFollowed){
+				echo "<a href='follower_proc.php?proc=follow&followerID=". $_SESSION['valid_user_id']. "&followeeID=". $userID. "'>关注</a>";
+			}
+			else{
+				echo "<a href='follower_proc.php?proc=disfollow&followerID=". $_SESSION['valid_user_id']. "&followeeID=". $userID. "'>取消关注</a>";		
+			}
+			echo "</div>";
+		} ?>
 	</div>
 	
 	<!-- 用户的 Goals -->
@@ -28,11 +42,13 @@
 							. "<span><b>". get_goal_steps_num($goalID). "</b> 规划</span>"
 							. " | "
 							. "<span><b>". get_goal_logs_num($goalID). "</b> 记录</span>"
-						. "</div>"
-						. "<div class='goal-cmd-wap'>"
-							."<a class='goal-cmd'>赞</a>"
-						. "</div>"
-					. "</div>";
+						. "</div>";
+						if($_REQUEST['userID'] != $_SESSION['valid_user_id']){	//若为他人
+							echo "<div class='goal-cmd-wap'>"
+									."<a class='goal-cmd'>鼓励</a>"
+								. "</div>";
+						}
+				echo "</div>";
 			}
 		} ?>
 		
@@ -51,7 +67,14 @@
 
 	<!-- 用户的个人动态 -->	
 	<div id="personal-dynamics-panel">
-		<p id='dynamic-header'>个人动态</p>
+		<div class='panel-header'>
+			<div class='panel-title'>个人动态</div>
+			<div class='panel-cmd-wapper'>	
+				<span>......（</span
+				><span class='panel-cmd'>全部</span
+				><span>）<span>
+			</div>
+		</div>
 		
 		<?php
 		$dynamics = get_all_logs($userID);
@@ -63,6 +86,14 @@
 				. "</div>";
 		}
 		?>
+
+		<div class='panel-header'>
+			<div class='panel-title'>关注的人</div>
+		</div>
+		
+		<div class='panel-header'>
+			<div class='panel-title'>留言板</div>
+		</div>
 	</div>
 </div>
 <?php

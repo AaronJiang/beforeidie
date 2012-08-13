@@ -49,9 +49,12 @@
 	
 	//获取个人的所有动态
 	function get_all_logs($userID){
-		$query = "select goal_logs.LogContent, goal_logs.LogTime, goals.Title, goals.GoalID\n"
-				. "from goals, goal_logs\n"
-				. "where goals.UserID = ". $userID. " and goals.GoalID = goal_logs.GoalID order by goal_logs.LogTime desc";
+		$query = "SELECT goal_logs.LogContent, goal_logs.LogTime, goals.Title, goals.GoalID\n"
+				. "FROM goals, goal_logs\n"
+				. "WHERE goals.UserID = ". $userID. "\n"
+				. "AND goals.GoalID = goal_logs.GoalID\n"
+				. "ORDER BY goal_logs.LogTime DESC\n"
+				. "LIMIT 0 , 3";
 				
 		$results = db_exec($query);
 		
@@ -68,10 +71,10 @@
 		$query = "SELECT logs.LogTitle, logs.LogID, logs.LogContent, logs.LogTime, goals.GoalID, goals.Title, users.Username, users.UserID\n"
 				. "FROM followers as fows, goals, goal_logs as logs, users\n"
 				. "WHERE fows.FollowerID = ". $followerID. "\n"
-				. "AND fows.UserID = goals.UserID\n"
+				. "AND fows.FolloweeID = goals.UserID\n"
 				. "AND goals.GoalID = logs.GoalID\n"
 				. "AND goals.IsPublic = 1\n"
-				. "AND users.UserID = fows.UserID\n"
+				. "AND users.UserID = fows.FolloweeID\n"
 				. "ORDER BY logs.LogTime desc";
 				
 		$result = db_exec($query);

@@ -203,7 +203,7 @@ $(function(){
 			//若不是所有者
 			} else { ?>
 			<a href='goal_proc.php?proc=finish&goalID=<?php echo $GOAL_ID ?>'>留言</a>
-			<a href='goal_proc.php?proc=finish&goalID=<?php echo $GOAL_ID ?>'>赞</a>
+			<a href='goal_proc.php?proc=finish&goalID=<?php echo $GOAL_ID ?>'>鼓励</a>
 			<?php } ?>
 		</div>
 		
@@ -219,7 +219,7 @@ $(function(){
 			</div
 			><div class='goal-num-item'>
 				<div class='goal-num'><?php echo get_cheers_num($GOAL_ID) ?></div>
-				<div>赞</div>
+				<div>鼓励</div>
 			</div>
 		</div>
 	</div>
@@ -258,8 +258,6 @@ $(function(){
 		<?php if($isCreator){ ?>
 			<span>......（<span
 			><span class='panel-cmd' id='cmd-add-log'>说说</span
-			><span>|</span
-			><span class='panel-cmd'>日记</span
 			><span>）</span>
 		<?php } ?>
 		</div>
@@ -303,7 +301,7 @@ $(function(){
 	</div>
 	
 	<div class='panel-header'>
-		<div class='panel-title'>留言板</div>
+		<div class='panel-title'>鼓励</div>
 	</div>
 </div>
 

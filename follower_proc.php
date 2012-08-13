@@ -6,12 +6,12 @@
 	
 	switch($proc){
 		case "follow":
-			follow_goal($_REQUEST['goalID'], $_REQUEST['followerID']);
+			follow_user($_REQUEST['followerID'], $_REQUEST['followeeID']);
 			page_jump($_SERVER['HTTP_REFERER']);
 			break;
 			
 		case "disfollow":
-			disfollow_goal($_REQUEST['goalID'], $_REQUEST['followerID']);
+			disfollow_user($_REQUEST['followerID'], $_REQUEST['followeeID']);
 			page_jump($_SERVER['HTTP_REFERER']);			
 			break;
 	}

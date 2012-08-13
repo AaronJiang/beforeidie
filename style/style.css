@@ -322,8 +322,11 @@ select{
 	font-size:15px;
 	font-weight:bold;
 	border:0px solid lightgray;
-	border-radius:0px;
-	background-color:lightgray;
+	background-color:#E8E8E8;
+}
+
+#goal-selector li a:hover{
+	background-color:#DDD;
 }
 
 /* Goals */
@@ -448,22 +451,26 @@ select{
 	padding-bottom:4px;
 }
 
+#dynamic-panel .dynamic-item .dynamic-header{
+	color:gray;
+}
+
 #dynamic-panel .dynamic-item .dynamic-goal-creater{
-	color:black;
+	color:#369;
 	cursor:pointer;
 	text-decoration:none;
 }
 #dynamic-panel .dynamic-item .dynamic-goal-creater:hover{
-	text-shadow:0 0 2px gray;
+	text-decoration:underline;
 }
 
 #dynamic-panel .dynamic-item .dynamic-goal-title{
-	color:black;
+	color:#369;
 	cursor:pointer;
 	text-decoration:none;
 }
 #dynamic-panel .dynamic-item .dynamic-goal-title:hover{
-	text-shadow:0 0 2px gray;
+	text-decoration:underline;
 }
 
 #dynamic-panel .dynamic-item .dynamic-title{
@@ -476,14 +483,15 @@ select{
 	padding:0px 15px 0 15px;
 	font-family:'宋体';
 	line-height:22px;
-	font-size:14px;
+	font-size:13px;
+	color:#333;
 }
 
 #dynamic-panel .dynamic-item .dynamic-time{
 	text-align:right;
 	font-size:12px;
 	color:gray;
-	margin:5px 0 0 0;
+	margin:2px 0 0 0;
 }
 
 /* My Follow Users */
@@ -851,12 +859,12 @@ select{
 
 /* Loyout */
 #person-page #user-info-panel{
-	clear:both;
 	margin:0 0 15px 0;
+	position:relative;
 }
 
 #person-page #goals-panel{
-	width:60%;
+	width:59%;
 	float:left;
 }
 
@@ -879,6 +887,27 @@ select{
 	font-size:18px;
 	font-weight:bold;
 }
+#person-page #user-info-panel #user-cmd-wap{
+	position:absolute;
+	top:0px;
+	right:41%;
+}
+
+#person-page #user-info-panel #user-cmd-wap a{
+	display:block;
+	padding:2px 10px;
+	background-color:#E8E8E8;
+	text-decoration:none;
+	border-radius:2px;
+	color:black;	
+	cursor:pointer;
+	font-size:15px;
+	font-weight:bold;
+}
+
+#person-page #user-info-panel #user-cmd-wap a:hover{
+	background-color:#DDD;
+}
 
 /* User Goals */
 #person-page #goal-wap-header{
@@ -894,16 +923,16 @@ select{
 #person-page #goal-wap-header li a{
 	display:block;
 	padding:5px 10px;
-	background-color:lightgray;
+	background-color:#E8E8E8;
 	text-decoration:none;
 	color:black;	
 	cursor:pointer;
-	font-size:18px;
+	font-size:16px;
 	font-weight:bold;
 }
 
 #person-page #goal-wap-header li a:hover{
-	
+	background-color:#DDD;
 }
 
 #person-page .goal-wap{
@@ -951,23 +980,23 @@ select{
 
 #person-page .goal-cmd-wap{
 	position:absolute;
-	top:-1px;
-	right:-1px;
+	top:5px;
+	right:5px;
 }
 
 #person-page .goal-cmd{
 	text-decoration:none;
 	color:black;
 	display:block;
-	background-color:#BABABA;
-	border-bottom-left-radius:5px;
+	background-color:#E8E8E8;
+	border-radius:2px;
 	padding:2px 7px;
 	font-size:12px;
 	cursor:pointer;
 }
 
 #person-page .goal-cmd:hover{
-	background-color:lightgray;
+	background-color:#DDD;
 }
 
 /* Personal Dynamics */
@@ -979,8 +1008,8 @@ select{
 }
 
 #person-page .dynamic-item{
-	padding:5px 0 0 0;
-	border-top:1px solid #EEE;
+	padding:0 0 5px 0;
+	border-bottom:1px solid #EEE;
 	margin:0 0 5px 0;
 }
 
