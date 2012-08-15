@@ -627,16 +627,19 @@ select{
 	border-radius:2px;
 	display:inline-block;
 	padding:2px 8px;
-	background-color:lightgray;
+	background-color:#E8E8E8;
 	font-size:15px;
 	margin:0 0 0 6px;
 }
 
 #goal-title-panel #goal-cmd-wap a:hover{
 	background-color:orange;
-	color:black;
 }
 
+#goal-title-panel #goal-cmd-wap a.isCheered:hover{
+	background-color:#E0E0E0;
+	cursor:default;
+}
 
 #goal-title-panel #goal-num-wap{
 	position:absolute;
@@ -675,11 +678,11 @@ select{
 }
 
 /* Step Dialog */
-#step-edit-list li{
+#goal-details-panel #step-edit-list li{
 	list-style-type: none;
 }
 
-#step-edit-list li .step-edit-area{
+#goal-details-panel #step-edit-list li .step-edit-area{
 	padding:5px 8px;
 	margin-top:10px;
 	font-size:14px;
@@ -691,11 +694,11 @@ select{
 	float:left;
 }
 
-#step-edit-list li .step-edit-area:focus{
+#goal-details-panel #step-edit-list li .step-edit-area:focus{
 	background-color:#eee;
 }
 
-#step-edit-list li .delete-step-item, #step-edit-list li .add-step-item{
+#goal-details-panel #step-edit-list li .delete-step-item, #step-edit-list li .add-step-item{
 	display:block;
 	float:left;
 	margin:10px 0 0 8px;
@@ -703,7 +706,7 @@ select{
 	cursor:pointer;	
 }
 
-#step-edit-list li .delete-step-item:hover, #step-edit-list li .add-step-item:hover{
+#goal-details-panel #step-edit-list li .delete-step-item:hover, #step-edit-list li .add-step-item:hover{
 	background:black;
 	color:white;
 }
@@ -735,27 +738,25 @@ select{
 }
 
 /* Log Dialog */
-#form-new-log #log-title{
+#goal-details-panel #form-new-log #log-title{
 	margin:10px 0 10px 0;
 	width:456px;
 }
 
-#form-new-log #log-content{
+#goal-details-panel #form-new-log #log-content{
 	width:456px;
 	height:200px;
 }
 
-/* Creator and Followers */
-.user-icon{
+/* Creator */
+#goal-sidebar-panel .user-icon{
 	text-decoration:none;
 	display:block;
-	padding:3px;
-	border:1px solid lightgray;
 	float:left;
 	margin:0 10px 10px 0;
 }
 
-.user-icon img{
+#goal-sidebar-panel .user-icon img{
 	width:40px;
 	height:40px;
 	border:none;
@@ -864,12 +865,12 @@ select{
 }
 
 #person-page #goals-panel{
-	width:59%;
+	width:70%;
 	float:left;
 }
 
 #person-page #personal-dynamics-panel{
-	width:38%;
+	width:28%;
 	float:right;
 }
 
@@ -890,7 +891,7 @@ select{
 #person-page #user-info-panel #user-cmd-wap{
 	position:absolute;
 	top:0px;
-	right:41%;
+	right:30%;
 }
 
 #person-page #user-info-panel #user-cmd-wap a{

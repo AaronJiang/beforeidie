@@ -37,7 +37,7 @@
 		
 		case "finish":
 			//todo
-			page_jump($_SERVER['HTTP_REFERER']);			
+			page_jump_back();			
 			break;
 	}
 ?>

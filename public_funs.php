@@ -47,4 +47,8 @@
 		header('Location:'. $url);
 	}
 
+	//返回上一页
+	function page_jump_back(){
+		header('Location:'. $_SERVER['HTTP_REFERER']);	
+	}
 ?>

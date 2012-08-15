@@ -42,12 +42,15 @@
 							. "<span><b>". get_goal_steps_num($goalID). "</b> 规划</span>"
 							. " | "
 							. "<span><b>". get_goal_logs_num($goalID). "</b> 记录</span>"
+							. " | "
+							. "<span><b>". get_goal_cheers_num($goalID). "</b> 鼓励</span>"
 						. "</div>";
-						if($_REQUEST['userID'] != $_SESSION['valid_user_id']){	//若为他人
+						/*
+						if($_REQUEST['userID'] != $_SESSION['valid_user_id']){	//若不是创建者
 							echo "<div class='goal-cmd-wap'>"
 									."<a class='goal-cmd'>鼓励</a>"
 								. "</div>";
-						}
+						}*/
 				echo "</div>";
 			}
 		} ?>

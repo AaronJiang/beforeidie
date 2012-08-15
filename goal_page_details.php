@@ -193,18 +193,28 @@ $(function(){
 		<div id='goal-cmd-wap'>
 			<?php
 			//若为所有者
-			if($isCreator){ 
+			if($isCreator){
 				$isFinished = check_goal_is_finished($GOAL_ID);
-				if(!$isFinished){
+				if(!$isFinished){	//若还未完成
 			?>
 			<a href='goal_proc.php?proc=finish&goalID=<?php echo $GOAL_ID ?>'>完成</a>
 			<?php
 				}
-			//若不是所有者
-			} else { ?>
-			<a href='goal_proc.php?proc=finish&goalID=<?php echo $GOAL_ID ?>'>留言</a>
-			<a href='goal_proc.php?proc=finish&goalID=<?php echo $GOAL_ID ?>'>鼓励</a>
-			<?php } ?>
+				else {	//若已经完成
+				}
+			} 
+			else {	//若不是所有者
+				$isCheered = check_goal_is_cheered($_SESSION['valid_user_id'], $GOAL_ID);
+				if(!$isCheered){	//若还未鼓励
+			?>
+			<a href='cheer_proc.php?proc=cheer&userID=<?php echo $_SESSION['valid_user_id'] ?>&goalID=<?php echo $GOAL_ID ?>'>鼓励</a>
+			<?php 
+				} 
+				else {	//若已经鼓励 ?>
+			<a class='isCheered' href='#'>已鼓励</a>			
+			<?php 
+				}
+			} ?>
 		</div>
 		
 		<div id='goal-num-wap'>
@@ -218,7 +228,7 @@ $(function(){
 				<div>记录</div>
 			</div
 			><div class='goal-num-item'>
-				<div class='goal-num'><?php echo get_cheers_num($GOAL_ID) ?></div>
+				<div class='goal-num'><?php echo get_goal_cheers_num($GOAL_ID) ?></div>
 				<div>鼓励</div>
 			</div>
 		</div>
@@ -301,8 +311,18 @@ $(function(){
 	</div>
 	
 	<div class='panel-header'>
-		<div class='panel-title'>鼓励</div>
+		<div class='panel-title'>鼓励的人</div>
+
 	</div>
+	
+	<?php 
+		$cheerers = get_goal_cheerers($GOAL_ID);
+		foreach($cheerers as $cheerer){
+			echo "<a class='user-icon' href='person.php?userID=". $cheerer['UserID']. "' title='". $cheerer['Username']. "'>"
+					. "<img src='./imgs/gravatar-140.png' />"
+				. "</a>";
+		}
+	?>
 </div>
 
 <?php if($isCreator){ ?>

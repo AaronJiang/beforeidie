@@ -54,15 +54,6 @@
 		
 		return $row['goals_num'];	
 	}
-	
-	//获取赞的总数
-	function get_cheers_num($goalID){
-		$query = "SELECT CheerNum FROM goals WHERE GoalID = ". $goalID;
-		$result = db_exec($query);
-		$row = $result->fetch_assoc();
-		
-		return $row['CheerNum'];	
-	}
 
 	//删除目标
 	function delete_goal($goalID){
