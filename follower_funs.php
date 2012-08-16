@@ -22,11 +22,11 @@
 	}
 	
 	//获取某 User 的所有关注者信息
-	function get_followers($goalID){
+	function get_followers($followeeID){
 		$query = "SELECT users.Username, users.UserID\n"
-				. "FROM users, goal_followers\n"
-				. "WHERE goal_followers.GoalID = ". $goalID. "\n"
-				. "AND goal_followers.FollowerID = users.UserID";
+				. "FROM users, followers\n"
+				. "WHERE followers.FolloweeID = ". $followeeID. "\n"
+				. "AND followers.FollowerID = users.UserID";
 		
 		$result =db_exec($query);
 		

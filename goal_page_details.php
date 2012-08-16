@@ -7,11 +7,11 @@
 
 <script type="text/javascript">
 
-$(function(){
+$(document).ready(function(){
 	//全局变量
 	var GOAL_ID = <?php echo $_REQUEST['goalID'] ?>;
 	
-	var isCreator = <?php echo $isCreator ?>;
+	var isCreator = <?php echo $isCreator? 1: 0; ?>;
 	if(!isCreator){
 		return;
 	}
@@ -326,6 +326,7 @@ $(function(){
 </div>
 
 <?php if($isCreator){ ?>
+
 <div id='dialog-edit-steps'></div>
 
 <div id='dialog-add-log'>
@@ -333,11 +334,11 @@ $(function(){
 		<div>
 			<input type='text' id='log-title' autocomplete='off' placeholder='标题' name='logTitle'>
 		</div>
-		
+			
 		<div>
 			<textarea id="log-content" autocomplete='off' placeholder="内容" rows="3" name="logContent"></textarea>
 		</div>
-		
+			
 		<input type="hidden" name="goalID" value="<?php echo $GOAL_ID ?>" />
 		<input type="hidden" name="proc" value="new" />
 	</form>	

@@ -6,4 +6,5 @@
 	require_once('account_funs.php');
 	require_once('follower_funs.php');
 	require_once('cheer_funs.php');
+	require_once('message_funs.php');
 ?>

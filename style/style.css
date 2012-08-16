@@ -630,6 +630,7 @@ select{
 	background-color:#E8E8E8;
 	font-size:15px;
 	margin:0 0 0 6px;
+	font-weight:bold;
 }
 
 #goal-title-panel #goal-cmd-wap a:hover{
@@ -678,11 +679,11 @@ select{
 }
 
 /* Step Dialog */
-#goal-details-panel #step-edit-list li{
+#step-edit-list li{
 	list-style-type: none;
 }
 
-#goal-details-panel #step-edit-list li .step-edit-area{
+#step-edit-list li .step-edit-area{
 	padding:5px 8px;
 	margin-top:10px;
 	font-size:14px;
@@ -694,11 +695,11 @@ select{
 	float:left;
 }
 
-#goal-details-panel #step-edit-list li .step-edit-area:focus{
+#step-edit-list li .step-edit-area:focus{
 	background-color:#eee;
 }
 
-#goal-details-panel #step-edit-list li .delete-step-item, #step-edit-list li .add-step-item{
+#step-edit-list li .delete-step-item, #step-edit-list li .add-step-item{
 	display:block;
 	float:left;
 	margin:10px 0 0 8px;
@@ -706,7 +707,7 @@ select{
 	cursor:pointer;	
 }
 
-#goal-details-panel #step-edit-list li .delete-step-item:hover, #step-edit-list li .add-step-item:hover{
+#step-edit-list li .delete-step-item:hover, #step-edit-list li .add-step-item:hover{
 	background:black;
 	color:white;
 }
@@ -727,7 +728,7 @@ select{
 	font-size:14px;
 	line-height:22px;
 	padding:0 0px;
-	font-family:Times New Roman,'微软雅黑';
+	font-family:Times New Roman, '微软雅黑';
 }
 
 #goal-details-panel .log-time{
@@ -738,14 +739,16 @@ select{
 }
 
 /* Log Dialog */
-#goal-details-panel #form-new-log #log-title{
-	margin:10px 0 10px 0;
+#form-new-log #log-title{
+	margin:10px 0 15px 0;
 	width:456px;
 }
 
-#goal-details-panel #form-new-log #log-content{
+#form-new-log #log-content{
 	width:456px;
 	height:200px;
+	resize:vertical;
+	margin:0 0 0 0;
 }
 
 /* Creator */
@@ -895,8 +898,9 @@ select{
 }
 
 #person-page #user-info-panel #user-cmd-wap a{
-	display:block;
+	display:inline-block;
 	padding:2px 10px;
+	margin:0 0 0 8px;
 	background-color:#E8E8E8;
 	text-decoration:none;
 	border-radius:2px;
@@ -907,29 +911,30 @@ select{
 }
 
 #person-page #user-info-panel #user-cmd-wap a:hover{
-	background-color:#DDD;
+	background-color:orange;
 }
 
 /* User Goals */
 #person-page #goal-wap-header{
 	list-style:none;
-	margin:0 0 15px 0;
+	margin:0 0 0px 0;
 }
 
 #person-page #goal-wap-header li{
 	display:inline-block;
-	margin:0 10px 0 0;
+	margin:0 8px 0 0;
 }
 
 #person-page #goal-wap-header li a{
 	display:block;
-	padding:5px 10px;
+	padding:5px 15px;
 	background-color:#E8E8E8;
+	border-top-left-radius:2px;
+	border-top-right-radius:2px;
 	text-decoration:none;
 	color:black;	
 	cursor:pointer;
-	font-size:16px;
-	font-weight:bold;
+	font-size:18px;
 }
 
 #person-page #goal-wap-header li a:hover{
@@ -1001,38 +1006,40 @@ select{
 }
 
 /* Personal Dynamics */
-#person-page #dynamic-header{
-	font-size:18px;
-	font-weight:bold;
-	margin:0 0 10px 0;
-	clear:both;
-}
 
 #person-page .dynamic-item{
-	padding:0 0 5px 0;
+	padding:0 5px 5px 5px;
 	border-bottom:1px solid #EEE;
 	margin:0 0 5px 0;
+	color:gray;
+	font-size:13px;
 }
 
 #person-page .dynamic-goal-title{
-	font-size:15px;
-	margin:0 0 5px 0;
+	margin:0 0 3px 0;
 }
 
 #person-page .dynamic-goal-title a{
 	text-decoration:none;
-	color:black;
+	color:#369;
 }
 
 #person-page .dynamic-goal-title a:hover{
-	text-shadow:0 0 1px gray;
+	text-decoration:underline;
+}
+
+#person-page .dynamic-title{
+	color:black;
+	font-weight:bold;
+	margin:0 0 3px 0;
+	text-indent:15px;
 }
 
 #person-page .dynamic-content{
-	font-size:13px;
+	font-size:12px;
 	font-family:'宋体';
 	line-height:20px;
-	text-indent:1em;
+	text-indent:15px;
 	word-wrap:break-all;
 	color:gray;
 }
@@ -1041,6 +1048,56 @@ select{
 	text-align:right;
 	color:gray;
 	font-size:12px;
+}
+
+/* Followers */
+
+#person-page .user-icon{
+	text-decoration:none;
+	display:block;
+	float:left;
+	margin:0 10px 10px 0;
+}
+
+#person-page .user-icon img{
+	width:40px;
+	height:40px;
+	border:none;
+}
+
+/* Message */
+#person-page .message-item{
+	border-bottom:1px solid #EEE;
+	font-size:13px;
+	padding:0 0 3px 0;
+	margin:0 5px 5px 5px;
+}
+
+#person-page .message-content{
+	margin:0 0 5px 0;
+}
+
+#person-page .message-content a{
+	color:#369;
+	text-decoration:none;
+}
+
+#person-page .message-content a:hover{
+	text-decoration:underline;
+}
+
+#person-page .message-time{
+	font-size:12px;
+	text-align:right;
+	color:gray;
+}
+
+/* Leave Message Dialog */
+#form-leave-message #message-content{
+	width:384px;
+	height:150px;
+	margin:10px 0 0 0;
+	resize:vertical;
 }
 
 /* About

@@ -9,6 +9,43 @@
 	$isFollowed = check_is_followed($_SESSION['valid_user_id'], $userID);
 ?>
 
+<script type='text/javascript'>
+
+$(document).ready(function(){
+	$("#dialog-leave-message").dialog({
+		autoOpen: false,
+		modal: true,
+		draggable: false,
+		resizable: false,
+		title: '给他留言',
+		width: 430,
+		buttons:{
+			'留言': function(){
+				$("#form-leave-message").submit();
+			},
+			'取消': function(){
+				$(this).dialog('close');
+			}
+		}
+	});
+
+	$("#cmd-leave-message").click(function(){
+		$("#dialog-leave-message").dialog('open');
+	});		
+});
+	
+</script>
+
+<!-- 留言对话框 -->
+<div id='dialog-leave-message'>
+	<form id='form-leave-message' action='message_proc.php' method='post'>
+		<textarea name='message' id='message-content'></textarea>
+		<input type='hidden' name='proc' value='leaveMessage'>
+		<input type='hidden' name='posterID' value='<?php echo $_SESSION['valid_user_id']; ?>'>
+		<input type='hidden' name='receiverID' value='<?php echo $userID; ?>'>
+	</form>
+</div>
+
 <div id='person-page'>
 	<!-- 用户信息 -->
 	<div id='user-info-panel' class='clearfix'>
@@ -24,6 +61,7 @@
 			else{
 				echo "<a href='follower_proc.php?proc=disfollow&followerID=". $_SESSION['valid_user_id']. "&followeeID=". $userID. "'>取消关注</a>";		
 			}
+			echo "<a id='cmd-leave-message'>给他留言</a>";
 			echo "</div>";
 		} ?>
 	</div>
@@ -68,10 +106,12 @@
 		</div>
 	</div>
 
-	<!-- 用户的个人动态 -->	
+	<!-- 用户的额外信息 -->	
 	<div id="personal-dynamics-panel">
+	
+		<!-- 动态 -->
 		<div class='panel-header'>
-			<div class='panel-title'>个人动态</div>
+			<div class='panel-title'>TA的动态</div>
 			<div class='panel-cmd-wapper'>	
 				<span>......（</span
 				><span class='panel-cmd'>全部</span
@@ -83,20 +123,57 @@
 		$dynamics = get_all_logs($userID);
 		foreach($dynamics as $dyn){
 			echo "<div class='dynamic-item'>"
-					. "<p class='dynamic-goal-title'>在 <b><a href=goal_page_details.php?goalID=". $dyn['GoalID'] .">". $dyn['Title']. "</b></a> 中写道:</p>"
+					. "<p class='dynamic-goal-title'>在 <a href=goal_page_details.php?goalID=". $dyn['GoalID'] .">". $dyn['Title']. "</a> 中写道:</p>"
+					. "<p class='dynamic-title'>". $dyn['LogTitle']. "</p>"
 					. "<p class='dynamic-content'>". $dyn['LogContent']. "</p>"
 					. "<p class='dynamic-time'>". $dyn['LogTime']. "</p>"
 				. "</div>";
 		}
 		?>
-
+		
+		<!-- 关注他的人 -->	
 		<div class='panel-header'>
-			<div class='panel-title'>关注的人</div>
+			<div class='panel-title'>关注TA的人</div>
+			<div class='panel-cmd-wapper'>	
+				<span>......（</span
+				><span class='panel-cmd'>全部</span
+				><span>）<span>
+			</div>
 		</div>
 		
+		<?php 
+		$followers = get_followers($userID);
+		foreach($followers as $follower){
+			echo "<a class='user-icon' href='person.php?userID=". $follower['UserID']. "' title='". $follower['Username']. "'>"
+					. "<img src='./imgs/gravatar-140.png' />"
+				. "</a>";
+		}
+		?>
+		
+		<!-- 他关注的人 -->
+
+		<!-- 留言板 -->		
 		<div class='panel-header'>
 			<div class='panel-title'>留言板</div>
+			<div class='panel-cmd-wapper'>	
+				<span>......（</span
+				><span class='panel-cmd'>全部</span
+				><span>）<span>
+			</div>
 		</div>
+		
+		<?php
+		$messages = get_user_messages($userID);
+		foreach($messages as $message){
+			echo "<div class='message-item'>"
+					. "<p class='message-content'>"
+						. "<a href='person.php?userID='". $message['PosterID']. "'>". $message['Username']. "</a>："
+						. $message['Message']
+					. "</p>"
+					. "<p class='message-time'>". $message['Time']. "</p>"
+				. "</div>";
+		}
+		?>
 	</div>
 </div>
 <?php

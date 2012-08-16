@@ -49,7 +49,7 @@
 	
 	//获取个人的所有动态
 	function get_all_logs($userID){
-		$query = "SELECT goal_logs.LogContent, goal_logs.LogTime, goals.Title, goals.GoalID\n"
+		$query = "SELECT goal_logs.LogTitle, goal_logs.LogContent, goal_logs.LogTime, goals.Title, goals.GoalID\n"
 				. "FROM goals, goal_logs\n"
 				. "WHERE goals.UserID = ". $userID. "\n"
 				. "AND goals.GoalID = goal_logs.GoalID\n"
