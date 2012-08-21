@@ -31,6 +31,8 @@
 	});
 </script>
 
+<p class='subtitle'>建立新的梦想</p>
+
 <form id="form-new-goal" action="goal_proc.php" method="post">
 	<div>
 		<!--<label for="goal-title">目标：</label>-->

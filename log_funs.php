@@ -8,7 +8,7 @@
 		$logTitle = trim($logTitle);
 		$logContent = trim($logContent);
 		
-		if(!$logContent || !$logID){
+		if(!$logContent || !$goalID){
 			echo "You have not enter all the required details!";
 			exit;
 		}
@@ -19,7 +19,8 @@
 			$logContent = addslashes($logContent);
 		}
 	
-		$query = "insert into goal_logs values (NULL, '". $logTime. "', '". $logTitle. "', '". $logContent. "', '". $goalID. "')";
+		$query = "insert into goal_logs (LogTime, LogTitle, LogContent, GoalID)\n"
+				. "values ('". $logTime. "', '". $logTitle. "', '". $logContent. "', '". $goalID. "')";
 		$result = db_exec($query);
 		
 		return $result? "true": "false";

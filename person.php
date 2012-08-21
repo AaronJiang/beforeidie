@@ -12,6 +12,12 @@
 <script type='text/javascript'>
 
 $(document).ready(function(){
+	var isMe = <?php echo $isMe? 1: 0; ?>;
+	
+	if(isMe){
+		$('body').prop('id', 'page-person');
+	}
+	
 	$("#dialog-leave-message").dialog({
 		autoOpen: false,
 		modal: true,

@@ -48,7 +48,7 @@ $(document).ready(function(){
 		title: '编辑',
 		width: 500,
 		buttons: {
-			'添加': function(){
+			'保存': function(){
 				$('#form-edit-log').submit();
 			},
 			'取消': function(){

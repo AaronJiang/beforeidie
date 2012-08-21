@@ -87,8 +87,6 @@ textarea, input, select{
 /* 
 ------------------------------------------------------------*/
 body{
-	width:1000px;
-	margin:0 auto;
 	padding:0 0 10px 0;
 	background-color:white;
 	font-family:'微软雅黑';
@@ -183,28 +181,37 @@ select{
 
 /* Logo */
 #header{
-    background-repeat:no-repeat;
+	background-color:#2B2B2B;
 	height:40px;
-	padding:20px 0 20px 0;
+	position:relative;
+	margin:0 0 10px 0;
+	position:fixed;
+	top:0px;
+	left:0px;
+	width:100%;
+	z-index:10000;
+}
+
+#header-wap{
+	width:1000px;
+	margin:0 auto;
 	position:relative;
 }
 
 #logo-link{
 	display:block;
-	background-image:url('../imgs/new-logo.png');
-	height:40px;
-	width:165px;
+	background-image:url('../imgs/new.png');
+    background-repeat:no-repeat;
+	height:28px;
+	width:129px;
 	float:left;
+	margin:6px 15px 0 0px;
 }
 
 /* Nav */
 #nav{
-	float:right;
-	width:815px;
-	margin-bottom:15px;
-	background-color:;
+	float:left;
 	list-style:none;
-	border-bottom:1px solid black;
 }
 
 #nav li{
@@ -213,21 +220,27 @@ select{
 
 #nav a{
 	text-decoration:none;
-	font-size:20px;
-	color:black;
-	margin:8px 0 2px 20px;
+	font-size:15px;
+	color:#CCC;
+	margin:12px 0 0px 20px;
 	display:block;
+	font-family:'宋体';
 }
 
 #nav a:hover{
-	font-weight:bold;
+	color:white;
 }
 
-#page-goals #nav-goals, #page-dynamic #nav-dynamic, #page-newgoal #nav-newgoal, #page-about #nav-about{
-	font-weight:bold;
+#page-goals #nav-goals, #page-dynamic #nav-dynamic, #page-person #nav-person, #page-newgoal #nav-newgoal, #page-discover #nav-discover{
+	color:white;
 }
 
-
+#content-wap{
+	position:relative;
+	top:55px;
+	margin:0 auto;
+	width:1000px;
+}
 
 /* User Account
 ------------------------------------------------------------*/
@@ -235,17 +248,22 @@ select{
 /* Login State Panel */
 #account-info{
 	position:absolute;
-	top:2px;
+	top:9px;
 	right:0px;
 }
 
 #account-info a{
 	display:inline-block;
-	text-decoration:underline;
+	color:#CCC;
 	font-size:13px;
 	font-family:'宋体';
 	cursor:pointer;
 	margin-left:2px;
+	text-decoration:none;
+}
+
+#account-info a:hover{
+	color:white;
 }
 
 /* Account Details */
@@ -650,11 +668,12 @@ select{
 
 #goal-title-panel #goal-num-wap .goal-num-item{
 	display:inline-block;
-	padding:0 12px;
+	padding-left:12px;
 }
 
 #goal-title-panel #goal-num-wap .goal-num-item-border{
 	border-right:1px solid lightgray;
+	padding-right:12px;
 }
 
 #goal-title-panel #goal-num-wap .goal-num-item .goal-num{

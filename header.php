@@ -14,23 +14,28 @@
 
 	<body>
 		<div id="header">
-			<a id="logo-link" href="home.php"></a>
+			<div id="header-wap">
+				<a id="logo-link" href="home.php"></a>
 			
-			<ul id="nav" class="clearfix">
-				<li><a id="nav-goals" href="home.php">梦想</a></li>
-				<li><a id="nav-dynamic" href="dynamic.php">动态</a></li>
-				<li><a id="nav-person" href="person.php?userID=<?php echo $_SESSION['valid_user_id'] ?>">个人主页</a></li>				
-				<li><a id="nav-newgoal" href="goal_page_new.php">新建</a></li>
-				<li><a id="nav-discover" href="discover.php">发现</a></li>
-				<!--<li><a id="nav-about" href="about.php">关于</a></li>-->
-			</ul>
-			<div id="account-info">
-			<?php if(isset($_SESSION['valid_user'])){ ?>		
-				<span><a href='account_page_details.php'><?php echo $_SESSION['valid_user']; ?>的账号</a><span>
-				<span><a href='account_proc.php?proc=logout'>退出</a></span>			
-			<?php } else { ?>
-				<span><a href='account_page_login.php'>登陆</a><span>
-				<span><a href='account_page_register.php'>注册</a></span>
-			<?php } ?>
-			</div>	
+				<ul id="nav" class="clearfix">
+					<li><a id="nav-goals" href="home.php">梦想</a></li>
+					<li><a id="nav-dynamic" href="dynamic.php">动态</a></li>
+					<li><a id="nav-person" href="person.php?userID=<?php echo $_SESSION['valid_user_id'] ?>">个人主页</a></li>				
+					<li><a id="nav-newgoal" href="goal_page_new.php">新建</a></li>
+					<li><a id="nav-discover" href="discover.php">发现</a></li>
+					<!--<li><a id="nav-about" href="about.php">关于</a></li>-->
+				</ul>
+				
+				<div id="account-info">
+				<?php if(isset($_SESSION['valid_user'])){ ?>		
+					<span><a href='account_page_details.php'><?php echo $_SESSION['valid_user']; ?>的账号</a><span>
+					<span><a href='account_proc.php?proc=logout'>退出</a></span>			
+				<?php } else { ?>
+					<span><a href='account_page_login.php'>登陆</a><span>
+					<span><a href='account_page_register.php'>注册</a></span>
+				<?php } ?>
+				</div>	
+			</div>
 		</div>
+		
+		<div id="content-wap">
