@@ -16,7 +16,7 @@ $(document).ready(function(){
 		return;
 	}
 	
-	//初始化记录添加框
+	//初始化记录增加框
 	$('#dialog-add-log').dialog({
 		autoOpen: false,
 		modal: true,
@@ -38,6 +38,59 @@ $(document).ready(function(){
 	$('#cmd-add-log').click(function(){
 		$('#dialog-add-log').dialog('open');
 	});
+	
+	//初始化记录修改框
+	$('#dialog-edit-log').dialog({
+		autoOpen: false,
+		modal: true,
+		draggable: false,
+		resizable: false,
+		title: '编辑',
+		width: 500,
+		buttons: {
+			'添加': function(){
+				$('#form-edit-log').submit();
+			},
+			'取消': function(){
+				$(this).dialog('close');
+			}
+		}	
+	});
+	
+	//打开记录修改框
+	$('.log-cmd-edit').click(function(){
+		//ID
+		var logID = $(this).data('log-id');
+		$("#form-edit-log input[name='logID']").val(logID);
+		//标题
+		var logTitle = $(this).data('log-title');
+		$("#form-edit-log #log-title").val(logTitle);
+		//内容
+		var logContent = $(this).data('log-content');
+		$("#form-edit-log #log-content").val(logContent);
+		
+		$('#dialog-edit-log').dialog('open');
+	});
+	
+	//记录删除警告框
+	$('.log-cmd-delete').click(function(){
+		if(!confirm("确定删除此记录？")){
+			return false;
+		}
+	});
+	
+	//隐藏记录操作按钮
+	$('.log-cmd').hide();
+	
+	//显示&隐藏记录操作按钮
+	$('.log-item').hover(
+		function(){
+			$(this).find('.log-cmd').fadeIn('fast');
+		}, 
+		function(){
+			$(this).find('.log-cmd').fadeOut('fast');	
+		}
+	);
 	
 	//初始化步骤编辑框
 	$("#dialog-edit-steps").dialog({
@@ -285,7 +338,13 @@ $(document).ready(function(){
 				echo "<p class='log-title'>". $log['LogTitle']. "</p>";			
 			}
 			echo "<p class='log-content'>". $log['LogContent']. "</p>";
+			echo "<div class='log-cmd-time-wap'>";
+			if($isCreator){
+				echo "<a class='log-cmd log-cmd-edit' data-log-id=". $log['LogID'] ." data-log-title=". $log['LogTitle']. " data-log-content=". $log['LogContent']. ">编辑</a>";
+				echo "<a class='log-cmd log-cmd-delete' href='log_proc.php?proc=delete&logID=". $log['LogID']. "'>删除</a>";
+			}
 			echo "<p class='log-time'>". $log['LogTime']. "</p>";
+			echo "</div>";
 			echo "</div>";
 		}
 	}
@@ -327,20 +386,26 @@ $(document).ready(function(){
 
 <?php if($isCreator){ ?>
 
+<!-- 编辑步骤 -->
 <div id='dialog-edit-steps'></div>
 
+<!-- 添加记录 -->
 <div id='dialog-add-log'>
 	<form id="form-new-log" action="log_proc.php" method="post">
-		<div>
-			<input type='text' id='log-title' autocomplete='off' placeholder='标题' name='logTitle'>
-		</div>
-			
-		<div>
-			<textarea id="log-content" autocomplete='off' placeholder="内容" rows="3" name="logContent"></textarea>
-		</div>
-			
+		<input type='text' id='log-title' autocomplete='off' placeholder='标题（可不填）' name='logTitle'>	
+		<textarea id="log-content" autocomplete='off' placeholder="内容" name="logContent"></textarea>
 		<input type="hidden" name="goalID" value="<?php echo $GOAL_ID ?>" />
 		<input type="hidden" name="proc" value="new" />
+	</form>	
+</div>
+
+<!-- 修改记录 -->
+<div id='dialog-edit-log'>
+	<form id="form-edit-log" action="log_proc.php" method="post">
+		<input type='text' id='log-title' autocomplete='off' placeholder='标题（可不填）' name='logTitle'>
+		<textarea id="log-content" autocomplete='off' placeholder="内容" name="logContent"></textarea>	
+		<input type="hidden" name="logID" />
+		<input type="hidden" name="proc" value="update" />
 	</form>	
 </div>
 

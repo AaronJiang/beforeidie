@@ -47,27 +47,28 @@ $(document).ready(function(){
 </div>
 
 <div id='person-page'>
-	<!-- 用户信息 -->
-	<div id='user-info-panel' class='clearfix'>
-		<img id='user-profile' src='./imgs/gravatar-140.png' />
-		<div id='user-info-wap'>
-			<span id='user-name'> <?php echo get_username_by_id($userID); ?> </span>
-		</div>
-		<?php if(!$isMe){
-			echo "<div id='user-cmd-wap'>";
-			if(!$isFollowed){
-				echo "<a href='follower_proc.php?proc=follow&followerID=". $_SESSION['valid_user_id']. "&followeeID=". $userID. "'>关注</a>";
-			}
-			else{
-				echo "<a href='follower_proc.php?proc=disfollow&followerID=". $_SESSION['valid_user_id']. "&followeeID=". $userID. "'>取消关注</a>";		
-			}
-			echo "<a id='cmd-leave-message'>给他留言</a>";
-			echo "</div>";
-		} ?>
-	</div>
+	<div id='main-panel'>
 	
-	<!-- 用户的 Goals -->
-	<div id='goals-panel'>
+		<!-- 用户信息 -->
+		<div id='user-info' class='clearfix'>
+			<img id='user-profile' src='./imgs/gravatar-140.png' />
+			<div id='user-info-wap'>
+				<span id='user-name'> <?php echo get_username_by_id($userID); ?> </span>
+			</div>
+			<?php if(!$isMe){
+				echo "<div id='user-cmd-wap'>";
+				if(!$isFollowed){
+					echo "<a href='follower_proc.php?proc=follow&followerID=". $_SESSION['valid_user_id']. "&followeeID=". $userID. "'>关注</a>";
+			}
+				else{
+					echo "<a href='follower_proc.php?proc=disfollow&followerID=". $_SESSION['valid_user_id']. "&followeeID=". $userID. "'>取消关注</a>";		
+					}
+				echo "<a id='cmd-leave-message'>留言</a>";
+				echo "</div>";
+			} ?>
+		</div>
+	
+		<!-- 用户的 Goals -->
 		<?php
 		function goal_html_output($userID, $type){
 			$goals = get_goals($userID, $type);
@@ -77,18 +78,12 @@ $(document).ready(function(){
 						."<p class='goal-title'><a href='goal_page_details.php?goalID=". $goalID. "'>". $goal['Title']. "</a></p>"
 						."<p class='goal-reason'>". $goal['Reason']. "</p>"
 						. "<div class='goal-num-wap'>"
-							. "<span><b>". get_goal_steps_num($goalID). "</b> 规划</span>"
-							. " | "
-							. "<span><b>". get_goal_logs_num($goalID). "</b> 记录</span>"
-							. " | "
-							. "<span><b>". get_goal_cheers_num($goalID). "</b> 鼓励</span>"
+							. "<span>". get_goal_steps_num($goalID). " 规划</span>"
+							. " · "
+							. "<span>". get_goal_logs_num($goalID). " 记录</span>"
+							. " · "
+							. "<span>". get_goal_cheers_num($goalID). " 鼓励</span>"
 						. "</div>";
-						/*
-						if($_REQUEST['userID'] != $_SESSION['valid_user_id']){	//若不是创建者
-							echo "<div class='goal-cmd-wap'>"
-									."<a class='goal-cmd'>鼓励</a>"
-								. "</div>";
-						}*/
 				echo "</div>";
 			}
 		} ?>
@@ -107,7 +102,7 @@ $(document).ready(function(){
 	</div>
 
 	<!-- 用户的额外信息 -->	
-	<div id="personal-dynamics-panel">
+	<div id="sidebar-panel">
 	
 		<!-- 动态 -->
 		<div class='panel-header'>

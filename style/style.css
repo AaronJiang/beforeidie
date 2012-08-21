@@ -728,24 +728,42 @@ select{
 	font-size:14px;
 	line-height:22px;
 	padding:0 0px;
-	font-family:Times New Roman, '微软雅黑';
+	font-family:'宋体';
 }
 
-#goal-details-panel .log-time{
+#goal-details-panel .log-cmd-time-wap{
 	text-align:right;
 	font-size:12px;
 	margin:5px 0 4px 0;
+
+}
+
+#goal-details-panel .log-time{
+	display:inline-block;
 	color:gray;
 }
 
-/* Log Dialog */
-#form-new-log #log-title{
-	margin:10px 0 15px 0;
-	width:456px;
+#goal-details-panel .log-cmd{
+	display:inline-block;
+	margin:0 5px 0 0;
+	color:gray;
+	text-decoration:none;
+	cursor:pointer;
 }
 
-#form-new-log #log-content{
-	width:456px;
+#goal-details-panel .log-cmd:hover{
+	background:Blue;
+	color:white;
+}
+
+/* Log Dialog */
+#form-new-log #log-title, #form-edit-log #log-title{
+	margin:10px 0 15px 0;
+	width:454px;
+}
+
+#form-new-log #log-content, #form-edit-log #log-content{
+	width:454px;
 	height:200px;
 	resize:vertical;
 	margin:0 0 0 0;
@@ -862,42 +880,44 @@ select{
 ------------------------------------------------------------*/
 
 /* Loyout */
-#person-page #user-info-panel{
-	margin:0 0 15px 0;
-	position:relative;
-}
 
-#person-page #goals-panel{
+#person-page #main-panel{
 	width:70%;
 	float:left;
 }
 
-#person-page #personal-dynamics-panel{
+#person-page #sidebar-panel{
 	width:28%;
 	float:right;
 }
 
 /* User Info */
-#person-page #user-info-panel #user-profile{
+
+#person-page #user-info{
+	margin:0 0 15px 0;
+	position:relative;
+}
+
+#person-page #user-info #user-profile{
 	float:left;
 	margin:0 8px 0 0;
 }
 
-#person-page #user-info-panel #user-info-wap{
+#person-page #user-info #user-info-wap{
 	float:left;
 }
 
-#person-page #user-info-panel #user-info-wap #user-name{
+#person-page #user-info #user-info-wap #user-name{
 	font-size:18px;
 	font-weight:bold;
 }
-#person-page #user-info-panel #user-cmd-wap{
+#person-page #user-info #user-cmd-wap{
 	position:absolute;
 	top:0px;
-	right:30%;
+	right:0px;
 }
 
-#person-page #user-info-panel #user-cmd-wap a{
+#person-page #user-info #user-cmd-wap a{
 	display:inline-block;
 	padding:2px 10px;
 	margin:0 0 0 8px;
@@ -910,7 +930,7 @@ select{
 	font-weight:bold;
 }
 
-#person-page #user-info-panel #user-cmd-wap a:hover{
+#person-page #user-info #user-cmd-wap a:hover{
 	background-color:orange;
 }
 
@@ -958,19 +978,21 @@ select{
 }
 
 #person-page .goal-title{
-	font-size:16px;
-	font-weight:bold;
-	margin:0 0 2px 0;
+	font-size:15px;
+	/*font-weight:bold;*/
+	font-family:'宋体';
+	margin:0 0 3px 0;
 }
 
 #person-page .goal-title a{
 	text-decoration:none;
-	color:black;
-	cursor:pointer;
+	color:#369;
 }
 
 #person-page .goal-title a:hover{
-	text-shadow:0 0 1px gray;
+	text-decoration:underline;
+	background-color:#369;
+	color:white;
 }
 
 #person-page .goal-reason{
@@ -982,6 +1004,9 @@ select{
 #person-page .goal-num-wap{
 	font-size:12px;
 	color:gray;
+	position:absolute;
+	top:5px;
+	right:6px;
 }
 
 #person-page .goal-cmd-wap{

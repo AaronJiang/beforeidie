@@ -1,14 +1,14 @@
 <?php
 	require_once('public_funs.php');
 	
-	//插入新动态
+	//插入新记录
 	function new_log($logTitle, $logContent, $goalID){
 		$goalID = trim($goalID);
 		$logTime = now_time();
 		$logTitle = trim($logTitle);
 		$logContent = trim($logContent);
 		
-		if(!$logContent || !$logTitle){
+		if(!$logContent || !$logID){
 			echo "You have not enter all the required details!";
 			exit;
 		}
@@ -25,6 +25,36 @@
 		return $result? "true": "false";
 	}
 	
+	//更新记录
+	function update_log($logID, $logTitle, $logContent){
+		$logID = trim($logID);
+		$logTitle = trim($logTitle);
+		$logContent = trim($logContent);
+		
+		if(!$logContent || !$logID){
+			echo "You have not enter all the required details!";
+			exit;
+		}
+	
+		if(!get_magic_quotes_gpc()){
+			$logTitle = addslashes($logTitle);
+			$logContent = addslashes($logContent);
+		}
+		
+		$query = "UPDATE goal_logs\n"
+				. "SET LogTitle = '". $logTitle. "',\n"
+				. "LogContent = '". $logContent. "'\n"
+				. "WHERE LogID = ". $logID;
+		
+		return db_exec($query);
+	}
+	
+	//删除记录
+	function delete_log($logID){
+		$query = "delete from goal_logs where logID = ". $logID;
+		return db_exec($query);
+	}
+	
 	//获取所有记录的总数
 	function get_all_logs_num(){
 		$query = "select count(*) as logs_num from goal_logs";
@@ -34,7 +64,7 @@
 		return $row['logs_num'];
 	}
 	
-	//获取某目标的所有动态
+	//获取某 Goal 的所有记录
 	function get_logs($goalID){
 		$query = "select * from goal_logs where GoalID = ". $goalID. " order by logTime desc";
 		$results = db_exec($query);
@@ -47,7 +77,7 @@
 		return $logs;
 	}
 	
-	//获取个人的所有动态
+	//获取某 User 的所有记录
 	function get_all_logs($userID){
 		$query = "SELECT goal_logs.LogTitle, goal_logs.LogContent, goal_logs.LogTime, goals.Title, goals.GoalID\n"
 				. "FROM goals, goal_logs\n"

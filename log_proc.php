@@ -6,13 +6,20 @@
 	
 	switch($proc){
 		case "delete":
+			delete_log($_REQUEST['logID']);
+			page_jump_back();
 			break;
 			
 		case "new":
 			$logTitle = isset($_REQUEST['logTitle'])? $_REQUEST['logTitle']: '';
 			new_log($logTitle, $_REQUEST['logContent'], $_REQUEST['goalID']);
 			update_goal_updatetime($_REQUEST['goalID'], now_time());
-			page_jump($_SERVER['HTTP_REFERER']);
+			page_jump_back();
+			break;
+			
+		case "update":
+			update_log($_REQUEST['logID'], $_REQUEST['logTitle'], $_REQUEST['logContent']);
+			page_jump_back();
 			break;
 	}
 ?>
