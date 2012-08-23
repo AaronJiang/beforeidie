@@ -54,12 +54,11 @@ $(document).ready(function(){
 
 <div id='person-page'>
 	<div id='main-panel'>
-	
 		<!-- 用户信息 -->
 		<div id='user-info' class='clearfix'>
 			<img id='user-profile' src='./imgs/gravatar-140.png' />
 			<div id='user-info-wap'>
-				<span id='user-name'> <?php echo get_username_by_id($userID); ?> </span>
+				<span id='user-name'> <?php echo get_username_by_id($userID); ?> 的主页</span>
 			</div>
 			<?php if(!$isMe){
 				echo "<div id='user-cmd-wap'>";
@@ -168,7 +167,7 @@ $(document).ready(function(){
 		foreach($messages as $message){
 			echo "<div class='message-item'>"
 					. "<p class='message-content'>"
-						. "<a href='person.php?userID='". $message['PosterID']. "'>". $message['Username']. "</a>："
+						. "<a href='person.php?userID=". $message['PosterID']. "'>". $message['Username']. "</a>："
 						. $message['Message']
 					. "</p>"
 					. "<p class='message-time'>". $message['Time']. "</p>"

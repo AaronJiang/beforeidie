@@ -202,10 +202,10 @@ select{
 	display:block;
 	background-image:url('../imgs/new.png');
     background-repeat:no-repeat;
-	height:28px;
-	width:129px;
+	height:25px;
+	width:104px;
 	float:left;
-	margin:6px 15px 0 0px;
+	margin:8px 5px 0 5px;
 }
 
 /* Nav */
@@ -471,6 +471,7 @@ select{
 
 #dynamic-panel .dynamic-item .dynamic-header{
 	color:gray;
+	font-size:14px;
 }
 
 #dynamic-panel .dynamic-item .dynamic-goal-creater{
@@ -748,13 +749,13 @@ select{
 	line-height:22px;
 	padding:0 0px;
 	font-family:'宋体';
+	margin:0 0 5px 0;
 }
 
 #goal-details-panel .log-cmd-time-wap{
 	text-align:right;
 	font-size:12px;
-	margin:5px 0 4px 0;
-
+	margin:0 0 5px 0;
 }
 
 #goal-details-panel .log-time{
@@ -768,11 +769,40 @@ select{
 	color:gray;
 	text-decoration:none;
 	cursor:pointer;
+	font-family:'宋体';
+	color:#369;
 }
 
 #goal-details-panel .log-cmd:hover{
-	background:Blue;
+	background-color:Blue;
 	color:white;
+}
+
+/* Log Reply */
+#goal-details-panel .reply-wap .reply-content{
+	border:1px solid lightblue;
+	padding:5px 7px;
+	font-size:14px;
+	font-family:'宋体';
+	line-height:20px;
+	outline:none;
+	clear:both;
+	margin:0 0 8px 0;
+}
+
+#goal-details-panel .reply-wap .reply-submit{
+	display:block;
+	float:right;
+	border:1px solid lightgray;
+	padding:1px 10px;
+	margin:0 0 8px 0;
+	cursor:pointer;
+	font-size:14px;
+	background-color:lightgray;
+}
+
+#goal-details-panel .reply-wap .reply-submit:hover{
+	background-color:#EEE;
 }
 
 /* Log Dialog */
@@ -839,7 +869,7 @@ select{
 	font-size:12px;
 	font-family:'宋体';
 	position:relative;
-	padding:8px 10px;
+	padding:7px 10px;
 }
 
 .discover-goal-item .discover-goal-title{
@@ -851,11 +881,11 @@ select{
 
 .discover-goal-item .discover-goal-title a{
 	text-decoration:none;
-	color:black;
+	color:#369;
 }
 
 .discover-goal-item .discover-goal-title a:hover{
-	text-shadow:0 0 1px black;
+	text-decoration:underline;
 }
 
 .discover-goal-item .discover-goal-reason{
@@ -867,10 +897,19 @@ select{
 	color:gray;
 }
 
+.discover-goal-item .discover-goal-creator a{
+	color:#369;
+	text-decoration:none;
+}
+
+.discover-goal-item .discover-goal-creator a:hover{
+	text-decoration:underline;
+}
+
 .discover-goal-item .goal-num-wap{
 	position:absolute;
-	bottom:5px;
-	right:5px;
+	bottom:4px;
+	right:6px;
 	font-family:'微软雅黑';
 }
 
@@ -998,20 +1037,18 @@ select{
 
 #person-page .goal-title{
 	font-size:15px;
-	/*font-weight:bold;*/
+	font-weight:bold;
 	font-family:'宋体';
 	margin:0 0 3px 0;
 }
 
 #person-page .goal-title a{
 	text-decoration:none;
-	color:#369;
+	color:#08C;
 }
 
 #person-page .goal-title a:hover{
 	text-decoration:underline;
-	background-color:#369;
-	color:white;
 }
 
 #person-page .goal-reason{
@@ -1065,7 +1102,7 @@ select{
 
 #person-page .dynamic-goal-title a{
 	text-decoration:none;
-	color:#369;
+	color:#08C;
 }
 
 #person-page .dynamic-goal-title a:hover{

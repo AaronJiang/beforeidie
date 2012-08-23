@@ -4,9 +4,9 @@
 	$proc = trim($_REQUEST['proc']);
 	
 	switch($proc){
-		case 'leaveMessage':
-			leave_message($_REQUEST['message'], $_REQUEST['posterID'], $_REQUEST['receiverID']);
-			page_jump_back();
+		case 'new':
+			$isSucc = new_message($_REQUEST['message'], $_REQUEST['posterID'], $_REQUEST['parentID'], $_REQUEST['isRoot']);
+			echo $isSucc? "true": "false";
 			break;
 	}
 

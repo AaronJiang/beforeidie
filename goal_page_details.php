@@ -79,18 +79,77 @@ $(document).ready(function(){
 		}
 	});
 	
+	//弹出回复框
+	$('.log-cmd-reply').click(function(){
+		var posterID = $(this).data('poster-id'),
+			parentID = $(this).data('parent-id'),
+			isRoot = $(this).data('is-root'),
+			html = "";
+		
+		html = "<div class='reply-wap clearfix'>"
+			+ "<div class='reply-content' contenteditable='true'></div>"
+			+ "<span class='reply-submit'>发表</span>"
+			+ "</div>";
+		
+		$(html).appendTo($(this).parents('.log-item'))	//插入DOM
+			.find('.reply-content')
+				.focus() //聚焦
+				.blur(function(){	//失焦则从DOM中删除
+					if($.trim($(this).text()) == ""){
+						$(this).parent().detach();
+					}
+				})
+			.next()
+				.click(function(){	//提交回复
+					var message = $(this).prev().text();
+
+					$.ajax({
+						url: 'message_proc.php',
+						type: 'post',
+						data: {
+							'proc': 'new',
+							'message': message,
+							'posterID': posterID,
+							'parentID': parentID,
+							'isRoot': isRoot
+						}
+					});
+					
+					//构建新的回复 HTML 块
+					//todo
+					
+					$(this).parent().detach();
+				});
+	});
+	
+	/*
+	//回复框失焦则从 DOM 中删除
+	$('.reply-content').live('blur', function(){
+		if($.trim($(this).text()) == ""){
+			$(this).parent().detach();
+		}
+	});
+	*/
+	
+	//提交回复按钮
+	$('.reply-submit').click(function(){
+		//
+	});
+	
+	/*
 	//隐藏记录操作按钮
-	$('.log-cmd').hide();
+	//$('.log-cmd').hide();
 	
 	//显示&隐藏记录操作按钮
 	$('.log-item').hover(
 		function(){
-			$(this).find('.log-cmd').fadeIn('fast');
+			$(this).find('.log-cmd').show();
 		}, 
 		function(){
-			$(this).find('.log-cmd').fadeOut('fast');	
+			$(this).find('.log-cmd').hide();	
 		}
 	);
+	*/
 	
 	//初始化步骤编辑框
 	$("#dialog-edit-steps").dialog({
@@ -193,7 +252,6 @@ $(document).ready(function(){
 						html += "</li>";
 					});
 				}
-				
 				html += '</ul>';
 
 				$("#dialog-edit-steps").html(html);	
@@ -234,12 +292,12 @@ $(document).ready(function(){
 <?php
 	global $GOAL_ID;
 	$GOAL_ID = trim($_REQUEST['goalID']);
-	$goal = get_goal_by_ID($GOAL_ID);
 ?>
 
 <!-- Title 和 Prospect -->
 <div id='goal-title-panel'>
 	<div>
+		<?php $goal = get_goal_by_ID($GOAL_ID); ?>
 		<p id='goal-details-title'> <?php echo $goal['Title']; ?> </p>
 		<p id='goal-why'> <?php echo $goal['Reason']; ?> </p>
 		
@@ -339,8 +397,9 @@ $(document).ready(function(){
 			}
 			echo "<p class='log-content'>". $log['LogContent']. "</p>";
 			echo "<div class='log-cmd-time-wap'>";
+			echo "<a class='log-cmd log-cmd-reply' data-parent-id='". $log['LogID']. "' data-poster-id='". $_SESSION['valid_user_id']. "' data-is-root='1'>回复</a>";
 			if($isCreator){
-				echo "<a class='log-cmd log-cmd-edit' data-log-id=". $log['LogID'] ." data-log-title=". $log['LogTitle']. " data-log-content=". $log['LogContent']. ">编辑</a>";
+				echo "<a class='log-cmd log-cmd-edit' data-log-id='". $log['LogID'] ."' data-log-title='". $log['LogTitle']. "' data-log-content='". $log['LogContent']. "'>编辑</a>";
 				echo "<a class='log-cmd log-cmd-delete' href='log_proc.php?proc=delete&logID=". $log['LogID']. "'>删除</a>";
 			}
 			echo "<p class='log-time'>". $log['LogTime']. "</p>";

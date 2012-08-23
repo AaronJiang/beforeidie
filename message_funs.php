@@ -1,14 +1,15 @@
 <?php
 	require_once('public_funs.php');
 
-	//留言
-	function leave_message($message, $posterID, $receiverID){
-		if(!get_magic_quotes_gpc())
+	//增加留言
+	function new_message($message, $posterID, $parentID, $isRoot){
+		if(!get_magic_quotes_gpc()){
 			$message = addslashes($message);
-		
-		$query = "insert into messages (Message, PosterID, ReceiverID) values\n"
-				. "('". $message. "', ". $posterID. ", ". $receiverID. ")";
-				
+		}
+
+		$query = "insert into messages (Message, PosterID, ParentID, IsRoot) values\n"
+				. "('". $message. "', '". $posterID. "', '". $parentID. "', '". $isRoot. "')";
+
 		return db_exec($query);
 	}
 
