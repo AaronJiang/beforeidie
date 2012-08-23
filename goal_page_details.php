@@ -80,19 +80,19 @@ $(document).ready(function(){
 	});
 	
 	//弹出回复框
-	$('.log-cmd-reply').click(function(){
+	$('.log-cmd-comment').click(function(){
 		var posterID = $(this).data('poster-id'),
 			parentID = $(this).data('parent-id'),
 			isRoot = $(this).data('is-root'),
 			html = "";
 		
-		html = "<div class='reply-wap clearfix'>"
-			+ "<div class='reply-content' contenteditable='true'></div>"
-			+ "<span class='reply-submit'>发表</span>"
+		html = "<div class='comment-wap clearfix'>"
+			+ "<div class='comment-content' contenteditable='true'></div>"
+			+ "<span class='comment-submit'>发表</span>"
 			+ "</div>";
 		
 		$(html).appendTo($(this).parents('.log-item'))	//插入DOM
-			.find('.reply-content')
+			.find('.comment-content')
 				.focus() //聚焦
 				.blur(function(){	//失焦则从DOM中删除
 					if($.trim($(this).text()) == ""){
@@ -101,14 +101,14 @@ $(document).ready(function(){
 				})
 			.next()
 				.click(function(){	//提交回复
-					var message = $(this).prev().text();
+					var comment = $(this).prev().text();
 
 					$.ajax({
-						url: 'message_proc.php',
+						url: 'comment_proc.php',
 						type: 'post',
 						data: {
 							'proc': 'new',
-							'message': message,
+							'comment': comment,
 							'posterID': posterID,
 							'parentID': parentID,
 							'isRoot': isRoot
@@ -120,20 +120,6 @@ $(document).ready(function(){
 					
 					$(this).parent().detach();
 				});
-	});
-	
-	/*
-	//回复框失焦则从 DOM 中删除
-	$('.reply-content').live('blur', function(){
-		if($.trim($(this).text()) == ""){
-			$(this).parent().detach();
-		}
-	});
-	*/
-	
-	//提交回复按钮
-	$('.reply-submit').click(function(){
-		//
 	});
 	
 	/*
@@ -397,7 +383,7 @@ $(document).ready(function(){
 			}
 			echo "<p class='log-content'>". $log['LogContent']. "</p>";
 			echo "<div class='log-cmd-time-wap'>";
-			echo "<a class='log-cmd log-cmd-reply' data-parent-id='". $log['LogID']. "' data-poster-id='". $_SESSION['valid_user_id']. "' data-is-root='1'>回复</a>";
+			echo "<a class='log-cmd log-cmd-comment' data-parent-id='". $log['LogID']. "' data-poster-id='". $_SESSION['valid_user_id']. "' data-is-root='1'>回复</a>";
 			if($isCreator){
 				echo "<a class='log-cmd log-cmd-edit' data-log-id='". $log['LogID'] ."' data-log-title='". $log['LogTitle']. "' data-log-content='". $log['LogContent']. "'>编辑</a>";
 				echo "<a class='log-cmd log-cmd-delete' href='log_proc.php?proc=delete&logID=". $log['LogID']. "'>删除</a>";

@@ -46,7 +46,7 @@ $(document).ready(function(){
 <div id='dialog-leave-message'>
 	<form id='form-leave-message' action='message_proc.php' method='post'>
 		<textarea name='message' id='message-content'></textarea>
-		<input type='hidden' name='proc' value='leaveMessage'>
+		<input type='hidden' name='proc' value='new'>
 		<input type='hidden' name='posterID' value='<?php echo $_SESSION['valid_user_id']; ?>'>
 		<input type='hidden' name='receiverID' value='<?php echo $userID; ?>'>
 	</form>

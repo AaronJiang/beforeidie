@@ -779,7 +779,7 @@ select{
 }
 
 /* Log Reply */
-#goal-details-panel .reply-wap .reply-content{
+#goal-details-panel .comment-wap .comment-content{
 	border:1px solid lightblue;
 	padding:5px 7px;
 	font-size:14px;
@@ -790,7 +790,7 @@ select{
 	margin:0 0 8px 0;
 }
 
-#goal-details-panel .reply-wap .reply-submit{
+#goal-details-panel .comment-wap .comment-submit{
 	display:block;
 	float:right;
 	border:1px solid lightgray;
@@ -801,7 +801,7 @@ select{
 	background-color:lightgray;
 }
 
-#goal-details-panel .reply-wap .reply-submit:hover{
+#goal-details-panel .comment-wap .comment-submit:hover{
 	background-color:#EEE;
 }
 
