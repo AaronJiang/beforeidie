@@ -11,6 +11,54 @@ $(document).ready(function(){
 	//全局变量
 	var GOAL_ID = <?php echo $_REQUEST['goalID'] ?>;
 	
+	//弹出回复框
+	$('.log-cmd-comment').click(function(){
+		var posterID = $(this).data('poster-id'),
+			logID = $(this).data('log-id'),
+			isRoot = $(this).data('is-root'),
+			parentCommentID = isRoot? 0: $(this).data('parent-comment-id'),
+			html = "";
+		
+		//构建 HTML 块
+		html = "<div class='comment-wap clearfix'>"
+			+ "<div class='comment-content' contenteditable='true'></div>"
+			+ "<span class='comment-submit'>发表</span>"
+			+ "</div>";
+			
+		//插入DOM
+		$(html).appendTo($(this).parents('.log-item'))	
+			.find('.comment-content')
+				.focus() //聚焦
+				.blur(function(){	//失焦则从DOM中删除
+					if($.trim($(this).text()) == ""){
+						$(this).parent().detach();
+					}
+				})
+			.next()
+				.click(function(){	//提交回复
+					var comment = $(this).prev().text();
+					$.ajax({
+						url: 'comment_proc.php',
+						type: 'post',
+						data: {
+							'proc': 'new',
+							'comment': comment,
+							'posterID': posterID,
+							'logID': logID,
+							'parentCommentID': parentCommentID,
+							'isRoot': isRoot
+						}
+					});
+					
+					//隐藏回复框
+					$(this).parent().detach();
+					
+					//刷新页面
+					location.reload();
+				});
+	});
+	
+	//若不是 Goal 创建者，则停止执行 js 代码
 	var isCreator = <?php echo $isCreator? 1: 0; ?>;
 	if(!isCreator){
 		return;
@@ -77,53 +125,6 @@ $(document).ready(function(){
 		if(!confirm("确定删除此记录？")){
 			return false;
 		}
-	});
-	
-	//弹出回复框
-	$('.log-cmd-comment').click(function(){
-		var posterID = $(this).data('poster-id'),
-			logID = $(this).data('log-id'),
-			isRoot = $(this).data('is-root'),
-			parentCommentID = isRoot? 0: $(this).data('parent-comment-id'),
-			html = "";
-		
-		//构建 HTML 块
-		html = "<div class='comment-wap clearfix'>"
-			+ "<div class='comment-content' contenteditable='true'></div>"
-			+ "<span class='comment-submit'>发表</span>"
-			+ "</div>";
-			
-		//插入DOM
-		$(html).appendTo($(this).parents('.log-item'))	
-			.find('.comment-content')
-				.focus() //聚焦
-				.blur(function(){	//失焦则从DOM中删除
-					if($.trim($(this).text()) == ""){
-						$(this).parent().detach();
-					}
-				})
-			.next()
-				.click(function(){	//提交回复
-					var comment = $(this).prev().text();
-					$.ajax({
-						url: 'comment_proc.php',
-						type: 'post',
-						data: {
-							'proc': 'new',
-							'comment': comment,
-							'posterID': posterID,
-							'logID': logID,
-							'parentCommentID': parentCommentID,
-							'isRoot': isRoot
-						}
-					});
-					
-					//隐藏回复框
-					$(this).parent().detach();
-					
-					//刷新页面
-					location.reload();
-				});
 	});
 	
 	/*
@@ -414,32 +415,34 @@ $(document).ready(function(){
 			//回复
 			$comments = get_log_comments($log['LogID']);
 			foreach($comments as $comm){
-				echo "<div class='comment-item'>";
+				echo "<div class='comment-item clearfix'>";
 				$posterID = $comm['PosterID'];
 				$poster = get_username_by_id($comm['PosterID']);
 				
+				echo "<img class='comment-poster-profile' src='./imgs/gravatar-140.png' />";
+				
 				//回复主体
+				echo "<div class='comment-main'>";
+				//回复头
+				echo "<div class='comment-header'>";
 				if($comm['IsRoot']){
 					//若为对文章的回复
-					echo "<p class='comment-header'>"
-							. "<a href='person.php?userID=". $posterID. "'>". $poster. "</a>"
-							. " : "
-							. $comm['Comment']
-						. "</p>";
+					echo "<a href='person.php?userID=". $posterID. "'>". $poster. "</a>"
+						. " : "
+						. $comm['Comment'];
 				} else {	
 					//若为对回复的回复
 					$receiverID = get_posterid_by_commentid($comm['ParentCommentID']);
 					$receiver = get_username_by_id($receiverID);
-					echo "<p class='comment-header'>"
-							. "<a href='person.php?userID=". $posterID. "'>". $poster. "</a>"
-							. " : "
-							. "<a href='person.php?userID=". $receiverID. "'>@". $receiver. "</a> "
-							. $comm['Comment']
-						. "</p>";
+					echo "<a href='person.php?userID=". $posterID. "'>". $poster. "</a>"
+						. " : "
+						. "<a href='person.php?userID=". $receiverID. "'>@". $receiver. "</a> "
+						. $comm['Comment'];
 				}
+				echo "</div>";
 				
 				//回复时间和操作按钮
-				echo "<p class='comment-time-cmd-wap'>"
+				echo "<div class='comment-time-cmd-wap'>"
 						. "<span class='comment-time'>". $comm['Time']. "</span>"
 						. "&nbsp;"
 						. "<span class='comment-cmd log-cmd-comment'
@@ -447,7 +450,8 @@ $(document).ready(function(){
 								data-parent-comment-id='". $comm['CommentID']. "'
 								data-poster-id='". $_SESSION['valid_user_id']. "'
 								data-is-root='0'>回复<span>"
-					. "</p>"
+					. "</div>"
+				. "</div>"
 				. "</div>";
 			}
 			echo "</div>";

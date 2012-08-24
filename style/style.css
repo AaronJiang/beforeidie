@@ -461,6 +461,25 @@ select{
 	float:right;
 }
 
+/* Dynamic Type */
+#dynamic-panel #dynamic-type-wap{
+
+}
+
+#dynamic-panel .dynamic-type{
+	display:inline-block;
+	text-decoration:none;
+	color:black;
+	background-color:lightgray;
+	padding:5px 15px;
+	margin:0 10px 0 0;
+	font-weight:bold;
+}
+
+#dynamic-panel .dynamic-type:hover{
+	background:#DDD;
+}
+
 /* Dynamics */
 #dynamic-panel .dynamic-item{
 	clear:both;
@@ -800,8 +819,23 @@ select{
 	font-family:'宋体';
 }
 
+#goal-details-panel .comment-poster-profile{
+	height:35px;
+	width:35px;
+	float:left;
+	margin:0 8px 0 0;
+}
+
+#goal-details-panel .comment-main{
+	float:left;
+}
+
 #goal-details-panel .comment-header{
-	margin:0 0 2px 0;
+	margin:0 0 6px 0;
+}
+
+#goal-details-panel .comment-time-cmd-wap{
+	font-size:12px;
 }
 
 #goal-details-panel .comment-time{
