@@ -765,7 +765,7 @@ select{
 
 #goal-details-panel .log-cmd{
 	display:inline-block;
-	margin:0 5px 0 0;
+	margin:0 8px 0 0;
 	color:gray;
 	text-decoration:none;
 	cursor:pointer;
@@ -778,7 +778,59 @@ select{
 	color:white;
 }
 
-/* Log Reply */
+/* Log Dialog */
+#form-new-log #log-title, #form-edit-log #log-title{
+	margin:10px 0 15px 0;
+	width:454px;
+}
+
+#form-new-log #log-content, #form-edit-log #log-content{
+	width:454px;
+	height:200px;
+	resize:vertical;
+	margin:0 0 0 0;
+}
+
+/* Comments */
+#goal-details-panel .comment-item{
+	border-top:1px dashed #EEE;
+	padding:5px 0 8px 0px;
+	margin:0 0 0 60px;
+	font-size:13px;
+	font-family:'宋体';
+}
+
+#goal-details-panel .comment-header{
+	margin:0 0 2px 0;
+}
+
+#goal-details-panel .comment-time{
+	color:gray;
+}
+
+#goal-details-panel .comment-cmd{
+	color:#369;
+	cursor:pointer;
+}
+#goal-details-panel .comment-cmd:hover{
+	color:white;
+	background-color:blue;
+}
+
+#goal-details-panel .comment-item a{
+	text-decoration:none;
+	color:#369;
+}
+
+#goal-details-panel .comment-item a:hover{
+	text-decoration:underline;
+}
+
+/* Log Comment */
+#goal-details-panel .comment-wap{
+	margin:0 0 0 60px;
+}
+
 #goal-details-panel .comment-wap .comment-content{
 	border:1px solid lightblue;
 	padding:5px 7px;
@@ -803,19 +855,6 @@ select{
 
 #goal-details-panel .comment-wap .comment-submit:hover{
 	background-color:#EEE;
-}
-
-/* Log Dialog */
-#form-new-log #log-title, #form-edit-log #log-title{
-	margin:10px 0 15px 0;
-	width:454px;
-}
-
-#form-new-log #log-content, #form-edit-log #log-content{
-	width:454px;
-	height:200px;
-	resize:vertical;
-	margin:0 0 0 0;
 }
 
 /* Creator */

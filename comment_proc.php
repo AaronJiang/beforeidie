@@ -5,7 +5,7 @@
 	
 	switch($proc){
 		case 'new':
-			$isSucc = new_comment($_REQUEST['comment'], $_REQUEST['posterID'], $_REQUEST['parentID'], $_REQUEST['isRoot']);
+			$isSucc = new_comment($_REQUEST['comment'], $_REQUEST['posterID'], $_REQUEST['logID'], $_REQUEST['parentCommentID'], $_REQUEST['isRoot']);
 			echo $isSucc? "true": "false";
 			break;
 	}

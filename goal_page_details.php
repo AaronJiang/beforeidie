@@ -82,16 +82,19 @@ $(document).ready(function(){
 	//弹出回复框
 	$('.log-cmd-comment').click(function(){
 		var posterID = $(this).data('poster-id'),
-			parentID = $(this).data('parent-id'),
+			logID = $(this).data('log-id'),
 			isRoot = $(this).data('is-root'),
+			parentCommentID = isRoot? 0: $(this).data('parent-comment-id'),
 			html = "";
 		
+		//构建 HTML 块
 		html = "<div class='comment-wap clearfix'>"
 			+ "<div class='comment-content' contenteditable='true'></div>"
 			+ "<span class='comment-submit'>发表</span>"
 			+ "</div>";
-		
-		$(html).appendTo($(this).parents('.log-item'))	//插入DOM
+			
+		//插入DOM
+		$(html).appendTo($(this).parents('.log-item'))	
 			.find('.comment-content')
 				.focus() //聚焦
 				.blur(function(){	//失焦则从DOM中删除
@@ -102,7 +105,6 @@ $(document).ready(function(){
 			.next()
 				.click(function(){	//提交回复
 					var comment = $(this).prev().text();
-
 					$.ajax({
 						url: 'comment_proc.php',
 						type: 'post',
@@ -110,15 +112,17 @@ $(document).ready(function(){
 							'proc': 'new',
 							'comment': comment,
 							'posterID': posterID,
-							'parentID': parentID,
+							'logID': logID,
+							'parentCommentID': parentCommentID,
 							'isRoot': isRoot
 						}
 					});
 					
-					//构建新的回复 HTML 块
-					//todo
-					
+					//隐藏回复框
 					$(this).parent().detach();
+					
+					//刷新页面
+					location.reload();
 				});
 	});
 	
@@ -231,11 +235,11 @@ $(document).ready(function(){
 					html += "</li>";
 				} else {	
 					$.each(data, function(index, entry){
-						html += "<li>";
-						html += "<div class='step-edit-area' data-type='original' data-stepid='" + entry.StepID +"' contenteditable='true'>" + entry.StepContent + "</div>";
-						html += "<span class='delete-step-item'>删除</span>";
-						html += "<span class='add-step-item'>增加</span>"
-						html += "</li>";
+						html += "<li>"
+							+ "<div class='step-edit-area' data-type='original' data-stepid='" + entry.StepID +"' contenteditable='true'>" + entry.StepContent + "</div>"
+							+ "<span class='delete-step-item'>删除</span>"
+							+ "<span class='add-step-item'>增加</span>"
+							+ "</li>";
 					});
 				}
 				html += '</ul>';
@@ -377,19 +381,75 @@ $(document).ready(function(){
 		echo "<p style='font-size:14px;clear:both;'>还没有任何记录哦~</p>";
 	} else {
 		foreach($logs as $log){
+			//标题和内容
 			echo "<div class='log-item'>";
 			if($log['LogTitle'] != ''){
 				echo "<p class='log-title'>". $log['LogTitle']. "</p>";			
 			}
 			echo "<p class='log-content'>". $log['LogContent']. "</p>";
+			
+			//操作按钮
 			echo "<div class='log-cmd-time-wap'>";
-			echo "<a class='log-cmd log-cmd-comment' data-parent-id='". $log['LogID']. "' data-poster-id='". $_SESSION['valid_user_id']. "' data-is-root='1'>回复</a>";
-			if($isCreator){
-				echo "<a class='log-cmd log-cmd-edit' data-log-id='". $log['LogID'] ."' data-log-title='". $log['LogTitle']. "' data-log-content='". $log['LogContent']. "'>编辑</a>";
-				echo "<a class='log-cmd log-cmd-delete' href='log_proc.php?proc=delete&logID=". $log['LogID']. "'>删除</a>";
+			$commentsNum = get_log_comments_num($log['LogID']);
+			echo "<a class='log-cmd log-cmd-comment' 
+					data-log-id='". $log['LogID']. "'
+					data-poster-id='". $_SESSION['valid_user_id']. "'
+					data-is-root='1'>回复";
+			if($commentsNum != 0){
+				echo "(". $commentsNum. ")";
 			}
-			echo "<p class='log-time'>". $log['LogTime']. "</p>";
-			echo "</div>";
+			echo "</a>";
+			
+			if($isCreator){
+				echo "<a class='log-cmd log-cmd-edit' 
+						data-log-id='". $log['LogID'] ."' 
+						data-log-title='". $log['LogTitle']. "' 
+						data-log-content='". $log['LogContent']. "'>编辑</a>";
+				echo "<a class='log-cmd log-cmd-delete'
+						href='log_proc.php?proc=delete&logID=". $log['LogID']. "'>删除</a>";
+			}
+			echo "<p class='log-time'>". $log['LogTime']. "</p>"
+			. "</div>";
+			
+			//回复
+			$comments = get_log_comments($log['LogID']);
+			foreach($comments as $comm){
+				echo "<div class='comment-item'>";
+				$posterID = $comm['PosterID'];
+				$poster = get_username_by_id($comm['PosterID']);
+				
+				//回复主体
+				if($comm['IsRoot']){
+					//若为对文章的回复
+					echo "<p class='comment-header'>"
+							. "<a href='person.php?userID=". $posterID. "'>". $poster. "</a>"
+							. " : "
+							. $comm['Comment']
+						. "</p>";
+				} else {	
+					//若为对回复的回复
+					$receiverID = get_posterid_by_commentid($comm['ParentCommentID']);
+					$receiver = get_username_by_id($receiverID);
+					echo "<p class='comment-header'>"
+							. "<a href='person.php?userID=". $posterID. "'>". $poster. "</a>"
+							. " : "
+							. "<a href='person.php?userID=". $receiverID. "'>@". $receiver. "</a> "
+							. $comm['Comment']
+						. "</p>";
+				}
+				
+				//回复时间和操作按钮
+				echo "<p class='comment-time-cmd-wap'>"
+						. "<span class='comment-time'>". $comm['Time']. "</span>"
+						. "&nbsp;"
+						. "<span class='comment-cmd log-cmd-comment'
+								data-log-id='". $log['LogID']. "'
+								data-parent-comment-id='". $comm['CommentID']. "'
+								data-poster-id='". $_SESSION['valid_user_id']. "'
+								data-is-root='0'>回复<span>"
+					. "</p>"
+				. "</div>";
+			}
 			echo "</div>";
 		}
 	}
