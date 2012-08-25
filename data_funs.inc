@@ -8,4 +8,5 @@
 	require_once('cheer_funs.php');
 	require_once('message_funs.php');
 	require_once('comment_funs.php');
+	require_once('dynamic_funs.php');
 ?>

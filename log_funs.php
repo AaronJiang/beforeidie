@@ -100,7 +100,7 @@
 	//获取某用户所关注的 User 的所有动态
 	function get_followed_logs($followerID){
 		$query = "SELECT logs.LogTitle, logs.LogID, logs.LogContent, logs.LogTime, goals.GoalID, goals.Title, users.Username, users.UserID\n"
-				. "FROM followers as fows, goals, goal_logs as logs, users\n"
+				. "FROM followers AS fows, goals, goal_logs AS logs, users\n"
 				. "WHERE fows.FollowerID = ". $followerID. "\n"
 				. "AND fows.FolloweeID = goals.UserID\n"
 				. "AND goals.GoalID = logs.GoalID\n"
