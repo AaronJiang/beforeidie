@@ -463,7 +463,7 @@ select{
 
 /* Dynamic Type */
 #dynamic-panel #dynamic-type-wap{
-
+	margin:0 0 15px 0;
 }
 
 #dynamic-panel .dynamic-type{
@@ -483,36 +483,41 @@ select{
 /* Dynamics */
 #dynamic-panel .dynamic-item{
 	clear:both;
-	margin:0 5px 6px 2px;
+	margin:0 0 10px 0;
+	padding:0 0 10px 0;
 	border-bottom:1px DASHED #E6E6E6;
-	padding-bottom:4px;
+	position:relative;
+}
+
+#dynamic-panel .dynamic-poster-profile{
+	float:left;
+	width:40px;
+	height:40px;
+	margin:0 8px 0 0;
+}
+
+#dynamic-panel .dynamic-content-wap{
+	float:left;
+	font-size:14px;
+	font-family:'宋体';
+	padding:0 0 5px 0;
 }
 
 #dynamic-panel .dynamic-item .dynamic-header{
-	color:gray;
-	font-size:14px;
+	color:#A8A8A8;
+	margin:0 0 5px 0;
 }
 
-#dynamic-panel .dynamic-item .dynamic-goal-creater{
+#dynamic-panel .dynamic-item a{
 	color:#369;
 	cursor:pointer;
 	text-decoration:none;
 }
-#dynamic-panel .dynamic-item .dynamic-goal-creater:hover{
-	text-decoration:underline;
-}
-
-#dynamic-panel .dynamic-item .dynamic-goal-title{
-	color:#369;
-	cursor:pointer;
-	text-decoration:none;
-}
-#dynamic-panel .dynamic-item .dynamic-goal-title:hover{
+#dynamic-panel .dynamic-item a:hover{
 	text-decoration:underline;
 }
 
 #dynamic-panel .dynamic-item .dynamic-title{
-	font-size:15px;
 	font-weight:bold;
 	padding:5px 0 5px 15px;
 }
@@ -521,15 +526,14 @@ select{
 	padding:0px 15px 0 15px;
 	font-family:'宋体';
 	line-height:22px;
-	font-size:13px;
-	color:#333;
 }
 
 #dynamic-panel .dynamic-item .dynamic-time{
-	text-align:right;
+	position:absolute;
+	bottom:3px;
+	right:0px;
 	font-size:12px;
 	color:gray;
-	margin:2px 0 0 0;
 }
 
 /* My Follow Users */

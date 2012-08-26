@@ -338,8 +338,9 @@ $(document).ready(function(){
 </div>
 
 <!-- Steps 和 Logs -->
-<div id='goal-details-panel'>	
-	
+<div id='goal-details-panel'>
+
+	<!-- Steps -->
 	<div class='panel-header'>
 		<div class='panel-title'>计划</div
 		><div class='panel-cmd-wapper'>	
@@ -363,7 +364,8 @@ $(document).ready(function(){
 			echo "<li>". $step['StepContent']. "</li>";
 		} ?>
 	</ul>
-	
+
+	<!-- Logs -->
 	<div class='panel-header panel-log-header'>
 		<div class='panel-title'>记录</div
 		><div class='panel-cmd-wapper'>
@@ -380,7 +382,8 @@ $(document).ready(function(){
 
 	if(count($logs) == 0){
 		echo "<p style='font-size:14px;clear:both;'>还没有任何记录哦~</p>";
-	} else {
+	} 
+	else {
 		foreach($logs as $log){
 			//标题和内容
 			echo "<div class='log-item'>";
