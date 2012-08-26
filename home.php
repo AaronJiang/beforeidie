@@ -129,6 +129,9 @@ $(document).ready(function(){
 						if($goalType == 'future'){
 							echo "<p class='goal-starttime'>将于 <b>". stripslashes($row['StartTime']). "</b> 启动</p>";
 						}
+						elseif($goalType == 'finish'){
+							echo "<p class='goal-starttime'>于 <b>". stripslashes($row['EndTime']). "</b> 达成</p>";								
+						}
 						else {
 							echo "<b>". get_goal_steps_num($row['GoalID']). "</b> 计划"
 								. " | "

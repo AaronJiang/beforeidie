@@ -50,7 +50,7 @@
 				. "AND goals.UserID = users.UserID\n"
 				. "AND goals.UserID = ". $userID. ")\n";
 		$query .= "ORDER BY Time DESC\n"
-				. "LIMIT 1, 3";
+				. "LIMIT 0, 3";
 
 		$result = db_exec($query);
 		

@@ -42,6 +42,16 @@
 			$logContent = addslashes($logContent);
 		}
 		
+		$logContent = nl2br($logContent);
+		
+		/*
+		//将 textarea 文本中的 \n 换成 <br>
+		$logContent = str_replace("\r\n", "<br>", $logContent);
+		$logContent = str_replace("\n", "<br>", $logContent);		
+		//将 textarea 文本中的 空格 换成 &nbsp;
+		$logContent = str_replace(' ', '&nbsp;', $logContent);
+		*/
+		
 		$query = "UPDATE goal_logs\n"
 				. "SET LogTitle = '". $logTitle. "',\n"
 				. "LogContent = '". $logContent. "'\n"
@@ -75,46 +85,6 @@
 			array_push($logs, $row);
 		}
 		
-		return $logs;
-	}
-	
-	//获取某 User 的所有记录
-	function get_all_logs($userID){
-		$query = "SELECT goal_logs.LogTitle, goal_logs.LogContent, goal_logs.LogTime, goals.Title, goals.GoalID\n"
-				. "FROM goals, goal_logs\n"
-				. "WHERE goals.UserID = ". $userID. "\n"
-				. "AND goals.GoalID = goal_logs.GoalID\n"
-				. "ORDER BY goal_logs.LogTime DESC\n"
-				. "LIMIT 0 , 3";
-				
-		$results = db_exec($query);
-		
-		$logs = array();
-		while($row = $results->fetch_assoc()){
-			array_push($logs, $row);
-		}
-		
-		return $logs;
-	}
-	
-	//获取某用户所关注的 User 的所有动态
-	function get_followed_logs($followerID){
-		$query = "SELECT logs.LogTitle, logs.LogID, logs.LogContent, logs.LogTime, goals.GoalID, goals.Title, users.Username, users.UserID\n"
-				. "FROM followers AS fows, goals, goal_logs AS logs, users\n"
-				. "WHERE fows.FollowerID = ". $followerID. "\n"
-				. "AND fows.FolloweeID = goals.UserID\n"
-				. "AND goals.GoalID = logs.GoalID\n"
-				. "AND goals.IsPublic = 1\n"
-				. "AND users.UserID = fows.FolloweeID\n"
-				. "ORDER BY logs.LogTime desc";
-				
-		$result = db_exec($query);
-		
-		$logs = array();
-		while($row = $result->fetch_assoc()){
-			array_push($logs, $row);
-		}
-
 		return $logs;
 	}
 	

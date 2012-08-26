@@ -45,9 +45,6 @@ textarea, input, select{
 /* Panel Header */
 .panel-header{
 	margin:0 0 10px 0;
-	padding:5px 0 5px 6px;
-	background-color:deepSkyBlue;
-	border-radius:2px;
 	clear:both;
 }
 
@@ -60,9 +57,10 @@ textarea, input, select{
 }
 
 .panel-header .panel-title{
-	font-size:15px;
+	font-size:16px;
+	color:#1C86EE;
 	font-weight:bold;
-	font-family:'宋体';
+	font-family:'微软雅黑';
 	display:inline-block;
 	padding:0 5px 0 0;
 }
@@ -75,12 +73,13 @@ textarea, input, select{
 
 .panel-header .panel-cmd{
 	text-decoration:none;
+	color:#369;
 	cursor:pointer;
 	padding:1px;
 }
 
 .panel-header .panel-cmd:hover{
-	background-color:#039;
+	background-color:#369;
 	color:white;
 }
 
@@ -97,7 +96,7 @@ body{
 input{
 	font-size:14px;
 	border:1px solid lightgray;
-	font-family:'宋体';	
+	font-family:'宋体';
 }
 
 input[type="text"], input[type="password"]{
@@ -256,9 +255,9 @@ select{
 	display:inline-block;
 	color:#CCC;
 	font-size:13px;
-	font-family:'宋体';
 	cursor:pointer;
 	margin-left:2px;
+	font-family:'宋体';
 	text-decoration:none;
 }
 
@@ -393,15 +392,11 @@ select{
 
 #content-goals .goal-item .goal-info-wap{
 	position:absolute;
-	font-size:12px;	
+	font-size:12px;
 	bottom:7px;
 	left:11px;
 	z-index:0;
 	color:#666;
-}
-
-#content-goals .goal-logs-num{
-
 }
 
 #content-goals .goal-item-future .goal-starttime{
@@ -463,7 +458,9 @@ select{
 
 /* Dynamic Type */
 #dynamic-panel #dynamic-type-wap{
-	margin:0 0 15px 0;
+	margin:0 0 20px 0;
+	padding:0 0 10px 0;
+	border-bottom:1px solid #AAA;
 }
 
 #dynamic-panel .dynamic-type{
@@ -472,7 +469,7 @@ select{
 	color:black;
 	background-color:lightgray;
 	padding:5px 15px;
-	margin:0 10px 0 0;
+	margin:0 15px 0 0;
 	font-weight:bold;
 }
 
@@ -485,7 +482,7 @@ select{
 	clear:both;
 	margin:0 0 10px 0;
 	padding:0 0 25px 0;
-	border-bottom:1px DASHED #E6E6E6;
+	border-bottom:1px solid #EEEEEE;
 	position:relative;
 }
 
@@ -649,6 +646,7 @@ select{
 	font-size:14px;
 	font-family:'宋体';
 	margin:5px 0 0 0;
+	color:#666;
 }
 
 #goal-title-panel #goal-starttime{
@@ -718,6 +716,7 @@ select{
 	padding:0 0 5px 0;
 	font-size:14px;
 	line-height:22px;
+	/*font-family:'宋体';*/
 	border-bottom:1px DASHED #E6E6E6;
 }
 
@@ -1121,7 +1120,7 @@ select{
 
 #person-page .goal-title a{
 	text-decoration:none;
-	color:#08C;
+	color:black;
 }
 
 #person-page .goal-title a:hover{
@@ -1139,7 +1138,7 @@ select{
 	color:gray;
 	position:absolute;
 	top:5px;
-	right:6px;
+	right:8px;
 }
 
 #person-page .goal-cmd-wap{
@@ -1179,7 +1178,7 @@ select{
 
 #person-page .dynamic-item a{
 	text-decoration:none;
-	color:#08C;
+	color:#369;
 }
 
 #person-page .dynamic-item a:hover{

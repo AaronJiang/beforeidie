@@ -115,6 +115,7 @@ $(document).ready(function(){
 		$("#form-edit-log #log-title").val(logTitle);
 		//内容
 		var logContent = $(this).parent().parent().find('.log-content').first().text();
+		
 		$("#form-edit-log #log-content").val(logContent);
 		
 		$('#dialog-edit-log').dialog('open');
@@ -126,21 +127,6 @@ $(document).ready(function(){
 			return false;
 		}
 	});
-	
-	/*
-	//隐藏记录操作按钮
-	//$('.log-cmd').hide();
-	
-	//显示&隐藏记录操作按钮
-	$('.log-item').hover(
-		function(){
-			$(this).find('.log-cmd').show();
-		}, 
-		function(){
-			$(this).find('.log-cmd').hide();	
-		}
-	);
-	*/
 	
 	//初始化步骤编辑框
 	$("#dialog-edit-steps").dialog({
@@ -406,9 +392,7 @@ $(document).ready(function(){
 			
 			if($isCreator){
 				echo "<a class='log-cmd log-cmd-edit' 
-						data-log-id='". $log['LogID'] ."' 
-						data-log-title='". $log['LogTitle']. "' 
-						data-log-content='". $log['LogContent']. "'>编辑</a>";
+						data-log-id='". $log['LogID'] ."'>编辑</a>";
 				echo "<a class='log-cmd log-cmd-delete'
 						href='log_proc.php?proc=delete&logID=". $log['LogID']. "'>删除</a>";
 			}
@@ -482,7 +466,7 @@ $(document).ready(function(){
 	</div>
 	
 	<div class='panel-header'>
-		<div class='panel-title'>鼓励的人</div>
+		<div class='panel-title'>鼓励者</div>
 
 	</div>
 	

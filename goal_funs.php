@@ -12,7 +12,14 @@
 	//获取某个用户的某种类型的全部目标
 	function get_goals($userID, $goalType){
 	
-		$query = "select * from goals where UserID = ".$userID. " and GoalType = '". $goalType. "'";
+		$query = "SELECT * FROM goals WHERE UserID = ".$userID. " AND GoalType = '". $goalType. "'\n";
+		if($goalType == 'future'){
+			$query .= "ORDER BY StartTime ASC";
+		}
+		elseif($goalType == 'finish'){
+			$query .= "ORDER BY EndTime DESC";			
+		}
+		
 		$results = db_exec($query);
 		
 		$array = array();
