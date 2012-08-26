@@ -484,7 +484,7 @@ select{
 #dynamic-panel .dynamic-item{
 	clear:both;
 	margin:0 0 10px 0;
-	padding:0 0 10px 0;
+	padding:0 0 25px 0;
 	border-bottom:1px DASHED #E6E6E6;
 	position:relative;
 }
@@ -493,19 +493,19 @@ select{
 	float:left;
 	width:40px;
 	height:40px;
-	margin:0 8px 0 0;
+	margin:0 12px 0 0;
 }
 
 #dynamic-panel .dynamic-content-wap{
 	float:left;
+	width:648px;
 	font-size:14px;
 	font-family:'宋体';
-	padding:0 0 5px 0;
 }
 
 #dynamic-panel .dynamic-item .dynamic-header{
 	color:#A8A8A8;
-	margin:0 0 5px 0;
+	margin:0 0 10px 0;
 }
 
 #dynamic-panel .dynamic-item a{
@@ -519,11 +519,11 @@ select{
 
 #dynamic-panel .dynamic-item .dynamic-title{
 	font-weight:bold;
-	padding:5px 0 5px 15px;
+	padding:0 0 8px 0;
 }
 
 #dynamic-panel .dynamic-item .dynamic-content{
-	padding:0px 15px 0 15px;
+	padding:0px 15px 0 0px;
 	font-family:'宋体';
 	line-height:22px;
 }
@@ -533,7 +533,7 @@ select{
 	bottom:3px;
 	right:0px;
 	font-size:12px;
-	color:gray;
+	color:lightgray;
 }
 
 /* My Follow Users */
@@ -1173,33 +1173,33 @@ select{
 	font-size:13px;
 }
 
-#person-page .dynamic-goal-title{
+#person-page .dynamic-header{
 	margin:0 0 3px 0;
 }
 
-#person-page .dynamic-goal-title a{
+#person-page .dynamic-item a{
 	text-decoration:none;
 	color:#08C;
 }
 
-#person-page .dynamic-goal-title a:hover{
+#person-page .dynamic-item a:hover{
 	text-decoration:underline;
 }
 
-#person-page .dynamic-title{
+#person-page .dynamic-log-title{
 	color:black;
 	font-weight:bold;
 	margin:0 0 3px 0;
 	text-indent:15px;
 }
 
-#person-page .dynamic-content{
+#person-page .dynamic-log-content, #person-page .dynamic-goal-reason{
 	font-size:12px;
 	font-family:'宋体';
 	line-height:20px;
 	text-indent:15px;
 	word-wrap:break-all;
-	color:gray;
+	margin:0 0 5px 0;
 }
 
 #person-page .dynamic-time{

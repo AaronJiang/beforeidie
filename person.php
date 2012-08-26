@@ -120,14 +120,37 @@ $(document).ready(function(){
 		</div>
 		
 		<?php
-		$dynamics = get_all_logs($userID);
-		foreach($dynamics as $dyn){
-			echo "<div class='dynamic-item'>"
-					. "<p class='dynamic-goal-title'>在 <a href=goal_page_details.php?goalID=". $dyn['GoalID'] .">". $dyn['Title']. "</a> 中写道:</p>"
-					. "<p class='dynamic-title'>". $dyn['LogTitle']. "</p>"
-					. "<p class='dynamic-content'>". $dyn['LogContent']. "</p>"
-					. "<p class='dynamic-time'>". $dyn['LogTime']. "</p>"
-				. "</div>";
+		$dyns = get_dynamics($userID);
+		
+		foreach($dyns as $dyn){
+			echo "<div class='dynamic-item clearfix'>";
+
+			if($dyn['type'] == 'newLog'){
+				//若为 Log 相关的动态
+				echo  "<p class='dynamic-header'>"		
+							//. "<a class='dynamic-goal-creater' href='person.php?userID=". $dyn['PosterID']. "'>". $dyn['Poster']. "</a>"
+							. " 在 "
+							. "<a href='goal_page_details.php?goalID=". $dyn['GoalID']. "' class='dynamic-goal-title'>". $dyn['GoalTitle']. "</a>"
+							. " 中写到："
+						. "</p>";
+						if($dyn['LogTitle'] != ""){
+							echo "<p class='dynamic-log-title'>". $dyn['LogTitle']. "</p>";
+						}
+						echo "<p class='dynamic-log-content'>". $dyn['LogContent']. "</p>"
+					. "<p class='dynamic-time'>". $dyn['Time']. "</p>";
+			}
+			else if($dyn['type'] == 'newGoal'){
+				//若为 Goal 相关的动态
+				echo "<p class='dynamic-header'>"	
+						//. "<a class='dynamic-goal-creater' href='person.php?userID=". $dyn['PosterID']. "'>". $dyn['Poster']. "</a>"
+						. " 设立目标 "
+						. "<a href='goal_page_details.php?goalID=". $dyn['GoalID']. "' class='dynamic-goal-title'>". $dyn['GoalTitle']. "</a>"
+					. "</p>"
+					. "<p class='dynamic-goal-reason'>". $dyn['GoalReason']. "</p>"
+					. "<p class='dynamic-time'>". $dyn['Time']. "</p>";
+			}
+			
+			echo "</div>";
 		}
 		?>
 		
