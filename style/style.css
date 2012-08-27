@@ -72,13 +72,13 @@ textarea, input, select{
 
 .panel-header .panel-cmd{
 	text-decoration:none;
-	color:#369;
+	color:#0455A1;
 	cursor:pointer;
 	padding:1px;
 }
 
 .panel-header .panel-cmd:hover{
-	background-color:#369;
+	background-color:#1C86EE;
 	color:white;
 }
 
@@ -123,17 +123,27 @@ select{
 	font-family:'宋体';	
 }
 
-.link-cmd{
+.small-cmd{
 	font-size:12px;
 	font-family:'宋体';
-	color:blue;
 	text-decoration:none;
+	margin:0 6px 0 0;
+	cursor:pointer;
+	color:#0455A1;
+	padding:1px;
 }
 
-.link-cmd:hover{
-	background-color:blue;
+.small-cmd:hover{
+	background-color:#1C86EE;
 	color:white;
-	padding:1px;
+}
+
+.multi-user-profile{
+	width: 40px;
+	height: 40px;
+	float: left;
+	margin: 0 10px 10px 0;
+	border:none;
 }
 
 /* jQuery Plugin
@@ -245,8 +255,24 @@ body{
 	color:white;
 }
 
-#page-goals #nav-goals, #page-dynamic #nav-dynamic, #page-person #nav-person, #page-newgoal #nav-newgoal, #page-discover #nav-discover{
+#page-goals #nav-goals,
+#page-dynamic #nav-dynamic,
+#page-person #nav-person,
+#page-newgoal #nav-newgoal,
+#page-discover #nav-discover{
 	color:white;
+}
+
+/* Footer
+------------------------------------------------------------*/
+#footer #about-this{
+	color:#0455A1;
+	text-decoration:none;
+	display:inline-block;
+	margin:0 6px 0 0;
+}
+#footer #about-this:hover{
+	text-decoration:underline;
 }
 
 /* User Account
@@ -341,12 +367,11 @@ body{
 #goal-selector li a{
 	text-decoration:none;
 	color:black;
-	padding:8px 0px;
+	padding:8px 0;
 	margin:0 0 8px 0;
 	display:block;
 	font-size:15px;
 	font-weight:bold;
-	border:0px solid lightgray;
 	background-color:#E8E8E8;
 }
 
@@ -374,7 +399,7 @@ body{
 	margin:0 15px 20px 0;
 	position:relative;
 	overflow:hidden;
-	border:1px solid #BBB;
+	border:1px solid #CCC;
 }
 
 #content-goals .goal-item:hover{
@@ -410,7 +435,7 @@ body{
 #content-goals .goal-item .goal-info-wap{
 	position:absolute;
 	font-size:12px;
-	bottom:7px;
+	bottom:6px;
 	left:11px;
 	z-index:0;
 	color:#666;
@@ -521,40 +546,40 @@ body{
 	margin:0 0 10px 0;
 }
 
-#dynamic-panel .dynamic-item a{
+#dynamic-panel .dynamic-item  .dynamic-header a{
 	color:#369;
 	cursor:pointer;
 	text-decoration:none;
 }
-#dynamic-panel .dynamic-item a:hover{
+
+#dynamic-panel .dynamic-item  .dynamic-header a:hover{
 	text-decoration:underline;
 }
 
-#dynamic-panel .dynamic-item .dynamic-title{
+#dynamic-panel .dynamic-item .dynamic-log-title{
 	font-weight:bold;
 	padding:0 0 8px 0;
 }
 
-#dynamic-panel .dynamic-item .dynamic-content{
-	padding:0px 15px 0 0px;
+#dynamic-panel .dynamic-item .dynamic-log-content,
+#dynamic-panel .dynamic-item .dynamic-goal-reason{
+	padding:0 15px 0 0;
 	font-family:'宋体';
 	line-height:22px;
+	color:#333;
 }
 
-#dynamic-panel .dynamic-item .dynamic-time{
+#dynamic-panel .dynamic-item .dynamic-footer{
 	position:absolute;
 	bottom:3px;
 	right:0px;
 	font-size:12px;
-	color:lightgray;
+	text-align:right;
 }
 
-/* My Followed Users */
-#dynamic-sidebar-panel .followee-profile img{
-	width:40px;
-	height:40px;
-	float:left;
-	margin:0 10px 10px 0;
+#dynamic-panel .dynamic-item .dynamic-time{
+	display:inline-block;
+	color:gray;
 }
 
 /* New & Edit Goal Form
@@ -608,7 +633,7 @@ body{
 
 /* Goal Infomation */
 #goal-title-panel #goal-title{
-	font-size:30px;
+	font-size:28px;
 	font-weight:bold;
 }
 
@@ -753,21 +778,6 @@ body{
 #goal-details-panel .log-time{
 	display:inline-block;
 	color:gray;
-}
-
-#goal-details-panel .log-cmd{
-	display:inline-block;
-	margin:0 8px 0 0;
-	color:gray;
-	text-decoration:none;
-	cursor:pointer;
-	font-family:'宋体';
-	color:#369;
-}
-
-#goal-details-panel .log-cmd:hover{
-	background-color:Blue;
-	color:white;
 }
 
 /* Log Dialog */
@@ -1167,21 +1177,6 @@ body{
 	text-align:right;
 	color:gray;
 	font-size:12px;
-}
-
-/* Followers */
-
-#person-page .user-icon{
-	text-decoration:none;
-	display:block;
-	float:left;
-	margin:0 10px 10px 0;
-}
-
-#person-page .user-icon img{
-	width:40px;
-	height:40px;
-	border:none;
 }
 
 /* Message */

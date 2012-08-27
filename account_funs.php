@@ -2,8 +2,8 @@
 	require_once('public_funs.php');
 	
 	//验证用户名和密码是否存在
-	function check_user_by_name($username, $pwd){
-		$query = "select * from users where Username = '". $username. "' and Password = '". sha1($pwd). "'";
+	function check_user_by_name($email, $pwd){
+		$query = "select * from users where Email = '". $email. "' and Password = '". sha1($pwd). "'";
 		$result = db_exec($query);
 		
 		return ($result->num_rows > 0)? true: false;
@@ -30,7 +30,7 @@
 		return isset($_SESSION['valid_user']);
 	}
 	
-	//获取用户ID
+	//获取用户ID by name
 	function get_userID($username){
 		$query = "select UserID from users where Username = '". $username. "'";
 		$result = db_exec($query);
@@ -38,7 +38,7 @@
 		return $row['UserID'];
 	}
 	
-	//获取用户名
+	//获取用户名 by ID
 	function get_username_by_id($userID){
 		$query = "select Username from users where UserId = ". $userID;
 		$result = db_exec($query);
@@ -46,7 +46,23 @@
 		return $row['Username'];
 	}
 	
-	//获取用户邮箱
+	//获取用户名 by Email
+	function get_username_by_email($email){
+		$query = "select Username from users where Email = '". $email ."'";
+		$result = db_exec($query);
+		$row = $result->fetch_assoc();
+		return $row['Username'];	
+	}
+
+	//获取用户名ID by Email
+	function get_userid_by_email($email){
+		$query = "select UserID from users where Email = '". $email. "'";
+		$result = db_exec($query);
+		$row = $result->fetch_assoc();
+		return $row['UserID'];	
+	}
+	
+	//获取用户邮箱 by ID
 	function get_email($userID){
 		$query = "select Email from users where UserID = ". $userID;
 		$result = db_exec($query);

@@ -21,7 +21,7 @@
 		return db_exec($query);
 	}
 	
-	//获取某 User 的所有关注者信息
+	//获取关注某 User 的用户
 	function get_followers($followeeID){
 		$query = "SELECT users.Username, users.UserID\n"
 				. "FROM users, followers\n"
@@ -36,6 +36,23 @@
 		}
 		
 		return $array;		
+	}
+	
+	//获取某 User 所关注的用户
+	function get_followees($followerID){
+		$query = "SELECT users.Username, users.UserID\n"
+				. "FROM users, followers\n"
+				. "WHERE followers.FollowerID = ". $followerID. "\n"
+				. "AND followers.FolloweeID = users.UserID";
+		
+		$result =db_exec($query);
+		
+		$array = array();
+		while($row = $result->fetch_assoc()){
+			array_push($array, $row);
+		}
+		
+		return $array;
 	}
 	
 	//获取某用户所关注的 User

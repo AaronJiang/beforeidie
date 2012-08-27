@@ -167,15 +167,34 @@ $(document).ready(function(){
 		<?php 
 		$followers = get_followers($userID);
 		foreach($followers as $follower){
-			echo "<a class='user-icon' href='person.php?userID=". $follower['UserID']. "' title='". $follower['Username']. "'>"
-					. "<img src='./imgs/gravatar-140.png' />"
+			echo "<a href='person.php?userID=". $follower['UserID']. "' title='". $follower['Username']. "'>"
+					. "<img class='multi-user-profile' src='./imgs/gravatar-140.png' />"
 				. "</a>";
 		}
 		?>
 		
 		<!-- 他关注的人 -->
-
-		<!-- 留言板 -->		
+		<div class='panel-header'>
+			<div class='panel-title'>TA关注的人</div>
+			<div class='panel-cmd-wapper'>	
+				<span>......（</span
+				><span class='panel-cmd'>全部</span
+				><span>）<span>
+			</div>
+		</div>
+		
+		<?php
+		$followees = get_followees($userID);
+		foreach($followees as $followee){
+			echo "<a href='person.php?userID=". $followee['UserID']. "' title='". $followee['Username']. "'>"
+					. "<img class='multi-user-profile' src='./imgs/gravatar-140.png' />"
+				. "</a>";
+		}
+		
+		?>
+		
+		<!-- 留言板 -->
+		<!--
 		<div class='panel-header'>
 			<div class='panel-title'>留言板</div>
 			<div class='panel-cmd-wapper'>	
@@ -197,6 +216,7 @@ $(document).ready(function(){
 				. "</div>";
 		}
 		?>
+		-->
 	</div>
 </div>
 <?php

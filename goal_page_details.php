@@ -358,7 +358,7 @@ $(document).ready(function(){
 		><div class='panel-cmd-wapper'>
 		<?php if($isCreator){ ?>
 			<span>......（<span
-			><span class='panel-cmd' id='cmd-add-log'>说说</span
+			><span class='panel-cmd' id='cmd-add-log'>添加</span
 			><span>）</span>
 		<?php } ?>
 		</div>
@@ -382,7 +382,7 @@ $(document).ready(function(){
 			//操作按钮
 			echo "<div class='log-cmd-time-wap'>";
 			$commentsNum = get_log_comments_num($log['LogID']);
-			echo "<a class='log-cmd log-cmd-comment' 
+			echo "<a class='small-cmd log-cmd-comment' 
 					data-log-id='". $log['LogID']. "'
 					data-poster-id='". $_SESSION['valid_user_id']. "'
 					data-is-root='1'>回复";
@@ -392,9 +392,9 @@ $(document).ready(function(){
 			echo "</a>";
 			
 			if($isCreator){
-				echo "<a class='log-cmd log-cmd-edit' 
+				echo "<a class='small-cmd log-cmd-edit' 
 						data-log-id='". $log['LogID'] ."'>编辑</a>";
-				echo "<a class='log-cmd log-cmd-delete'
+				echo "<a class='small-cmd log-cmd-delete'
 						href='log_proc.php?proc=delete&logID=". $log['LogID']. "'>删除</a>";
 			}
 			echo "<p class='log-time'>". $log['LogTime']. "</p>"

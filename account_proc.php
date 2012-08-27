@@ -6,12 +6,12 @@
 	switch($proc){
 		case "login":
 			session_start();
-			$username = $_REQUEST['username'];
+			$email = $_REQUEST['email'];
 			$pwd = $_REQUEST['password'];
-			$isExist = check_user_by_name($username, $pwd);
+			$isExist = check_user_by_name($email, $pwd);
 			if($isExist){
-				$_SESSION['valid_user'] = $username;
-				$_SESSION['valid_user_id'] = get_userID($username);
+				$_SESSION['valid_user'] = get_username_by_email($email);
+				$_SESSION['valid_user_id'] = get_userid_by_email($email);
 				page_jump('home.php');
 			}
 			else{
