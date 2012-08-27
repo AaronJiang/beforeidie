@@ -276,7 +276,7 @@ $(document).ready(function(){
 <div id='goal-title-panel'>
 	<div>
 		<?php $goal = get_goal_by_ID($GOAL_ID); ?>
-		<p id='goal-details-title'> <?php echo $goal['Title']; ?> </p>
+		<p id='goal-title'> <?php echo $goal['Title']; ?> </p>
 		<p id='goal-why'> <?php echo $goal['Reason']; ?> </p>
 		
 		<div id='goal-cmd-wap'>

@@ -18,6 +18,8 @@
 			$logTitle = addslashes($logTitle);
 			$logContent = addslashes($logContent);
 		}
+		
+		$logContent = nl2br($logContent);
 	
 		$query = "insert into goal_logs (LogTime, LogTitle, LogContent, GoalID)\n"
 				. "values ('". $logTime. "', '". $logTitle. "', '". $logContent. "', '". $goalID. "')";

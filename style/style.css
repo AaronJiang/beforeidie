@@ -46,12 +46,7 @@ textarea, input, select{
 .panel-header{
 	margin:0 0 10px 0;
 	clear:both;
-	/*
-	padding:0 0 5px 0;
-	border-bottom:1px solid gray;
-	*/
 }
-
 .panel-header:after{
 	content:".";
 	display:block;
@@ -89,6 +84,7 @@ textarea, input, select{
 
 /* 
 ------------------------------------------------------------*/
+
 /* 表单 */
 input{
 	font-size:14px;
@@ -611,8 +607,8 @@ body{
 }
 
 /* Goal Infomation */
-#goal-title-panel #goal-details-title{
-	font-size:22px;
+#goal-title-panel #goal-title{
+	font-size:30px;
 	font-weight:bold;
 }
 
@@ -736,7 +732,6 @@ body{
 
 #goal-details-panel .log-title{
 	font-size:15px;
-	font-family:'宋体';
 	font-weight:bold;
 	margin:0 0 5px 0;
 }
@@ -1057,8 +1052,6 @@ body{
 	display:block;
 	padding:5px 15px;
 	background-color:#E8E8E8;
-	border-top-left-radius:0px;
-	border-top-right-radius:0px;
 	text-decoration:none;
 	color:black;	
 	cursor:pointer;
@@ -1073,22 +1066,17 @@ body{
 	float:left;
 	margin:0 20px 0 0;
 	width:100%;
-	border-bottom:1px solid #EEE;
 }
 
 #person-page .goal-item{
-	border-top:1px solid #EEE;
-	border-left:1px solid #EEE;
-	border-right:1px solid #EEE;
-	padding:10px 10px 5px 10px;
-	margin:0 0 0px 0;
+	border-bottom:1px solid #EEE;
+	padding:10px 0 8px 0;
 	position:relative;
 }
 
 #person-page .goal-title{
 	font-size:15px;
 	font-weight:bold;
-	font-family:'宋体';
 	margin:0 0 3px 0;
 }
 
@@ -1111,7 +1099,7 @@ body{
 	font-size:12px;
 	color:gray;
 	position:absolute;
-	top:5px;
+	top:10px;
 	right:8px;
 }
 
