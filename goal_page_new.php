@@ -51,7 +51,7 @@
 			<option value='1'>公开</option>
 			<option value='0'>私密</option>
 		</select>
-	<div>
+	</div>
 	
 	<input type="hidden" name="proc" value="new"/>
 	<input type="hidden" name="userID" value=<?php echo $_SESSION['valid_user_id']; ?>>

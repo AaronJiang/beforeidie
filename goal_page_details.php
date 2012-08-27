@@ -110,12 +110,13 @@ $(document).ready(function(){
 		//ID
 		var logID = $(this).data('log-id');
 		$("#form-edit-log input[name='logID']").val(logID);
+		
 		//标题
 		var logTitle = $(this).parent().parent().find('.log-title').first().text();
 		$("#form-edit-log #log-title").val(logTitle);
+		
 		//内容
 		var logContent = $(this).parent().parent().find('.log-content').first().text();
-		
 		$("#form-edit-log #log-content").val(logContent);
 		
 		$('#dialog-edit-log').dialog('open');

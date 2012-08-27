@@ -9,46 +9,8 @@
 
 <script type="text/javascript">
 
-//元素纵向排布
-function arrangeBlocks(selector, hGap, vGap){
-	var width = $(selector).first().outerWidth();
-
-
-	var topArray = [0, 0, 0, 0],
-		leftArray = [0, width+hGap, 2*(width+hGap), 3*(width+hGap)];
-				
-	$(selector).each(function(){
-		//找到 topArray 中最小的、且最靠左的项的 index
-		var minValue = 10000,
-			minIndex = 0;
-		
-		$.each(topArray, function(index, entry){
-			if(entry < minValue){
-				minValue = entry;
-				minIndex = index;
-			}	
-		});
-		
-		$(this).css({
-			'top' : topArray[minIndex] + "px",
-			'left' : leftArray[minIndex] + "px"
-		});
-		
-		topArray[minIndex] += $(this).outerHeight() + vGap;
-		
-		//$(this).css({
-		//	'top' : topArray[index % 5] + "px",
-		//	'left' : leftArray[index % 5] + "px"
-		//});
-		//topArray[index % 5] += $(this).outerHeight() + 15;
-	});
-}
-
 $(document).ready(function(){
 	$('body').prop('id', 'page-goals');
-
-	//排列区块
-	arrangeBlocks('#content-goals .goal-item', 20, 15);
 	
 	//弹出命令栏
 	$('.goal-item').live("hover", function(event){

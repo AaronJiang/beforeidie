@@ -37,4 +37,4 @@
 			</div>
 		</div>
 		
-		<div id="content-wap">
+		<div id="content-wap" class='clearfix'>

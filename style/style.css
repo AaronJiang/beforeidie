@@ -46,6 +46,10 @@ textarea, input, select{
 .panel-header{
 	margin:0 0 10px 0;
 	clear:both;
+	/*
+	padding:0 0 5px 0;
+	border-bottom:1px solid gray;
+	*/
 }
 
 .panel-header:after{
@@ -57,7 +61,7 @@ textarea, input, select{
 }
 
 .panel-header .panel-title{
-	font-size:16px;
+	font-size:18px;
 	color:#1C86EE;
 	font-weight:bold;
 	font-family:'微软雅黑';
@@ -85,13 +89,6 @@ textarea, input, select{
 
 /* 
 ------------------------------------------------------------*/
-body{
-	padding:0 0 10px 0;
-	background-color:white;
-	font-family:'微软雅黑';
-	font-size:15px;
-}
-
 /* 表单 */
 input{
 	font-size:14px;
@@ -175,10 +172,14 @@ select{
 	margin: .5em 0em .5em 0.8em;
 }
 
-/* Header
+/* Layout
 ------------------------------------------------------------*/
+body{
+	background-color:white;
+	font-family:'微软雅黑';
+	font-size:15px;
+}
 
-/* Logo */
 #header{
 	background-color:#2B2B2B;
 	height:40px;
@@ -197,6 +198,24 @@ select{
 	position:relative;
 }
 
+#content-wap{
+	position:relative;
+	top:55px;
+	margin:0 auto;
+	width:1000px;
+	min-height:550px;
+}
+
+#footer{
+	margin:80px auto 10px auto;
+	text-align:center;
+	font-size:12px;
+}
+
+/* Header
+------------------------------------------------------------*/
+
+/* Logo */
 #logo-link{
 	display:block;
 	background-image:url('../imgs/new.png');
@@ -232,13 +251,6 @@ select{
 
 #page-goals #nav-goals, #page-dynamic #nav-dynamic, #page-person #nav-person, #page-newgoal #nav-newgoal, #page-discover #nav-discover{
 	color:white;
-}
-
-#content-wap{
-	position:relative;
-	top:55px;
-	margin:0 auto;
-	width:1000px;
 }
 
 /* User Account
@@ -348,16 +360,25 @@ select{
 
 /* Goals */
 #content-goals{
-	position:relative;
+	width:800px;
 }
+#content-goals:after{
+	content:".";
+	display:block;
+	height:0px;
+	clear:both;
+	visibility:hidden;
+}
+
 #content-goals .goal-item{
 	background-color:white;
 	width:170px;
 	height:200px;
-	position:absolute;
+	float:left;
+	margin:0 15px 20px 0;
+	position:relative;
 	overflow:hidden;
 	border:1px solid #BBB;
-	box-shadow:1px 1px 5px #AAA;
 }
 
 #content-goals .goal-item:hover{
@@ -428,7 +449,6 @@ select{
 	padding:3px 5px;
 	cursor:pointer;
 }
-
 #content-goals .goal-item .goal-cmd:hover{
 
 }
@@ -458,9 +478,9 @@ select{
 
 /* Dynamic Type */
 #dynamic-panel #dynamic-type-wap{
-	margin:0 0 20px 0;
-	padding:0 0 10px 0;
-	border-bottom:1px solid #AAA;
+	margin:0 0 15px 0;
+	padding:0 0 15px 0;
+	border-bottom:1px solid #EEEEEE;
 }
 
 #dynamic-panel .dynamic-type{
@@ -469,7 +489,7 @@ select{
 	color:black;
 	background-color:lightgray;
 	padding:5px 15px;
-	margin:0 15px 0 0;
+	margin:0 1px 0 0;
 	font-weight:bold;
 }
 
@@ -533,58 +553,12 @@ select{
 	color:lightgray;
 }
 
-/* My Follow Users */
-#dynamic-sidebar-panel .followee-item{
-	border-bottom:1px solid #EEE;
-	margin:0 0 10px 0;
-	padding:0 0 8px 0;
-	position:relative;
-}
-
-#dynamic-sidebar-panel .followee-profile{
-	border: 0px solid lightgray;
-	margin: 0 8px 0 0;
+/* My Followed Users */
+#dynamic-sidebar-panel .followee-profile img{
+	width:40px;
+	height:40px;
 	float:left;
-}
-
-#dynamic-sidebar-panel .followee-info-wap{
-	float:left;
-}
-
-#dynamic-sidebar-panel .followee-name{
-	text-decoration:none;
-	color:black;
-	font-size:15px;
-	font-weight:bold;
-	display:block;
-	margin:0 0 5px 0;
-}
-
-#dynamic-sidebar-panel .followee-name:hover{
-	text-shadow:0 0 1px gray;
-}
-
-#dynamic-sidebar-panel .followee-goals-info-wap{
-	font-size:12px;
-	color:gray;
-}
-
-#dynamic-sidebar-panel .followed-goal-item .disfollow-cmd{
-	position:absolute;
-	top:-1px;
-	right:-1px;
-	text-decoration:none;
-	color:black;
-	border-bottom-left-radius:5px;
-	padding:3px 8px;
-	background-color:lightgray;	
-	font-size:12px;
-	display:none;
-}
-
-#dynamic-sidebar-panel .followed-goal-item .disfollow-cmd:hover{
-	color:white;
-	background-color:black;
+	margin:0 10px 10px 0;
 }
 
 /* New & Edit Goal Form
@@ -761,7 +735,8 @@ select{
 }
 
 #goal-details-panel .log-title{
-	font-size:18px;
+	font-size:15px;
+	font-family:'宋体';
 	font-weight:bold;
 	margin:0 0 5px 0;
 }
@@ -769,9 +744,9 @@ select{
 #goal-details-panel .log-content{
 	font-size:14px;
 	line-height:22px;
-	padding:0 0px;
 	font-family:'宋体';
 	margin:0 0 5px 0;
+	color:#333;
 }
 
 #goal-details-panel .log-cmd-time-wap{
@@ -1071,20 +1046,19 @@ select{
 /* User Goals */
 #person-page #goal-wap-header{
 	list-style:none;
-	margin:0 0 0px 0;
 }
 
 #person-page #goal-wap-header li{
 	display:inline-block;
-	margin:0 8px 0 0;
+	margin:0 1px 0 0;
 }
 
 #person-page #goal-wap-header li a{
 	display:block;
 	padding:5px 15px;
 	background-color:#E8E8E8;
-	border-top-left-radius:2px;
-	border-top-right-radius:2px;
+	border-top-left-radius:0px;
+	border-top-right-radius:0px;
 	text-decoration:none;
 	color:black;	
 	cursor:pointer;
@@ -1106,7 +1080,7 @@ select{
 	border-top:1px solid #EEE;
 	border-left:1px solid #EEE;
 	border-right:1px solid #EEE;
-	padding:8px 10px 5px 10px;
+	padding:10px 10px 5px 10px;
 	margin:0 0 0px 0;
 	position:relative;
 }
@@ -1189,16 +1163,16 @@ select{
 	color:black;
 	font-weight:bold;
 	margin:0 0 3px 0;
-	text-indent:15px;
+	padding:0 0 0 15px;
 }
 
 #person-page .dynamic-log-content, #person-page .dynamic-goal-reason{
 	font-size:12px;
 	font-family:'宋体';
 	line-height:20px;
-	text-indent:15px;
 	word-wrap:break-all;
 	margin:0 0 5px 0;
+	padding:0 0 0 15px;
 }
 
 #person-page .dynamic-time{
