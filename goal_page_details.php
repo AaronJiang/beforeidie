@@ -277,7 +277,7 @@ $(document).ready(function(){
 	<div>
 		<?php $goal = get_goal_by_ID($GOAL_ID); ?>
 		<p id='goal-title'> <?php echo $goal['Title']; ?> </p>
-		<p id='goal-why'> <?php echo $goal['Reason']; ?> </p>
+		<!--<p id='goal-why'> <?php echo $goal['Reason']; ?> </p>-->
 		
 		<div id='goal-cmd-wap'>
 			<?php
@@ -306,6 +306,7 @@ $(document).ready(function(){
 			} ?>
 		</div>
 		
+		<!--
 		<div id='goal-num-wap'>
 			<div class='goal-num-item goal-num-item-border'>
 				<div class='goal-num'><?php echo get_goal_steps_num($GOAL_ID) ?></div>
@@ -321,11 +322,26 @@ $(document).ready(function(){
 				<div>鼓励</div>
 			</div>
 		</div>
+		-->
 	</div>
 </div>
 
 <!-- Steps 和 Logs -->
 <div id='goal-details-panel'>
+
+	<div class='panel-header'>
+		<div class='panel-title'>愿景</div
+		><div class='panel-cmd-wapper'>	
+		<?php if($isCreator){ ?>
+			<span>......（</span
+			><span class='panel-cmd' id='cmd-edit-reason'>编辑</span
+			><span>）<span>
+		<?php } ?>
+		</div>
+	</div>
+	
+	<?php $goal = get_goal_by_ID($GOAL_ID) ?>
+	<p id='goal-reason'> <?php echo $goal['Reason']; ?> </p>
 
 	<!-- Steps -->
 	<div class='panel-header'>

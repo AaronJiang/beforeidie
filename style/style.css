@@ -522,7 +522,6 @@ body{
 #dynamic-panel .dynamic-item{
 	clear:both;
 	margin:0 0 10px 0;
-	padding:0 0 25px 0;
 	border-bottom:1px solid #EEEEEE;
 	position:relative;
 }
@@ -570,16 +569,45 @@ body{
 }
 
 #dynamic-panel .dynamic-item .dynamic-footer{
-	position:absolute;
-	bottom:3px;
-	right:0px;
 	font-size:12px;
 	text-align:right;
+	margin:0 0 5px 0;
 }
 
 #dynamic-panel .dynamic-item .dynamic-time{
 	display:inline-block;
 	color:gray;
+}
+
+/* Comment Textarea */
+#dynamic-panel .comment-wap{
+	margin:0 0 0 52px;
+}
+
+#dynamic-panel .comment-wap .comment-content{
+	border:1px solid lightblue;
+	padding:5px 7px;
+	font-size:14px;
+	font-family:'宋体';
+	line-height:20px;
+	outline:none;
+	clear:both;
+	margin:0 0 8px 0;
+}
+
+#dynamic-panel .comment-wap .comment-submit{
+	display:block;
+	float:right;
+	border:1px solid lightgray;
+	padding:1px 10px;
+	margin:0 0 8px 0;
+	cursor:pointer;
+	font-size:14px;
+	background-color:lightgray;
+}
+
+#dynamic-panel .comment-wap .comment-submit:hover{
+	background-color:#EEE;
 }
 
 /* New & Edit Goal Form
@@ -652,7 +680,7 @@ body{
 
 #goal-title-panel #goal-cmd-wap{
 	position:absolute;
-	top:8px;
+	bottom:0px;
 	right:30%;
 }
 
@@ -699,23 +727,32 @@ body{
 	font-size:20px;
 }
 
+/* Reason */
+#goal-details-panel #goal-reason{
+	font-size:13px;
+
+	margin:0 0 15px 5px;
+	color:#202020;
+}
+
 /* Steps */
 #goal-details-panel #goal-steps{
-	margin:0 0 15px 0;
+	margin:0 10px 15px 5px;
 }
 
 #goal-details-panel #goal-steps li{
 	list-style-position:inside;
 	list-style-type:square;
-	margin:0 0 5px 0;
-	padding:0 0 5px 0;
-	font-size:14px;
+	margin:0 0 3px 0;
+	padding:0 0 3px 0;
+	font-size:13px;
 	line-height:22px;
-	/*font-family:'宋体';*/
-	border-bottom:1px DASHED #E6E6E6;
+	border-bottom:1px dashed #E6E6E6;
+	color:#202020;
 }
 
 /* Step Dialog */
+
 #step-edit-list li{
 	list-style-type: none;
 }
@@ -736,7 +773,8 @@ body{
 	background-color:#eee;
 }
 
-#step-edit-list li .delete-step-item, #step-edit-list li .add-step-item{
+#step-edit-list li .delete-step-item,
+#step-edit-list li .add-step-item{
 	display:block;
 	float:left;
 	margin:10px 0 0 8px;
@@ -762,11 +800,11 @@ body{
 }
 
 #goal-details-panel .log-content{
-	font-size:14px;
+	font-size:13px;
 	line-height:22px;
 	font-family:'宋体';
-	margin:0 0 5px 0;
-	color:#333;
+	margin:0 0 5px 5px;
+	color:#202020;
 }
 
 #goal-details-panel .log-cmd-time-wap{
@@ -843,7 +881,7 @@ body{
 	text-decoration:underline;
 }
 
-/* Log Comment */
+/* Comment Textarea */
 #goal-details-panel .comment-wap{
 	margin:0 0 0 60px;
 }
