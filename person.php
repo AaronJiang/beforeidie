@@ -56,7 +56,7 @@ $(document).ready(function(){
 	<div id='main-panel'>
 		<!-- 用户信息 -->
 		<div id='user-info' class='clearfix'>
-			<img id='user-profile' src='./imgs/gravatar-140.png' />
+			<img id='user-profile' src='<?php echo get_user_profile($userID); ?>' />
 			<div id='user-info-wap'>
 				<span id='user-name'> <?php echo get_username_by_id($userID); ?> 的主页</span>
 			</div>
@@ -168,7 +168,7 @@ $(document).ready(function(){
 		$followers = get_followers($userID);
 		foreach($followers as $follower){
 			echo "<a href='person.php?userID=". $follower['UserID']. "' title='". $follower['Username']. "'>"
-					. "<img class='multi-user-profile' src='./imgs/gravatar-140.png' />"
+					. "<img class='multi-user-profile' src='". get_user_profile($follower['UserID']). "' />"
 				. "</a>";
 		}
 		?>
@@ -187,7 +187,7 @@ $(document).ready(function(){
 		$followees = get_followees($userID);
 		foreach($followees as $followee){
 			echo "<a href='person.php?userID=". $followee['UserID']. "' title='". $followee['Username']. "'>"
-					. "<img class='multi-user-profile' src='./imgs/gravatar-140.png' />"
+					. "<img class='multi-user-profile' src='". get_user_profile($follower['UserID']). "' />"
 				. "</a>";
 		}
 		

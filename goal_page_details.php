@@ -431,7 +431,11 @@ $(document).ready(function(){
 				
 					echo "<div class='comment-item clearfix'>"
 							//回复者头像
-							. "<img class='comment-poster-profile' src='./imgs/gravatar-140.png' />"
+							. "<a href='person.php?userID='". $posterID. "'>"
+								. "<img class='comment-poster-profile' 
+										title='". $poster. "' 
+										src='". get_user_profile($posterID). "' />"
+							. "</a>"
 							//回复主体
 							. "<div class='comment-main'>"
 								//回复头
@@ -480,8 +484,9 @@ $(document).ready(function(){
 	<div class='panel-header'>
 		<div class='panel-title'>创建者</div>
 	</div>
-	<a class='user-icon' href='person.php?userID=<?php echo $goalOwner['UserID'] ?>' title='<?php echo $goalOwner['Username'] ?>' >
-		<img src='./imgs/gravatar-140.png' />
+	
+	<a class='user-icon' href='person.php?userID=<?php echo $goalOwner['UserID'] ?>'  >
+		<img src='<?php echo get_user_profile($goalOwner['UserID']) ?>' title='<?php echo $goalOwner['Username'] ?>' />
 	</a>
 	<?php } ?>
 	
@@ -497,8 +502,8 @@ $(document).ready(function(){
 	<?php 
 		$cheerers = get_goal_cheerers($GOAL_ID);
 		foreach($cheerers as $cheerer){
-			echo "<a class='user-icon' href='person.php?userID=". $cheerer['UserID']. "' title='". $cheerer['Username']. "'>"
-					. "<img src='./imgs/gravatar-140.png' />"
+			echo "<a class='user-icon' href='person.php?userID=". $cheerer['UserID']. "'>"
+					. "<img src='". get_user_profile($cheerer['UserID']). "' title='". $cheerer['Username']. "' />"
 				. "</a>";
 		}
 	?>

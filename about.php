@@ -11,11 +11,21 @@
 	<p><b>Goal诞生记：</b></p>
 
 	<p>某一次，看到一篇文章
-		《<a href='http://meditic.com/simplifying-and-splitting-a-dream/'>三十分之一的梦想</a>》，
-		是否能做一个网站帮助大家实现梦想呢？
+		<a target='_blank' href='http://meditic.com/simplifying-and-splitting-a-dream/'>《三十分之一的梦想》</a>，
+		是否能做一个网站帮助我实现梦想呢？
+		lzp相信，那进一步来说，是否能做一个Web站点，帮助大家学习呢？
 	</p>
-	<p>于是学习PHP+MySQL技术，暑假期间每天抽出一点时间做，慢慢有了Goal</p>
-
+	
+	<p>
+		lzp并不是计算机高手，本科就读于光电信息工程专业，但
+		参与某一个
+		于是在暑假学习了Web建站技术，每天抽出一点时间做，一直到今天，Goal的轮廓渐渐清晰
+	</p>
+	
+	<p>
+		那么，Goal到底能帮助你什么呢？
+	</p>
+	
 	<p><b>个人来说：</b></p>
 		<p>记录梦想：无论梦想看起来伟大还是渺小，敢想才敢做</p>
 		<p>规划梦想梦想太大？把它切成三十块吧！</p>

@@ -63,7 +63,7 @@
 	}
 	
 	//获取用户邮箱 by ID
-	function get_email($userID){
+	function get_email_by_id($userID){
 		$query = "select Email from users where UserID = ". $userID;
 		$result = db_exec($query);
 		$row = $result->fetch_assoc();
@@ -84,5 +84,27 @@
 		$row = $result->fetch_assoc();
 		
 		return $row['users_num'];
+	}
+	
+	//获取用户在 Gravatar 上的头像
+	function get_user_profile($userID){
+		$email = get_email_by_id($userID);
+		$hash = md5(strtolower(trim($email)));
+		return "http://www.gravatar.com/avatar/". $hash;
+	}
+	
+	//检验某用户是否已在 Gravatar 注册
+	function validate_gravatar($userID) {
+		$uri = get_user_profile($userID). '?d=404';
+		
+		$headers = @get_headers($uri);
+		
+		if (!preg_match("|200|", $headers[0])) {
+			$has_valid_avatar = FALSE;
+		} else {
+			$has_valid_avatar = TRUE;
+		}
+		
+		return $has_valid_avatar;
 	}
 ?>
