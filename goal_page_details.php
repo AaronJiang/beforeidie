@@ -388,76 +388,83 @@ $(document).ready(function(){
 	} 
 	else {
 		foreach($logs as $log){
-			//标题和内容
 			echo "<div class='log-item'>";
-			if($log['LogTitle'] != ''){
-				echo "<p class='log-title'>". $log['LogTitle']. "</p>";			
-			}
-			echo "<p class='log-content'>". $log['LogContent']. "</p>";
+				//标题和内容
+				if($log['LogTitle'] != ''){
+					echo "<p class='log-title'>". $log['LogTitle']. "</p>";			
+				}
+				echo "<p class='log-content'>". $log['LogContent']. "</p>";
 			
-			//操作按钮
-			echo "<div class='log-cmd-time-wap'>";
-			$commentsNum = get_log_comments_num($log['LogID']);
-			echo "<a class='small-cmd log-cmd-comment' 
-					data-log-id='". $log['LogID']. "'
-					data-poster-id='". $_SESSION['valid_user_id']. "'
-					data-is-root='1'>回复";
-			if($commentsNum != 0){
-				echo "(". $commentsNum. ")";
-			}
-			echo "</a>";
+				//操作按钮
+				echo "<div class='log-cmd-time-wap'>";
+					$commentsNum = get_log_comments_num($log['LogID']);
+					echo "<a class='small-cmd log-cmd-comment' 
+							data-log-id='". $log['LogID']. "'
+							data-poster-id='". $_SESSION['valid_user_id']. "'
+							data-is-root='1'>回复";
+					if($commentsNum != 0){
+					echo "(". $commentsNum. ")";
+					}
+					echo "</a>";
 			
-			if($isCreator){
-				echo "<a class='small-cmd log-cmd-edit' 
-						data-log-id='". $log['LogID'] ."'>编辑</a>";
-				echo "<a class='small-cmd log-cmd-delete'
-						href='log_proc.php?proc=delete&logID=". $log['LogID']. "'>删除</a>";
-			}
-			echo "<p class='log-time'>". $log['LogTime']. "</p>"
-			. "</div>";
+					if($isCreator){
+						echo "<a class='small-cmd log-cmd-edit' 
+								data-log-id='". $log['LogID'] ."'>编辑</a>"
+							. "<a class='small-cmd log-cmd-delete'
+								href='log_proc.php?proc=delete&logID=". $log['LogID']. "'>删除</a>";
+					}
+					
+					//时间
+					echo "<p class='log-time'>". $log['LogTime']. "</p>"
+				. "</div>";
 			
-			//回复
-			$comments = get_log_comments($log['LogID']);
-			foreach($comments as $comm){
-				echo "<div class='comment-item clearfix'>";
-				$posterID = $comm['PosterID'];
-				$poster = get_username_by_id($comm['PosterID']);
+				//回复
+				$comments = get_log_comments($log['LogID']);
+				if(count($comments) == 0){
+					echo "</div>";
+					continue;
+				}
+				echo "<div class='comments-wap'>";
+				foreach($comments as $comm){
+					$posterID = $comm['PosterID'];
+					$poster = get_username_by_id($comm['PosterID']);
 				
-				echo "<img class='comment-poster-profile' src='./imgs/gravatar-140.png' />";
+					echo "<div class='comment-item clearfix'>"
+							//回复者头像
+							. "<img class='comment-poster-profile' src='./imgs/gravatar-140.png' />"
+							//回复主体
+							. "<div class='comment-main'>"
+								//回复头
+								. "<div class='comment-header'>";
+									if($comm['IsRoot']){
+										echo "<a href='person.php?userID=". $posterID. "'>". $poster. "</a>"
+											. " : "
+											. $comm['Comment'];
+									}
+									else {
+										$receiverID = get_posterid_by_commentid($comm['ParentCommentID']);
+										$receiver = get_username_by_id($receiverID);
+										echo "<a href='person.php?userID=". $posterID. "'>". $poster. "</a>"
+											. " : "
+											. "<a href='person.php?userID=". $receiverID. "'>@". $receiver. "</a> "
+										. $comm['Comment'];
+									}
+								echo "</div>"
 				
-				//回复主体
-				echo "<div class='comment-main'>";
-				//回复头
-				echo "<div class='comment-header'>";
-				if($comm['IsRoot']){
-					//若为对文章的回复
-					echo "<a href='person.php?userID=". $posterID. "'>". $poster. "</a>"
-						. " : "
-						. $comm['Comment'];
-				} else {	
-					//若为对回复的回复
-					$receiverID = get_posterid_by_commentid($comm['ParentCommentID']);
-					$receiver = get_username_by_id($receiverID);
-					echo "<a href='person.php?userID=". $posterID. "'>". $poster. "</a>"
-						. " : "
-						. "<a href='person.php?userID=". $receiverID. "'>@". $receiver. "</a> "
-						. $comm['Comment'];
+								//回复时间和操作按钮
+								. "<div class='comment-time-cmd-wap'>"
+									. "<span class='comment-time'>". $comm['Time']. "</span>"
+									. "&nbsp;"
+									. "<span class='comment-cmd log-cmd-comment'
+											data-log-id='". $log['LogID']. "'
+											data-parent-comment-id='". $comm['CommentID']. "'
+											data-poster-id='". $_SESSION['valid_user_id']. "'
+											data-is-root='0'>回复<span>"
+								. "</div>"
+							. "</div>"
+					. "</div>";
 				}
 				echo "</div>";
-				
-				//回复时间和操作按钮
-				echo "<div class='comment-time-cmd-wap'>"
-						. "<span class='comment-time'>". $comm['Time']. "</span>"
-						. "&nbsp;"
-						. "<span class='comment-cmd log-cmd-comment'
-								data-log-id='". $log['LogID']. "'
-								data-parent-comment-id='". $comm['CommentID']. "'
-								data-poster-id='". $_SESSION['valid_user_id']. "'
-								data-is-root='0'>回复<span>"
-					. "</div>"
-				. "</div>"
-				. "</div>";
-			}
 			echo "</div>";
 		}
 	}

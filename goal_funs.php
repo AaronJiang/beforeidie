@@ -11,8 +11,7 @@
 	
 	//获取某个用户的某种类型的全部目标
 	function get_goals($userID, $goalType){
-	
-		$query = "SELECT * FROM goals WHERE UserID = ".$userID. " AND GoalType = '". $goalType. "'\n";
+		$query = "SELECT * FROM goals WHERE UserID = ". $userID. " AND GoalType = '". $goalType. "'\n";
 		if($goalType == 'future'){
 			$query .= "ORDER BY StartTime ASC";
 		}
@@ -28,6 +27,28 @@
 		}
 		
 		return $array;
+	}
+	
+	//获取某个用户的某种类型的全部 public 目标	
+	function get_public_goals($userID, $goalType){
+		$query = "SELECT * FROM goals WHERE UserID = ". $userID. "\n"
+				. "AND GoalType = '". $goalType. "'\n"
+				. "AND IsPublic = 1\n";
+		if($goalType == 'future'){
+			$query .= "ORDER BY StartTime ASC";
+		}
+		elseif($goalType == 'finish'){
+			$query .= "ORDER BY EndTime DESC";			
+		}
+		
+		$results = db_exec($query);
+		
+		$array = array();
+		while($row = $results->fetch_assoc()){
+			array_push($array, $row);
+		}
+		
+		return $array;	
 	}
 	
 	//获取热门目标
@@ -205,6 +226,17 @@
 		
 		$num = $result->fetch_assoc();
 
+		return $num['count(*)'];
+	}
+	
+	//获取对应类型的 public 目标个数
+	function get_public_goal_num($userID, $goalType){	
+		$query = "select count(*) from goals where UserID = ". $userID. "\n"
+				. "AND GoalType = '". $goalType ."'\n"
+				. "AND IsPublic = 1";
+				
+		$result = db_exec($query);
+		$num = $result->fetch_assoc();
 		return $num['count(*)'];
 	}
 	

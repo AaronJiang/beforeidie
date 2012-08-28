@@ -76,7 +76,7 @@ $(document).ready(function(){
 		<!-- 用户的 Goals -->
 		<?php
 		function goal_html_output($userID, $type){
-			$goals = get_goals($userID, $type);
+			$goals = get_public_goals($userID, $type);
 			foreach($goals as $goal){
 				$goalID = $goal['GoalID'];
 				echo "<div class='goal-item goal-item-". $type ."'>"
@@ -94,9 +94,9 @@ $(document).ready(function(){
 		} ?>
 		
 		<ul id='goal-wap-header'>
-			<li><a href='person.php?userID=<?php echo $userID ?>&goalType=now'>进行中 [<?php echo get_goal_num($userID, 'now'); ?>]</a></li
-			><li><a href='person.php?userID=<?php echo $userID ?>&goalType=future'>待启动 [<?php echo get_goal_num($userID, 'future'); ?>]</a></li
-			><li><a href='person.php?userID=<?php echo $userID ?>&goalType=finish'>已完成 [<?php echo get_goal_num($userID, 'finish'); ?>]</a></li>
+			<li><a href='person.php?userID=<?php echo $userID ?>&goalType=now'>进行中 [<?php echo get_public_goal_num($userID, 'now'); ?>]</a></li
+			><li><a href='person.php?userID=<?php echo $userID ?>&goalType=future'>待启动 [<?php echo get_public_goal_num($userID, 'future'); ?>]</a></li
+			><li><a href='person.php?userID=<?php echo $userID ?>&goalType=finish'>已完成 [<?php echo get_public_goal_num($userID, 'finish'); ?>]</a></li>
 		</ul>
 		
 		<div class='goal-wap'>
