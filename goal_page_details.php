@@ -436,6 +436,7 @@ $(document).ready(function(){
 										title='". $poster. "' 
 										src='". get_user_profile($posterID). "' />"
 							. "</a>"
+							
 							//回复主体
 							. "<div class='comment-main'>"
 								//回复头

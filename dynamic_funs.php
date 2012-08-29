@@ -71,15 +71,28 @@
 				. "AND goal_cheers.GoalID = goals.GoalID\n"
 				. "AND goals.UserID = ". $userID. "\n"
 				. ")\n";
-		$query .= "UNION ALL\n";
-		//评论
-		$query .= "(SELECT 'newComment' as Type, users.Username as Poster, users.UserID as PosterID, goals.GoalID, goals.Title as GoalTitle, goals.Reason, logs.LogID as LogID, logs.LogTitle as LogTitle, Logs.LogContent as LogContent, comments.CommentID, comments.Comment as Comment, comments.Time as Time\n"
+		$query .= "UNION ALL\n";	
+		//评论我的Goal
+		$query .= "(SELECT 'newCommentOnGoal' as Type, users.Username as Poster, users.UserID as PosterID, goals.GoalID, goals.Title as GoalTitle, goals.Reason, logs.LogID as LogID, logs.LogTitle as LogTitle, Logs.LogContent as LogContent, comments.CommentID, comments.Comment as Comment, comments.Time as Time\n"
 				. "FROM comments, goals, goal_logs as logs, users\n"
 				. "WHERE comments.PosterID != ". $userID. "\n"
+				. "AND comments.IsRoot = 1\n"
 				. "AND comments.PosterID = users.UserID\n"
 				. "AND comments.LogID = logs.LogID\n"
 				. "AND Logs.GoalID = goals.GoalID\n"
 				. "AND goals.UserID = ". $userID ."\n"
+				. ")\n";
+		$query .= "UNION ALL\n";
+		//评论我的Comment
+		$query .= "(SELECT 'newCommentOnComment' as Type, users.Username as Poster, users.UserID as PosterID, goals.GoalID, goals.Title as GoalTitle, goals.Reason, logs.LogID as LogID, logs.LogTitle as LogTitle, Logs.LogContent as LogContent, c1.CommentID, c1.Comment as Comment, c1.Time as Time\n"
+				. "FROM comments as c1, comments as c2, goals, goal_logs as logs, users\n"
+				. "WHERE c1.PosterID != ". $userID. "\n"
+				. "AND c1.IsRoot = 0\n"
+				. "AND c1.PosterID = users.UserID\n"
+				. "AND c1.LogID = logs.LogID\n"
+				. "AND logs.GoalID = goals.GoalID\n"
+				. "AND c1.ParentCommentID = c2.CommentID\n"
+				. "AND c2.PosterID = ". $userID. "\n"
 				. ")\n";
 		$query .= "ORDER BY Time DESC";
 		

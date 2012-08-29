@@ -500,7 +500,6 @@ body{
 /* Dynamic Type */
 #dynamic-panel #dynamic-type-wap{
 	margin:0 0 12px 0;
-	padding:0 0 15px 0;
 	border-bottom:1px solid #EEEEEE;
 }
 
@@ -508,10 +507,11 @@ body{
 	display:inline-block;
 	text-decoration:none;
 	color:black;
-	background-color:lightgray;
+	background-color:#E8E8E8;
 	padding:5px 15px;
 	margin:0 1px 0 0;
-	font-weight:bold;
+	font-size:18px;
+
 }
 
 #dynamic-panel .dynamic-type:hover{
@@ -530,12 +530,10 @@ body{
 	float:left;
 	width:40px;
 	height:40px;
-	margin:0 12px 0 0;
 }
 
 #dynamic-panel .dynamic-content-wap{
-	float:left;
-	width:648px;
+	margin:0 0 0 52px;
 	font-size:14px;
 	font-family:'宋体';
 }
@@ -558,8 +556,6 @@ body{
 #dynamic-panel .dynamic-log-wap{
 	padding:10px 12px 0 12px;
 	background-color:#F0F0F0;
-	margin:0 0 10px 0;
-	border:0px solid lightgray;
 }
 
 #dynamic-panel .dynamic-item .dynamic-log-title{
@@ -605,22 +601,23 @@ body{
 }
 
 #dynamic-panel .comment-poster-profile{
-	height:35px;
-	width:35px;
+	height:30px;
+	width:30px;
 	float:left;
-	margin:0 8px 0 0;
 }
 
 #dynamic-panel .comment-main{
-	float:left;
+	margin:-3px 0 0 40px;
 }
 
 #dynamic-panel .comment-header{
-	margin:0 0 6px 0;
+	margin:0 0 3px 0;
+	line-height:20px;
 }
 
 #dynamic-panel .comment-time-cmd-wap{
 	font-size:12px;
+	line-height:12px;
 }
 
 #dynamic-panel .comment-time{
@@ -912,22 +909,23 @@ body{
 }
 
 #goal-details-panel .comment-poster-profile{
-	height:35px;
-	width:35px;
+	height:30px;
+	width:30px;
 	float:left;
-	margin:0 8px 0 0;
 }
 
 #goal-details-panel .comment-main{
-	float:left;
+	margin:-3px 0 0 40px;
 }
 
 #goal-details-panel .comment-header{
-	margin:0 0 6px 0;
+	margin:0 0 3px 0;
+	line-height:20px;
 }
 
 #goal-details-panel .comment-time-cmd-wap{
 	font-size:12px;
+	line-height:12px;
 }
 
 #goal-details-panel .comment-time{
@@ -1162,6 +1160,7 @@ body{
 /* User Goals */
 #person-page #goal-wap-header{
 	list-style:none;
+	border-bottom:1px solid #EEE;
 }
 
 #person-page #goal-wap-header li{
