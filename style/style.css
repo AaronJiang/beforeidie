@@ -533,7 +533,7 @@ body{
 }
 
 #dynamic-panel .dynamic-content-wap{
-	margin:0 0 0 52px;
+	margin:-1px 0 0 52px;
 	font-size:14px;
 	font-family:'宋体';
 }
@@ -567,7 +567,7 @@ body{
 #dynamic-panel .dynamic-item .dynamic-goal-reason{
 	padding:0 15px 5px 0;
 	font-family:'宋体';
-	line-height:22px;
+	line-height:20px;
 	font-size:13px;
 	color:#555;
 }
