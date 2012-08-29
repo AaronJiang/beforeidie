@@ -137,12 +137,12 @@ textarea, input, select{
 	text-decoration:underline;
 }
 
-/* Comment Textarea */
-.comment-wap{
+/* Comment New Form */
+.comment-new-form{
 	margin:0 0 0 52px;
 }
 
-.comment-wap .comment-content{
+.comment-new-form .comment-input{
 	border:1px solid lightblue;
 	padding:5px 7px;
 	font-size:14px;
@@ -153,7 +153,7 @@ textarea, input, select{
 	margin:0 0 8px 0;
 }
 
-.comment-wap .comment-submit{
+.comment-new-form .comment-submit{
 	display:block;
 	float:right;
 	border:1px solid lightgray;
@@ -164,7 +164,7 @@ textarea, input, select{
 	background-color:lightgray;
 }
 
-.comment-wap .comment-submit:hover{
+.comment-new-form .comment-submit:hover{
 	background-color:#EEE;
 }
 
@@ -675,92 +675,6 @@ body{
 	color:gray;
 }
 
-/* Comments */
-#dynamic-panel .comments-wap{
-	border-top:1px solid #EEE;
-	margin:0 0 0 52px;
-	padding:12px 0 0 0;
-}
-
-#dynamic-panel .comment-item{
-	padding:0 0 12px 0;
-	font-size:13px;
-	font-family:'宋体';
-}
-
-#dynamic-panel .comment-poster-profile{
-	height:30px;
-	width:30px;
-	float:left;
-}
-
-#dynamic-panel .comment-main{
-	margin:-3px 0 0 40px;
-}
-
-#dynamic-panel .comment-header{
-	margin:0 0 3px 0;
-	line-height:20px;
-}
-
-#dynamic-panel .comment-footer{
-	font-size:12px;
-	line-height:12px;
-}
-
-#dynamic-panel .comment-time{
-	color:gray;
-}
-
-#dynamic-panel .comment-cmd{
-	color:#369;
-	cursor:pointer;
-}
-#dynamic-panel .comment-cmd:hover{
-	color:white;
-	background-color:blue;
-}
-
-#dynamic-panel .comment-item a{
-	text-decoration:none;
-	color:#369;
-}
-
-#dynamic-panel .comment-item a:hover{
-	text-decoration:underline;
-}
-
-/* Comment Textarea */
-#dynamic-panel .comment-wap{
-	margin:0 0 0 52px;
-}
-
-#dynamic-panel .comment-wap .comment-content{
-	border:1px solid lightblue;
-	padding:5px 7px;
-	font-size:14px;
-	font-family:'宋体';
-	line-height:20px;
-	outline:none;
-	clear:both;
-	margin:0 0 8px 0;
-}
-
-#dynamic-panel .comment-wap .comment-submit{
-	display:block;
-	float:right;
-	border:1px solid lightgray;
-	padding:1px 10px;
-	margin:0 0 8px 0;
-	cursor:pointer;
-	font-size:14px;
-	background-color:lightgray;
-}
-
-#dynamic-panel .comment-wap .comment-submit:hover{
-	background-color:#EEE;
-}
-
 /* New & Edit Goal Form
 ------------------------------------------------------------*/
 
@@ -980,93 +894,6 @@ body{
 	height:200px;
 	resize:vertical;
 	margin:0 0 0 0;
-}
-
-/* Comments */
-
-#goal-details-panel .comments-wap{
-	border-top:1px solid #EEE;
-	margin:0 0 0 60px;
-	padding:12px 0 0 0;
-}
-
-#goal-details-panel .comment-item{
-	padding:0 0 12px 0;
-	font-size:13px;
-	font-family:'宋体';
-}
-
-#goal-details-panel .comment-poster-profile{
-	height:30px;
-	width:30px;
-	float:left;
-}
-
-#goal-details-panel .comment-main{
-	margin:-3px 0 0 40px;
-}
-
-#goal-details-panel .comment-header{
-	margin:0 0 3px 0;
-	line-height:20px;
-}
-
-#goal-details-panel .comment-footer{
-	font-size:12px;
-	line-height:12px;
-}
-
-#goal-details-panel .comment-time{
-	color:gray;
-}
-
-#goal-details-panel .comment-cmd{
-	color:#369;
-	cursor:pointer;
-}
-#goal-details-panel .comment-cmd:hover{
-	color:white;
-	background-color:blue;
-}
-
-#goal-details-panel .comment-item a{
-	text-decoration:none;
-	color:#369;
-}
-
-#goal-details-panel .comment-item a:hover{
-	text-decoration:underline;
-}
-
-/* Comment Textarea */
-#goal-details-panel .comment-wap{
-	margin:0 0 0 60px;
-}
-
-#goal-details-panel .comment-wap .comment-content{
-	border:1px solid lightblue;
-	padding:5px 7px;
-	font-size:14px;
-	font-family:'宋体';
-	line-height:20px;
-	outline:none;
-	clear:both;
-	margin:0 0 8px 0;
-}
-
-#goal-details-panel .comment-wap .comment-submit{
-	display:block;
-	float:right;
-	border:1px solid lightgray;
-	padding:1px 10px;
-	margin:0 0 8px 0;
-	cursor:pointer;
-	font-size:14px;
-	background-color:lightgray;
-}
-
-#goal-details-panel .comment-wap .comment-submit:hover{
-	background-color:#EEE;
 }
 
 /* Creator */

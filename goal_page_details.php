@@ -21,14 +21,14 @@ $(document).ready(function(){
 			html = "";
 		
 		//构建 HTML 块
-		html = "<div class='comment-wap clearfix'>"
-			+ "<div class='comment-content' contenteditable='true'></div>"
+		html = "<div class='comment-new-form clearfix'>"
+			+ "<div class='comment-input' contenteditable='true'></div>"
 			+ "<span class='comment-submit'>发表</span>"
 			+ "</div>";
 			
 		//插入DOM
 		$(html).appendTo($(this).parents('.log-item'))	
-			.find('.comment-content')
+			.find('.comment-input')
 				.focus() //聚焦
 				.blur(function(){	//失焦则从DOM中删除
 					if($.trim($(this).text()) == ""){
@@ -399,7 +399,7 @@ $(document).ready(function(){
 				//操作按钮
 				echo "<div class='log-cmd-time-wap'>";
 					$commentsNum = get_log_comments_num($log['LogID']);
-					echo "<a class='small-cmd log-cmd-comment' 
+					echo "<a class='small-cmd comment-cmd-new' 
 							data-log-id='". $log['LogID']. "'
 							data-poster-id='". $_SESSION['valid_user_id']. "'
 							data-is-root='1'>回复";
