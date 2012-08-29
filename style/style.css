@@ -85,7 +85,6 @@ textarea, input, select{
 /* Comments */
 .comments-wap{
 	border-top:1px solid #EEE;
-	margin:0 0 0 52px;
 	padding:12px 0 0 0;
 }
 
@@ -138,10 +137,6 @@ textarea, input, select{
 }
 
 /* Comment New Form */
-.comment-new-form{
-	margin:0 0 0 52px;
-}
-
 .comment-new-form .comment-input{
 	border:1px solid lightblue;
 	padding:5px 7px;
@@ -624,18 +619,18 @@ body{
 	font-family:'宋体';
 }
 
-#dynamic-panel .dynamic-item .dynamic-header{
+#dynamic-panel .dynamic-header{
 	color:#A8A8A8;
 	margin:0 0 10px 0;
 }
 
-#dynamic-panel .dynamic-item  .dynamic-header a{
+#dynamic-panel .dynamic-header a{
 	color:#369;
 	cursor:pointer;
 	text-decoration:none;
 }
 
-#dynamic-panel .dynamic-item  .dynamic-header a:hover{
+#dynamic-panel .dynamic-header a:hover{
 	text-decoration:underline;
 }
 
@@ -644,15 +639,15 @@ body{
 	background-color:#F0F0F0;
 }
 
-#dynamic-panel .dynamic-item .dynamic-log-title{
+#dynamic-panel .dynamic-log-title{
 	font-weight:bold;
 	font-family:'微软雅黑';
 	line-height:14px;
 	padding:0 0 7px 0;
 }
 
-#dynamic-panel .dynamic-item .dynamic-log-content,
-#dynamic-panel .dynamic-item .dynamic-goal-reason{
+#dynamic-panel .dynamic-log-content,
+#dynamic-panel .dynamic-goal-reason{
 	padding:0 15px 5px 0;
 	font-family:'宋体';
 	line-height:20px;
@@ -664,15 +659,20 @@ body{
 	padding:0 0 5px 0;
 }
 
-#dynamic-panel .dynamic-item .dynamic-footer{
+#dynamic-panel .dynamic-footer{
 	font-size:12px;
 	text-align:right;
 	margin:0 0 5px 0;
 }
 
-#dynamic-panel .dynamic-item .dynamic-time{
+#dynamic-panel .dynamic-time{
 	display:inline-block;
 	color:gray;
+}
+
+/* Comments */
+#dynamic-panel .comment-new-form{
+	margin:0 0 0 52px;
 }
 
 /* New & Edit Goal Form
@@ -881,6 +881,12 @@ body{
 #goal-details-panel .log-time{
 	display:inline-block;
 	color:gray;
+}
+
+/* Comments */
+#goal-details-panel .comments-wap,
+#goal-details-panel .comment-new-form{
+	margin:0 0 0 60px;
 }
 
 /* Log Dialog */
