@@ -82,6 +82,92 @@ textarea, input, select{
 	color:white;
 }
 
+/* Comments */
+.comments-wap{
+	border-top:1px solid #EEE;
+	margin:0 0 0 52px;
+	padding:12px 0 0 0;
+}
+
+.comment-item{
+	padding:0 0 12px 0;
+	font-size:13px;
+	font-family:'宋体';
+}
+
+.comment-poster-profile{
+	height:30px;
+	width:30px;
+	float:left;
+}
+
+.comment-main{
+	margin:-3px 0 0 40px;
+}
+
+.comment-header{
+	margin:0 0 3px 0;
+	line-height:20px;
+}
+
+.comment-footer{
+	font-size:12px;
+	line-height:12px;
+}
+
+.comment-time{
+	color:gray;
+}
+
+.comment-cmd{
+	color:#369;
+	cursor:pointer;
+}
+.comment-cmd:hover{
+	color:white;
+	background-color:blue;
+}
+
+.comment-item a{
+	text-decoration:none;
+	color:#369;
+}
+
+.comment-item a:hover{
+	text-decoration:underline;
+}
+
+/* Comment Textarea */
+.comment-wap{
+	margin:0 0 0 52px;
+}
+
+.comment-wap .comment-content{
+	border:1px solid lightblue;
+	padding:5px 7px;
+	font-size:14px;
+	font-family:'宋体';
+	line-height:20px;
+	outline:none;
+	clear:both;
+	margin:0 0 8px 0;
+}
+
+.comment-wap .comment-submit{
+	display:block;
+	float:right;
+	border:1px solid lightgray;
+	padding:1px 10px;
+	margin:0 0 8px 0;
+	cursor:pointer;
+	font-size:14px;
+	background-color:lightgray;
+}
+
+.comment-wap .comment-submit:hover{
+	background-color:#EEE;
+}
+
 /* 
 ------------------------------------------------------------*/
 
@@ -560,7 +646,9 @@ body{
 
 #dynamic-panel .dynamic-item .dynamic-log-title{
 	font-weight:bold;
-	padding:0 0 5px 0;
+	font-family:'微软雅黑';
+	line-height:14px;
+	padding:0 0 7px 0;
 }
 
 #dynamic-panel .dynamic-item .dynamic-log-content,
@@ -615,7 +703,7 @@ body{
 	line-height:20px;
 }
 
-#dynamic-panel .comment-time-cmd-wap{
+#dynamic-panel .comment-footer{
 	font-size:12px;
 	line-height:12px;
 }
@@ -923,7 +1011,7 @@ body{
 	line-height:20px;
 }
 
-#goal-details-panel .comment-time-cmd-wap{
+#goal-details-panel .comment-footer{
 	font-size:12px;
 	line-height:12px;
 }

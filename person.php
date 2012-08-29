@@ -1,6 +1,7 @@
 <?php
 	require('header.php');
 	require_once('data_funs.inc');
+	require_once('html_helper.php');
 	
 	$userID = $_REQUEST['userID'];
 	

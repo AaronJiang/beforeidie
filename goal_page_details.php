@@ -1,6 +1,7 @@
 <?php
 	require('header.php');
-	require('data_funs.inc');
+	require_once('data_funs.inc');
+	require_once('html_helper.php');
 	
 	$isCreator = check_goal_ownership($_REQUEST['goalID'], $_SESSION['valid_user_id']);
 ?>
@@ -12,7 +13,7 @@ $(document).ready(function(){
 	var GOAL_ID = <?php echo $_REQUEST['goalID'] ?>;
 	
 	//弹出回复框
-	$('.log-cmd-comment').click(function(){
+	$('.comment-cmd-new').click(function(){
 		var posterID = $(this).data('poster-id'),
 			logID = $(this).data('log-id'),
 			isRoot = $(this).data('is-root'),
@@ -419,57 +420,7 @@ $(document).ready(function(){
 				. "</div>";
 			
 				//回复
-				$comments = get_log_comments($log['LogID']);
-				if(count($comments) == 0){
-					echo "</div>";
-					continue;
-				}
-				echo "<div class='comments-wap'>";
-				foreach($comments as $comm){
-					$posterID = $comm['PosterID'];
-					$poster = get_username_by_id($comm['PosterID']);
-				
-					echo "<div class='comment-item clearfix'>"
-							//回复者头像
-							. "<a href='person.php?userID='". $posterID. "'>"
-								. "<img class='comment-poster-profile' 
-										title='". $poster. "' 
-										src='". get_user_profile($posterID). "' />"
-							. "</a>"
-							
-							//回复主体
-							. "<div class='comment-main'>"
-								//回复头
-								. "<div class='comment-header'>";
-									if($comm['IsRoot']){
-										echo "<a href='person.php?userID=". $posterID. "'>". $poster. "</a>"
-											. " : "
-											. $comm['Comment'];
-									}
-									else {
-										$receiverID = get_posterid_by_commentid($comm['ParentCommentID']);
-										$receiver = get_username_by_id($receiverID);
-										echo "<a href='person.php?userID=". $posterID. "'>". $poster. "</a>"
-											. " : "
-											. "<a href='person.php?userID=". $receiverID. "'>@". $receiver. "</a> "
-										. $comm['Comment'];
-									}
-								echo "</div>"
-				
-								//回复时间和操作按钮
-								. "<div class='comment-time-cmd-wap'>"
-									. "<span class='comment-time'>". $comm['Time']. "</span>"
-									. "&nbsp;"
-									. "<span class='comment-cmd log-cmd-comment'
-											data-log-id='". $log['LogID']. "'
-											data-parent-comment-id='". $comm['CommentID']. "'
-											data-poster-id='". $_SESSION['valid_user_id']. "'
-											data-is-root='0'>回复<span>"
-								. "</div>"
-							. "</div>"
-					. "</div>";
-				}
-				echo "</div>";
+				html_output_comments($log['LogID']);
 			echo "</div>";
 		}
 	}
