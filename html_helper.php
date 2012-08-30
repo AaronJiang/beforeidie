@@ -1,6 +1,15 @@
 <?php
 	require_once('public_funs.php');
 	require_once('data_funs.inc');
+
+	//输出动态 Poster's avatar HTML 代码
+	function html_output_dynamic_avatar($dyn){
+		echo "<a href='person.php?userID=". $dyn['PosterID']. "'>"
+				. "<img class='dynamic-poster-profile' 
+						title='". $dyn['Poster']. "' 
+						src='". get_user_profile($dyn['PosterID']). "' />"
+			. "</a>";
+	}
 	
 	//输出 Comments
 	function html_output_comments($logID){
