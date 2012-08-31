@@ -4,7 +4,7 @@
 
 	//获取单个目标
 	function get_goal_by_ID($goalID){
-		$query = "select * from goals where GoalID = ". $goalID;
+		$query = "SELECT * FROM goals WHERE GoalID = ". $goalID;
 		$results = db_exec($query);
 		return $results->fetch_assoc();	
 	}

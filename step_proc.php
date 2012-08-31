@@ -10,11 +10,11 @@
 			break;
 			
 		case 'update':
-			echo update_step($_REQUEST['stepID'], $_REQUEST['stepContent']);
+			echo update_step($_REQUEST['stepID'], $_REQUEST['stepContent'], $_REQUEST['stepIndex']);
 			break;
 			
 		case 'new':
-			echo new_step($_REQUEST['goalID'], $_REQUEST['stepContent']);
+			echo new_step($_REQUEST['goalID'], $_REQUEST['stepContent'], $_REQUEST['stepIndex']);
 			break;
 			
 		case 'delete':

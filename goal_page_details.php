@@ -159,13 +159,13 @@ $(document).ready(function(){
 						return true;	//若为空，则跳过此次循环
 					}
 					
-					var stepType = $(this).attr('data-type'),
-						stepID = $(this).attr('data-stepid');
-					
 					//若存在无步骤的警告标语，则去掉
 					if($('#no-step-caution')[0]){
 						$('#no-step-caution').remove();
 					}
+					
+					var stepType = $(this).attr('data-type'),
+						stepID = $(this).attr('data-stepid');					
 					
 					//更新页面中的步骤
 					if(stepType != 'delete'){
@@ -179,7 +179,8 @@ $(document).ready(function(){
 							data: {
 								proc: 'update',
 								stepID: stepID,
-								stepContent: text
+								stepContent: text,
+								stepIndex: index
 							}
 						});
 					}	//删除步骤
@@ -198,7 +199,8 @@ $(document).ready(function(){
 							data: {
 								proc: 'new',
 								goalID: GOAL_ID,
-								stepContent: text
+								stepContent: text,
+								stepIndex: index
 							}
 						});
 					}
@@ -243,7 +245,7 @@ $(document).ready(function(){
 				}
 				html += '</ul>';
 
-				$("#dialog-edit-steps").html(html);	
+				$('#dialog-edit-steps').html(html);
 			}
 		});
 		
@@ -369,7 +371,7 @@ $(document).ready(function(){
 	<?php
 	$steps = get_steps($GOAL_ID);
 	if(count($steps) == 0){
-		echo "<p id='no-step-caution' style='margin-bottom:5px;font-size:14px;'>还没有任何规划哦~</p>";
+		echo "<p id='no-step-caution' style='margin:0 0 5px 5px;font-size:13px;'>还没有任何规划哦~</p>";
 	} ?>
 	
 	<ul id='goal-steps'>
@@ -395,7 +397,7 @@ $(document).ready(function(){
 	$logs = get_logs($GOAL_ID);
 
 	if(count($logs) == 0){
-		echo "<p style='font-size:14px;clear:both;'>还没有任何记录哦~</p>";
+		echo "<p style='font-size:13px;clear:both;'>还没有任何记录哦~</p>";
 	} 
 	else {
 		foreach($logs as $log){
