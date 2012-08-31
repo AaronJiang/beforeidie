@@ -19,6 +19,11 @@ $(document).ready(function(){
 		$('body').prop('id', 'page-person');
 	}
 	
+	$("#cmd-leave-message").click(function(){
+		$("#dialog-leave-message").dialog('open');
+	});
+	
+	//初始化留言框
 	$("#dialog-leave-message").dialog({
 		autoOpen: false,
 		modal: true,
@@ -35,23 +40,17 @@ $(document).ready(function(){
 			}
 		}
 	});
-
-	$("#cmd-leave-message").click(function(){
-		$("#dialog-leave-message").dialog('open');
-	});		
 });
-	
+
 </script>
 
-<!-- 留言对话框 -->
-<div id='dialog-leave-message'>
-	<form id='form-leave-message' action='message_proc.php' method='post'>
-		<textarea name='message' id='message-content'></textarea>
-		<input type='hidden' name='proc' value='new'>
-		<input type='hidden' name='posterID' value='<?php echo $_SESSION['valid_user_id']; ?>'>
-		<input type='hidden' name='receiverID' value='<?php echo $userID; ?>'>
-	</form>
-</div>
+
+
+<script type='text/javascript'>
+	
+
+
+</script>
 
 <div id='person-page'>
 	<div id='main-panel'>
@@ -220,6 +219,17 @@ $(document).ready(function(){
 		-->
 	</div>
 </div>
+
+<!-- 留言对话框 -->
+<div id='dialog-leave-message'>
+	<form id='form-leave-message' action='message_proc.php' method='post'>
+		<textarea name='message' id='message-content'></textarea>
+		<input type='hidden' name='proc' value='new'>
+		<input type='hidden' name='posterID' value='<?php echo $_SESSION['valid_user_id']; ?>'>
+		<input type='hidden' name='receiverID' value='<?php echo $userID; ?>'>
+	</form>
+</div>
+
 <?php
 	require('footer.php');
 ?>

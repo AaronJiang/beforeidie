@@ -284,8 +284,7 @@ body{
 #header{
 	background-color:#2B2B2B;
 	height:40px;
-	position:relative;
-	margin:0 0 10px 0;
+	margin:0 0 0 0;
 	position:fixed;
 	top:0px;
 	left:0px;
@@ -360,13 +359,13 @@ body{
 
 /* Footer
 ------------------------------------------------------------*/
-#footer #about-this{
+#footer a{
 	color:#0455A1;
 	text-decoration:none;
 	display:inline-block;
 	margin:0 6px 0 0;
 }
-#footer #about-this:hover{
+#footer a:hover{
 	text-decoration:underline;
 }
 
@@ -1261,3 +1260,59 @@ body{
 
 /* About
 ------------------------------------------------------------*/
+#page-about{
+	font-size:14px;
+}
+
+#page-about #main-content{
+	width:70%;
+	box-sizing:border-box;
+	float:left;
+	padding:0 20px 0 0;
+	border-right:1px dashed lightgray;
+}
+
+#page-about #sidebar{
+	width:30%;
+	box-sizing:border-box;
+	padding:0 0 0 20px;
+	float:right;
+}
+
+#page-about #my-avatar{
+	float:left;
+	width:150px;
+	margin:0 12px 10px 0;
+}
+
+#page-about #donate-btn{
+	padding:10px 10px;
+	margin:0 0 10px 0;
+	display:block;
+	text-align:center;
+	font-size:20px;
+	line-height:20px;
+	font-weight:bold;
+	background-color:orange;
+	cursor:pointer;
+}
+
+#page-about #donate-btn:hover{
+	background-color:darkOrange;	
+}
+
+#page-about .subtitle{
+	margin:15px 0 15px 0;
+}
+
+#page-about .subtitle:nth-child(1){
+	margin-top:0;
+}
+
+#page-about p{
+	margin:0 0 5px 0;
+}
+
+
+
+

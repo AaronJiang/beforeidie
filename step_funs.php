@@ -16,7 +16,7 @@
 		
 		return $steps;
 	}
-	
+
 	//新的步骤
 	function new_step($goalID, $stepContent, $stepIndex){
 		$goalID = trim($goalID);
