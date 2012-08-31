@@ -148,19 +148,33 @@ textarea, input, select{
 	margin:0 0 8px 0;
 }
 
-.comment-new-form .comment-submit{
+.comment-new-form .comment-submit,
+.comment-new-form .comment-cancel{
 	display:block;
 	float:right;
-	border:1px solid lightgray;
-	padding:1px 10px;
-	margin:0 0 8px 0;
+	padding:5px 10px;
+	margin:0 0 8px 10px;
 	cursor:pointer;
 	font-size:14px;
+	font-weight:bold;
+	line-height:14px;
+	border-radius:3px;
+}
+
+.comment-new-form .comment-submit{
+	background-color:deepSkyBlue;
+}
+
+.comment-new-form .comment-cancel{
 	background-color:lightgray;
 }
 
 .comment-new-form .comment-submit:hover{
-	background-color:#EEE;
+	background-color:skyBlue
+}
+
+.comment-new-form .comment-cancel:hover{
+	background-color:#DDD;
 }
 
 /* 

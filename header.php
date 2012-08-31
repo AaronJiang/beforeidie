@@ -19,7 +19,7 @@
 			
 				<ul id="nav" class="clearfix">
 					<li><a id="nav-goals" href="home.php">我的Goals</a></li>
-					<li><a id="nav-dynamic" href="dynamic.php">动态</a></li>
+					<li><a id="nav-dynamic" href="dynamic_page_main.php">动态</a></li>
 					<li><a id="nav-person" href="person.php?userID=<?php echo $_SESSION['valid_user_id'] ?>">个人主页</a></li>				
 					<li><a id="nav-newgoal" href="goal_page_new.php">新建</a></li>
 					<li><a id="nav-discover" href="discover.php">发现</a></li>

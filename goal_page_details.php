@@ -17,13 +17,21 @@ $(document).ready(function(){
 		var posterID = $(this).data('poster-id'),
 			logID = $(this).data('log-id'),
 			isRoot = $(this).data('is-root'),
+			commentsNum = $(this).data('num-comments'),
 			parentCommentID = isRoot? 0: $(this).data('parent-comment-id'),
 			html = "";
 		
 		//构建 HTML 块
-		html = "<div class='comment-new-form clearfix'>"
-			+ "<div class='comment-input' contenteditable='true'></div>"
-			+ "<span class='comment-submit'>发表</span>"
+
+		if(isRoot && !commentsNum){
+			html += "<div class='comment-new-form clearfix' style='margin-left:0px;'>";
+		}
+		else{
+			html += "<div class='comment-new-form clearfix'>";
+		}
+		html += "<div class='comment-input' contenteditable='true'></div>"
+			+ "<span class='comment-submit'>发表</span>"		
+			+ "<span class='comment-cancel'>取消</span>"
 			+ "</div>";
 			
 		//插入DOM
@@ -51,11 +59,13 @@ $(document).ready(function(){
 						}
 					});
 					
-					//隐藏回复框
 					$(this).parent().detach();
-					
-					//刷新页面
+
 					location.reload();
+				})
+			.next()	//取消回复
+				.click(function(){
+					$(this).parent().detach();	
 				});
 	});
 	
@@ -402,9 +412,11 @@ $(document).ready(function(){
 					echo "<a class='small-cmd comment-cmd-new' 
 							data-log-id='". $log['LogID']. "'
 							data-poster-id='". $_SESSION['valid_user_id']. "'
-							data-is-root='1'>回复";
-					if($commentsNum != 0){
-					echo "(". $commentsNum. ")";
+							data-is-root='1'
+							data-num-comments='". $commentsNum. "'
+							>回复";
+					if($commentsNum){
+						echo "(". $commentsNum. ")";
 					}
 					echo "</a>";
 			
@@ -429,26 +441,25 @@ $(document).ready(function(){
 
 <!-- 边栏 -->
 <div id="goal-sidebar-panel">
+
 	<!-- 创建者 -->
-	<?php if(!$isCreator){ 
-		$goalOwner = get_goal_owner($GOAL_ID);
-	?>
 	<div class='panel-header'>
 		<div class='panel-title'>创建者</div>
 	</div>
 	
+	<?php $goalOwner = get_goal_owner($GOAL_ID); ?>
 	<a class='user-icon' href='person.php?userID=<?php echo $goalOwner['UserID'] ?>'  >
 		<img src='<?php echo get_user_profile($goalOwner['UserID']) ?>' title='<?php echo $goalOwner['Username'] ?>' />
 	</a>
-	<?php } ?>
 	
+	<!-- 活跃度 -->
 	<div class='panel-header'>
 		<div class='panel-title'>活跃度</div>
 	</div>
-	
+
+	<!-- 鼓励者 -->
 	<div class='panel-header'>
 		<div class='panel-title'>鼓励者</div>
-
 	</div>
 	
 	<?php 
