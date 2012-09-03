@@ -12,7 +12,7 @@
 $(document).ready(function(){
 	$('body').prop('id', 'page-goals');
 	
-	//弹出命令栏
+	//滑出命令栏
 	$('.goal-item').live("hover", function(event){
 		if(event.type == 'mouseenter'){
 			$(this).find('.goal-cmd-wap').animate({'bottom':'0px'}, 'fast');
@@ -22,7 +22,7 @@ $(document).ready(function(){
 		};
 	});
 	
-	//初始化对话框
+	//初始化 Goal 延迟对话框
 	$('#dialog-delay').dialog({
 		autoOpen: false,
 		modal: true,
@@ -47,7 +47,7 @@ $(document).ready(function(){
 		selectOtherMonths: true
 	});	
 	
-	//弹出对话框
+	//弹出 Goal 延迟框
 	$('.goal-cmd-delay').click(function(){
 		//对话框标题
 		var goalTitle = $(this).data('title');
@@ -58,6 +58,15 @@ $(document).ready(function(){
 		$("#form-delay-goal input[name='goalID']").val(goalID);
 	
 		$('#dialog-delay').dialog('open');
+	});
+	
+	//弹出放弃 Goal 警告框
+	$('.goal-cmd-finish').click(function(){
+		var goalTitle = $(this).data('title');
+		var isSure = confirm('确定放弃目标：' + goalTitle + "?");
+		if(!isSure){
+			return false;
+		}
 	});
 });
 </script>
@@ -77,39 +86,52 @@ $(document).ready(function(){
 
 <?php
 	$goalType = isset($_REQUEST['goalType'])? $_REQUEST['goalType']: 'now';
-	$results = get_goals($userID, $goalType);
+	$goals = get_goals($userID, $goalType);
 	
 	//构造每一个 Goal 的 HTML 块
-	foreach($results as $row){
+	foreach($goals as $goal){
 		echo "<div class='goal-item goal-item-". $goalType. "'>"
-				//简要信息
-				. "<a class='goal-link' href='goal_page_details.php?goalID=". $row['GoalID']. "'>"
-					. "<p class='goal-title'>". stripslashes($row['Title']). "</p>"
-					. "<p class='goal-why'>". stripslashes($row['Reason']). "</p>"
+				//Goal 详情
+				. "<a class='goal-link' href='goal_page_details.php?goalID=". $goal['GoalID']. "'>"
+					. "<p class='goal-title'>". stripslashes($goal['Title']). "</p>"
+					. "<p class='goal-why'>". stripslashes($goal['Reason']). "</p>"
 					. "<div class='goal-info-wap'>"
 						. "<div>";
 						if($goalType == 'future'){
-							echo "<p class='goal-starttime'>将于 <b>". stripslashes($row['StartTime']). "</b> 启动</p>";
+							echo "<p class='goal-starttime'>将于 <b>". stripslashes($goal['StartTime']). "</b> 启动</p>";
 						}
 						elseif($goalType == 'finish'){
-							echo "<p class='goal-starttime'>于 <b>". stripslashes($row['EndTime']). "</b> 达成</p>";								
+							echo "<p class='goal-starttime'>于 <b>". stripslashes($goal['EndTime']). "</b> 达成</p>";								
 						}
 						else {
-							echo "<b>". get_goal_steps_num($row['GoalID']). "</b> 计划"
+							echo "<b>". get_goal_steps_num($goal['GoalID']). "</b> 计划"
 								. " | "
-								. "<b>". get_goal_logs_num($row['GoalID']). "</b> 记录";
+								. "<b>". get_goal_logs_num($goal['GoalID']). "</b> 记录";
 						}
 						echo "</div>"
 					. "</div>"
 				. "</a>"
+				
 				//命令按钮
 				. "<div class='goal-cmd-wap'>"
-			 		. "<a class='goal-cmd goal-cmd-edit' href='goal_page_edit.php?goalID=". $row['GoalID']. "'>编辑</a>";
+			 		. "<a class='goal-cmd goal-cmd-edit'
+						href='goal_page_edit.php?goalID=". $goal['GoalID']. "'
+						>编辑</a>";
 					if($goalType == "now"){
-						echo "<a class='goal-cmd goal-cmd-delay' data-goalid='". $row['GoalID']. "' data-title='". $row['Title']. "'>推迟</a>";
+						echo "<a class='goal-cmd goal-cmd-delay' 
+								data-goalid='". $goal['GoalID']. "'
+								data-title='". $goal['Title']. "'
+								>推迟</a>";
 					}
 					else if($goalType == "future"){
-						echo "<a class='goal-cmd goal-cmd-start' href='goal_proc.php?proc=start&goalID=". $row['GoalID']. "'>启动</a>";
+						echo "<a class='goal-cmd goal-cmd-start'
+								href='goal_proc.php?proc=start&goalID=". $goal['GoalID']. "'
+								>启动</a>";
+					}
+					if($goalType != "finish"){
+						echo "<a class='goal-cmd goal-cmd-finish'
+								href='goal_proc.php?proc=drop&goalID=". $goal['GoalID']. "'
+								>放弃</a>";					
 					}
 				echo "</div>"
 			. "</div>";

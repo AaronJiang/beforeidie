@@ -106,9 +106,6 @@
 			$startTime = trim($startTime);
 		}
 	
-		$createTime = now_time();
-		$updateTime = now_time();
-	
 		if(!$title || !$reason || !$startTime){
 			echo "You have not enter all the required details!";
 			exit;
@@ -121,14 +118,14 @@
 			$startTime = addslashes($startTime);
 		}
 		
-		$query = "insert into goals (UserID, Title, Reason, GoalType, StartTime, CreateTime, UpdateTime, IsPublic) ";
-		$query .= "values (". $userID. ", '". $title. "', '". $reason. "', '". $goalType. "', '". $startTime. "', '". $createTime. "', '". $updateTime. "', ". $isPublic. ")";
+		$query = "insert into goals (UserID, Title, Reason, GoalType, StartTime, CreateTime, IsPublic) ";
+		$query .= "values (". $userID. ", '". $title. "', '". $reason. "', '". $goalType. "', '". $startTime. "', NOW(), ". $isPublic. ")";
 		
 		$result = db_exec($query);
 		
-		return $result? 'true': 'false';
+		//return $result? mysql_insert_id(): 'false';
 	}
-	
+
 	//启动目标
 	function start_goal($goalID){
 		$goalID	= trim($goalID);
@@ -265,5 +262,21 @@
 		$result = db_exec($query);
 		
 		return $result->fetch_assoc();
+	}
+	
+	//完成目标
+	function finish_goal($goalID){
+		$query = "UPDATE goals SET GoalType = 'finish', EndTime = NOW() WHERE GoalID = ". $goalID;
+		
+		$result = db_exec($query);
+		return $result? "true": "false";
+	}
+	
+	//放弃目标
+	function drop_goal($goalID){
+		$query = "DELETE FROM goals WHERE GoalID = ". $goalID;
+		
+		$result = db_exec($query);
+		return $result? "true": "false";
 	}
 ?>

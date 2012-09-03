@@ -285,12 +285,11 @@ $(document).ready(function(){
 	$GOAL_ID = trim($_REQUEST['goalID']);
 ?>
 
-<!-- Title 和 Prospect -->
+<!-- Title -->
 <div id='goal-title-panel'>
 	<div>
 		<?php $goal = get_goal_by_ID($GOAL_ID); ?>
 		<p id='goal-title'> <?php echo $goal['Title']; ?> </p>
-		<!--<p id='goal-why'> <?php echo $goal['Reason']; ?> </p>-->
 		
 		<div id='goal-cmd-wap'>
 			<?php
@@ -339,9 +338,10 @@ $(document).ready(function(){
 	</div>
 </div>
 
-<!-- Steps 和 Logs -->
+<!-- Reason, Steps, Logs -->
 <div id='goal-details-panel'>
 
+	<!-- Reason -->
 	<div class='panel-header'>
 		<div class='panel-title'>愿景</div
 		><div class='panel-cmd-wapper'>	

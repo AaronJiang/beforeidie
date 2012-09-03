@@ -16,7 +16,8 @@
 			break;
 			
 		case "new":
-			new_goal($_REQUEST['userID'], $_REQUEST['title'], $_REQUEST['why'], $_REQUEST['goalType'], $_REQUEST['startTime'], $_REQUEST['isPublic']);
+			$goalID = new_goal($_REQUEST['userID'], $_REQUEST['title'], $_REQUEST['why'], $_REQUEST['goalType'], $_REQUEST['startTime'], $_REQUEST['isPublic']);
+			//page_jump('goal_page_details.php?goalID='. $goalID);
 			page_jump('home.php?goalType='. $_REQUEST['goalType']);
 			break;
 			
@@ -36,8 +37,13 @@
 			break;
 		
 		case "finish":
-			//todo
+			finish_goal($_REQUEST['goalID']);
 			page_jump_back();			
+			break;
+		
+		case "drop":
+			drop_goal($_REQUEST['goalID']);
+			page_jump_back();
 			break;
 	}
 ?>
