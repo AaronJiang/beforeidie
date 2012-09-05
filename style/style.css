@@ -1260,15 +1260,13 @@ body{
 
 /* About
 ------------------------------------------------------------*/
-#page-about{
-	font-size:14px;
-}
 
+/* Layout */
 #page-about #main-content{
 	width:70%;
 	box-sizing:border-box;
 	float:left;
-	padding:0 20px 0 0;
+	padding:0 20px 10px 0;
 	border-right:1px dashed lightgray;
 }
 
@@ -1279,15 +1277,81 @@ body{
 	float:right;
 }
 
+/* Main Content */
+
+#page-about p{
+	margin:0 0 12px 0;
+	line-height:22px;
+	font-size:14px;
+}
+
+#page-about p{
+	font-family:'宋体';
+}
+
+#page-about #main-content a{
+	color:#0455A1;
+	text-decoration:none;
+}
+
+#page-about #main-content a:hover{
+	text-decoration:underline;
+}
+
+#page-about .main-title{
+	font-weight:bold;
+	font-size:20px;
+	font-family:'微软雅黑';
+	margin:20px 0 15px 0;
+	clear:both;
+	text-indent:0;
+}
+
+#page-about .main-title:nth-child(1){
+	margin-top:5px;
+}
+
+#page-about .sub-title{
+	font-weight:bold;
+	font-size:15px;
+	clear:both;
+}
+
+#page-about blockquote{
+	margin:20px 50px 20px 20px;
+	padding:0 0 0 8px;
+	border-left:4px solid lightgray;
+}
+
+#page-about blockquote p{
+	font-size:12px;
+	line-height:18px;
+	font-family:'微软雅黑';
+	font-style:italic;
+	color:#666;
+}
+
+/* Sidebar */
 #page-about #my-avatar{
 	float:left;
-	width:150px;
-	margin:0 12px 10px 0;
+	width:80px;
+	margin:0 0px 10px 0;
+}
+
+#page-about #my-intro{
+	margin:-4px 0 0 92px;
+
+}
+
+#page-about #my-intro p{
+	margin:0 0 6px 0;
+	line-height:20px;
 }
 
 #page-about #donate-btn{
-	padding:10px 10px;
+	padding:5px 0;
 	margin:0 0 10px 0;
+	width:100px;
 	display:block;
 	text-align:center;
 	font-size:20px;
@@ -1295,24 +1359,9 @@ body{
 	font-weight:bold;
 	background-color:orange;
 	cursor:pointer;
+	border-radius:2px;
 }
 
 #page-about #donate-btn:hover{
-	background-color:darkOrange;	
+	box-shadow:0 0 3px orange;
 }
-
-#page-about .subtitle{
-	margin:15px 0 15px 0;
-}
-
-#page-about .subtitle:nth-child(1){
-	margin-top:0;
-}
-
-#page-about p{
-	margin:0 0 5px 0;
-}
-
-
-
-

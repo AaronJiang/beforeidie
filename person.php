@@ -3,6 +3,10 @@
 	require_once('data_funs.inc');
 	require_once('html_helper.php');
 	
+	if(!is_auth()){
+		page_jump('account_page_login.php');
+	}
+	
 	$userID = $_REQUEST['userID'];
 	
 	$isMe = ($userID == $_SESSION['valid_user_id']);
