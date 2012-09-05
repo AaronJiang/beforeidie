@@ -1,5 +1,10 @@
 <?php
 	require('header.php');
+	require_once('data_funs.inc');
+	
+	if(!is_auth()){
+		page_jump('account_page_login.php');
+	}
 ?>
 
 <script type="text/javascript">

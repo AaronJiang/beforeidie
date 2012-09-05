@@ -1268,6 +1268,7 @@ body{
 	float:left;
 	padding:0 20px 10px 0;
 	border-right:1px dashed lightgray;
+	min-height:550px;
 }
 
 #page-about #sidebar{
@@ -1279,14 +1280,10 @@ body{
 
 /* Main Content */
 
-#page-about p{
+#page-about p, #page-about li{
 	margin:0 0 12px 0;
 	line-height:22px;
 	font-size:14px;
-}
-
-#page-about p{
-	font-family:'宋体';
 }
 
 #page-about #main-content a{
@@ -1329,6 +1326,12 @@ body{
 	font-family:'微软雅黑';
 	font-style:italic;
 	color:#666;
+}
+
+#page-about li{
+	list-style-type:square;
+	margin:0 0 10px 20px;
+	line-height:20px;
 }
 
 /* Sidebar */
