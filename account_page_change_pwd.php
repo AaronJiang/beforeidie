@@ -18,18 +18,20 @@ $(document).ready(function(){
 });
 </script>
 
+<p class='subtitle'>更改密码</p>
+
 <form action='account_proc.php' method='post'>
 	<div>
 		<input type='password' autocomplete='off' placeholder='原密码' name='originalPwd'>
-	<div>
+	</div>
 
 	<div>
 		<input type='password' autocomplete='off' placeholder='新密码' name='newPwd'>
-	<div>
+	</div>
 
 	<div>
 		<input type='password' autocomplete='off' placeholder='重复新密码' name='reNewPwd'>
-	<div>
+	</div>
 	
 	<input type='submit' value='修改'>
 	<input type='button' id='cancel-btn' value='取消'>

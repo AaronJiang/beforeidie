@@ -65,4 +65,31 @@
 		}
 		echo "</div>";	//end-comments
 	}
+	
+	//输出 Panel Header
+	function html_out_panel_header($title, $cmd, $cmdID, $cmdUrl, $isAuth){
+		echo "<div class='panel-header'>";
+		echo " <div class='panel-title'>". $title. "</div>";
+		
+		if(isset($cmd)){
+			//若未授权，则不输出命令
+			if(isset($isAuth) && !$isAuth){
+				echo "</div>";
+				return;
+			}
+			
+			echo "<div class='panel-cmd-wapper'>";		
+			echo "<span class='panel-underline'>_ _ _</span>";
+			echo "<a class='panel-cmd' id='". $cmdID. "'";
+			
+			if(trim($cmdUrl) != ""){
+				echo "href='". $cmdUrl. "'";
+			}
+			
+			echo ">". $cmd. "</a>";
+			echo "</div>";
+		}
+		
+		echo "</div>";
+	}
 ?>

@@ -22,7 +22,6 @@ $(document).ready(function(){
 			html = "";
 		
 		//构建 HTML 块
-
 		if(isRoot && !commentsNum){
 			html += "<div class='comment-new-form clearfix' style='margin-left:0px;'>";
 		}
@@ -146,7 +145,7 @@ $(document).ready(function(){
 		modal: true,
 		draggable: false,
 		resizable: false,
-		title: '编辑步骤',
+		title: '调整步骤',
 		width: 430,
 		buttons: {
 			'保存': function(){
@@ -285,94 +284,62 @@ $(document).ready(function(){
 	$GOAL_ID = trim($_REQUEST['goalID']);
 ?>
 
-<!-- Title -->
-<div id='goal-title-panel'>
-	<div>
-		<?php $goal = get_goal_by_ID($GOAL_ID); ?>
-		<p id='goal-title'> <?php echo $goal['Title']; ?> </p>
-		
-		<div id='goal-cmd-wap'>
-			<?php
-			//若为所有者
-			if($isCreator){
-				$isFinished = check_goal_is_finished($GOAL_ID);
-				if(!$isFinished){	//若还未完成
-			?>
-			<a href='goal_proc.php?proc=finish&goalID=<?php echo $GOAL_ID ?>'>完成</a>
-			<?php
-				}
-				else {	//若已经完成
-				}
-			} 
-			else {	//若不是所有者
-				$isCheered = check_goal_is_cheered($_SESSION['valid_user_id'], $GOAL_ID);
-				if(!$isCheered){	//若还未鼓励
-			?>
-			<a href='cheer_proc.php?proc=cheer&userID=<?php echo $_SESSION['valid_user_id'] ?>&goalID=<?php echo $GOAL_ID ?>'>鼓励</a>
-			<?php 
-				} 
-				else {	//若已经鼓励 ?>
-			<a class='isCheered' href='#'>已鼓励</a>			
-			<?php 
-				}
-			} ?>
-		</div>
-		
-		<!--
-		<div id='goal-num-wap'>
-			<div class='goal-num-item goal-num-item-border'>
-				<div class='goal-num'><?php echo get_goal_steps_num($GOAL_ID) ?></div>
-				<div>计划</div>
-			</div
-			
-			><div class='goal-num-item goal-num-item-border'>
-				<div class='goal-num'><?php echo get_goal_logs_num($GOAL_ID) ?></div>
-				<div>记录</div>
-			</div
-			><div class='goal-num-item'>
-				<div class='goal-num'><?php echo get_goal_cheers_num($GOAL_ID) ?></div>
-				<div>鼓励</div>
-			</div>
-		</div>
-		-->
-	</div>
-</div>
-
-<!-- Reason, Steps, Logs -->
+<!-- Goal Details -->
 <div id='goal-details-panel'>
 
-	<!-- Reason -->
-	<div class='panel-header'>
-		<div class='panel-title'>愿景</div
-		><div class='panel-cmd-wapper'>	
-		<?php if($isCreator){ ?>
-			<span>......（</span
-			><span class='panel-cmd' id='cmd-edit-reason'>编辑</span
-			><span>）<span>
-		<?php } ?>
+	<!-- Title -->
+	<div id='goal-title-panel'>
+		<div>
+			<?php $goal = get_goal_by_ID($GOAL_ID); ?>
+			<span id='goal-title'> <?php echo $goal['Title']; ?> </span>
+			<div id='goal-cmd-wap'>
+				<?php
+				//若为所有者
+				if($isCreator){
+					$isFinished = check_goal_is_finished($GOAL_ID);
+					if(!$isFinished){	//若还未完成
+				?>
+				<a href='goal_proc.php?proc=finish&goalID=<?php echo $GOAL_ID ?>'>完成</a>
+				<?php
+					}
+					else {	//若已经完成
+				?>
+				<a class='isFinished'>已完成</a>	
+				<?php
+					}
+				} 
+				else {	//若不是所有者
+					$isCheered = check_goal_is_cheered($_SESSION['valid_user_id'], $GOAL_ID);
+					if(!$isCheered){	//若还未鼓励
+				?>
+				<a href='cheer_proc.php?proc=cheer&userID=<?php echo $_SESSION['valid_user_id'] ?>&goalID=<?php echo $GOAL_ID ?>'>鼓励</a>
+				<?php 
+					} 
+				else {	//若已经鼓励 ?>
+				<a class='isCheered'>已鼓励</a>			
+				<?php 
+					}
+				} ?>
+			</div>
 		</div>
 	</div>
+
+	<!-- Reason -->	
+	<?php 
+		@html_out_panel_header('愿景', '修改', 'cmd-edit-reason', '', $isCreator);
+		$goal = get_goal_by_ID($GOAL_ID) 
+	?>
 	
-	<?php $goal = get_goal_by_ID($GOAL_ID) ?>
 	<p id='goal-reason'> <?php echo $goal['Reason']; ?> </p>
 
 	<!-- Steps -->
-	<div class='panel-header'>
-		<div class='panel-title'>计划</div
-		><div class='panel-cmd-wapper'>	
-		<?php if($isCreator){ ?>
-			<span>......（</span
-			><span class='panel-cmd' id='cmd-edit-steps'>编辑</span
-			><span>）<span>
-		<?php } ?>
-		</div>
-	</div>
-	
 	<?php
-	$steps = get_steps($GOAL_ID);
-	if(count($steps) == 0){
-		echo "<p id='no-step-caution' style='margin:0 0 5px 5px;font-size:13px;'>还没有任何规划哦~</p>";
-	} ?>
+		@html_out_panel_header('计划', '调整', 'cmd-edit-steps', '', $isCreator);
+		$steps = get_steps($GOAL_ID);
+		if(count($steps) == 0){
+			echo "<p id='no-step-caution' style='margin:0 0 5px 5px;font-size:13px;'>还没有任何规划哦~</p>";
+		} 
+	?>
 	
 	<ul id='goal-steps'>
 		<?php
@@ -382,24 +349,12 @@ $(document).ready(function(){
 	</ul>
 
 	<!-- Logs -->
-	<div class='panel-header panel-log-header'>
-		<div class='panel-title'>记录</div
-		><div class='panel-cmd-wapper'>
-		<?php if($isCreator){ ?>
-			<span>......（<span
-			><span class='panel-cmd' id='cmd-add-log'>添加</span
-			><span>）</span>
-		<?php } ?>
-		</div>
-	</div>
-	
 	<?php
+	@html_out_panel_header('记录', '添加', 'cmd-add-log', '', $isCreator);
+	
 	$logs = get_logs($GOAL_ID);
 
-	if(count($logs) == 0){
-		echo "<p style='font-size:13px;clear:both;'>还没有任何记录哦~</p>";
-	} 
-	else {
+	if(count($logs) != 0){
 		foreach($logs as $log){
 			echo "<div class='log-item'>";
 				//标题和内容
@@ -438,6 +393,10 @@ $(document).ready(function(){
 			echo "</div>";
 		}
 	}
+	else {
+		echo "<p style='font-size:13px;clear:both;'>还没有任何记录哦~</p>";
+	}
+	
 	?>
 </div>
 
@@ -445,26 +404,19 @@ $(document).ready(function(){
 <div id="goal-sidebar-panel">
 
 	<!-- 创建者 -->
-	<div class='panel-header'>
-		<div class='panel-title'>创建者</div>
-	</div>
+	<?php
+		@html_out_panel_header('创建者');
+		$goalOwner = get_goal_owner($GOAL_ID); 
+	?>
 	
-	<?php $goalOwner = get_goal_owner($GOAL_ID); ?>
 	<a class='user-icon' href='person.php?userID=<?php echo $goalOwner['UserID'] ?>'  >
 		<img src='<?php echo get_user_profile($goalOwner['UserID']) ?>' title='<?php echo $goalOwner['Username'] ?>' />
 	</a>
-	
-	<!-- 活跃度 -->
-	<div class='panel-header'>
-		<div class='panel-title'>活跃度</div>
-	</div>
 
-	<!-- 鼓励者 -->
-	<div class='panel-header'>
-		<div class='panel-title'>鼓励者</div>
-	</div>
+	<!-- 鼓励者 -->	
+	<?php
+		@html_out_panel_header('鼓励者', '全部', 'cmd-all-cheerers', 'cheer_page_cheerers.php?goalID='.$GOAL_ID);
 	
-	<?php 
 		$cheerers = get_goal_cheerers($GOAL_ID);
 		foreach($cheerers as $cheerer){
 			echo "<a class='user-icon' href='person.php?userID=". $cheerer['UserID']. "'>"

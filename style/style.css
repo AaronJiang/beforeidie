@@ -61,7 +61,13 @@ textarea, input, select{
 	font-weight:bold;
 	font-family:'微软雅黑';
 	display:inline-block;
-	padding:0 5px 0 0;
+	padding:0 6px 0 0;
+}
+
+.panel-header .panel-underline{
+	color:#EEE;
+	padding:0px;
+	margin:0 0 -2px 0;
 }
 
 .panel-header .panel-cmd-wapper{
@@ -72,14 +78,17 @@ textarea, input, select{
 
 .panel-header .panel-cmd{
 	text-decoration:none;
-	color:#0455A1;
+	background-color:#EEE;
+	font-family:'微软雅黑';
 	cursor:pointer;
-	padding:1px;
+	padding:0 5px;
+	margin:0 0 0 5px;
+	color:#666;
 }
 
 .panel-header .panel-cmd:hover{
-	background-color:#1C86EE;
-	color:white;
+	text-shadow:1px 1px 1px white;
+	background-color:#F2F2F2;
 }
 
 /* Comments */
@@ -593,7 +602,7 @@ body{
 
 /* Dynamic Type */
 #dynamic-panel #dynamic-type-wap{
-	margin:0 0 12px 0;
+	margin:0 0 15px 0;
 	border-bottom:1px solid #EEEEEE;
 }
 
@@ -615,7 +624,8 @@ body{
 /* Dynamics */
 #dynamic-panel .dynamic-item{
 	clear:both;
-	margin:0 0 10px 0;
+	margin:0 0 15px 0;
+	padding:0 0 5px 0;
 	border-bottom:1px solid #EEE;
 	position:relative;
 }
@@ -627,14 +637,15 @@ body{
 }
 
 #dynamic-panel .dynamic-content-wap{
-	margin:-1px 0 0 52px;
+	margin:0px 0 0 52px;
 	font-size:14px;
 	font-family:'宋体';
 }
 
 #dynamic-panel .dynamic-header{
+	line-height:15px;
 	color:#A8A8A8;
-	margin:0 0 10px 0;
+	margin:0 0 9px 0;
 }
 
 #dynamic-panel .dynamic-header a{
@@ -674,8 +685,8 @@ body{
 
 #dynamic-panel .dynamic-footer{
 	font-size:12px;
-	text-align:right;
 	margin:0 0 5px 0;
+	text-align:right;
 }
 
 #dynamic-panel .dynamic-time{
@@ -737,17 +748,16 @@ body{
 	position:relative;
 }
 
-/* Goal Infomation */
+/* Goal Title */
 #goal-title-panel #goal-title{
 	font-size:28px;
+	line-height:28px;
 	font-weight:bold;
 }
 
-#goal-title-panel #goal-why{
+#goal-title-panel #goal-title-underline{
+	color:#EEE;
 	font-size:14px;
-	font-family:'宋体';
-	margin:5px 0 0 0;
-	color:#666;
 }
 
 #goal-title-panel #goal-starttime{
@@ -758,51 +768,30 @@ body{
 
 #goal-title-panel #goal-cmd-wap{
 	position:absolute;
-	bottom:0px;
-	right:30%;
+	top:0;
+	right:0;
 }
 
-#goal-title-panel #goal-cmd-wap a{
-	text-decoration:none;
-	color:black;
-	border-radius:2px;
+#goal-title-panel #goal-cmd-wap a{	
 	display:inline-block;
-	padding:2px 8px;
+	padding:2px 10px;
+	margin:0 0 0 8px;
 	background-color:#E8E8E8;
+	text-decoration:none;
+	color:black;	
+	cursor:pointer;
 	font-size:15px;
-	margin:0 0 0 6px;
 	font-weight:bold;
 }
 
-#goal-title-panel #goal-cmd-wap a:hover{
+#goal-title-panel #goal-cmd-wap a.isFinished,
+#goal-title-panel #goal-cmd-wap a.isCheered{
 	background-color:orange;
 }
 
+#goal-title-panel #goal-cmd-wap a.isFinished:hover,
 #goal-title-panel #goal-cmd-wap a.isCheered:hover{
-	background-color:#E0E0E0;
 	cursor:default;
-}
-
-#goal-title-panel #goal-num-wap{
-	position:absolute;
-	top:5px;
-	right:0px;
-}
-
-#goal-title-panel #goal-num-wap .goal-num-item{
-	display:inline-block;
-	padding-left:12px;
-}
-
-#goal-title-panel #goal-num-wap .goal-num-item-border{
-	border-right:1px solid lightgray;
-	padding-right:12px;
-}
-
-#goal-title-panel #goal-num-wap .goal-num-item .goal-num{
-	text-align:center;
-	font-weight:bold;
-	font-size:20px;
 }
 
 /* Reason */
@@ -1061,11 +1050,12 @@ body{
 }
 
 #person-page #user-info #user-info-wap{
-	float:left;
+	margin:0 0 0 48px;
 }
 
 #person-page #user-info #user-info-wap #user-name{
 	font-size:18px;
+	line-height:18px;
 	font-weight:bold;
 }
 #person-page #user-info #user-cmd-wap{
@@ -1074,21 +1064,25 @@ body{
 	right:0px;
 }
 
+/* User Cmd */
 #person-page #user-info #user-cmd-wap a{
 	display:inline-block;
 	padding:2px 10px;
 	margin:0 0 0 8px;
 	background-color:#E8E8E8;
 	text-decoration:none;
-	border-radius:2px;
 	color:black;	
 	cursor:pointer;
 	font-size:15px;
 	font-weight:bold;
 }
 
-#person-page #user-info #user-cmd-wap a:hover{
+#person-page #user-info #user-cmd-wap a.isFollowed{
 	background-color:orange;
+}
+
+#person-page #user-info #user-cmd-wap a.isFollowed:hover{
+	cursor:pointer;
 }
 
 /* User Goals */
@@ -1280,7 +1274,7 @@ body{
 
 /* Main Content */
 
-#page-about p, #page-about li{
+#page-about p, #page-about #main-content li{
 	margin:0 0 12px 0;
 	line-height:22px;
 	font-size:14px;
@@ -1328,7 +1322,7 @@ body{
 	color:#666;
 }
 
-#page-about li{
+#page-about #main-content li{
 	list-style-type:square;
 	margin:0 0 10px 20px;
 	line-height:20px;
@@ -1354,15 +1348,14 @@ body{
 #page-about #donate-btn{
 	padding:5px 0;
 	margin:0 0 10px 0;
-	width:100px;
+	width:90px;
 	display:block;
 	text-align:center;
-	font-size:20px;
-	line-height:20px;
+	font-size:18px;
+	line-height:18px;
 	font-weight:bold;
 	background-color:orange;
 	cursor:pointer;
-	border-radius:2px;
 }
 
 #page-about #donate-btn:hover{

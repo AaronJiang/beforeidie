@@ -48,14 +48,6 @@ $(document).ready(function(){
 
 </script>
 
-
-
-<script type='text/javascript'>
-	
-
-
-</script>
-
 <div id='person-page'>
 	<div id='main-panel'>
 		<!-- 用户信息 -->
@@ -70,7 +62,7 @@ $(document).ready(function(){
 					echo "<a href='follower_proc.php?proc=follow&followerID=". $_SESSION['valid_user_id']. "&followeeID=". $userID. "'>关注</a>";
 			}
 				else{
-					echo "<a href='follower_proc.php?proc=disfollow&followerID=". $_SESSION['valid_user_id']. "&followeeID=". $userID. "'>取消关注</a>";		
+					echo "<a class='isFollowed' href='follower_proc.php?proc=disfollow&followerID=". $_SESSION['valid_user_id']. "&followeeID=". $userID. "'>已关注</a>";		
 					}
 				echo "<a id='cmd-leave-message'>留言</a>";
 				echo "</div>";
@@ -114,16 +106,9 @@ $(document).ready(function(){
 	<div id="sidebar-panel">
 	
 		<!-- 动态 -->
-		<div class='panel-header'>
-			<div class='panel-title'>TA的动态</div>
-			<div class='panel-cmd-wapper'>	
-				<span>......（</span
-				><span class='panel-cmd'>全部</span
-				><span>）<span>
-			</div>
-		</div>
-		
 		<?php
+		@html_out_panel_header('TA的动态', '全部', '', 'dynamic_page_single.php?userID='.$userID, $isCreator);
+		
 		$dyns = get_dynamics($userID);
 		
 		foreach($dyns as $dyn){
@@ -131,8 +116,7 @@ $(document).ready(function(){
 
 			if($dyn['type'] == 'newLog'){
 				//若为 Log 相关的动态
-				echo  "<p class='dynamic-header'>"		
-							//. "<a class='dynamic-goal-creater' href='person.php?userID=". $dyn['PosterID']. "'>". $dyn['Poster']. "</a>"
+				echo  "<p class='dynamic-header'>"
 							. " 在 "
 							. "<a href='goal_page_details.php?goalID=". $dyn['GoalID']. "' class='dynamic-goal-title'>". $dyn['GoalTitle']. "</a>"
 							. " 中写到："
@@ -158,43 +142,30 @@ $(document).ready(function(){
 		}
 		?>
 		
-		<!-- 关注他的人 -->	
-		<div class='panel-header'>
-			<div class='panel-title'>关注TA的人</div>
-			<div class='panel-cmd-wapper'>	
-				<span>......（</span
-				><span class='panel-cmd'>全部</span
-				><span>）<span>
-			</div>
-		</div>
+		<!-- 关注TA的人 -->	
+		<?php
+			@html_out_panel_header('关注TA的人', '全部', '', 'follower_page_followers.php?followeeID='.$userID, $isCreator);
 		
-		<?php 
-		$followers = get_followers($userID);
-		foreach($followers as $follower){
-			echo "<a href='person.php?userID=". $follower['UserID']. "' title='". $follower['Username']. "'>"
-					. "<img class='multi-user-profile' src='". get_user_profile($follower['UserID']). "' />"
-				. "</a>";
-		}
+			$followers = get_followers($userID);
+			
+			foreach($followers as $follower){
+				echo "<a href='person.php?userID=". $follower['UserID']. "' title='". $follower['Username']. "'>"
+						. "<img class='multi-user-profile' src='". get_user_profile($follower['UserID']). "' />"
+					. "</a>";
+			}
 		?>
 		
-		<!-- 他关注的人 -->
-		<div class='panel-header'>
-			<div class='panel-title'>TA关注的人</div>
-			<div class='panel-cmd-wapper'>	
-				<span>......（</span
-				><span class='panel-cmd'>全部</span
-				><span>）<span>
-			</div>
-		</div>
-		
+		<!-- TA关注的人 -->		
 		<?php
-		$followees = get_followees($userID);
-		foreach($followees as $followee){
-			echo "<a href='person.php?userID=". $followee['UserID']. "' title='". $followee['Username']. "'>"
-					. "<img class='multi-user-profile' src='". get_user_profile($follower['UserID']). "' />"
-				. "</a>";
-		}
-		
+			@html_out_panel_header('TA关注的人', '全部', '', 'follower_page_followees.php?followerID='.$userID, $isCreator);
+			
+			$followees = get_followees($userID);
+			
+			foreach($followees as $followee){
+				echo "<a href='person.php?userID=". $followee['UserID']. "' title='". $followee['Username']. "'>"
+						. "<img class='multi-user-profile' src='". get_user_profile($followee['UserID']). "' />"
+					. "</a>";
+			}	
 		?>
 		
 		<!-- 留言板 -->
