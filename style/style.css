@@ -1256,7 +1256,7 @@ body{
 ------------------------------------------------------------*/
 
 /* Layout */
-#page-about #main-content{
+#page-about-terms #main-content{
 	width:70%;
 	box-sizing:border-box;
 	float:left;
@@ -1265,7 +1265,7 @@ body{
 	min-height:550px;
 }
 
-#page-about #sidebar{
+#page-about-terms #sidebar{
 	width:30%;
 	box-sizing:border-box;
 	padding:0 0 0 20px;
@@ -1274,22 +1274,22 @@ body{
 
 /* Main Content */
 
-#page-about p, #page-about #main-content li{
+#page-about-terms p, #page-about #main-content li{
 	margin:0 0 12px 0;
 	line-height:22px;
 	font-size:14px;
 }
 
-#page-about #main-content a{
+#page-about-terms #main-content a{
 	color:#0455A1;
 	text-decoration:none;
 }
 
-#page-about #main-content a:hover{
+#page-about-terms #main-content a:hover{
 	text-decoration:underline;
 }
 
-#page-about .main-title{
+#page-about-terms .main-title{
 	font-weight:bold;
 	font-size:20px;
 	font-family:'微软雅黑';
@@ -1298,23 +1298,23 @@ body{
 	text-indent:0;
 }
 
-#page-about .main-title:nth-child(1){
+#page-about-terms .main-title:nth-child(1){
 	margin-top:5px;
 }
 
-#page-about .sub-title{
+#page-about-terms .sub-title{
 	font-weight:bold;
 	font-size:15px;
 	clear:both;
 }
 
-#page-about blockquote{
+#page-about-terms blockquote{
 	margin:20px 50px 20px 20px;
 	padding:0 0 0 8px;
 	border-left:4px solid lightgray;
 }
 
-#page-about blockquote p{
+#page-about-terms blockquote p{
 	font-size:12px;
 	line-height:18px;
 	font-family:'微软雅黑';
@@ -1322,30 +1322,30 @@ body{
 	color:#666;
 }
 
-#page-about #main-content li{
+#page-about-terms #main-content li{
 	list-style-type:square;
 	margin:0 0 10px 20px;
 	line-height:20px;
 }
 
 /* Sidebar */
-#page-about #my-avatar{
+#page-about-terms #my-avatar{
 	float:left;
 	width:80px;
 	margin:0 0px 10px 0;
 }
 
-#page-about #my-intro{
+#page-about-terms #my-intro{
 	margin:-4px 0 0 92px;
 
 }
 
-#page-about #my-intro p{
+#page-about-terms #my-intro p{
 	margin:0 0 6px 0;
 	line-height:20px;
 }
 
-#page-about #donate-btn{
+#page-about-terms #donate-btn{
 	padding:5px 0;
 	margin:0 0 10px 0;
 	width:90px;
@@ -1358,6 +1358,6 @@ body{
 	cursor:pointer;
 }
 
-#page-about #donate-btn:hover{
+#page-about-terms #donate-btn:hover{
 	box-shadow:0 0 3px orange;
 }
