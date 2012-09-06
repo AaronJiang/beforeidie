@@ -1,16 +1,16 @@
 <?php
-	require('header.php');
 	require_once('data_funs.inc');
 	require_once('html_helper.php');
-	
-	if(!is_auth()){
-		page_jump('account_page_login.php');
-	}
-	
+
 	$userID = $_REQUEST['userID'];
 	
+	session_start();
 	$isMe = ($userID == $_SESSION['valid_user_id']);
 	
+	$userName = $isMe? "我": get_username_by_id($userID);
+	
+	@html_output_authed_header($userName. "的个人主页");	
+
 	$isFollowed = check_is_followed($_SESSION['valid_user_id'], $userID);
 ?>
 
@@ -54,7 +54,7 @@ $(document).ready(function(){
 		<div id='user-info' class='clearfix'>
 			<img id='user-profile' src='<?php echo get_user_profile($userID); ?>' />
 			<div id='user-info-wap'>
-				<span id='user-name'> <?php echo get_username_by_id($userID); ?> 的主页</span>
+				<span id='user-name'> <?php echo $userName ?>的个人主页</span>
 			</div>
 			<?php if(!$isMe){
 				echo "<div id='user-cmd-wap'>";
@@ -70,25 +70,6 @@ $(document).ready(function(){
 		</div>
 	
 		<!-- 用户的 Goals -->
-		<?php
-		function goal_html_output($userID, $type){
-			$goals = get_public_goals($userID, $type);
-			foreach($goals as $goal){
-				$goalID = $goal['GoalID'];
-				echo "<div class='goal-item goal-item-". $type ."'>"
-						."<p class='goal-title'><a href='goal_page_details.php?goalID=". $goalID. "'>". $goal['Title']. "</a></p>"
-						."<p class='goal-reason'>". $goal['Reason']. "</p>"
-						. "<div class='goal-num-wap'>"
-							. "<span>". get_goal_steps_num($goalID). " 规划</span>"
-							. " · "
-							. "<span>". get_goal_logs_num($goalID). " 记录</span>"
-							. " · "
-							. "<span>". get_goal_cheers_num($goalID). " 鼓励</span>"
-						. "</div>";
-				echo "</div>";
-			}
-		} ?>
-		
 		<ul id='goal-wap-header'>
 			<li><a href='person.php?userID=<?php echo $userID ?>&goalType=now'>进行中 [<?php echo get_public_goal_num($userID, 'now'); ?>]</a></li
 			><li><a href='person.php?userID=<?php echo $userID ?>&goalType=future'>待启动 [<?php echo get_public_goal_num($userID, 'future'); ?>]</a></li
@@ -206,5 +187,5 @@ $(document).ready(function(){
 </div>
 
 <?php
-	require('footer.php');
+	html_output_authed_footer();
 ?>

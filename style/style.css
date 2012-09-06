@@ -162,31 +162,30 @@ textarea, input, select{
 	display:block;
 	float:right;
 	padding:5px 10px;
-	margin:0 0 8px 10px;
+	margin:0 0 8px 8px;
 	cursor:pointer;
 	font-size:14px;
 	font-weight:bold;
 	line-height:14px;
-	border-radius:3px;
 }
 
 .comment-new-form .comment-submit{
 	background-color:deepSkyBlue;
 }
 
-.comment-new-form .comment-cancel{
-	background-color:lightgray;
-}
-
 .comment-new-form .comment-submit:hover{
 	background-color:skyBlue
+}
+
+.comment-new-form .comment-cancel{
+	background-color:lightgray;
 }
 
 .comment-new-form .comment-cancel:hover{
 	background-color:#DDD;
 }
 
-/* 
+/* Form Elements
 ------------------------------------------------------------*/
 
 /* 表单 */
@@ -372,7 +371,7 @@ body{
 	color:#0455A1;
 	text-decoration:none;
 	display:inline-block;
-	margin:0 6px 0 0;
+	margin:0 8px 0 0;
 }
 #footer a:hover{
 	text-decoration:underline;
@@ -418,40 +417,75 @@ body{
 
 /* Login Page */
 #login-page{
-	background-color:#EEE;
+	background-color:#E8E8E8;
 }
 
-#login-slogan{
+#login-page #login-slogan{
 	font-size:22px;
+	line-height:22px;
 	margin:150px auto 30px auto;
 	text-align:center;
+	text-shadow:1px 1px 1px white;
 }
 
-#form-login{
-	width:350px;
+#login-page #login-slogan #logo{
+	vertical-align:text-bottom;
+	padding:0 0 2px 0;
+}
+
+#login-page #form-wap{
+	border-top:1px solid #BBB;
+	border-bottom:1px solid #BBB;
+	box-shadow:0 0 6px #AAA;
+	background-color:#F8F8F8;
+}
+
+#login-page #form-wap form{
+	width:400px;
 	margin:0 auto 0 auto;
-	padding:40px 30px 20px 30px;
-	border:1px solid #AAA;
-	box-shadow:0 0 5px #AAA;
-	border-radius:8px;
-	background-color:white;
+	padding:40px 0 25px 0;
+	border-radius:5px;
 }
 
-#form-login #login-user, #form-login #login-pwd{
-	width:334px;
+#login-page #form-wap .form-footer{
+	text-align:right;
+}
+
+#login-page #form-wap .form-footer a{
+	margin:0 12px 0 0;
+	padding:0 0 0 0;
+	line-height:15px;
+	color:#369;
+}
+
+#login-page input[type='text'],
+#login-page input[type='password']{
+	width:100%;
+	box-sizing:border-box;
 	font-size:20px;
+
 	font-family:'微软雅黑';
-	margin-bottom:25px;
-	border-radius:3px;
+	margin-bottom:20px;
 	clear:both;
 }
 
-#form-login input[type='submit']{
+#login-page input[type='submit']{
 	font-family:'微软雅黑';
 	font-size:20px;
-	border-radius:3px;
-	float:right;
-	padding:3px 15px;
+	line-height:20px;
+	padding:6px 20px;
+	margin:0;
+	border:0;
+	vertical-align:text-bottom;
+	background-color:#55B8EE;
+	border-radius:2px;
+	color:white;
+	font-weight:bold;
+	text-shadow:1px 1px 1px gray;
+}
+
+#login-page input[type='submit']:hover{
+	box-shadow:0 0 5px #55B8EE;
 }
 
 /* My Goals
@@ -1274,7 +1308,8 @@ body{
 
 /* Main Content */
 
-#page-about-terms p, #page-about #main-content li{
+#page-about-terms p,
+#page-about-terms #main-content li{
 	margin:0 0 12px 0;
 	line-height:22px;
 	font-size:14px;

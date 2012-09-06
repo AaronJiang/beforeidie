@@ -1,6 +1,10 @@
 <?php
-	require('header.php');
-	require('data_funs.inc');
+	require_once('data_funs.inc');
+	require_once('html_helper.php');
+
+ 	$goal = get_goal_by_ID($_REQUEST['goalID']);
+	
+	html_output_authed_header("编辑：". $goal['Title']);
 ?>
 
 <script type="text/javascript">
@@ -29,23 +33,18 @@
 	});
 </script>
 
-<?php
- 	$goal = get_goal_by_ID($_REQUEST['goalID']);
-?>
+
 
 <form id="form-edit-goal" action="goal_proc.php" method="post">
 	<div>
-		<!--<label for="goal-title">目标：</label>-->
 		<input type="text" name="title" id="goal-title" autocomplete="off" value="<?php echo $goal['Title']?>" />
 	</div>
 			
 	<div>
-		<!--<label for="goal-why">愿景：</label>-->
 		<textarea rows="8" name="why" id="goal-why"><?php echo $goal['Reason'] ?></textarea>
 	</div>
 	
 	<div style="display:<?php echo $goal['GoalType'] == 'finish'? 'none': 'block' ?>">
-		<!--<label for="goal-type">启动：</label>-->
 		<select name="goalType" id="goal-type">
 			<option value="now" <?php if($goal['GoalType'] == 'now') echo "selected='selected'";?>>立即启动梦想</option>
 			<option value="future" <?php if($goal['GoalType'] == 'future') echo "selected='selected'";?>>在未来启动梦想</option>
@@ -68,5 +67,5 @@
 </form>
 
 <?php
-	require('footer.php');	
+	html_output_authed_footer();
 ?>

@@ -10,7 +10,7 @@
 						src='". get_user_profile($dyn['PosterID']). "' />"
 			. "</a>";
 	}
-	
+
 	//输出 Comments
 	function html_output_comments($logID){
 		$comments = get_log_comments($logID);
@@ -92,4 +92,120 @@
 		
 		echo "</div>";
 	}
+	
+	//输出未认证时的 HTML 头
+	function html_output_unauthed_header($title){
+		echo "<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>"
+			. "<html xmlns='http://www.w3.org/1999/xhtml'>"
+			. "<head>"
+				. "<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />"
+				. "<title>". $title. "</title>"
+				. "<link rel='stylesheet' href='style/jquery-ui-1.8.22.custom.css' />"	
+				. "<link rel='stylesheet' href='style/style.css' />"
+				. "<script type='text/javascript' src='js/jquery-1.7.2.min.js'></script>"
+				. "<script type='text/javascript' src='js/jquery.validate-1.9.min.js'></script>"
+				. "<script type='text/javascript' src='js/jquery-ui-1.8.22.custom.min.js'></script>"
+				. "<script type='text/javascript' src='js/jquery.ui.datepicker-zh-CN.js'></script>"
+			. "</head>"
+			. "<body id='login-page'>";
+	}
+	
+	//输出未认证时的 HTML 尾
+	function html_output_unauthed_footer(){
+		echo "</body>"
+			. "</html>";
+	}
+
+	//输出认证后的 HTML 头
+	function html_output_authed_header($title){	
+		session_start();
+	
+		if(!is_auth()){
+			page_jump('account_page_login.php');
+		}
+
+		echo "<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>"
+			. "<html xmlns='http://www.w3.org/1999/xhtml'>"
+				. "<head>"
+					. "<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />"
+					. "<title>". $title. "</title>"
+					. "<link rel='stylesheet' href='style/jquery-ui-1.8.22.custom.css' />"	
+					. "<link rel='stylesheet' href='style/style.css' />"
+					. "<script type='text/javascript' src='js/jquery-1.7.2.min.js'></script>"
+					. "<script type='text/javascript' src='js/jquery.validate-1.9.min.js'></script>"
+					. "<script type='text/javascript' src='js/jquery-ui-1.8.22.custom.min.js'></script>"
+					. "<script type='text/javascript' src='js/jquery.ui.datepicker-zh-CN.js'></script>"
+				. "</head>"
+
+				. "<body>"
+					. "<div id='header'>"
+						. "<div id='header-wap'>"
+							. "<a id='logo-link' href='home.php'></a>"
+			
+							. "<ul id='nav' class='clearfix'>"
+								. "<li><a id='nav-goals' href='home.php'>我的Goals</a></li>"
+								. "<li><a id='nav-dynamic' href='dynamic_page_main.php'>动态</a></li>"
+								. "<li><a id='nav-person' href='person.php?userID=". $_SESSION['valid_user_id']. "'>个人主页</a></li>"		
+								. "<li><a id='nav-newgoal' href='goal_page_new.php'>新建</a></li>"
+								. "<li><a id='nav-discover' href='discover.php'>发现</a></li>"
+							. "</ul>"
+				
+							. "<div id='account-info'>";
+							
+								if(isset($_SESSION['valid_user'])){		
+									echo "<span><a href='account_page_details.php'>". $_SESSION['valid_user']. "的账号</a></span>"
+										. "<span><a href='account_proc.php?proc=logout'>退出</a></span>";
+								}
+								else {
+									echo "<span><a href='account_page_login.php'>登陆</a></span>"
+										. "<span><a href='account_page_register.php'>注册</a></span>";
+								}
+							
+							echo "</div>"
+						. "</div>"
+					. "</div>"
+		
+					. "<div id='content-wap' class='clearfix'>";
+	}
+	
+	//输出认证后的 HTML 尾
+	function html_output_authed_footer(){
+		echo "</div>"	
+			. "<div id='footer'>"
+				. "<a href='about.php'>Goal是什么</a>"
+				. "<a href='terms.php'>条款与隐私</a>"
+				. "<span>©2012 hustlzp.com, all rights reserved.</p>"
+			. "</div>"
+		. "</body>"
+		. "</html>";
+	}
+
+	//输出登陆页面的标语
+	function html_output_slogan(){
+		echo "<p id='login-slogan'>"
+				. "<span>已经有 ". get_all_users_num() ."</b> 位用户，</span>"
+				. "<span>在 <img id='logo' src='imgs/new.png' /> 建立了 <b>". get_all_goals_num() ."</b> 个梦想，"
+				. "</span><span>写下了 <b>". get_all_logs_num() ."</b> 条记录</span>"
+			. "<p>";	
+	}	
+
+	//输出个人页面的 Goals
+	function goal_html_output($userID, $type){
+		$goals = get_public_goals($userID, $type);
+		foreach($goals as $goal){
+			$goalID = $goal['GoalID'];
+			echo "<div class='goal-item'>"
+					."<p class='goal-title'><a href='goal_page_details.php?goalID=". $goalID. "'>". $goal['Title']. "</a></p>"
+					."<p class='goal-reason'>". $goal['Reason']. "</p>"
+					. "<div class='goal-num-wap'>"
+						. "<span>". get_goal_steps_num($goalID). " 规划</span>"
+						. " · "
+						. "<span>". get_goal_logs_num($goalID). " 记录</span>"
+						. " · "
+						. "<span>". get_goal_cheers_num($goalID). " 鼓励</span>"
+					. "</div>";
+			echo "</div>";
+		}
+	}
+	
 ?>

@@ -1,10 +1,7 @@
 <?php
-	require('header.php');
 	require_once('data_funs.inc');
-	
-	if(!is_auth()){
-		page_jump('account_page_login.php');
-	}
+	require_once('html_helper.php');
+	html_output_authed_header("个人资料");
 	
 	$userID = $_SESSION['valid_user_id'];
 ?>
@@ -57,5 +54,5 @@
 
 
 <?php
-	require('footer.php');
+	html_output_authed_footer();
 ?>

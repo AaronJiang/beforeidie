@@ -1,12 +1,7 @@
 <?php
-	require('header.php');
 	require_once('data_funs.inc');
-	
-	if(!is_auth()){
-		page_jump('account_page_login.php');
-	}
-	
-	
+	require_once('html_helper.php');
+	html_output_authed_header("更改密码");
 ?>
 
 <script type='text/javascript'>
@@ -41,5 +36,5 @@ $(document).ready(function(){
 </form>
 
 <?php
-	require('footer.php');
+	html_output_authed_footer();
 ?>

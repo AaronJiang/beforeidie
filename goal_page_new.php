@@ -1,10 +1,7 @@
 <?php
-	require('header.php');
 	require_once('data_funs.inc');
-	
-	if(!is_auth()){
-		page_jump('account_page_login.php');
-	}
+	require_once('html_helper.php');
+	html_output_authed_header("设立新的Goal");
 ?>
 
 <script type="text/javascript">
@@ -31,7 +28,7 @@
 	});
 </script>
 
-<p class='subtitle'>建立新的 Goal</p>
+<p class='subtitle'>设立新的 Goal</p>
 
 <form id="form-new-goal" action="goal_proc.php" method="post">
 	<input type="text" placeholder="写下你的目标" name="title" id="goal-title" autocomplete="off"/>

@@ -1,9 +1,18 @@
 <?php
-	require('header.php');
 	require_once('data_funs.inc');
 	require_once('html_helper.php');
 	
-	$isCreator = check_goal_ownership($_REQUEST['goalID'], $_SESSION['valid_user_id']);
+	//全局变量 GOAL_ID
+	global $GOAL_ID;
+	$GOAL_ID = trim($_REQUEST['goalID']);
+
+	//全局变量 GOAL
+	global $GOAL;	
+	$GOAL = get_goal_by_ID($GOAL_ID);
+	
+	html_output_authed_header($GOAL['Title']);
+	
+	$isCreator = check_goal_ownership($GOAL_ID, $_SESSION['valid_user_id']);
 ?>
 
 <script type="text/javascript">
@@ -279,19 +288,13 @@ $(document).ready(function(){
 
 </script>
 
-<?php
-	global $GOAL_ID;
-	$GOAL_ID = trim($_REQUEST['goalID']);
-?>
-
 <!-- Goal Details -->
 <div id='goal-details-panel'>
 
 	<!-- Title -->
 	<div id='goal-title-panel'>
 		<div>
-			<?php $goal = get_goal_by_ID($GOAL_ID); ?>
-			<span id='goal-title'> <?php echo $goal['Title']; ?> </span>
+			<span id='goal-title'> <?php echo $GOAL['Title']; ?> </span>
 			<div id='goal-cmd-wap'>
 				<?php
 				//若为所有者
@@ -327,10 +330,9 @@ $(document).ready(function(){
 	<!-- Reason -->	
 	<?php 
 		@html_out_panel_header('愿景', '修改', 'cmd-edit-reason', '', $isCreator);
-		$goal = get_goal_by_ID($GOAL_ID) 
 	?>
 	
-	<p id='goal-reason'> <?php echo $goal['Reason']; ?> </p>
+	<p id='goal-reason'> <?php echo $GOAL['Reason']; ?> </p>
 
 	<!-- Steps -->
 	<?php
@@ -453,5 +455,5 @@ $(document).ready(function(){
 
 <?php 
 	}
-	require('footer.php');	
+	html_output_authed_footer();
 ?>
