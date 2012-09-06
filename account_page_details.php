@@ -13,24 +13,24 @@
 		<td class='item-header'>用户：</td>
 		<td>
 			<?php echo $_SESSION['valid_user']; ?>
-			<span><a href='account_page_change_username.php' class='small-cmd'>更改</a></span>
+			<!--<span><a href='account_page_change_username.php' class='small-cmd'>更改</a></span>-->
 		</td>
 	</tr>
 
 	<tr>
 		<td class='item-header'>头像：</td>
 		<td>
-			<img src='<?php echo get_user_profile($userID) ?>' />
+			<img id='avatar' src='<?php echo get_user_profile($userID) ?>' />
 			<span>
 			<?php
 				if(validate_gravatar($userID)){
-					echo "<a title='在 Gravatar 更换你的头像' 
+					echo "(<a title='在 Gravatar 更换你的头像' 
 							target='_blank' href='http://en.gravatar.com/emails/' 
-							class='small-cmd'>更换</a>";
+							class='small-cmd'>更换</a>)";
 				} else {
-					echo "<a title='在 Gravatar 上传你的头像，全球认证哦，亲！' 
+					echo "(<a title='在 Gravatar 上传你的头像，全球认证哦，亲！' 
 							target='_blank' href='http://en.gravatar.com/' 
-							class='small-cmd'>上传</a>";				
+							class='small-cmd'>上传</a>)";			
 				}
 			?>
 			</span>
@@ -47,7 +47,7 @@
 	<tr>
 		<td class='item-header'>密码：</td>
 		<td>
-			<span><a href='account_page_change_pwd.php' class='small-cmd'>更改</a></span>
+			<span>(<a title='更改密码' href='account_page_change_pwd.php' class='small-cmd'>更改</a>)</span>
 		</td>
 	</tr>
 </table>
