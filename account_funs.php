@@ -1,17 +1,27 @@
 <?php
 	require_once('public_funs.php');
+
+	//验证用户 by 邮箱和密码
+	function check_user_by_email($email, $pwd){
+		$query = "select * from users where Email = '". $email. "' and Password = '". sha1($pwd). "' and IsActive = 1";
+		$result = db_exec($query);
+
+		return ($result->num_rows > 0)? true: false;
+	}
 	
-	//验证用户名和密码是否存在
-	function check_user_by_name($email, $pwd){
-		$query = "select * from users where Email = '". $email. "' and Password = '". sha1($pwd). "'";
+	//验证未激活用户 by 邮箱和密码
+	function check_unactive_user_by_email($email, $pwd){
+		$query = "select * from users where Email = '". $email. "' and Password = '". sha1($pwd). "' and IsActive = 0";
 		$result = db_exec($query);
 		
-		return ($result->num_rows > 0)? true: false;
+		return ($result->num_rows > 0)? true: false;		
 	}
 	
 	//验证用户ID和密码是否存在
 	function check_user_by_id($userID, $pwd){
-		$query = "select * from users where UserID = ". $userID. " and Password = '". sha1($pwd). "'";
+		$userState = "";
+	
+		$query = "select * from users where UserID = ". $userID. " and Password = '". sha1($pwd). "' and IsActive = 1";
 		$result = db_exec($query);
 		
 		return ($result->num_rows > 0)? true: false;

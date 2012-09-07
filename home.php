@@ -2,6 +2,8 @@
 	require_once('data_funs.inc');
 	require_once('html_helper.php');
 	html_output_authed_header("我的Goals");
+	
+	//mail("hustlzp@qq.com","My subject", "ss", "From: webmaster@example.com");
 ?>
 
 <script type="text/javascript">

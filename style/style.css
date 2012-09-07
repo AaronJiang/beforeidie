@@ -368,17 +368,7 @@ body{
 	color:white;
 }
 
-/* Footer
-------------------------------------------------------------*/
-#footer a{
-	color:#0455A1;
-	text-decoration:none;
-	display:inline-block;
-	margin:0 8px 0 0;
-}
-#footer a:hover{
-	text-decoration:underline;
-}
+
 
 /* User Account
 ------------------------------------------------------------*/
@@ -438,7 +428,7 @@ body{
 	line-height:22px;
 	margin:150px auto 30px auto;
 	text-align:center;
-	text-shadow:1px 1px 1px white;
+	text-shadow:1px 1px 2px white;
 }
 
 #login-page #login-slogan #logo{
@@ -450,14 +440,20 @@ body{
 	border-top:1px solid #BBB;
 	border-bottom:1px solid #BBB;
 	box-shadow:0 0 6px #AAA;
+	padding:40px 0 25px 0;
 	background-color:#F8F8F8;
 }
 
 #login-page #form-wap form{
 	width:400px;
 	margin:0 auto 0 auto;
-	padding:40px 0 25px 0;
 	border-radius:5px;
+}
+
+#login-page #active-message{
+	margin:0 0 20px 0;
+	text-align:center;
+	font-size:18px;
 }
 
 #login-page #form-wap .form-footer{
@@ -1411,4 +1407,16 @@ body{
 
 #page-about-terms #donate-btn:hover{
 	text-shadow:1px 1px 1px #EEE;
+}
+
+/* Footer
+------------------------------------------------------------*/
+#footer a{
+	color:#0455A1;
+	text-decoration:none;
+	display:inline-block;
+	margin:0 8px 0 0;
+}
+#footer a:hover{
+	text-decoration:underline;
 }
