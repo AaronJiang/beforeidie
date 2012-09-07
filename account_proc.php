@@ -14,12 +14,13 @@
 				$_SESSION['valid_user_id'] = get_userid_by_email($email);
 				
 				//cookies
-				setcookie("ue", base64_encode($email), time()+3600*24*30);	//用户邮箱ue（无期限）
-				setcookie("ua", base64_encode("You are authed!"), time()+3600*24*2);	//用户授权ua（期限自定）
+				setcookie("ue", base64_encode($email), time()+3600*24*30);	//用户邮箱ue（一个月）
+				setcookie("ua", base64_encode("You are authed!"), time()+3600*24*2);	//用户授权ua（2天）
 
 				page_jump('home.php');
 			}
 			elseif(check_unactive_user_by_email($email, $pwd)){
+				setcookie("ue", base64_encode($email), time()+3600*24*30);	//用户邮箱ue（1个月）
 				page_jump('account_page_active.php?from=login&email='. $email);
 			}
 			else{
