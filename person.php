@@ -79,7 +79,7 @@ $(document).ready(function(){
 		<div class='goal-wap'>
 			<?php 
 			$goalType = isset($_REQUEST['goalType'])? $_REQUEST['goalType']: 'now';		
-			goal_html_output($userID, $goalType) ?>
+			html_output_person_goals($userID, $goalType) ?>
 		</div>
 	</div>
 

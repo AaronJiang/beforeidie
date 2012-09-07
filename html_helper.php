@@ -121,7 +121,14 @@
 		session_start();
 	
 		if(!is_auth()){
-			page_jump('account_page_login.php');
+			if(isset($_COOKIE['ua']) && isset($_COOKIE['ue'])){
+				$email = base64_decode($_COOKIE['ue']);
+				$_SESSION['valid_user'] = get_username_by_email($email);
+				$_SESSION['valid_user_id'] = get_userid_by_email($email);
+			}
+			else{
+				page_jump('account_page_login.php');
+			}
 		}
 
 		echo "<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>"
@@ -150,18 +157,10 @@
 								. "<li><a id='nav-discover' href='discover.php'>发现</a></li>"
 							. "</ul>"
 				
-							. "<div id='account-info'>";
-							
-								if(isset($_SESSION['valid_user'])){		
-									echo "<span><a href='account_page_details.php'>". $_SESSION['valid_user']. "的账号</a></span>"
-										. "<span><a href='account_proc.php?proc=logout'>退出</a></span>";
-								}
-								else {
-									echo "<span><a href='account_page_login.php'>登陆</a></span>"
-										. "<span><a href='account_page_register.php'>注册</a></span>";
-								}
-							
-							echo "</div>"
+							. "<div id='account-info'>"
+								. "<span><a href='account_page_details.php'>". $_SESSION['valid_user']. "的账号</a></span>"
+								. "<span><a href='account_proc.php?proc=logout'>退出</a></span>"
+							. "</div>"
 						. "</div>"
 					. "</div>"
 		
@@ -183,14 +182,14 @@
 	//输出登陆页面的标语
 	function html_output_slogan(){
 		echo "<p id='login-slogan'>"
-				. "<span>已经有 ". get_all_users_num() ."</b> 位用户，</span>"
+				. "<span>已经有 <b>". get_all_users_num() ."</b> 位用户，</span>"
 				. "<span>在 <img id='logo' src='imgs/new.png' /> 建立了 <b>". get_all_goals_num() ."</b> 个梦想，"
 				. "</span><span>写下了 <b>". get_all_logs_num() ."</b> 条记录</span>"
 			. "<p>";	
 	}	
 
 	//输出个人页面的 Goals
-	function goal_html_output($userID, $type){
+	function html_output_person_goals($userID, $type){
 		$goals = get_public_goals($userID, $type);
 		foreach($goals as $goal){
 			$goalID = $goal['GoalID'];
