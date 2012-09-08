@@ -94,21 +94,19 @@ $(document).ready(function(){
 				. "<a class='goal-link' href='goal_page_details.php?goalID=". $goal['GoalID']. "'>"
 					. "<p class='goal-title'>". stripslashes($goal['Title']). "</p>"
 					. "<p class='goal-why'>". stripslashes($goal['Reason']). "</p>"
-					. "<div class='goal-info-wap'>"
-						. "<div>";
+					. "<div class='goal-info-wap'>";
 						if($goalType == 'future'){
 							echo "<p class='goal-starttime'>将于 <b>". stripslashes($goal['StartTime']). "</b> 启动</p>";
 						}
 						elseif($goalType == 'finish'){
-							echo "<p class='goal-starttime'>于 <b>". stripslashes($goal['EndTime']). "</b> 达成</p>";								
+							echo "<p class='goal-endtime'>于 <b>". stripslashes($goal['EndTime']). "</b> 达成</p>";								
 						}
 						else {
 							echo "<b>". get_goal_steps_num($goal['GoalID']). "</b> 计划"
 								. " | "
 								. "<b>". get_goal_logs_num($goal['GoalID']). "</b> 记录";
 						}
-						echo "</div>"
-					. "</div>"
+					echo "</div>"
 				. "</a>"
 				
 				//命令按钮
