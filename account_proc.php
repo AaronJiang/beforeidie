@@ -1,6 +1,7 @@
 <?php
 	require_once("data_funs.inc");
-	
+
+			
 	$proc = trim($_REQUEST['proc']);
 	
 	switch($proc){
@@ -21,7 +22,7 @@
 			}
 			elseif(check_unactive_user_by_email($email, $pwd)){
 				setcookie("ue", base64_encode($email), time()+3600*24*30);	//用户邮箱ue（1个月）
-				page_jump('account_page_active.php?from=login&email='. $email);
+				page_jump('account_page_active.php?from=unactive&email='. $email);
 			}
 			else{
 				page_jump_back();
@@ -39,17 +40,20 @@
 			break;
 		
 		case "register":
-			new_user($_REQUEST['username'], $_REQUEST['password'], $_REQUEST['email']);
-			
-			session_start();
-			$_SESSION['valid_user'] = $_REQUEST['username'];
-			$_SESSION['valid_user_id'] = get_userID($_REQUEST['username']);
-			
+			$email = $_REQUEST['email'];
+			$username = $_REQUEST['username'];
+			$password = $_REQUEST['password'];
+		
+			new_user($username, $password, $email);
+			send_active_email($email);
+			setcookie("ue", base64_encode($email), time()+3600*24*30);	//用户邮箱ue（1个月）
+
 			page_jump('account_page_active.php?from=register&email='. $_REQUEST['email']);
 			break;
 			
 		case "change_pwd":
 			$isExist = check_user_by_id($_REQUEST['userID'], $_REQUEST['originalPwd']);
+			
 			if($isExist){
 				change_pwd($_REQUEST['userID'], $_REQUEST['newPwd']);
 			}
@@ -57,13 +61,22 @@
 			break;
 			
 		case "send_active_email":
-			//发送激活邮件
+			send_active_email($email);
+			page_jump('account_page_active.php?from=sended&email='. $email);
 			break;
 			
 		case "active":
-			//激活账户
-			//设置Session
-			page_jump('home.php');
+			$activeCode = $_REQUEST['activeCode'];
+			$email = $_REQUEST['email'];
+			
+			if($activeCode == gene_active_code($email)){
+				active_account($email);
+				page_jump('account_page_active.php?from=activeSucc&email='. $email);
+			}
+			else{
+				page_jump('account_page_active.php?from=activeError&email='. $email);
+			}
+
 			break;
 	}
 ?>

@@ -1,5 +1,6 @@
 <?php
 	require_once('public_funs.php');
+	require_once('smtp.php');
 
 	//验证用户 by 邮箱和密码
 	function check_user_by_email($email, $pwd){
@@ -116,5 +117,48 @@
 		}
 		
 		return $has_valid_avatar;
+	}
+	
+	//生成激活码
+	function gene_active_code($email){
+		$userID = get_userid_by_email($email);
+		$username = get_username_by_email($email);
+	
+		return sha1($userID. $username. $email);
+	}
+	
+	//激活用户
+	function active_account($email){
+		$query = "UPDATE users SET IsActive = 1 WHERE Email = '". $email. "'";
+		return db_exec($query);
+	}
+	
+	//发送激活邮件
+	function send_active_email($email){
+		//邮件配置参数
+		$smtpserver = "smtp.qq.com";
+		$smtpserverport =25;
+		$smtpusermail = "hustlzp@qq.com";
+		$smtpemailto = $email;
+		$smtpuser = "hustlzp@qq.com";
+		$smtppass = "xiaowangzi";
+		$mailtype = "HTML";
+
+		//邮件标题
+		$mailsubject = "激活账户";
+
+		//生成激活 Url
+		$email = $_REQUEST['email'];
+		$activeCode = gene_active_code($email);
+		$activeUrl = "http://localhost/Dream/account_proc.php?proc=active&email=". $email. "&activeCode=". $activeCode. "";
+			
+		//邮件内容
+		$mailbody = "<h1 style='font-size:15px;font-family:微软雅黑;'>点击以下链接，激活你在Goal上的账户：</h1>";
+		$mailbody .= "<a href='". $activeUrl. "'>". $activeUrl. "</a>";
+			
+		//发送邮件
+		@$smtp = new smtp($smtpserver, $smtpserverport, true, $smtpuser, $smtppass);
+		$smtp->debug = FALSE;
+		@$smtp->sendmail($smtpemailto, $smtpusermail, $mailsubject, $mailbody, $mailtype);	
 	}
 ?>
