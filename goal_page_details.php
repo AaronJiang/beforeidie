@@ -82,6 +82,56 @@ $(document).ready(function(){
 	if(!isCreator){
 		return;
 	}
+
+	//初始化 Goal 标题编辑框
+	$('#dialog-edit-goal-title').dialog({
+		autoOpen: false,
+		modal: true,
+		draggable: false,
+		resizable: false,
+		title: '编辑目标',
+		width: 430,
+		buttons: {
+			'确定': function(){
+				$('#form-edit-goal-title').submit();			
+			},
+			'取消': function(){
+				$(this).dialog('close');
+			}
+		}
+	});
+	
+	//打开 Goal 标题编辑框
+	$('#cmd-edit-goal-title').click(function(){
+		var goalTitle = $('#goal-title').text();
+		$('#input-goal-title').val(goalTitle);
+		$('#dialog-edit-goal-title').dialog('open');
+	});
+	
+	//初始化 Goal 愿景
+	$('#dialog-edit-goal-reason').dialog({
+		autoOpen: false,
+		modal: true,
+		draggable: false,
+		resizable: false,
+		title: '编辑愿景',
+		width: 430,
+		buttons: {
+			'确定': function(){
+				$('#form-edit-goal-reason').submit();			
+			},
+			'取消': function(){
+				$(this).dialog('close');
+			}
+		}
+	});
+	
+	//打开 Goal 愿景编辑框
+	$('#cmd-edit-goal-reason').click(function(){
+		var goalReason = $('#goal-reason').text();
+		$('#input-goal-reason').val(goalReason);
+		$('#dialog-edit-goal-reason').dialog('open');
+	});
 	
 	//初始化记录增加框
 	$('#dialog-add-log').dialog({
@@ -293,46 +343,47 @@ $(document).ready(function(){
 
 	<!-- Title -->
 	<div id='goal-title-panel'>
-		<div>
-			<span id='goal-title'> <?php echo $GOAL['Title']; ?> </span>
-			<div id='goal-cmd-wap'>
-				<?php
-				//若为所有者
-				if($isCreator){
-					$isFinished = check_goal_is_finished($GOAL_ID);
-					if(!$isFinished){	//若还未完成
-				?>
-				<a href='goal_proc.php?proc=finish&goalID=<?php echo $GOAL_ID ?>'>完成</a>
-				<?php
-					}
-					else {	//若已经完成
-				?>
-				<a class='isFinished'>已完成</a>	
-				<?php
-					}
+		<span id='goal-title'><?php echo $GOAL['Title']; ?></span
+		><span id='goal-title-underline'>_ _ _</span
+		><a id='cmd-edit-goal-title'>修改</a>
+			
+		<div id='goal-cmd-wap'>
+			<?php
+			//若为所有者
+			if($isCreator){
+				$isFinished = check_goal_is_finished($GOAL_ID);
+				if(!$isFinished){	//若还未完成
+			?>
+			<a href='goal_proc.php?proc=finish&goalID=<?php echo $GOAL_ID ?>'>完成</a>
+			<?php
+				}
+				else {	//若已经完成
+			?>
+			<a class='isFinished'>已完成</a>	
+			<?php
+				}
+			} 
+			else {	//若不是所有者
+				$isCheered = check_goal_is_cheered($_SESSION['valid_user_id'], $GOAL_ID);
+				if(!$isCheered){	//若还未鼓励
+			?>
+			<a href='cheer_proc.php?proc=cheer&userID=<?php echo $_SESSION['valid_user_id'] ?>&goalID=<?php echo $GOAL_ID ?>'>鼓励</a>
+			<?php 
 				} 
-				else {	//若不是所有者
-					$isCheered = check_goal_is_cheered($_SESSION['valid_user_id'], $GOAL_ID);
-					if(!$isCheered){	//若还未鼓励
-				?>
-				<a href='cheer_proc.php?proc=cheer&userID=<?php echo $_SESSION['valid_user_id'] ?>&goalID=<?php echo $GOAL_ID ?>'>鼓励</a>
-				<?php 
-					} 
-				else {	//若已经鼓励 ?>
-				<a class='isCheered'>已鼓励</a>			
-				<?php 
-					}
-				} ?>
-			</div>
+			else {	//若已经鼓励 ?>
+			<a class='isCheered'>已鼓励</a>			
+			<?php 
+				}
+			} ?>
 		</div>
 	</div>
 
 	<!-- Reason -->	
 	<?php 
-		@html_out_panel_header('愿景', '修改', 'cmd-edit-reason', '', $isCreator);
+		@html_out_panel_header('愿景', '修改', 'cmd-edit-goal-reason', '', $isCreator);
 	?>
 	
-	<p id='goal-reason'> <?php echo $GOAL['Reason']; ?> </p>
+	<p id='goal-reason'><?php echo $GOAL['Reason']; ?></p>
 
 	<!-- Steps -->
 	<?php
@@ -405,7 +456,7 @@ $(document).ready(function(){
 <!-- 边栏 -->
 <div id="goal-sidebar-panel">
 
-	<!-- 创建者 -->
+	<!-- Creator -->
 	<?php
 		@html_out_panel_header('创建者');
 		$goalOwner = get_goal_owner($GOAL_ID); 
@@ -415,20 +466,44 @@ $(document).ready(function(){
 		<img src='<?php echo get_user_profile($goalOwner['UserID']) ?>' title='<?php echo $goalOwner['Username'] ?>' />
 	</a>
 
-	<!-- 鼓励者 -->	
+	<!-- Cheerers -->	
 	<?php
-		@html_out_panel_header('鼓励者', '全部', 'cmd-all-cheerers', 'cheer_page_cheerers.php?goalID='.$GOAL_ID);
-	
-		$cheerers = get_goal_cheerers($GOAL_ID);
-		foreach($cheerers as $cheerer){
-			echo "<a class='user-icon' href='person.php?userID=". $cheerer['UserID']. "'>"
-					. "<img src='". get_user_profile($cheerer['UserID']). "' title='". $cheerer['Username']. "' />"
-				. "</a>";
+		$cheerers = get_goal_cheerers($GOAL_ID, 16);
+		
+		$numCheerers = count($cheerers);
+		
+		//若无鼓励者，则不显示此模块
+		if($numCheerers != 0){
+			@html_out_panel_header('鼓励者', '全部 ('.count($cheerers).')', 'cmd-all-cheerers', 'cheer_page_cheerers.php?goalID='.$GOAL_ID);
+		
+			foreach($cheerers as $cheerer){
+				echo "<a href='person.php?userID=". $cheerer['UserID']. "'>"
+						. "<img class='user-icon' src='". get_user_profile($cheerer['UserID']). "' title='". $cheerer['Username']. "' />"
+					. "</a>";
+			}
 		}
 	?>
 </div>
 
 <?php if($isCreator){ ?>
+
+<!-- 编辑标题 -->
+<div id='dialog-edit-goal-title'>
+	<form id="form-edit-goal-title" action="goal_proc.php" method="post">
+		<input type='text' id='input-goal-title' autocomplete='off' placeholder='标题' name='goalTitle'>	
+		<input type="hidden" name="goalID" value="<?php echo $GOAL_ID ?>" />
+		<input type="hidden" name="proc" value="update_goal_title" />
+	</form>		
+</div>
+
+<!-- 编辑愿景 -->
+<div id='dialog-edit-goal-reason'>
+	<form id="form-edit-goal-reason" action="goal_proc.php" method="post">
+		<textarea id='input-goal-reason' rows='2' autocomplete='off' placeholder='愿景' name='goalReason'></textarea>
+		<input type="hidden" name="goalID" value="<?php echo $GOAL_ID ?>" />
+		<input type="hidden" name="proc" value="update_goal_reason" />
+	</form>	
+</div>
 
 <!-- 编辑步骤 -->
 <div id='dialog-edit-steps'></div>

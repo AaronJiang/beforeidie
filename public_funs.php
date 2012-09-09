@@ -51,4 +51,5 @@
 	function page_jump_back(){
 		header('Location:'. $_SERVER['HTTP_REFERER']);	
 	}
+
 ?>

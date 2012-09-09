@@ -45,5 +45,15 @@
 			drop_goal($_REQUEST['goalID']);
 			page_jump_back();
 			break;
+		
+		case "update_goal_reason":
+			update_goal_reason($_REQUEST['goalID'], $_REQUEST['goalReason']);
+			page_jump_back();
+			break;
+			
+		case "update_goal_title":
+			update_goal_title($_REQUEST['goalID'], $_REQUEST['goalTitle']);
+			page_jump_back();
+			break;
 	}
 ?>

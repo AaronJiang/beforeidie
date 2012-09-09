@@ -1,7 +1,6 @@
 <?php
 	require_once("data_funs.inc");
 
-			
 	$proc = trim($_REQUEST['proc']);
 	
 	switch($proc){
@@ -61,6 +60,7 @@
 			break;
 			
 		case "send_active_email":
+			$email = $_REQUEST['email'];
 			send_active_email($email);
 			page_jump('account_page_active.php?from=sended&email='. $email);
 			break;

@@ -24,11 +24,15 @@
 	}
 	
 	//获取某 Goal 的鼓励者
-	function get_goal_cheerers($goalID){
+	function get_goal_cheerers($goalID, $num){
 		$query = "SELECT users.UserID, users.Username\n"
 				. "FROM goal_cheers, users\n"
 				. "WHERE goal_cheers.GoalID = ". $goalID ."\n"
-				. "AND goal_cheers.UserID = users.UserID";
+				. "AND goal_cheers.UserID = users.UserID\n";
+		
+		if(isset($num)){
+			$query .= "LIMIT 0, ". $num;
+		}
 		
 		$result = db_exec($query);
 		

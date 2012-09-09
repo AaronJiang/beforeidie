@@ -42,8 +42,17 @@ textarea, input, select{
 	float:left;
 }
 
-/* Panel Header */
+.user-icon{
+	width:40px;
+	height:40px;
+	float:left;
+	margin:0 10px 10px 0;
+}
 
+/* Common Modules
+------------------------------------------------------------*/
+
+/* Panel Header */
 .panel-header{
 	margin:0 0 10px 0;
 	clear:both;
@@ -93,7 +102,6 @@ textarea, input, select{
 }
 
 /* Comments */
-
 .comments-wap{
 	border-top:1px solid #EEE;
 	padding:12px 0 0 0;
@@ -149,7 +157,6 @@ textarea, input, select{
 }
 
 /* Comment New Form */
-
 .comment-new-form {
 
 	.comment-input{
@@ -196,7 +203,7 @@ textarea, input, select{
 	}
 }
 
-/* Form Elements
+/* Form Elements Style
 ------------------------------------------------------------*/
 
 /* 表单 */
@@ -286,6 +293,10 @@ select{
 
 .ui-dialog{
 	font-size:15px;
+	
+	.ui-dialog-content{
+		padding-top:15px;
+	}
 }
 
 .ui-dialog .ui-dialog-buttonpane button {
@@ -811,6 +822,7 @@ body{
 		font-size:28px;
 		line-height:28px;
 		font-weight:bold;
+		margin:0 6px 0 0;
 	}
 	
 	#goal-title-underline{
@@ -822,6 +834,22 @@ body{
 		font-size:12px;
 		color:gray;
 		margin-bottom:5px;
+	}
+
+	#cmd-edit-goal-title{	
+		text-decoration:none;
+		background-color:#EEE;
+		font-family:'微软雅黑';
+		cursor:pointer;
+		padding:0 5px;
+		margin:0 0 0 5px;
+		color:#666;
+		font-size:12px;
+			
+		&:hover{
+			text-shadow:1px 1px 1px white;
+			background-color:#F2F2F2;
+		}
 	}
 	
 	/* Goal Cmds */
@@ -840,6 +868,7 @@ body{
 			cursor:pointer;
 			font-size:15px;
 			font-weight:bold;
+			text-shadow:-1px -1px 1px white;
 			
 			&.isFinished, &.isCheered{
 				background-color:orange;
@@ -914,14 +943,35 @@ body{
 	}
 }
 
+/* Title Edit DiaLog */
+#form-edit-goal-title{
+	input{
+		margin:0;
+		width:384px;
+	}
+}
+
+/* Reason Edit Dialog */
+#form-edit-goal-reason{
+	textarea{
+		width:384px;
+		margin:0;
+	}
+}
 
 /* Step Edit Dialog */
 #step-edit-list li{
 	list-style-type: none;
 	
+	&:last-child{
+		.step-edit-area{
+			margin:0;
+		}
+	}
+	
 	.step-edit-area{
 		padding:5px 8px;
-		margin-top:10px;
+		margin-bottom:10px;
 		font-size:14px;
 		line-height:20px;
 		width:310px;
@@ -929,16 +979,17 @@ body{
 		outline:none;
 		display:block;
 		float:left;
-		
+
 		&:focus{
 			background-color:#eee;
 		}
 	}
 
-	.delete-step-item, .add-step-item{
+	.delete-step-item,
+	.add-step-item{
 		display:block;
 		float:left;
-		margin:10px 0 0 8px;
+		margin:0 0 0 8px;
 		font-size:12px;
 		cursor:pointer;
 		
@@ -949,10 +1000,10 @@ body{
 	}
 }
 
-/* Log Dialog */
+/* Log New & Edit Dialog */
 #form-new-log, #form-edit-log{
 	#log-title{
-		margin:10px 0 15px 0;
+		margin:0 0 15px 0;
 		width:454px;
 	}
 
@@ -960,7 +1011,7 @@ body{
 		width:454px;
 		height:200px;
 		resize:vertical;
-		margin:0 0 0 0;
+		margin:0;
 	}
 }
 
@@ -1130,32 +1181,33 @@ body{
 					line-height:18px;
 					font-weight:bold;
 				}
-				
-				#user-cmd-wap{
-					position:absolute;
-					top:0px;
-					right:0px;
-					
-					a{
-						display:inline-block;
-						padding:2px 10px;
-						margin:0 0 0 8px;
-						background-color:#E8E8E8;
-						text-decoration:none;
-						color:black;	
-						cursor:pointer;
-						font-size:15px;
-						font-weight:bold;
+			}
+			
+			#user-cmd-wap{
+				position:absolute;
+				top:0px;
+				right:0px;
+	
+				a{
+					display:inline-block;
+					padding:2px 10px;
+					margin:0 0 0 8px;
+					background-color:#E8E8E8;
+					text-decoration:none;
+					color:black;	
+					cursor:pointer;
+					font-size:15px;
+					font-weight:bold;
+					text-shadow:-1px -1px 1px white;
 						
-						&.isFollowed{
-							background-color:orange;
-							
-							&:hover{
-								cursor:pointer;
-							}
+					&.isFollowed{
+						background-color:orange;
+						
+						&:hover{
+							cursor:pointer;
 						}
-
 					}
+
 				}
 			}
 		}
@@ -1326,14 +1378,14 @@ body{
 
 		}
 	}
-	
-	/* Message Leave Dialog */
-	#form-leave-message #message-content{
-		width:384px;
-		height:150px;
-		margin:10px 0 0 0;
-		resize:vertical;
-	}
+}
+
+/* Message Leave Dialog */
+#form-leave-message #message-content{
+	width:384px;
+	height:150px;
+	margin:0;
+	resize:vertical;
 }
 
 /* About Page
@@ -1367,6 +1419,25 @@ body{
 		font-size:14px;
 	}
 	
+	.main-title{
+		font-weight:bold;
+		font-size:20px;
+		font-family:'微软雅黑';
+		margin:20px 0 15px 0;
+		clear:both;
+		text-indent:0;
+		
+		&:nth-child(1){
+			margin-top:5px;
+		}
+	}
+		
+	.sub-title{
+			font-weight:bold;
+			font-size:15px;
+			clear:both;
+	}
+	
 	#main-content{
 		li{
 			list-style-type:square;
@@ -1397,25 +1468,6 @@ body{
 				font-style:italic;
 				color:#666;
 			}
-		}
-		
-		.main-title{
-			font-weight:bold;
-			font-size:20px;
-			font-family:'微软雅黑';
-			margin:20px 0 15px 0;
-			clear:both;
-			text-indent:0;
-			
-			&:nth-child(1){
-				margin-top:5px;
-			}
-		}
-		
-		.sub-title{
-			font-weight:bold;
-			font-size:15px;
-			clear:both;
 		}
 	}
 	

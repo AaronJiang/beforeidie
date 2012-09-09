@@ -148,7 +148,6 @@
 		$mailsubject = "激活账户";
 
 		//生成激活 Url
-		$email = $_REQUEST['email'];
 		$activeCode = gene_active_code($email);
 		$activeUrl = "http://localhost/Dream/account_proc.php?proc=active&email=". $email. "&activeCode=". $activeCode. "";
 			

@@ -210,11 +210,23 @@
 			$updateTime = addslashes($updateTime);
 		}
 		
-		$query = "update goals set UpdateTime = '". $updateTime. "' where GoalID = ". $goalID;
+		$query = "UPDATE goals SET UpdateTime = '". $updateTime. "' WHERE GoalID = ". $goalID;
 		$result = db_exec($query);
 		
 		return $result? 'true': 'false';
-	}	
+	}
+	
+	//更新目标的题目
+	function update_goal_title($goalID, $goalTitle){
+		$query = "UPDATE goals SET Title = '". $goalTitle. "' WHERE GoalID = ". $goalID;
+		return db_exec($query);
+	}
+	
+	//更新目标的愿景
+	function update_goal_reason($goalID, $goalReason){
+		$query = "UPDATE goals SET Reason = '". $goalReason. "' WHERE GoalID = ". $goalID;
+		return db_exec($query);
+	}
 	
 	//获取对应类型的目标个数
 	function get_goal_num($userID, $goalType){	
