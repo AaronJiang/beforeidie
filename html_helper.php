@@ -94,7 +94,7 @@
 	}
 	
 	//输出未认证时的 HTML 头
-	function html_output_unauthed_header($title){
+	function html_output_unauthed_header($title, $bodyID){
 		echo "<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Transitional//EN' 'http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd'>"
 			. "<html xmlns='http://www.w3.org/1999/xhtml'>"
 			. "<head>"
@@ -108,7 +108,7 @@
 				. "<script type='text/javascript' src='js/jquery-ui-1.8.22.custom.min.js'></script>"
 				. "<script type='text/javascript' src='js/jquery.ui.datepicker-zh-CN.js'></script>"
 			. "</head>"
-			. "<body id='login-page'>";
+			. "<body id=". $bodyID. ">";
 	}
 	
 	//输出未认证时的 HTML 尾
@@ -118,7 +118,7 @@
 	}
 
 	//输出认证后的 HTML 头
-	function html_output_authed_header($title){	
+	function html_output_authed_header($title, $bodyID){	
 		session_start();
 	
 		if(!is_auth()){
@@ -145,15 +145,15 @@
 					. "<script type='text/javascript' src='js/jquery-ui-1.8.22.custom.min.js'></script>"
 					. "<script type='text/javascript' src='js/jquery.ui.datepicker-zh-CN.js'></script>"
 				. "</head>"
-
-				. "<body>"
+				
+				. "<body id=". $bodyID. ">"
 					. "<div id='header'>"
 						. "<div id='header-wap'>"
 							. "<a id='logo-link' href='home.php'></a>"
 			
 							. "<ul id='nav' class='clearfix'>"
 								. "<li><a id='nav-goals' href='home.php'>我的Goals</a></li>"
-								. "<li><a id='nav-dynamic' href='dynamic_page_main.php'>动态</a></li>"
+								. "<li><a id='nav-dynamic' href='dynamic_page_followees.php'>动态</a></li>"
 								. "<li><a id='nav-person' href='person.php?userID=". $_SESSION['valid_user_id']. "'>个人主页</a></li>"		
 								. "<li><a id='nav-newgoal' href='goal_page_new.php'>新建</a></li>"
 								. "<li><a id='nav-discover' href='discover.php'>发现</a></li>"
@@ -192,7 +192,7 @@
 
 	//输出个人页面的 Goals
 	function html_output_person_goals($userID, $type){
-		$goals = get_public_goals($userID, $type);
+		$goals = get_goals($userID, $type, true);
 		foreach($goals as $goal){
 			$goalID = $goal['GoalID'];
 			echo "<div class='goal-item'>"

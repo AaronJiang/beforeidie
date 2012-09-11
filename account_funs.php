@@ -65,7 +65,7 @@
 		return $row['Username'];	
 	}
 
-	//获取用户名ID by Email
+	//获取用户ID by Email
 	function get_userid_by_email($email){
 		$query = "select UserID from users where Email = '". $email. "'";
 		$result = db_exec($query);

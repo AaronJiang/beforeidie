@@ -1,12 +1,11 @@
 <?php
 	require_once('data_funs.inc');
 	require_once('html_helper.php');
-	html_output_authed_header("设立新的Goal");
+	html_output_authed_header('设立新的Goal', 'page-new-goal');
 ?>
 
 <script type="text/javascript">
 	$(document).ready(function(){
-		$('body').prop('id', 'page-newgoal');
 	
 		$('#goal-starttime').datepicker({
 			changeMonth: true,

@@ -1,13 +1,13 @@
 <?php
 	require_once('data_funs.inc');
 	require_once('html_helper.php');
-	html_output_authed_header("我的Goals");
+	html_output_authed_header("我的Goals", 'page-my-goals');
 ?>
 
 <script type="text/javascript">
 
 $(document).ready(function(){
-	$('body').prop('id', 'page-goals');
+	$('body').prop('id', 'page-my-goals');
 	
 	//滑出命令栏
 	$('.goal-item').live("hover", function(event){
@@ -83,7 +83,7 @@ $(document).ready(function(){
 
 <?php
 	$goalType = isset($_REQUEST['goalType'])? $_REQUEST['goalType']: 'now';
-	$goals = get_goals($userID, $goalType);
+	$goals = get_goals($userID, $goalType, false);
 	
 	//构造每一个 Goal 的 HTML 块
 	foreach($goals as $goal){

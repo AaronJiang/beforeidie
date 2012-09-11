@@ -48,7 +48,7 @@
 	}
 	
 	//获取某 User 的个人动态
-	function get_dynamics($userID){
+	function get_dynamics($userID, $num){
 		//获取 Goal 相关的动态
 		$query = "(SELECT 'newGoal' as type, users.Username as Poster, goals.UserID as PosterID, GoalID, Title as GoalTitle, Reason as GoalReason, NULL as LogID, NULL as LogTitle, NULL as LogContent, CreateTime as Time\n"
 				. "FROM goals, users\n"
@@ -61,8 +61,11 @@
 				. "WHERE logs.GoalID = goals.GoalID\n"
 				. "AND goals.UserID = users.UserID\n"
 				. "AND goals.UserID = ". $userID. ")\n";
-		$query .= "ORDER BY Time DESC\n"
-				. "LIMIT 0, 3";
+		$query .= "ORDER BY Time DESC\n";
+
+		if(isset($num)){
+			$query .= "LIMIT 0, ". $num;
+		}
 
 		$result = db_exec($query);
 		

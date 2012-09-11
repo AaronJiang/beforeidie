@@ -10,7 +10,7 @@
 	global $GOAL;	
 	$GOAL = get_goal_by_ID($GOAL_ID);
 	
-	html_output_authed_header($GOAL['Title']);
+	html_output_authed_header($GOAL['Title'], 'page-goal-details');
 	
 	$isCreator = check_goal_ownership($GOAL_ID, $_SESSION['valid_user_id']);
 ?>
@@ -342,7 +342,7 @@ $(document).ready(function(){
 <div id='goal-details-panel'>
 
 	<!-- Title -->
-	<div id='goal-title-panel'>
+	<div id='goal-title-wap'>
 		<span id='goal-title'><?php echo $GOAL['Title']; ?></span
 		><span id='goal-title-underline'>_ _ _</span
 		><a id='cmd-edit-goal-title'>修改</a>

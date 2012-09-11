@@ -4,7 +4,7 @@
 
  	$goal = get_goal_by_ID($_REQUEST['goalID']);
 	
-	html_output_authed_header("编辑：". $goal['Title']);
+	html_output_authed_header("编辑：". $goal['Title'], 'page-edit-goal');
 ?>
 
 <script type="text/javascript">
@@ -34,6 +34,7 @@
 </script>
 
 
+<p class='subtitle'>编辑 Goal</p>
 
 <form id="form-edit-goal" action="goal_proc.php" method="post">
 	<div>

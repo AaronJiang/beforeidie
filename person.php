@@ -3,25 +3,19 @@
 	require_once('html_helper.php');
 
 	$userID = $_REQUEST['userID'];
+	$userName = get_username_by_id($userID);
 	
-	session_start();
-	$isMe = ($userID == $_SESSION['valid_user_id']);
-	
-	$userName = $isMe? "我": get_username_by_id($userID);
-	
-	@html_output_authed_header($userName. "的个人主页");	
+	@html_output_authed_header($userName. " 的个人主页", 'page-person');	
 
 	$isFollowed = check_is_followed($_SESSION['valid_user_id'], $userID);
+	$isMe = ($userID == $_SESSION['valid_user_id']);
 ?>
 
 <script type='text/javascript'>
 
 $(document).ready(function(){
+
 	var isMe = <?php echo $isMe? 1: 0; ?>;
-	
-	if(isMe){
-		$('body').prop('id', 'page-person');
-	}
 	
 	$("#cmd-leave-message").click(function(){
 		$("#dialog-leave-message").dialog('open');
@@ -49,12 +43,15 @@ $(document).ready(function(){
 </script>
 
 <div id='person-page'>
+	
+	<!-- 主框架 -->
 	<div id='main-panel'>
-		<!-- 用户信息 -->
+		
+		<!-- 用户信息 -->		
 		<div id='user-info' class='clearfix'>
 			<img id='user-profile' src='<?php echo get_user_profile($userID); ?>' />
 			<div id='user-info-wap'>
-				<span id='user-name'> <?php echo $userName ?>的个人主页</span>
+				<span id='user-name'><?php echo $userName ?> 的个人主页</span>
 			</div>
 			<?php if(!$isMe){
 				echo "<div id='user-cmd-wap'>";
@@ -79,18 +76,19 @@ $(document).ready(function(){
 		<div class='goal-wap'>
 			<?php 
 			$goalType = isset($_REQUEST['goalType'])? $_REQUEST['goalType']: 'now';		
-			html_output_person_goals($userID, $goalType) ?>
+			html_output_person_goals($userID, $goalType) 
+			?>
 		</div>
 	</div>
 
-	<!-- 用户的额外信息 -->	
+	<!-- 边栏 -->	
 	<div id="sidebar-panel">
 	
-		<!-- 动态 -->
+		<!-- 个人动态 -->
 		<?php
-		@html_out_panel_header('TA的动态', '全部', '', 'dynamic_page_single.php?userID='.$userID, $isCreator);
+		@html_out_panel_header('TA的动态', '全部', '', 'dynamic_page_single.php?userID='.$userID);
 		
-		$dyns = get_dynamics($userID);
+		$dyns = get_dynamics($userID, 3);
 		
 		foreach($dyns as $dyn){
 			echo "<div class='dynamic-item clearfix'>";
@@ -98,7 +96,7 @@ $(document).ready(function(){
 			if($dyn['type'] == 'newLog'){
 				//若为 Log 相关的动态
 				echo  "<p class='dynamic-header'>"
-							. " 在 "
+							. "在 "
 							. "<a href='goal_page_details.php?goalID=". $dyn['GoalID']. "' class='dynamic-goal-title'>". $dyn['GoalTitle']. "</a>"
 							. " 中写到："
 						. "</p>";
@@ -111,8 +109,7 @@ $(document).ready(function(){
 			else if($dyn['type'] == 'newGoal'){
 				//若为 Goal 相关的动态
 				echo "<p class='dynamic-header'>"	
-						//. "<a class='dynamic-goal-creater' href='person.php?userID=". $dyn['PosterID']. "'>". $dyn['Poster']. "</a>"
-						. " 设立目标 "
+						. "设立目标 "
 						. "<a href='goal_page_details.php?goalID=". $dyn['GoalID']. "' class='dynamic-goal-title'>". $dyn['GoalTitle']. "</a>"
 					. "</p>"
 					. "<p class='dynamic-goal-reason'>". $dyn['GoalReason']. "</p>"
@@ -148,34 +145,9 @@ $(document).ready(function(){
 					. "</a>";
 			}	
 		?>
-		
-		<!-- 留言板 -->
-		<!--
-		<div class='panel-header'>
-			<div class='panel-title'>留言板</div>
-			<div class='panel-cmd-wapper'>	
-				<span>......（</span
-				><span class='panel-cmd'>全部</span
-				><span>）<span>
-			</div>
-		</div>
-		
-		<?php
-		$messages = get_user_messages($userID);
-		foreach($messages as $message){
-			echo "<div class='message-item'>"
-					. "<p class='message-content'>"
-						. "<a href='person.php?userID=". $message['PosterID']. "'>". $message['Username']. "</a>："
-						. $message['Message']
-					. "</p>"
-					. "<p class='message-time'>". $message['Time']. "</p>"
-				. "</div>";
-		}
-		?>
-		-->
 	</div>
 
-	<!-- 留言对话框 -->
+	<!-- 私信对话框 -->
 	<div id='dialog-leave-message'>
 		<form id='form-leave-message' action='message_proc.php' method='post'>
 			<textarea name='message' id='message-content'></textarea>

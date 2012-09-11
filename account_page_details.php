@@ -1,7 +1,7 @@
 <?php
 	require_once('data_funs.inc');
 	require_once('html_helper.php');
-	html_output_authed_header("个人资料");
+	html_output_authed_header("个人资料", 'page-account-details');
 	
 	$userID = $_SESSION['valid_user_id'];
 ?>

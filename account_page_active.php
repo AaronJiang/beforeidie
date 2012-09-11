@@ -1,7 +1,7 @@
 <?php
 	require_once('html_helper.php');
 	require_once('data_funs.inc');
-	html_output_unauthed_header('激活');
+	html_output_unauthed_header('激活', 'page-active-account');
 
 	html_output_slogan();
 	

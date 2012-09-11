@@ -56,7 +56,7 @@ textarea, input, select{
 .panel-header{
 	margin:0 0 10px 0;
 	clear:both;
-	
+
 	&:after{
 		content:".";
 		display:block;
@@ -203,10 +203,42 @@ textarea, input, select{
 	}
 }
 
-/* Form Elements Style
+/* Button Style */
+.small-cmd{
+	font-size:12px;
+	font-family:'宋体';
+	text-decoration:none;
+	margin:0 6px 0 0;
+	cursor:pointer;
+	color:#0455A1;
+	padding:1px;
+}
+
+.small-cmd:hover{
+	background-color:#1C86EE;
+	color:white;
+}
+
+/* Multi Avatar Style */
+.multi-user-profile{
+	width: 40px;
+	height: 40px;
+	float: left;
+	margin: 0 10px 10px 0;
+	border:none;
+}
+
+/* HTML Element Style
 ------------------------------------------------------------*/
 
-/* 表单 */
+/* Global Set */
+body{
+	background-color:white;
+	font-family:'微软雅黑';
+	font-size:15px;
+}
+
+/* Form Element */
 input{
 	font-size:14px;
 	border:1px solid lightgray;
@@ -217,6 +249,7 @@ input[type="text"], input[type="password"]{
 	padding:5px 7px;
 	margin:0 0 10px 0;
 	width:200px;
+	display:block;
 }
 
 input[type='submit'], input[type='button']{
@@ -244,29 +277,6 @@ select{
 	font-family:'宋体';	
 }
 
-.small-cmd{
-	font-size:12px;
-	font-family:'宋体';
-	text-decoration:none;
-	margin:0 6px 0 0;
-	cursor:pointer;
-	color:#0455A1;
-	padding:1px;
-}
-
-.small-cmd:hover{
-	background-color:#1C86EE;
-	color:white;
-}
-
-.multi-user-profile{
-	width: 40px;
-	height: 40px;
-	float: left;
-	margin: 0 10px 10px 0;
-	border:none;
-}
-
 /* jQuery Plugin
 ------------------------------------------------------------*/
 
@@ -287,7 +297,7 @@ select{
 
 /* dialog */
 
-.ui-button-text-only .ui-button-text {
+.ui-button-text-only .ui-button-text{
 	padding: .2em 1em;
 }
 
@@ -299,20 +309,14 @@ select{
 	}
 }
 
-.ui-dialog .ui-dialog-buttonpane button {
+.ui-dialog .ui-dialog-buttonpane button{
 	margin: .5em 0em .5em 0.8em;
 }
 
 /* Layout
 ------------------------------------------------------------*/
-body{
-	background-color:white;
-	font-family:'微软雅黑';
-	font-size:15px;
-}
 
 #header{
-	background-color:#2B2B2B;
 	height:40px;
 	margin:0 0 0 0;
 	position:fixed;
@@ -338,40 +342,62 @@ body{
 
 #footer{
 	margin:80px auto 10px auto;
-	text-align:center;
-	font-size:12px;
 }
 
 /* Header
 ------------------------------------------------------------*/
 
-/* Logo */
-#logo-link{
-	display:block;
-	background-image:url('../imgs/new.png');
-    background-repeat:no-repeat;
-	height:25px;
-	width:104px;
-	float:left;
-	margin:8px 5px 0 5px;
-}
-
-/* Nav */
-
-#nav{
-	float:left;
-	list-style:none;
+#header{
+	background-color:#2B2B2B;
 	
-	li{
+	/* Logo */
+	#logo-link{
+		display:block;
+		background-image:url('../imgs/new.png');
+	    background-repeat:no-repeat;
+		height:25px;
+		width:104px;
 		float:left;
+		margin:8px 5px 0 5px;
+	}
+
+	/* Nav */
+	#nav{
+		float:left;
+		list-style:none;
+	
+		li{
+			float:left;
+			
+			a{
+				text-decoration:none;
+				font-size:15px;
+				color:#CCC;
+				margin:12px 0 0px 20px;
+				display:block;
+				font-family:'宋体';
+				
+				&:hover{
+					color:white;
+				}
+			}
+		}
+	}
+	
+	/* Login State Panel */
+	#account-info{
+		position:absolute;
+		top:12px;
+		right:0px;
 		
 		a{
-			text-decoration:none;
-			font-size:15px;
+			display:inline-block;
 			color:#CCC;
-			margin:12px 0 0px 20px;
-			display:block;
+			font-size:13px;
+			cursor:pointer;
+			margin-left:5px;
 			font-family:'宋体';
+			text-decoration:none;
 			
 			&:hover{
 				color:white;
@@ -380,74 +406,64 @@ body{
 	}
 }
 
-#page-goals #nav-goals,
-#page-dynamic #nav-dynamic,
-#page-person #nav-person,
-#page-newgoal #nav-newgoal,
-#page-discover #nav-discover{
+/* Highlight */
+#page-my-goals #header #nav-goals,
+#page-followees-dynamics #header #nav-dynamic,
+#page-person #header #nav-person,
+#page-new-goal #header #nav-newgoal,
+#page-discover #header #nav-discover{
 	color:white;
 }
 
 /* Footer
 ------------------------------------------------------------*/
-#footer a{
-	color:#0455A1;
-	text-decoration:none;
-	display:inline-block;
-	margin:0 8px 0 0;
-	
-	&:hover{
-		text-decoration:underline;
-	}
-}
-
-/* User Account
-------------------------------------------------------------*/
-
-/* Login State Panel */
-#account-info{
-	position:absolute;
-	top:12px;
-	right:0px;
+#footer{
+	font-size:12px;
+	text-align:center;
 	
 	a{
-		display:inline-block;
-		color:#CCC;
-		font-size:13px;
-		cursor:pointer;
-		margin-left:5px;
-		font-family:'宋体';
+		color:#0455A1;
 		text-decoration:none;
+		display:inline-block;
+		margin:0 8px 0 0;
 		
 		&:hover{
-			color:white;
+			text-decoration:underline;
 		}
 	}
 }
 
-/* Account Details */
-#table-account-details{
-	border-spacing:0;
-	border-collapse:collapse;
-	margin:15px 0 0 0;
-	
-	td{
-		padding:0 10px 10px 0;
-		vertical-align:top;
+/* Page Account Details
+------------------------------------------------------------*/
+#page-account-details{
+
+	#table-account-details{
+		border-spacing:0;
+		border-collapse:collapse;
+		margin:15px 0 0 0;
 		
-		#avatar{
-			vertical-align:text-bottom;
-			margin:0 5px 0 0;
-		}
-		
-		.small-cmd{
-			margin:0;
+		td{
+			padding:0 10px 10px 0;
+			vertical-align:top;
+			
+			#avatar{
+				vertical-align:text-bottom;
+				margin:0 5px 0 0;
+			}
+			
+			.small-cmd{
+				margin:0;
+			}
 		}
 	}
 }
 
-/* Login Page */
-#login-page{
+/* Page Login & Register & Active & Forgot-Pwd
+------------------------------------------------------------*/
+#page-login,
+#page-register,
+#page-active-account,
+#page-forgot-pwd{
 	background-color:#E8E8E8;
 	
 	#login-slogan{
@@ -524,516 +540,583 @@ body{
 	}
 }
 
-/* My Goals
+/* Page My Goals
 ------------------------------------------------------------*/
+#page-my-goals{
 
-/* Goal Selector */
-#goal-selector{
-	list-style:none;
-	display:inline-block;
-	margin:0 0 10px 0;
-	float:right;
-	width:120px;
-	text-align:center;
-	
-	a{
-		text-decoration:none;
-		color:black;
-		padding:8px 0;
-		margin:0 0 6px 0;
-		display:block;
-		font-size:15px;
-		font-weight:bold;
-		background-color:#E8E8E8;
+	/* Goal Selector */
+	#goal-selector{
+		list-style:none;
+		display:inline-block;
+		margin:0 0 10px 0;
+		float:right;
+		width:120px;
+		text-align:center;
 		
-		&:hover{
-			background-color:#DDD;
-		}
-	}
-}
-
-/* Goals */
-#content-goals{
-	width:800px;
-	
-	&:after{
-		content:".";
-		display:block;
-		height:0px;
-		clear:both;
-		visibility:hidden;
-	}
-	
-	.goal-item{
-		background-color:white;
-		width:170px;
-		height:200px;
-		float:left;
-		margin:0 15px 20px 0;
-		position:relative;
-		overflow:hidden;
-		border:1px solid #CCC;
-		
-		&:hover{
-			background-color:#F7F7F7;
-		}
-		
-		.goal-link{
+		a{
+			text-decoration:none;
+			color:black;
+			padding:8px 0;
+			margin:0 0 6px 0;
 			display:block;
-			padding:8px 10px 10px 10px;
-			color:black;
-			text-decoration:none;
-			
-			.goal-title{
-				font-size:18px;
-				font-weight:bold;
-				margin:0 0 5px 0;
-				
-				a{
-					text-decoration:none;
-					color:black;
-				}
-			}
-			
-			.goal-why{
-				font-size:15px;
-				line-height:20px;
-				margin-top:5px;
-				color:#666;
-				font-family:"宋体";
-			}
-			
-			.goal-info-wap{
-				position:absolute;
-				font-size:12px;
-				bottom:6px;
-				left:11px;
-				z-index:0;
-				color:#666;
-				
-				.goal-starttime,
-				.goal-endtime{
-					font-size:12px;
-					color:#666;
-					margin-top:2px;
-				}
-			}
-		}
-		
-		.goal-cmd-wap{
-			position:absolute;
-			bottom:-32px;
-			left:0;
-			z-index:100;
-			width:170px;
-			background:black;
-			opacity:0.8;
-			text-align:right;
-			
-			.goal-cmd{
-				color:black;
-				font-size:12px;
-				font-family:'宋体';
-				display:inline-block;
-				margin:6px 6px 6px 0;
-				border-radius:3px;
-				background-color:white;
-				text-decoration:none;
-				padding:3px 5px;
-				cursor:pointer;
-			}
-		}
-	}
-}
-
-/* Delay Dialog */
-#form-delay-goal #goal-starttime{
-	font-size:15px;
-	padding:4px 3px;
-	margin-top:10px;
-	border:1px solid lightgray;
-	width:202px;
-}
-
-/* Dynamic Page
-------------------------------------------------------------*/
-
-/* Dynamic Panel */
-#dynamic-panel{
-	width:70%;
-	float:left;
-	
-	/* Dynamic Selector */
-	#dynamic-sel-wap{
-		margin:0 0 15px 0;
-		border-bottom:1px solid #EEEEEE;
-		
-		.dynamic-sel{
-			display:inline-block;
-			text-decoration:none;
-			color:black;
+			font-size:15px;
+			font-weight:bold;
 			background-color:#E8E8E8;
-			padding:5px 15px;
-			margin:0 1px 0 0;
-			font-size:18px;
 			
 			&:hover{
-				background:#DDD;
+				background-color:#DDD;
 			}
 		}
 	}
 	
-	/* Dynamic Item */
-	.dynamic-item{
-		clear:both;
-		margin:0 0 15px 0;
-		padding:0 0 5px 0;
-		border-bottom:1px solid #EEE;
-		position:relative;
+	/* Goals Panel */
+	#content-goals{
+		width:800px;
 		
-		.dynamic-poster-profile{
-			float:left;
-			width:40px;
-			height:40px;
+		&:after{
+			content:".";
+			display:block;
+			height:0px;
+			clear:both;
+			visibility:hidden;
 		}
 		
-		.dynamic-content-wap{
-			margin:0px 0 0 52px;
-			font-size:14px;
-			font-family:'宋体';
+		.goal-item{
+			background-color:white;
+			width:170px;
+			height:200px;
+			float:left;
+			margin:0 15px 20px 0;
+			position:relative;
+			overflow:hidden;
+			border:1px solid #CCC;
 			
-			.dynamic-header{
-				line-height:15px;
-				color:#A8A8A8;
-				margin:0 0 9px 0;
+			&:hover{
+				background-color:#F7F7F7;
+			}
+			
+			.goal-link{
+				display:block;
+				padding:8px 10px 10px 10px;
+				color:black;
+				text-decoration:none;
 				
-				a{
-					color:#369;
-					cursor:pointer;
-					text-decoration:none;
+				.goal-title{
+					font-size:18px;
+					font-weight:bold;
+					margin:0 0 5px 0;
 					
-					&:hover{
-						text-decoration:underline;
+					a{
+						text-decoration:none;
+						color:black;
+					}
+				}
+				
+				.goal-why{
+					font-size:15px;
+					line-height:20px;
+					margin-top:5px;
+					color:#666;
+					font-family:"宋体";
+				}
+				
+				.goal-info-wap{
+					position:absolute;
+					font-size:12px;
+					bottom:6px;
+					left:11px;
+					z-index:0;
+					color:#666;
+					
+					.goal-starttime,
+					.goal-endtime{
+						font-size:12px;
+						color:#666;
+						margin-top:2px;
 					}
 				}
 			}
 			
-			.dynamic-log-wap{
-				padding:10px 12px 0 12px;
-				background-color:#F0F0F0;
-			}
-			
-			.dynamic-log-title{
-				font-weight:bold;
-				font-family:'微软雅黑';
-				line-height:14px;
-				padding:0 0 7px 0;
-			}			
-			
-			.dynamic-log-content,
-			.dynamic-goal-reason{
-				padding:0 15px 5px 0;
-				font-family:'宋体';
-				line-height:20px;
-				font-size:13px;
-				color:#555;
-			}
-			
-			.dynamic-footer{
-				font-size:12px;
-				margin:0 0 5px 0;
+			.goal-cmd-wap{
+				position:absolute;
+				bottom:-32px;
+				left:0;
+				z-index:100;
+				width:170px;
+				background:black;
+				opacity:0.8;
 				text-align:right;
 				
-				.dynamic-time{
+				.goal-cmd{
+					color:black;
+					font-size:12px;
+					font-family:'宋体';
 					display:inline-block;
-					color:gray;
+					margin:6px 6px 6px 0;
+					border-radius:3px;
+					background-color:white;
+					text-decoration:none;
+					padding:3px 5px;
+					cursor:pointer;
 				}
 			}
+		}
+	}
+	
+	/* Delay Dialog */
+	#form-delay-goal #goal-starttime{
+		font-size:15px;
+		padding:4px 3px;
+		margin-top:10px;
+		border:1px solid lightgray;
+		width:202px;
+	}
+}
+
+
+
+/* Page Followees Dynamcis
+------------------------------------------------------------*/
+
+/* Layout */
+#page-followees-dynamics{
+	#dynamic-panel{
+		width:70%;
+		float:left;
+	}
+	
+	#dynamic-sidebar-panel{
+		width:28%;
+		float:right;
+	}
+}
+
+#page-followees-dynamics{
+	/* Dynamics Panel */
+	#dynamic-panel{
+
+		/* Dynamic Selector */
+		#dynamic-sel-wap{
+			margin:0 0 15px 0;
+			border-bottom:1px solid #EEEEEE;
 			
+			.dynamic-sel{
+				display:inline-block;
+				text-decoration:none;
+				color:black;
+				background-color:#E8E8E8;
+				padding:5px 15px;
+				margin:0 1px 0 0;
+				font-size:18px;
+				
+				&:hover{
+					background:#DDD;
+				}
+			}
 		}
 		
-		/* Comments */
-		.comment-new-form{
-			margin:0 0 0 52px;
+		/* Dynamic Item */
+		.dynamic-item{
+			clear:both;
+			margin:0 0 15px 0;
+			padding:0 0 5px 0;
+			border-bottom:1px solid #EEE;
+			position:relative;
+			
+			/* Avatar */
+			.dynamic-poster-profile{
+				float:left;
+				width:40px;
+				height:40px;
+			}
+			
+			/* Dynamic Content */
+			.dynamic-content-wap{
+				margin:0px 0 0 52px;
+				font-size:14px;
+				font-family:'宋体';
+				
+				.dynamic-header{
+					line-height:15px;
+					color:#A8A8A8;
+					margin:0 0 9px 0;
+					
+					a{
+						color:#369;
+						cursor:pointer;
+						text-decoration:none;
+						
+						&:hover{
+							text-decoration:underline;
+						}
+					}
+				}
+				
+				.dynamic-log-wap{
+					padding:10px 12px 0 12px;
+					background-color:#F0F0F0;
+				}
+				
+				.dynamic-log-title{
+					font-weight:bold;
+					font-family:'微软雅黑';
+					line-height:14px;
+					padding:0 0 7px 0;
+				}			
+				
+				.dynamic-log-content,
+				.dynamic-goal-reason{
+					padding:0 15px 5px 0;
+					font-family:'宋体';
+					line-height:20px;
+					font-size:13px;
+					color:#555;
+				}
+				
+				.dynamic-footer{
+					font-size:12px;
+					margin:0 0 5px 0;
+					text-align:right;
+					
+					.dynamic-time{
+						display:inline-block;
+						color:gray;
+					}
+				}
+				
+			}
+			
+			/* Comments */
+			.comment-new-form{
+				margin:0 0 0 52px;
+			}
 		}
 	}
 }
 
-/* My Followees Panel */
-#dynamic-sidebar-panel{
-	width:28%;
-	float:right;
+/* Page Single Dynamcis
+------------------------------------------------------------*/
+#page-single-dynamics{
+
+	/* Dynamic Item */
+	.dynamic-item{
+		width:700px;
+		padding:0 0 5px 0px;
+		border-bottom:1px solid #EEE;
+		margin:0 0 5px 0;
+		color:gray;
+		font-size:13px;
+			
+		.dynamic-header{
+			margin:0 0 3px 0;
+				
+			a{
+				text-decoration:none;
+				color:#369;
+				
+				&:hover{
+					text-decoration:underline;
+				}
+			}
+		}
+			
+		.dynamic-log-title{
+			color:black;
+			font-weight:bold;
+			margin:0 0 3px 0;
+			padding:0 0 0 15px;
+		}
+		
+		.dynamic-log-content,
+		.dynamic-goal-reason{
+			font-size:12px;
+			font-family:'宋体';
+			line-height:20px;
+			word-wrap:break-all;
+			margin:0 0 5px 0;
+			padding:0 0 0 15px;		
+		}
+
+		.dynamic-time{
+			text-align:right;
+			color:gray;
+			font-size:12px;
+		}
+	}
 }
 
 /* New & Edit Goal Form
 ------------------------------------------------------------*/
 
-#form-new-goal, #form-edit-goal{
-	#goal-title{
-		width:500px;
-	}
+#page-new-goal,
+#page-edit-goal{
+	form{
+		#goal-title{
+			width:500px;
+		}
+		
+		#goal-why{
+			width:500px;
+		}
+		
+		#goal-type{
+			margin:0 6px 10px 0;
+			padding:3px 2px;
+		}
 	
-	#goal-why{
-		width:500px;
-	}
-	
-	#goal-type{
-		margin:0 6px 10px 0;
-		padding:3px 2px;
-	}
-	
-	#goal-ispublic{
-		margin:0 0 10px 0;
-		padding:3px 2px;
-	}
-	
-	#goal-starttime{
-		padding:4px 3px;
-		display:none;
-		width:202px;
+			#goal-ispublic{
+			margin:0 0 10px 0;
+			padding:3px 2px;
+		}
+		
+		#goal-starttime{
+			padding:4px 3px;
+			display:none;
+			width:202px;
+		}
 	}
 }
-
-/* Goal Details
+	
+/* Page Goal Details
 ------------------------------------------------------------*/
 
-/* Layout */
-#goal-title-panel{
-	margin:0 0 15px 0;
-	position:relative;
-	clear:both;
-}
-
-#goal-details-panel{
-	width:70%;
-	float:left;
-	position:relative;
-}
-
-#goal-sidebar-panel{
-	width:28%;
-	float:right;
-	position:relative;
-}
-
-/* Goal Title Panel */
-#goal-title-panel{
-	 #goal-title{
-		font-size:28px;
-		line-height:28px;
-		font-weight:bold;
-		margin:0 6px 0 0;
+#page-goal-details{
+	#goal-details-panel{
+		width:70%;
+		float:left;
+		position:relative;
 	}
 	
-	#goal-title-underline{
-		color:#EEE;
-		font-size:14px;
+	#goal-sidebar-panel{
+		width:28%;
+		float:right;
+		position:relative;
 	}
-	
-	#goal-starttime{
-		font-size:12px;
-		color:gray;
-		margin-bottom:5px;
-	}
+}
 
-	#cmd-edit-goal-title{	
-		text-decoration:none;
-		background-color:#EEE;
-		font-family:'微软雅黑';
-		cursor:pointer;
-		padding:0 5px;
-		margin:0 0 0 5px;
-		color:#666;
-		font-size:12px;
-			
-		&:hover{
-			text-shadow:1px 1px 1px white;
-			background-color:#F2F2F2;
-		}
-	}
+#page-goal-details{
+
+	/* Details Panel */
+	#goal-details-panel{
 	
-	/* Goal Cmds */
-	#goal-cmd-wap{
-		position:absolute;
-		top:0;
-		right:0;
+		/* Title */
+		#goal-title-wap{
+			margin:0 0 15px 0;
+			position:relative;
 		
-		a{	
-			display:inline-block;
-			padding:2px 10px;
-			margin:0 0 0 8px;
-			background-color:#E8E8E8;
-			text-decoration:none;
-			color:black;	
-			cursor:pointer;
-			font-size:15px;
-			font-weight:bold;
-			text-shadow:-1px -1px 1px white;
+			#goal-title{
+				font-size:28px;
+				line-height:28px;
+				font-weight:bold;
+				margin:0 6px 0 0;
+			}
 			
-			&.isFinished, &.isCheered{
-				background-color:orange;
-				
+			#goal-title-underline{
+				color:#EEE;
+				font-size:14px;
+			}
+			
+			#goal-starttime{
+				font-size:12px;
+				color:gray;
+				margin-bottom:5px;
+			}
+		
+			#cmd-edit-goal-title{	
+				text-decoration:none;
+				background-color:#EEE;
+				font-family:'微软雅黑';
+				cursor:pointer;
+				padding:0 5px;
+				margin:0 0 0 5px;
+				color:#666;
+				font-size:12px;
+					
 				&:hover{
-					cursor:default;
+					text-shadow:1px 1px 1px white;
+					background-color:#F2F2F2;
 				}
 			}
-		}
-	}	
-}
-
-/* Details Panel */
-#goal-details-panel{
-
-	/* Reason */
-	 #goal-reason{
-		font-size:13px;
-		margin:0 0 15px 5px;
-		color:#202020;
-	}
-	
-	/* Steps */
-	#goal-steps{
-		margin:0 10px 15px 5px;
-		
-		li{
-			list-style-position:inside;
-			list-style-type:square;
-			margin:0 0 3px 0;
-			padding:0 0 3px 0;
-			font-size:13px;
-			line-height:22px;
-			border-bottom:1px dashed #E6E6E6;
-			color:#202020;
-		}
-	}
-	
-	/* logs */
-	.log-item{
-		border-bottom:1px solid #EEE;
-		margin:0 0 8px 0;
-		
-		.log-title{
-			font-size:15px;
-			font-weight:bold;
-			margin:0 0 5px 0;
-		}
-		
-		.log-content{
-			font-size:13px;
-			line-height:22px;
-			font-family:'宋体';
-			margin:0 0 5px 0;
-			color:#202020;
-		}
-		
-		.log-cmd-time-wap{
-			text-align:right;
-			font-size:12px;
-			margin:0 0 5px 0;
 			
-			.log-time{
-				display:inline-block;
-				color:gray;
+			#goal-cmd-wap{
+				position:absolute;
+				top:0;
+				right:0;
+			
+				a{	
+					display:inline-block;
+					padding:2px 10px;
+					margin:0 0 0 8px;
+					background-color:#E8E8E8;
+					text-decoration:none;
+					color:black;	
+					cursor:pointer;
+					font-size:15px;
+					font-weight:bold;
+					text-shadow:-1px -1px 1px white;
+					
+					&.isFinished, &.isCheered{
+						background-color:orange;
+						
+						&:hover{
+						cursor:default;
+							}
+					}
+				}
+			}	
+		}	
+
+		/* Reason */
+		 #goal-reason{
+			font-size:13px;
+			margin:0 0 15px 5px;
+			color:#202020;
+		}
+		
+		/* Steps */
+		#goal-steps{
+			margin:0 10px 15px 5px;
+			
+			li{
+				list-style-position:inside;
+				list-style-type:square;
+				margin:0 0 3px 0;
+				padding:0 0 3px 0;
+				font-size:13px;
+				line-height:22px;
+				border-bottom:1px dashed #E6E6E6;
+				color:#202020;
 			}
 		}
 		
-		.comments-wap, .comment-new-form{
-			margin:0 0 0 60px;
+		/* logs */
+		.log-item{
+			border-bottom:1px solid #EEE;
+			margin:0 0 8px 0;
+			
+			.log-title{
+				font-size:15px;
+				font-weight:bold;
+				margin:0 0 5px 0;
+			}
+			
+			.log-content{
+				font-size:13px;
+				line-height:22px;
+				font-family:'宋体';
+				margin:0 0 5px 0;
+				color:#202020;
+			}
+			
+			.log-cmd-time-wap{
+				text-align:right;
+				font-size:12px;
+				margin:0 0 5px 0;
+				
+				.log-time{
+					display:inline-block;
+					color:gray;
+				}
+			}
+			
+			.comments-wap, .comment-new-form{
+				margin:0 0 0 60px;
+			}
 		}
 	}
-}
-
-/* Title Edit DiaLog */
-#form-edit-goal-title{
-	input{
-		margin:0;
-		width:384px;
-	}
-}
-
-/* Reason Edit Dialog */
-#form-edit-goal-reason{
-	textarea{
-		width:384px;
-		margin:0;
-	}
-}
-
-/* Step Edit Dialog */
-#step-edit-list li{
-	list-style-type: none;
 	
-	&:last-child{
-		.step-edit-area{
+	/* Sidebar Panel */
+	#goal-sidebar-panel{
+		
+		/* Creator */
+		.user-icon{
+			text-decoration:none;
+			display:block;
+			float:left;
+			margin:0 10px 10px 0;
+			
+			img{
+				width:40px;
+				height:40px;
+				border:none;
+			}
+		}
+	}
+
+	/* Title Edit DiaLog */
+	#form-edit-goal-title{
+		input{
+			margin:0;
+			width:384px;
+		}
+	}
+	
+	/* Reason Edit Dialog */
+	#form-edit-goal-reason{
+		textarea{
+			width:384px;
 			margin:0;
 		}
 	}
 	
-	.step-edit-area{
-		padding:5px 8px;
-		margin-bottom:10px;
-		font-size:14px;
-		line-height:20px;
-		width:310px;
-		border:1px solid lightgray;
-		outline:none;
-		display:block;
-		float:left;
-
-		&:focus{
-			background-color:#eee;
-		}
-	}
-
-	.delete-step-item,
-	.add-step-item{
-		display:block;
-		float:left;
-		margin:0 0 0 8px;
-		font-size:12px;
-		cursor:pointer;
+	/* Step Edit Dialog */
+	#step-edit-list li{
+		list-style-type: none;
 		
-		&:hover{
-			background:black;
-			color:white;		
+		&:last-child{
+			.step-edit-area{
+				margin:0;
+			}
 		}
-	}
-}
-
-/* Log New & Edit Dialog */
-#form-new-log, #form-edit-log{
-	#log-title{
-		margin:0 0 15px 0;
-		width:454px;
-	}
-
-	#log-content{
-		width:454px;
-		height:200px;
-		resize:vertical;
-		margin:0;
-	}
-}
-
-/* Sidebar Panel */
-#goal-sidebar-panel{
+		
+		.step-edit-area{
+			padding:5px 8px;
+			margin-bottom:10px;
+			font-size:14px;
+			line-height:20px;
+			width:310px;
+			border:1px solid lightgray;
+			outline:none;
+			display:block;
+			float:left;
 	
-	/* Creator */
-	.user-icon{
-		text-decoration:none;
-		display:block;
-		float:left;
-		margin:0 10px 10px 0;
-		
-		img{
-			width:40px;
-			height:40px;
-			border:none;
+			&:focus{
+				background-color:#eee;
+			}
+		}
+	
+		.delete-step-item,
+		.add-step-item{
+			display:block;
+			float:left;
+			margin:0 0 0 8px;
+			font-size:12px;
+			cursor:pointer;
+			
+			&:hover{
+				background:black;
+				color:white;		
+			}
+		}
+	}
+	
+	/* Log New & Edit Dialog */
+	#form-new-log, #form-edit-log{
+		#log-title{
+			margin:0 0 15px 0;
+			width:454px;
+		}
+	
+		#log-content{
+			width:454px;
+			height:200px;
+			resize:vertical;
+			margin:0;
 		}
 	}
 }
 
-/* Discover Page
+/* Page Discover 
 ------------------------------------------------------------*/
 #page-discover{
 
@@ -1140,11 +1223,10 @@ body{
 	}
 }
 
-/* Person Page
+/* Page Person
 ------------------------------------------------------------*/
 
-/* Loyout */
-#person-page{
+#page-person{
 	#main-panel{
 		width:70%;
 		float:left;
@@ -1156,7 +1238,7 @@ body{
 	}
 }
 
-#person-page{
+#page-person{
 
 	/* Main Panel */
 	#main-panel{
@@ -1378,21 +1460,24 @@ body{
 
 		}
 	}
+	
+	/* Message Leave Dialog */
+	#form-leave-message #message-content{
+		width:384px;
+		height:150px;
+		margin:0;
+		resize:vertical;
+	}
 }
 
-/* Message Leave Dialog */
-#form-leave-message #message-content{
-	width:384px;
-	height:150px;
-	margin:0;
-	resize:vertical;
-}
 
-/* About Page
+
+/* Page About & Terms
 ------------------------------------------------------------*/
 
 /* Layout */
-#page-about-terms{
+#page-about,
+#page-terms{
 	#main-content{
 		width:70%;
 		box-sizing:border-box;
@@ -1410,9 +1495,8 @@ body{
 	}
 }
 
-/* Main Content */
-
-#page-about-terms{
+#page-about,
+#page-terms{
 	p{
 		margin:0 0 12px 0;
 		line-height:22px;
@@ -1438,6 +1522,7 @@ body{
 			clear:both;
 	}
 	
+	/* Main Panel */
 	#main-content{
 		li{
 			list-style-type:square;
@@ -1471,6 +1556,7 @@ body{
 		}
 	}
 	
+	/* Sidebar Panel */
 	#sidebar{
 		#my-avatar{
 			float:left;

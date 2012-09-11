@@ -1,7 +1,7 @@
 <?php
 	require_once('data_funs.inc');
 	require_once('html_helper.php');
-	html_output_authed_header("鼓励的人");
+	html_output_authed_header("鼓励的人", 'page-goal-cheerers');
 	
 	$goalID = $_REQUEST['goalID'];
 	$goal = get_goal_by_ID($goalID);

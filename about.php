@@ -1,12 +1,8 @@
 <?php
 	require_once('data_funs.inc');
 	require_once('html_helper.php');
-	html_output_authed_header("Goal是什么");
+	html_output_authed_header("Goal是什么", "page-about");
 ?>
-
-<script type="text/javascript">
-	$('body').prop('id', 'page-about-terms');
-</script>
 
 <div id='main-content'>
 
