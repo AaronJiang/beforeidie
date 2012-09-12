@@ -798,49 +798,93 @@ select{
 ------------------------------------------------------------*/
 #page-single-dynamics{
 
+	#user-profile{
+		margin:0 0 15px 0;
+		position:relative;
+			
+		#avatar{
+			float:left;
+			margin:0 8px 0 0;
+			width:40px;
+			height:40px;
+		}
+			
+		#info{
+			margin:0 0 0 48px;
+				
+			#title{
+				font-size:18px;
+				line-height:18px;
+				font-weight:bold;
+			}
+		}
+	}
+
 	/* Dynamic Item */
 	.dynamic-item{
 		width:700px;
-		padding:0 0 5px 0px;
-		border-bottom:1px solid #EEE;
-		margin:0 0 5px 0;
+		padding:15px 0 0 0px;
+		border-top:1px solid #EEE;
 		color:gray;
-		font-size:13px;
-			
-		.dynamic-header{
-			margin:0 0 3px 0;
-				
-			a{
-				text-decoration:none;
-				color:#369;
-				
-				&:hover{
-					text-decoration:underline;
-				}
-			}
-		}
-			
-		.dynamic-log-title{
-			color:black;
-			font-weight:bold;
-			margin:0 0 3px 0;
-			padding:0 0 0 15px;
+		font-size:14px;
+		
+		/* Avatar */
+		.user-avatar{
+			width:40px;
+			height:40px;
+			float:left;
 		}
 		
-		.dynamic-log-content,
-		.dynamic-goal-reason{
-			font-size:12px;
-			font-family:'宋体';
-			line-height:20px;
-			word-wrap:break-all;
-			margin:0 0 5px 0;
-			padding:0 0 0 15px;		
+		/* Dynamic Content */
+		.dynamic-content{
+			margin:0 0 0 52px;
+			
+			.dynamic-header{
+				margin:0 0 10px 0;
+				font-family:'宋体';
+				line-height:14px;
+					
+				a{
+					text-decoration:none;
+					color:#369;
+					
+					&:hover{
+						text-decoration:underline;
+					}
+				}
+			}
+				
+			.dynamic-log-title{
+				line-height:14px;
+				color:black;
+				font-weight:bold;
+				margin:0 0 8px 0;
+			}
+			
+			.dynamic-log-content,
+			.dynamic-goal-reason{
+				font-size:12px;
+				font-family:'宋体';
+				line-height:20px;
+				word-wrap:break-all;
+				margin:0 0 5px 0;	
+			}
+	
+			.dynamic-footer{
+				font-size:12px;
+				margin:0 0 5px 0;
+				text-align:right;
+					
+				.post-time{
+					display:inline-block;
+					color:gray;
+				}			
+			}
 		}
-
-		.dynamic-time{
-			text-align:right;
-			color:gray;
-			font-size:12px;
+		
+		/* Comments */
+		.comment-new-form{
+			margin:0 0 0 52px;
 		}
 	}
 }
@@ -1248,7 +1292,7 @@ select{
 			margin:0 0 15px 0;
 			position:relative;
 			
-			#user-profile{
+			#user-avatar{
 				float:left;
 				margin:0 8px 0 0;
 				width:40px;

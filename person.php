@@ -49,7 +49,7 @@ $(document).ready(function(){
 		
 		<!-- 用户信息 -->		
 		<div id='user-info' class='clearfix'>
-			<img id='user-profile' src='<?php echo get_user_profile($userID); ?>' />
+			<img id='user-avatar' src='<?php echo get_user_profile($userID); ?>' />
 			<div id='user-info-wap'>
 				<span id='user-name'><?php echo $userName ?> 的个人主页</span>
 			</div>
@@ -122,10 +122,10 @@ $(document).ready(function(){
 		
 		<!-- 关注TA的人 -->	
 		<?php
-			@html_out_panel_header('关注TA的人', '全部', '', 'follower_page_followers.php?followeeID='.$userID, $isCreator);
-		
-			$followers = get_followers($userID);
+			$followers = get_followers($userID, 16);
 			
+			@html_out_panel_header('关注TA的人', '全部 ('.count($followers).')', '', 'follower_page_followers.php?followeeID='.$userID, $isCreator);
+		
 			foreach($followers as $follower){
 				echo "<a href='person.php?userID=". $follower['UserID']. "' title='". $follower['Username']. "'>"
 						. "<img class='multi-user-profile' src='". get_user_profile($follower['UserID']). "' />"
@@ -135,10 +135,10 @@ $(document).ready(function(){
 		
 		<!-- TA关注的人 -->		
 		<?php
-			@html_out_panel_header('TA关注的人', '全部', '', 'follower_page_followees.php?followerID='.$userID, $isCreator);
+			$followees = get_followees($userID, 16);
 			
-			$followees = get_followees($userID);
-			
+			@html_out_panel_header('TA关注的人', '全部 ('.count($followees).')', '', 'follower_page_followees.php?followerID='.$userID, $isCreator);
+
 			foreach($followees as $followee){
 				echo "<a href='person.php?userID=". $followee['UserID']. "' title='". $followee['Username']. "'>"
 						. "<img class='multi-user-profile' src='". get_user_profile($followee['UserID']). "' />"

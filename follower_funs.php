@@ -22,11 +22,15 @@
 	}
 	
 	//获取关注某 User 的用户
-	function get_followers($followeeID){
+	function get_followers($followeeID, $num){
 		$query = "SELECT users.Username, users.UserID\n"
 				. "FROM users, followers\n"
 				. "WHERE followers.FolloweeID = ". $followeeID. "\n"
-				. "AND followers.FollowerID = users.UserID";
+				. "AND followers.FollowerID = users.UserID\n";
+		
+		if(isset($num)){
+			$query .= "LIMIT 0, ". $num;
+		}
 		
 		$result =db_exec($query);
 		
@@ -39,30 +43,17 @@
 	}
 	
 	//获取某 User 所关注的用户
-	function get_followees($followerID){
+	function get_followees($followerID, $num){
 		$query = "SELECT users.Username, users.UserID\n"
 				. "FROM users, followers\n"
 				. "WHERE followers.FollowerID = ". $followerID. "\n"
-				. "AND followers.FolloweeID = users.UserID";
-		
-		$result =db_exec($query);
-		
-		$array = array();
-		while($row = $result->fetch_assoc()){
-			array_push($array, $row);
+				. "AND followers.FolloweeID = users.UserID\n";
+				
+		if(isset($num)){
+			$query .= "LIMIT 0, ". $num;
 		}
 		
-		return $array;
-	}
-	
-	//获取某用户所关注的 User
-	function get_followed_users($followerID){
-		$query = "SELECT users.Username, users.UserID\n"
-				. "FROM followers as fows, users\n"
-				. "WHERE fows.FollowerID = ". $followerID. "\n"
-				. "AND fows.FolloweeID = users.UserID";
-				
-		$result = db_exec($query);
+		$result =db_exec($query);
 		
 		$array = array();
 		while($row = $result->fetch_assoc()){

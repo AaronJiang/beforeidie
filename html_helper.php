@@ -54,7 +54,7 @@
 					. "<div class='comment-footer'>"
 						. "<span class='comment-time'>". $comm['Time']. "</span>"
 						. "&nbsp;"
-						. "<span class='comment-cmd comment-cmd-new'
+						. "<span class='comment-cmd cmd-new-comment'
 								data-log-id='". $logID . "'
 								data-parent-comment-id='". $comm['CommentID']. "'
 								data-poster-id='". $_SESSION['valid_user_id']. "'

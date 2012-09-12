@@ -22,7 +22,7 @@ $(document).ready(function(){
 	var GOAL_ID = <?php echo $_REQUEST['goalID'] ?>;
 	
 	//弹出回复框
-	$('.comment-cmd-new').click(function(){
+	$('.cmd-new-comment').click(function(){
 		var posterID = $(this).data('poster-id'),
 			logID = $(this).data('log-id'),
 			isRoot = $(this).data('is-root'),
