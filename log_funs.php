@@ -78,8 +78,12 @@
 	}
 	
 	//获取某 Goal 的所有记录
-	function get_logs($goalID){
-		$query = "select * from goal_logs where GoalID = ". $goalID. " order by logTime desc LIMIT 0, 10";
+	function get_logs($goalID, $num){
+		$query = "SELECT * FROM goal_logs\n"
+				. "WHERE GoalID = ". $goalID. "\n"
+				. "ORDER BY logTime DESC\n"
+				. "LIMIT 0, ". $num;
+				
 		$results = db_exec($query);
 		
 		$logs = array();

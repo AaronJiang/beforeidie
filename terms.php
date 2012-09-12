@@ -4,7 +4,7 @@
 	html_output_authed_header("条款与隐私", "page-terms");
 ?>
 
-<div id='main-content'>
+<div id='main-panel'>
 
 	<p class='main-title'>使用条款<p>
 

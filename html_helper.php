@@ -192,7 +192,7 @@
 
 	//输出个人页面的 Goals
 	function html_output_person_goals($userID, $type){
-		$goals = get_goals($userID, $type, true);
+		$goals = get_goals($userID, $type, false);
 		foreach($goals as $goal){
 			$goalID = $goal['GoalID'];
 			echo "<div class='goal-item'>"

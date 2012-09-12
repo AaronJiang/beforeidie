@@ -10,10 +10,12 @@
 	}
 	
 	//获取某个用户的某种类型的全部目标
-	function get_goals($userID, $goalType, $isPublic){
-		$query = "SELECT * FROM goals WHERE UserID = ". $userID. " AND GoalType = '". $goalType. "'\n";
+	function get_goals($userID, $goalType, $isMe){
+		$query = "SELECT * FROM goals\n"
+				. "WHERE UserID = ". $userID. "\n"
+				. "AND GoalType = '". $goalType. "'\n";
 		
-		if($isPublic){
+		if(!$isMe){
 			$query .= "AND IsPublic = 1\n";
 		}
 		
@@ -21,7 +23,7 @@
 			$query .= "ORDER BY StartTime ASC\n";
 		}
 		elseif($goalType == 'finish'){
-			$query .= "ORDER BY EndTime DESC\n";	
+			$query .= "ORDER BY EndTime DESC\n";
 		}
 		
 		$results = db_exec($query);

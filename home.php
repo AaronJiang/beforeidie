@@ -83,7 +83,7 @@ $(document).ready(function(){
 
 <?php
 	$goalType = isset($_REQUEST['goalType'])? $_REQUEST['goalType']: 'now';
-	$goals = get_goals($userID, $goalType, false);
+	$goals = get_goals($userID, $goalType, true);
 	
 	//构造每一个 Goal 的 HTML 块
 	foreach($goals as $goal){

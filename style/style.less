@@ -680,20 +680,21 @@ select{
 
 /* Layout */
 #page-followees-dynamics{
-	#dynamic-panel{
+	#main-panel{
 		width:70%;
 		float:left;
 	}
 	
-	#dynamic-sidebar-panel{
+	#sidebar-panel{
 		width:28%;
 		float:right;
 	}
 }
 
 #page-followees-dynamics{
-	/* Dynamics Panel */
-	#dynamic-panel{
+
+	/* Main Panel */
+	#main-panel{
 
 		/* Dynamic Selector */
 		#dynamic-sel-wap{
@@ -798,28 +799,6 @@ select{
 ------------------------------------------------------------*/
 #page-single-dynamics{
 
-	#user-profile{
-		margin:0 0 15px 0;
-		position:relative;
-			
-		#avatar{
-			float:left;
-			margin:0 8px 0 0;
-			width:40px;
-			height:40px;
-		}
-			
-		#info{
-			margin:0 0 0 48px;
-				
-			#title{
-				font-size:18px;
-				line-height:18px;
-				font-weight:bold;
-			}
-		}
-	}
-
 	/* Dynamic Item */
 	.dynamic-item{
 		width:700px;
@@ -908,7 +887,7 @@ select{
 			padding:3px 2px;
 		}
 	
-			#goal-ispublic{
+		#goal-ispublic{
 			margin:0 0 10px 0;
 			padding:3px 2px;
 		}
@@ -925,13 +904,13 @@ select{
 ------------------------------------------------------------*/
 
 #page-goal-details{
-	#goal-details-panel{
+	#main-panel{
 		width:70%;
 		float:left;
 		position:relative;
 	}
 	
-	#goal-sidebar-panel{
+	#sidebar-panel{
 		width:28%;
 		float:right;
 		position:relative;
@@ -940,8 +919,8 @@ select{
 
 #page-goal-details{
 
-	/* Details Panel */
-	#goal-details-panel{
+	/* Main Panel */
+	#main-panel{
 	
 		/* Title */
 		#goal-title-wap{
@@ -1070,7 +1049,7 @@ select{
 	}
 	
 	/* Sidebar Panel */
-	#goal-sidebar-panel{
+	#sidebar-panel{
 		
 		/* Creator */
 		.user-icon{
@@ -1506,11 +1485,13 @@ select{
 	}
 	
 	/* Message Leave Dialog */
-	#form-leave-message #message-content{
-		width:384px;
-		height:150px;
-		margin:0;
-		resize:vertical;
+	#form-leave-message{
+		#message-content{
+			width:384px;
+			height:150px;
+			margin:0;
+			resize:vertical;
+		}
 	}
 }
 
@@ -1595,7 +1576,7 @@ select{
 /* Layout */
 #page-about,
 #page-terms{
-	#main-content{
+	#main-panel{
 		width:70%;
 		box-sizing:border-box;
 		float:left;
@@ -1604,7 +1585,7 @@ select{
 		min-height:550px;
 	}
 
-	#sidebar{
+	#sidebar-panel{
 		width:30%;
 		box-sizing:border-box;
 		padding:0 0 0 20px;
@@ -1640,7 +1621,7 @@ select{
 	}
 	
 	/* Main Panel */
-	#main-content{
+	#main-panel{
 		li{
 			list-style-type:square;
 			font-size:14px;
@@ -1674,7 +1655,7 @@ select{
 	}
 	
 	/* Sidebar Panel */
-	#sidebar{
+	#sidebar-panel{
 		#my-avatar{
 			float:left;
 			width:80px;

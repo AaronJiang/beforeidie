@@ -338,8 +338,8 @@ $(document).ready(function(){
 
 </script>
 
-<!-- Goal Details -->
-<div id='goal-details-panel'>
+<!-- Main Panel -->
+<div id='main-panel'>
 
 	<!-- Title -->
 	<div id='goal-title-wap'>
@@ -405,7 +405,7 @@ $(document).ready(function(){
 	<?php
 	@html_out_panel_header('记录', '添加', 'cmd-add-log', '', $isCreator);
 	
-	$logs = get_logs($GOAL_ID);
+	$logs = get_logs($GOAL_ID, 20);
 
 	if(count($logs) != 0){
 		foreach($logs as $log){
@@ -453,8 +453,8 @@ $(document).ready(function(){
 	?>
 </div>
 
-<!-- 边栏 -->
-<div id="goal-sidebar-panel">
+<!-- Sidebar Panel -->
+<div id="sidebar-panel">
 
 	<!-- Creator -->
 	<?php

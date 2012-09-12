@@ -1,4 +1,4 @@
-<div id='sidebar'>
+<div id='sidebar-panel'>
 	<p class="main-title">关于我</p>
 	
 	<img id='my-avatar' src='imgs/me.jpg' />
