@@ -387,7 +387,7 @@ select{
 	/* Login State Panel */
 	#account-info{
 		position:absolute;
-		top:12px;
+		top:13px;
 		right:0px;
 		
 		a{
@@ -395,7 +395,7 @@ select{
 			color:#CCC;
 			font-size:13px;
 			cursor:pointer;
-			margin-left:5px;
+			margin-left:8px;
 			font-family:'宋体';
 			text-decoration:none;
 			
@@ -1514,6 +1514,79 @@ select{
 	}
 }
 
+/* Page Admin Followees
+------------------------------------------------------------*/
+#page-admin-followees{
+	.followee-item{
+		border-top:1px solid #EEE;
+		margin:0 0 0px 0;
+		padding:10px 0 10px 0;
+		position:relative;
+		width:700px;
+		
+		&:last-child{
+			border-bottom:1px solid #EEE;		
+		}
+		
+		.user-avatar{
+			width:40px;
+			height:40px;
+			float:left;
+		}
+		
+		.user-info{
+			margin:0 0 0 50px;
+			
+			.user-name{
+				font-size:15px;
+				font-family:'';
+				font-weight:bold;
+				margin:0 0 10px 0;
+				
+				a{
+					text-decoration:none;
+					color:black;
+					
+					&:hover{
+						text-decoration:underline;
+					}
+				}
+			}
+			
+			.goal-info{
+				font-size:12px;
+				line-height:12px;
+				color:#444;
+				
+				b{
+					color:black;
+				}
+			}
+		}
+		
+		.cmd-wap{
+			position:absolute;
+			top:15px;
+			right:0px;
+			
+			.cmd{
+				padding:3px 10px;
+				font-size:15px;
+				line-height:15px;
+				font-weight:bold;
+				background-color:lightgray;
+				text-decoration:none;
+				text-shadow:1px 1px 1px black;
+				color:white;
+				
+				&:hover{
+					text-shadow:0px 0px 1px black;
+					box-shadow:0px 0px 2px lightgray;
+				}
+			}
+		}
+	}
+}
 
 
 /* Page About & Terms

@@ -74,9 +74,9 @@ $(document).ready(function(){
 ?>
 
 <ul id="goal-selector" class="clearfix">
-	<li><a href="home.php?goalType=now" id="select-now">进 行 中 [<?php echo get_goal_num($userID, "now"); ?>]</a></li>
-	<li><a href="home.php?goalType=future" id="select-future">待 启 动 [<?php echo get_goal_num($userID, "future"); ?>]</a></li>
-	<li><a href="home.php?goalType=finish" id="select-finish">已 完 成 [<?php echo get_goal_num($userID, "finish"); ?>]</a></li>
+	<li><a href="home.php?goalType=now" id="select-now">进 行 中 [<?php echo get_goals_num($userID, "now", true); ?>]</a></li>
+	<li><a href="home.php?goalType=future" id="select-future">待 启 动 [<?php echo get_goals_num($userID, "future", true); ?>]</a></li>
+	<li><a href="home.php?goalType=finish" id="select-finish">已 完 成 [<?php echo get_goals_num($userID, "finish", true); ?>]</a></li>
 </ul>
 
 <div id="content-goals">

@@ -213,25 +213,21 @@
 	}
 	
 	//获取对应类型的目标个数
-	function get_goal_num($userID, $goalType){	
-		$query = "select count(*) from goals where UserID = ". $userID. " and GoalType = '". $goalType ."'";
+	function get_goals_num($userID, $goalType, $isMe){	
+		$query = "SELECT COUNT(*) as num\n"
+				. "FROM goals\n"
+				. "WHERE UserID = ". $userID. "\n"
+				. "AND GoalType = '". $goalType ."'\n";
+
+		if(!$isMe){
+			$query .= "AND IsPublic = 1";
+		}
+		
 		$result = db_exec($query);
 		
 		$num = $result->fetch_assoc();
 
-		return $num['count(*)'];
-	}
-	
-	//获取对应类型的 public 目标个数
-	function get_public_goal_num($userID, $goalType){	
-		$query = "select count(*) from goals where UserID = ". $userID. "\n"
-				. "AND GoalType = '". $goalType ."'\n"
-				. "AND IsPublic = 1";
-		$result = db_exec($query);
-
-		$num = $result->fetch_assoc();
-		
-		return $num['count(*)'];
+		return $num['num'];
 	}
 	
 	//检查 Goal 的所有权

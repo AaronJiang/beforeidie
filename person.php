@@ -68,9 +68,9 @@ $(document).ready(function(){
 	
 		<!-- 用户的 Goals -->
 		<ul id='goal-wap-header'>
-			<li><a href='person.php?userID=<?php echo $userID ?>&goalType=now'>进行中 [<?php echo get_public_goal_num($userID, 'now'); ?>]</a></li
-			><li><a href='person.php?userID=<?php echo $userID ?>&goalType=future'>待启动 [<?php echo get_public_goal_num($userID, 'future'); ?>]</a></li
-			><li><a href='person.php?userID=<?php echo $userID ?>&goalType=finish'>已完成 [<?php echo get_public_goal_num($userID, 'finish'); ?>]</a></li>
+			<li><a href='person.php?userID=<?php echo $userID ?>&goalType=now'>进行中 [<?php echo get_goals_num($userID, 'now', false); ?>]</a></li
+			><li><a href='person.php?userID=<?php echo $userID ?>&goalType=future'>待启动 [<?php echo get_goals_num($userID, 'future', false); ?>]</a></li
+			><li><a href='person.php?userID=<?php echo $userID ?>&goalType=finish'>已完成 [<?php echo get_goals_num($userID, 'finish', false); ?>]</a></li>
 		</ul>
 		
 		<div class='goal-wap'>
@@ -122,10 +122,12 @@ $(document).ready(function(){
 		
 		<!-- 关注TA的人 -->	
 		<?php
-			$followers = get_followers($userID, 16);
+			$num_followers = get_followers_num($userID);
 			
-			@html_out_panel_header('关注TA的人', '全部 ('.count($followers).')', '', 'follower_page_followers.php?followeeID='.$userID, $isCreator);
-		
+			@html_out_panel_header('关注TA的人', '全部 ('.$num_followers.')', '', 'follower_page_followers.php?followeeID='.$userID, $isCreator);
+			
+			$followers = get_followers($userID, 16);		
+			
 			foreach($followers as $follower){
 				echo "<a href='person.php?userID=". $follower['UserID']. "' title='". $follower['Username']. "'>"
 						. "<img class='multi-user-profile' src='". get_user_profile($follower['UserID']). "' />"
@@ -135,10 +137,12 @@ $(document).ready(function(){
 		
 		<!-- TA关注的人 -->		
 		<?php
+			$num_followees = get_followees_num($userID);
+			
+			@html_out_panel_header('TA关注的人', '全部 ('.$num_followees.')', '', 'follower_page_followees.php?followerID='.$userID, $isCreator);
+			
 			$followees = get_followees($userID, 16);
 			
-			@html_out_panel_header('TA关注的人', '全部 ('.count($followees).')', '', 'follower_page_followees.php?followerID='.$userID, $isCreator);
-
 			foreach($followees as $followee){
 				echo "<a href='person.php?userID=". $followee['UserID']. "' title='". $followee['Username']. "'>"
 						. "<img class='multi-user-profile' src='". get_user_profile($followee['UserID']). "' />"

@@ -1,7 +1,7 @@
 <?php
 	require_once('data_funs.inc');
 	require_once('html_helper.php');
-	html_output_authed_header("更改密码");
+	html_output_authed_header("更改密码", 'page-change-pwd');
 ?>
 
 <script type='text/javascript'>

@@ -42,6 +42,18 @@
 		return $array;		
 	}
 	
+	//获取关注某 User 的用户的数目
+	function get_followers_num($followeeID){
+		$query = "SELECT COUNT(*) as num\n"
+				. "FROM followers\n"
+				. "WHERE followers.FolloweeID = ". $followeeID. "\n";
+		
+		$result = db_exec($query);
+		$row = $result->fetch_assoc();
+		
+		return $row['num'];		
+	}
+	
 	//获取某 User 所关注的用户
 	function get_followees($followerID, $num){
 		$query = "SELECT users.Username, users.UserID\n"
@@ -53,7 +65,7 @@
 			$query .= "LIMIT 0, ". $num;
 		}
 		
-		$result =db_exec($query);
+		$result = db_exec($query);
 		
 		$array = array();
 		while($row = $result->fetch_assoc()){
@@ -61,5 +73,17 @@
 		}
 		
 		return $array;
+	}
+	
+	//获取某 User 所关注的用户的数目
+	function get_followees_num($followerID){
+		$query = "SELECT COUNT(*) as num\n"
+				. "FROM followers\n"
+				. "WHERE followers.FollowerID = ". $followerID. "\n";
+		
+		$result = db_exec($query);
+		$row = $result->fetch_assoc();
+		
+		return $row['num'];
 	}
 ?>
