@@ -1,5 +1,4 @@
 <?php
-	
 	require_once("data_funs.inc");
 	
 	//调度请求

@@ -79,14 +79,14 @@
 			}
 			
 			echo "<div class='panel-cmd-wapper'>";		
+			
 			echo "<span class='panel-underline'>_ _ _</span>";
 			echo "<a class='panel-cmd' id='". $cmdID. "'";
-			
 			if(trim($cmdUrl) != ""){
 				echo "href='". $cmdUrl. "'";
 			}
-			
 			echo ">". $cmd. "</a>";
+			
 			echo "</div>";
 		}
 		

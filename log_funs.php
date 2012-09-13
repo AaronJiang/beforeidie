@@ -78,11 +78,13 @@
 	}
 	
 	//获取某 Goal 的所有记录
-	function get_logs($goalID, $num){
-		$query = "SELECT * FROM goal_logs\n"
-				. "WHERE GoalID = ". $goalID. "\n"
-				. "ORDER BY logTime DESC\n"
-				. "LIMIT 0, ". $num;
+	function get_logs($goalID, $pageNum, $numPerPage){
+		$query = "SELECT logs.*, b.commentsNum\n"
+				. "FROM goal_logs as logs LEFT JOIN (SELECT COUNT(*) as commentsNum, LogID FROM comments GROUP BY LogID) as b\n"
+				. "ON logs.LogID = b.LogID\n"
+				. "WHERE logs.GoalID = ". $goalID. "\n"
+				. "ORDER BY logs.logTime DESC\n"
+				. "LIMIT ". ($pageNum-1)*$numPerPage. ", ". $numPerPage;
 				
 		$results = db_exec($query);
 		
@@ -96,11 +98,11 @@
 	
 	//获取某种类型的 Goal 的动态数目
 	function get_goal_logs_num($goalID){
-		$query = "select count(*) from goal_logs where GoalID = ". $goalID;
+		$query = "select count(*) as num from goal_logs where GoalID = ". $goalID;
 		$result = db_exec($query);
 		
 		$num = $result->fetch_assoc();
 
-		return $num['count(*)'];
+		return $num['num'];
 	}
 ?>

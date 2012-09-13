@@ -923,7 +923,7 @@ select{
 	#main-panel{
 	
 		/* Title */
-		#goal-title-wap{
+		#title-wap{
 			margin:0 0 15px 0;
 			position:relative;
 		
@@ -990,60 +990,102 @@ select{
 		}	
 
 		/* Reason */
-		 #goal-reason{
-			font-size:13px;
-			margin:0 0 15px 5px;
-			color:#202020;
+		#reason-wap{
+			#goal-reason{
+				font-size:13px;
+				margin:0 0 15px 5px;
+				color:#202020;
+			}
 		}
 		
 		/* Steps */
-		#goal-steps{
-			margin:0 10px 15px 5px;
-			
-			li{
-				list-style-position:inside;
-				list-style-type:square;
-				margin:0 0 3px 0;
-				padding:0 0 3px 0;
-				font-size:13px;
-				line-height:22px;
-				border-bottom:1px dashed #E6E6E6;
-				color:#202020;
+		#steps-wap{
+			#steps-list{
+				margin:0 10px 15px 5px;
+				
+				li{
+					list-style-position:inside;
+					list-style-type:square;
+					margin:0 0 3px 0;
+					padding:0 0 3px 0;
+					font-size:13px;
+					line-height:22px;
+					border-bottom:1px dashed #E6E6E6;
+					color:#202020;
+				}
 			}
 		}
 		
 		/* logs */
-		.log-item{
-			border-bottom:1px solid #EEE;
-			margin:0 0 8px 0;
+		#logs-wap{
+			position:relative;
 			
-			.log-title{
-				font-size:15px;
-				font-weight:bold;
-				margin:0 0 5px 0;
-			}
-			
-			.log-content{
-				font-size:13px;
-				line-height:22px;
-				font-family:'宋体';
-				margin:0 0 5px 0;
-				color:#202020;
-			}
-			
-			.log-cmd-time-wap{
-				text-align:right;
-				font-size:12px;
-				margin:0 0 5px 0;
+			#logs-pager{
+				position:absolute;
+				top:5px;
+				right:0px;
+				font-size:14px;
+				line-height:14px;
+
+				#page-up,
+				#page-down{
+					font-size:12px;
+					line-height:12px;
+					background-color:#EEE;
+					padding:2px 5px;
+					border:1px solid lightgray;
+					text-decoration:none;
+					color:black;
+					
+					&:hover{
+						background-color:#F8F8F8;					
+					}
+				}
 				
-				.log-time{
-					display:inline-block;
-					color:gray;
+				#page-up{
+					border-right:0px;
+					border-top-left-radius:2px;
+					border-bottom-left-radius:2px;
+				}
+				
+				#page-down{
+					border-top-right-radius:2px;
+					border-bottom-right-radius:2px;				
 				}
 			}
 			
-			.comments-wap, .comment-new-form{
-				margin:0 0 0 60px;
+			.log-item{
+				border-bottom:1px solid #EEE;
+				margin:0 0 8px 0;
+				
+				.log-title{
+					font-size:15px;
+					font-weight:bold;
+				margin:0 0 5px 0;
+					}
+			
+				.log-content{
+					font-size:13px;
+					line-height:22px;
+					font-family:'宋体';
+					margin:0 0 5px 0;
+					color:#202020;
+				}
+				
+				.log-cmd-time-wap{
+					text-align:right;
+					font-size:12px;
+					margin:0 0 5px 0;
+					
+					.log-time{
+						display:inline-block;
+						color:gray;
+					}
+				}
+				
+				.comments-wap, .comment-new-form{
+					margin:0 0 0 60px;
+				}
 			}
 		}
 	}
@@ -1052,16 +1094,18 @@ select{
 	#sidebar-panel{
 		
 		/* Creator */
-		.user-icon{
-			text-decoration:none;
-			display:block;
-			float:left;
-			margin:0 10px 10px 0;
-			
-			img{
-				width:40px;
-				height:40px;
-				border:none;
+		#creator-wap{
+			.user-icon{
+				text-decoration:none;
+				display:block;
+				float:left;
+				margin:0 10px 10px 0;
+				
+				img{
+					width:40px;
+					height:40px;
+					border:none;
+				}
 			}
 		}
 	}

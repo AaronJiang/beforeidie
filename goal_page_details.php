@@ -20,6 +20,9 @@
 $(document).ready(function(){
 	//全局变量
 	var GOAL_ID = <?php echo $_REQUEST['goalID'] ?>;
+	var USER_ID = <?php echo $_SESSION['valid_user_id'] ?>;
+	var isCreator = <?php echo $isCreator? 1: 0 ?>; 
+	var PAGE_NUM = 1;
 	
 	//弹出回复框
 	$('.cmd-new-comment').click(function(){
@@ -208,9 +211,11 @@ $(document).ready(function(){
 		width: 430,
 		buttons: {
 			'保存': function(){
-				$('#goal-steps').empty();
-			
-				$('.step-edit-area').each(function(index){
+				$('#steps-list').empty();
+				
+				var index = 0;
+				
+				$('.step-edit-area').each(function(){
 					var text = $.trim($(this).text());
 					
 					if(text == ''){
@@ -227,22 +232,11 @@ $(document).ready(function(){
 					
 					//更新页面中的步骤
 					if(stepType != 'delete'){
-						$('#goal-steps').append("<li>" + text + "</li>");
+						$('#steps-list').append("<li>" + text + "</li>");
 					}
 					
-					//修改步骤
-					if(stepType == 'modified'){
-						$.ajax({
-							url: 'step_proc.php',
-							data: {
-								proc: 'update',
-								stepID: stepID,
-								stepContent: text,
-								stepIndex: index
-							}
-						});
-					}	//删除步骤
-					else if(stepType == 'delete'){
+					//删除步骤
+					if(stepType == 'delete'){
 						$.ajax({
 							url: 'step_proc.php',
 							data: {
@@ -250,7 +244,8 @@ $(document).ready(function(){
 								stepID: stepID
 							}
 						});
-					}	//新增步骤
+					}
+					//新增步骤
 					else if(stepType == 'new'){
 						$.ajax({
 							url: 'step_proc.php',
@@ -261,6 +256,20 @@ $(document).ready(function(){
 								stepIndex: index
 							}
 						});
+						index++;
+					}
+					//修改步骤
+					else{	
+						$.ajax({
+							url: 'step_proc.php',
+							data: {
+								proc: 'update',
+								stepID: stepID,
+								stepContent: text,
+								stepIndex: index
+							}
+						});
+						index++;					
 					}
 				});
 				
@@ -271,7 +280,7 @@ $(document).ready(function(){
 			}
 		}
 	});
-	
+
 	//打开步骤编辑框
 	$("#cmd-edit-steps").click(function(){
 		$.ajax({
@@ -326,14 +335,6 @@ $(document).ready(function(){
 		html += "</li>";
 		$(this).parent().after(html);
 	});
-
-	//修改步骤
-	$('#step-edit-list .step-edit-area').live('keydown', function(){
-		var stepType = $(this).attr('data-type');
-		if(stepType == 'original'){
-			$(this).attr('data-type', 'modified');
-		}
-	});
 });
 
 </script>
@@ -342,7 +343,7 @@ $(document).ready(function(){
 <div id='main-panel'>
 
 	<!-- Title -->
-	<div id='goal-title-wap'>
+	<div id='title-wap'>
 		<span id='goal-title'><?php echo $GOAL['Title']; ?></span
 		><span id='goal-title-underline'>_ _ _</span
 		><a id='cmd-edit-goal-title'>修改</a>
@@ -378,95 +379,128 @@ $(document).ready(function(){
 		</div>
 	</div>
 
-	<!-- Reason -->	
-	<?php 
+	<!-- Reason -->
+	<div id='reason-wap'>
+		<?php 
 		@html_out_panel_header('愿景', '修改', 'cmd-edit-goal-reason', '', $isCreator);
-	?>
+		?>
 	
-	<p id='goal-reason'><?php echo $GOAL['Reason']; ?></p>
+		<p id='goal-reason'><?php echo $GOAL['Reason']; ?></p>
+	</div>
 
 	<!-- Steps -->
-	<?php
+	<div id='steps-wap'>
+		<?php
 		@html_out_panel_header('计划', '调整', 'cmd-edit-steps', '', $isCreator);
 		$steps = get_steps($GOAL_ID);
 		if(count($steps) == 0){
 			echo "<p id='no-step-caution' style='margin:0 0 5px 5px;font-size:13px;'>还没有任何规划哦~</p>";
-		} 
-	?>
-	
-	<ul id='goal-steps'>
-		<?php
-		foreach($steps as $step){
-			echo "<li>". $step['StepContent']. "</li>";
 		} ?>
-	</ul>
+		
+		<ul id='steps-list'>
+			<?php
+			foreach($steps as $step){
+				echo "<li>". $step['StepContent']. "</li>";
+			} ?>
+		</ul>
+	</div>
 
 	<!-- Logs -->
-	<?php
-	@html_out_panel_header('记录', '添加', 'cmd-add-log', '', $isCreator);
-	
-	$logs = get_logs($GOAL_ID, 20);
-
-	if(count($logs) != 0){
-		foreach($logs as $log){
-			echo "<div class='log-item'>";
-				//标题和内容
-				if($log['LogTitle'] != ''){
-					echo "<p class='log-title'>". $log['LogTitle']. "</p>";			
-				}
-				echo "<p class='log-content'>". $log['LogContent']. "</p>";
-			
-				//操作按钮
-				echo "<div class='log-cmd-time-wap'>";
-					$commentsNum = get_log_comments_num($log['LogID']);
-					echo "<a class='small-cmd comment-cmd-new' 
-							data-log-id='". $log['LogID']. "'
-							data-poster-id='". $_SESSION['valid_user_id']. "'
-							data-is-root='1'
-							data-num-comments='". $commentsNum. "'
-							>回复";
-					if($commentsNum){
-						echo "(". $commentsNum. ")";
-					}
-					echo "</a>";
-			
-					if($isCreator){
-						echo "<a class='small-cmd log-cmd-edit' 
-								data-log-id='". $log['LogID'] ."'>编辑</a>"
-							. "<a class='small-cmd log-cmd-delete'
-								href='log_proc.php?proc=delete&logID=". $log['LogID']. "'>删除</a>";
-					}
-					
-					//时间
-					echo "<p class='log-time'>". $log['LogTime']. "</p>"
-				. "</div>";
-			
-				//回复
-				html_output_comments($log['LogID']);
-			echo "</div>";
+	<div id='logs-wap'>
+		<?php
+		@html_out_panel_header('记录', '添加', 'cmd-add-log', '', $isCreator);
+		
+		//总页数
+		$logsSum = get_goal_logs_num($GOAL_ID);
+		$pageSum = ($logsSum == 0)? 1: floor(($logsSum + 19) / 20);
+		
+		//当前页的页数
+		$PAGE_NUM = isset($_REQUEST['pageNum'])? floor($_REQUEST['pageNum']): 1;
+		if($PAGE_NUM > $pageSum){
+			$PAGE_NUM = $pageSum;
 		}
-	}
-	else {
-		echo "<p style='font-size:13px;clear:both;'>还没有任何记录哦~</p>";
-	}
+		if($PAGE_NUM < 1){
+			$PAGE_NUM = 1;	
+		}
+		
+		//上页的页数 & 下页的页数
+		$prePageNum = ($PAGE_NUM>1)? ($PAGE_NUM-1): 1;
+		$nextPageNum = ($PAGE_NUM<$pageSum)? ($PAGE_NUM+1): $pageSum;
+		?>
+		
+		<div id='logs-pager'>
+			<span><?php echo $PAGE_NUM ?></span>
+			<span>/</span>
+			<span><?php echo $pageSum ?></span>
+			<a id='page-up' href='goal_page_details.php?goalID=<?php echo $GOAL_ID ?>&pageNum=<?php echo $prePageNum ?>'>上页</a
+			><a id='page-down' href='goal_page_details.php?goalID=<?php echo $GOAL_ID ?>&pageNum=<?php echo $nextPageNum ?>'>下页</a>
+		</div>
+
+		<?php
+		$logs = get_logs($GOAL_ID, $PAGE_NUM, 20);
 	
-	?>
+		if(count($logs) != 0){
+			foreach($logs as $log){
+				echo "<div class='log-item'>";
+					//标题和内容
+					if($log['LogTitle'] != ''){
+						echo "<p class='log-title'>". $log['LogTitle']. "</p>";			
+					}
+					echo "<p class='log-content'>". $log['LogContent']. "</p>";
+				
+					//操作按钮
+					echo "<div class='log-cmd-time-wap'>";
+						$commentsNum = $log['commentsNum'];
+						echo "<a class='small-cmd cmd-new-comment' 
+								data-log-id='". $log['LogID']. "'
+								data-poster-id='". $_SESSION['valid_user_id']. "'
+								data-is-root='1'
+								data-num-comments='". $commentsNum. "'
+								>回复";
+						if($commentsNum){
+							echo "(". $commentsNum. ")";
+						}
+						echo "</a>";
+				
+						if($isCreator){
+							echo "<a class='small-cmd log-cmd-edit' 
+									data-log-id='". $log['LogID'] ."'>编辑</a>"
+								. "<a class='small-cmd log-cmd-delete'
+									href='log_proc.php?proc=delete&logID=". $log['LogID']. "'>删除</a>";
+						}
+						
+						//时间
+						echo "<p class='log-time'>". $log['LogTime']. "</p>"
+					. "</div>";
+				
+					//回复
+					html_output_comments($log['LogID']);
+				echo "</div>";
+			}
+		}
+		else {
+			echo "<p style='font-size:13px;clear:both;'>还没有任何记录哦~</p>";
+		} ?>
+	</div>
 </div>
 
 <!-- Sidebar Panel -->
 <div id="sidebar-panel">
 
 	<!-- Creator -->
+	<div id='creator-wap'>
 	<?php
 		@html_out_panel_header('创建者');
 		$goalOwner = get_goal_owner($GOAL_ID); 
 	?>
-	
-	<a class='user-icon' href='person.php?userID=<?php echo $goalOwner['UserID'] ?>'  >
-		<img src='<?php echo get_user_profile($goalOwner['UserID']) ?>' title='<?php echo $goalOwner['Username'] ?>' />
-	</a>
+		
+		<a class='user-icon' href='person.php?userID=<?php echo $goalOwner['UserID'] ?>'  >
+			<img src='<?php echo get_user_profile($goalOwner['UserID']) ?>' title='<?php echo $goalOwner['Username'] ?>' />
+		</a>
+	</div>
 
-	<!-- Cheerers -->	
+	<!-- Cheerers -->
+	<div id='cheerers-wap'>
 	<?php
 		$cheerers = get_goal_cheerers($GOAL_ID, 16);
 		
@@ -483,6 +517,7 @@ $(document).ready(function(){
 			}
 		}
 	?>
+	</div>
 </div>
 
 <?php if($isCreator){ ?>

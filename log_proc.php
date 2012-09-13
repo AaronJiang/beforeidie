@@ -5,6 +5,11 @@
 	$proc = $_REQUEST['proc'];
 	
 	switch($proc){
+		case "get_logs":
+			$logs = get_logs($_REQUEST['goalID'], $_REQUEST['pageNum'], $_REQUEST['numPerPage']);
+			echo urldecode(json_encode(urlencodeAry($logs)));
+			break;
+			
 		case "delete":
 			delete_log($_REQUEST['logID']);
 			page_jump_back();
