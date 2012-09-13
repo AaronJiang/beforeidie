@@ -134,30 +134,20 @@
 	}
 	
 	//发送激活邮件
-	function send_active_email($email){
-		//邮件配置参数
-		$smtpserver = "smtp.qq.com";
-		$smtpserverport =25;
-		$smtpusermail = "hustlzp@qq.com";
-		$smtpemailto = $email;
-		$smtpuser = "hustlzp@qq.com";
-		$smtppass = "xiaowangzi";
-		$mailtype = "HTML";
+	function send_active_email($emailTo){
 
 		//邮件标题
 		$mailsubject = "激活账户";
 
 		//生成激活 Url
-		$activeCode = gene_active_code($email);
-		$activeUrl = "http://localhost/Dream/account_proc.php?proc=active&email=". $email. "&activeCode=". $activeCode. "";
+		$activeCode = gene_active_code($emailTo);
+		$activeUrl = "http://localhost/Dream/account_proc.php?proc=active&email=". $emailTo. "&activeCode=". $activeCode. "";
 			
 		//邮件内容
 		$mailbody = "<h1 style='font-size:15px;font-family:微软雅黑;'>点击以下链接，激活你在Goal上的账户：</h1>";
 		$mailbody .= "<a href='". $activeUrl. "'>". $activeUrl. "</a>";
 			
 		//发送邮件
-		@$smtp = new smtp($smtpserver, $smtpserverport, true, $smtpuser, $smtppass);
-		$smtp->debug = FALSE;
-		@$smtp->sendmail($smtpemailto, $smtpusermail, $mailsubject, $mailbody, $mailtype);	
+		send_email($emailTo, $mailsubject, $mailbody);
 	}
 ?>

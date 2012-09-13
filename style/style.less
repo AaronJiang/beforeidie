@@ -241,25 +241,32 @@ body{
 /* Form Element */
 input{
 	font-size:14px;
-	border:1px solid lightgray;
-	font-family:'宋体';
 }
 
-input[type="text"], input[type="password"]{
+input[type="text"],
+input[type="password"]{
 	padding:5px 7px;
 	margin:0 0 10px 0;
 	width:200px;
 	display:block;
+	font-family:'宋体';
+	border:1px solid lightgray;
 }
 
-input[type='submit'], input[type='button']{
-	padding:3px 10px;
-	margin-right:5px;
+input[type='submit'],
+input[type='button']{
+	padding:5px 10px;
 	cursor:pointer;
-}
-
-input[type='submit']:hover, input[type='button']:hover{
-	background-color:white;
+	background-color: #1C86EE;
+	color:white;
+	font-weight:bold;
+	font-family:'微软雅黑';
+	line-height:14px;
+	border:none;
+	
+	&:hover{
+		box-shadow: 0 0 3px #1C86EE;
+	}
 }
 
 textarea{
@@ -429,6 +436,60 @@ select{
 		
 		&:hover{
 			text-decoration:underline;
+		}
+	}
+}
+
+/* Feedback Panel
+------------------------------------------------------------*/
+#feedback-panel{
+	position:fixed;
+	right:-200px;
+	top:250px;
+	z-index:1000;
+	
+	#feedback-tag{
+		float:left;
+		width:26px;
+		height:90px;
+		margin:0px 0 0 0;
+		background: url("../imgs/feedback.png");
+		background-position: -28px -8px;
+		cursor:pointer;
+		
+		&:hover{
+			background-position: -83px -8px;	
+		}
+	}
+	
+	#form-give-feedback{
+		width:200px;
+		box-sizing:border-box;
+		margin:0 0 0 26px;
+		padding:10px 10px;
+		background-color:#F2F2F2;
+		border-top:1px solid #DDD;
+		border-bottom:1px solid #DDD;
+		border-left:1px solid #DDD;
+		
+		&:after{
+			content:".";
+			display:block;
+			height:0px;
+			clear:right;
+			visibility:hidden;
+		}	
+		
+		#feedback-subject,
+		#feedback-content{
+			width:179px;
+			box-sizing:border-box;
+		}
+		
+		#submit-feedback{
+			background-color: #1C86EE;
+			color:white;
+			float:right;
 		}
 	}
 }

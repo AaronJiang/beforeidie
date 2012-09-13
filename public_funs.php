@@ -1,5 +1,6 @@
 <?php
-
+	require_once('smtp.php');
+	
 	//将数组进行 URL 编码
 	function urlencodeAry($data){
 		if(is_array($data)){
@@ -50,6 +51,23 @@
 	//返回上一页
 	function page_jump_back(){
 		header('Location:'. $_SERVER['HTTP_REFERER']);	
+	}
+	
+	
+	//发送邮件
+	function send_email($smtpemailto, $mailsubject, $mailbody){
+		//邮件配置参数
+		$smtpserver = "smtp.qq.com";
+		$smtpserverport =25;
+		$smtpusermail = "hustlzp@qq.com";
+		$smtpuser = "hustlzp@qq.com";
+		$smtppass = "xiaowangzi";
+		$mailtype = "HTML";
+			
+		//发送邮件
+		@$smtp = new smtp($smtpserver, $smtpserverport, true, $smtpuser, $smtppass);
+		$smtp->debug = FALSE;
+		@$smtp->sendmail($smtpemailto, $smtpusermail, $mailsubject, $mailbody, $mailtype);	
 	}
 
 ?>
