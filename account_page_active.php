@@ -15,19 +15,19 @@
 	switch($from){
 		case "register":
 		case "sended":
-			echo "<p id='active-message'>亲，激活邮件已发送到你的邮箱，请进入邮箱激活账户吧！</p>";
+			echo "<p id='account-message'>亲，激活邮件已发送到你的邮箱，请进入邮箱激活账户吧！</p>";
 			break;
 			
 		case "unactive":
-			echo "<p id='active-message'>亲，你的账户尚未激活，请进入邮箱激活账户吧！</p>";
+			echo "<p id='account-message'>亲，你的账户尚未激活，请进入邮箱激活账户吧！</p>";
 			break;
 			
 		case "activeError":
-			echo "<p id='active-message'>亲，账户激活失败，请点击下方按钮重发一次激活邮件吧！</p>";
+			echo "<p id='account-message'>亲，账户激活失败，请点击下方按钮重发一次激活邮件吧！</p>";
 			break;
 			
 		case "activeSucc":
-			echo "<p id='active-message'>亲，账户激活成功，马上 <a href='account_page_login.php'>登陆</a> 吧！</p>";
+			echo "<p id='account-message'>亲，账户激活成功，马上 <a href='account_page_login.php'>登陆</a> 吧！</p>";
 			exit;
 	}
 	

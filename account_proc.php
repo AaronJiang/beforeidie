@@ -76,8 +76,39 @@
 			else{
 				page_jump('account_page_active.php?from=activeError&email='. $email);
 			}
-
 			break;
+			
+		case "send_reset_pwd_email":
+			$email = $_REQUEST['email'];
+			send_reset_pwd_email($email);
+			page_jump('account_page_forgot_pwd.php?from=sended');
+			break;
+			
+		case "verify_reset_code":
+			$email = $_REQUEST['email'];
+			$resetCode = $_REQUEST['resetCode'];
+			
+			if($resetCode == gene_active_code($email)){
+				page_jump('account_page_reset_pwd.php?email='. $email);
+			}
+			else{
+				page_jump('account_page_forgot_pwd.php?from=resetFailed&email='. $email);
+			}
+			break;
+			
+		case "reset_pwd":
+			$email = $_REQUEST['email'];
+			$pwd = $_REQUEST['pwd'];
+			
+			$isReset = reset_pwd($email, $pwd);
+			
+			if($isReset){
+				page_jump('account_page_forgot_pwd.php?from=resetSucc');
+			}
+			else{
+				page_jump('account_page_forgot_pwd.php?from=resetFailed');			
+			}
+			
 	}
 ?>
 

@@ -135,13 +135,12 @@
 	
 	//发送激活邮件
 	function send_active_email($emailTo){
-
 		//邮件标题
-		$mailsubject = "激活账户";
+		$mailsubject = "Goal-激活账户";
 
 		//生成激活 Url
 		$activeCode = gene_active_code($emailTo);
-		$activeUrl = "http://localhost/Dream/account_proc.php?proc=active&email=". $emailTo. "&activeCode=". $activeCode. "";
+		$activeUrl = "http://localhost/Dream/account_proc.php?proc=active&email=". $emailTo. "&activeCode=". $activeCode;
 			
 		//邮件内容
 		$mailbody = "<h1 style='font-size:15px;font-family:微软雅黑;'>点击以下链接，激活你在Goal上的账户：</h1>";
@@ -149,5 +148,28 @@
 			
 		//发送邮件
 		send_email($emailTo, $mailsubject, $mailbody);
+	}
+	
+	//发送密码重置邮件
+	function send_reset_pwd_email($emailTo){
+		//邮件标题
+		$mailsubject = "Goal-重置密码";
+		
+		//生成激活 Url
+		$activeCode = gene_active_code($emailTo);
+		$activeUrl = "http://localhost/Dream/account_proc.php?proc=verify_reset_code&email=". $emailTo. "&resetCode=". $activeCode;
+
+		//邮件内容
+		$mailbody = "<h1 style='font-size:15px;font-family:微软雅黑;'>点击以下链接，重置你在Goal上的账户密码：</h1>";
+		$mailbody .= "<a href='". $activeUrl. "'>". $activeUrl. "</a>";
+		
+		//发送邮件
+		send_email($emailTo, $mailsubject, $mailbody);		
+	}
+	
+	//重置密码
+	function reset_pwd($email, $pwd){
+		$query = "UPDATE users SET Password = '". sha1($pwd). "' WHERE Email = '". $email. "'";
+		return db_exec($query);
 	}
 ?>
