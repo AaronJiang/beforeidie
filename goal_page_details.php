@@ -54,8 +54,8 @@ $(document).ready(function(){
 						$(this).parent().detach();
 					}
 				})
-			.next()
-				.click(function(){	//提交回复
+			.next()	//提交回复
+				.click(function(){	
 					var comment = $(this).prev().text();
 					$.ajax({
 						url: 'comment_proc.php',
@@ -201,13 +201,13 @@ $(document).ready(function(){
 		}
 	});
 	
-	//初始化步骤编辑框
+	//初始化计划编辑框
 	$("#dialog-edit-steps").dialog({
 		autoOpen: false,
 		modal: true,
 		draggable: false,
 		resizable: false,
-		title: '调整步骤',
+		title: '调整计划',
 		width: 430,
 		buttons: {
 			'保存': function(){
@@ -355,7 +355,7 @@ $(document).ready(function(){
 				$isFinished = check_goal_is_finished($GOAL_ID);
 				if(!$isFinished){	//若还未完成
 			?>
-			<a href='goal_proc.php?proc=finish&goalID=<?php echo $GOAL_ID ?>'>完成</a>
+			<a href='goal_page_finish.php?goalID=<?php echo $GOAL_ID ?>'>完成</a>
 			<?php
 				}
 				else {	//若已经完成
@@ -404,7 +404,15 @@ $(document).ready(function(){
 			} ?>
 		</ul>
 	</div>
-
+	
+	<!--
+	<div id='summary-wap'>
+		<?php
+		@html_out_panel_header('结语', '编辑', 'cmd-edit-final', '', $isCreator);	
+		?>
+	</div>
+	-->
+	
 	<!-- Logs -->
 	<div id='logs-wap'>
 		<?php

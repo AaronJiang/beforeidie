@@ -36,8 +36,10 @@
 			break;
 		
 		case "finish":
-			finish_goal($_REQUEST['goalID']);
-			page_jump_back();			
+			$goalID = $_REQUEST['goalID'];
+			add_epilog($goalID, $_REQUEST['feel'], $_REQUEST['howTo'], $_REQUEST['advice']);
+			finish_goal($goalID);
+			page_jump('goal_page_details.php?goalID='. $goalID);		
 			break;
 		
 		case "drop":

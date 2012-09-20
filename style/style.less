@@ -269,6 +269,16 @@ input[type='button']{
 	}
 }
 
+input.cancel{
+	background-color:lightgray;
+	text-shadow:1px 1px 1px white;
+	color:#666;
+
+	&:hover{
+		box-shadow:0 0 3px lightgray;
+	}
+}
+
 textarea{
 	padding:5px 7px;
 	font-size:14px;
@@ -276,6 +286,7 @@ textarea{
 	line-height:20px;
 	border:1px solid lightgray;
 	margin:0 0 10px 0;
+	display:block;
 }
 
 select{
@@ -735,8 +746,6 @@ select{
 	}
 }
 
-
-
 /* Page Followees Dynamcis
 ------------------------------------------------------------*/
 
@@ -782,7 +791,7 @@ select{
 		.dynamic-item{
 			clear:both;
 			margin:0 0 15px 0;
-			padding:0 0 5px 0;
+			padding:0 0 0px 0;
 			border-bottom:1px solid #EEE;
 			position:relative;
 			
@@ -1245,6 +1254,25 @@ select{
 	}
 }
 
+/* Page Finish Goal
+------------------------------------------------------------*/
+#page-finish-goal{
+	#period{
+		margin:0 0 15px 0;
+		font-family:'宋体';
+		font-size:14px;
+	}
+	
+	textarea{
+		width:500px;
+		margin:0 0 15px 0;
+	}
+	
+	#form-footer{
+		text-align:right;
+	}
+}
+
 /* Page Discover 
 ------------------------------------------------------------*/
 #page-discover{
@@ -1517,7 +1545,7 @@ select{
 	
 		/* Dynamics */
 		.dynamic-item{
-			padding:0 5px 5px 5px;
+			padding:0 5px 5px 0;
 			border-bottom:1px solid #EEE;
 			margin:0 0 5px 0;
 			color:gray;
@@ -1540,7 +1568,7 @@ select{
 				color:black;
 				font-weight:bold;
 				margin:0 0 3px 0;
-				padding:0 0 0 15px;
+				padding:0 0 0 5px;
 			}
 			
 			.dynamic-log-content,
@@ -1550,7 +1578,7 @@ select{
 				line-height:20px;
 				word-wrap:break-all;
 				margin:0 0 5px 0;
-				padding:0 0 0 15px;		
+				padding:0 0 0 5px;		
 			}
 
 			.dynamic-time{
