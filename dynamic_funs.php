@@ -24,6 +24,15 @@
 					. "WHERE followers.FollowerID = ". $userID. ")\n"
 				.")\n";
 		$query .= "UNION ALL\n";
+		//完成了目标	
+		$query .= "(SELECT 'finishGoal' as type, users.Username as Poster, users.UserID as PosterID, NULL as Followee, NULL as FolloweeID, goals.GoalID, goals.Title as GoalTitle, NULL as GoalReason, logs.LogID, logs.LogTitle, logs.LogContent, goals.EndTime as Time\n"
+			    . "FROM goal_logs as logs, goals, users\n"
+			    . "WHERE goals.GoalType = 'finish'\n"
+			    . "AND goals.GoalID = logs.GoalID\n"
+			    . "AND logs.TypeID = 0\n"
+			    . "AND goals.UserID = users.UserID\n"
+			    . ")\n";
+		$query .= "UNION ALL\n";
 		//关注了他人
 		$query .= "(SELECT 'followOther' as type, u1.Username as Poster, u1.UserID as PosterID, u2.Username as Followee, u2.UserID as FolloweeID, NULL as GoalID, NULL as GoalTitle, NULL as GoalReason, NULL as LogID, NULL as LogTitle, NULL as LogContent, fows.Time as Time\n"
 				. "FROM followers as fows, users as u1, users as u2\n"
