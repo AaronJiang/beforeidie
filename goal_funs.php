@@ -262,16 +262,16 @@
 	//完成目标
 	function finish_goal($goalID){
 		$query = "UPDATE goals SET GoalType = 'finish', EndTime = NOW() WHERE GoalID = ". $goalID;
-		
 		$result = db_exec($query);
+		
 		return $result? "true": "false";
 	}
 	
 	//放弃目标
 	function drop_goal($goalID){
 		$query = "DELETE FROM goals WHERE GoalID = ". $goalID;
-		
 		$result = db_exec($query);
+		
 		return $result? "true": "false";
 	}
 ?>

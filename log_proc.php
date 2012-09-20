@@ -17,7 +17,7 @@
 			
 		case "new":
 			$logTitle = isset($_REQUEST['logTitle'])? $_REQUEST['logTitle']: '';
-			new_log($logTitle, $_REQUEST['logContent'], $_REQUEST['goalID']);
+			new_log($logTitle, $_REQUEST['logContent'], $_REQUEST['typeID'], $_REQUEST['goalID']);
 			update_goal_updatetime($_REQUEST['goalID'], now_time());
 			page_jump_back();
 			break;

@@ -2,7 +2,7 @@
 	require_once('public_funs.php');
 	
 	//插入新记录
-	function new_log($logTitle, $logContent, $goalID){
+	function new_log($logTitle, $logContent, $typeID, $goalID){
 		$goalID = trim($goalID);
 		$logTime = now_time();
 		$logTitle = trim($logTitle);
@@ -21,8 +21,8 @@
 		
 		$logContent = nl2br($logContent);
 	
-		$query = "insert into goal_logs (LogTime, LogTitle, LogContent, GoalID)\n"
-				. "values ('". $logTime. "', '". $logTitle. "', '". $logContent. "', '". $goalID. "')";
+		$query = "insert into goal_logs (LogTime, LogTitle, LogContent, TypeID, GoalID)\n"
+				. "values ('". $logTime. "', '". $logTitle. "', '". $logContent. "', '". $typeID. "', '". $goalID. "')";
 		$result = db_exec($query);
 		
 		return $result? "true": "false";

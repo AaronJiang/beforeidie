@@ -115,7 +115,6 @@ $(document).ready(function(){
 	$('#dialog-edit-goal-reason').dialog({
 		autoOpen: false,
 		modal: true,
-		draggable: false,
 		resizable: false,
 		title: '编辑愿景',
 		width: 430,
@@ -140,7 +139,6 @@ $(document).ready(function(){
 	$('#dialog-add-log').dialog({
 		autoOpen: false,
 		modal: true,
-		draggable: false,
 		resizable: false,
 		title: '记录点滴',
 		width: 500,
@@ -192,6 +190,36 @@ $(document).ready(function(){
 		$("#form-edit-log #log-content").val(logContent);
 		
 		$('#dialog-edit-log').dialog('open');
+	});
+	
+	//初始化 Goal 完成框
+	$('#dialog-finish-goal').dialog({
+		autoOpen: false,
+		modal: true,
+		resizable: false,
+		title: '完成目标',
+		width: 500,
+		buttons: {
+			'保存': function(){
+				$('#form-finish-goal').submit();
+			},
+			'取消': function(){
+				$(this).dialog('close');
+			}
+		}	
+	});
+	
+	//初始化 Goal 完成框
+	$('#cmd-finish-goal').click(function(){
+		var goalTitle = $('#goal-title').text();
+		
+		$('#dialog-finish-goal').dialog({
+			'title': "祝贺你完成目标：" + goalTitle
+		});
+		
+		$('#dialog-finish-goal').dialog('open');
+		
+		$("textarea[name='logContent']").focus();
 	});
 	
 	//记录删除警告框
@@ -355,7 +383,7 @@ $(document).ready(function(){
 				$isFinished = check_goal_is_finished($GOAL_ID);
 				if(!$isFinished){	//若还未完成
 			?>
-			<a href='goal_page_finish.php?goalID=<?php echo $GOAL_ID ?>'>完成</a>
+			<a id='cmd-finish-goal'>完成</a>
 			<?php
 				}
 				else {	//若已经完成
@@ -404,14 +432,6 @@ $(document).ready(function(){
 			} ?>
 		</ul>
 	</div>
-	
-	<!--
-	<div id='summary-wap'>
-		<?php
-		@html_out_panel_header('结语', '编辑', 'cmd-edit-final', '', $isCreator);	
-		?>
-	</div>
-	-->
 	
 	<!-- Logs -->
 	<div id='logs-wap'>
@@ -472,9 +492,12 @@ $(document).ready(function(){
 				
 						if($isCreator){
 							echo "<a class='small-cmd log-cmd-edit' 
-									data-log-id='". $log['LogID'] ."'>编辑</a>"
-								. "<a class='small-cmd log-cmd-delete'
-									href='log_proc.php?proc=delete&logID=". $log['LogID']. "'>删除</a>";
+									data-log-id='". $log['LogID'] ."'>编辑</a>";
+									
+								if($log['TypeID'] != 0){
+									echo "<a class='small-cmd log-cmd-delete'
+											href='log_proc.php?proc=delete&logID=". $log['LogID']. "'>删除</a>";
+								}
 						}
 						
 						//时间
@@ -554,9 +577,10 @@ $(document).ready(function(){
 <!-- 添加记录 -->
 <div id='dialog-add-log'>
 	<form id="form-new-log" action="log_proc.php" method="post">
-		<input type='text' id='log-title' autocomplete='off' placeholder='标题（可不填）' name='logTitle'>	
+		<input type='text' id='log-title' autocomplete='off' placeholder='标题（可不填）' name='logTitle' />	
 		<textarea id="log-content" autocomplete='off' placeholder="内容" name="logContent"></textarea>
 		<input type="hidden" name="goalID" value="<?php echo $GOAL_ID ?>" />
+		<input type="hidden" name="typeID" value="1" />
 		<input type="hidden" name="proc" value="new" />
 	</form>	
 </div>
@@ -569,6 +593,19 @@ $(document).ready(function(){
 		<input type="hidden" name="logID" />
 		<input type="hidden" name="proc" value="update" />
 	</form>	
+</div>
+
+<!-- 完成Goal -->
+<div id='dialog-finish-goal'>	
+	<p id='period'>从 <?php echo $GOAL['StartTime']. ' 至 '. now_date() ?></p>
+
+	<form id='form-finish-goal' action='goal_proc.php' method='post'>
+		<input type='text' value='完结篇' name='logTitle' />
+		<textarea rows='10' placeholder='留下一些文字作为完结篇吧，比如你的感受，比如给他人的建议：' name='logContent'></textarea>
+	
+		<input type='hidden' name='goalID' value='<?php echo $GOAL_ID ?>' />
+		<input type='hidden' name='proc' value='finish' />
+	</form>
 </div>
 
 <?php 
