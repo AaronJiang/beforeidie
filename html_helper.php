@@ -30,7 +30,7 @@
 							title='". $poster. "'
 							src='". get_user_profile($comm['PosterID']). "'/>"
 				. "</a>"
-								
+
 				//main
 				. "<div class='comment-main'>"
 					//header
@@ -58,7 +58,9 @@
 								data-log-id='". $logID . "'
 								data-parent-comment-id='". $comm['CommentID']. "'
 								data-poster-id='". $_SESSION['valid_user_id']. "'
-								data-is-root='0'>回复<span>"
+								data-is-root='0'
+								data-avatar-url='". get_user_profile($_SESSION['valid_user_id']). "'
+								>回复<span>"
 					. "</div>"	//end-footer
 				. "</div>"	//end-main
 			. "</div>";	//end-item

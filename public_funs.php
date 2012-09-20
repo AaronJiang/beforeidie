@@ -52,8 +52,7 @@
 	function page_jump_back(){
 		header('Location:'. $_SERVER['HTTP_REFERER']);	
 	}
-	
-	
+
 	//发送邮件
 	function send_email($smtpemailto, $mailsubject, $mailbody){
 		//邮件配置参数

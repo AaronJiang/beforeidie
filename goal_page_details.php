@@ -31,19 +31,17 @@ $(document).ready(function(){
 			isRoot = $(this).data('is-root'),
 			commentsNum = $(this).data('num-comments'),
 			parentCommentID = isRoot? 0: $(this).data('parent-comment-id'),
-			html = "";
+			avatarUrl = $(this).data('avatar-url');
 		
 		//构建 HTML 块
-		if(isRoot && !commentsNum){
-			html += "<div class='comment-new-form clearfix' style='margin-left:0px;'>";
-		}
-		else{
-			html += "<div class='comment-new-form clearfix'>";
-		}
-		html += "<div class='comment-input' contenteditable='true'></div>"
-			+ "<span class='comment-submit'>发表</span>"		
-			+ "<span class='comment-cancel'>取消</span>"
-			+ "</div>";
+		var html = "<div class='new-comment-wap clearfix'>"
+					+ "<img class='avatar' src='" + avatarUrl + "'>"
+					+ "<div class='new-comment-form'>"
+						+ "<div class='comment-input' contenteditable='true'></div>"
+						+ "<span class='comment-submit'>回复</span>"
+						+ "<span class='comment-cancel'>取消</span>"
+					+ "</div>"
+				+ "</div>"
 			
 		//插入DOM
 		$(html).appendTo($(this).parents('.log-item'))	
@@ -51,7 +49,7 @@ $(document).ready(function(){
 				.focus() //聚焦
 				.blur(function(){	//失焦则从DOM中删除
 					if($.trim($(this).text()) == ""){
-						$(this).parent().detach();
+						$(this).parent().parent().detach();
 					}
 				})
 			.next()	//提交回复
@@ -70,13 +68,13 @@ $(document).ready(function(){
 						}
 					});
 					
-					$(this).parent().detach();
+					$(this).parent().parent().detach();
 
 					location.reload();
 				})
 			.next()	//取消回复
 				.click(function(){
-					$(this).parent().detach();	
+					$(this).parent().parent().detach();	
 				});
 	});
 	
@@ -477,16 +475,15 @@ $(document).ready(function(){
 					echo "<p class='log-content'>". $log['LogContent']. "</p>";
 				
 					//操作按钮
-					echo "<div class='log-cmd-time-wap'>";
-						$commentsNum = $log['commentsNum'];
-						echo "<a class='small-cmd cmd-new-comment' 
+					echo "<div class='log-cmd-time-wap'>"
+						. "<a class='small-cmd cmd-new-comment' 
 								data-log-id='". $log['LogID']. "'
 								data-poster-id='". $_SESSION['valid_user_id']. "'
 								data-is-root='1'
-								data-num-comments='". $commentsNum. "'
+								data-avatar-url='". get_user_profile($_SESSION['valid_user_id']). "'
 								>回复";
-						if($commentsNum){
-							echo "(". $commentsNum. ")";
+						if($log['commentsNum']){
+							echo "(". $log['commentsNum']. ")";
 						}
 						echo "</a>";
 				

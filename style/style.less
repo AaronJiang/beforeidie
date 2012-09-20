@@ -157,49 +157,60 @@ textarea, input, select{
 }
 
 /* Comment New Form */
-.comment-new-form {
-
-	.comment-input{
-		border:1px solid lightblue;
-		padding:5px 7px;
-		font-size:14px;
-		font-family:'宋体';
-		line-height:20px;
-		outline:none;
-		clear:both;
-		margin:0 0 8px 0;
+.new-comment-wap{
+	margin:0 0 0 52px;
+	border-top:1px solid #EEE;
+	padding:12px 0 0 0;
+	
+	.avatar{
+		width:30px;
+		height:30px;
+		float:left;
 	}
 	
-	.comment-submit,
-	.comment-cancel{
-		display:block;
-		float:right;
-		padding:5px 10px;
-		margin:0 0 8px 8px;
-		cursor:pointer;
-		font-size:14px;
-		font-weight:bold;
-		line-height:14px;
-	}
+	.new-comment-form{
+		margin:0 0 0 40px;
 	
-	.comment-submit{
-		background-color:#1C86EE;
-		text-shadow:1px 1px 1px black;
-		color:white;
-		
-		&:hover{
-			box-shadow:0 0 3px #1C86EE;
+		.comment-input{
+			border:1px solid #EEE;
+			padding:4px 7px;
+			font-size:13px;
+			font-family:'宋体';
+			line-height:20px;
+			outline:none;
+			margin:0 0 8px 0;
 		}
-	}
-	
-	.comment-cancel{
-		background-color:lightgray;
-		text-shadow:1px 1px 1px white;
-		color:#666;
 		
-		&:hover{
-			box-shadow:0 0 3px lightgray;
+		.comment-submit,
+		.comment-cancel{
+			display:block;
+			float:right;
+			padding:5px 10px;
+			margin:0 0 8px 8px;
+			cursor:pointer;
+			font-size:14px;
+			font-weight:bold;
+			line-height:14px;
 		}
+		
+		.comment-submit{
+			background-color:#1C86EE;
+			color:white;
+			
+			&:hover{
+				box-shadow:0 0 3px #1C86EE;
+			}
+		}
+		
+		.comment-cancel{
+			background-color:lightgray;
+			text-shadow:1px 1px 1px white;
+			color:#666;
+			
+			&:hover{
+				box-shadow:0 0 3px lightgray;
+			}
+		}	
 	}
 }
 
@@ -1155,7 +1166,7 @@ select{
 				}
 				
 				.comments-wap, .comment-new-form{
-					margin:0 0 0 60px;
+					margin:0 0 0 52px;
 				}
 			}
 		}
