@@ -11,6 +11,56 @@
 			. "</a>";
 	}
 
+	//输出 Logs 的 HTML 代码
+	function html_output_logs($goalID, $pageNum, $isCreator){
+		
+		$logs = get_logs($goalID, $pageNum, 20);
+		
+		@session_start();
+		
+		if(count($logs) != 0){
+			foreach($logs as $log){
+				echo "<div class='log-item new-comment-parent'>";
+					//标题和内容
+					if($log['LogTitle'] != ''){
+						echo "<p class='log-title'>". $log['LogTitle']. "</p>";			
+					}
+					echo "<p class='log-content'>". $log['LogContent']. "</p>";
+				
+					//操作按钮
+					echo "<div class='log-cmd-time-wap'>"
+						. "<a class='small-cmd cmd-new-comment' 
+								data-log-id='". $log['LogID']. "'
+								data-poster-id='". $_SESSION['valid_user_id']. "'
+								data-is-root='1'
+								data-avatar-url='". get_user_profile($_SESSION['valid_user_id']). "'
+								>回复";
+						if($log['commentsNum']){
+							echo "(". $log['commentsNum']. ")";
+						}
+						echo "</a>";
+				
+						if($isCreator){
+							echo "<a class='small-cmd log-cmd-edit' 
+									data-log-id='". $log['LogID'] ."'>编辑</a>";
+									
+								if($log['TypeID'] != 0){
+									echo "<a class='small-cmd log-cmd-delete'
+											href='log_proc.php?proc=delete&logID=". $log['LogID']. "'>删除</a>";
+								}
+						}
+						
+						//时间
+						echo "<p class='log-time'>". $log['LogTime']. "</p>"
+					. "</div>";
+				
+					//回复
+					html_output_comments($log['LogID']);
+				echo "</div>";
+			}
+		}	
+	}
+	
 	//输出 Comments
 	function html_output_comments($logID){
 		$comments = get_log_comments($logID);

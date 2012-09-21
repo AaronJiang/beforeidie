@@ -18,7 +18,7 @@
 	$dyns = get_dynamics($userID, 10);
 
 	foreach($dyns as $dyn){
-		echo "<div class='dynamic-item clearfix'>"
+		echo "<div class='dynamic-item clearfix new-comment-parent'>"
 				. "<img title='". $username. "' class='user-avatar' src='". get_user_profile($userID). "'>"
 				
 				. "<div class='dynamic-content'>";

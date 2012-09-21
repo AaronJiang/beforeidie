@@ -11,43 +11,11 @@
 	$isMe = ($userID == $_SESSION['valid_user_id']);
 ?>
 
-<script type='text/javascript'>
-
-$(document).ready(function(){
-
-	var isMe = <?php echo $isMe? 1: 0; ?>;
-	
-	$("#cmd-leave-message").click(function(){
-		$("#dialog-leave-message").dialog('open');
-	});
-	
-	//初始化留言框
-	$("#dialog-leave-message").dialog({
-		autoOpen: false,
-		modal: true,
-		draggable: false,
-		resizable: false,
-		title: '给他留言',
-		width: 430,
-		buttons:{
-			'留言': function(){
-				$("#form-leave-message").submit();
-			},
-			'取消': function(){
-				$(this).dialog('close');
-			}
-		}
-	});
-});
-
-</script>
-
 <div id='person-page'>
-	
-	<!-- 主框架 -->
+
 	<div id='main-panel'>
 		
-		<!-- 用户信息 -->		
+		<!-- User Info -->		
 		<div id='user-info' class='clearfix'>
 			<img id='user-avatar' src='<?php echo get_user_profile($userID); ?>' />
 			<div id='user-info-wap'>
@@ -57,11 +25,10 @@ $(document).ready(function(){
 				echo "<div id='user-cmd-wap'>";
 				if(!$isFollowed){
 					echo "<a href='follower_proc.php?proc=follow&followerID=". $_SESSION['valid_user_id']. "&followeeID=". $userID. "'>关注</a>";
-			}
+				}
 				else{
 					echo "<a class='isFollowed' href='follower_proc.php?proc=disfollow&followerID=". $_SESSION['valid_user_id']. "&followeeID=". $userID. "'>已关注</a>";		
-					}
-				echo "<a id='cmd-leave-message'>留言</a>";
+				}
 				echo "</div>";
 			} ?>
 		</div>
@@ -150,17 +117,6 @@ $(document).ready(function(){
 			}	
 		?>
 	</div>
-
-	<!-- 私信对话框 -->
-	<div id='dialog-leave-message'>
-		<form id='form-leave-message' action='message_proc.php' method='post'>
-			<textarea name='message' id='message-content'></textarea>
-			<input type='hidden' name='proc' value='new'>
-			<input type='hidden' name='posterID' value='<?php echo $_SESSION['valid_user_id']; ?>'>
-			<input type='hidden' name='receiverID' value='<?php echo $userID; ?>'>
-		</form>
-	</div>
-	
 </div>
 
 <?php

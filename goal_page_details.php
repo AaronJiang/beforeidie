@@ -20,10 +20,10 @@
 
 $(document).ready(function(){
 	//全局变量
-	var GOAL_ID = <?php echo $_REQUEST['goalID'] ?>;
-	var USER_ID = <?php echo $_SESSION['valid_user_id'] ?>;
-	var isCreator = <?php echo $isCreator? 1: 0 ?>; 
-	var PAGE_NUM = 1;
+	var GOAL_ID = <?php echo $_REQUEST['goalID'] ?>,
+		USER_ID = <?php echo $_SESSION['valid_user_id'] ?>,
+		isCreator = <?php echo $isCreator? 1: 0 ?>;
+
 	
 	//若不是 Goal 创建者，则停止执行 js 代码
 	var isCreator = <?php echo $isCreator? 1: 0; ?>;
@@ -55,6 +55,9 @@ $(document).ready(function(){
 		$('#input-goal-title').val(goalTitle);
 		$('#dialog-edit-goal-title').dialog('open');
 	});
+
+	/* Edit Reason
+	----------------------------------------------------*/
 	
 	//初始化 Goal 愿景
 	$('#dialog-edit-goal-reason').dialog({
@@ -79,6 +82,9 @@ $(document).ready(function(){
 		$('#input-goal-reason').val(goalReason);
 		$('#dialog-edit-goal-reason').dialog('open');
 	});
+
+	/* New Log
+	----------------------------------------------------*/
 	
 	//初始化记录增加框
 	$('#dialog-add-log').dialog({
@@ -101,6 +107,9 @@ $(document).ready(function(){
 	$('#cmd-add-log').click(function(){
 		$('#dialog-add-log').dialog('open');
 	});
+
+	/* Edit Log
+	----------------------------------------------------*/
 	
 	//初始化记录修改框
 	$('#dialog-edit-log').dialog({
@@ -121,7 +130,7 @@ $(document).ready(function(){
 	});
 	
 	//打开记录修改框
-	$('.log-cmd-edit').click(function(){
+	$('.log-cmd-edit').live('click', function(){
 		//ID
 		var logID = $(this).data('log-id');
 		$("#form-edit-log input[name='logID']").val(logID);
@@ -136,6 +145,9 @@ $(document).ready(function(){
 		
 		$('#dialog-edit-log').dialog('open');
 	});
+	
+	/* Finish Goal
+	----------------------------------------------------*/
 	
 	//初始化 Goal 完成框
 	$('#dialog-finish-goal').dialog({
@@ -154,7 +166,7 @@ $(document).ready(function(){
 		}	
 	});
 	
-	//初始化 Goal 完成框
+	//打开 Goal 完成框
 	$('#cmd-finish-goal').click(function(){
 		var goalTitle = $('#goal-title').text();
 		
@@ -168,11 +180,14 @@ $(document).ready(function(){
 	});
 	
 	//记录删除警告框
-	$('.log-cmd-delete').click(function(){
+	$('.log-cmd-delete').live('click', function(){
 		if(!confirm("确定删除此记录？")){
 			return false;
 		}
 	});
+	
+	/* Edit Steps
+	----------------------------------------------------*/
 	
 	//初始化计划编辑框
 	$("#dialog-edit-steps").dialog({
@@ -254,8 +269,8 @@ $(document).ready(function(){
 		}
 	});
 
-	//打开步骤编辑框
-	$("#cmd-edit-steps").click(function(){
+	//打开计划编辑框
+	$("#cmd-edit-steps").live('click', function(){
 		$.ajax({
 			url: 'step_proc.php',
 			type: 'POST',
@@ -292,13 +307,13 @@ $(document).ready(function(){
 		$("#dialog-edit-steps").dialog('open');
 	});
 	
-	//删除步骤
+	//删除计划
 	$('#step-edit-list .delete-step-item').live('click', function(){
 		$(this).prev().attr('data-type', 'delete');
 		$(this).parent().hide();
 	});
 
-	//增加步骤
+	//增加计划
 	$('#step-edit-list .add-step-item').live('click', function(){
 		var html = '';
 		html += "<li>";
@@ -308,6 +323,46 @@ $(document).ready(function(){
 		html += "</li>";
 		$(this).parent().after(html);
 	});
+
+	/* Pager
+	----------------------------------------------------*/
+	
+	var PAGE_NUM = 1,	//当前页数
+		TOTAL_PAGE_NUM = $('#total-page-num').text();	//总页数
+		
+	//加载函数
+	function load_logs(pageNum){
+		var data = {
+			proc: 'get_logs',
+			'goalID': GOAL_ID,
+			'pageNum': PAGE_NUM,
+			'isCreator': isCreator
+		};
+		$('#logs').load('html_proc.php', data, function(){
+			$('#curr-page-num').text(PAGE_NUM);	
+		});
+	}
+	
+	//加载第一页
+	load_logs(PAGE_NUM);
+	
+	//上一页
+	$('#page-up').click(function(){
+		if(PAGE_NUM <= 1)
+			return;
+		
+		PAGE_NUM -=1; 
+		load_logs(PAGE_NUM);
+	});
+	
+	//下一页
+	$('#page-down').click(function(){
+		if(PAGE_NUM >= TOTAL_PAGE_NUM)
+			return;
+			
+		PAGE_NUM += 1;
+		load_logs(PAGE_NUM);
+	})
 });
 
 </script>
@@ -386,76 +441,17 @@ $(document).ready(function(){
 		//总页数
 		$logsSum = get_goal_logs_num($GOAL_ID);
 		$pageSum = ($logsSum == 0)? 1: floor(($logsSum + 19) / 20);
-		
-		//当前页的页数
-		$PAGE_NUM = isset($_REQUEST['pageNum'])? floor($_REQUEST['pageNum']): 1;
-		if($PAGE_NUM > $pageSum){
-			$PAGE_NUM = $pageSum;
-		}
-		if($PAGE_NUM < 1){
-			$PAGE_NUM = 1;	
-		}
-		
-		//上页的页数 & 下页的页数
-		$prePageNum = ($PAGE_NUM>1)? ($PAGE_NUM-1): 1;
-		$nextPageNum = ($PAGE_NUM<$pageSum)? ($PAGE_NUM+1): $pageSum;
 		?>
 		
 		<div id='logs-pager'>
-			<span><?php echo $PAGE_NUM ?></span>
+			<span id='curr-page-num'>1</span>
 			<span>/</span>
-			<span><?php echo $pageSum ?></span>
-			<a id='page-up' href='goal_page_details.php?goalID=<?php echo $GOAL_ID ?>&pageNum=<?php echo $prePageNum ?>'>上页</a
-			><a id='page-down' href='goal_page_details.php?goalID=<?php echo $GOAL_ID ?>&pageNum=<?php echo $nextPageNum ?>'>下页</a>
+			<span id='total-page-num'><?php echo $pageSum ?></span>
+			<a id='page-up' >上页</a
+			><a id='page-down'>下页</a>
 		</div>
 
-		<?php
-		$logs = get_logs($GOAL_ID, $PAGE_NUM, 20);
-	
-		if(count($logs) != 0){
-			foreach($logs as $log){
-				echo "<div class='log-item'>";
-					//标题和内容
-					if($log['LogTitle'] != ''){
-						echo "<p class='log-title'>". $log['LogTitle']. "</p>";			
-					}
-					echo "<p class='log-content'>". $log['LogContent']. "</p>";
-				
-					//操作按钮
-					echo "<div class='log-cmd-time-wap'>"
-						. "<a class='small-cmd cmd-new-comment' 
-								data-log-id='". $log['LogID']. "'
-								data-poster-id='". $_SESSION['valid_user_id']. "'
-								data-is-root='1'
-								data-avatar-url='". get_user_profile($_SESSION['valid_user_id']). "'
-								>回复";
-						if($log['commentsNum']){
-							echo "(". $log['commentsNum']. ")";
-						}
-						echo "</a>";
-				
-						if($isCreator){
-							echo "<a class='small-cmd log-cmd-edit' 
-									data-log-id='". $log['LogID'] ."'>编辑</a>";
-									
-								if($log['TypeID'] != 0){
-									echo "<a class='small-cmd log-cmd-delete'
-											href='log_proc.php?proc=delete&logID=". $log['LogID']. "'>删除</a>";
-								}
-						}
-						
-						//时间
-						echo "<p class='log-time'>". $log['LogTime']. "</p>"
-					. "</div>";
-				
-					//回复
-					html_output_comments($log['LogID']);
-				echo "</div>";
-			}
-		}
-		else {
-			echo "<p style='font-size:13px;clear:both;'>还没有任何记录哦~</p>";
-		} ?>
+		<div id='logs'></div>
 	</div>
 </div>
 
@@ -545,8 +541,7 @@ $(document).ready(function(){
 
 	<form id='form-finish-goal' action='goal_proc.php' method='post'>
 		<input type='text' value='完结篇' name='logTitle' />
-		<textarea rows='10' placeholder='留下一些文字作为完结篇吧，比如你的感受，比如给他人的建议：' name='logContent'></textarea>
-	
+		<textarea rows='10' placeholder='写点神马作为完结篇吧，比如感受啊，给他人的建议啊之类的' name='logContent'></textarea>
 		<input type='hidden' name='goalID' value='<?php echo $GOAL_ID ?>' />
 		<input type='hidden' name='proc' value='finish' />
 	</form>
