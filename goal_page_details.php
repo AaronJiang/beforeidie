@@ -14,6 +14,7 @@
 	
 	$isCreator = check_goal_ownership($GOAL_ID, $_SESSION['valid_user_id']);
 ?>
+<script type='text/javascript' src='js/goal-comment.js'></script>
 
 <script type="text/javascript">
 
@@ -23,60 +24,6 @@ $(document).ready(function(){
 	var USER_ID = <?php echo $_SESSION['valid_user_id'] ?>;
 	var isCreator = <?php echo $isCreator? 1: 0 ?>; 
 	var PAGE_NUM = 1;
-	
-	//弹出回复框
-	$('.cmd-new-comment').click(function(){
-		var posterID = $(this).data('poster-id'),
-			logID = $(this).data('log-id'),
-			isRoot = $(this).data('is-root'),
-			commentsNum = $(this).data('num-comments'),
-			parentCommentID = isRoot? 0: $(this).data('parent-comment-id'),
-			avatarUrl = $(this).data('avatar-url');
-		
-		//构建 HTML 块
-		var html = "<div class='new-comment-wap clearfix'>"
-					+ "<img class='avatar' src='" + avatarUrl + "'>"
-					+ "<div class='new-comment-form'>"
-						+ "<div class='comment-input' contenteditable='true'></div>"
-						+ "<span class='comment-submit'>回复</span>"
-						+ "<span class='comment-cancel'>取消</span>"
-					+ "</div>"
-				+ "</div>"
-			
-		//插入DOM
-		$(html).appendTo($(this).parents('.log-item'))	
-			.find('.comment-input')
-				.focus() //聚焦
-				.blur(function(){	//失焦则从DOM中删除
-					if($.trim($(this).text()) == ""){
-						$(this).parent().parent().detach();
-					}
-				})
-			.next()	//提交回复
-				.click(function(){	
-					var comment = $(this).prev().text();
-					$.ajax({
-						url: 'comment_proc.php',
-						type: 'post',
-						data: {
-							'proc': 'new',
-							'comment': comment,
-							'posterID': posterID,
-							'logID': logID,
-							'parentCommentID': parentCommentID,
-							'isRoot': isRoot
-						}
-					});
-					
-					$(this).parent().parent().detach();
-
-					location.reload();
-				})
-			.next()	//取消回复
-				.click(function(){
-					$(this).parent().parent().detach();	
-				});
-	});
 	
 	//若不是 Goal 创建者，则停止执行 js 代码
 	var isCreator = <?php echo $isCreator? 1: 0; ?>;

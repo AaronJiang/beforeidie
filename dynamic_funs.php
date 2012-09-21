@@ -31,6 +31,10 @@
 			    . "AND goals.GoalID = logs.GoalID\n"
 			    . "AND logs.TypeID = 0\n"
 			    . "AND goals.UserID = users.UserID\n"
+				. "AND goals.UserID IN\n"
+					. "(SELECT FolloweeID\n"
+					. "FROM followers\n"
+					. "WHERE followers.FollowerID = ". $userID. ")\n"
 			    . ")\n";
 		$query .= "UNION ALL\n";
 		//关注了他人
@@ -40,7 +44,7 @@
 					. "(SELECT FolloweeID\n"
 					. "FROM followers\n"
 					. "WHERE followers.FollowerID = ". $userID. ")\n"
-				. "AND fows.FolloweeID != ". $userID. "\n"
+				. "AND fows.FolloweeID != ". $userID. "\n"	//关注自己的消息不显示在这里，而显示在私信中
 				. "AND fows.FollowerID = u1.UserID\n"
 				. "AND fows.FolloweeID = u2.UserID\n"
 				.")\n";

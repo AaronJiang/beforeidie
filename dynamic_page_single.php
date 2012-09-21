@@ -8,62 +8,7 @@
 	@html_output_authed_header($username. " 的动态", 'page-single-dynamics');
 ?>
 
-<script type='text/javascript'>
-
-$(document).ready(function(){
-	
-	//弹出回复框
-	$('.cmd-new-comment').click(function(){
-		var posterID = $(this).data('poster-id'),
-			logID = $(this).data('log-id'),
-			isRoot = $(this).data('is-root'),
-			parentCommentID = isRoot? 0: $(this).data('parent-comment-id'),
-			html = "";
-		
-		//构建 HTML 块
-		html = "<div class='comment-new-form clearfix'>"
-			+ "<div class='comment-input' contenteditable='true'></div>"
-			+ "<span class='comment-submit'>发表</span>"
-			+ "<span class='comment-cancel'>取消</span>"
-			+ "</div>";
-			
-		//插入DOM
-		$(html).appendTo($(this).parents('.dynamic-item'))	
-			.find('.comment-input')
-				.focus() //聚焦
-				.blur(function(){	//失焦则从DOM中删除
-					if($.trim($(this).text()) == ""){
-						$(this).parent().detach();
-					}
-				})
-			.next()
-				.click(function(){	//提交回复
-					var comment = $(this).prev().text();
-					$.ajax({
-						url: 'comment_proc.php',
-						type: 'post',
-						data: {
-							'proc': 'new',
-							'comment': comment,
-							'posterID': posterID,
-							'logID': logID,
-							'parentCommentID': parentCommentID,
-							'isRoot': isRoot
-						}
-					});
-					
-					$(this).parent().detach();
-					
-					location.reload();
-				})
-			.next()	//取消回复
-				.click(function(){
-					$(this).parent().detach();	
-				});;
-	});
-});
-
-</script>
+<script type='text/javascript' src='js/goal-comment.js'></script>
 	
 <p class='subtitle'><?php echo $username ?> 的全部动态</p>
 	
@@ -98,7 +43,9 @@ $(document).ready(function(){
 								. "<a class='small-cmd cmd-new-comment'
 										data-poster-id='". $_SESSION['valid_user_id']. "'
 										data-log-id='". $dyn['LogID']. "'
-										data-is-root='1'>回复</a>"
+										data-is-root='1'
+										data-avatar-url='". get_user_profile($_SESSION['valid_user_id']). "'
+										>回复</a>"
 								. "<p class='post-time'>". $dyn['Time']. "</p>"
 							. "</div>";
 							
