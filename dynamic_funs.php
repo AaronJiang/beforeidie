@@ -2,7 +2,7 @@
 	include_once('public_funs.php');
 	
 	//获取某 User 所关注的人的所有动态
-	function get_followee_dynamics($userID){
+	function get_followee_dynamics($userID, $pageIndex, $numPerPage){
 		//设立新的 Goal
 		$query = "(SELECT 'newGoal' as type, users.Username as Poster, users.UserID as PosterID, NULL as Followee, NULL as FolloweeID, GoalID, Title as GoalTitle, Reason as GoalReason, NULL as LogID, NULL as LogTitle, NULL as LogContent, CreateTime as Time\n"
 				. "FROM goals, users\n"
@@ -48,7 +48,8 @@
 				. "AND fows.FollowerID = u1.UserID\n"
 				. "AND fows.FolloweeID = u2.UserID\n"
 				.")\n";
-		$query .= "ORDER BY Time DESC";
+		$query .= "ORDER BY Time DESC\n";
+		$query .= "LIMIT ". $numPerPage*($pageIndex-1). ", ". $numPerPage;
 		
 		$result = db_exec($query);
 		
@@ -61,7 +62,7 @@
 	}
 	
 	//获取某 User 的个人动态
-	function get_dynamics($userID, $num){
+	function get_single_dynamics($userID, $pageIndex, $numPerPage){
 		//获取 Goal 相关的动态
 		$query = "(SELECT 'newGoal' as type, users.Username as Poster, goals.UserID as PosterID, GoalID, Title as GoalTitle, Reason as GoalReason, NULL as LogID, NULL as LogTitle, NULL as LogContent, CreateTime as Time\n"
 				. "FROM goals, users\n"
@@ -75,10 +76,7 @@
 				. "AND goals.UserID = users.UserID\n"
 				. "AND goals.UserID = ". $userID. ")\n";
 		$query .= "ORDER BY Time DESC\n";
-
-		if(isset($num)){
-			$query .= "LIMIT 0, ". $num;
-		}
+		$query .= "LIMIT ". $numPerPage*($pageIndex-1). ", ". $numPerPage;
 
 		$result = db_exec($query);
 		
@@ -91,7 +89,7 @@
 	}
 	
 	//获取与我相关的动态
-	function get_dynamics_about_me($userID){
+	function get_dynamics_about_me($userID, $pageIndex, $numPerPage){
 		//鼓励我的Goal
 		$query = "(SELECT 'newCheer' as type, users.Username as Poster, users.UserID as PosterID, goals.GoalID, goals.Title as GoalTitle, goals.Reason, NULL as LogID, NULL as LogTitle, NULL as LogContent, NULL as CommentID, NULL as CommentIsRoot, NULL as Comment, goal_cheers.Time as Time\n"
 				. "FROM goal_cheers, goals, users\n"
@@ -148,7 +146,8 @@
 						. "AND comments.Time = B.MaxTime\n"
 					. ")\n"
 				. ")\n";
-		$query .= "ORDER BY Time DESC";
+		$query .= "ORDER BY Time DESC\n";
+		$query .= "LIMIT ". $numPerPage*($pageIndex-1). ", ". $numPerPage;
 		
 		$result = db_exec($query);
 		

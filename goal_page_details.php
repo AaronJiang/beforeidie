@@ -328,6 +328,7 @@ $(document).ready(function(){
 	----------------------------------------------------*/
 	
 	var PAGE_NUM = 1,	//当前页数
+		NUM_PER_PAGE = 20,
 		TOTAL_PAGE_NUM = $('#total-page-num').text();	//总页数
 		
 	//加载函数
@@ -335,11 +336,13 @@ $(document).ready(function(){
 		var data = {
 			proc: 'get_logs',
 			'goalID': GOAL_ID,
-			'pageNum': PAGE_NUM,
+			'pageNum': pageNum,
+			'numPerPage': NUM_PER_PAGE,
 			'isCreator': isCreator
 		};
+		
 		$('#logs').load('html_proc.php', data, function(){
-			$('#curr-page-num').text(PAGE_NUM);	
+			$('#curr-page-num').text(pageNum);	
 		});
 	}
 	

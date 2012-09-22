@@ -55,7 +55,7 @@
 		<?php
 		@html_out_panel_header('TA的动态', '全部', '', 'dynamic_page_single.php?userID='.$userID);
 		
-		$dyns = get_dynamics($userID, 3);
+		$dyns = get_single_dynamics($userID, 1, 3);
 		
 		foreach($dyns as $dyn){
 			echo "<div class='dynamic-item clearfix'>";
