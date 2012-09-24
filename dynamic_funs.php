@@ -3,6 +3,7 @@
 	
 	//获取某 User 所关注的人的所有动态
 	function get_followee_dynamics($userID, $pageIndex, $numPerPage){
+	
 		//设立新的 Goal
 		$query = "(SELECT 'newGoal' as type, users.Username as Poster, users.UserID as PosterID, NULL as Followee, NULL as FolloweeID, GoalID, Title as GoalTitle, Reason as GoalReason, NULL as LogID, NULL as LogTitle, NULL as LogContent, CreateTime as Time\n"
 				. "FROM goals, users\n"
@@ -13,6 +14,7 @@
 					. "WHERE followers.FollowerID =". $userID. ")\n"
 				. ")\n";
 		$query .= "UNION ALL\n";
+		
 		//发表新的 Log
 		$query .= "(SELECT 'newLog' as type, users.Username as Poster, users.UserID as PosterID, NULL as Followee, NULL as FolloweeID, goals.GoalID, goals.Title as GoalTitle, NULL as GoalReason, logs.LogID, logs.LogTitle, logs.LogContent, logs.LogTime as Time\n"
 				. "FROM goal_logs as logs, goals, users\n"
@@ -24,6 +26,7 @@
 					. "WHERE followers.FollowerID = ". $userID. ")\n"
 				.")\n";
 		$query .= "UNION ALL\n";
+		
 		//完成了目标	
 		$query .= "(SELECT 'finishGoal' as type, users.Username as Poster, users.UserID as PosterID, NULL as Followee, NULL as FolloweeID, goals.GoalID, goals.Title as GoalTitle, NULL as GoalReason, logs.LogID, logs.LogTitle, logs.LogContent, goals.EndTime as Time\n"
 			    . "FROM goal_logs as logs, goals, users\n"
@@ -37,6 +40,7 @@
 					. "WHERE followers.FollowerID = ". $userID. ")\n"
 			    . ")\n";
 		$query .= "UNION ALL\n";
+		
 		//关注了他人
 		$query .= "(SELECT 'followOther' as type, u1.Username as Poster, u1.UserID as PosterID, u2.Username as Followee, u2.UserID as FolloweeID, NULL as GoalID, NULL as GoalTitle, NULL as GoalReason, NULL as LogID, NULL as LogTitle, NULL as LogContent, fows.Time as Time\n"
 				. "FROM followers as fows, users as u1, users as u2\n"
@@ -48,6 +52,7 @@
 				. "AND fows.FollowerID = u1.UserID\n"
 				. "AND fows.FolloweeID = u2.UserID\n"
 				.")\n";
+
 		$query .= "ORDER BY Time DESC\n";
 		$query .= "LIMIT ". $numPerPage*($pageIndex-1). ", ". $numPerPage;
 		

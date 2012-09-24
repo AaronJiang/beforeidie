@@ -802,26 +802,32 @@ select{
 			clear:both;
 			margin:0 0 15px 0;
 			border-bottom:1px solid #EEE;
-			position:relative;
+			
+			&:last-child{
+				margin:0;
+				padding-bottom:5px;
+			}
+
 			
 			/* Avatar */
 			.dynamic-poster-profile{
 				float:left;
 				width:40px;
 				height:40px;
-				margin:0 0 15px 0;
 			}
 			
 			/* Dynamic Content */
 			.dynamic-content-wap{
-				margin:0px 0 0px 52px;
+				margin:0 0 0px 55px;
 				font-size:14px;
-				font-family:'宋体';
-				
+
+				position:relative;
+
 				.dynamic-header{
+					font-family:'宋体';
 					line-height:15px;
 					color:#A8A8A8;
-					margin:0 0 9px 0;
+					margin:0 0 10px 0;
 					
 					a{
 						color:#369;
@@ -834,10 +840,12 @@ select{
 					}
 				}
 				
+				/*
 				.dynamic-log-wap{
 					padding:10px 12px 0 12px;
 					background-color:#F0F0F0;
 				}
+				*/
 				
 				.dynamic-log-title{
 					font-weight:bold;
@@ -848,7 +856,8 @@ select{
 				
 				.dynamic-log-content,
 				.dynamic-goal-reason{
-					padding:0 15px 5px 0;
+					padding:0 15px 0 0;
+					margin:0 0 5px 0;
 					font-family:'宋体';
 					line-height:20px;
 					font-size:13px;
@@ -856,23 +865,23 @@ select{
 				}
 				
 				.dynamic-footer{
-					margin:0 0 5px 0;
-					font-size:12px;
 					text-align:right;
+					margin:0 0 5px 0;
+					padding-top:5px;
 					
 					.dynamic-time{
 						display:inline-block;
+						font-size:12px;
 						color:gray;
 					}
 				}
 				
 			}
-			
-
-			
+	
 			/* Comments */
+			.comments-wap,
 			.new-comment-wap{
-				margin:0 0 0 52px;
+				margin-left:55px;
 			}
 		}
 		
@@ -881,9 +890,10 @@ select{
 			background-color:#EEE;
 			padding:10px 0;
 			cursor:pointer;
-			font-size:20px;
-			line-height:20px;
-			font-weight:bold;
+			font-size:15px;
+			line-height:15px;
+			color:#666;
+			font-family:'';
 			border:1px solid #EAEEA;
 			
 			&:hover{
@@ -900,10 +910,11 @@ select{
 	/* Dynamic Item */
 	.dynamic-item{
 		width:700px;
-		padding:15px 0 0px 0px;
+		padding:15px 0 0 0;
 		border-top:1px solid #EEE;
 		color:gray;
 		font-size:14px;
+		position:relative;
 		
 		/* Avatar */
 		.user-avatar{
@@ -914,7 +925,7 @@ select{
 		
 		/* Dynamic Content */
 		.dynamic-content{
-			margin:0 0 0 52px;
+			margin:0 0 0 55px;
 			
 			.dynamic-header{
 				margin:0 0 10px 0;
@@ -944,7 +955,7 @@ select{
 				font-family:'宋体';
 				line-height:20px;
 				word-wrap:break-all;
-				margin:0 0 5px 0;	
+				margin:0 0 5px 0;
 			}
 	
 			.dynamic-footer{
@@ -960,8 +971,9 @@ select{
 		}
 		
 		/* Comments */
+		.comments-wap,
 		.new-comment-wap{
-			margin:0 0 0 52px;
+			margin-left:55px;
 		}
 	}
 	

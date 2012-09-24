@@ -96,7 +96,7 @@
 		return $logs;
 	}
 	
-	//获取某种类型的 Goal 的动态数目
+	//获取某 Goal 的记录数目
 	function get_goal_logs_num($goalID){
 		$query = "select count(*) as num from goal_logs where GoalID = ". $goalID;
 		$result = db_exec($query);
@@ -104,5 +104,17 @@
 		$num = $result->fetch_assoc();
 
 		return $num['num'];
+	}
+	
+	function get_log_poster_id($logID){
+		$query = "SELECT goals.UserID\n"
+				. "FROM goal_logs, goals\n"
+				. "WHERE goal_logs.LogID = ". $logID. "\n"
+				. "AND goal_logs.GoalID = goals.GoalID";
+				
+		$result = db_exec($query);
+		$row = $result->fetch_assoc();
+		
+		return $row['UserID'];
 	}
 ?>

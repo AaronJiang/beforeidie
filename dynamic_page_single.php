@@ -17,7 +17,7 @@
 $(document).ready(function(){
 
 	//按需加载动态
-	function load_dyns(userID, pageIndex, numPerPage, isMe){
+	function load_dyns(userID, pageIndex, numPerPage, isMe, callback){
 		var data = {
 			'proc': 'get_dyns_single',
 			'userID': userID,
@@ -29,6 +29,7 @@ $(document).ready(function(){
 		$.get('html_proc.php', data, function(data){
 			$('#dyns').append(data);
 			$('#more-dyns').show();	
+			callback();
 		});	
 	}
 
@@ -40,13 +41,19 @@ $(document).ready(function(){
 	
 	//加载第一页
 	$('#more-dyns').hide();
-	load_dyns(userID, pageIndex, numPerPage, isMe);
-	
-	//加载更多动态
-	$('#more-dyns').click(function(){
-		pageIndex += 1;
-		load_dyns(userID, pageIndex, numPerPage, isMe);
+	load_dyns(userID, pageIndex, numPerPage, isMe, function(){
+		if($('.dynamic-item').length < 5){
+			$('#more-dyns').detach();
+		}
+		else{
+			//加载更多动态
+			$('#more-dyns').click(function(){
+				pageIndex += 1;
+				load_dyns(userID, pageIndex, numPerPage, isMe);
+			});		
+		}
 	});
+
 });
 
 </script>
@@ -55,7 +62,7 @@ $(document).ready(function(){
 
 <div id='dyns'></div>
 
-<div id='more-dyns'>More</div>
+<div id='more-dyns'>更多动态</div>
 	
 <?php
 	html_output_authed_footer();

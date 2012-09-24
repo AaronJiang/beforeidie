@@ -61,7 +61,7 @@
 		</select>
 	</div>
 
-	<input type="submit" value="修改" id="update-goal" />
+	<input type="submit" value="确定" id="update-goal" />
 
 	<input type="hidden" name="goalID" value="<?php echo $goal['GoalID'] ?>">
 	<input type="hidden" name="proc" value="update">

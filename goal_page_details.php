@@ -21,12 +21,53 @@
 $(document).ready(function(){
 	//全局变量
 	var GOAL_ID = <?php echo $_REQUEST['goalID'] ?>,
-		USER_ID = <?php echo $_SESSION['valid_user_id'] ?>,
-		isCreator = <?php echo $isCreator? 1: 0 ?>;
+		USER_ID = <?php echo $_SESSION['valid_user_id'] ?>;
 
+	/* Pager
+	----------------------------------------------------*/
+	
+	var PAGE_NUM = 1,	//当前页数
+		NUM_PER_PAGE = 20,
+		TOTAL_PAGE_NUM = $('#total-page-num').text(),	//总页数
+		isCreator = <?php echo $isCreator? 1: 0; ?>;
+		
+	//加载函数
+	function load_logs(pageNum){
+		var data = {
+			proc: 'get_logs',
+			'goalID': GOAL_ID,
+			'pageNum': pageNum,
+			'numPerPage': NUM_PER_PAGE,
+			'isCreator': isCreator
+		};
+		
+		$('#logs').load('html_proc.php', data, function(){
+			$('#curr-page-num').text(pageNum);	
+		});
+	}
+	
+	//加载第一页
+	load_logs(PAGE_NUM);
+	
+	//上一页
+	$('#page-up').click(function(){
+		if(PAGE_NUM <= 1)
+			return;
+		
+		PAGE_NUM -=1; 
+		load_logs(PAGE_NUM);
+	});
+	
+	//下一页
+	$('#page-down').click(function(){
+		if(PAGE_NUM >= TOTAL_PAGE_NUM)
+			return;
+			
+		PAGE_NUM += 1;
+		load_logs(PAGE_NUM);
+	});
 	
 	//若不是 Goal 创建者，则停止执行 js 代码
-	var isCreator = <?php echo $isCreator? 1: 0; ?>;
 	if(!isCreator){
 		return;
 	}
@@ -323,49 +364,6 @@ $(document).ready(function(){
 		html += "</li>";
 		$(this).parent().after(html);
 	});
-
-	/* Pager
-	----------------------------------------------------*/
-	
-	var PAGE_NUM = 1,	//当前页数
-		NUM_PER_PAGE = 20,
-		TOTAL_PAGE_NUM = $('#total-page-num').text();	//总页数
-		
-	//加载函数
-	function load_logs(pageNum){
-		var data = {
-			proc: 'get_logs',
-			'goalID': GOAL_ID,
-			'pageNum': pageNum,
-			'numPerPage': NUM_PER_PAGE,
-			'isCreator': isCreator
-		};
-		
-		$('#logs').load('html_proc.php', data, function(){
-			$('#curr-page-num').text(pageNum);	
-		});
-	}
-	
-	//加载第一页
-	load_logs(PAGE_NUM);
-	
-	//上一页
-	$('#page-up').click(function(){
-		if(PAGE_NUM <= 1)
-			return;
-		
-		PAGE_NUM -=1; 
-		load_logs(PAGE_NUM);
-	});
-	
-	//下一页
-	$('#page-down').click(function(){
-		if(PAGE_NUM >= TOTAL_PAGE_NUM)
-			return;
-			
-		PAGE_NUM += 1;
-		load_logs(PAGE_NUM);
-	})
 });
 
 </script>

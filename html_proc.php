@@ -6,19 +6,23 @@
 	
 	switch($proc){
 		case 'get_logs':
-			html_output_logs($_REQUEST['goalID'], $_REQUEST['pageNum'], $_REQUEST['numPerPage'], $_REQUEST['isCreator']);
+			$logs = get_logs($_REQUEST['goalID'], $_REQUEST['pageNum'], $_REQUEST['numPerPage']);
+			html_output_logs($logs, $_REQUEST['isCreator']);
 			break;
 			
 		case 'get_dynamics_others':
-			html_output_dynamics_others($_REQUEST['userID'], $_REQUEST['pageIndex'], $_REQUEST['numPerPage']);
+			$dyns = get_followee_dynamics($_REQUEST['userID'], $_REQUEST['pageIndex'], $_REQUEST['numPerPage']);
+			html_output_dynamics_others($dyns, $_REQUEST['userID']);
 			break;
 		
 		case 'get_dynamics_me':
-			html_output_dynamics_me($_REQUEST['userID'], $_REQUEST['pageIndex'], $_REQUEST['numPerPage']);
+			$dyns = get_dynamics_about_me($_REQUEST['userID'], $_REQUEST['pageIndex'], $_REQUEST['numPerPage']);
+			html_output_dynamics_me($dyns);
 			break;
 			
 		case 'get_dyns_single':
-			html_output_dynamics_single($_REQUEST['userID'], $_REQUEST['pageIndex'], $_REQUEST['numPerPage'], $_REQUEST['isMe']);
+			$dyns = get_single_dynamics($_REQUEST['userID'], $_REQUEST['pageIndex'], $_REQUEST['numPerPage']);
+			html_output_dynamics_single($dyns, $_REQUEST['isMe']);
 			break;
 	}
 
