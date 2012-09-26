@@ -95,6 +95,11 @@ $(document).ready(function(){
 		var goalTitle = $('#goal-title').text();
 		$('#input-goal-title').val(goalTitle);
 		$('#dialog-edit-goal-title').dialog('open');
+		
+		$('#form-edit-goal-title').validationEngine({
+			promptPosition: 'topLeft',
+			scroll: false
+		});
 	});
 
 	/* Edit Reason
@@ -122,13 +127,18 @@ $(document).ready(function(){
 		var goalReason = $('#goal-reason').text();
 		$('#input-goal-reason').val(goalReason);
 		$('#dialog-edit-goal-reason').dialog('open');
+		
+		$('#form-edit-goal-reason').validationEngine({
+			promptPosition: 'topLeft',
+			scroll: false
+		});
 	});
 
 	/* New Log
 	----------------------------------------------------*/
 	
 	//初始化记录增加框
-	$('#dialog-add-log').dialog({
+	$('#dialog-new-log').dialog({
 		autoOpen: false,
 		modal: true,
 		resizable: false,
@@ -146,7 +156,13 @@ $(document).ready(function(){
 	
 	//打开记录增加框
 	$('#cmd-add-log').click(function(){
-		$('#dialog-add-log').dialog('open');
+		$('#dialog-new-log').dialog('open');
+		
+		//验证表单
+		$('#form-new-log').validationEngine({
+			promptPosition: 'topLeft',
+			scroll: false
+		});
 	});
 
 	/* Edit Log
@@ -185,6 +201,11 @@ $(document).ready(function(){
 		$("#form-edit-log #log-content").val(logContent);
 		
 		$('#dialog-edit-log').dialog('open');
+		
+		$('#form-edit-log').validationEngine({
+			promptPosition: 'topLeft',
+			scroll: false
+		});
 	});
 	
 	/* Finish Goal
@@ -392,7 +413,7 @@ $(document).ready(function(){
 			<a class='isFinished'>已完成</a>	
 			<?php
 				}
-			} 
+			}
 			else {	//若不是所有者
 				$isCheered = check_goal_is_cheered($_SESSION['valid_user_id'], $GOAL_ID);
 				if(!$isCheered){	//若还未鼓励
@@ -497,7 +518,7 @@ $(document).ready(function(){
 <!-- 编辑标题 -->
 <div id='dialog-edit-goal-title'>
 	<form id="form-edit-goal-title" action="goal_proc.php" method="post">
-		<input type='text' id='input-goal-title' autocomplete='off' placeholder='标题' name='goalTitle'>	
+		<input type='text' class='validate[required]' id='input-goal-title' autocomplete='off' placeholder='标题' name='goalTitle'>	
 		<input type="hidden" name="goalID" value="<?php echo $GOAL_ID ?>" />
 		<input type="hidden" name="proc" value="update_goal_title" />
 	</form>		
@@ -506,7 +527,7 @@ $(document).ready(function(){
 <!-- 编辑愿景 -->
 <div id='dialog-edit-goal-reason'>
 	<form id="form-edit-goal-reason" action="goal_proc.php" method="post">
-		<textarea id='input-goal-reason' rows='2' autocomplete='off' placeholder='愿景' name='goalReason'></textarea>
+		<textarea id='input-goal-reason' class='validate[required]' rows='2' autocomplete='off' placeholder='愿景' name='goalReason'></textarea>
 		<input type="hidden" name="goalID" value="<?php echo $GOAL_ID ?>" />
 		<input type="hidden" name="proc" value="update_goal_reason" />
 	</form>	
@@ -516,10 +537,10 @@ $(document).ready(function(){
 <div id='dialog-edit-steps'></div>
 
 <!-- 添加记录 -->
-<div id='dialog-add-log'>
+<div id='dialog-new-log'>
 	<form id="form-new-log" action="log_proc.php" method="post">
 		<input type='text' id='log-title' autocomplete='off' placeholder='标题（可不填）' name='logTitle' />	
-		<textarea id="log-content" autocomplete='off' placeholder="内容" name="logContent"></textarea>
+		<textarea id="log-content" class='validate[required]' autocomplete='off' placeholder="内容" name="logContent"></textarea>
 		<input type="hidden" name="goalID" value="<?php echo $GOAL_ID ?>" />
 		<input type="hidden" name="typeID" value="1" />
 		<input type="hidden" name="proc" value="new" />
@@ -530,7 +551,7 @@ $(document).ready(function(){
 <div id='dialog-edit-log'>
 	<form id="form-edit-log" action="log_proc.php" method="post">
 		<input type='text' id='log-title' autocomplete='off' placeholder='标题（可不填）' name='logTitle'>
-		<textarea id="log-content" autocomplete='off' placeholder="内容" name="logContent"></textarea>	
+		<textarea id="log-content" class='validate[required]' autocomplete='off' placeholder="内容" name="logContent"></textarea>	
 		<input type="hidden" name="logID" />
 		<input type="hidden" name="proc" value="update" />
 	</form>	
@@ -541,8 +562,8 @@ $(document).ready(function(){
 	<p id='period'>从 <?php echo $GOAL['StartTime']. ' 至 '. now_date() ?></p>
 
 	<form id='form-finish-goal' action='goal_proc.php' method='post'>
-		<input type='text' value='完结篇' name='logTitle' />
-		<textarea rows='10' placeholder='写点神马作为完结篇吧，比如感受啊，给他人的建议啊之类的' name='logContent'></textarea>
+		<input type='text' value='完结篇' class='validate[required]' name='logTitle' />
+		<textarea rows='10' class='validate[required]' placeholder='写点神马作为完结篇吧，比如感受啊，给他人的建议啊之类的' name='logContent'></textarea>
 		<input type='hidden' name='goalID' value='<?php echo $GOAL_ID ?>' />
 		<input type='hidden' name='proc' value='finish' />
 	</form>

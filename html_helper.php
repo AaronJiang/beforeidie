@@ -321,6 +321,7 @@
 		if(count($logs) != 0){
 			foreach($logs as $log){
 				echo "<div class='log-item new-comment-parent'>";
+
 					//标题和内容
 					if($log['LogTitle'] != ''){
 						echo "<p class='log-title'>". $log['LogTitle']. "</p>";			
@@ -460,9 +461,11 @@
 				. "<link rel='stylesheet/less' href='style/style.less' />"
 				. "<script type='text/javascript' src='js/less-1.3.0.min.js'></script>"		
 				. "<script type='text/javascript' src='js/jquery-1.7.2.min.js'></script>"
-				. "<script type='text/javascript' src='js/jquery.validate-1.9.min.js'></script>"
 				. "<script type='text/javascript' src='js/jquery-ui-1.8.22.custom.min.js'></script>"
 				. "<script type='text/javascript' src='js/jquery.ui.datepicker-zh-CN.js'></script>"
+				. "<script type='text/javascript' src='js/jquery.validationEngine-zh_CN.js'></script>"
+				. "<script type='text/javascript' src='js/jquery.validationEngine.js'></script>"
+				. "<link rel='stylesheet' href='style/validationEngine.jquery.css' type='text/css'/>"
 			. "</head>"
 			. "<body id=". $bodyID. ">";
 	}
@@ -497,10 +500,12 @@
 					. "<link rel='stylesheet/less' href='style/style.less' />"
 					. "<script type='text/javascript' src='js/less-1.3.0.min.js'></script>"					
 					. "<script type='text/javascript' src='js/jquery-1.7.2.min.js'></script>"
-					. "<script type='text/javascript' src='js/jquery.validate-1.9.min.js'></script>"
 					. "<script type='text/javascript' src='js/jquery-ui-1.8.22.custom.min.js'></script>"
 					. "<script type='text/javascript' src='js/jquery.ui.datepicker-zh-CN.js'></script>"
 					. "<script type='text/javascript' src='js/goal-feedback.js'></script>"
+					. "<script type='text/javascript' src='js/jquery.validationEngine-zh_CN.js'></script>"
+					. "<script type='text/javascript' src='js/jquery.validationEngine.js'></script>"
+					. "<link rel='stylesheet' href='style/validationEngine.jquery.css' type='text/css'/>"
 				. "</head>"
 				
 				. "<body id=". $bodyID. ">"
@@ -554,7 +559,7 @@
 				. "<span>在 <img id='logo' src='imgs/new.png' /> 建立了 <b>". get_all_goals_num() ."</b> 个梦想，"
 				. "</span><span>写下了 <b>". get_all_logs_num() ."</b> 条记录</span>"
 			. "<p>";	
-	}	
+	}
 
 	//输出个人页面的 Goals
 	function html_output_person_goals($userID, $type){

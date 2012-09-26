@@ -9,6 +9,8 @@
 
 <script type="text/javascript">
 	$(document).ready(function(){
+		$('#form-edit-goal').validationEngine();
+	
 		$('#goal-starttime').datepicker({
 			changeMonth: true,
 			changeYear: true,
@@ -38,11 +40,11 @@
 
 <form id="form-edit-goal" action="goal_proc.php" method="post">
 	<div>
-		<input type="text" name="title" id="goal-title" autocomplete="off" value="<?php echo $goal['Title']?>" />
+		<input type="text" name="title" class='validate[required]' id="goal-title" autocomplete="off" value="<?php echo $goal['Title']?>" />
 	</div>
 			
 	<div>
-		<textarea rows="8" name="why" id="goal-why"><?php echo $goal['Reason'] ?></textarea>
+		<textarea rows="8" name="why" class='validate[required]' id="goal-why"><?php echo $goal['Reason'] ?></textarea>
 	</div>
 	
 	<div style="display:<?php echo $goal['GoalType'] == 'finish'? 'none': 'block' ?>">
@@ -61,8 +63,10 @@
 		</select>
 	</div>
 
-	<input type="submit" value="确定" id="update-goal" />
-
+	<div>
+		<input type="submit" value="确定" id="update-goal" />
+	</div>
+	
 	<input type="hidden" name="goalID" value="<?php echo $goal['GoalID'] ?>">
 	<input type="hidden" name="proc" value="update">
 </form>

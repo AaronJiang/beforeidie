@@ -8,6 +8,13 @@
 	$from = $_REQUEST['from'];
 	$email = $_REQUEST['email'];
 ?>
+<script type='text/javascript'>
+
+$(document).ready(function(){
+	$('#form-forgot-pwd').validationEngine();
+});
+
+</script>
 
 <div id='form-wap'>
 	<?php

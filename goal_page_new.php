@@ -7,6 +7,8 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 	
+		$('#form-new-goal').validationEngine();
+	
 		$('#goal-starttime').datepicker({
 			changeMonth: true,
 			changeYear: true,
@@ -30,9 +32,13 @@
 <p class='subtitle'>设立新的 Goal</p>
 
 <form id="form-new-goal" action="goal_proc.php" method="post">
-	<input type="text" placeholder="写下你的目标" name="title" id="goal-title" autocomplete="off"/>
+	<div>
+		<input type="text" placeholder="写下你的目标" class='validate[required]' name="title" id="goal-title" autocomplete="off"/>
+	</div>
 	
-	<textarea rows="8" placeholder="用几句话描绘一下你的愿景！" name="why" id="goal-why"></textarea>
+	<div>
+		<textarea rows="8" placeholder="用几句话描绘一下你的愿景！" class='validate[required]' name="why" id="goal-why"></textarea>
+	</div>
 	
 	<div>
 		<select name="goalType" id="goal-type">
