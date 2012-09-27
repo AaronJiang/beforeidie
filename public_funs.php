@@ -68,5 +68,25 @@
 		$smtp->debug = FALSE;
 		@$smtp->sendmail($smtpemailto, $smtpusermail, $mailsubject, $mailbody, $mailtype);	
 	}
+	
+	//检测浏览器
+	function check_browser(){
+		$agent = $_SERVER["HTTP_USER_AGENT"];
+		
+		if(strpos($agent, "MSIE"))
+			$browser = "IE";
+		else if(strpos($agent,"Firefox"))
+			$browser = "Firefox";
+		else if(strpos($agent,"Chrome"))
+			$browser = "Chrome";
+		else if(strpos($agent,"Safari"))
+			$browser = "Safari";
+		else if(strpos($agent,"Opera"))
+			$browser = "Opera";
+		else 
+			$browser = $agent;
+			
+		return $browser;
+	}
 
 ?>

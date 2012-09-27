@@ -305,18 +305,6 @@ select{
 	font-family:'宋体';	
 }
 
-/* Validation
-------------------------------------------------------------*/
-label.error{
-	padding:0 0 0 8px;
-	font-size:12px;
-	line-height:12px;
-	font-family:'';
-	vertical-align:top;
-	color:#888;
-	font-style:italic;
-}
-
 /* jQuery Plugin
 ------------------------------------------------------------*/
 
@@ -470,6 +458,26 @@ label.error{
 		&:hover{
 			text-decoration:underline;
 		}
+	}
+}
+
+/* Browser Warning Panel
+------------------------------------------------------------*/
+#browser-warning{
+	position:fixed;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+	z-index:100000;
+	text-align:center;
+	background:#FAFAFA url('../imgs/bg.png');
+	padding:80px 0 0 0;
+
+	p{
+		text-shadow:1px 1px 1px white;
+		margin:0 0 10px 0;
+		font-size:18px;
 	}
 }
 
@@ -995,14 +1003,15 @@ label.error{
 		background-color:#EEE;
 		padding:10px 0;
 		cursor:pointer;
-		font-size:20px;
-		line-height:20px;
-		font-weight:bold;
+		font-size:15px;
+		line-height:15px;
+		color:#666;
+		font-family:'';
 		border:1px solid #EAEEA;
 			
 		&:hover{
 			background-color:#F2F2F2;
-		}	
+		}
 	}
 }
 
@@ -1277,42 +1286,44 @@ label.error{
 	}
 	
 	/* Step Edit Dialog */
-	#step-edit-list li{
-		list-style-type: none;
-		
-		&:last-child{
-			.step-edit-area{
-				margin:0;
-			}
-		}
-		
-		.step-edit-area{
-			padding:5px 8px;
-			margin-bottom:10px;
-			font-size:14px;
-			line-height:20px;
-			width:310px;
-			border:1px solid lightgray;
-			outline:none;
-			display:block;
-			float:left;
-	
-			&:focus{
-				background-color:#eee;
-			}
-		}
-	
-		.delete-step-item,
-		.add-step-item{
-			display:block;
-			float:left;
-			margin:0 0 0 8px;
-			font-size:12px;
-			cursor:pointer;
+	#dialog-edit-steps{
+		#step-edit-list li{
+			list-style-type: none;
 			
-			&:hover{
-				background:black;
-				color:white;		
+			&:last-child{
+				.step-edit-area{
+					margin:0;
+				}
+			}
+			
+			.step-edit-area{
+				padding:5px 8px;
+				margin-bottom:10px;
+				font-size:14px;
+				line-height:20px;
+				width:310px;
+				border:1px solid lightgray;
+				outline:none;
+				display:block;
+				float:left;
+		
+				&:focus{
+					background-color:#eee;
+				}
+			}
+	
+			.delete-step-item,
+			.add-step-item{
+				display:block;
+				float:left;
+				margin:0 0 0 8px;
+				font-size:12px;
+				cursor:pointer;
+				
+				&:hover{
+					background:black;
+					color:white;		
+				}
 			}
 		}
 	}
@@ -1341,18 +1352,20 @@ label.error{
 	
 	/* Finish Goal Dialog */
 	#dialog-finish-goal{
+		overflow:visible;
+		
 		#greeting{
 			margin:0 0 10px 0;
 			font-weight:bold;
 			font-family:'微软雅黑';
 		}
-		
+			
 		#period{
 			margin:0 0 10px 0;
 			font-family:'宋体';
 			font-size:14px;
 		}
-		
+			
 		#form-finish-goal{
 			input{
 				width:454px;			

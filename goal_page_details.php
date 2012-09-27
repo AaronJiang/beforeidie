@@ -72,6 +72,9 @@ $(document).ready(function(){
 		return;
 	}
 
+	/* Edit Title
+	----------------------------------------------------*/
+	
 	//初始化 Goal 标题编辑框
 	$('#dialog-edit-goal-title').dialog({
 		autoOpen: false,
@@ -239,6 +242,11 @@ $(document).ready(function(){
 		$('#dialog-finish-goal').dialog('open');
 		
 		$("textarea[name='logContent']").focus();
+		
+		$('#form-finish-goal').validationEngine({
+			promptPosition: 'topLeft',
+			scroll: false
+		});
 	});
 	
 	//记录删除警告框

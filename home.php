@@ -58,7 +58,7 @@ $(document).ready(function(){
 	});
 	
 	//弹出放弃 Goal 警告框
-	$('.goal-cmd-finish').click(function(){
+	$('.goal-cmd-drop').click(function(){
 		var goalTitle = $(this).data('title');
 		var isSure = confirm('确定放弃目标：' + goalTitle + "?");
 		if(!isSure){
@@ -124,9 +124,10 @@ $(document).ready(function(){
 								>启动</a>";
 					}
 					if($goalType != "finish"){
-						echo "<a class='goal-cmd goal-cmd-finish'
+						echo "<a class='goal-cmd goal-cmd-drop'
+								data-title='". $goal['Title']. "'
 								href='goal_proc.php?proc=drop&goalID=". $goal['GoalID']. "'
-								>放弃</a>";					
+								>放弃</a>";		
 					}
 				echo "</div>"
 			. "</div>";

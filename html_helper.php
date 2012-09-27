@@ -468,6 +468,11 @@
 				. "<link rel='stylesheet' href='style/validationEngine.jquery.css' type='text/css'/>"
 			. "</head>"
 			. "<body id=". $bodyID. ">";
+			
+			//浏览器检测
+			if(check_browser() == 'IE'){
+				html_output_browser_warning();
+			}
 	}
 	
 	//输出未认证时的 HTML 尾
@@ -476,8 +481,20 @@
 			. "</html>";
 	}
 
+	//输出浏览器警告信息
+	function html_output_browser_warning(){
+		echo "<div id='browser-warning'>"
+				. "<img src='imgs/confuse.png' />"
+				. "<p>纳尼？亲，你还在使用 IE（或基于 IE 内核）的浏览器啊？那我可不能放你进去！</p>"
+				. "<p>你可以：下载地球最好的浏览器 - <a target='_blank' href='http://www.google.cn/intl/zh-CN/chrome/browser/'>Chrome</a>，你会很快爱上它的极速与清爽！</p>"
+				. "<p>或者：下载全中国最好的浏览器 - <a target='_blank' href='http://ie.sogou.com/'>搜狗浏览器</a>，并默认启用高速模式！</p>"
+			. "</div>";
+	}
+	
 	//输出认证后的 HTML 头
-	function html_output_authed_header($title, $bodyID){	
+	function html_output_authed_header($title, $bodyID){
+	
+		//用户资格检测
 		session_start();
 	
 		if(!is_auth()){
@@ -508,8 +525,15 @@
 					. "<link rel='stylesheet' href='style/validationEngine.jquery.css' type='text/css'/>"
 				. "</head>"
 				
-				. "<body id=". $bodyID. ">"
-					. "<div id='feedback-panel'>"
+				. "<body id=". $bodyID. ">";
+				
+					//浏览器检测
+					if(check_browser() == 'IE'){
+						html_output_browser_warning();
+					}
+					
+					//反馈框
+					echo "<div id='feedback-panel'>"
 						. "<div id='feedback-tag'></div>"
 						. "<form action='feedback_proc.php'method='post' id='form-give-feedback'>"
 							. "<input id='feedback-subject' name='feedbackSubject' placeholder='主题（可不填）' autocomplete='off' type='text' />"
@@ -536,7 +560,7 @@
 							. "</div>"
 						. "</div>"
 					. "</div>"
-		
+
 					. "<div id='content-wap' class='clearfix'>";
 	}
 	
