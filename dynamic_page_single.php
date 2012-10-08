@@ -58,7 +58,7 @@ $(document).ready(function(){
 
 </script>
 	
-<p class='subtitle'><?php echo $username ?> 的全部动态</p>
+<p class='subtitle'><a href='person.php?userID=<?php echo $userID ?>'><?php echo $username ?></a> 的全部动态</p>
 
 <div id='dyns'></div>
 

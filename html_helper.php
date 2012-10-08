@@ -55,7 +55,7 @@
 					html_output_comments($dyn['LogID']);
 				break;
 			
-			//设立新的 Goal				
+			//设立新的 Goal
 			case 'newGoal':
 				html_output_dynamic_avatar($dyn);
 				
@@ -519,10 +519,10 @@
 					. "<script type='text/javascript' src='js/jquery-1.7.2.min.js'></script>"
 					. "<script type='text/javascript' src='js/jquery-ui-1.8.22.custom.min.js'></script>"
 					. "<script type='text/javascript' src='js/jquery.ui.datepicker-zh-CN.js'></script>"
-					. "<script type='text/javascript' src='js/goal-feedback.js'></script>"
 					. "<script type='text/javascript' src='js/jquery.validationEngine-zh_CN.js'></script>"
 					. "<script type='text/javascript' src='js/jquery.validationEngine.js'></script>"
 					. "<link rel='stylesheet' href='style/validationEngine.jquery.css' type='text/css'/>"
+					. "<script type='text/javascript' src='js/goal-feedback.js'></script>"
 				. "</head>"
 				
 				. "<body id=". $bodyID. ">";
@@ -535,9 +535,9 @@
 					//反馈框
 					echo "<div id='feedback-panel'>"
 						. "<div id='feedback-tag'></div>"
-						. "<form action='feedback_proc.php'method='post' id='form-give-feedback'>"
+						. "<form action='feedback_proc.php'method='post' id='form-feedback'>"
 							. "<input id='feedback-subject' name='feedbackSubject' placeholder='主题（可不填）' autocomplete='off' type='text' />"
-							. "<textarea id='feedback-content' name='feedbackContent' rows='10' placeholder='意见内容'></textarea>"
+							. "<textarea id='feedback-content' class='validate[required]' name='feedbackContent' rows='10' placeholder='意见内容'></textarea>"
 							. "<input id='submit-feedback' type='submit' value='发送'>"
 						. "</form>"
 					. "</div>"
@@ -580,7 +580,7 @@
 	function html_output_slogan(){
 		echo "<p id='login-slogan'>"
 				. "<span>已经有 <b>". get_all_users_num() ."</b> 位用户，</span>"
-				. "<span>在 <img id='logo' src='imgs/new.png' /> 建立了 <b>". get_all_goals_num() ."</b> 个梦想，"
+				. "<span>在 <img id='logo' src='imgs/new.png' /> 设立了 <b>". get_all_goals_num() ."</b> 个目标，"
 				. "</span><span>写下了 <b>". get_all_logs_num() ."</b> 条记录</span>"
 			. "<p>";	
 	}

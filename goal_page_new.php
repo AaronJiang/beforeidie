@@ -37,7 +37,7 @@
 	</div>
 	
 	<div>
-		<textarea rows="8" placeholder="用几句话描绘一下你的愿景！" class='validate[required]' name="why" id="goal-why"></textarea>
+		<textarea rows="8" placeholder="简单地描绘一下你的愿景吧！" class='validate[required]' name="why" id="goal-why"></textarea>
 	</div>
 	
 	<div>

@@ -266,35 +266,38 @@ $(document).ready(function(){
 		draggable: false,
 		resizable: false,
 		title: '调整计划',
-		width: 430,
+		width: 450,
 		buttons: {
 			'保存': function(){
+				//清空步骤 List
 				$('#steps-list').empty();
 				
 				var index = 0;
 				
 				$('.step-edit-area').each(function(){
-					var text = $.trim($(this).text());
+					var text = $.trim($(this).text()),
+						stepType = $(this).attr('data-type');
 					
-					if(text == ''){
-						return true;	//若为空，则跳过此次循环
+					//若为空，则跳过此次循环
+					if(text == '' && stepType != 'original'){
+						return true;
 					}
-					
+
 					//若存在无步骤的警告标语，则去掉
 					if($('#no-step-caution')[0]){
 						$('#no-step-caution').remove();
 					}
 					
-					var stepType = $(this).attr('data-type'),
-						stepID = $(this).attr('data-stepid');					
+					var	stepID = $(this).attr('data-stepid'),
+						needDelete = (stepType == 'delete') || ((stepType == 'original') && (text == ''));
 					
 					//更新页面中的步骤
-					if(stepType != 'delete'){
+					if(!needDelete){
 						$('#steps-list').append("<li>" + text + "</li>");
 					}
 					
 					//删除步骤
-					if(stepType == 'delete'){
+					if(needDelete){
 						$.ajax({
 							url: 'step_proc.php',
 							data: {
@@ -314,6 +317,8 @@ $(document).ready(function(){
 								stepIndex: index
 							}
 						});
+						//
+						$('#steps-list').append("<li>" + text + "</li>");
 						index++;
 					}
 					//修改步骤
@@ -327,7 +332,8 @@ $(document).ready(function(){
 								stepIndex: index
 							}
 						});
-						index++;					
+						$('#steps-list').append("<li>" + text + "</li>");
+						index++;				
 					}
 				});
 				
@@ -352,6 +358,7 @@ $(document).ready(function(){
 			async: false,	//使用同步 Ajax，解决对话框居中问题
 			success: function(data){
 				var html = "<ul id='step-edit-list'>";
+				
 				//若不存在步骤
 				if(data.length == 0){
 					html += "<li>";
@@ -363,7 +370,7 @@ $(document).ready(function(){
 					$.each(data, function(index, entry){
 						html += "<li>"
 							+ "<div class='step-edit-area' data-type='original' data-stepid='" + entry.StepID +"' contenteditable='true'>" + entry.StepContent + "</div>"
-							+ "<span class='delete-step-item'>删除</span>"
+							+ "<span class='delete-step-item' data-type='original'>删除</span>"
 							+ "<span class='add-step-item'>增加</span>"
 							+ "</li>";
 					});
@@ -427,7 +434,7 @@ $(document).ready(function(){
 				if(!$isCheered){	//若还未鼓励
 			?>
 			<a href='cheer_proc.php?proc=cheer&userID=<?php echo $_SESSION['valid_user_id'] ?>&goalID=<?php echo $GOAL_ID ?>'>鼓励</a>
-			<?php 
+			<?php
 				} 
 			else {	//若已经鼓励 ?>
 			<a class='isCheered'>已鼓励</a>			
@@ -571,7 +578,7 @@ $(document).ready(function(){
 
 	<form id='form-finish-goal' action='goal_proc.php' method='post'>
 		<input type='text' value='完结篇' class='validate[required]' name='logTitle' />
-		<textarea rows='10' class='validate[required]' placeholder='写点神马作为完结篇吧，比如感受啊，给他人的建议啊之类的' name='logContent'></textarea>
+		<textarea rows='10' class='validate[required]' placeholder='写点神马作为完结篇吧，比如感受啊、建议啊之类的' name='logContent'></textarea>
 		<input type='hidden' name='goalID' value='<?php echo $GOAL_ID ?>' />
 		<input type='hidden' name='proc' value='finish' />
 	</form>

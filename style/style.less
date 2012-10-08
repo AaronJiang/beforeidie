@@ -32,6 +32,15 @@ textarea, input, select{
 	font-weight:bold;
 	margin:0 0 10px 0;
 	font-family:"微软雅黑";
+	
+	a{
+		color:#369;
+		text-decoration:none;
+		
+		&:hover{
+			text-decoration:underline;
+		}
+	}
 }
 
 .indent-2em{
@@ -503,7 +512,7 @@ select{
 		}
 	}
 	
-	#form-give-feedback{
+	#form-feedback{
 		width:200px;
 		box-sizing:border-box;
 		margin:0 0 0 26px;
@@ -1123,14 +1132,14 @@ select{
 					cursor:pointer;
 					font-size:15px;
 					font-weight:bold;
-					text-shadow:-1px -1px 1px white;
+					text-shadow:0 0 1px gray;
 					
 					&.isFinished, &.isCheered{
 						background-color:orange;
 						
 						&:hover{
-						cursor:default;
-							}
+							cursor:default;
+						}
 					}
 				}
 			}	
@@ -1186,19 +1195,24 @@ select{
 					cursor:pointer;
 					
 					&:hover{
-						background-color:#F8F8F8;					
+						background-color:#F6F6F6;					
 					}
 				}
 				
+				
 				#page-up{
 					border-right:0px;
+					/*
 					border-top-left-radius:2px;
 					border-bottom-left-radius:2px;
+					*/
 				}
 				
 				#page-down{
+					/*
 					border-top-right-radius:2px;
-					border-bottom-right-radius:2px;				
+					border-bottom-right-radius:2px;
+					*/					
 				}
 			}
 			
@@ -1301,15 +1315,12 @@ select{
 				margin-bottom:10px;
 				font-size:14px;
 				line-height:20px;
-				width:310px;
+				box-sizing: border-box;
+				width:336px;
 				border:1px solid lightgray;
 				outline:none;
 				display:block;
 				float:left;
-		
-				&:focus{
-					background-color:#eee;
-				}
 			}
 	
 			.delete-step-item,
@@ -1317,12 +1328,17 @@ select{
 				display:block;
 				float:left;
 				margin:0 0 0 8px;
+				font-family:'微软雅黑';
 				font-size:12px;
+				line-height:12px;
+				padding:4px 5px 2px 5px;
 				cursor:pointer;
+				background-color:#EEE;
+				color:#666;
 				
 				&:hover{
-					background:black;
-					color:white;		
+					text-shadow:1px 1px 1px white;
+					background-color:#F2F2F2;
 				}
 			}
 		}
@@ -1442,7 +1458,8 @@ select{
 			
 			a{
 				text-decoration:none;
-				color:#369;
+				/*color:#369;*/
+				color:#333;
 				
 				&:hover{
 					text-decoration:underline;
@@ -1809,11 +1826,10 @@ select{
 				font-weight:bold;
 				background-color:lightgray;
 				text-decoration:none;
-				text-shadow:1px 1px 1px black;
 				color:white;
+				text-shadow:0px 0px 1px black;
 				
 				&:hover{
-					text-shadow:0px 0px 1px black;
 					box-shadow:0px 0px 2px lightgray;
 				}
 			}
@@ -1924,10 +1940,10 @@ select{
 		}
 		
 		#donate-btn{
-			padding:5px 5px 5px 3px;
+			padding:6px 5px 6px 3px;
 			margin:0 0 10px 0;
-			width:90px;
 			display:block;
+			width:150px;
 			text-align:center;
 			font-size:18px;
 			line-height:18px;
