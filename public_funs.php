@@ -15,8 +15,10 @@
 	
 	//连接数据库
 	function db_conn(){
+
 		$db = new mysqli('localhost', 'hustlzp', 'xiaowangzi', 'goal');
-	
+		//$db = new mysqli('Mysql1001.webweb.com', '98db92_w301_1', 'xiaowangzi', 'db_98db92_w301_1');
+
 		if(mysqli_connect_errno()){
 			echo 'Error: Could not connect to the database!';
 			exit;
@@ -28,6 +30,7 @@
 	//执行 SQL 语句
 	function db_exec($query){
 		$db = db_conn();
+		$db->query("SET NAMES 'UTF8'");
 		return $db->query($query);
 	}
 	
@@ -45,12 +48,27 @@
 	
 	//页面跳转
 	function page_jump($url){
+		/*
+		header('Expires: Thu, 01 Jan 1970 00:00:01 GMT');  
+		header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT');  
+		header('Cache-Control: no-cache, must-revalidate, max-age=0');  
+		header('Pragma: no-cache');
+		*/
+		
 		header('Location:'. $url);
+		exit;
 	}
 
 	//返回上一页
 	function page_jump_back(){
-		header('Location:'. $_SERVER['HTTP_REFERER']);	
+		/*
+		header('Expires: Thu, 01 Jan 1970 00:00:01 GMT');  
+		header('Last-Modified: ' . gmdate('D, d M Y H:i:s') . ' GMT');  
+		header('Cache-Control: no-cache, must-revalidate, max-age=0');  
+		header('Pragma: no-cache');
+		*/
+		header('Location:'. $_SERVER['HTTP_REFERER']);
+		exit;
 	}
 
 	//发送邮件

@@ -317,8 +317,6 @@ $(document).ready(function(){
 								stepIndex: index
 							}
 						});
-						//
-						$('#steps-list').append("<li>" + text + "</li>");
 						index++;
 					}
 					//修改步骤
@@ -332,7 +330,6 @@ $(document).ready(function(){
 								stepIndex: index
 							}
 						});
-						$('#steps-list').append("<li>" + text + "</li>");
 						index++;				
 					}
 				});
