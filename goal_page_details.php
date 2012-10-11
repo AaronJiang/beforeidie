@@ -406,10 +406,12 @@ $(document).ready(function(){
 
 	<!-- Title -->
 	<div id='title-wap'>
-		<span id='goal-title'><?php echo $GOAL['Title']; ?></span
-		><span id='goal-title-underline'>_ _ _</span
+		<span id='goal-title'><?php echo $GOAL['Title']; ?></span>
+		<?php if($isCreator){ ?>
+		<span id='goal-title-underline'>_ _ _</span
 		><a id='cmd-edit-goal-title'>修改</a>
-			
+		<?php } ?>
+		
 		<div id='goal-cmd-wap'>
 			<?php
 			//若为所有者

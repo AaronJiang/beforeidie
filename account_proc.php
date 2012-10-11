@@ -71,6 +71,7 @@
 			
 			if($activeCode == gene_active_code($email)){
 				active_account($email);
+				follow_user(get_userid_by_email($email), 0);
 				page_jump('account_page_active.php?from=activeSucc&email='. $email);
 			}
 			else{

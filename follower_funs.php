@@ -9,7 +9,7 @@
 		return ($result->num_rows > 0)? true: false;
 	}
 	
-	//关注 Goal
+	//关注某 User
 	function follow_user($followerID, $followeeID){
 		$query = "insert into followers (FollowerID, FolloweeID) values (". $followerID. ", ". $followeeID. ")";
 		return db_exec($query);

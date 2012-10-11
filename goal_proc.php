@@ -16,7 +16,6 @@
 			
 		case "new":
 			$goalID = new_goal($_REQUEST['userID'], $_REQUEST['title'], $_REQUEST['why'], $_REQUEST['goalType'], $_REQUEST['startTime'], $_REQUEST['isPublic']);
-			//page_jump('goal_page_details.php?goalID='. $goalID);
 			page_jump('home.php?goalType='. $_REQUEST['goalType']);
 			break;
 			

@@ -19,7 +19,7 @@
 		<div id='user-info' class='clearfix'>
 			<img id='user-avatar' src='<?php echo get_user_profile($userID); ?>' />
 			<div id='user-info-wap'>
-				<span id='user-name'><?php echo $userName ?>的个人主页</span>
+				<span id='user-name'><?php echo $userName ?> 的个人主页</span>
 			</div>
 			<?php if(!$isMe){
 				echo "<div id='user-cmd-wap'>";
