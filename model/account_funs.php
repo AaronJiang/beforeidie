@@ -104,13 +104,6 @@
 		return "http://www.gravatar.com/avatar/". $hash;
 	}
 	
-	//获取用户在 Gravatar 上的头像
-	function get_gravatar($userID){
-		$email = get_email_by_id($userID);
-		$hash = md5(strtolower(trim($email)));
-		return "http://www.gravatar.com/avatar/". $hash;
-	}
-	
 	//检验某用户是否已在 Gravatar 注册
 	function validate_gravatar($userID) {
 		$uri = get_user_profile($userID). '?d=404';

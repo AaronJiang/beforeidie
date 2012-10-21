@@ -1,9 +1,6 @@
-<?php
-	require_once('data_funs.inc');
-	require_once('html_helper.php');
-	html_output_authed_header('新的Goal', 'page-new-goal');
-?>
+{include file='../header.tpl' title='新的Goal' page='page-new-goal'}
 
+{literal}
 <script type="text/javascript">
 	$(document).ready(function(){
 	
@@ -28,6 +25,7 @@
 		});
 	});
 </script>
+{/literal}
 
 <p class='subtitle'>设立新的 Goal</p>
 
@@ -55,12 +53,10 @@
 		</select>
 	</div>
 	
-	<input type="hidden" name="proc" value="new"/>
-	<input type="hidden" name="userID" value=<?php echo $_SESSION['valid_user_id']; ?>>
+	<input type="hidden" name="proc" value="new" />
+	<input type="hidden" name="userID" value='{$userID}' />
 	
 	<input type="submit" id="create-goal" value="添加" />
 </form>
 
-<?php
-	require('footer.php');
-?>
+{include file='../footer.tpl'}
