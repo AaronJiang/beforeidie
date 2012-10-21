@@ -1,13 +1,12 @@
 <?php
 	require_once('data_funs.inc');
 	require_once('html_helper.php');
-	html_output_authed_header("我的Goals", 'page-my-goals');
+	html_output_authed_header("我的Goals", 'page-home');
 ?>
 
 <script type="text/javascript">
 
 $(document).ready(function(){
-	$('body').prop('id', 'page-my-goals');
 	
 	//滑出命令栏
 	$('.goal-item').live("hover", function(event){

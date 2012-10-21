@@ -11,9 +11,14 @@
 	
 	//获取某个用户的某种类型的全部目标
 	function get_goals($userID, $goalType, $isMe){
-		$query = "SELECT * FROM goals\n"
-				. "WHERE UserID = ". $userID. "\n"
-				. "AND GoalType = '". $goalType. "'\n";
+		$query = "SELECT *\n"
+				. "FROM goals,\n"
+					. "(SELECT GoalID, count(*) as logsNum FROM goal_logs Group By GoalID) as a,\n"
+					. "(SELECT GoalID, count(*) as stepsNum FROM steps Group By GoalID) as b\n"
+				. "WHERE goals.UserID = ". $userID. "\n"
+				. "AND goals.GoalType = '". $goalType. "'\n"
+				. "AND goals.GoalID = a.GoalID\n"
+				. "AND goals.GoalID = b.GoalID";
 		
 		if(!$isMe){
 			$query .= "AND IsPublic = 1\n";
