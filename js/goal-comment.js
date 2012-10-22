@@ -32,10 +32,10 @@ $(document).ready(function(){
 				.click(function(){	
 					var comment = $(this).prev().text();
 					$.ajax({
-						url: 'comment_proc.php',
+						url: 'GoalC.php',
 						type: 'post',
 						data: {
-							'proc': 'new',
+							'act': 'newComment',
 							'comment': comment,
 							'posterID': posterID,
 							'logID': logID,

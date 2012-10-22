@@ -32,7 +32,7 @@
 
 <p class='subtitle'>编辑 Goal</p>
 
-<form id="form-edit-goal" action="goal_proc.php" method="post">
+<form id="form-edit-goal" action="GoalC.php" method="post">
 	<div>
 		<input type="text" name="title" class='validate[required]' id="goal-title" autocomplete="off" value="{$goal.Title}" />
 	</div>
@@ -62,7 +62,7 @@
 	</div>
 	
 	<input type="hidden" name="goalID" value="{$goal.GoalID}">
-	<input type="hidden" name="proc" value="update">
+	<input type="hidden" name="act" value="updateGoal">
 </form>
 
 {include file='../footer.tpl'}

@@ -348,7 +348,7 @@
 									
 								if($log['TypeID'] != 0){
 									echo "<a class='small-cmd log-cmd-delete'
-											href='log_proc.php?proc=delete&logID=". $log['LogID']. "'>删除</a>";
+											href='GoalC.php?act=deleteLog&logID=". $log['LogID']. "'>删除</a>";
 								}
 						}
 						

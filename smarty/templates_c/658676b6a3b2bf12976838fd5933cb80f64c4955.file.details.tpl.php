@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-10-21 18:33:27
+<?php /* Smarty version Smarty-3.1.12, created on 2012-10-22 13:02:15
          compiled from "..\view\goal\details.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:67435083eba82ca817-93662169%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '658676b6a3b2bf12976838fd5933cb80f64c4955' => 
     array (
       0 => '..\\view\\goal\\details.tpl',
-      1 => 1350837206,
+      1 => 1350903507,
       2 => 'file',
     ),
   ),
@@ -40,7 +40,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 ?><?php echo $_smarty_tpl->getSubTemplate ('../header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>((string)$_smarty_tpl->tpl_vars['goal']->value['Title']),'page'=>'page-goal-details'), 0);?>
 
 
-<script type='text/javascript' src='js/goal-comment.js'></script>
+<script type='text/javascript' src='../js/goal-comment.js'></script>
 <script type="text/javascript">
 
 $(document).ready(function(){
@@ -63,7 +63,7 @@ $(document).ready(function(){
 	//加载函数
 	function load_logs(pageNum){
 		var data = {
-			proc: 'get_logs',
+			act: 'getLogs',
 			'goalID': GOAL_ID,
 			'pageNum': pageNum,
 			'numPerPage': NUM_PER_PAGE,
@@ -328,9 +328,9 @@ $(document).ready(function(){
 					//删除步骤
 					if(needDelete){
 						$.ajax({
-							url: 'step_proc.php',
+							url: 'GoalC.php',
 							data: {
-								proc: 'delete',
+								act: 'deleteStep',
 								stepID: stepID
 							}
 						});
@@ -338,9 +338,9 @@ $(document).ready(function(){
 					//新增步骤
 					else if(stepType == 'new'){
 						$.ajax({
-							url: 'step_proc.php',
+							url: 'GoalC.php',
 							data: {
-								proc: 'new',
+								act: 'newStep',
 								goalID: GOAL_ID,
 								stepContent: text,
 								stepIndex: index
@@ -351,9 +351,9 @@ $(document).ready(function(){
 					//修改步骤
 					else{	
 						$.ajax({
-							url: 'step_proc.php',
+							url: 'GoalC.php',
 							data: {
-								proc: 'update',
+								act: 'updateStep',
 								stepID: stepID,
 								stepContent: text,
 								stepIndex: index
@@ -374,10 +374,10 @@ $(document).ready(function(){
 	//打开计划编辑框
 	$("#cmd-edit-steps").live('click', function(){
 		$.ajax({
-			url: '../step_proc.php',
+			url: 'GoalC.php',
 			type: 'POST',
 			data: {
-				proc: 'getSteps',
+				act: 'getSteps',
 				goalID: GOAL_ID
 			},
 			dataType: 'json',
@@ -464,7 +464,7 @@ $(document).ready(function(){
 
 	<!-- Reason -->
 	<div id='reason-wap'>
-		<?php echo $_smarty_tpl->getSubTemplate ('../panel_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'愿景','cmd'=>'修改','cmdID'=>'cmd-edit-goal-reason','link'=>'','isCreator'=>((string)$_smarty_tpl->tpl_vars['isCreator']->value)), 0);?>
+		<?php echo $_smarty_tpl->getSubTemplate ('../panel_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'愿景','cmd'=>'修改','cmdID'=>'cmd-edit-goal-reason','isCreator'=>((string)$_smarty_tpl->tpl_vars['isCreator']->value)), 0);?>
 
 		<p id='goal-reason'><?php echo $_smarty_tpl->tpl_vars['goal']->value['Reason'];?>
 </p>
@@ -472,7 +472,7 @@ $(document).ready(function(){
 
 	<!-- Steps -->
 	<div id='steps-wap'>
-		<?php echo $_smarty_tpl->getSubTemplate ('../panel_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'计划','cmd'=>'调整','cmdID'=>'cmd-edit-steps','link'=>'','isCreator'=>((string)$_smarty_tpl->tpl_vars['isCreator']->value)), 0);?>
+		<?php echo $_smarty_tpl->getSubTemplate ('../panel_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'计划','cmd'=>'调整','cmdID'=>'cmd-edit-steps','isCreator'=>((string)$_smarty_tpl->tpl_vars['isCreator']->value)), 0);?>
 
 		
 		<?php if ($_smarty_tpl->tpl_vars['stepsNum']->value==0){?>
@@ -517,7 +517,7 @@ $_smarty_tpl->tpl_vars['step']->_loop = true;
 		<?php echo $_smarty_tpl->getSubTemplate ('../panel_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'创建者'), 0);?>
 
 		
-		<a class='user-icon' href="person.php?userID=<?php echo $_smarty_tpl->tpl_vars['creator']->value['UserID'];?>
+		<a class='user-icon' href="PersonC.php?act=person&userID=<?php echo $_smarty_tpl->tpl_vars['creator']->value['UserID'];?>
 ">
 			<img src="<?php echo $_smarty_tpl->tpl_vars['creatorAvatar']->value;?>
 " title="<?php echo $_smarty_tpl->tpl_vars['creator']->value['Username'];?>
@@ -527,7 +527,7 @@ $_smarty_tpl->tpl_vars['step']->_loop = true;
 
 	<!-- Cheerers -->
 	<?php if ($_smarty_tpl->tpl_vars['cheerersNum']->value!=0){?>
-		<?php echo $_smarty_tpl->getSubTemplate ('../panel_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'鼓励者','cmd'=>"全部 (".((string)$_smarty_tpl->tpl_vars['cheerersNum']->value).")",'cmdID'=>'cmd-all-cheerers','link'=>"CheerC.php?goalID=".((string)$_smarty_tpl->tpl_vars['goal']->value['GoalID'])), 0);?>
+		<?php echo $_smarty_tpl->getSubTemplate ('../panel_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'鼓励者','cmd'=>"全部 (".((string)$_smarty_tpl->tpl_vars['cheerersNum']->value).")",'cmdID'=>'cmd-all-cheerers','link'=>"GoalC.php?act=cheerers&goalID=".((string)$_smarty_tpl->tpl_vars['goal']->value['GoalID'])), 0);?>
 
 		
 		<?php  $_smarty_tpl->tpl_vars['cheerer'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['cheerer']->_loop = false;
@@ -535,12 +535,12 @@ $_smarty_tpl->tpl_vars['step']->_loop = true;
 foreach ($_from as $_smarty_tpl->tpl_vars['cheerer']->key => $_smarty_tpl->tpl_vars['cheerer']->value){
 $_smarty_tpl->tpl_vars['cheerer']->_loop = true;
 ?>
-			<a href="person.php?userID=<?php echo $_smarty_tpl->tpl_vars['cheerer']->value['UserID'];?>
+		<a href="person.php?userID=<?php echo $_smarty_tpl->tpl_vars['cheerer']->value['UserID'];?>
 ">
-				<img class='user-icon' src="<<?php ?>?php echo get_gravatar(<?php echo $_smarty_tpl->tpl_vars['cheerer']->value['UserID'];?>
-)?<?php ?>>" title="<?php echo $_smarty_tpl->tpl_vars['cheerer']->value['Username'];?>
+			<img class='user-icon' src="<?php echo $_smarty_tpl->tpl_vars['cheerer']->value['Avatar'];?>
+" title="<?php echo $_smarty_tpl->tpl_vars['cheerer']->value['Username'];?>
 " />
-			</a>
+		</a>
 		<?php } ?>
 	<?php }?>
 	</div>
@@ -554,7 +554,7 @@ $_smarty_tpl->tpl_vars['cheerer']->_loop = true;
 		<input type='text' class='validate[required]' id='input-goal-title' autocomplete='off' placeholder='标题' name='goalTitle'>	
 		<input type="hidden" name="goalID" value="<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
 " />
-		<input type="hidden" name="act" value="update_goal_title" />
+		<input type="hidden" name="act" value="updateGoalTitle" />
 	</form>		
 </div>
 
@@ -564,7 +564,7 @@ $_smarty_tpl->tpl_vars['cheerer']->_loop = true;
 		<textarea id='input-goal-reason' class='validate[required]' rows='2' autocomplete='off' placeholder='愿景' name='goalReason'></textarea>
 		<input type="hidden" name="goalID" value="<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
 " />
-		<input type="hidden" name="act" value="update_goal_reason" />
+		<input type="hidden" name="act" value="updateGoalReason" />
 	</form>	
 </div>
 
@@ -573,23 +573,23 @@ $_smarty_tpl->tpl_vars['cheerer']->_loop = true;
 
 <!-- 添加记录 -->
 <div id='dialog-new-log'>
-	<form id="form-new-log" action="LogC.php" method="post">
+	<form id="form-new-log" action="GoalC.php" method="post">
 		<input type='text' id='log-title' autocomplete='off' placeholder='标题（可不填）' name='logTitle' />	
 		<textarea id="log-content" class='validate[required]' autocomplete='off' placeholder="内容" name="logContent"></textarea>
 		<input type="hidden" name="goalID" value="<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
 " />
 		<input type="hidden" name="typeID" value="1" />
-		<input type="hidden" name="act" value="new" />
+		<input type="hidden" name="act" value="newLog" />
 	</form>	
 </div>
 
 <!-- 修改记录 -->
 <div id='dialog-edit-log'>
-	<form id="form-edit-log" action="LogC.php" method="post">
+	<form id="form-edit-log" action="GoalC.php" method="post">
 		<input type='text' id='log-title' autocomplete='off' placeholder='标题（可不填）' name='logTitle'>
 		<textarea id="log-content" class='validate[required]' autocomplete='off' placeholder="内容" name="logContent"></textarea>	
 		<input type="hidden" name="logID" />
-		<input type="hidden" name="act" value="update" />
+		<input type="hidden" name="act" value="updateLog" />
 	</form>	
 </div>
 
@@ -604,7 +604,7 @@ $_smarty_tpl->tpl_vars['cheerer']->_loop = true;
 		<textarea rows='10' class='validate[required]' placeholder='写点神马作为完结篇吧，比如感受啊、建议啊之类的' name='logContent'></textarea>
 		<input type='hidden' name='goalID' value="<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
 " />
-		<input type='hidden' name='act' value='finish' />
+		<input type='hidden' name='act' value='finishGoal' />
 	</form>
 </div>
 

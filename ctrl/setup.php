@@ -1,8 +1,23 @@
 <?php
 
 include_once('../smarty/libs/Smarty.class.php');
-include_once('../data_funs.inc');
+include_once('../model/data_funs.inc');
 
+
+// 重定向函数
+function redirect($ctrl, $act, $paras){
+	$url = $ctrl. "C.php?act=". $act;
+	
+	if(isset($paras)){
+		foreach($paras as $key => $value){
+			$url .= "&". $key. "=". $value;
+		}
+	}
+	
+	page_jump($url);
+}
+
+// 定制的 Smarty 子类
 class sm extends Smarty {
 
    function __construct($view)

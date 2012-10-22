@@ -11,8 +11,9 @@
 	
 	//获取某个用户的某种类型的全部目标
 	function get_goals($userID, $goalType, $isMe){
-		$query = "SELECT *\n"
-				. "FROM goals as a\n"
+		$query = "SELECT a.GoalID, a.Title, a.Reason, a.StartTime, a.EndTime, a.UserID, IFNULL(b.logsNum, 0) as logsNum, IFNULL(c.stepsNum, 0) as stepsNum\n"
+		//$query = "SELECT *\n"
+			. "FROM goals as a\n"
 					. "LEFT JOIN\n"
 					. "(SELECT GoalID, count(*) as logsNum FROM goal_logs GROUP BY GoalID) as b\n"
 					. "ON a.GoalID = b.GoalID\n"

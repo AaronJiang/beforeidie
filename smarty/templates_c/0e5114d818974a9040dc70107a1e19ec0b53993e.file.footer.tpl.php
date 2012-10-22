@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-10-21 19:56:16
+<?php /* Smarty version Smarty-3.1.12, created on 2012-10-22 19:05:45
          compiled from "F:\xampp\htdocs\Dream\view\footer.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:1451550835916c5eba8-75236645%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '0e5114d818974a9040dc70107a1e19ec0b53993e' => 
     array (
       0 => 'F:\\xampp\\htdocs\\Dream\\view\\footer.tpl',
-      1 => 1350820426,
+      1 => 1350903941,
       2 => 'file',
     ),
   ),
@@ -22,8 +22,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <?php if ($_valid && !is_callable('content_50835916c625a0_34013593')) {function content_50835916c625a0_34013593($_smarty_tpl) {?>			</div>
 		
 			<div id='footer'>
-				<a href='HomeController.php?act=about'>Goal是什么</a>
-				<a href='HomeController.php?act=terms'>条款与隐私</a>
+				<a href='HomeC.php?act=about'>Goal是什么</a>
+				<a href='HomeC.php?act=terms'>条款与隐私</a>
 				<span>?2012 hustlzp.com, all rights reserved.</p>
 			</div>
 	</body>

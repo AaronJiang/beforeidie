@@ -29,7 +29,7 @@
 
 <p class='subtitle'>设立新的 Goal</p>
 
-<form id="form-new-goal" action="goal_proc.php" method="post">
+<form id="form-new-goal" action="GoalC.php" method="post">
 	<div>
 		<input type="text" placeholder="写下你的目标" class='validate[required]' name="title" id="goal-title" autocomplete="off"/>
 	</div>
@@ -53,7 +53,7 @@
 		</select>
 	</div>
 	
-	<input type="hidden" name="proc" value="new" />
+	<input type="hidden" name="act" value="newGoal" />
 	<input type="hidden" name="userID" value='{$userID}' />
 	
 	<input type="submit" id="create-goal" value="添加" />

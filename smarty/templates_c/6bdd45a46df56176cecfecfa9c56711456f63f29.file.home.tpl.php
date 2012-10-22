@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-10-21 20:32:31
+<?php /* Smarty version Smarty-3.1.12, created on 2012-10-22 10:39:19
          compiled from "..\view\home\home.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:262625083561a969784-37903799%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6bdd45a46df56176cecfecfa9c56711456f63f29' => 
     array (
       0 => '..\\view\\home\\home.tpl',
-      1 => 1350822747,
+      1 => 1350873557,
       2 => 'file',
     ),
   ),
@@ -42,11 +42,11 @@ $_smarty_tpl->tpl_vars['goal']->_loop = true;
 </b> 启动</p>				<?php }elseif($_smarty_tpl->tpl_vars['goalType']->value=='finish'){?>				<p class='goal-endtime'>于 <b><?php echo $_smarty_tpl->tpl_vars['goal']->value['EndTime'];?>
 </b> 达成</p>											<?php }else{ ?>				<p><b><?php echo $_smarty_tpl->tpl_vars['goal']->value['stepsNum'];?>
 </b> 计划 | <b><?php echo $_smarty_tpl->tpl_vars['goal']->value['logsNum'];?>
-</b> 记录</p>				<?php }?>			</div>		</a>					<div class='goal-cmd-wap'>			<a class='goal-cmd goal-cmd-edit'				href='GoalC.php?act=edit&goalID=<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
-'				>编辑</a>			<?php if ($_smarty_tpl->tpl_vars['goalType']->value=="now"){?>			<a class='goal-cmd goal-cmd-delay' 				data-goalid='<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
+</b> 记录</p>				<?php }?>			</div>		</a>					<div class='goal-cmd-wap'>			<a class='goal-cmd goal-cmd-edit'				href="GoalC.php?act=edit&goalID=<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
+"				>编辑</a>			<?php if ($_smarty_tpl->tpl_vars['goalType']->value=="now"){?>			<a class='goal-cmd goal-cmd-delay' 				data-goalid='<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
 '				data-title='<?php echo $_smarty_tpl->tpl_vars['goal']->value['Title'];?>
-'				>推迟</a>			<?php }elseif($_smarty_tpl->tpl_vars['goalType']->value=="future"){?>			<a class='goal-cmd goal-cmd-start'				href='GoalC.php?act=start&goalID=<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
-'				>启动</a>			<?php }?>			<?php if ($_smarty_tpl->tpl_vars['goalType']->value!="finish"){?>			<a class='goal-cmd goal-cmd-drop'				data-title='<?php echo $_smarty_tpl->tpl_vars['goal']->value['Title'];?>
+'				>推迟</a>			<?php }elseif($_smarty_tpl->tpl_vars['goalType']->value=="future"){?>			<a class='goal-cmd goal-cmd-start'				href="GoalC.php?act=start&goalID=<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
+"				>启动</a>			<?php }?>			<?php if ($_smarty_tpl->tpl_vars['goalType']->value!="finish"){?>			<a class='goal-cmd goal-cmd-drop'				data-title='<?php echo $_smarty_tpl->tpl_vars['goal']->value['Title'];?>
 '				href='GoalC.php?act=drop&goalID=<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
-'				>放弃</a>				<?php }?>		</div>	</div><?php } ?>	</div><div id='dialog-delay' title='推迟启动'>	<form id='form-delay-goal' action='GoalC.php' method='post'>		<label for='goal-starttime'>启动时间：</label>		<input type='text' name='startTime' autocomplete="off" id='goal-starttime' />		<input type='hidden' name='goalID' value='' />		<input type='hidden' name='proc' value='delay' />	</form></div><?php echo $_smarty_tpl->getSubTemplate ('../footer.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+'				>放弃</a>				<?php }?>		</div>	</div><?php } ?>	</div><div id='dialog-delay' title='推迟启动'>	<form id='form-delay-goal' action='GoalC.php' method='post'>		<label for='goal-starttime'>启动时间：</label>		<input type='text' name='startTime' autocomplete="off" id='goal-starttime' />		<input type='hidden' name='goalID' value='' />		<input type='hidden' name='act' value='delay' />	</form></div><?php echo $_smarty_tpl->getSubTemplate ('../footer.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 <?php }} ?>

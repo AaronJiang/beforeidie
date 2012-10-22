@@ -2,10 +2,10 @@
 	include_once('data_funs.inc');
 	include_once('html_helper.php');
 	
-	$proc = $_REQUEST['proc'];
+	$act = $_REQUEST['act'];
 	
-	switch($proc){
-		case 'get_logs':
+	switch($act){
+		case 'getLogs':
 			$logs = get_logs($_REQUEST['goalID'], $_REQUEST['pageNum'], $_REQUEST['numPerPage']);
 			html_output_logs($logs, $_REQUEST['isCreator']);
 			break;

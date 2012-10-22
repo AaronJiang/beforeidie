@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-10-21 14:16:09
+<?php /* Smarty version Smarty-3.1.12, created on 2012-10-22 03:47:15
          compiled from "..\view\goal\new.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:266435083e5c78d3560-60576482%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a88a87eebc270b3bfe022c2f03cfdc88e9cb82d3' => 
     array (
       0 => '..\\view\\goal\\new.tpl',
-      1 => 1350821640,
+      1 => 1350870429,
       2 => 'file',
     ),
   ),
@@ -55,7 +55,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 <p class='subtitle'>设立新的 Goal</p>
 
-<form id="form-new-goal" action="goal_proc.php" method="post">
+<form id="form-new-goal" action="GoalC.php" method="post">
 	<div>
 		<input type="text" placeholder="写下你的目标" class='validate[required]' name="title" id="goal-title" autocomplete="off"/>
 	</div>
@@ -79,7 +79,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		</select>
 	</div>
 	
-	<input type="hidden" name="proc" value="new" />
+	<input type="hidden" name="act" value="insert" />
 	<input type="hidden" name="userID" value='<?php echo $_smarty_tpl->tpl_vars['userID']->value;?>
 ' />
 	
