@@ -171,10 +171,50 @@
 			echo delete_step($_REQUEST['stepID']);
 			break;
 			
-		// log procs
+		/* log procs */
+		
 		case "getLogs":
+			$sm = new sm('goal');
+			
+			// userID, userAvatar
+			session_start();
+			$userID = $_SESSION['valid_user_id'];
+			$sm->assign('userID', $userID);
+			$sm->assign('userAvatar', get_gravatar($userID));
+
+			// isCreator
+			$sm->assign('isCreator', $_REQUEST['isCreator']);
+			
+			// logs
 			$logs = get_logs($_REQUEST['goalID'], $_REQUEST['pageNum'], $_REQUEST['numPerPage']);
-			echo urldecode(json_encode(urlencodeAry($logs)));
+			foreach($logs as &$log){
+				// commentsNum
+				$comments = get_log_comments($log['LogID']);
+				$log['commentsNum'] = count($comments);
+				
+				// comments
+				foreach($comments as &$comm){
+					// comment poster
+					$comm['Poster'] = get_username_by_id($comm['PosterID']);
+					
+					// comment poster avatar
+					$comm['Avatar'] = get_gravatar($comm['PosterID']);
+					
+					// comment receiver, receiverID
+					if(!$comm['IsRoot']){
+						$comm['ReceiverID'] = get_posterid_by_commentid($comm['ParentCommentID']);
+						$comm['Receiver'] = get_username_by_id($comm['ReceiverID']);
+					}
+				}
+				$log['comments'] = $comments;
+			}
+			$sm->assign('logsNum', count($logs));
+			$sm->assign('logs', $logs);
+			
+			//print_r($logs);
+			
+			$output = $sm->fetch('logs.tpl');
+			echo $output;
 			break;
 			
 		case "deleteLog":

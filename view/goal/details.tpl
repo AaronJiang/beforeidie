@@ -27,7 +27,7 @@ $(document).ready(function(){
 			'isCreator': isCreator
 		};
 		
-		$('#logs').load('../html_proc.php', data, function(){
+		$('#logs').load('GoalC.php', data, function(){
 			$('#curr-page-num').text(pageNum);	
 		});
 	}

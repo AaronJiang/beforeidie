@@ -327,7 +327,7 @@
 						echo "<p class='log-title'>". $log['LogTitle']. "</p>";			
 					}
 					echo "<p class='log-content'>". $log['LogContent']. "</p>";
-				
+
 					//操作按钮
 					echo "<div class='log-cmd-time-wap'>"
 						. "<a class='small-cmd cmd-new-comment' 

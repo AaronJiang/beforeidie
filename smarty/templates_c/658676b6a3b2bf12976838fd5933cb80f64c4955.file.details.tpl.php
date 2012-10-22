@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-10-22 13:02:15
+<?php /* Smarty version Smarty-3.1.12, created on 2012-10-22 16:54:29
          compiled from "..\view\goal\details.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:67435083eba82ca817-93662169%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '658676b6a3b2bf12976838fd5933cb80f64c4955' => 
     array (
       0 => '..\\view\\goal\\details.tpl',
-      1 => 1350903507,
+      1 => 1350916380,
       2 => 'file',
     ),
   ),
@@ -70,7 +70,7 @@ $(document).ready(function(){
 			'isCreator': isCreator
 		};
 		
-		$('#logs').load('../html_proc.php', data, function(){
+		$('#logs').load('GoalC.php', data, function(){
 			$('#curr-page-num').text(pageNum);	
 		});
 	}
