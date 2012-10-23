@@ -1,35 +1,36 @@
 <?php
-	require_once('public_funs.php');
-	require_once('data_funs.inc');
+	include_once('model/data_funs.inc');
 
 	//输出动态 Poster's avatar HTML 代码
 	function html_output_dynamic_avatar($dyn){
-		echo "<a href='person.php?userID=". $dyn['PosterID']. "'>"
+		echo "<a href='PersonC.php?act=person&userID=". $dyn['PosterID']. "'>"
 				. "<img class='dynamic-poster-profile' 
 						title='". $dyn['Poster']. "' 
 						src='". get_user_profile($dyn['PosterID']). "' />"
 			. "</a>";
 	}
-	
+
 	//输出好友动态的 HTML 代码
-	function html_output_dynamics_others($dyns, $userID){
+	function html_output_dynamics($dyns, $userID){
 	
 		foreach($dyns as $dyn){
 			echo "<div class='dynamic-item clearfix new-comment-parent'>";
 			
+			html_output_dynamic_avatar($dyn);
+
 			switch($dyn['type']){
 			
 			//发表新的 Log
 			case 'newLog':
-				html_output_dynamic_avatar($dyn);
 				
 				//content
 				echo "<div class='dynamic-content-wap'>"
+
 						//header
 						. "<p class='dynamic-header'>"		
-							. "<a class='dynamic-goal-creater' href='person.php?userID=". $dyn['PosterID']. "'>". $dyn['Poster']. "</a>"
+							. "<a class='dynamic-goal-creater' href='ctrl/PersonC.php?act=person&userID=". $dyn['PosterID']. "'>". $dyn['Poster']. "</a>"
 							. " 在目标 "
-							. "<a href='goal_page_details.php?goalID=". $dyn['GoalID']. "' class='dynamic-goal-title'>". $dyn['GoalTitle']. "</a>"
+							. "<a href='ctrl/GoalC.php?act=details&goalID=". $dyn['GoalID']. "' class='dynamic-goal-title'>". $dyn['GoalTitle']. "</a>"
 							. " 中写到："
 						. "</p>";
 						
@@ -52,18 +53,17 @@
 					. "</div>";
 					
 					//comments
-					html_output_comments($dyn['LogID']);
+					//html_output_comments($dyn['LogID']);
 				break;
 			
 			//设立新的 Goal
 			case 'newGoal':
-				html_output_dynamic_avatar($dyn);
 				
 				echo "<div class='dynamic-content-wap'>" 
 						. "<p class='dynamic-header'>"	
-							. "<a class='dynamic-goal-creater' href='person.php?userID=". $dyn['PosterID']. "'>". $dyn['Poster']. "</a>"
+							. "<a class='dynamic-goal-creater' href='ctrl/PersonC.php?act=person&userID=". $dyn['PosterID']. "'>". $dyn['Poster']. "</a>"
 							. " 设立了目标 "
-							. "<a href='goal_page_details.php?goalID=". $dyn['GoalID']. "' class='dynamic-goal-title'>". $dyn['GoalTitle']. "</a>"
+							. "<a href='GoalC.php?act=details&goalID=". $dyn['GoalID']. "' class='dynamic-goal-title'>". $dyn['GoalTitle']. "</a>"
 						. "</p>"
 						. "<p class='dynamic-goal-reason'>". $dyn['GoalReason']. "</p>"
 						
@@ -71,22 +71,21 @@
 						. "<div class='dynamic-footer'>";
 							$isCheered = check_goal_is_cheered($userID, $dyn['GoalID']);
 							if(!$isCheered){
-								echo "<a class='small-cmd' href='cheer_proc.php?proc=cheer&userID=". $userID. "&goalID=". $dyn['GoalID']. "'>鼓励</a>";
+								echo "<a class='small-cmd' href='ctrl/GoalC.php?act=cheer&userID=". $userID. "&goalID=". $dyn['GoalID']. "'>鼓励</a>";
 							}
 							echo "<p class='dynamic-time'>". $dyn['Time']. "</p>"
 						. "</div>"
 					. "</div>";
 				break;
 			
-			//完成目标
+			//完成了 Goal
 			case 'finishGoal':
-				html_output_dynamic_avatar($dyn);
 				
 				echo "<div class='dynamic-content-wap'>" 
 						. "<p class='dynamic-header'>"	
-							. "<a class='dynamic-goal-creater' href='person.php?userID=". $dyn['PosterID']. "'>". $dyn['Poster']. "</a>"
+							. "<a class='dynamic-goal-creater' href='ctrl/PersonC.php?act=person&userID=". $dyn['PosterID']. "'>". $dyn['Poster']. "</a>"
 							. " 完成了目标 "
-							. "<a href='goal_page_details.php?goalID=". $dyn['GoalID']. "' class='dynamic-goal-title'>". $dyn['GoalTitle']. "</a>"
+							. "<a href='ctrl/GoalC.php?act=details&goalID=". $dyn['GoalID']. "' class='dynamic-goal-title'>". $dyn['GoalTitle']. "</a>"
 						. "</p>";
 						
 						//log
@@ -99,7 +98,7 @@
 						. "<div class='dynamic-footer'>";
 							$isCheered = check_goal_is_cheered($userID, $dyn['GoalID']);
 							if(!$isCheered){
-								echo "<a class='small-cmd' href='cheer_proc.php?proc=cheer&userID=". $userID. "&goalID=". $dyn['GoalID']. "'>鼓励</a>";
+								echo "<a class='small-cmd' href='ctrl/GoalC.php?act=cheer&userID=". $userID. "&goalID=". $dyn['GoalID']. "'>鼓励</a>";
 							}
 							echo "<p class='dynamic-time'>". $dyn['Time']. "</p>"
 						. "</div>"
@@ -108,13 +107,12 @@
 				
 			//关注了他人
 			case 'followOther':
-				html_output_dynamic_avatar($dyn);
 				
 				echo "<div class='dynamic-content-wap'>"
 						."<p class='dynamic-header'>"
-							. "<a class='dynamic-goal-creater' href='person.php?userID=". $dyn['PosterID']. "'>". $dyn['Poster']. "</a>"
+							. "<a class='dynamic-goal-creater' href='ctrl/PersonC.php?act=person&userID=". $dyn['PosterID']. "'>". $dyn['Poster']. "</a>"
 							. " 关注了 "
-							. "<a class='dynamic-goal-creater' href='person.php?userID=". $dyn['FolloweeID']. "'>". $dyn['Followee']. "</a>"							
+							. "<a class='dynamic-goal-creater' href='ctrl/PersonC.php?act=person&userID=". $dyn['FolloweeID']. "'>". $dyn['Followee']. "</a>"							
 						. "</p>"
 						
 						. "<div class='dynamic-footer'>"
@@ -127,80 +125,6 @@
 			echo "</div>";
 		}
 	}
-
-	//输出某人的动态
-	function html_output_dynamics_single($dyns){
-	
-		@session_start();
-		
-		foreach($dyns as $dyn){
-			echo "<div class='dynamic-item clearfix new-comment-parent'>"
-					. "<img title='". $dyn['Poster']. "' class='user-avatar' src='". get_user_profile($dyn['PosterID']). "'>";
-				
-					//若为 Log 相关的动态
-					if($dyn['type'] == 'newLog'){
-
-						echo "<div class='dynamic-content'>"
-							//header
-							. "<p class='dynamic-header'>"
-								. "<a class='username' href='person.php?userID=". $dyn['PosterID']. "'>". $dyn['Poster']. "</a>"
-								. " 在 "
-								. "<a href='goal_page_details.php?goalID=". $dyn['GoalID']. "' class='dynamic-goal-title'>". $dyn['GoalTitle']. "</a>"
-								. " 中写到："
-							. "</p>";
-							
-							//log content
-							if($dyn['LogTitle'] != ""){
-								echo "<p class='dynamic-log-title'>". $dyn['LogTitle']. "</p>";
-							}
-							echo "<p class='dynamic-log-content'>". $dyn['LogContent']. "</p>"
-								
-							//footer
-							. "<div class='dynamic-footer'>"
-								. "<a class='small-cmd cmd-new-comment'
-										data-poster-id='". $_SESSION['valid_user_id']. "'
-										data-log-id='". $dyn['LogID']. "'
-										data-is-root='1'
-										data-avatar-url='". get_user_profile($_SESSION['valid_user_id']). "'
-										>回复</a>"
-								. "<p class='post-time'>". $dyn['Time']. "</p>"
-							. "</div>"
-						. "</div>";
-							
-						//comments
-						html_output_comments($dyn['LogID']);
-					}
-					//若为 Goal 相关的动态
-					else if($dyn['type'] == 'newGoal'){
-
-						echo "<div class='dynamic-content'>"
-						
-							//header
-							. "<p class='dynamic-header'>"
-								. "<a class='username' href='person.php?userID=". $dyn['PosterID']. "'>". $dyn['Poster']. "</a>"
-								. " 设立目标 "
-								. "<a href='goal_page_details.php?goalID=". $dyn['GoalID']. "' class='dynamic-goal-title'>". $dyn['GoalTitle']. "</a>"
-							. "</p>"
-							
-							//reason
-							. "<p class='dynamic-goal-reason'>". $dyn['GoalReason']. "</p>"
-							
-							//footer
-							. "<div class='dynamic-footer'>";
-								$isMe = ($_SESSION['valid_user_id'] == $dyn['GoalID']);
-								$isCheered = check_goal_is_cheered($_SESSION['valid_user_id'], $dyn['GoalID']);
-								if(!$isCheered && !$isMe){
-									echo "<a class='small-cmd' href='cheer_proc.php?proc=cheer&userID=". $_SESSION['valid_user_id']. "&goalID=". $dyn['GoalID']. "'>鼓励</a>";
-								}
-								echo "<p class='post-time'>". $dyn['Time']. "</p>"
-							. "</div>"
-							
-						. "</div>";
-					}
-	
-				echo "</div>";
-		}	
-	}	
 	
 	//输出与我相关的动态的 HTML 代码
 	function html_output_dynamics_me($dyns){
@@ -208,12 +132,13 @@
 		foreach($dyns as $dyn){
 			echo "<div class='dynamic-item clearfix new-comment-parent'>";
 			
+			//avatar
+			html_output_dynamic_avatar($dyn);		
+			
 			switch($dyn['type']){
 			
 			//若为针对 Goal 的评论		
 			case 'newCommentOnMyLog':
-	
-				html_output_dynamic_avatar($dyn);
 
 				echo "<div class='dynamic-content-wap'>"
 					. "<div class='dynamic-header'>"
@@ -237,14 +162,12 @@
 				. "</div>";
 
 				//回复
-				html_output_comments($dyn['LogID']);
+				//html_output_comments($dyn['LogID']);
 				
 				break;
 				
 			//若为针对 Comment 的评论				
 			case 'newCommentOnOtherLog':
-
-				html_output_dynamic_avatar($dyn);
 					
 				echo "<div class='dynamic-content-wap'>"
 					//header
@@ -264,15 +187,12 @@
 				. "</div>";
 					
 				//Comments
-				html_output_comments($dyn['LogID']);
+				//html_output_comments($dyn['LogID']);
 				
 				break;
 				
 			//若为鼓励			
 			case 'newCheer':
-
-				//avatar
-				html_output_dynamic_avatar($dyn);
 				
 				echo "<div class='dynamic-content-wap'>"
 					//header
@@ -292,10 +212,7 @@
 				
 			//若为关注				
 			case 'newFollow':
-				
-				//avatar
-				html_output_dynamic_avatar($dyn);
-				
+
 				echo "<div class='dynamic-content-wap'>"
 					."<p class='dynamic-header'>"
 						. "<a class='dynamic-goal-creater' href='person.php?userID=". $dyn['PosterID']. "'>". $dyn['Poster']. "</a>"
@@ -305,149 +222,12 @@
 					. "<div class='dynamic-footer'>"
 						. "<p class='dynamic-time'>". $dyn['Time']. "</p>"
 					. "</div>"		
-				. "</div>";	
+				. "</div>";
 				break;
 			}	
 			
 			echo "</div>";	
 		}
-	}
-	
-	//输出 Logs 的 HTML 代码
-	function html_output_logs($logs, $isCreator){
-		
-		@session_start();
-		
-		if(count($logs) != 0){
-			foreach($logs as $log){
-				echo "<div class='log-item new-comment-parent'>";
-
-					//标题和内容
-					if($log['LogTitle'] != ''){
-						echo "<p class='log-title'>". $log['LogTitle']. "</p>";			
-					}
-					echo "<p class='log-content'>". $log['LogContent']. "</p>";
-
-					//操作按钮
-					echo "<div class='log-cmd-time-wap'>"
-						. "<a class='small-cmd cmd-new-comment' 
-								data-log-id='". $log['LogID']. "'
-								data-poster-id='". $_SESSION['valid_user_id']. "'
-								data-is-root='1'
-								data-avatar-url='". get_user_profile($_SESSION['valid_user_id']). "'
-								>回复";
-
-						if($log['commentsNum']){
-							echo "(". $log['commentsNum']. ")";
-						}
-						echo "</a>";
-
-						if($isCreator){
-							echo "<a class='small-cmd log-cmd-edit' 
-									data-log-id='". $log['LogID'] ."'>编辑</a>";
-									
-								if($log['TypeID'] != 0){
-									echo "<a class='small-cmd log-cmd-delete'
-											href='GoalC.php?act=deleteLog&logID=". $log['LogID']. "'>删除</a>";
-								}
-						}
-						
-						//时间
-						echo "<p class='log-time'>". $log['LogTime']. "</p>"
-					. "</div>";
-				
-					//回复
-					html_output_comments($log['LogID']);
-				echo "</div>";
-			}
-		}	
-	}
-	
-	//输出 Comments
-	function html_output_comments($logID){
-		$comments = get_log_comments($logID);
-		if(count($comments) == 0){
-			return;
-		}
-		
-		@session_start();
-		
-		echo "<div class='comments-wap'>";
-		foreach($comments as $comm){
-			$posterID = $comm['PosterID'];
-			$poster = get_username_by_id($comm['PosterID']);
-			
-			//item
-			echo "<div class='comment-item clearfix'>"
-				//avatar
-				. "<a href='person.php?userID=". $comm['PosterID']. "'>"
-					. "<img class='comment-poster-profile'
-							title='". $poster. "'
-							src='". get_user_profile($comm['PosterID']). "'/>"
-				. "</a>"
-
-				//main
-				. "<div class='comment-main'>"
-					//header
-					. "<div class='comment-header'>";
-						if($comm['IsRoot']){
-							echo "<a href='person.php?userID=". $posterID. "'>". $poster. "</a>"
-								. " : "
-								. $comm['Comment'];
-						}
-						else {
-							$receiverID = get_posterid_by_commentid($comm['ParentCommentID']);
-							$receiver = get_username_by_id($receiverID);
-							echo "<a href='person.php?userID=". $posterID. "'>". $poster. "</a>"
-								. " : "
-								. "<a href='person.php?userID=". $receiverID. "'>@". $receiver. "</a> "
-								. $comm['Comment'];
-						}
-					echo "</div>"
-					
-					//footer
-					. "<div class='comment-footer'>"
-						. "<span class='comment-time'>". $comm['Time']. "</span>"
-						. "&nbsp;"
-						. "<span class='comment-cmd cmd-new-comment'
-								data-log-id='". $logID . "'
-								data-parent-comment-id='". $comm['CommentID']. "'
-								data-poster-id='". $_SESSION['valid_user_id']. "'
-								data-is-root='0'
-								data-avatar-url='". get_user_profile($_SESSION['valid_user_id']). "'
-								>回复<span>"
-					. "</div>"	//end-footer
-				. "</div>"	//end-main
-			. "</div>";	//end-item
-		}
-		echo "</div>";	//end-comments
-	}
-	
-	//输出 Panel Header
-	function html_out_panel_header($title, $cmd, $cmdID, $cmdUrl, $isAuth){
-		echo "<div class='panel-header'>";
-		echo " <div class='panel-title'>". $title. "</div>";
-		
-		if(isset($cmd)){
-			//若未授权，则不输出命令
-			if(isset($isAuth) && !$isAuth){
-				echo "</div>";
-				return;
-			}
-			
-			echo "<div class='panel-cmd-wapper'>";		
-			
-			echo "<span class='panel-underline'>_ _ _</span>";
-			echo "<a class='panel-cmd' id='". $cmdID. "'";
-			if(trim($cmdUrl) != ""){
-				echo "href='". $cmdUrl. "'";
-			}
-			echo ">". $cmd. "</a>";
-			
-			echo "</div>";
-		}
-		
-		echo "</div>";
 	}
 	
 	//输出未认证时的 HTML 头

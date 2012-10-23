@@ -1,10 +1,12 @@
 <?php
 
 	include_once('setup.php');
+	include_once('../html_helper.php');
 
 	$action = $_REQUEST['act'];
 	
 	switch($action){
+
 		// page followee dyns
 		case 'followeeDyns':
 			$sm = new sm('dyn');
@@ -67,6 +69,22 @@
 			$sm->assign('followeesNum', count($followees));
 			
 			$sm->display('adminFollowees.tpl');
+			break;
+		
+		// dyn proc
+		case 'getFolloweeDyns':
+			$dyns = get_dynamics('others', $_REQUEST['userID'], $_REQUEST['pageIndex'], $_REQUEST['numPerPage']);
+			html_output_dynamics($dyns, $_REQUEST['userID']);
+			break;
+			
+		case 'getAboutMeDyns':
+			$dyns = get_dynamics_about_me($_REQUEST['userID'], $_REQUEST['pageIndex'], $_REQUEST['numPerPage']);
+			html_output_dynamics_me($dyns);
+			break;
+			
+		case 'getSingleDyns':
+			$dyns = get_dynamics('me', $_REQUEST['userID'], $_REQUEST['pageIndex'], $_REQUEST['numPerPage']);
+			html_output_dynamics($dyns, $_REQUEST['userID']);
 			break;
 		
 		// follow proc

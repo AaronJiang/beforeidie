@@ -1,5 +1,5 @@
 <?php
-	require_once('data_funs.inc');
+	require_once('model/data_funs.inc');
 	require_once('html_helper.php');
 
 	$userID = $_REQUEST['userID'];
@@ -11,7 +11,6 @@
 ?>
 
 <script type='text/javascript' src='js/goal-comment.js'></script>
-
 <script type='text/javascript'>
 
 $(document).ready(function(){
@@ -19,14 +18,14 @@ $(document).ready(function(){
 	//按需加载动态
 	function load_dyns(userID, pageIndex, numPerPage, isMe, callback){
 		var data = {
-			'proc': 'get_dyns_single',
+			'act': 'getSingleDyns',
 			'userID': userID,
 			'pageIndex': pageIndex,
 			'numPerPage': numPerPage,
 			'isMe': isMe
 		};
 
-		$.get('html_proc.php', data, function(data){
+		$.get('ctrl/DynC.php', data, function(data){
 			$('#dyns').append(data);
 			$('#more-dyns').show();	
 			callback();

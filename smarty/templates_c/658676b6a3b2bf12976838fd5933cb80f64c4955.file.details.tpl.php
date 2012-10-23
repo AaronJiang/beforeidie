@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-10-22 16:54:29
+<?php /* Smarty version Smarty-3.1.12, created on 2012-10-23 02:35:32
          compiled from "..\view\goal\details.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:67435083eba82ca817-93662169%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '658676b6a3b2bf12976838fd5933cb80f64c4955' => 
     array (
       0 => '..\\view\\goal\\details.tpl',
-      1 => 1350916380,
+      1 => 1350952529,
       2 => 'file',
     ),
   ),
@@ -535,7 +535,7 @@ $_smarty_tpl->tpl_vars['step']->_loop = true;
 foreach ($_from as $_smarty_tpl->tpl_vars['cheerer']->key => $_smarty_tpl->tpl_vars['cheerer']->value){
 $_smarty_tpl->tpl_vars['cheerer']->_loop = true;
 ?>
-		<a href="person.php?userID=<?php echo $_smarty_tpl->tpl_vars['cheerer']->value['UserID'];?>
+		<a href="PersonC.php?act=person&userID=<?php echo $_smarty_tpl->tpl_vars['cheerer']->value['UserID'];?>
 ">
 			<img class='user-icon' src="<?php echo $_smarty_tpl->tpl_vars['cheerer']->value['Avatar'];?>
 " title="<?php echo $_smarty_tpl->tpl_vars['cheerer']->value['Username'];?>

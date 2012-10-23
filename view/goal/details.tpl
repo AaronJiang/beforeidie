@@ -492,7 +492,7 @@ $(document).ready(function(){
 		}
 		
 		{foreach $cheerers as $cheerer}
-		<a href="person.php?userID={$cheerer.UserID}">
+		<a href="PersonC.php?act=person&userID={$cheerer.UserID}">
 			<img class='user-icon' src="{$cheerer.Avatar}" title="{$cheerer.Username}" />
 		</a>
 		{/foreach}
