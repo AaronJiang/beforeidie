@@ -1,0 +1,98 @@
+{foreach $dyns as $dyn}
+<div class='dynamic-item clearfix new-comment-parent'>
+			
+	{* avatar *}
+	<a href="PersonC.php?act=person&userID={$dyn.PosterID}">
+		<img class='dynamic-poster-profile' 
+			title="{$dyn.Poster}"
+			src="{$dyn.PosterAvatar}" />
+	</a>		
+	
+	{* 若为针对 Goal 的评论 *}		
+	{if $dyn.Type == 'newCommentOnMyLog'}
+	<div class='dynamic-content-wap'>
+		<div class='dynamic-header'>
+			<a class='dynamic-goal-creater' href="PersonC.php?userID={$dyn.PosterID}">{$dyn.Poster}</a>
+			{if $dyn.CommentIsRoot}
+			<span>评论了我的目标</span>
+			<a href="GoalC.php?act=details&goalID={$dyn.GoalID}" class='dynamic-goal-title'>{$dyn.GoalTitle}</a>
+			{else}
+			<span>在我的目标</span>
+			<a href="GoalC.php?act=details&goalID={$dyn.GoalID}" class='dynamic-goal-title'>{$dyn.GoalTitle}</a>
+			<span>中回复</span>
+			{/if}
+			<span>：</span>
+		</div>
+		
+		<div class='dynamic-log-wap'>
+			<p class='dynamic-log-title'>{$dyn.LogTitle}</p>
+			<p class='dynamic-log-content'>{$dyn.LogContent}</p>
+		</div>
+	</div>
+	{* 回复 *}
+	{if $dyn.commentsNum != 0}
+	<div class='comments-wap'>
+		{foreach $dyn.comments as $comm}
+		{include file='../goal/comments.tpl'}
+		{/foreach}
+	</div>
+	{/if}
+	
+	{* 若为针对 Comment 的评论 *}				
+	{elseif $dyn.Type == 'newCommentOnOtherLog'}
+	<div class='dynamic-content-wap'>
+		{* header *}
+		<div class='dynamic-header'>
+			<a class='dynamic-goal-creater' href="PersonC.php?act=person&userID={$dyn.PosterID}">{$dyn.Poster}</a>
+			<span>在目标</span>
+			<a href="GoalC.php?act=details&goalID={$dyn.GoalID}" class='dynamic-goal-title'>{$dyn.GoalTitle}</a>
+			<span>中回复：</span>
+		</div>
+						
+		{* log *}
+		<div class='dynamic-log-wap'>
+			<p class='dynamic-log-title'>{$dyn.LogTitle}</p>
+			<p class='dynamic-log-content'>{$dyn.LogContent}</p>
+		</div>
+	</div>
+	{* 回复 *}
+	{if $dyn.commentsNum != 0}
+	<div class='comments-wap'>
+		{foreach $dyn.comments as $comm}
+		{include file='../goal/comments.tpl'}
+		{/foreach}
+	</div>
+	{/if}
+	
+	{* 鼓励	*}
+	{elseif $dyn.Type == 'newCheer'}
+	<div class='dynamic-content-wap'>
+		{* header *}
+		<p class='dynamic-header'>
+			<a class='dynamic-goal-creater' href="PersonC.php?act=person&userID={$dyn.PosterID}">{$dyn.Poster}</a>
+			<span>鼓励了我的目标</span>
+			<a href="GoalC.php?act=details&goalID={$dyn.GoalID}" class='dynamic-goal-title'>{$dyn.GoalTitle}</a>
+		</p>
+
+		{* footer *}
+		<div class='dynamic-footer'>
+			<p class='dynamic-time'>{$dyn.Time}</p>
+		</div>
+	</div>
+
+	{* 若为关注 *}	
+	{elseif $dyn.Type == 'newFollow'}			
+	<div class='dynamic-content-wap'>
+		<p class='dynamic-header'>
+			<a class='dynamic-goal-creater' href="Personc.php?act=person&userID={$dyn.PosterID}">{$dyn.Poster}</a>
+			<span>关注了我</span>
+		</p>
+
+		<div class='dynamic-footer'>
+			<p class='dynamic-time'>{$dyn.Time}</p>
+		</div>
+	</div>
+	{/if}
+
+</div>
+{/foreach}	

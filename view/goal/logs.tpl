@@ -34,9 +34,11 @@
 				
 		{* 回复 *}
 		{if $log.commentsNum != 0}
-		
-		{include file='comments.tpl'}
-		
+		<div class='comments-wap'>
+			{foreach $log.comments as $comm}
+			{include file='comments.tpl'}
+			{/foreach}
+		</div>
 		{/if}
 	</div>
 	{/foreach}

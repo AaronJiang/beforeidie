@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-10-22 18:03:34
+<?php /* Smarty version Smarty-3.1.12, created on 2012-10-23 09:47:53
          compiled from "..\view\goal\logs.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:658250855e287f8d49-02037241%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd0642119b3c4d6910f4b2b5a61a4516f98f48d91' => 
     array (
       0 => '..\\view\\goal\\logs.tpl',
-      1 => 1350921779,
+      1 => 1350978472,
       2 => 'file',
     ),
   ),
@@ -78,10 +78,16 @@ $_smarty_tpl->tpl_vars['log']->_loop = true;
 				
 		
 		<?php if ($_smarty_tpl->tpl_vars['log']->value['commentsNum']!=0){?>
-		
-		<?php echo $_smarty_tpl->getSubTemplate ('comments.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+		<div class='comments-wap'>
+			<?php  $_smarty_tpl->tpl_vars['comm'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['comm']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['log']->value['comments']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['comm']->key => $_smarty_tpl->tpl_vars['comm']->value){
+$_smarty_tpl->tpl_vars['comm']->_loop = true;
+?>
+			<?php echo $_smarty_tpl->getSubTemplate ('comments.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
-		
+			<?php } ?>
+		</div>
 		<?php }?>
 	</div>
 	<?php } ?>
