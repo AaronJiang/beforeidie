@@ -109,18 +109,18 @@
 		//在我的Goal中出现的回复
 		$query .= "(SELECT 'newCommentOnMyLog' as Type, users.Username as Poster, users.UserID as PosterID, goals.GoalID, goals.Title as GoalTitle, goals.Reason, logs.LogID as LogID, logs.LogTitle as LogTitle, Logs.LogContent as LogContent, comments.CommentID, comments.IsRoot as CommentIsRoot, comments.Comment as Comment, comments.Time as Time\n"
 				. "FROM comments, goals, goal_logs as logs, users\n"
-				. "WHERE comments.PosterID != ". $userID. "\n"
-				. "AND comments.PosterID = users.UserID\n"
+				. "WHERE comments.PosterID = users.UserID\n"
+				. "AND comments.PosterID != ". $userID. "\n"	// 不是我发出的
 				. "AND comments.LogID = logs.LogID\n"
 				. "AND Logs.GoalID = goals.GoalID\n"
-				. "AND goals.UserID = ". $userID ."\n"
+				. "AND goals.UserID = ". $userID. "\n"	//在我的 Goal 中
 				. "AND comments.CommentID IN"
 					. "(SELECT comments.CommentID\n"
 					. "FROM comments\n"
-					. "RIGHT JOIN\n"
-						. "(SELECT LogID, Max(Time) as MaxTime\n"
-						. "FROM comments\n"
-						. "GROUP BY LogID) as B\n"
+						. "RIGHT JOIN\n"
+							. "(SELECT LogID, Max(Time) as MaxTime\n"	//找到针对此 Log 的回复、并且不是我发出的、最新的一条
+							. "FROM comments\n"
+							. "GROUP BY LogID) as B\n"
 						. "ON comments.LogID = B.LogID\n"
 						. "AND comments.Time = B.MaxTime\n"
 					. ")\n"
@@ -130,25 +130,25 @@
 		//在他人的Goal中针对我的回复
 		$query .= "(SELECT 'newCommentOnOtherLog' as Type, users.Username as Poster, users.UserID as PosterID, goals.GoalID, goals.Title as GoalTitle, goals.Reason, logs.LogID as LogID, logs.LogTitle as LogTitle, Logs.LogContent as LogContent, c1.CommentID, NULL as CommentIsRoot, c1.Comment as Comment, c1.Time as Time\n"
 				. "FROM comments as c1, comments as c2, goals, goal_logs as logs, users\n"
-				. "WHERE c1.PosterID != ". $userID. "\n"
-				. "AND c1.IsRoot = 0\n"
-				. "AND c1.PosterID = users.UserID\n"
+				. "WHERE c1.PosterID = users.UserID\n"
+				. "AND c1.PosterID != ". $userID. "\n"	// 不是我发出的
 				. "AND c1.LogID = logs.LogID\n"
 				. "AND logs.GoalID = goals.GoalID\n"
-				. "AND goals.UserID != ". $userID. "\n"
+				. "AND goals.UserID != ". $userID. "\n"	// 不是在我的 Goal 中
 				. "AND c1.ParentCommentID = c2.CommentID\n"
-				. "AND c2.PosterID = ". $userID. "\n"
+				. "AND c2.PosterID = ". $userID. "\n"	// 针对我的回复
 				. "AND c1.CommentID IN\n"
-				. "(SELECT comments.CommentID\n"
+					. "(SELECT comments.CommentID\n"
 					. "FROM comments\n"
-					. "RIGHT JOIN\n"
-						. "(SELECT LogID, Max(Time) as MaxTime\n"
-						. "FROM comments\n"
-						. "GROUP BY LogID) as B\n"
+						. "RIGHT JOIN\n"
+							. "(SELECT LogID, Max(Time) as MaxTime\n"	//找到针对此 Log 的回复中的最新的一条
+							. "FROM comments\n"
+							. "GROUP BY LogID) as B\n"
 						. "ON comments.LogID = B.LogID\n"
 						. "AND comments.Time = B.MaxTime\n"
 					. ")\n"
 				. ")\n";
+
 		$query .= "ORDER BY Time DESC\n";
 		$query .= "LIMIT ". $numPerPage*($pageIndex-1). ", ". $numPerPage;
 		

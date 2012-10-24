@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-10-23 10:03:50
+<?php /* Smarty version Smarty-3.1.12, created on 2012-10-23 12:30:24
          compiled from "..\view\goal\comments.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:803550855e94760589-48347555%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ed8c6ae20356dc511abab15bfebb57e7a2fa177b' => 
     array (
       0 => '..\\view\\goal\\comments.tpl',
-      1 => 1350978847,
+      1 => 1350983834,
       2 => 'file',
     ),
   ),
@@ -63,7 +63,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<div class='comment-footer'>
 			<span class='comment-time'><?php echo $_smarty_tpl->tpl_vars['comm']->value['Time'];?>
 </span>
-			&nbsp;
 			<span class='comment-cmd cmd-new-comment'
 				data-log-id="<?php echo $_smarty_tpl->tpl_vars['comm']->value['LogID'];?>
 "

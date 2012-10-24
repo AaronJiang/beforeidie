@@ -51,11 +51,39 @@
 		// page followers
 		case 'followers':
 			$sm = new sm('dyn');
+			
+			// userID, username
+			$userID = $_REQUEST['userID'];
+			$sm->assign('userID', $userID);
+			$sm->assign('username', get_username_by_id($userID));
+
+			// followers
+			@$followers = get_followers($userID);
+			foreach($followers as &$follower){
+				$follower['Avatar'] = get_gravatar($follower['UserID']);
+			}
+			$sm->assign('followers', $followers);
+			
+			$sm->display('followers.tp');
 			break;
 
 		// page followees
 		case 'followees':
 			$sm = new sm('dyn');
+			
+			// follower, followerID
+			$userID = $_REQUEST['userID'];
+			$sm->assign('userID', $userID);
+			$sm->assign('username', get_username_by_id($userID));
+
+			// followers
+			@$followees = get_followees($userID);
+			foreach($followees as &$followee){
+				$followee['Avatar'] = get_gravatar($followee['UserID']);
+			}
+			$sm->assign('followees', $followees);
+			
+			$sm->display('followees.tp');
 			break;
 			
 		// page admin followees
@@ -116,24 +144,9 @@
 				
 				//comments
 				if($dyn['Type'] == 'newLog' || $dyn['Type'] == 'finishGoal'){
-					// commentsNum
-					$comments = get_log_comments($dyn['LogID']);
+					// comments, commentsNum
+					$comments = get_log_comments_full($dyn['LogID']);
 					$dyn['commentsNum'] = count($comments);
-						
-					// comments
-					foreach($comments as &$comm){
-						// comment poster
-						$comm['Poster'] = get_username_by_id($comm['PosterID']);
-						
-						// comment poster avatar
-						$comm['Avatar'] = get_gravatar($comm['PosterID']);
-						
-						// comment receiver, receiverID
-						if(!$comm['IsRoot']){
-							$comm['ReceiverID'] = get_posterid_by_commentid($comm['ParentCommentID']);
-							$comm['Receiver'] = get_username_by_id($comm['ReceiverID']);
-						}						
-					}
 					$dyn['comments'] = $comments;
 				}
 			}
@@ -162,23 +175,8 @@
 				//comments
 				if($dyn['Type'] == 'newCommentOnMyLog' || $dyn['Type'] == 'newCommentOnOtherLog'){
 					// commentsNum
-					$comments = get_log_comments($dyn['LogID']);
+					$comments = get_log_comments_full($dyn['LogID']);
 					$dyn['commentsNum'] = count($comments);
-						
-					// comments
-					foreach($comments as &$comm){
-						// comment poster
-						$comm['Poster'] = get_username_by_id($comm['PosterID']);
-						
-						// comment poster avatar
-						$comm['Avatar'] = get_gravatar($comm['PosterID']);
-						
-						// comment receiver, receiverID
-						if(!$comm['IsRoot']){
-							$comm['ReceiverID'] = get_posterid_by_commentid($comm['ParentCommentID']);
-							$comm['Receiver'] = get_username_by_id($comm['ReceiverID']);
-						}						
-					}
 					$dyn['comments'] = $comments;
 				}
 			}

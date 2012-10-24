@@ -1,0 +1,121 @@
+{include file='../header.tpl' title="{$user.Name} 的个人空间" page='page-person'}
+
+<div id='person-page'>
+
+	<div id='main-panel'>
+		
+		<!-- User Info -->		
+		<div id='user-info' class='clearfix'>
+			<img id='user-avatar' src='{$user.Avatar}' />
+			
+			<div id='user-info-wap'>
+				<span id='user-name'>{$user.Name} 的个人主页</span>
+			</div>
+		
+			{if !$isMe}
+			<div id='user-cmd-wap'>
+				{if $isFollowed}
+				<a class='isFollowed' href='DynC.php?act=disfollow&followerID={$currUserID}&followeeID={$user.ID}'>已关注</a>
+				{else}
+				<a href='DynC.php?act=follow&followerID={$currUserID}&followeeID={$user.ID}'>关注</a>
+				{/if}
+			</div>
+			{/if}
+		</div>
+	
+		<!-- 用户的 Goals -->
+		<ul id='goal-wap-header'>
+			<li><a href='PersonC.php?act=person&userID={$user.ID}&goalType=now'>进行中 [{$goalsNum.now}]</a></li>
+			<li><a href='PersonC.php?act=person&userID={$user.ID}&goalType=future'>待启动 [{$goalsNum.future}]</a></li>
+			<li><a href='PersonC.php?act=person&userID={$user.ID}&goalType=finish'>已完成 [{$goalsNum.finish}]</a></li>
+		</ul>
+		
+		<div class='goal-wap'>
+			{foreach $goals as $goal}
+			<div class='goal-item'>
+				<p class='goal-title'>
+					<a href='GoalC.php?act=details&goalID={$goal.GoalID}'>{$goal.Title}</a>
+				</p>
+				
+				<p class='goal-reason'>{$goal.Reason}</p>
+				<div class='goal-num-wap'>
+					<span>{$goal.stepsNum} 规划</span>
+					<span>·</span>
+					<span>{$goal.logsNum} 记录</span>
+					<span>·</span> 
+					<span>{$goal.cheersNum} 鼓励</span>
+				</div>
+			</div>
+			{/foreach}
+		</div>
+
+	</div>
+
+	<!-- 边栏 -->	
+	<div id="sidebar-panel">
+	
+		<!-- 个人动态 -->
+		{include file='../panel_header.tpl' 
+			title='TA的动态'
+			cmd='全部'
+			link="DynC.php?act=singleDyns&userID={$user.ID}"
+		}
+		
+		{foreach $dyns as $dyn}
+		<div class='dynamic-item clearfix'>
+
+			{* 发表新的 Log *}
+			{if $dyn.Type == 'newLog'}
+			<p class='dynamic-header'>
+				<span>在</span>
+				<a href='GoalC.php?act=details&goalID={$dyn.GoalID}' class='dynamic-goal-title'>{$dyn.GoalTitle}</a>
+				<span>中写到：</span>
+			</p>
+			{if $dyn.LogTitle != ""}
+			<p class='dynamic-log-title'>{$dyn.LogTitle}</p>
+			{/if}
+			<p class='dynamic-log-content'>{$dyn.LogContent}</p>
+			<p class='dynamic-time'>{$dyn.Time}</p>
+					
+			{* 设立新的 Goal *}
+			{elseif $dyn.Type == 'newGoal'}
+			<p class='dynamic-header'>
+				<span>设立目标</span>
+				<a href='GoalC.php?act=details&goalID={$dyn.GoalID}' class='dynamic-goal-title'>{$dyn.GoalTitle}</a>
+			</p>
+			<p class='dynamic-goal-reason'>{$dyn.GoalReason}</p>
+			<p class='dynamic-time'>{$dyn.Time}</p>
+			{/if}
+			
+		</div>
+		{/foreach}
+		
+		<!-- 关注TA的人 -->	
+		{include file='../panel_header.tpl' 
+			title='关注TA的人'
+			cmd="全部 ({$followersNum})"
+			link="DynC.php?act=followers&userID={$user.ID}"
+		}			
+			
+		{foreach $followers as $follower}
+		<a href='PersonC.php?act=person&userID={$follower.UserID}' title='{$follower.Username}'>
+			<img class='multi-user-profile' src='{$follower.Avatar}' />
+		</a>
+		{/foreach}
+		
+		<!-- TA关注的人 -->		
+		{include file='../panel_header.tpl' 
+			title='TA关注的人'
+			cmd="全部 ({$followeesNum})"
+			link="DynC.php?act=followees&userID={$user.ID}"
+		}			
+			
+		{foreach $followees as $followee}
+		<a href='PersonC.php?act=person&userID={$followee.UserID}' title='{$followee.Username}'>
+			<img class='multi-user-profile' src='{$followee.Avatar}' />
+		</a>
+		{/foreach}
+	</div>
+</div>
+
+{include file='../footer.tpl'}

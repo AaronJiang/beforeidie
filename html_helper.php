@@ -142,24 +142,4 @@
 				. "</span><span>写下了 <b>". get_all_logs_num() ."</b> 条记录</span>"
 			. "<p>";	
 	}
-
-	//输出个人页面的 Goals
-	function html_output_person_goals($userID, $type){
-		$goals = get_goals($userID, $type, false);
-		foreach($goals as $goal){
-			$goalID = $goal['GoalID'];
-			echo "<div class='goal-item'>"
-					."<p class='goal-title'><a href='goal_page_details.php?goalID=". $goalID. "'>". $goal['Title']. "</a></p>"
-					."<p class='goal-reason'>". $goal['Reason']. "</p>"
-					. "<div class='goal-num-wap'>"
-						. "<span>". get_goal_steps_num($goalID). " 规划</span>"
-						. " · "
-						. "<span>". get_goal_logs_num($goalID). " 记录</span>"
-						. " · "
-						. "<span>". get_goal_cheers_num($goalID). " 鼓励</span>"
-					. "</div>";
-			echo "</div>";
-		}
-	}
-	
 ?>

@@ -1,0 +1,13 @@
+{include file='../header.tpl' title="关注 {$username} 的人们" page='page-followers'}
+
+<p class='subtitle'>关注 <a href='PersonC.php?act=person&userID={$userID}'>{$username}</a> 的人们：</p>
+
+{foreach $followers as $fow}
+<a href='PersonC.php?act=person&userID={$fow.UserID}'>
+	<img class='user-icon'
+		src='{$fow.Avatar}'
+		title='{$fow.Username}' />
+</a>
+{/foreach}
+
+{include file='../footer.tpl'}

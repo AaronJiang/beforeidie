@@ -2,6 +2,7 @@
 
 include_once('../smarty/libs/Smarty.class.php');
 include_once('../model/data_funs.inc');
+include_once('utility.php');
 
 
 // 重定向函数
