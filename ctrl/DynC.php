@@ -1,8 +1,10 @@
 <?php
 
 	include_once('setup.php');
-	include_once('../html_helper.php');
 
+	browser_check();
+	auth_check();
+	
 	$action = $_REQUEST['act'];
 	
 	switch($action){

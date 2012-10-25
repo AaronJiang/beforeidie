@@ -1,14 +1,18 @@
 <?php
-	include_once('setup.php');		
+	include_once('setup.php');
+
+	browser_check();
+	auth_check();
 	
 	$action = $_REQUEST['act'];
 
 	switch($action){
+
 		// page home
 		case "home":
 			$sm = new sm('home');
 			
-			session_start();
+			@session_start();
 			$userID = $_SESSION['valid_user_id'];
 			
 			// 自动启动 Goal

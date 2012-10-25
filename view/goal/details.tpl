@@ -428,6 +428,7 @@ $(document).ready(function(){
 	</div>
 
 	<!-- Steps -->
+	<!--
 	<div id='steps-wap'>
 		{include file='../panel_header.tpl'
 			title='计划'
@@ -446,6 +447,7 @@ $(document).ready(function(){
 			{/foreach}
 		</ul>
 	</div>
+	-->
 	
 	<!-- Logs -->
 	<div id='logs-wap'>

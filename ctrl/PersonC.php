@@ -1,7 +1,10 @@
 <?php
 
 	include_once('setup.php');
-
+	
+	browser_check();
+	auth_check();
+	
 	$action = $_REQUEST['act'];
 	
 	// page person space
@@ -17,7 +20,6 @@
 									'Avatar' => get_gravatar($userID)));
 
 			// currUserID
-			session_start();
 			$currUserID = $_SESSION['valid_user_id'];
 			
 			// isMe, isFollowed

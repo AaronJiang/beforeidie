@@ -1,15 +1,84 @@
 <?php
-	require_once("data_funs.inc");
 
-	$proc = trim($_REQUEST['proc']);
+	include_once('setup.php');
+
+	$action = $_REQUEST['act'];
 	
-	switch($proc){
+	switch($action){
+		case 'pLogin':
+			$sm = new sm('account');
+
+			// slogan info
+			$sm->assign('sInfo', array('usersNum' => get_all_users_num(),
+											'goalsNum' => get_all_goals_num(),
+											'logsNum' => get_all_logs_num()));
+											
+			// Cookie email
+			$sm->assign('email', @base64_decode($_COOKIE['ue']));
+			
+			$sm->display('login.tp');
+			
+			break;
+
+		case 'pRegister':
+			$sm = new sm('account');
+
+			// slogan info
+			$sm->assign('sInfo', array('usersNum' => get_all_users_num(),
+										'goalsNum' => get_all_goals_num(),
+										'logsNum' => get_all_logs_num()));
+										
+			$sm->display('register.tp');	
+			break;
+			
+		case 'pActive':
+			$sm = new sm('account');
+			
+			// slogan info
+			$sm->assign('sInfo', array('usersNum' => get_all_users_num(),
+										'goalsNum' => get_all_goals_num(),
+										'logsNum' => get_all_logs_num()));
+
+			// from
+			$sm->assign('from', $_REQUEST['from']);
+
+			// email
+			$sm->assign('email', $_REQUEST['email']);
+
+			$sm->display('active.tp');		
+			break;
+			
+		case 'pChangePwd':
+			$sm = new sm('account');
+			
+			$sm->display('');		
+			break;
+		
+		case 'pDetails':
+			$sm = new sm('account');
+			
+			$sm->display('');		
+			break;
+		
+		case 'pForgetPwd':
+			$sm = new sm('account');
+			
+			$sm->display('');		
+			break;
+			
+		case 'pResetPwd':
+			$sm = new sm('account');
+			
+			$sm->display('');		
+			break;
+		
+		// account proc
 		case "login":
 			$email = $_REQUEST['email'];
 			$pwd = $_REQUEST['password'];
 			
 			if(check_user_by_email($email, $pwd)){
-				session_start();
+				@session_start();
 				$_SESSION['valid_user'] = get_username_by_email($email);
 				$_SESSION['valid_user_id'] = get_userid_by_email($email);
 				
@@ -17,7 +86,7 @@
 				setcookie("ue", base64_encode($email), time()+3600*24*30);	//用户邮箱ue（一个月）
 				setcookie("ua", base64_encode("You are authed!"), time()+3600*24*2);	//用户授权ua（2天）
 
-				page_jump('home.php');
+				redirect('Home', 'home');
 			}
 			elseif(check_unactive_user_by_email($email, $pwd)){
 				setcookie("ue", base64_encode($email), time()+3600*24*30);	//用户邮箱ue（1个月）
@@ -35,7 +104,7 @@
 			//删除cookie
 			setcookie("ua", base64_encode("You are authed!"), time()-3600);
 			
-			page_jump('account_page_login.php');
+			redirect('Account', 'pLogin');
 			break;
 		
 		case "register":
@@ -47,35 +116,28 @@
 			send_active_email($email);
 			setcookie("ue", base64_encode($email), time()+3600*24*30);	//用户邮箱ue（1个月）
 
-			page_jump('account_page_active.php?from=register&email='. $_REQUEST['email']);
+			redirect('Account', 'pActive', array('from' => 'register', 'email' => $_REQUEST['email']));
 			break;
-			
-		case "change_pwd":
-			$isExist = check_user_by_id($_REQUEST['userID'], $_REQUEST['originalPwd']);
-			
-			if($isExist){
-				change_pwd($_REQUEST['userID'], $_REQUEST['newPwd']);
-			}
-			page_jump('account_page_details.php');
-			break;
-			
-		case "send_active_email":
+
+		case "sendActiveEmail":
 			$email = $_REQUEST['email'];
 			send_active_email($email);
-			page_jump('account_page_active.php?from=sended&email='. $email);
+			redirect('Account', 'pActive', array('from' => 'sended', 'email' => $email));
 			break;
 			
 		case "active":
 			$activeCode = $_REQUEST['activeCode'];
 			$email = $_REQUEST['email'];
 			
+			// 激活成功
 			if($activeCode == gene_active_code($email)){
 				active_account($email);
 				follow_user(get_userid_by_email($email), 0);
-				page_jump('account_page_active.php?from=activeSucc&email='. $email);
+				redirect('Account', 'pActive', array('from' => 'activeSucc', 'email' => $email));
 			}
+			// 激活失败
 			else{
-				page_jump('account_page_active.php?from=activeError&email='. $email);
+				redirect('Account', 'pActive', array('from' => 'activeError', 'email' => $email));
 			}
 			break;
 			
@@ -97,6 +159,15 @@
 			}
 			break;
 			
+		case "changePwd":
+			$isExist = check_user_by_id($_REQUEST['userID'], $_REQUEST['originalPwd']);
+			
+			if($isExist){
+				change_pwd($_REQUEST['userID'], $_REQUEST['newPwd']);
+			}
+			page_jump('account_page_details.php');
+			break;
+
 		case "reset_pwd":
 			$email = $_REQUEST['email'];
 			$pwd = $_REQUEST['pwd'];
@@ -109,7 +180,8 @@
 			else{
 				page_jump('account_page_forgot_pwd.php?from=resetFailed');			
 			}
-			
+			break;
+	
 	}
+	
 ?>
-

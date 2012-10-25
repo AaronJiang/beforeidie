@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-10-23 02:35:32
+<?php /* Smarty version Smarty-3.1.12, created on 2012-10-24 12:51:29
          compiled from "..\view\goal\details.tpl" */ ?>
 <?php /*%%SmartyHeaderCode:67435083eba82ca817-93662169%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '658676b6a3b2bf12976838fd5933cb80f64c4955' => 
     array (
       0 => '..\\view\\goal\\details.tpl',
-      1 => 1350952529,
+      1 => 1351075887,
       2 => 'file',
     ),
   ),
@@ -471,6 +471,7 @@ $(document).ready(function(){
 	</div>
 
 	<!-- Steps -->
+	<!--
 	<div id='steps-wap'>
 		<?php echo $_smarty_tpl->getSubTemplate ('../panel_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'计划','cmd'=>'调整','cmdID'=>'cmd-edit-steps','isCreator'=>((string)$_smarty_tpl->tpl_vars['isCreator']->value)), 0);?>
 
@@ -490,6 +491,7 @@ $_smarty_tpl->tpl_vars['step']->_loop = true;
 			<?php } ?>
 		</ul>
 	</div>
+	-->
 	
 	<!-- Logs -->
 	<div id='logs-wap'>

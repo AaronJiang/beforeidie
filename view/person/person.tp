@@ -62,10 +62,9 @@
 		}
 		
 		{foreach $dyns as $dyn}
-		<div class='dynamic-item clearfix'>
 
-			{* 发表新的 Log *}
-			{if $dyn.Type == 'newLog'}
+		{if $dyn.Type == 'newLog'}
+		<div class='dynamic-item clearfix'>
 			<p class='dynamic-header'>
 				<span>在</span>
 				<a href='GoalC.php?act=details&goalID={$dyn.GoalID}' class='dynamic-goal-title'>{$dyn.GoalTitle}</a>
@@ -76,18 +75,19 @@
 			{/if}
 			<p class='dynamic-log-content'>{$dyn.LogContent}</p>
 			<p class='dynamic-time'>{$dyn.Time}</p>
-					
-			{* 设立新的 Goal *}
-			{elseif $dyn.Type == 'newGoal'}
+		</div>
+		
+		{elseif $dyn.Type == 'newGoal'}
+		<div class='dynamic-item clearfix'>
 			<p class='dynamic-header'>
 				<span>设立目标</span>
 				<a href='GoalC.php?act=details&goalID={$dyn.GoalID}' class='dynamic-goal-title'>{$dyn.GoalTitle}</a>
 			</p>
 			<p class='dynamic-goal-reason'>{$dyn.GoalReason}</p>
 			<p class='dynamic-time'>{$dyn.Time}</p>
-			{/if}
-			
 		</div>
+		{/if}	
+
 		{/foreach}
 		
 		<!-- 关注TA的人 -->	

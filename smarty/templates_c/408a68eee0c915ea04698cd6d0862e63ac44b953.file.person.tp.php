@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-10-24 10:28:43
+<?php /* Smarty version Smarty-3.1.12, created on 2012-10-25 04:57:33
          compiled from "..\view\person\person.tp" */ ?>
 <?php /*%%SmartyHeaderCode:203775087a4ae0f89e4-75152109%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '408a68eee0c915ea04698cd6d0862e63ac44b953' => 
     array (
       0 => '..\\view\\person\\person.tp',
-      1 => 1351067321,
+      1 => 1351133851,
       2 => 'file',
     ),
   ),
@@ -125,10 +125,9 @@ $_smarty_tpl->tpl_vars['goal']->_loop = true;
 foreach ($_from as $_smarty_tpl->tpl_vars['dyn']->key => $_smarty_tpl->tpl_vars['dyn']->value){
 $_smarty_tpl->tpl_vars['dyn']->_loop = true;
 ?>
-		<div class='dynamic-item clearfix'>
 
-			
-			<?php if ($_smarty_tpl->tpl_vars['dyn']->value['Type']=='newLog'){?>
+		<?php if ($_smarty_tpl->tpl_vars['dyn']->value['Type']=='newLog'){?>
+		<div class='dynamic-item clearfix'>
 			<p class='dynamic-header'>
 				<span>在</span>
 				<a href='GoalC.php?act=details&goalID=<?php echo $_smarty_tpl->tpl_vars['dyn']->value['GoalID'];?>
@@ -144,9 +143,10 @@ $_smarty_tpl->tpl_vars['dyn']->_loop = true;
 </p>
 			<p class='dynamic-time'><?php echo $_smarty_tpl->tpl_vars['dyn']->value['Time'];?>
 </p>
-					
-			
-			<?php }elseif($_smarty_tpl->tpl_vars['dyn']->value['Type']=='newGoal'){?>
+		</div>
+		
+		<?php }elseif($_smarty_tpl->tpl_vars['dyn']->value['Type']=='newGoal'){?>
+		<div class='dynamic-item clearfix'>
 			<p class='dynamic-header'>
 				<span>设立目标</span>
 				<a href='GoalC.php?act=details&goalID=<?php echo $_smarty_tpl->tpl_vars['dyn']->value['GoalID'];?>
@@ -157,9 +157,9 @@ $_smarty_tpl->tpl_vars['dyn']->_loop = true;
 </p>
 			<p class='dynamic-time'><?php echo $_smarty_tpl->tpl_vars['dyn']->value['Time'];?>
 </p>
-			<?php }?>
-			
 		</div>
+		<?php }?>	
+
 		<?php } ?>
 		
 		<!-- 关注TA的人 -->	

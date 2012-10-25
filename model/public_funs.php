@@ -90,7 +90,7 @@
 	}
 	
 	//检测浏览器
-	function check_browser(){
+	function get_browser_type(){
 		$agent = $_SERVER["HTTP_USER_AGENT"];
 		
 		if(strpos($agent, "MSIE"))
