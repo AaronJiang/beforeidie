@@ -2,10 +2,12 @@
 
 	include_once('setup.php');
 
+	browser_check();
+
 	$action = $_REQUEST['act'];
 	
 	switch($action){
-		case 'pLogin':
+		case 'p_login':
 			$sm = new sm('account');
 
 			// slogan info
@@ -17,10 +19,9 @@
 			$sm->assign('email', @base64_decode($_COOKIE['ue']));
 			
 			$sm->display('login.tp');
-			
 			break;
 
-		case 'pRegister':
+		case 'p_register':
 			$sm = new sm('account');
 
 			// slogan info
@@ -31,7 +32,7 @@
 			$sm->display('register.tp');	
 			break;
 			
-		case 'pActive':
+		case 'p_active':
 			$sm = new sm('account');
 			
 			// slogan info
@@ -47,29 +48,56 @@
 
 			$sm->display('active.tp');		
 			break;
-			
-		case 'pChangePwd':
+
+		case 'p_forgot_pwd':
 			$sm = new sm('account');
+
+			// slogan info
+			$sm->assign('sInfo', array('usersNum' => get_all_users_num(),
+										'goalsNum' => get_all_goals_num(),
+										'logsNum' => get_all_logs_num()));
 			
-			$sm->display('');		
-			break;
-		
-		case 'pDetails':
-			$sm = new sm('account');
+			// from
+			$sm->assign('from', $_REQUEST['from']);
 			
-			$sm->display('');		
-			break;
-		
-		case 'pForgetPwd':
-			$sm = new sm('account');
-			
-			$sm->display('');		
+			$sm->display('forgot_pwd.tp');	
 			break;
 			
-		case 'pResetPwd':
+		case 'p_reset_pwd':
 			$sm = new sm('account');
 			
-			$sm->display('');		
+			// slogan info
+			$sm->assign('sInfo', array('usersNum' => get_all_users_num(),
+										'goalsNum' => get_all_goals_num(),
+										'logsNum' => get_all_logs_num()));
+										
+			// email
+			$sm->assign('email', $_REQUEST['email']);
+
+			$sm->display('reset_pwd.tp');		
+			break;
+			
+		case 'p_details':
+			$sm = new sm('account');
+			
+			@session_start();
+			$userID = $_SESSION['valid_user_id'];
+			$sm->assign('user', array('Name' => $_SESSION['valid_user'],
+									'Avatar'=> get_gravatar($userID),
+									'Email' => get_email_by_id($userID),
+									'HasGravatar' => validate_gravatar($userID)));
+
+			$sm->display('details.tp');		
+			break;
+			
+		case 'p_change_pwd':
+			$sm = new sm('account');
+			
+			// userID
+			@session_start();
+			$sm->assign('userID', $_SESSION['valid_user_id']);
+			
+			$sm->display('change_pwd.tp');		
 			break;
 		
 		// account proc
@@ -90,7 +118,7 @@
 			}
 			elseif(check_unactive_user_by_email($email, $pwd)){
 				setcookie("ue", base64_encode($email), time()+3600*24*30);	//用户邮箱ue（1个月）
-				page_jump('account_page_active.php?from=unactive&email='. $email);
+				redirect('Account.php', 'p_active', array('from' => 'unactive', 'email' => $email));
 			}
 			else{
 				page_jump_back();
@@ -104,7 +132,7 @@
 			//删除cookie
 			setcookie("ua", base64_encode("You are authed!"), time()-3600);
 			
-			redirect('Account', 'pLogin');
+			redirect('Account', 'p_login');
 			break;
 		
 		case "register":
@@ -116,13 +144,13 @@
 			send_active_email($email);
 			setcookie("ue", base64_encode($email), time()+3600*24*30);	//用户邮箱ue（1个月）
 
-			redirect('Account', 'pActive', array('from' => 'register', 'email' => $_REQUEST['email']));
+			redirect('Account', 'p_active', array('from' => 'register', 'email' => $_REQUEST['email']));
 			break;
 
-		case "sendActiveEmail":
+		case "send_active_email":
 			$email = $_REQUEST['email'];
 			send_active_email($email);
-			redirect('Account', 'pActive', array('from' => 'sended', 'email' => $email));
+			redirect('Account', 'p_active', array('from' => 'sended', 'email' => $email));
 			break;
 			
 		case "active":
@@ -133,18 +161,18 @@
 			if($activeCode == gene_active_code($email)){
 				active_account($email);
 				follow_user(get_userid_by_email($email), 0);
-				redirect('Account', 'pActive', array('from' => 'activeSucc', 'email' => $email));
+				redirect('Account', 'p_active', array('from' => 'activeSucc', 'email' => $email));
 			}
 			// 激活失败
 			else{
-				redirect('Account', 'pActive', array('from' => 'activeError', 'email' => $email));
+				redirect('Account', 'p_active', array('from' => 'activeError', 'email' => $email));
 			}
 			break;
 			
 		case "send_reset_pwd_email":
 			$email = $_REQUEST['email'];
 			send_reset_pwd_email($email);
-			page_jump('account_page_forgot_pwd.php?from=sended');
+			redirect('Account', 'p_forgot_pwd', array('from' => 'sended'));
 			break;
 			
 		case "verify_reset_code":
@@ -152,20 +180,11 @@
 			$resetCode = $_REQUEST['resetCode'];
 			
 			if($resetCode == gene_active_code($email)){
-				page_jump('account_page_reset_pwd.php?email='. $email);
+				redirect('Account', 'p_reset_pwd', array('email' => $email));
 			}
 			else{
-				page_jump('account_page_forgot_pwd.php?from=resetFailed&email='. $email);
+				redirect('Account', 'p_forgot_pwd', array('from' => 'resetFailed', 'email' => $email));
 			}
-			break;
-			
-		case "changePwd":
-			$isExist = check_user_by_id($_REQUEST['userID'], $_REQUEST['originalPwd']);
-			
-			if($isExist){
-				change_pwd($_REQUEST['userID'], $_REQUEST['newPwd']);
-			}
-			page_jump('account_page_details.php');
 			break;
 
 		case "reset_pwd":
@@ -175,13 +194,21 @@
 			$isReset = reset_pwd($email, $pwd);
 			
 			if($isReset){
-				page_jump('account_page_forgot_pwd.php?from=resetSucc');
+				redirect('Account', 'p_forgot_pwd', array('from' => 'resetSucc'));
 			}
 			else{
-				page_jump('account_page_forgot_pwd.php?from=resetFailed');			
+				redirect('Account', 'p_forgot_pwd', array('from' => 'resetFailed'));		
 			}
 			break;
-	
+			
+		case "change_pwd":
+			$isExist = check_user_by_id($_REQUEST['userID'], $_REQUEST['originalPwd']);
+			
+			if($isExist){
+				change_pwd($_REQUEST['userID'], $_REQUEST['newPwd']);
+			}
+			redirect('Account', 'p_details');
+			break;
 	}
 	
 ?>

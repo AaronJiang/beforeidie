@@ -14,7 +14,7 @@
 			$sm = new sm('dyn');
 			
 			// userID			
-			session_start();
+			@session_start();
 			$userID = $_SESSION['valid_user_id'];
 			$sm->assign('userID', $userID);
 			
@@ -44,7 +44,7 @@
 			$sm->assign('username', get_username_by_id($userID));
 			
 			// isMe
-			session_start();
+			@session_start();
 			$sm->assign('isMe', $userID == $_SESSION['valid_user_id']? 1: 0);
 			
 			$sm->display('singleDyns.tpl');
@@ -93,7 +93,7 @@
 			$sm = new sm('dyn');
 			
 			// userID
-			session_start();
+			@session_start();
 			$userID = $_SESSION['valid_user_id'];
 			$sm->assign('userID', $userID);
 			
@@ -119,7 +119,7 @@
 			$sm = new sm('dyn');
 			
 			//userID, userAvatar
-			session_start();
+			@session_start();
 			$userID = $_SESSION['valid_user_id'];
 			$sm->assign('userID', $userID);
 			$userAvatar = get_gravatar($userID);
@@ -163,7 +163,7 @@
 			$sm = new sm('dyn');
 			
 			//userID, userAvatar
-			session_start();
+			@@session_start();
 			$userID = $_SESSION['valid_user_id'];
 			$sm->assign('userID', $userID);
 			$userAvatar = get_gravatar($userID);

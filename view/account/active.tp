@@ -16,7 +16,7 @@
 	<!-- 移除下方的发送表单 -->
 	<script type='text/javascript'>
 		$(document).ready(function(){
-			$('#form-send-active-email').hide();
+			$('#form-send-active-email').detach();
 		});
 	</script>
 	<p id='account-message'>亲，账户激活成功，马上 <a href='AccountC.php?act=pLogin'>登陆</a> 吧！</p>

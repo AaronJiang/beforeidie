@@ -13,7 +13,7 @@
 			$sm = new sm('goal');
 			
 			// userID
-			session_start();
+			@session_start();
 			$sm->assign('userID', $_SESSION['valid_user_id']);
 			
 			$sm->display('new.tpl');
@@ -36,7 +36,7 @@
 			$sm = new sm('goal');
 			
 			// userID
-			session_start();
+			@session_start();
 			$userID = $_SESSION['valid_user_id'];
 			$sm->assign('userID', $userID);
 			
