@@ -9,7 +9,7 @@ $(document).ready(function(){
 	//按需加载动态
 	function load_dyns(userID, pageIndex, numPerPage, isMe, callback){
 		var data = {
-			'act': 'getSingleDyns',
+			'act': 'get_single_dyns',
 			'userID': userID,
 			'pageIndex': pageIndex,
 			'numPerPage': numPerPage,

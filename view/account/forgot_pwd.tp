@@ -42,7 +42,7 @@ $(document).ready(function(){
 		<div class='form-footer'>
 			<input type='submit' value='提交' />
 			<input type='hidden' name='act' value='send_reset_pwd_email' />
-		</div>		
+		</div>
 	</form>
 </div>
 

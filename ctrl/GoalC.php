@@ -8,18 +8,29 @@
 	$action = $_REQUEST['act'];
 	
 	switch($action){
-		// page new goal
+	
+	// new goal
+	
+		// get view
 		case 'new':
 			$sm = new sm('goal');
-			
+
 			// userID
 			@session_start();
 			$sm->assign('userID', $_SESSION['valid_user_id']);
-			
-			$sm->display('new.tpl');
+
+			$sm->display('new.tp');
+			break;
+
+		// create a new goal
+		case "new_goal":
+			$goalID = new_goal($_REQUEST['userID'], $_REQUEST['title'], $_REQUEST['why'], $_REQUEST['goalType'], $_REQUEST['startTime'], $_REQUEST['isPublic']);
+			redirect('Home', 'home', array('goalType' => $_REQUEST['goalType']));
 			break;
 		
-		// page	edit goal
+	// edit goal
+	
+		// get view
 		case 'edit':
 			$sm = new sm('goal');
 			
@@ -28,10 +39,17 @@
 		 	$goal = get_goal_by_ID($goalID);
 			$sm->assign('goal', $goal);
 			
-			$sm->display('edit.tpl');
+			$sm->display('edit.tp');
 			break;
+			
+		case "update_goal":
+			update_goal($_REQUEST['goalID'], $_REQUEST['title'], $_REQUEST['why'], $_REQUEST['goalType'], $_REQUEST['startTime'], $_REQUEST['isPublic']);
+			redirect('Home', 'home', array('goalType' => $_REQUEST['goalType']));
+			break;
+	
+	// goal details
 		
-		// page goal details
+		// get views
 		case 'details':
 			$sm = new sm('goal');
 			
@@ -79,127 +97,58 @@
 			$sm->assign('cheerersNum', count($cheerers));
 			$sm->assign('cheerers', $cheerers);
 			
-			$sm->display('details.tpl');
+			$sm->display('details.tp');
 			break;
 			
-		// page cheerers
-		case "cheerers":
-			$sm = new sm('goal');
-			
-			// goalID
-			$goalID = $_REQUEST['goalID'];
-			$sm->assign('goalID', $goalID);
-			
-			// goalTitle			
-			$goal = get_goal_by_ID($goalID);
-			$sm->assign('goalTitle', $goal['Title']);
-			
-			// cheerers
-			@$cheerers = get_goal_cheerers($goalID);
-			foreach($cheerers as &$cheerer){
-				$cheerer['Avatar'] = get_gravatar($cheerer['UserID']);
-			}
-			$sm->assign('cheerers', $cheerers);
-			
-			$sm->display('cheerers.tpl');
-			break;
-			
-		// page discover
-		case "discover":
-			$sm = new sm('goal');
-			
-			// hot goals			
-			@session_start();
-			$userID = $_SESSION['valid_user_id'];
-			$hotGoals = get_hot_goals($userID);
-			foreach($hotGoals as &$goal){
-				// creator, creatorID
-				$creator = get_goal_owner($goal['GoalID']);
-				$goal['CreatorID'] = $creator['UserID'];
-				$goal['Creator'] = $creator['Username'];
-				
-				// stepsNum, logsNum, cheersNum
-				$goal['StepsNum'] = get_goal_steps_num($goal['GoalID']);
-				$goal['LogsNum'] = get_goal_logs_num($goal['GoalID']);
-				$goal['CheersNum'] = get_goal_cheers_num($goal['GoalID']);
-			}
-			$sm->assign('hotGoals', $hotGoals);
-			
-			$sm->display('discover.tp');
-			break;
-
-		// goal procs
-		case "getGoals":
-			$goals = get_goals($_REQUEST['goalType'], $_REQUEST['userID']);
-			echo urldecode(json_encode(urlencodeAry($goals)));
-			break;
-		
-		case "deleteGoal":
-			delete_goal($_REQUEST['goalID']);
-			break;
-			
-		case "newGoal":
-			$goalID = new_goal($_REQUEST['userID'], $_REQUEST['title'], $_REQUEST['why'], $_REQUEST['goalType'], $_REQUEST['startTime'], $_REQUEST['isPublic']);
-			redirect('Home', 'home', array('goalType' => $_REQUEST['goalType']));
-			break;
-			
-		case "startGoal":
-			start_goal($_REQUEST['goalID']);
-			redirect('Home', 'home', array('goalType' => 'now'));
-			break;
-			
-		case "delay_goal":
-			delay_goal($_REQUEST['goalID'], $_REQUEST['startTime']);
-			redirect('Home', 'home');
-			break;
-			
-		case "updateGoal":
-			update_goal($_REQUEST['goalID'], $_REQUEST['title'], $_REQUEST['why'], $_REQUEST['goalType'], $_REQUEST['startTime'], $_REQUEST['isPublic']);
-			redirect('Home', 'home', array('goalType' => $_REQUEST['goalType']));
-			break;
-		
-		case "finishGoal":
+		// finish goal
+		case "finish_goal":
 			$goalID = $_REQUEST['goalID'];
 			new_log($_REQUEST['logTitle'], $_REQUEST['logContent'], 0, $goalID);
 			finish_goal($goalID);
 			page_jump_back();
 			break;
 		
-		case "dropGoal":
-			drop_goal($_REQUEST['goalID']);
-			page_jump_back();
-			break;
-		
-		case "updateGoalReason":
+		// update goal reason
+		case "update_goal_reason":
 			update_goal_reason($_REQUEST['goalID'], $_REQUEST['goalReason']);
 			page_jump_back();
 			break;
-			
-		case "updateGoalTitle":
+		
+		// update goal title
+		case "update_goal_title":
 			update_goal_title($_REQUEST['goalID'], $_REQUEST['goalTitle']);
 			page_jump_back();
 			break;
-		
-		// step procs 
-		case "getSteps":
+
+		// cheer goal
+		case "cheer_goal":
+			cheer($_REQUEST['userID'], $_REQUEST['goalID']);
+			page_jump_back();
+			break;
+			
+		// get steps
+		case "get_steps":
 			$steps = get_steps($_REQUEST['goalID']);
 			echo urldecode(json_encode(urlencodeAry($steps)));
 			break;
-			
-		case "updateStep":
+		
+		// update step
+		case "update_step":
 			echo update_step($_REQUEST['stepID'], $_REQUEST['stepContent'], $_REQUEST['stepIndex']);
 			break;
-			
-		case "newStep":
+		
+		// new step
+		case "new_step":
 			echo new_step($_REQUEST['goalID'], $_REQUEST['stepContent'], $_REQUEST['stepIndex']);
 			break;
-			
-		case "deleteStep":
+		
+		// delete step
+		case "delete_step":
 			echo delete_step($_REQUEST['stepID']);
 			break;
 			
-		/* log procs */
-		case "getLogs":
+		// get logs
+		case "get_logs":
 			$sm = new sm('goal');
 			
 			// userID, userAvatar
@@ -222,37 +171,58 @@
 			$sm->assign('logsNum', count($logs));
 			$sm->assign('logs', $logs);
 			
-			$output = $sm->fetch('logs.tpl');
+			$output = $sm->fetch('logs.tc');
 			echo $output;
 			break;
-			
-		case "deleteLog":
+		
+		// delete log
+		case "delete_log":
 			delete_log($_REQUEST['logID']);
 			page_jump_back();
 			break;
-			
-		case "newLog":
+		
+		// new log
+		case "new_log":
 			$logTitle = isset($_REQUEST['logTitle'])? $_REQUEST['logTitle']: '';
 			new_log($logTitle, $_REQUEST['logContent'], $_REQUEST['typeID'], $_REQUEST['goalID']);
 			update_goal_updatetime($_REQUEST['goalID'], now_time());
 			page_jump_back();
 			break;
 			
-		case "updateLog":
+		// update log
+		case "update_log":
 			update_log($_REQUEST['logID'], $_REQUEST['logTitle'], $_REQUEST['logContent']);
 			page_jump_back();
 			break;
 		
-		// comment procs
+		// new comment
 		case "newComment":
 			new_comment($_REQUEST['comment'], $_REQUEST['posterID'], $_REQUEST['logID'], $_REQUEST['parentCommentID'], $_REQUEST['isRoot']);
 			page_jump_back();		
 			break;
-
-		// cheerer proc
-		case "cheer":
-			cheer($_REQUEST['userID'], $_REQUEST['goalID']);
-			page_jump_back();
+			
+	// goal cheerers
+		
+		// get view
+		case "cheerers":
+			$sm = new sm('goal');
+			
+			// goalID
+			$goalID = $_REQUEST['goalID'];
+			$sm->assign('goalID', $goalID);
+			
+			// goalTitle			
+			$goal = get_goal_by_ID($goalID);
+			$sm->assign('goalTitle', $goal['Title']);
+			
+			// cheerers
+			@$cheerers = get_goal_cheerers($goalID);
+			foreach($cheerers as &$cheerer){
+				$cheerer['Avatar'] = get_gravatar($cheerer['UserID']);
+			}
+			$sm->assign('cheerers', $cheerers);
+			
+			$sm->display('cheerers.tp');
 			break;
 	}
 ?>

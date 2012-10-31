@@ -7,9 +7,11 @@
 	
 	$action = $_REQUEST['act'];
 	
-	// page person space
 	switch($action){
 	
+	// person
+		
+		// get view
 		case 'person':
 			$sm = new sm('person');
 			
@@ -63,6 +65,80 @@
 			$sm->assign('followees', $followees);
 			
 			$sm->display('person.tp');
+			break;
+			
+		// follow users
+		case "follow_user":
+			follow_user($_REQUEST['followerID'], $_REQUEST['followeeID']);
+			page_jump($_SERVER['HTTP_REFERER']);
+			break;
+
+		// disfollow user
+		case "disfollow_user":
+			disfollow_user($_REQUEST['followerID'], $_REQUEST['followeeID']);
+			page_jump($_SERVER['HTTP_REFERER']);			
+			break;
+
+	// personal dyns
+		
+		// get view
+		case 'personal_dyns':
+			$sm = new sm('person');
+			
+			// userID
+			$userID = $_REQUEST['userID'];
+			$sm->assign('userID', $userID);
+			
+			// username
+			$sm->assign('username', get_username_by_id($userID));
+			
+			// isMe
+			@session_start();
+			$sm->assign('isMe', $userID == $_SESSION['valid_user_id']? 1: 0);
+			
+			$sm->display('personal_dyns.tp');
+			break;
+			
+	// followers
+		
+		// get view
+		case 'followers':
+			$sm = new sm('person');
+			
+			// userID, username
+			$userID = $_REQUEST['userID'];
+			$sm->assign('userID', $userID);
+			$sm->assign('username', get_username_by_id($userID));
+
+			// followers
+			@$followers = get_followers($userID);
+			foreach($followers as &$follower){
+				$follower['Avatar'] = get_gravatar($follower['UserID']);
+			}
+			$sm->assign('followers', $followers);
+			
+			$sm->display('followers.tp');
+			break;
+
+	// followees
+	
+		// get view
+		case 'followees':
+			$sm = new sm('person');
+
+			// follower, followerID
+			$userID = $_REQUEST['userID'];
+			$sm->assign('userID', $userID);
+			$sm->assign('username', get_username_by_id($userID));
+
+			// followers
+			@$followees = get_followees($userID);
+			foreach($followees as &$followee){
+				$followee['Avatar'] = get_gravatar($followee['UserID']);
+			}
+			$sm->assign('followees', $followees);
+			
+			$sm->display('followees.tp');
 			break;
 	}
 	

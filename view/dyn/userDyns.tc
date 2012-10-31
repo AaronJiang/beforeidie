@@ -4,7 +4,7 @@
 	{* avatar *}	
 	<a href="PersonC.php?act=person&userID={$dyn.PosterID}">
 		<img class='dynamic-poster-profile' 
-			title="{$dyn.Poster}" 
+			title="{$dyn.Poster}"
 			src="{$dyn.PosterAvatar}" />
 	</a>
 

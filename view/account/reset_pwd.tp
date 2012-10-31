@@ -23,7 +23,7 @@ $(document).ready(function(){
 			<input type='submit' value='提交'>
 		</div>
 		
-		<input type='hidden' name='act' value='reset_pwd'>
+		<input type='hidden' name='act' value='reset_password'>
 	</form>
 </div>
 

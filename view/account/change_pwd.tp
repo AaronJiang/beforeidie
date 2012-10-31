@@ -29,7 +29,7 @@ $(document).ready(function(){
 	</div>
 
 	<input type='hidden' name='userID' value='{$userID}'>
-	<input type='hidden' name='act' value='change_pwd'>
+	<input type='hidden' name='act' value='change_password'>
 </form>
 
 

@@ -8,7 +8,9 @@
 
 	switch($action){
 
-		// page home
+	// home
+		
+		// get view
 		case "home":
 			$sm = new sm('home');
 			
@@ -33,14 +35,36 @@
 			
 			$sm->display('home.tpl');
 			break;
+			
+		// start goal
+		case "start_goal":
+			start_goal($_REQUEST['goalID']);
+			redirect('Home', 'home', array('goalType' => 'now'));
+			break;
+			
+		// drop goal
+		case "drop_goal":
+			drop_goal($_REQUEST['goalID']);
+			page_jump_back();
+			break;
+		
+		// delay Goal
+		case "delay_goal":
+			delay_goal($_REQUEST['goalID'], $_REQUEST['startTime']);
+			redirect('Home', 'home');
+			break;
 
-		// page about
+	// about
+	
+		// get view
 		case "about":
 			$sm = new sm('home');
 			$sm->display('about.tpl');
 			break;
 		
-		// page terms
+	// terms
+		
+		// get view
 		case "terms":
 			$sm = new sm('home');
 			$sm->display('terms.tpl');

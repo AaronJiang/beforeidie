@@ -1,17 +1,24 @@
 <?php
-
 	include_once('setup.php');
-	
+
 	browser_check();
 	auth_check();
 	
 	$action = $_REQUEST['act'];
-	
+
 	switch($action){
 	
-		// send feedback
-		case 'send_feedback':
-		
+		case "logout":
+			@session_start();
+			@session_destroy();
+
+			//删除cookie
+			setcookie("ua", base64_encode("You are authed!"), time()-3600);
+			
+			redirect('Account', 'p_login');
+			break;
+
+		case "send_feedback":
 			$mailSubject = '[Goal意见反馈]';
 	
 			@session_start();
@@ -30,6 +37,7 @@
 	
 			send_email('mail@hustlzp.com', $mailSubject, $mailContent);
 			page_jump_back();
+			break;				
 			break;
 	}
 	

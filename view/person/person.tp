@@ -15,9 +15,9 @@
 			{if !$isMe}
 			<div id='user-cmd-wap'>
 				{if $isFollowed}
-				<a class='isFollowed' href='DynC.php?act=disfollow&followerID={$currUserID}&followeeID={$user.ID}'>已关注</a>
+				<a class='isFollowed' href='DynC.php?act=disfollow_user&followerID={$currUserID}&followeeID={$user.ID}'>已关注</a>
 				{else}
-				<a href='DynC.php?act=follow&followerID={$currUserID}&followeeID={$user.ID}'>关注</a>
+				<a href='PersonC.php?act=follow_user&followerID={$currUserID}&followeeID={$user.ID}'>关注</a>
 				{/if}
 			</div>
 			{/if}
@@ -58,7 +58,7 @@
 		{include file='../panel_header.tpl' 
 			title='TA的动态'
 			cmd='全部'
-			link="DynC.php?act=singleDyns&userID={$user.ID}"
+			link="PersonC.php?act=personal_dyns&userID={$user.ID}"
 		}
 		
 		{foreach $dyns as $dyn}
@@ -94,7 +94,7 @@
 		{include file='../panel_header.tpl' 
 			title='关注TA的人'
 			cmd="全部 ({$followersNum})"
-			link="DynC.php?act=followers&userID={$user.ID}"
+			link="PersonC.php?act=followers&userID={$user.ID}"
 		}			
 			
 		{foreach $followers as $follower}
@@ -107,7 +107,7 @@
 		{include file='../panel_header.tpl' 
 			title='TA关注的人'
 			cmd="全部 ({$followeesNum})"
-			link="DynC.php?act=followees&userID={$user.ID}"
+			link="PersonC.php?act=followees&userID={$user.ID}"
 		}			
 			
 		{foreach $followees as $followee}

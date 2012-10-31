@@ -29,7 +29,7 @@
 		</div>
 
 		<input type='hidden' value='{$email}' name='email' />
-		<input type='hidden' name='act' value='sendActiveEmail' />
+		<input type='hidden' name='act' value='send_active_email' />
 	</form>
 </div>
 

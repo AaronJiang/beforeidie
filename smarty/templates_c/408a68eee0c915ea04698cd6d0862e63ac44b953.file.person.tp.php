@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-10-25 04:57:33
+<?php /* Smarty version Smarty-3.1.12, created on 2012-10-31 15:39:34
          compiled from "..\view\person\person.tp" */ ?>
 <?php /*%%SmartyHeaderCode:203775087a4ae0f89e4-75152109%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '408a68eee0c915ea04698cd6d0862e63ac44b953' => 
     array (
       0 => '..\\view\\person\\person.tp',
-      1 => 1351133851,
+      1 => 1351694370,
       2 => 'file',
     ),
   ),
@@ -57,11 +57,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			<?php if (!$_smarty_tpl->tpl_vars['isMe']->value){?>
 			<div id='user-cmd-wap'>
 				<?php if ($_smarty_tpl->tpl_vars['isFollowed']->value){?>
-				<a class='isFollowed' href='DynC.php?act=disfollow&followerID=<?php echo $_smarty_tpl->tpl_vars['currUserID']->value;?>
+				<a class='isFollowed' href='DynC.php?act=disfollow_user&followerID=<?php echo $_smarty_tpl->tpl_vars['currUserID']->value;?>
 &followeeID=<?php echo $_smarty_tpl->tpl_vars['user']->value['ID'];?>
 '>已关注</a>
 				<?php }else{ ?>
-				<a href='DynC.php?act=follow&followerID=<?php echo $_smarty_tpl->tpl_vars['currUserID']->value;?>
+				<a href='PersonC.php?act=follow_user&followerID=<?php echo $_smarty_tpl->tpl_vars['currUserID']->value;?>
 &followeeID=<?php echo $_smarty_tpl->tpl_vars['user']->value['ID'];?>
 '>关注</a>
 				<?php }?>
@@ -117,7 +117,7 @@ $_smarty_tpl->tpl_vars['goal']->_loop = true;
 	<div id="sidebar-panel">
 	
 		<!-- 个人动态 -->
-		<?php echo $_smarty_tpl->getSubTemplate ('../panel_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'TA的动态','cmd'=>'全部','link'=>"DynC.php?act=singleDyns&userID=".((string)$_smarty_tpl->tpl_vars['user']->value['ID'])), 0);?>
+		<?php echo $_smarty_tpl->getSubTemplate ('../panel_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'TA的动态','cmd'=>'全部','link'=>"PersonC.php?act=personal_dyns&userID=".((string)$_smarty_tpl->tpl_vars['user']->value['ID'])), 0);?>
 
 		
 		<?php  $_smarty_tpl->tpl_vars['dyn'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['dyn']->_loop = false;
@@ -163,7 +163,7 @@ $_smarty_tpl->tpl_vars['dyn']->_loop = true;
 		<?php } ?>
 		
 		<!-- 关注TA的人 -->	
-		<?php echo $_smarty_tpl->getSubTemplate ('../panel_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'关注TA的人','cmd'=>"全部 (".((string)$_smarty_tpl->tpl_vars['followersNum']->value).")",'link'=>"DynC.php?act=followers&userID=".((string)$_smarty_tpl->tpl_vars['user']->value['ID'])), 0);?>
+		<?php echo $_smarty_tpl->getSubTemplate ('../panel_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'关注TA的人','cmd'=>"全部 (".((string)$_smarty_tpl->tpl_vars['followersNum']->value).")",'link'=>"PersonC.php?act=followers&userID=".((string)$_smarty_tpl->tpl_vars['user']->value['ID'])), 0);?>
 			
 			
 		<?php  $_smarty_tpl->tpl_vars['follower'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['follower']->_loop = false;
@@ -180,7 +180,7 @@ $_smarty_tpl->tpl_vars['follower']->_loop = true;
 		<?php } ?>
 		
 		<!-- TA关注的人 -->		
-		<?php echo $_smarty_tpl->getSubTemplate ('../panel_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'TA关注的人','cmd'=>"全部 (".((string)$_smarty_tpl->tpl_vars['followeesNum']->value).")",'link'=>"DynC.php?act=followees&userID=".((string)$_smarty_tpl->tpl_vars['user']->value['ID'])), 0);?>
+		<?php echo $_smarty_tpl->getSubTemplate ('../panel_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'TA关注的人','cmd'=>"全部 (".((string)$_smarty_tpl->tpl_vars['followeesNum']->value).")",'link'=>"PersonC.php?act=followees&userID=".((string)$_smarty_tpl->tpl_vars['user']->value['ID'])), 0);?>
 			
 			
 		<?php  $_smarty_tpl->tpl_vars['followee'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['followee']->_loop = false;

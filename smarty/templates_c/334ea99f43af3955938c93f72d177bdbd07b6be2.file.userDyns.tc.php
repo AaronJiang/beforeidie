@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-10-23 10:14:30
+<?php /* Smarty version Smarty-3.1.12, created on 2012-10-31 15:34:24
          compiled from "..\view\dyn\userDyns.tc" */ ?>
 <?php /*%%SmartyHeaderCode:29067508651e6401be6-49118433%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '334ea99f43af3955938c93f72d177bdbd07b6be2' => 
     array (
       0 => '..\\view\\dyn\\userDyns.tc',
-      1 => 1350979618,
+      1 => 1351693920,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.12',
+  'unifunc' => 'content_508651e66b4964_92279322',
   'variables' => 
   array (
     'dyns' => 0,
@@ -23,8 +25,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'userAvatar' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.12',
-  'unifunc' => 'content_508651e66b4964_92279322',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_508651e66b4964_92279322')) {function content_508651e66b4964_92279322($_smarty_tpl) {?><?php  $_smarty_tpl->tpl_vars['dyn'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['dyn']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['dyns']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
@@ -38,7 +38,7 @@ $_smarty_tpl->tpl_vars['dyn']->_loop = true;
 ">
 		<img class='dynamic-poster-profile' 
 			title="<?php echo $_smarty_tpl->tpl_vars['dyn']->value['Poster'];?>
-" 
+"
 			src="<?php echo $_smarty_tpl->tpl_vars['dyn']->value['PosterAvatar'];?>
 " />
 	</a>

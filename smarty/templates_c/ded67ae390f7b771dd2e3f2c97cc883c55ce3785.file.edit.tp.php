@@ -1,29 +1,29 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-10-31 15:51:23
-         compiled from "..\view\goal\edit.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:45275083eb8dae9aa8-07502410%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /* Smarty version Smarty-3.1.12, created on 2012-10-31 15:56:54
+         compiled from "..\view\goal\edit.tp" */ ?>
+<?php /*%%SmartyHeaderCode:385450913c362652c3-50665521%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    '0ba33c0b507836cd83df417eecfaae8aa5a37da0' => 
+    'ded67ae390f7b771dd2e3f2c97cc883c55ce3785' => 
     array (
-      0 => '..\\view\\goal\\edit.tpl',
-      1 => 1350895438,
+      0 => '..\\view\\goal\\edit.tp',
+      1 => 1351695155,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '45275083eb8dae9aa8-07502410',
+  'nocache_hash' => '385450913c362652c3-50665521',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.12',
-  'unifunc' => 'content_5083eb8dbf9148_05287097',
   'variables' => 
   array (
     'goal' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.12',
+  'unifunc' => 'content_50913c363858f1_69518315',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5083eb8dbf9148_05287097')) {function content_5083eb8dbf9148_05287097($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ('../header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'编辑Goal','page'=>'page-edit-goal'), 0);?>
+<?php if ($_valid && !is_callable('content_50913c363858f1_69518315')) {function content_50913c363858f1_69518315($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ('../header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'编辑Goal','page'=>'page-edit-goal'), 0);?>
 
 
 
@@ -92,7 +92,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	
 	<input type="hidden" name="goalID" value="<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
 ">
-	<input type="hidden" name="act" value="updateGoal">
+	<input type="hidden" name="act" value="update_goal">
 </form>
 
 <?php echo $_smarty_tpl->getSubTemplate ('../footer.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>

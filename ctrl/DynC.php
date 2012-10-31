@@ -9,8 +9,10 @@
 	
 	switch($action){
 
-		// page followee dyns
-		case 'followeeDyns':
+	// dyns
+		
+		// get view
+		case 'dyns':
 			$sm = new sm('dyn');
 			
 			// userID			
@@ -29,93 +31,12 @@
 			}
 			$sm->assign('followees', $followees);
 
-			$sm->display('followeeDyns.tpl');
-			break;
-		
-		// page single dyns
-		case 'singleDyns':
-			$sm = new sm('dyn');
-			
-			// userID
-			$userID = $_REQUEST['userID'];
-			$sm->assign('userID', $userID);
-			
-			// username
-			$sm->assign('username', get_username_by_id($userID));
-			
-			// isMe
-			@session_start();
-			$sm->assign('isMe', $userID == $_SESSION['valid_user_id']? 1: 0);
-			
-			$sm->display('singleDyns.tpl');
-			break;
-			
-		// page followers
-		case 'followers':
-			$sm = new sm('dyn');
-			
-			// userID, username
-			$userID = $_REQUEST['userID'];
-			$sm->assign('userID', $userID);
-			$sm->assign('username', get_username_by_id($userID));
-
-			// followers
-			@$followers = get_followers($userID);
-			foreach($followers as &$follower){
-				$follower['Avatar'] = get_gravatar($follower['UserID']);
-			}
-			$sm->assign('followers', $followers);
-			
-			$sm->display('followers.tp');
+			$sm->display('dyns.tp');
 			break;
 
-		// page followees
-		case 'followees':
-			$sm = new sm('dyn');
-			
-			// follower, followerID
-			$userID = $_REQUEST['userID'];
-			$sm->assign('userID', $userID);
-			$sm->assign('username', get_username_by_id($userID));
-
-			// followers
-			@$followees = get_followees($userID);
-			foreach($followees as &$followee){
-				$followee['Avatar'] = get_gravatar($followee['UserID']);
-			}
-			$sm->assign('followees', $followees);
-			
-			$sm->display('followees.tp');
-			break;
-			
-		// page admin followees
-		case 'adminFollowees':
-			$sm = new sm('dyn');
-			
-			// userID
-			@session_start();
-			$userID = $_SESSION['valid_user_id'];
-			$sm->assign('userID', $userID);
-			
-			// followees
-			@$followees = get_followees($userID);
-			foreach($followees as &$fow){
-				$fow['Avatar'] = get_gravatar($fow['UserID']);
-				$fow['GoalsNum'] = array(
-					'now' => get_goals_num($fow['UserID'], 'now', false),
-					'future' => get_goals_num($fow['UserID'], 'future', false),
-					'finish' => get_goals_num($fow['UserID'], 'finish', false)
-				);
-			}
-			$sm->assign('followees', $followees);
-			$sm->assign('followeesNum', count($followees));
-			
-			$sm->display('adminFollowees.tpl');
-			break;
-		
-		// dyn proc
-		case 'getFolloweeDyns':
-		case 'getSingleDyns':
+		// get_followee_dyns
+		case 'get_followee_dyns':
+		case 'get_single_dyns':
 			$sm = new sm('dyn');
 			
 			//userID, userAvatar
@@ -127,10 +48,10 @@
 			
 			// dyns
 			$dynUserID = $_REQUEST['userID'];
-			if($action == 'getFolloweeDyns'){
+			if($action == 'get_followee_dyns'){
 				$dynType = 'followee';
 			}
-			elseif($action == 'getSingleDyns'){
+			elseif($action == 'get_single_dyns'){
 				$dynType = 'single';
 			}
 			$dyns = get_dynamics($dynType, $dynUserID, $_REQUEST['pageIndex'], $_REQUEST['numPerPage']);
@@ -153,13 +74,13 @@
 				}
 			}
 			$sm->assign('dyns', $dyns);
-			
-			// output
+
 			$output = $sm->fetch('userDyns.tc');
 			echo $output;
 			break;
 
-		case 'getAboutMeDyns':
+		// get about me dyns
+		case 'get_about_me_dyns':
 			$sm = new sm('dyn');
 			
 			//userID, userAvatar
@@ -187,14 +108,38 @@
 			$sm->display('aboutMeDyns.tc');
 			break;
 			
-		// follow proc
-		case "follow":
-			follow_user($_REQUEST['followerID'], $_REQUEST['followeeID']);
-			page_jump($_SERVER['HTTP_REFERER']);
-			break;
+	// admin followees
+		
+		// get view
+		case 'admin_followees':
+			$sm = new sm('dyn');
 			
-		case "disfollow":
+			// userID
+			@session_start();
+			$userID = $_SESSION['valid_user_id'];
+			$sm->assign('userID', $userID);
+			
+			// followees
+			@$followees = get_followees($userID);
+			foreach($followees as &$fow){
+				$fow['Avatar'] = get_gravatar($fow['UserID']);
+				$fow['GoalsNum'] = array(
+					'now' => get_goals_num($fow['UserID'], 'now', false),
+					'future' => get_goals_num($fow['UserID'], 'future', false),
+					'finish' => get_goals_num($fow['UserID'], 'finish', false)
+				);
+			}
+			$sm->assign('followees', $followees);
+			$sm->assign('followeesNum', count($followees));
+			
+			$sm->display('admin_followees.tp');
+			break;
+		
+		// disfollow user
+		case "disfollow_user":
 			disfollow_user($_REQUEST['followerID'], $_REQUEST['followeeID']);
 			page_jump($_SERVER['HTTP_REFERER']);			
 			break;
+			
+	
 	}

@@ -62,7 +62,7 @@
 	</div>
 	
 	<input type="hidden" name="goalID" value="{$goal.GoalID}">
-	<input type="hidden" name="act" value="updateGoal">
+	<input type="hidden" name="act" value="update_goal">
 </form>
 
 {include file='../footer.tpl'}

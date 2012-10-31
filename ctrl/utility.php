@@ -39,7 +39,7 @@
 				$_SESSION['valid_user_id'] = get_userid_by_email($email);
 			}
 			else{
-				redirect('Account', 'pLogin');
+				redirect('Account', 'login');
 			}
 		}	
 	}

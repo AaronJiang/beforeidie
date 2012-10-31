@@ -20,7 +20,7 @@ $(document).ready(function(){
 	//加载函数
 	function load_logs(pageNum){
 		var data = {
-			act: 'getLogs',
+			act: 'get_logs',
 			'goalID': GOAL_ID,
 			'pageNum': pageNum,
 			'numPerPage': NUM_PER_PAGE,
@@ -287,7 +287,7 @@ $(document).ready(function(){
 						$.ajax({
 							url: 'GoalC.php',
 							data: {
-								act: 'deleteStep',
+								act: 'delete_step',
 								stepID: stepID
 							}
 						});
@@ -297,7 +297,7 @@ $(document).ready(function(){
 						$.ajax({
 							url: 'GoalC.php',
 							data: {
-								act: 'newStep',
+								act: 'new_step',
 								goalID: GOAL_ID,
 								stepContent: text,
 								stepIndex: index
@@ -310,7 +310,7 @@ $(document).ready(function(){
 						$.ajax({
 							url: 'GoalC.php',
 							data: {
-								act: 'updateStep',
+								act: 'update_step',
 								stepID: stepID,
 								stepContent: text,
 								stepIndex: index
@@ -334,7 +334,7 @@ $(document).ready(function(){
 			url: 'GoalC.php',
 			type: 'POST',
 			data: {
-				act: 'getSteps',
+				act: 'get_steps',
 				goalID: GOAL_ID
 			},
 			dataType: 'json',
@@ -410,7 +410,7 @@ $(document).ready(function(){
 			{if $isCheered}
 			<a class='isCheered'>已鼓励</a>
 			{else}
-			<a href="CheerC.php?act=cheer&userID={$userID}&goalID={$goal.GoalID}">鼓励</a>
+			<a href="GoalC.php?act=cheer_goal&userID={$userID}&goalID={$goal.GoalID}">鼓励</a>
 			{/if}
 		{/if}
 		</div>
@@ -428,7 +428,6 @@ $(document).ready(function(){
 	</div>
 
 	<!-- Steps -->
-	<!--
 	<div id='steps-wap'>
 		{include file='../panel_header.tpl'
 			title='计划'
@@ -447,7 +446,6 @@ $(document).ready(function(){
 			{/foreach}
 		</ul>
 	</div>
-	-->
 	
 	<!-- Logs -->
 	<div id='logs-wap'>
@@ -509,7 +507,7 @@ $(document).ready(function(){
 	<form id="form-edit-goal-title" action="GoalC.php" method="post">
 		<input type='text' class='validate[required]' id='input-goal-title' autocomplete='off' placeholder='标题' name='goalTitle'>	
 		<input type="hidden" name="goalID" value="{$goal.GoalID}" />
-		<input type="hidden" name="act" value="updateGoalTitle" />
+		<input type="hidden" name="act" value="update_goal_title" />
 	</form>		
 </div>
 
@@ -518,7 +516,7 @@ $(document).ready(function(){
 	<form id="form-edit-goal-reason" action="GoalC.php" method="post">
 		<textarea id='input-goal-reason' class='validate[required]' rows='2' autocomplete='off' placeholder='愿景' name='goalReason'></textarea>
 		<input type="hidden" name="goalID" value="{$goal.GoalID}" />
-		<input type="hidden" name="act" value="updateGoalReason" />
+		<input type="hidden" name="act" value="update_goal_reason" />
 	</form>	
 </div>
 
@@ -532,7 +530,7 @@ $(document).ready(function(){
 		<textarea id="log-content" class='validate[required]' autocomplete='off' placeholder="内容" name="logContent"></textarea>
 		<input type="hidden" name="goalID" value="{$goal.GoalID}" />
 		<input type="hidden" name="typeID" value="1" />
-		<input type="hidden" name="act" value="newLog" />
+		<input type="hidden" name="act" value="new_log" />
 	</form>	
 </div>
 
@@ -542,7 +540,7 @@ $(document).ready(function(){
 		<input type='text' id='log-title' autocomplete='off' placeholder='标题（可不填）' name='logTitle'>
 		<textarea id="log-content" class='validate[required]' autocomplete='off' placeholder="内容" name="logContent"></textarea>	
 		<input type="hidden" name="logID" />
-		<input type="hidden" name="act" value="updateLog" />
+		<input type="hidden" name="act" value="update_log" />
 	</form>	
 </div>
 
@@ -554,7 +552,7 @@ $(document).ready(function(){
 		<input type='text' value='完结篇' class='validate[required]' name='logTitle' />
 		<textarea rows='10' class='validate[required]' placeholder='写点神马作为完结篇吧，比如感受啊、建议啊之类的' name='logContent'></textarea>
 		<input type='hidden' name='goalID' value="{$goal.GoalID}" />
-		<input type='hidden' name='act' value='finishGoal' />
+		<input type='hidden' name='act' value='finish_goal' />
 	</form>
 </div>
 
