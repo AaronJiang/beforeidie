@@ -37,7 +37,6 @@
 	
 			send_email('mail@hustlzp.com', $mailSubject, $mailContent);
 			page_jump_back();
-			break;				
 			break;
 	}
 	
