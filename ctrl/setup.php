@@ -21,7 +21,7 @@ function redirect($ctrl, $act, $paras){
 // 定制的 Smarty 子类
 class sm extends Smarty {
 
-   function __construct($view)
+   function __construct($view = "")
    {
         parent::__construct();
 

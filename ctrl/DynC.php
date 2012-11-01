@@ -34,51 +34,6 @@
 			$sm->display('dyns.tp');
 			break;
 
-		// get_followee_dyns
-		case 'get_followee_dyns':
-		case 'get_single_dyns':
-			$sm = new sm('dyn');
-			
-			//userID, userAvatar
-			@session_start();
-			$userID = $_SESSION['valid_user_id'];
-			$sm->assign('userID', $userID);
-			$userAvatar = get_gravatar($userID);
-			$sm->assign('userAvatar', $userAvatar);
-			
-			// dyns
-			$dynUserID = $_REQUEST['userID'];
-			if($action == 'get_followee_dyns'){
-				$dynType = 'followee';
-			}
-			elseif($action == 'get_single_dyns'){
-				$dynType = 'single';
-			}
-			$dyns = get_dynamics($dynType, $dynUserID, $_REQUEST['pageIndex'], $_REQUEST['numPerPage']);
-			
-			foreach($dyns as &$dyn){
-				// poster avatar
-				$dyn['PosterAvatar'] = get_gravatar($dyn['PosterID']);
-				
-				// isCheered
-				if($dyn['Type'] == 'newGoal'){
-					$dyn['isCheered'] = check_goal_is_cheered($userID, $dyn['GoalID']);
-				}
-				
-				//comments
-				if($dyn['Type'] == 'newLog' || $dyn['Type'] == 'finishGoal'){
-					// comments, commentsNum
-					$comments = get_log_comments_full($dyn['LogID']);
-					$dyn['commentsNum'] = count($comments);
-					$dyn['comments'] = $comments;
-				}
-			}
-			$sm->assign('dyns', $dyns);
-
-			$output = $sm->fetch('user_dyns.tc');
-			echo $output;
-			break;
-
 		// get about me dyns
 		case 'get_about_me_dyns':
 			$sm = new sm('dyn');

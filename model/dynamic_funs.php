@@ -14,7 +14,7 @@
 								. "FROM followers\n"
 								. "WHERE followers.FollowerID =". $userID. ")\n";
 				}
-				elseif($type == 'single'){
+				elseif($type == 'personal'){
 					$query .= "AND goals.UserID = ". $userID. "\n";
 				}
 				$query .= ")\n";
@@ -32,7 +32,7 @@
 								. "FROM followers\n"
 								. "WHERE followers.FollowerID = ". $userID. ")\n";
 				}
-				elseif($type == 'single'){
+				elseif($type == 'personal'){
 					$query .= "AND goals.UserID = ". $userID. "\n";
 				}
 				$query .= ")\n";
@@ -51,7 +51,7 @@
 								. "FROM followers\n"
 								. "WHERE followers.FollowerID = ". $userID. ")\n";
 				}
-				elseif($type == 'single') {
+				elseif($type == 'personal') {
 					$query .= "AND goals.UserID = ". $userID. "\n";
 				}
 				$query .= ")\n";
@@ -69,7 +69,7 @@
 								. "FROM followers\n"
 								. "WHERE followers.FollowerID = ". $userID. ")\n";
 				}
-				elseif($type == 'single'){
+				elseif($type == 'personal'){
 					$query .= "AND fows.FollowerID = ". $userID. "\n";
 				}
 				$query .= ")\n";

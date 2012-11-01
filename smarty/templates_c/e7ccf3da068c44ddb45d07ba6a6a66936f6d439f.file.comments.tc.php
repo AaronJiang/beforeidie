@@ -1,22 +1,20 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-10-23 12:30:24
-         compiled from "..\view\goal\comments.tpl" */ ?>
-<?php /*%%SmartyHeaderCode:803550855e94760589-48347555%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /* Smarty version Smarty-3.1.12, created on 2012-11-01 09:48:06
+         compiled from "..\view\comments.tc" */ ?>
+<?php /*%%SmartyHeaderCode:2824850923746c4e557-92446092%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    'ed8c6ae20356dc511abab15bfebb57e7a2fa177b' => 
+    'e7ccf3da068c44ddb45d07ba6a6a66936f6d439f' => 
     array (
-      0 => '..\\view\\goal\\comments.tpl',
-      1 => 1350983834,
+      0 => '..\\view\\comments.tc',
+      1 => 1351758037,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '803550855e94760589-48347555',
+  'nocache_hash' => '2824850923746c4e557-92446092',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.12',
-  'unifunc' => 'content_50855e94902958_86869147',
   'variables' => 
   array (
     'comm' => 0,
@@ -24,8 +22,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'userAvatar' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.12',
+  'unifunc' => 'content_50923746dfea73_85134633',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_50855e94902958_86869147')) {function content_50855e94902958_86869147($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_50923746dfea73_85134633')) {function content_50923746dfea73_85134633($_smarty_tpl) {?>
 <div class='comment-item clearfix'>
 	
 	
@@ -46,12 +46,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			<?php if ($_smarty_tpl->tpl_vars['comm']->value['IsRoot']==1){?>
 			<a href="PersonC.php?act=person&userID=<?php echo $_smarty_tpl->tpl_vars['comm']->value['PosterID'];?>
 "><?php echo $_smarty_tpl->tpl_vars['comm']->value['Poster'];?>
-</a>:<?php echo $_smarty_tpl->tpl_vars['comm']->value['Comment'];?>
+</a> : <?php echo $_smarty_tpl->tpl_vars['comm']->value['Comment'];?>
 
 			<?php }else{ ?>
 			<a href="PersonC.php?act=person&userID=<?php echo $_smarty_tpl->tpl_vars['comm']->value['PosterID'];?>
 "><?php echo $_smarty_tpl->tpl_vars['comm']->value['Poster'];?>
-</a>:<a href="PersonC.php?act=person&userID=<?php echo $_smarty_tpl->tpl_vars['comm']->value['ReceiverID'];?>
+</a> : <a href="PersonC.php?act=person&userID=<?php echo $_smarty_tpl->tpl_vars['comm']->value['ReceiverID'];?>
 ">@<?php echo $_smarty_tpl->tpl_vars['comm']->value['Receiver'];?>
 </a>
 			<?php echo $_smarty_tpl->tpl_vars['comm']->value['Comment'];?>

@@ -14,9 +14,9 @@
 		{* header *}
 		<div class='comment-header'>
 			{if $comm.IsRoot == 1}
-			<a href="PersonC.php?act=person&userID={$comm.PosterID}">{$comm.Poster}</a>:{$comm.Comment}
+			<a href="PersonC.php?act=person&userID={$comm.PosterID}">{$comm.Poster}</a> : {$comm.Comment}
 			{else}
-			<a href="PersonC.php?act=person&userID={$comm.PosterID}">{$comm.Poster}</a>:<a href="PersonC.php?act=person&userID={$comm.ReceiverID}">@{$comm.Receiver}</a>
+			<a href="PersonC.php?act=person&userID={$comm.PosterID}">{$comm.Poster}</a> : <a href="PersonC.php?act=person&userID={$comm.ReceiverID}">@{$comm.Receiver}</a>
 			{$comm.Comment}
 			{/if}
 		</div>

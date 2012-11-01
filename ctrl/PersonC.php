@@ -98,7 +98,7 @@
 			@session_start();
 			$sm->assign('isMe', $userID == $_SESSION['valid_user_id']? 1: 0);
 			
-			$sm->display('person_dyns.tp');
+			$sm->display('personal_dyns.tp');
 			break;
 			
 	// followers

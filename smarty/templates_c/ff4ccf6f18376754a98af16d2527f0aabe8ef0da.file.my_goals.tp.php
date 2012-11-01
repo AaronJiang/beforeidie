@@ -1,6 +1,6 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-11-01 15:35:07
+<?php /* Smarty version Smarty-3.1.12, created on 2012-11-01 16:53:38
          compiled from "..\view\goal\my_goals.tp" */ ?>
-<?php /*%%SmartyHeaderCode:3095092262b7d9793-03772585%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:86855092389266ba61-86670242%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
@@ -11,7 +11,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '3095092262b7d9793-03772585',
+  'nocache_hash' => '86855092389266ba61-86670242',
   'function' => 
   array (
   ),
@@ -24,9 +24,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.12',
-  'unifunc' => 'content_5092262b985f95_93643672',
+  'unifunc' => 'content_50923892839931_85815615',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5092262b985f95_93643672')) {function content_5092262b985f95_93643672($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ('../header.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'我的Goals','page'=>'page-home'), 0);?>
+<?php if ($_valid && !is_callable('content_50923892839931_85815615')) {function content_50923892839931_85815615($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ('../header.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'我的Goals','page'=>'page-home'), 0);?>
 <script type="text/javascript">$(document).ready(function(){		//滑出命令栏	$('.goal-item').live("hover", function(event){		if(event.type == 'mouseenter'){			$(this).find('.goal-cmd-wap').animate({'bottom':'0px'}, 'fast');		} 		else if(event.type == 'mouseleave'){			$(this).find('.goal-cmd-wap').animate({'bottom':'-32px'}, 'fast');		};	});		//初始化 Goal 延迟对话框	$('#dialog-delay').dialog({		autoOpen: false,		modal: true,		width: 320,		draggable: false,		resizable: false,		buttons: {			'确认': function(){				$('#form-delay-goal').submit();			},			'取消': function(){				$(this).dialog('close');			}		}	});		//初始化 datapicker	$('#goal-starttime').datepicker({		changeMonth: true,		changeYear: true,		showOtherMonths: true,		selectOtherMonths: true	});			//弹出 Goal 延迟框	$('.goal-cmd-delay').click(function(){		//对话框标题		var goalTitle = $(this).data('title');		$('#dialog-delay').dialog('option', 'title', '推迟：' + goalTitle);				//设置表单隐藏域 goalID 的值		var goalID = $(this).data('goalid');		$("#form-delay-goal input[name='goalID']").val(goalID);			$('#dialog-delay').dialog('open');	});		//弹出放弃 Goal 警告框	$('.goal-cmd-drop').click(function(){		var goalTitle = $(this).data('title');		var isSure = confirm('确定放弃目标：' + goalTitle + "?");		if(!isSure){			return false;		}	});});</script><ul id="goal-selector" class="clearfix">	<li><a href="HomeC.php?act=home&goalType=now">进 行 中 [<?php echo $_smarty_tpl->tpl_vars['goalNum']->value['now'];?>
 ]</a></li>	<li><a href="HomeC.php?act=home&goalType=future">待 启 动 [<?php echo $_smarty_tpl->tpl_vars['goalNum']->value['future'];?>
 ]</a></li>	<li><a href="HomeC.php?act=home&goalType=finish">已 完 成 [<?php echo $_smarty_tpl->tpl_vars['goalNum']->value['finish'];?>

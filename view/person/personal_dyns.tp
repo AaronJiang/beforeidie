@@ -9,14 +9,14 @@ $(document).ready(function(){
 	//按需加载动态
 	function load_dyns(userID, pageIndex, numPerPage, isMe, callback){
 		var data = {
-			'act': 'get_single_dyns',
+			'act': 'get_personal_dyns',
 			'userID': userID,
 			'pageIndex': pageIndex,
 			'numPerPage': numPerPage,
 			'isMe': isMe
 		};
 
-		$.get('DynC.php', data, function(data){
+		$.get('PublicC.php', data, function(data){
 			$('#dyns').append(data);
 			$('#more-dyns').show();	
 			callback();

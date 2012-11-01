@@ -36,7 +36,7 @@
 		{if $log.commentsNum != 0}
 		<div class='comments-wap'>
 			{foreach $log.comments as $comm}
-			{include file='comments.tc'}
+			{include file='../comments.tc'}
 			{/foreach}
 		</div>
 		{/if}

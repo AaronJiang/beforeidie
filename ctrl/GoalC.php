@@ -240,12 +240,6 @@
 			update_log($_REQUEST['logID'], $_REQUEST['logTitle'], $_REQUEST['logContent']);
 			page_jump_back();
 			break;
-		
-		// new comment
-		case "newComment":
-			new_comment($_REQUEST['comment'], $_REQUEST['posterID'], $_REQUEST['logID'], $_REQUEST['parentCommentID'], $_REQUEST['isRoot']);
-			page_jump_back();		
-			break;
 			
 	// goal cheerers
 		

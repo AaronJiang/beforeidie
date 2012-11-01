@@ -1,17 +1,17 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-11-01 08:12:22
-         compiled from "..\view\dyn\user_dyns.tc" */ ?>
-<?php /*%%SmartyHeaderCode:21835509220d60370c8-48752711%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /* Smarty version Smarty-3.1.12, created on 2012-11-01 09:42:05
+         compiled from "..\view\user_dyns.tc" */ ?>
+<?php /*%%SmartyHeaderCode:2319509235dd643059-74947621%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    'e56db1d0e7384b7b9224ea5ac27ae2cae553a3cc' => 
+    'd9de8ae09ea90123878fb4207faf5128a916f388' => 
     array (
-      0 => '..\\view\\dyn\\user_dyns.tc',
-      1 => 1351753630,
+      0 => '..\\view\\user_dyns.tc',
+      1 => 1351758717,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '21835509220d60370c8-48752711',
+  'nocache_hash' => '2319509235dd643059-74947621',
   'function' => 
   array (
   ),
@@ -24,9 +24,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
   'version' => 'Smarty-3.1.12',
-  'unifunc' => 'content_509220d62b5ed8_83248387',
+  'unifunc' => 'content_509235dd9d23a1_52984980',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_509220d62b5ed8_83248387')) {function content_509220d62b5ed8_83248387($_smarty_tpl) {?><?php  $_smarty_tpl->tpl_vars['dyn'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['dyn']->_loop = false;
+<?php if ($_valid && !is_callable('content_509235dd9d23a1_52984980')) {function content_509235dd9d23a1_52984980($_smarty_tpl) {?><?php  $_smarty_tpl->tpl_vars['dyn'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['dyn']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['dyns']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['dyn']->key => $_smarty_tpl->tpl_vars['dyn']->value){
 $_smarty_tpl->tpl_vars['dyn']->_loop = true;
@@ -90,7 +90,7 @@ $_smarty_tpl->tpl_vars['dyn']->_loop = true;
 foreach ($_from as $_smarty_tpl->tpl_vars['comm']->key => $_smarty_tpl->tpl_vars['comm']->value){
 $_smarty_tpl->tpl_vars['comm']->_loop = true;
 ?>
-		<?php echo $_smarty_tpl->getSubTemplate ('../goal/comments.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+		<?php echo $_smarty_tpl->getSubTemplate ('comments.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
 		<?php } ?>
 	</div>
@@ -170,7 +170,7 @@ $_smarty_tpl->tpl_vars['comm']->_loop = true;
 foreach ($_from as $_smarty_tpl->tpl_vars['comm']->key => $_smarty_tpl->tpl_vars['comm']->value){
 $_smarty_tpl->tpl_vars['comm']->_loop = true;
 ?>
-		<?php echo $_smarty_tpl->getSubTemplate ('../goal/comments.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+		<?php echo $_smarty_tpl->getSubTemplate ('comments.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
 		<?php } ?>
 	</div>
