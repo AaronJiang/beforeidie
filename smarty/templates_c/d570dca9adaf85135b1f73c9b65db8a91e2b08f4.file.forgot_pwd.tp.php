@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-10-25 09:09:46
+<?php /* Smarty version Smarty-3.1.12, created on 2012-11-01 08:29:54
          compiled from "..\view\account\forgot_pwd.tp" */ ?>
 <?php /*%%SmartyHeaderCode:322115088deba9383d1-00967406%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd570dca9adaf85135b1f73c9b65db8a91e2b08f4' => 
     array (
       0 => '..\\view\\account\\forgot_pwd.tp',
-      1 => 1351148981,
+      1 => 1351698713,
       2 => 'file',
     ),
   ),
@@ -69,7 +69,7 @@ $(document).ready(function(){
 		<div class='form-footer'>
 			<input type='submit' value='提交' />
 			<input type='hidden' name='act' value='send_reset_pwd_email' />
-		</div>		
+		</div>
 	</form>
 </div>
 

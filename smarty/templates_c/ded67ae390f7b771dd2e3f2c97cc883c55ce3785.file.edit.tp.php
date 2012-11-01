@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-10-31 15:56:54
+<?php /* Smarty version Smarty-3.1.12, created on 2012-11-01 08:13:42
          compiled from "..\view\goal\edit.tp" */ ?>
 <?php /*%%SmartyHeaderCode:385450913c362652c3-50665521%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ded67ae390f7b771dd2e3f2c97cc883c55ce3785' => 
     array (
       0 => '..\\view\\goal\\edit.tp',
-      1 => 1351695155,
+      1 => 1351753352,
       2 => 'file',
     ),
   ),
@@ -15,15 +15,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.12',
+  'unifunc' => 'content_50913c363858f1_69518315',
   'variables' => 
   array (
     'goal' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.12',
-  'unifunc' => 'content_50913c363858f1_69518315',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_50913c363858f1_69518315')) {function content_50913c363858f1_69518315($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ('../header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'编辑Goal','page'=>'page-edit-goal'), 0);?>
+<?php if ($_valid && !is_callable('content_50913c363858f1_69518315')) {function content_50913c363858f1_69518315($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ('../header.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'编辑Goal','page'=>'page-edit-goal'), 0);?>
 
 
 
@@ -95,5 +95,5 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	<input type="hidden" name="act" value="update_goal">
 </form>
 
-<?php echo $_smarty_tpl->getSubTemplate ('../footer.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+<?php echo $_smarty_tpl->getSubTemplate ('../footer.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 <?php }} ?>

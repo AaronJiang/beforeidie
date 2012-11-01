@@ -1,4 +1,4 @@
-{include file='../header.tpl' title="{$user.Name} 的个人空间" page='page-person'}
+{include file='../header.tc' title="{$user.Name} 的个人空间" page='page-person'}
 
 <div id='person-page'>
 
@@ -55,7 +55,7 @@
 	<div id="sidebar-panel">
 	
 		<!-- 个人动态 -->
-		{include file='../panel_header.tpl' 
+		{include file='../panel_header.tc' 
 			title='TA的动态'
 			cmd='全部'
 			link="PersonC.php?act=personal_dyns&userID={$user.ID}"
@@ -91,7 +91,7 @@
 		{/foreach}
 		
 		<!-- 关注TA的人 -->	
-		{include file='../panel_header.tpl' 
+		{include file='../panel_header.tc' 
 			title='关注TA的人'
 			cmd="全部 ({$followersNum})"
 			link="PersonC.php?act=followers&userID={$user.ID}"
@@ -104,7 +104,7 @@
 		{/foreach}
 		
 		<!-- TA关注的人 -->		
-		{include file='../panel_header.tpl' 
+		{include file='../panel_header.tc' 
 			title='TA关注的人'
 			cmd="全部 ({$followeesNum})"
 			link="PersonC.php?act=followees&userID={$user.ID}"
@@ -118,4 +118,4 @@
 	</div>
 </div>
 
-{include file='../footer.tpl'}
+{include file='../footer.tc'}

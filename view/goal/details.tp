@@ -1,4 +1,4 @@
-{include file='../header.tpl' title="{$goal.Title}" page='page-goal-details'}
+{include file='../header.tc' title="{$goal.Title}" page='page-goal-details'}
 
 <script type='text/javascript' src='../js/goal-comment.js'></script>
 <script type="text/javascript">
@@ -418,7 +418,7 @@ $(document).ready(function(){
 
 	<!-- Reason -->
 	<div id='reason-wap'>
-		{include file='../panel_header.tpl' 
+		{include file='../panel_header.tc' 
 			title='愿景'
 			cmd='修改'
 			cmdID='cmd-edit-goal-reason'
@@ -429,7 +429,7 @@ $(document).ready(function(){
 
 	<!-- Steps -->
 	<div id='steps-wap'>
-		{include file='../panel_header.tpl'
+		{include file='../panel_header.tc'
 			title='计划'
 			cmd='调整'
 			cmdID='cmd-edit-steps'
@@ -449,7 +449,7 @@ $(document).ready(function(){
 	
 	<!-- Logs -->
 	<div id='logs-wap'>
-		{include file='../panel_header.tpl'
+		{include file='../panel_header.tc'
 			title='记录'
 			cmd='添加'
 			cmdID='cmd-add-log'
@@ -473,7 +473,7 @@ $(document).ready(function(){
 
 	<!-- Creator -->
 	<div id='creator-wap'>
-		{include file='../panel_header.tpl'
+		{include file='../panel_header.tc'
 			title='创建者'
 		}
 		
@@ -484,7 +484,7 @@ $(document).ready(function(){
 
 	<!-- Cheerers -->
 	{if $cheerersNum != 0}
-		{include file='../panel_header.tpl'
+		{include file='../panel_header.tc'
 			title='鼓励者'
 			cmd="全部 ($cheerersNum)"
 			cmdID='cmd-all-cheerers'
@@ -558,4 +558,4 @@ $(document).ready(function(){
 
 {/if}
 
-{include file='../footer.tpl'}
+{include file='../footer.tc'}

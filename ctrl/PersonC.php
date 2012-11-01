@@ -22,7 +22,9 @@
 									'Avatar' => get_gravatar($userID)));
 
 			// currUserID
+			@session_start();
 			$currUserID = $_SESSION['valid_user_id'];
+			$sm->assign('currUserID', $currUserID);
 			
 			// isMe, isFollowed
 			$isMe = ($userID == $currUserID);
@@ -50,7 +52,7 @@
 			
 			// followers
 			$sm->assign('followersNum', get_followers_num($userID));
-			$followers = get_followers($userID, 16);
+			$followers = @get_followers($userID, 16);
 			foreach($followers as &$follower){
 				$follower['Avatar'] = get_gravatar($follower['UserID']);
 			}
@@ -79,7 +81,7 @@
 			page_jump($_SERVER['HTTP_REFERER']);			
 			break;
 
-	// personal dyns
+	// person dyns
 		
 		// get view
 		case 'personal_dyns':
@@ -96,7 +98,7 @@
 			@session_start();
 			$sm->assign('isMe', $userID == $_SESSION['valid_user_id']? 1: 0);
 			
-			$sm->display('personal_dyns.tp');
+			$sm->display('person_dyns.tp');
 			break;
 			
 	// followers

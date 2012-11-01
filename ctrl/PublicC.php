@@ -8,6 +8,9 @@
 
 	switch($action){
 	
+	// header
+	
+		// logout
 		case "logout":
 			@session_start();
 			@session_destroy();
@@ -15,9 +18,12 @@
 			//删除cookie
 			setcookie("ua", base64_encode("You are authed!"), time()-3600);
 			
-			redirect('Account', 'p_login');
+			redirect('Account', 'login');
 			break;
-
+	
+	// feedback panel
+	
+		// send feedback
 		case "send_feedback":
 			$mailSubject = '[Goal意见反馈]';
 	
@@ -37,6 +43,14 @@
 	
 			send_email('mail@hustlzp.com', $mailSubject, $mailContent);
 			page_jump_back();
+			break;
+		
+	// browser warning
+	
+		// get view
+		case "browser_warning":
+			$sm = new sm();
+			$sm->display("browser_warning.tp");
 			break;
 	}
 	

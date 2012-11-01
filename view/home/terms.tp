@@ -1,4 +1,4 @@
-{include file='../header.tpl' title='条款和隐私' page='page-terms'}
+{include file='../header.tc' title='条款和隐私' page='page-terms'}
 
 <div id='main-panel'>
 
@@ -39,5 +39,5 @@
 	</ul>
 </div>
 
-{include file='me.tpl'}
-{include file='../footer.tpl'}
+{include file='me.tc'}
+{include file='../footer.tc'}

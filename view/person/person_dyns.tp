@@ -1,4 +1,4 @@
-{include file='../header.tpl' title="{$username} 的动态" page='page-single-dynamics'}
+{include file='../header.tc' title="{$username} 的动态" page='page-single-dynamics'}
 
 {literal}
 <script type='text/javascript' src='../js/goal-comment.js'></script>
@@ -55,4 +55,4 @@ $(document).ready(function(){
 <div id='dyns'></div>
 <div id='more-dyns'>更多动态</div>
 
-{include file='../footer.tpl'}
+{include file='../footer.tc'}

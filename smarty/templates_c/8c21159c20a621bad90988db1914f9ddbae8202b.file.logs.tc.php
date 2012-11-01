@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-10-31 16:11:14
+<?php /* Smarty version Smarty-3.1.12, created on 2012-11-01 08:10:16
          compiled from "..\view\goal\logs.tc" */ ?>
 <?php /*%%SmartyHeaderCode:552050913f92186c35-87044713%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '8c21159c20a621bad90988db1914f9ddbae8202b' => 
     array (
       0 => '..\\view\\goal\\logs.tc',
-      1 => 1351696214,
+      1 => 1351753390,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.12',
+  'unifunc' => 'content_50913f922d4df6_26485714',
   'variables' => 
   array (
     'logsNum' => 0,
@@ -25,8 +27,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'isCreator' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.12',
-  'unifunc' => 'content_50913f922d4df6_26485714',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_50913f922d4df6_26485714')) {function content_50913f922d4df6_26485714($_smarty_tpl) {?><?php if ($_smarty_tpl->tpl_vars['logsNum']->value!=0){?>
 
@@ -84,7 +84,7 @@ $_smarty_tpl->tpl_vars['log']->_loop = true;
 foreach ($_from as $_smarty_tpl->tpl_vars['comm']->key => $_smarty_tpl->tpl_vars['comm']->value){
 $_smarty_tpl->tpl_vars['comm']->_loop = true;
 ?>
-			<?php echo $_smarty_tpl->getSubTemplate ('comments.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+			<?php echo $_smarty_tpl->getSubTemplate ('comments.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 
 			<?php } ?>
 		</div>

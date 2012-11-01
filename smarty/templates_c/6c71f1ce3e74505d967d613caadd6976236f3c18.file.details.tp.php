@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-10-31 16:11:13
+<?php /* Smarty version Smarty-3.1.12, created on 2012-11-01 08:10:15
          compiled from "..\view\goal\details.tp" */ ?>
 <?php /*%%SmartyHeaderCode:1235450913cfb3b6243-87027760%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6c71f1ce3e74505d967d613caadd6976236f3c18' => 
     array (
       0 => '..\\view\\goal\\details.tp',
-      1 => 1351695960,
+      1 => 1351753320,
       2 => 'file',
     ),
   ),
@@ -37,7 +37,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_50913cfb67dca3_81768102')) {function content_50913cfb67dca3_81768102($_smarty_tpl) {?><?php if (!is_callable('smarty_modifier_date_format')) include 'F:\\xampp\\htdocs\\Dream\\smarty\\libs\\plugins\\modifier.date_format.php';
-?><?php echo $_smarty_tpl->getSubTemplate ('../header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>((string)$_smarty_tpl->tpl_vars['goal']->value['Title']),'page'=>'page-goal-details'), 0);?>
+?><?php echo $_smarty_tpl->getSubTemplate ('../header.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>((string)$_smarty_tpl->tpl_vars['goal']->value['Title']),'page'=>'page-goal-details'), 0);?>
 
 
 <script type='text/javascript' src='../js/goal-comment.js'></script>
@@ -464,7 +464,7 @@ $(document).ready(function(){
 
 	<!-- Reason -->
 	<div id='reason-wap'>
-		<?php echo $_smarty_tpl->getSubTemplate ('../panel_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'愿景','cmd'=>'修改','cmdID'=>'cmd-edit-goal-reason','isCreator'=>((string)$_smarty_tpl->tpl_vars['isCreator']->value)), 0);?>
+		<?php echo $_smarty_tpl->getSubTemplate ('../panel_header.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'愿景','cmd'=>'修改','cmdID'=>'cmd-edit-goal-reason','isCreator'=>((string)$_smarty_tpl->tpl_vars['isCreator']->value)), 0);?>
 
 		<p id='goal-reason'><?php echo $_smarty_tpl->tpl_vars['goal']->value['Reason'];?>
 </p>
@@ -472,7 +472,7 @@ $(document).ready(function(){
 
 	<!-- Steps -->
 	<div id='steps-wap'>
-		<?php echo $_smarty_tpl->getSubTemplate ('../panel_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'计划','cmd'=>'调整','cmdID'=>'cmd-edit-steps','isCreator'=>((string)$_smarty_tpl->tpl_vars['isCreator']->value)), 0);?>
+		<?php echo $_smarty_tpl->getSubTemplate ('../panel_header.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'计划','cmd'=>'调整','cmdID'=>'cmd-edit-steps','isCreator'=>((string)$_smarty_tpl->tpl_vars['isCreator']->value)), 0);?>
 
 		
 		<?php if ($_smarty_tpl->tpl_vars['stepsNum']->value==0){?>
@@ -493,7 +493,7 @@ $_smarty_tpl->tpl_vars['step']->_loop = true;
 	
 	<!-- Logs -->
 	<div id='logs-wap'>
-		<?php echo $_smarty_tpl->getSubTemplate ('../panel_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'记录','cmd'=>'添加','cmdID'=>'cmd-add-log','isCreator'=>((string)$_smarty_tpl->tpl_vars['isCreator']->value)), 0);?>
+		<?php echo $_smarty_tpl->getSubTemplate ('../panel_header.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'记录','cmd'=>'添加','cmdID'=>'cmd-add-log','isCreator'=>((string)$_smarty_tpl->tpl_vars['isCreator']->value)), 0);?>
 
 		
 		<div id='logs-pager'>
@@ -514,7 +514,7 @@ $_smarty_tpl->tpl_vars['step']->_loop = true;
 
 	<!-- Creator -->
 	<div id='creator-wap'>
-		<?php echo $_smarty_tpl->getSubTemplate ('../panel_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'创建者'), 0);?>
+		<?php echo $_smarty_tpl->getSubTemplate ('../panel_header.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'创建者'), 0);?>
 
 		
 		<a class='user-icon' href="PersonC.php?act=person&userID=<?php echo $_smarty_tpl->tpl_vars['creator']->value['UserID'];?>
@@ -527,7 +527,7 @@ $_smarty_tpl->tpl_vars['step']->_loop = true;
 
 	<!-- Cheerers -->
 	<?php if ($_smarty_tpl->tpl_vars['cheerersNum']->value!=0){?>
-		<?php echo $_smarty_tpl->getSubTemplate ('../panel_header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'鼓励者','cmd'=>"全部 (".((string)$_smarty_tpl->tpl_vars['cheerersNum']->value).")",'cmdID'=>'cmd-all-cheerers','link'=>"GoalC.php?act=cheerers&goalID=".((string)$_smarty_tpl->tpl_vars['goal']->value['GoalID'])), 0);?>
+		<?php echo $_smarty_tpl->getSubTemplate ('../panel_header.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'鼓励者','cmd'=>"全部 (".((string)$_smarty_tpl->tpl_vars['cheerersNum']->value).")",'cmdID'=>'cmd-all-cheerers','link'=>"GoalC.php?act=cheerers&goalID=".((string)$_smarty_tpl->tpl_vars['goal']->value['GoalID'])), 0);?>
 
 		
 		<?php  $_smarty_tpl->tpl_vars['cheerer'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['cheerer']->_loop = false;
@@ -610,5 +610,5 @@ $_smarty_tpl->tpl_vars['cheerer']->_loop = true;
 
 <?php }?>
 
-<?php echo $_smarty_tpl->getSubTemplate ('../footer.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+<?php echo $_smarty_tpl->getSubTemplate ('../footer.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 <?php }} ?>

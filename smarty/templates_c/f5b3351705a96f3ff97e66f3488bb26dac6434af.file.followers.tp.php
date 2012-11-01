@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-10-31 15:41:36
+<?php /* Smarty version Smarty-3.1.12, created on 2012-11-01 08:14:44
          compiled from "..\view\person\followers.tp" */ ?>
 <?php /*%%SmartyHeaderCode:15303509138a0642215-77134235%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'f5b3351705a96f3ff97e66f3488bb26dac6434af' => 
     array (
       0 => '..\\view\\person\\followers.tp',
-      1 => 1351068960,
+      1 => 1351753208,
       2 => 'file',
     ),
   ),
@@ -15,6 +15,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.12',
+  'unifunc' => 'content_509138a06fab41_94506436',
   'variables' => 
   array (
     'username' => 0,
@@ -23,10 +25,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'fow' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.12',
-  'unifunc' => 'content_509138a06fab41_94506436',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_509138a06fab41_94506436')) {function content_509138a06fab41_94506436($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ('../header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>"关注 ".((string)$_smarty_tpl->tpl_vars['username']->value)." 的人们",'page'=>'page-followers'), 0);?>
+<?php if ($_valid && !is_callable('content_509138a06fab41_94506436')) {function content_509138a06fab41_94506436($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ('../header.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>"关注 ".((string)$_smarty_tpl->tpl_vars['username']->value)." 的人们",'page'=>'page-followers'), 0);?>
 
 
 <p class='subtitle'>关注 <a href='PersonC.php?act=person&userID=<?php echo $_smarty_tpl->tpl_vars['userID']->value;?>
@@ -48,5 +48,5 @@ $_smarty_tpl->tpl_vars['fow']->_loop = true;
 </a>
 <?php } ?>
 
-<?php echo $_smarty_tpl->getSubTemplate ('../footer.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+<?php echo $_smarty_tpl->getSubTemplate ('../footer.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 <?php }} ?>

@@ -75,7 +75,7 @@
 			}
 			$sm->assign('dyns', $dyns);
 
-			$output = $sm->fetch('userDyns.tc');
+			$output = $sm->fetch('user_dyns.tc');
 			echo $output;
 			break;
 
@@ -105,7 +105,7 @@
 			}
 			$sm->assign('dyns', $dyns);
 			
-			$sm->display('aboutMeDyns.tc');
+			$sm->display('about_me_dyns.tc');
 			break;
 			
 	// admin followees

@@ -33,7 +33,7 @@
 	{if $dyn.commentsNum != 0}
 	<div class='comments-wap'>
 		{foreach $dyn.comments as $comm}
-		{include file='../goal/comments.tpl'}
+		{include file='../goal/comments.tc'}
 		{/foreach}
 	</div>
 	{/if}
@@ -59,7 +59,7 @@
 	{if $dyn.commentsNum != 0}
 	<div class='comments-wap'>
 		{foreach $dyn.comments as $comm}
-		{include file='../goal/comments.tpl'}
+		{include file='../goal/comments.tc'}
 		{/foreach}
 	</div>
 	{/if}

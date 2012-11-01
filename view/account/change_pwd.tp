@@ -1,4 +1,4 @@
-{include file='../header.tpl' title='更改密码' page='page-change-pwd'}
+{include file='../header.tc' title='更改密码' page='page-change-pwd'}
 
 {literal}
 <script type='text/javascript'>
@@ -33,4 +33,4 @@ $(document).ready(function(){
 </form>
 
 
-{include file='../footer.tpl'}
+{include file='../footer.tc'}

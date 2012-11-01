@@ -25,7 +25,7 @@
 	// 浏览器检测
 	function browser_check(){
 		if(get_browser_type() == 'IE'){
-			page_jump('../browserWarning.html');
+			redirect('Public', 'browser_warning');
 		}
 	}
 

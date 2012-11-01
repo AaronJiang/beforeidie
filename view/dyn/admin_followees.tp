@@ -1,4 +1,4 @@
-{include file='../header.tpl' title='管理我的关注' page='page-admin-followees'}
+{include file='../header.tc' title='管理我的关注' page='page-admin-followees'}
 
 <p class='subtitle'>我的关注 ({$followeesNum})</p>
 
@@ -25,4 +25,4 @@
 </div>
 {/foreach}
 
-{include file='../footer.tpl'}
+{include file='../footer.tc'}

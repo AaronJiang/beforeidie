@@ -1,4 +1,4 @@
-{include file='../header.tpl' title="{$username} 关注的人们" page='page-followees'}
+{include file='../header.tc' title="{$username} 关注的人们" page='page-followees'}
 
 <p class='subtitle'><a href='PersonC.php?act=person&userID={$userID}'>{$username}</a> 关注的人们：</p>
 
@@ -10,4 +10,4 @@
 </a>
 {/foreach}
 
-{include file='../footer.tpl'}
+{include file='../footer.tc'}
