@@ -8,7 +8,7 @@
 </script>
 {/literal}
 
-<p class='subtitle'>编辑Goal</p>
+<p class='subtitle'>编辑 Goal</p>
 
 <form id="form-edit-goal" action="GoalC.php" method="post">
 	<div>
@@ -30,6 +30,7 @@
 		<input type="submit" value="确定" id="update-goal" />
 	</div>
 	
+	<input type="hidden" name="refererUrl" value="{$refererUrl}">
 	<input type="hidden" name="goalID" value="{$goal.GoalID}">
 	<input type="hidden" name="act" value="update_goal">
 </form>

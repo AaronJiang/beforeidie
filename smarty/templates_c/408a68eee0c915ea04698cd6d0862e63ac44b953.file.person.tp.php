@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-11-10 11:32:41
+<?php /* Smarty version Smarty-3.1.12, created on 2012-11-10 14:26:40
          compiled from "..\view\person\person.tp" */ ?>
 <?php /*%%SmartyHeaderCode:4986509235e2350e62-48954490%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '408a68eee0c915ea04698cd6d0862e63ac44b953' => 
     array (
       0 => '..\\view\\person\\person.tp',
-      1 => 1352543446,
+      1 => 1352553919,
       2 => 'file',
     ),
   ),
@@ -86,7 +86,7 @@ $_smarty_tpl->tpl_vars['goal']->_loop = true;
 				<div class='goal-num-wap'>
 					<span><?php echo $_smarty_tpl->tpl_vars['goal']->value['logsNum'];?>
  记录</span>
-					<span>·</span> 
+					<span>/</span> 
 					<span><?php echo $_smarty_tpl->tpl_vars['goal']->value['cheersNum'];?>
  鼓励</span>
 				</div>
@@ -146,7 +146,7 @@ $_smarty_tpl->tpl_vars['dyn']->_loop = true;
 		<?php } ?>
 		
 		<!-- 关注TA的人 -->	
-		<?php echo $_smarty_tpl->getSubTemplate ('../panel_header.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'关注TA的人','cmd'=>"全部 (".((string)$_smarty_tpl->tpl_vars['followersNum']->value).")",'link'=>"PersonC.php?act=followers&userID=".((string)$_smarty_tpl->tpl_vars['user']->value['ID'])), 0);?>
+		<?php echo $_smarty_tpl->getSubTemplate ('../panel_header.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'关注TA的人','cmd'=>"全部 / ".((string)$_smarty_tpl->tpl_vars['followersNum']->value),'link'=>"PersonC.php?act=followers&userID=".((string)$_smarty_tpl->tpl_vars['user']->value['ID'])), 0);?>
 			
 			
 		<?php  $_smarty_tpl->tpl_vars['follower'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['follower']->_loop = false;
@@ -163,7 +163,7 @@ $_smarty_tpl->tpl_vars['follower']->_loop = true;
 		<?php } ?>
 		
 		<!-- TA关注的人 -->		
-		<?php echo $_smarty_tpl->getSubTemplate ('../panel_header.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'TA关注的人','cmd'=>"全部 (".((string)$_smarty_tpl->tpl_vars['followeesNum']->value).")",'link'=>"PersonC.php?act=followees&userID=".((string)$_smarty_tpl->tpl_vars['user']->value['ID'])), 0);?>
+		<?php echo $_smarty_tpl->getSubTemplate ('../panel_header.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'TA关注的人','cmd'=>"全部 / ".((string)$_smarty_tpl->tpl_vars['followeesNum']->value),'link'=>"PersonC.php?act=followees&userID=".((string)$_smarty_tpl->tpl_vars['user']->value['ID'])), 0);?>
 			
 			
 		<?php  $_smarty_tpl->tpl_vars['followee'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['followee']->_loop = false;

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-11-10 13:33:59
+<?php /* Smarty version Smarty-3.1.12, created on 2012-11-10 14:18:49
          compiled from "..\view\goal\details.tp" */ ?>
 <?php /*%%SmartyHeaderCode:1933950938337f31405-89020659%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6c71f1ce3e74505d967d613caadd6976236f3c18' => 
     array (
       0 => '..\\view\\goal\\details.tp',
-      1 => 1352550724,
+      1 => 1352553209,
       2 => 'file',
     ),
   ),
@@ -169,7 +169,10 @@ $(document).ready(function(){
 			scroll: false
 		});
 	});
-	
+
+	/* Delete Log
+	----------------------------------------------------*/
+
 	//记录删除警告框
 	$('.log-cmd-delete').live('click', function(){
 		if(!confirm("确定删除此记录？")){
@@ -190,7 +193,6 @@ $(document).ready(function(){
 		<span id='goal-title'><?php echo $_smarty_tpl->tpl_vars['goal']->value['Title'];?>
 </span>
 		<?php if ($_smarty_tpl->tpl_vars['isCreator']->value){?>
-		<span id='goal-title-underline'>_ _ _</span>
 		<a id='cmd-edit-goal-title' href='GoalC.php?act=edit&goalID=<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
 '>修改</a>
 		<?php }?>
@@ -215,9 +217,9 @@ $(document).ready(function(){
 	
 	<!-- Logs -->
 	<div id='logs-wap'>
-		<?php echo $_smarty_tpl->getSubTemplate ('../panel_header.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'记录','cmd'=>'添加','cmdID'=>'cmd-add-log','isCreator'=>((string)$_smarty_tpl->tpl_vars['isCreator']->value)), 0);?>
+		<a id="cmd-add-log">添加</a>
 
-
+		<!--
 		<div id='logs-pager'>
 			<span id='curr-page-num'>1</span>
 			<span>/</span>
@@ -226,6 +228,7 @@ $(document).ready(function(){
 			<a id='page-up' >上页</a
 			><a id='page-down'>下页</a>
 		</div>
+		-->
 
 		<div id='logs'></div>
 	</div>
@@ -250,7 +253,7 @@ $(document).ready(function(){
 	<!-- Cheerers -->
 	<div>
 	<?php if ($_smarty_tpl->tpl_vars['cheerersNum']->value!=0){?>
-		<?php echo $_smarty_tpl->getSubTemplate ('../panel_header.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'鼓励者','cmd'=>"全部 (".((string)$_smarty_tpl->tpl_vars['cheerersNum']->value).")",'cmdID'=>'cmd-all-cheerers','link'=>"GoalC.php?act=cheerers&goalID=".((string)$_smarty_tpl->tpl_vars['goal']->value['GoalID'])), 0);?>
+		<?php echo $_smarty_tpl->getSubTemplate ('../panel_header.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'鼓励者','cmd'=>"全部/".((string)$_smarty_tpl->tpl_vars['cheerersNum']->value),'cmdID'=>'cmd-all-cheerers','link'=>"GoalC.php?act=cheerers&goalID=".((string)$_smarty_tpl->tpl_vars['goal']->value['GoalID'])), 0);?>
 
 		
 		<?php  $_smarty_tpl->tpl_vars['cheerer'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['cheerer']->_loop = false;

@@ -67,55 +67,6 @@
 			<p class='dynamic-time'>{$dyn.Time}</p>
 		</div>
 	</div>
-
-	{* 完成了 Goal *}
-	{elseif $dyn.Type == 'finishGoal'}			
-	<div class='dynamic-content-wap'>
-		<p class='dynamic-header'>
-			<a class='dynamic-goal-creater' href="PersonC.php?act=person&userID={$dyn.PosterID}">{$dyn.Poster}</a>
-			<span>完成了目标</span>
-			<a href="GoalC.php?act=details&goalID={$dyn.GoalID}" class='dynamic-goal-title'>{$dyn.GoalTitle}</a>
-		</p>
-
-		{if $dyn.LogTitle != ""}
-		<p class='dynamic-log-title'>{$dyn.LogTitle}</p>
-		{/if}
-		<p class='dynamic-log-content'>{$dyn.LogContent}</p>
-	
-		{* footer *}
-		<div class='dynamic-footer'>
-			<a class='small-cmd cmd-new-comment'
-				data-poster-id="{$userID}"
-				data-log-id="{$dyn.LogID}"
-				data-is-root='1'
-				data-avatar-url="{$userAvatar}"
-				>回复</a>
-			<p class='dynamic-time'>{$dyn.Time}</p>
-		</div>
-	</div>
-	
-	{* comments *}
-	{if $dyn.commentsNum != 0}
-	<div class='comments-wap'>
-		{foreach $dyn.comments as $comm}
-		{include file='comments.tc'}
-		{/foreach}
-	</div>
-	{/if}
-	
-	{* 关注了他人 *}
-	{elseif $dyn.Type == 'followOther'}	
-	<div class='dynamic-content-wap'>
-		<p class='dynamic-header'>
-			<a class='dynamic-goal-creater' href="PersonC.php?act=person&userID={$dyn.PosterID}">{$dyn.Poster}</a>
-			<span>关注了</span>
-			<a class='dynamic-goal-creater' href="PersonC.php?act=person&userID={$dyn.FolloweeID}">{$dyn.Followee}</a>							
-		</p>
-
-		<div class='dynamic-footer'>
-			<p class='dynamic-time'>{$dyn.Time}</p>
-		</div>
-	</div>
 	{/if}
 
 </div>

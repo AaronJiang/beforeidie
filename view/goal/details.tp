@@ -131,7 +131,10 @@ $(document).ready(function(){
 			scroll: false
 		});
 	});
-	
+
+	/* Delete Log
+	----------------------------------------------------*/
+
 	//记录删除警告框
 	$('.log-cmd-delete').live('click', function(){
 		if(!confirm("确定删除此记录？")){
@@ -151,7 +154,6 @@ $(document).ready(function(){
 	<div id='title-wap'>
 		<span id='goal-title'>{$goal.Title}</span>
 		{if $isCreator}
-		<span id='goal-title-underline'>_ _ _</span>
 		<a id='cmd-edit-goal-title' href='GoalC.php?act=edit&goalID={$goal.GoalID}'>修改</a>
 		{/if}
 		
@@ -172,13 +174,9 @@ $(document).ready(function(){
 	
 	<!-- Logs -->
 	<div id='logs-wap'>
-		{include file='../panel_header.tc'
-			title='记录'
-			cmd='添加'
-			cmdID='cmd-add-log'
-			isCreator="$isCreator"
-		}
+		<a id="cmd-add-log">添加</a>
 
+		<!--
 		<div id='logs-pager'>
 			<span id='curr-page-num'>1</span>
 			<span>/</span>
@@ -186,6 +184,7 @@ $(document).ready(function(){
 			<a id='page-up' >上页</a
 			><a id='page-down'>下页</a>
 		</div>
+		-->
 
 		<div id='logs'></div>
 	</div>
@@ -210,7 +209,7 @@ $(document).ready(function(){
 	{if $cheerersNum != 0}
 		{include file='../panel_header.tc'
 			title='鼓励者'
-			cmd="全部 ($cheerersNum)"
+			cmd="全部/{$cheerersNum}"
 			cmdID='cmd-all-cheerers'
 			link="GoalC.php?act=cheerers&goalID={$goal.GoalID}"
 		}

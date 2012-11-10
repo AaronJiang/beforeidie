@@ -36,24 +36,6 @@
 					$query .= "AND goals.UserID = ". $userID. "\n";
 				}
 				$query .= ")\n";
-		$query .= "UNION ALL\n";
-		
-		// 关注了他人
-		$query .= "(SELECT 'followOther' as Type, u1.Username as Poster, u1.UserID as PosterID, u2.Username as Followee, u2.UserID as FolloweeID, NULL as GoalID, NULL as GoalTitle, NULL as GoalReason, NULL as LogID, NULL as LogTitle, NULL as LogContent, fows.Time as Time\n"
-				. "FROM followers as fows, users as u1, users as u2\n"
-				. "WHERE fows.FolloweeID != ". $userID. "\n"	//关注自己的消息不显示在这里，而显示在私信中
-				. "AND fows.FollowerID = u1.UserID\n"
-				. "AND fows.FolloweeID = u2.UserID\n";
-				if($type == 'followee'){
-					$query .= "AND fows.FollowerID IN\n"
-								. "(SELECT FolloweeID\n"
-								. "FROM followers\n"
-								. "WHERE followers.FollowerID = ". $userID. ")\n";
-				}
-				elseif($type == 'personal'){
-					$query .= "AND fows.FollowerID = ". $userID. "\n";
-				}
-				$query .= ")\n";
 
 		$query .= "ORDER BY Time DESC\n";
 		$query .= "LIMIT ". $numPerPage*($pageIndex-1). ", ". $numPerPage;

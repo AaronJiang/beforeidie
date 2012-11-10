@@ -33,7 +33,7 @@
 				<p class='goal-reason'>{$goal.Reason}</p>
 				<div class='goal-num-wap'>
 					<span>{$goal.logsNum} 记录</span>
-					<span>·</span> 
+					<span>/</span> 
 					<span>{$goal.cheersNum} 鼓励</span>
 				</div>
 			</div>
@@ -84,7 +84,7 @@
 		<!-- 关注TA的人 -->	
 		{include file='../panel_header.tc' 
 			title='关注TA的人'
-			cmd="全部 ({$followersNum})"
+			cmd="全部 / {$followersNum}"
 			link="PersonC.php?act=followers&userID={$user.ID}"
 		}			
 			
@@ -97,7 +97,7 @@
 		<!-- TA关注的人 -->		
 		{include file='../panel_header.tc' 
 			title='TA关注的人'
-			cmd="全部 ({$followeesNum})"
+			cmd="全部 / {$followeesNum}"
 			link="PersonC.php?act=followees&userID={$user.ID}"
 		}			
 			

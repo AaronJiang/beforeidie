@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-11-10 13:37:39
+<?php /* Smarty version Smarty-3.1.12, created on 2012-11-10 15:40:28
          compiled from "..\view\goal\edit.tp" */ ?>
 <?php /*%%SmartyHeaderCode:17491509e2f5b59e7c5-65278564%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ded67ae390f7b771dd2e3f2c97cc883c55ce3785' => 
     array (
       0 => '..\\view\\goal\\edit.tp',
-      1 => 1352551018,
+      1 => 1352558413,
       2 => 'file',
     ),
   ),
@@ -20,6 +20,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'variables' => 
   array (
     'goal' => 0,
+    'refererUrl' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -34,7 +35,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 </script>
 
 
-<p class='subtitle'>编辑Goal</p>
+<p class='subtitle'>编辑 Goal</p>
 
 <form id="form-edit-goal" action="GoalC.php" method="post">
 	<div>
@@ -58,6 +59,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<input type="submit" value="确定" id="update-goal" />
 	</div>
 	
+	<input type="hidden" name="refererUrl" value="<?php echo $_smarty_tpl->tpl_vars['refererUrl']->value;?>
+">
 	<input type="hidden" name="goalID" value="<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
 ">
 	<input type="hidden" name="act" value="update_goal">

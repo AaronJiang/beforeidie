@@ -1,6 +1,6 @@
 {include file='../header.tc' title='管理我的关注' page='page-admin-followees'}
 
-<p class='subtitle'>我的关注 ({$followeesNum})</p>
+<p class='subtitle'>我的关注 / {$followeesNum}</p>
 
 {foreach $followees as $fow}
 <div class='followee-item clearfix'>

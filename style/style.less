@@ -28,10 +28,9 @@ textarea, input, select{
 }
 
 .subtitle{
-	font-size:20px;
-	//font-weight:bold;
-	margin:0 0 10px 0;
-	font-family:"宋体";
+	font-size: 20px;
+	margin: 0 0 10px 0;
+	font-family:"微软雅黑";
 	
 	a{
 		color:#369;
@@ -1062,11 +1061,6 @@ select{
 				line-height:35px;
 				margin:0 6px 0 0;
 			}
-			
-			#goal-title-underline{
-				color: #EEE;
-				font-size: 14px;
-			}
 		
 			#cmd-edit-goal-title{	
 				text-decoration:none;
@@ -1075,7 +1069,10 @@ select{
 				cursor:pointer;
 				padding:0 5px;
 				margin:0 0 0 5px;
-				color:#666;
+				position: absolute;
+				top: 5px;
+				right: 0;
+				color:#999;
 				font-size:12px;
 					
 				&:hover{
@@ -1084,8 +1081,6 @@ select{
 				}
 			}
 			
-
-
 			#goal-cmd-wap{
 				position:absolute;
 				top:0;
@@ -1103,7 +1098,7 @@ select{
 					font-weight:bold;
 					text-shadow:0 0 1px gray;
 					
-					&.isFinished, &.isCheered{
+					&.isCheered{
 						background-color:orange;
 						
 						&:hover{
@@ -1124,11 +1119,27 @@ select{
 
 		/* logs */
 		#logs-wap{
-			padding: 0 0 0 0;
+			padding: 5px 0 0 0;
 			
+			#cmd-add-log{
+				text-decoration: none;
+				background-color: #EEE;
+				font-family: '微软雅黑';
+				cursor: pointer;
+				padding: 0 5px;
+				margin: 0 0 0 5px;
+				float: right;
+				color: #999;
+				font-size: 12px;
+					
+				&:hover{
+					text-shadow: 1px 1px 1px white;
+					background-color: #F2F2F2;
+				}				
+			}
+
 			#logs-pager{
-				//clear: both;
-				text-align: right;
+				float: right;
 				margin: 0 0 5px 0;
 				font-size:14px;
 				line-height:14px;
@@ -1160,7 +1171,7 @@ select{
 				margin:0 0 8px 0;
 				
 				.log-title{
-					font-size:18px;
+					font-size:16px;
 					font-weight:bold;
 					margin:0 0 5px 0;
 				}

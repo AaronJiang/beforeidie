@@ -64,13 +64,16 @@
 			$goalID = $_REQUEST['goalID'];
 		 	$goal = get_goal_by_ID($goalID);
 			$sm->assign('goal', $goal);
+
+			// referer url
+			$sm->assign('refererUrl', $_SERVER['HTTP_REFERER']);
 			
 			$sm->display('edit.tp');
 			break;
 			
 		case "update_goal":
 			update_goal($_REQUEST['goalID'], $_REQUEST['title'], $_REQUEST['why'], $_REQUEST['isPublic']);
-			page_jump_back();
+			page_jump($_REQUEST['refererUrl']);
 			break;
 	
 	// goal details
