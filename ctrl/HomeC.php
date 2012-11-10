@@ -25,8 +25,7 @@
 				$goal['CreatorID'] = $creator['UserID'];
 				$goal['Creator'] = $creator['Username'];
 				
-				// stepsNum, logsNum, cheersNum
-				$goal['StepsNum'] = get_goal_steps_num($goal['GoalID']);
+				// logsNum, cheersNum
 				$goal['LogsNum'] = get_goal_logs_num($goal['GoalID']);
 				$goal['CheersNum'] = get_goal_cheers_num($goal['GoalID']);
 			}

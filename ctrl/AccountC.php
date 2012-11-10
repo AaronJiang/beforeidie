@@ -5,7 +5,7 @@
 	browser_check();
 
 	$action = $_REQUEST['act'];
-	
+
 	switch($action){
 	
 	// login

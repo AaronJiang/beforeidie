@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-11-01 09:42:10
+<?php /* Smarty version Smarty-3.1.12, created on 2012-11-10 11:32:41
          compiled from "..\view\person\person.tp" */ ?>
 <?php /*%%SmartyHeaderCode:4986509235e2350e62-48954490%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '408a68eee0c915ea04698cd6d0862e63ac44b953' => 
     array (
       0 => '..\\view\\person\\person.tp',
-      1 => 1351753159,
+      1 => 1352543446,
       2 => 'file',
     ),
   ),
@@ -15,13 +15,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.12',
+  'unifunc' => 'content_509235e26c2e46_48079691',
   'variables' => 
   array (
     'user' => 0,
     'isMe' => 0,
     'isFollowed' => 0,
     'currUserID' => 0,
-    'goalsNum' => 0,
     'goals' => 0,
     'goal' => 0,
     'dyns' => 0,
@@ -34,8 +35,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'followee' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.12',
-  'unifunc' => 'content_509235e26c2e46_48079691',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_509235e26c2e46_48079691')) {function content_509235e26c2e46_48079691($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ('../header.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>((string)$_smarty_tpl->tpl_vars['user']->value['Name'])." 的个人空间",'page'=>'page-person'), 0);?>
 
@@ -68,19 +67,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			</div>
 			<?php }?>
 		</div>
-	
-		<!-- 用户的 Goals -->
-		<ul id='goal-wap-header'>
-			<li><a href='PersonC.php?act=person&userID=<?php echo $_smarty_tpl->tpl_vars['user']->value['ID'];?>
-&goalType=now'>进行中 [<?php echo $_smarty_tpl->tpl_vars['goalsNum']->value['now'];?>
-]</a></li>
-			<li><a href='PersonC.php?act=person&userID=<?php echo $_smarty_tpl->tpl_vars['user']->value['ID'];?>
-&goalType=future'>待启动 [<?php echo $_smarty_tpl->tpl_vars['goalsNum']->value['future'];?>
-]</a></li>
-			<li><a href='PersonC.php?act=person&userID=<?php echo $_smarty_tpl->tpl_vars['user']->value['ID'];?>
-&goalType=finish'>已完成 [<?php echo $_smarty_tpl->tpl_vars['goalsNum']->value['finish'];?>
-]</a></li>
-		</ul>
 		
 		<div class='goal-wap'>
 			<?php  $_smarty_tpl->tpl_vars['goal'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['goal']->_loop = false;
@@ -98,9 +84,6 @@ $_smarty_tpl->tpl_vars['goal']->_loop = true;
 				<p class='goal-reason'><?php echo $_smarty_tpl->tpl_vars['goal']->value['Reason'];?>
 </p>
 				<div class='goal-num-wap'>
-					<span><?php echo $_smarty_tpl->tpl_vars['goal']->value['stepsNum'];?>
- 规划</span>
-					<span>·</span>
 					<span><?php echo $_smarty_tpl->tpl_vars['goal']->value['logsNum'];?>
  记录</span>
 					<span>·</span> 

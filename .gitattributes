@@ -34,6 +34,8 @@
 *.clj text=auto
 *.sql text=auto
 *.php text=auto
+*.tp text=auto
+*.tc text=auto
 *.lua text=auto
 *.m text=auto
 *.asm text=auto

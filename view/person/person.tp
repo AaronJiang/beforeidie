@@ -22,13 +22,6 @@
 			</div>
 			{/if}
 		</div>
-	
-		<!-- 用户的 Goals -->
-		<ul id='goal-wap-header'>
-			<li><a href='PersonC.php?act=person&userID={$user.ID}&goalType=now'>进行中 [{$goalsNum.now}]</a></li>
-			<li><a href='PersonC.php?act=person&userID={$user.ID}&goalType=future'>待启动 [{$goalsNum.future}]</a></li>
-			<li><a href='PersonC.php?act=person&userID={$user.ID}&goalType=finish'>已完成 [{$goalsNum.finish}]</a></li>
-		</ul>
 		
 		<div class='goal-wap'>
 			{foreach $goals as $goal}
@@ -39,8 +32,6 @@
 				
 				<p class='goal-reason'>{$goal.Reason}</p>
 				<div class='goal-num-wap'>
-					<span>{$goal.stepsNum} 规划</span>
-					<span>·</span>
 					<span>{$goal.logsNum} 记录</span>
 					<span>·</span> 
 					<span>{$goal.cheersNum} 鼓励</span>

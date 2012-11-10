@@ -11,7 +11,7 @@
 					
 			// comment poster avatar
 			$comm['Avatar'] = get_gravatar($comm['PosterID']);
-					
+
 			// comment receiver, receiverID
 			if(!$comm['IsRoot']){
 				$comm['ReceiverID'] = get_posterid_by_commentid($comm['ParentCommentID']);

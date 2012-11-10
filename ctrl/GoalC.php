@@ -14,25 +14,11 @@
 		// get view
 		case "my_goals":
 			$sm = new sm('goal');
-			
+
+			// goals			
 			@session_start();
 			$userID = $_SESSION['valid_user_id'];
-			
-			// 自动启动 Goal
-			autostart_goals($userID);
-
-			// goal num
-			$sm->assign('goalNum', array('now' => get_goals_num($userID, "now", true),
-										'future' => get_goals_num($userID, "future", true),
-										'finish' => get_goals_num($userID, "finish", true)
-										));
-			
-			// goal type
-			$goalType = isset($_REQUEST['goalType'])? $_REQUEST['goalType']: 'now';
-			$sm->assign('goalType', $goalType);
-			
-			// goals
-			$sm->assign('goals', get_goals($userID, $goalType, true));
+			$sm->assign('goals', get_goals($userID, true));
 			
 			$sm->display('my_goals.tp');
 			break;
@@ -40,19 +26,13 @@
 		// start goal
 		case "start_goal":
 			start_goal($_REQUEST['goalID']);
-			redirect('Home', 'home', array('goalType' => 'now'));
+			redirect('Goal', 'my_goals', array('goalType' => 'now'));
 			break;
 			
 		// drop goal
 		case "drop_goal":
 			drop_goal($_REQUEST['goalID']);
 			page_jump_back();
-			break;
-		
-		// delay Goal
-		case "delay_goal":
-			delay_goal($_REQUEST['goalID'], $_REQUEST['startTime']);
-			redirect('Home', 'home');
 			break;
 
 	// new goal
@@ -70,8 +50,8 @@
 
 		// create a new goal
 		case "new_goal":
-			$goalID = new_goal($_REQUEST['userID'], $_REQUEST['title'], $_REQUEST['why'], $_REQUEST['goalType'], $_REQUEST['startTime'], $_REQUEST['isPublic']);
-			redirect('Home', 'home', array('goalType' => $_REQUEST['goalType']));
+			$goalID = new_goal($_REQUEST['userID'], $_REQUEST['title'], $_REQUEST['why'], $_REQUEST['isPublic']);
+			redirect('Goal', 'my_goals');
 			break;
 		
 	// edit goal
@@ -89,8 +69,8 @@
 			break;
 			
 		case "update_goal":
-			update_goal($_REQUEST['goalID'], $_REQUEST['title'], $_REQUEST['why'], $_REQUEST['goalType'], $_REQUEST['startTime'], $_REQUEST['isPublic']);
-			redirect('Home', 'home', array('goalType' => $_REQUEST['goalType']));
+			update_goal($_REQUEST['goalID'], $_REQUEST['title'], $_REQUEST['why'], $_REQUEST['isPublic']);
+			page_jump_back();
 			break;
 	
 	// goal details
@@ -108,9 +88,6 @@
 			$goalID = $_REQUEST['goalID'];	
 			$sm->assign('goal', get_goal_by_ID($goalID));
 			
-			// isFinished			
-			$sm->assign('isFinished', check_goal_is_finished($goalID));
-			
 			// isCreator
 			$isCreator = check_goal_ownership($goalID, $_SESSION['valid_user_id']);
 			$sm->assign('isCreator', $isCreator? 1: 0);
@@ -119,11 +96,6 @@
 			if(!$isCreator){
 				$sm->assign('isCheered', check_goal_is_cheered($userID, $GOAL_ID));
 			}
-			
-			// steps
-			$steps = get_steps($goalID);
-			$sm->assign('stepsNum', count($steps));
-			$sm->assign('steps', $steps);
 			
 			// logs pager
 			$logsNum = get_goal_logs_num($goalID);
@@ -145,14 +117,6 @@
 			
 			$sm->display('details.tp');
 			break;
-			
-		// finish goal
-		case "finish_goal":
-			$goalID = $_REQUEST['goalID'];
-			new_log($_REQUEST['logTitle'], $_REQUEST['logContent'], 0, $goalID);
-			finish_goal($goalID);
-			page_jump_back();
-			break;
 		
 		// update goal reason
 		case "update_goal_reason":
@@ -171,28 +135,7 @@
 			cheer($_REQUEST['userID'], $_REQUEST['goalID']);
 			page_jump_back();
 			break;
-			
-		// get steps
-		case "get_steps":
-			$steps = get_steps($_REQUEST['goalID']);
-			echo urldecode(json_encode(urlencodeAry($steps)));
-			break;
-		
-		// update step
-		case "update_step":
-			echo update_step($_REQUEST['stepID'], $_REQUEST['stepContent'], $_REQUEST['stepIndex']);
-			break;
-		
-		// new step
-		case "new_step":
-			echo new_step($_REQUEST['goalID'], $_REQUEST['stepContent'], $_REQUEST['stepIndex']);
-			break;
-		
-		// delete step
-		case "delete_step":
-			echo delete_step($_REQUEST['stepID']);
-			break;
-			
+
 		// get logs
 		case "get_logs":
 			$sm = new sm('goal');

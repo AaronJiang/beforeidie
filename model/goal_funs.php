@@ -10,27 +10,16 @@
 	}
 	
 	//获取某个用户的某种类型的全部目标
-	function get_goals($userID, $goalType, $isMe){
-		$query = "SELECT a.GoalID, a.Title, a.Reason, a.StartTime, a.EndTime, a.UserID, IFNULL(b.logsNum, 0) as logsNum, IFNULL(c.stepsNum, 0) as stepsNum\n"
+	function get_goals($userID, $isMe){
+		$query = "SELECT a.GoalID, a.Title, a.Reason, a.UserID, IFNULL(b.logsNum, 0) as logsNum\n"
 				. "FROM goals as a\n"
 					. "LEFT JOIN\n"
 					. "(SELECT GoalID, count(*) as logsNum FROM goal_logs GROUP BY GoalID) as b\n"
 					. "ON a.GoalID = b.GoalID\n"
-					. "LEFT JOIN\n"
-					. "(SELECT GoalID, count(*) as stepsNum FROM steps GROUP BY GoalID) as c\n"
-					. "ON a.GoalID = c.GoalID\n"
-				. "WHERE a.UserID = ". $userID. "\n"
-				. "AND a.GoalType = '". $goalType. "'\n";
+				. "WHERE a.UserID = ". $userID. "\n";
 		
 		if(!$isMe){
 			$query .= "AND IsPublic = 1\n";
-		}
-		
-		if($goalType == 'future'){
-			$query .= "ORDER BY StartTime ASC\n";
-		}
-		elseif($goalType == 'finish'){
-			$query .= "ORDER BY EndTime DESC\n";
 		}
 		
 		$results = db_exec($query);
@@ -47,14 +36,14 @@
 	function get_hot_goals($userID){
 		$sql = "SELECT goals.GoalID, goals.Title, goals.Reason\n"
 	    	. "FROM goals\n"
-	    	. "WHERE goals.GoalType = 'now'\n"
-			. "AND goals.isPublic = 1\n"
-			. "AND goals.UserID != ". $userID. "\n"
-			. "AND goals.GoalID IN\n"
-				. "(SELECT GoalID FROM\n"
-					. "(SELECT goal_logs.GoalID, COUNT(*) AS LogsNum\n"
-					. "FROM goal_logs GROUP BY goal_logs.GoalID) AS c1\n"
-					. "WHERE logsNum > 5)\n";
+			. "LEFT JOIN\n"
+				. "(SELECT goal_logs.GoalID, COUNT(*) AS LogsNum\n"
+				. "FROM goal_logs GROUP BY goal_logs.GoalID) AS c1\n"
+			. "ON goals.GoalID = c1.GoalID\n"
+			. "WHERE goals.isPublic = 1\n"
+			//. "AND goals.UserID != ". $userID. "\n"
+			. "ORDER BY c1.LogsNum\n"
+			. "LIMIT 0, 20\n";
 		
 		$result = db_exec($sql);
 		
@@ -86,88 +75,10 @@
 	}
 	
 	//新增目标
-	function new_goal($userID, $title, $reason, $goalType, $startTime, $isPublic){
+	function new_goal($userID, $title, $reason, $isPublic){
 		$title = trim($title);
 		$reason = trim($reason);
 		$goalType = trim($goalType);
-		
-		if($goalType == "now"){
-			$startTime = now_date();
-		}
-		elseif($goalType == "future"){
-			$startTime = trim($startTime);
-		}
-	
-		if(!$title || !$reason || !$startTime){
-			echo "You have not enter all the required details!";
-			exit;
-		}
-		
-		if(!get_magic_quotes_gpc()){
-			$title = addslashes($title);
-			$reason = addslashes($reason);
-			$goalType = addslashes($goalType);
-			$startTime = addslashes($startTime);
-		}
-		
-		$query = "insert into goals (UserID, Title, Reason, GoalType, StartTime, CreateTime, IsPublic) ";
-		$query .= "values (". $userID. ", '". $title. "', '". $reason. "', '". $goalType. "', '". $startTime. "', NOW(), ". $isPublic. ")";
-		
-		$result = db_exec($query);
-		
-		//return $result? mysql_insert_id(): 'false';
-	}
-
-	//启动目标
-	function start_goal($goalID){
-		$goalID	= trim($goalID);
-
-		$query = "update goals set GoalType = 'now' where GoalID = ". $goalID;
-		$result = db_exec($query);
-		
-		return $result? "true": "false";
-	}
-	
-	//自动启动到达预定日期的目标
-	function autostart_goals($userID){
-		$query = "select GoalID from goals where UserID = ". $userID. " and GoalType = 'future' and StartTime <= '". now_date(). "'";
-		$result = db_exec($query);
-		
-		if($result->num_rows != 0){
-			while($row = $result->fetch_assoc()){
-				start_goal($row['GoalID']);
-			}	
-		}
-	}
-	
-	//延迟目标
-	function delay_goal($goalID, $startTime){
-		$goalID	= trim($goalID);
-		$startTime = trim($startTime);
-		
-		if(!$goalID || !$startTime){
-			echo "You have not enter all the required details!";
-			exit;
-		}
-		
-		if(!get_magic_quotes_gpc()){
-			$goalID = addslashes($goalID);
-			$startTime = addslashes($startTime);
-		}
-
-		$query = "update goals set GoalType = 'future', StartTime = '". $startTime. "'where GoalID = ". $goalID;
-		$result = db_exec($query);
-	
-		return $result? "true": "false";
-	}
-	
-	//更新目标
-	function update_goal($goalID, $title, $reason, $goalType, $startTime, $isPublic){
-		$goalID = trim($goalID);
-		$title = trim($title);
-		$reason = trim($reason);
-		$goalType = trim($goalType);
-		$startTime = trim($startTime);
 	
 		if(!$title || !$reason){
 			echo "You have not enter all the required details!";
@@ -177,11 +88,33 @@
 		if(!get_magic_quotes_gpc()){
 			$title = addslashes($title);
 			$reason = addslashes($reason);
-			$goalType = addslashes($goalType);
-			$startTime = addslashes($startTime);
+		}
+		
+		$query = "insert into goals (UserID, Title, Reason, CreateTime, IsPublic) ";
+		$query .= "values (". $userID. ", '". $title. "', '". $reason. "', NOW(), ". $isPublic. ")";
+		
+		$result = db_exec($query);
+		
+		//return $result? mysql_insert_id(): 'false';
+	}
+
+	//更新目标
+	function update_goal($goalID, $title, $reason, $isPublic){
+		$goalID = trim($goalID);
+		$title = trim($title);
+		$reason = trim($reason);
+	
+		if(!$title || !$reason){
+			echo "You have not enter all the required details!";
+			exit;
+		}
+		
+		if(!get_magic_quotes_gpc()){
+			$title = addslashes($title);
+			$reason = addslashes($reason);
 		}
 	
-		$query = "update goals set Title = '". $title. "', Reason = '". $reason. "', GoalType = '". $goalType. "', StartTime = '". $startTime. "', UpdateTime = '". now_time(). "', IsPublic = ". $isPublic. " where GoalID = ". $goalID;
+		$query = "update goals set Title = '". $title. "', Reason = '". $reason. "', UpdateTime = '". now_time(). "', IsPublic = ". $isPublic. " where GoalID = ". $goalID;
 		$result = db_exec($query);
 		
 		return $result? "true": "false";
@@ -264,14 +197,6 @@
 		$result = db_exec($query);
 		
 		return $result->fetch_assoc();
-	}
-	
-	//完成目标
-	function finish_goal($goalID){
-		$query = "UPDATE goals SET GoalType = 'finish', EndTime = NOW() WHERE GoalID = ". $goalID;
-		$result = db_exec($query);
-		
-		return $result? "true": "false";
 	}
 	
 	//放弃目标

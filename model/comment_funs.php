@@ -1,7 +1,7 @@
 <?php
 	require_once('public_funs.php');
 
-	//增加留言
+	// 增加留言
 	function new_comment($comment, $posterID, $logID, $parentCommentID, $isRoot){
 		if(!get_magic_quotes_gpc()){
 			$comment = addslashes($comment);
@@ -13,7 +13,7 @@
 		return db_exec($query);
 	}
 	
-	//获取某 Log 的所有 Comments
+	// 获取某 Log 的所有 Comments
 	function get_log_comments($logID){
 		$query = "SELECT * FROM comments\n"
 				. "WHERE comments.LogID = ". $logID. "\n"

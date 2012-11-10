@@ -1,0 +1,284 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"ma",
+				"margin"
+			],
+			[
+				"fon",
+				"font-family"
+			],
+			[
+				"na",
+				"navbarLinkColor"
+			],
+			[
+				"gray",
+				"grayLight"
+			],
+			[
+				"gra",
+				"grayLight"
+			],
+			[
+				"DOC",
+				"document"
+			],
+			[
+				"mar",
+				"margin-left"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"border-top-r",
+				"border-top-left-radius"
+			],
+			[
+				"fot",
+				"font-family"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "view/goal/details.tp",
+			"settings":
+			{
+				"buffer_size": 12807,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "style/style.less",
+			"settings":
+			{
+				"buffer_size": 28034,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"Snippet: ",
+				"Snippet: <?php … ?>"
+			]
+		],
+		"width": 416.0
+	},
+	"console":
+	{
+		"height": 153.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/lzp/AppData/Roaming/Sublime Text 2/Packages/Default/Default (Windows).sublime-keymap",
+		"/F/xampp/htdocs/Dream/view/goal/details.tp",
+		"/F/xampp/htdocs/poem/static/bs/variables.less",
+		"/F/xampp/htdocs/poem/poem.sublime-project",
+		"/F/xampp/htdocs/poem/poem.sublime-workspace",
+		"/C/Users/lzp/Desktop/bootstrap.min.js",
+		"/F/xampp/htdocs/poem/main.js",
+		"/F/xampp/htdocs/poem/main.less",
+		"/F/xampp/htdocs/bs/less/reset.less",
+		"/F/xampp/htdocs/Dream/ctrl/DynC.php",
+		"/F/xampp/htdocs/bs/less/bootstrap.less",
+		"/C/Users/lzp/Desktop/test.php",
+		"/C/Users/lzp/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/C/Users/lzp/AppData/Roaming/Sublime Text 2/Packages/User/CSS.sublime-settings",
+		"/F/xampp/htdocs/bs/less/scaffolding.less",
+		"/F/xampp/htdocs/poem/less-1.3.0.min.js",
+		"/F/xampp/htdocs/poem/Dream.sublime-project",
+		"/F/xampp/htdocs/Dream/model/comment_funs.php",
+		"/F/xampp/htdocs/poem/.gitignore",
+		"/C/Users/lzp/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/C/Users/lzp/AppData/Roaming/Sublime Text 2/Packages/User/HTML.sublime-settings",
+		"/F/xampp/htdocs/poem/index.html",
+		"/F/xampp/htdocs/poem/jquery-1.7.2.min.js"
+	],
+	"find":
+	{
+		"height": 36.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"getElementById",
+			"sdsada"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "view/goal/details.tp",
+					"settings":
+					{
+						"buffer_size": 12807,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8672,
+								8672
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 7762.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "style/style.less",
+					"settings":
+					{
+						"buffer_size": 28034,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								16502,
+								16502
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 21346.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"",
+				"jquery-1.7.2.min.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/F/xampp/htdocs/poem/Dream.sublime-project"
+			],
+			[
+				"po",
+				"/F/xampp/htdocs/poem/poem.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 177.0,
+	"status_bar_visible": true
+}

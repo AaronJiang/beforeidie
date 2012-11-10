@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-11-01 09:53:50
+<?php /* Smarty version Smarty-3.1.12, created on 2012-11-10 13:37:00
          compiled from "..\view\goal\new.tp" */ ?>
 <?php /*%%SmartyHeaderCode:225625092389e5c3365-55689534%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6b380556e70dbf1c1b12830d20278285b1564333' => 
     array (
       0 => '..\\view\\goal\\new.tp',
-      1 => 1351753344,
+      1 => 1352550999,
       2 => 'file',
     ),
   ),
@@ -15,13 +15,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.12',
+  'unifunc' => 'content_5092389e6abef7_81803631',
   'variables' => 
   array (
     'userID' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.12',
-  'unifunc' => 'content_5092389e6abef7_81803631',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_5092389e6abef7_81803631')) {function content_5092389e6abef7_81803631($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ('../header.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'新的Goal','page'=>'page-new-goal'), 0);?>
 
@@ -31,29 +31,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	$(document).ready(function(){
 	
 		$('#form-new-goal').validationEngine();
-	
-		$('#goal-starttime').datepicker({
-			changeMonth: true,
-			changeYear: true,
-			showOtherMonths: true,
-			selectOtherMonths: true
-		});
-	
-		$('#goal-type').change(function(){
-			var $time = $('#goal-starttime');
-			if(this.selectedIndex == 1){
-				$time.fadeIn('fast');
-				$('#goal-starttime').datepicker('show');
-			}
-			else{
-				$time.fadeOut('fast');
-			}
-		});
 	});
 </script>
 
 
-<p class='subtitle'>设立新的 Goal</p>
+<p class='subtitle'>新的Goal</p>
 
 <form id="form-new-goal" action="GoalC.php" method="post">
 	<div>
@@ -62,14 +44,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	
 	<div>
 		<textarea rows="8" placeholder="简单地描绘一下你的愿景吧！" class='validate[required]' name="why" id="goal-why"></textarea>
-	</div>
-	
-	<div>
-		<select name="goalType" id="goal-type">
-			<option value="now">立即启动</option>
-			<option value="future">在未来启动</option>
-		</select>
-		<input type="text" name="startTime" id="goal-starttime" autocomplete="off"/>
 	</div>
 	
 	<div>

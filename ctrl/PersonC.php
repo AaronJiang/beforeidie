@@ -31,17 +31,10 @@
 			$sm->assign('isMe', $isMe);
 			$isFollowed = check_is_followed($currUserID, $userID);
 			$sm->assign('isFollowed', $isFollowed);
-			
-			// goalsNum
-			$sm->assign('goalsNum', array('now' => get_goals_num($userID, 'now', false),
-										'future' => get_goals_num($userID, 'future', false),
-										'finish' => get_goals_num($userID, 'finish', false)));
 										
 			// goals
-			$goalType = isset($_REQUEST['goalType'])? $_REQUEST['goalType']: 'now';
-			$goals = get_goals($userID, $goalType, false);
+			$goals = get_goals($userID, false);
 			foreach($goals as &$goal){
-				$goal['stepsNum'] = get_goal_steps_num($goal['GoalID']);
 				$goal['logsNum'] = get_goal_logs_num($goal['GoalID']);
 				$goal['cheersNum'] = get_goal_cheers_num($goal['GoalID']);
 			}
