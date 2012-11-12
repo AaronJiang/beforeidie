@@ -17,7 +17,7 @@
 	
 	<div>
 		<textarea rows="8" placeholder="用几句话简单地介绍一下吧" class='validate[required]' name="why" id="goal-why"></textarea>
-	</div>
+	</div>	
 	
 	<div>
 		<select id='goal-ispublic' name='isPublic'>
@@ -25,7 +25,7 @@
 			<option value='0'>私密</option>
 		</select>
 	</div>
-	
+
 	<input type="hidden" name="act" value="new_goal" />
 	<input type="hidden" name="userID" value='{$userID}' />
 	<input type="submit" id="create-goal" value="添加" />

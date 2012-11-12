@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-11-10 14:26:40
+<?php /* Smarty version Smarty-3.1.12, created on 2012-11-12 02:24:42
          compiled from "..\view\person\person.tp" */ ?>
 <?php /*%%SmartyHeaderCode:4986509235e2350e62-48954490%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '408a68eee0c915ea04698cd6d0862e63ac44b953' => 
     array (
       0 => '..\\view\\person\\person.tp',
-      1 => 1352553919,
+      1 => 1352681909,
       2 => 'file',
     ),
   ),
@@ -39,11 +39,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <?php if ($_valid && !is_callable('content_509235e26c2e46_48079691')) {function content_509235e26c2e46_48079691($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ('../header.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>((string)$_smarty_tpl->tpl_vars['user']->value['Name'])." 的个人空间",'page'=>'page-person'), 0);?>
 
 
-<div id='person-page'>
+<div class='row'>
 
-	<div id='main-panel'>
-		
-		<!-- User Info -->		
+	<div class='span9'>
+			
 		<div id='user-info' class='clearfix'>
 			<img id='user-avatar' src='<?php echo $_smarty_tpl->tpl_vars['user']->value['Avatar'];?>
 ' />
@@ -97,7 +96,7 @@ $_smarty_tpl->tpl_vars['goal']->_loop = true;
 	</div>
 
 	<!-- 边栏 -->	
-	<div id="sidebar-panel">
+	<div class='span3'>
 	
 		<!-- 个人动态 -->
 		<?php echo $_smarty_tpl->getSubTemplate ('../panel_header.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'TA的动态','cmd'=>'全部','link'=>"PersonC.php?act=personal_dyns&userID=".((string)$_smarty_tpl->tpl_vars['user']->value['ID'])), 0);?>
@@ -179,6 +178,7 @@ $_smarty_tpl->tpl_vars['followee']->_loop = true;
 		</a>
 		<?php } ?>
 	</div>
+
 </div>
 
 <?php echo $_smarty_tpl->getSubTemplate ('../footer.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>

@@ -147,80 +147,82 @@ $(document).ready(function(){
 
 </script>
 
-<!-- Main Panel -->
-<div id='main-panel'>
+<div class='row'>
 
-	<!-- Title -->
-	<div id='title-wap'>
-		<span id='goal-title'>{$goal.Title}</span>
-		{if $isCreator}
-		<a id='cmd-edit-goal-title' href='GoalC.php?act=edit&goalID={$goal.GoalID}'>修改</a>
-		{/if}
-		
-		<div id='goal-cmd-wap'>	
-		{if $isCreator}
-		{else}
-			{if $isCheered}
-			<a class='isCheered'>已鼓励</a>
-			{else}
-			<a href="GoalC.php?act=cheer_goal&userID={$userID}&goalID={$goal.GoalID}">鼓励</a>
+	<div class='span9'>
+
+		<!-- Title -->
+		<div id='title-wap'>
+			<span id='goal-title'>{$goal.Title}</span>
+
+			{if $isCreator}
+			<a id='cmd-edit-goal-title' href='GoalC.php?act=edit&goalID={$goal.GoalID}'>修改</a>
 			{/if}
-		{/if}
+			
+			<div id='goal-cmd-wap'>	
+				{if !$isCreator}
+				{if $isCheered}
+				<a class='isCheered'>已鼓励</a>
+				{else}
+				<a href="GoalC.php?act=cheer_goal&userID={$userID}&goalID={$goal.GoalID}">鼓励</a>
+				{/if}
+				{/if}
+			</div>
+		</div>
+		
+		<!-- Reason -->
+		<p id='goal-reason'>{$goal.Reason}</p>
+		
+		<!-- Logs -->
+		<div id='logs-wap'>
+			<a id="cmd-add-log">添加</a>
+
+			<!--
+			<div id='logs-pager'>
+				<span id='curr-page-num'>1</span>
+				<span>/</span>
+				<span id='total-page-num'>{$pagesNum}</span>
+				<a id='page-up' >上页</a
+				><a id='page-down'>下页</a>
+			</div>
+			-->
+
+			<div id='logs'></div>
 		</div>
 	</div>
-	
-	<!-- Reason -->
-	<p id='goal-reason'>{$goal.Reason}</p>
-	
-	<!-- Logs -->
-	<div id='logs-wap'>
-		<a id="cmd-add-log">添加</a>
 
-		<!--
-		<div id='logs-pager'>
-			<span id='curr-page-num'>1</span>
-			<span>/</span>
-			<span id='total-page-num'>{$pagesNum}</span>
-			<a id='page-up' >上页</a
-			><a id='page-down'>下页</a>
+	<div class='span3'>
+
+		<!-- Creator -->
+		<div id='creator-wap'>
+			{include file='../panel_header.tc'
+				title='创建者'
+			}
+			
+			<a class='user-icon' href="PersonC.php?act=person&userID={$creator.UserID}">
+				<img src="{$creatorAvatar}" title="{$creator.Username}" />
+			</a>
 		</div>
-		-->
 
-		<div id='logs'></div>
+		<!-- Cheerers -->
+		<div>
+			{if $cheerersNum != 0}
+			{include file='../panel_header.tc'
+				title='鼓励者'
+				cmd="全部/{$cheerersNum}"
+				cmdID='cmd-all-cheerers'
+				link="GoalC.php?act=cheerers&goalID={$goal.GoalID}"
+			}
+			
+			{foreach $cheerers as $cheerer}
+			<a href="PersonC.php?act=person&userID={$cheerer.UserID}">
+				<img class='user-icon' src="{$cheerer.Avatar}" title="{$cheerer.Username}" />
+			</a>
+			{/foreach}
+			{/if}
+		</div>
 	</div>
-</div>
 
-<!-- Sidebar Panel -->
-<div id="sidebar-panel">
-
-	<!-- Creator -->
-	<div id='creator-wap'>
-		{include file='../panel_header.tc'
-			title='创建者'
-		}
-		
-		<a class='user-icon' href="PersonC.php?act=person&userID={$creator.UserID}">
-			<img src="{$creatorAvatar}" title="{$creator.Username}" />
-		</a>
-	</div>
-
-	<!-- Cheerers -->
-	<div>
-	{if $cheerersNum != 0}
-		{include file='../panel_header.tc'
-			title='鼓励者'
-			cmd="全部/{$cheerersNum}"
-			cmdID='cmd-all-cheerers'
-			link="GoalC.php?act=cheerers&goalID={$goal.GoalID}"
-		}
-		
-		{foreach $cheerers as $cheerer}
-		<a href="PersonC.php?act=person&userID={$cheerer.UserID}">
-			<img class='user-icon' src="{$cheerer.Avatar}" title="{$cheerer.Username}" />
-		</a>
-		{/foreach}
-	{/if}
-	</div>
 </div>
 
 {if $isCreator}

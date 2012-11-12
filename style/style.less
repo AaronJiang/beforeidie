@@ -1,486 +1,17 @@
-/* Reset
-------------------------------------------------------------*/
-body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockqoute,th,td,select{
-	margin:0;
-	padding:0;
-}
+@import "utility.less";
+@import "reset.less";
+@import "layout.less";
+@import "basecss.less";
+@import "components.less";
 
-textarea, input, select{
-	outline:none;
-}
+// Page Browser Warning
+// ------------------------------------------------------------
 
-/* Functions
-------------------------------------------------------------*/
-.clearfix:before{
-	content:".";
-	display:block;
-	height:0px;
-	clear:both;
-	visibility:hidden;
-}
-
-.clearfix:after{
-	content:".";
-	display:block;
-	height:0px;
-	clear:both;
-	visibility:hidden;
-}
-
-.subtitle{
-	font-size: 20px;
-	margin: 0 0 10px 0;
-	font-family:"微软雅黑";
-	
-	a{
-		color:#369;
-		text-decoration:none;
-		
-		&:hover{
-			text-decoration:underline;
-		}
-	}
-}
-
-.indent-2em{
-	text-indent:1em;
-}
-
-.floatleft{
-	float:left;
-}
-
-.user-icon{
-	width:40px;
-	height:40px;
-	float:left;
-	margin:0 10px 10px 0;
-}
-
-/* Common Modules
-------------------------------------------------------------*/
-
-/* Panel Header */
-.panel-header{
-	margin:0 0 10px 0;
-	clear:both;
-
-	&:after{
-		content:".";
-		display:block;
-		height:0px;
-		clear:both;
-		visibility:hidden;	
-	}
-	
-	.panel-title{
-		font-size:18px;
-		color:#1C86EE;
-		font-weight:bold;
-		font-family:'微软雅黑';
-		display:inline-block;
-		padding:0 6px 0 0;
-	}
-
-	.panel-cmd-wapper{
-		font-size:12px;
-		display:inline-block;
-		font-family:'宋体';
-		
-		.panel-underline{
-			color:#EEE;
-			margin:0 0 -2px 0;
-		}
-		
-		.panel-cmd{
-			text-decoration:none;
-			background-color:#EEE;
-			font-family:'微软雅黑';
-			cursor:pointer;
-			padding:0 5px;
-			margin:0 0 0 5px;
-			color:#666;
-			
-			&:hover{
-				text-shadow:1px 1px 1px white;
-				background-color:#F2F2F2;
-			}
-		}
-	}
-}
-
-/* Comments */
-.comments-wap{
-	border-top:1px solid #EEE;
-	padding:12px 0 0 0;
-	
-	.comment-item{
-		padding:0 0 12px 0;
-		font-size:13px;
-		font-family:'宋体';
-		
-		.comment-poster-profile{
-			height:30px;
-			width:30px;
-			float:left;
-		}
-		
-		.comment-main{
-			margin:-3px 0 0 40px;
-			
-			.comment-header{
-				margin:0 0 3px 0;
-			line-height:20px;
-			}
-			
-			.comment-footer{
-				font-size:12px;
-				line-height:12px;
-				
-				.comment-cmd{
-					color:#369;
-					cursor:pointer;
-					
-					&:hover{
-						color:white;
-						background-color:blue;
-					}
-				}
-
-				.comment-time{
-					color:gray;
-				}
-			}
-		}
-		
-		a{
-			text-decoration:none;
-			color:#369;
-	
-			&:hover{
-			text-decoration:underline;
-			}
-		}
-	}
-}
-
-/* Comment New Form */
-.new-comment-wap{
-	border-top:1px solid #EEE;
-	padding:12px 0 0 0;
-	
-	.avatar{
-		width:30px;
-		height:30px;
-		float:left;
-	}
-	
-	.new-comment-form{
-		margin:0 0 0 40px;
-	
-		.comment-input{
-			border:1px solid #EEE;
-			padding:4px 7px;
-			font-size:13px;
-			font-family:'宋体';
-			line-height:20px;
-			outline:none;
-			margin:0 0 8px 0;
-		}
-		
-		.comment-submit,
-		.comment-cancel{
-			display:block;
-			float:right;
-			padding:5px 10px;
-			margin:0 0 8px 8px;
-			cursor:pointer;
-			font-size:14px;
-			font-weight:bold;
-			line-height:14px;
-		}
-		
-		.comment-submit{
-			background-color:#1C86EE;
-			color:white;
-			
-			&:hover{
-				box-shadow:0 0 3px #1C86EE;
-			}
-		}
-		
-		.comment-cancel{
-			background-color:lightgray;
-			text-shadow:1px 1px 1px white;
-			color:#666;
-			
-			&:hover{
-				box-shadow:0 0 3px lightgray;
-			}
-		}	
-	}
-}
-
-/* Button Style */
-.small-cmd{
-	font-size:12px;
-	font-family:'宋体';
-	text-decoration:none;
-	margin:0 6px 0 0;
-	cursor:pointer;
-	color:#0455A1;
-	padding:1px;
-}
-
-.small-cmd:hover{
-	background-color:#1C86EE;
-	color:white;
-}
-
-/* Multi Avatar Style */
-.multi-user-profile{
-	width: 40px;
-	height: 40px;
-	float: left;
-	margin: 0 10px 10px 0;
-	border:none;
-}
-
-/* HTML Element Style
-------------------------------------------------------------*/
-
-/* Global Set */
-body{
-	background-color:white;
-	font-family:'微软雅黑';
-	font-size:15px;
-}
-
-/* Form Element */
-input{
-	font-size:14px;
-}
-
-input[type="text"],
-input[type="password"]{
-	padding:5px 7px;
-	margin:0 0 10px 0;
-	width:200px;
-	font-family:'宋体';
-	border:1px solid lightgray;
-	display:block;
-}
-
-input[type='submit'],
-input[type='button']{
-	padding:5px 10px;
-	cursor:pointer;
-	background-color: #1C86EE;
-	color:white;
-	font-weight:bold;
-	font-family:'微软雅黑';
-	line-height:14px;
-	border:none;
-	
-	&:hover{
-		box-shadow: 0 0 3px #1C86EE;
-	}
-}
-
-input.cancel{
-	background-color:lightgray;
-	text-shadow:1px 1px 1px white;
-	color:#666;
-
-	&:hover{
-		box-shadow:0 0 3px lightgray;
-	}
-}
-
-textarea{
-	padding:5px 7px;
-	font-size:14px;
-	font-family:'宋体';
-	line-height:20px;
-	border:1px solid lightgray;
-	margin:0 0 10px 0;
-	display:block;
-}
-
-select{
-	font-size:14px;
-	border:1px solid lightgray;
-	font-family:'宋体';	
-}
-
-/* jQuery Plugin
-------------------------------------------------------------*/
-
-/* datapicker */
-.ui-datepicker{
-	font-size:12px;
-}
-
-.ui-datepicker select.ui-datepicker-year{
-	width:40%;
-	margin-right:5px;
-}
-
-.ui-datepicker select.ui-datepicker-month{
-	width:40%;
-	margin-left:5px;
-}
-
-/* dialog */
-
-.ui-button-text-only .ui-button-text{
-	padding: .2em 1em;
-}
-
-.ui-dialog{
-	font-size:15px;
-	
-	.ui-dialog-content{
-		padding-top:15px;
-	}
-}
-
-.ui-dialog .ui-dialog-buttonpane button{
-	margin: .5em 0em .5em 0.8em;
-}
-
-/* Layout
-------------------------------------------------------------*/
-
-#header{
-	height:40px;
-	margin:0 0 0 0;
-	position:fixed;
-	top:0px;
-	left:0px;
-	width:100%;
-	z-index:10000;
-}
-
-#header-wap{
-	width:1000px;
-	margin:0 auto;
-	position:relative;
-}
-
-#content-wap{
-	position:relative;
-	top:55px;
-	margin:0 auto;
-	width:1000px;
-	min-height:600px;
-}
-
-#footer{
-	margin:80px auto 10px auto;
-}
-
-/* Header
-------------------------------------------------------------*/
-
-#header{
-	background-color:#2B2B2B;
-	
-	/* Logo */
-	#logo-link{
-		display:block;
-		background-image:url('../imgs/new.png');
-	    background-repeat:no-repeat;
-		height:25px;
-		width:104px;
-		float:left;
-		margin:8px 5px 0 5px;
-	}
-
-	/* Nav */
-	#nav{
-		float:left;
-		list-style:none;
-	
-		li{
-			float:left;
-			
-			a{
-				text-decoration:none;
-				font-size:15px;
-				color:#CCC;
-				margin:12px 0 0px 20px;
-				display:block;
-				font-family:'宋体';
-				
-				&:hover{
-					color:white;
-				}
-			}
-		}
-	}
-	
-	/* Login State Panel */
-	#account-info{
-		position:absolute;
-		top:10px;
-		right:0px;
-		
-		a{
-			display:inline-block;
-			color:#CCC;
-			font-size:13px;
-			cursor:pointer;
-			margin-left:8px;
-			font-family:'宋体';
-			text-decoration:none;
-			
-			&:hover{
-				color:white;
-			}
-		}
-	}
-}
-
-/* Highlight */
-#page-home #header #nav-home,
-#page-my-goals #header #nav-my-goals,
-#page-followee-dynamics #header #nav-followee-dynamics,
-#page-person #header #nav-person,
-#page-new-goal #header #nav-newgoal{
-	color:white;
-}
-
-/* Footer
-------------------------------------------------------------*/
-#footer{
-	font-size:12px;
-	text-align:center;
-	
-	a{
-		color:#0455A1;
-		text-decoration:none;
-		display:inline-block;
-		margin:0 8px 0 0;
-		
-		&:hover{
-			text-decoration:underline;
-		}
-	}
-}
-
-/* Browser Warning Panel
-------------------------------------------------------------*/
-#browser-warning{
-	position:fixed;
-	top:0px;
-	left:0px;
-	width:100%;
-	height:100%;
-	z-index:100000;
-	text-align:center;
-	background:#FAFAFA url('../imgs/bg.png');
-	padding:80px 0 0 0;
+#page-browser-warning{
+	z-index: 100000;
+	text-align: center;
+	background: #FAFAFA url('../imgs/bg.png');
+	padding: 80px 0 0 0;
 
 	p{
 		text-shadow:1px 1px 1px white;
@@ -489,62 +20,9 @@ select{
 	}
 }
 
-/* Feedback Panel
-------------------------------------------------------------*/
-#feedback-panel{
-	position:fixed;
-	right:-200px;
-	top:250px;
-	z-index:1000;
-	
-	#feedback-tag{
-		float:left;
-		width:26px;
-		height:90px;
-		margin:0px 0 0 0;
-		background: url("../imgs/feedback.png");
-		background-position: -28px -8px;
-		cursor:pointer;
-		
-		&:hover{
-			background-position: -83px -8px;	
-		}
-	}
-	
-	#form-feedback{
-		width:200px;
-		box-sizing:border-box;
-		margin:0 0 0 26px;
-		padding:10px 10px;
-		background-color:#F2F2F2;
-		border-top:1px solid #DDD;
-		border-bottom:1px solid #DDD;
-		border-left:1px solid #DDD;
-		
-		&:after{
-			content:".";
-			display:block;
-			height:0px;
-			clear:right;
-			visibility:hidden;
-		}	
-		
-		#feedback-subject,
-		#feedback-content{
-			width:179px;
-			box-sizing:border-box;
-		}
-		
-		#submit-feedback{
-			background-color: #1C86EE;
-			color:white;
-			float:right;
-		}
-	}
-}
+// Page Home
+// ------------------------------------------------------------
 
-/* Page Home 
-------------------------------------------------------------*/
 #page-home{
 
 	/* Goal Type List */
@@ -579,7 +57,7 @@ select{
 	.discover-goal-item{
 		border:1px solid lightgray;
 		margin:0 18px 15px 0;
-		width:450px;
+		width:400px;
 		float:left;
 		font-size:12px;
 		font-family:'宋体';
@@ -589,7 +67,6 @@ select{
 		.discover-goal-title{
 			font-size:16px;
 			font-weight:bold;
-			font-family:'微软雅黑';
 			margin:0 0 5px 0;
 			
 			a{
@@ -612,7 +89,6 @@ select{
 			position:absolute;
 			bottom:5px;
 			right:8px;
-			font-family:'微软雅黑';
 			
 			span{
 				display:inline-block;
@@ -637,7 +113,6 @@ select{
 			border-bottom-left-radius:5px;
 			padding:3px 8px;
 			background-color:lightgray;
-			font-family:'微软雅黑';
 			
 			&:hover{
 				color:white;
@@ -647,33 +122,113 @@ select{
 	}
 }
 
-/* Page Account Details
-------------------------------------------------------------*/
-#page-account-details{
+// Page About, Terms
+// ------------------------------------------------------------
 
-	#table-account-details{
-		border-spacing:0;
-		border-collapse:collapse;
-		margin:15px 0 0 0;
+#page-about,
+#page-terms{
+	p{
+		margin:0 0 12px 0;
+		line-height:22px;
+		font-size:14px;
+	}
+	
+	.main-title{
+		font-weight:bold;
+		font-size:20px;
+		margin:20px 0 15px 0;
+		clear:both;
+		text-indent:0;
 		
-		td{
-			padding:0 10px 10px 0;
-			vertical-align:top;
+		&:nth-child(1){
+			margin-top:5px;
+		}
+	}
+	
+	/* Main Panel */
+	#main-panel{
+		padding:0 20px 10px 0;
+		border-right:1px dashed lightgray;
+		min-height:550px;
+		
+		li{
+			list-style-type:square;
+			font-size:14px;
+			line-height:20px;
+			margin:0 0 10px 20px;
+
+		}
+
+		a{
+			color:#0455A1;
+			text-decoration:none;
 			
-			#avatar{
-				vertical-align:text-bottom;
-				margin:0 5px 0 0;
+			&:hover{
+				text-decoration:underline;
+			}
+		}
+		
+		blockquote{
+			margin:20px 50px 20px 20px;
+			padding:0 0 0 8px;
+			border-left:4px solid lightgray;
+			
+			p{
+				font-size:12px;
+				line-height:18px;
+				font-style:italic;
+				color:#666;
+			}
+		}
+	}
+	
+	#sidebar{
+		padding:0 0 0 20px;
+		
+		#my-avatar{
+			float:left;
+			width:80px;
+			margin:0 0px 10px 0;
+		}
+		
+		#my-intro{
+			margin:-4px 0 0 92px;
+			
+			p{
+				margin:0 0 6px 0;
+				line-height:20px;
+			}
+		}
+		
+		#donate-btn{
+			padding:7px 0 6px 0;
+			margin:0 0 10px 0;
+			display:block;
+			width:200px;
+			text-align:center;
+			font-size:18px;
+			line-height:18px;
+			font-weight:bold;
+			background-color:orange;
+			cursor:pointer;
+			border-radius:50px;
+			text-shadow:-1px -1px 1px #EEE;
+			
+			a{
+				color:#333;
+				text-decoration:none;
 			}
 			
-			.small-cmd{
-				margin:0;
+			&:hover{
+				text-shadow:1px 1px 1px #EEE;
 			}
 		}
 	}
 }
 
-/* Page Login & Register & Active & Forgot-Pwd
-------------------------------------------------------------*/
+// Page Login, Register, Active, Forgot Password, Reset Password 
+// ------------------------------------------------------------
+
 #page-login,
 #page-register,
 #page-active-account,
@@ -755,8 +310,35 @@ select{
 	}
 }
 
-/* Page My Goals
-------------------------------------------------------------*/
+// Page Account Details
+//------------------------------------------------------------
+
+#page-account-details{
+
+	#table-account-details{
+		border-spacing:0;
+		border-collapse:collapse;
+		margin:15px 0 0 0;
+		
+		td{
+			padding:0 10px 10px 0;
+			vertical-align:top;
+			
+			#avatar{
+				vertical-align:text-bottom;
+				margin:0 5px 0 0;
+			}
+			
+			.small-cmd{
+				margin:0;
+			}
+		}
+	}
+}
+
+// Page My Goals
+// ------------------------------------------------------------
+
 #page-my-goals{
 	
 	/* Goals Panel */
@@ -863,48 +445,489 @@ select{
 	}
 }
 
-/* Page Followee Dyns & Single Dyns
-------------------------------------------------------------*/
+// Page New Goal, Edit Goal
+// ------------------------------------------------------------
 
-/* Layout */
-#page-followee-dynamics{
-	#main-panel{
-		width:70%;
-		float:left;
+#page-new-goal,
+#page-edit-goal{
+	form{
+		#goal-title{
+			width:500px;
+		}
+		
+		#goal-why{
+			width:500px;
+		}
+		
+		#goal-type{
+			margin:0 6px 10px 0;
+			padding:3px 2px;
+		}
+	
+		#goal-ispublic{
+			margin:0 0 10px 0;
+			padding:3px 2px;
+		}
+		
+		#goal-starttime{
+			padding:4px 3px;
+			display:none;
+			width:202px;
+		}
+	}
+}
+	
+// Page Goal Details
+// ------------------------------------------------------------
+
+#page-goal-details{
+	margin-top: 5px;
+
+	/* Title */
+	#title-wap{
+		margin-bottom: 10px;
+		position:relative;
+		
+		#goal-title{
+			font-size:35px;
+			line-height:35px;
+			margin:0 6px 0 0;
+		}
+		
+		#cmd-edit-goal-title{	
+			text-decoration:none;
+			background-color:#EEE;
+			cursor:pointer;
+			padding:0 5px;
+			margin:0 0 0 5px;
+			position: absolute;
+			top: 5px;
+			right: 0;
+			color:#999;
+			font-size:12px;
+					
+			&:hover{
+				text-shadow:1px 1px 1px white;
+				background-color:#F2F2F2;
+			}
+		}
+			
+		#goal-cmd-wap{
+			position:absolute;
+			top:0;
+			right:0;
+		
+			a{	
+					display:inline-block;
+					padding:2px 10px;
+					margin:0 0 0 8px;
+					background-color:#E8E8E8;
+					text-decoration:none;
+					color:black;	
+					cursor:pointer;
+					font-size:15px;
+					font-weight:bold;
+					text-shadow:0 0 1px gray;
+					
+					&.isCheered{
+						background-color:orange;
+						
+						&:hover{
+							cursor:default;
+						}
+					}
+				}
+			}	
+		}	
+		
+		#goal-reason{
+			font-size:15px;
+			margin:0 0 10px 0;
+			padding: 0 0 10px 0;
+			color: #666;
+			border-bottom: 1px solid lightgray;
+		}
+
+		/* logs */
+		#logs-wap{
+			padding: 5px 0 0 0;
+			
+			#cmd-add-log{
+				text-decoration: none;
+				background-color: #EEE;
+				cursor: pointer;
+				padding: 0 5px;
+				margin: 0 0 5px 5px;
+				float: right;
+				color: #999;
+				font-size: 12px;
+					
+				&:hover{
+					text-shadow: 1px 1px 1px white;
+					background-color: #F2F2F2;
+				}				
+			}
+
+			#logs-pager{
+				float: right;
+				margin: 0 0 5px 0;
+				font-size:14px;
+				line-height:14px;
+
+				#page-up,
+				#page-down{
+				font-size:12px;
+				line-height:12px;
+				background-color:#EEE;
+				padding:1px 5px;
+				border:1px solid lightgray;
+				text-decoration:none;
+				color:black;
+				cursor:pointer;
+				
+				&:hover{
+					background-color:#F6F6F6;					
+				}
+			}
+	
+			
+			#page-up{
+				border-right:0px;
+			}
+		}
+		
+		.log-item{
+			border-bottom:1px solid #EEE;
+			clear: both;
+			margin:0 0 8px 0;
+			
+			.log-title{
+				font-size:16px;
+				font-weight:bold;
+				margin:0 0 5px 0;
+			}
+		
+			.log-content{
+				font-size:13px;
+				line-height:22px;
+				font-family:'宋体';
+				margin:0 0 5px 0;
+				color:#202020;
+			}
+			
+			.log-cmd-time-wap{
+				text-align:right;
+				font-size:12px;
+				margin:0 0 5px 0;
+				
+				.log-time{
+					display:inline-block;
+					color:gray;
+				}
+			}
+			
+			
+			.comments-wap,
+			.new-comment-wap{
+				margin:0 0 0 52px;
+			}
+		}
 	}
 	
-	#sidebar-panel{
-		width:28%;
-		float:right;
+	/* Creator */
+	#creator-wap{
+		.user-icon{
+			text-decoration:none;
+			display:block;
+			float:left;
+			margin:0 10px 10px 0;
+			
+			img{
+				width:40px;
+				height:40px;
+				border:none;
+			}
+		}
+	}
+
+	/* Log New & Edit Dialog */
+	#dialog-new-log,
+	#dialog-edit-log{
+		overflow:visible;	
+	}
+	
+	#dialog-new-log #form-new-log,
+	#dialog-edit-log #form-edit-log{
+				
+		#log-title{
+			margin:0 0 15px 0;
+			width:454px;
+		}
+	
+		#log-content{
+			width:454px;
+			height:200px;
+			resize:vertical;
+			margin:0;
+		}
 	}
 }
 
-#page-followee-dynamics{
+// Page Person
+// ------------------------------------------------------------
 
-	/* Main Panel */
-	#main-panel{
+#page-person{
 
-		/* Dynamic Selector */
-		#dynamic-sel-wap{
+	/* User Info */
+	#user-info{
+		margin:0 0 0px 0;
+		padding: 0 0 10px 0;
+		position:relative;
+		border-bottom: 1px solid lightgray;
+		
+		#user-avatar{
+			float:left;
+			margin:0 8px 0 0;
+			width:40px;
+			height:40px;
+		}
+		
+		#user-info-wap{
+			margin:0 0 0 48px;
 			
-			.dynamic-sel{
+			 #user-name{
+				font-size:18px;
+				line-height:18px;
+				font-weight:bold;
+			}
+		}
+		
+		#user-cmd-wap{
+			position:absolute;
+			top:0px;
+			right:0px;
+
+			a{
 				display:inline-block;
-				text-decoration:none;
-				color:black;
+				padding:2px 10px;
+				margin:0 0 0 8px;
 				background-color:#E8E8E8;
+				text-decoration:none;
+				color:black;	
+				cursor:pointer;
+				font-size:15px;
+				font-weight:bold;
+				text-shadow:-1px -1px 1px white;
+					
+				&.isFollowed{
+					background-color:orange;
+					
+					&:hover{
+						cursor:pointer;
+					}
+				}
+
+			}
+		}
+	}
+	
+	/* User Goals Selector */
+	#goal-wap-header{
+		list-style:none;
+		border-bottom:1px solid #EEE;
+		
+		li{
+			display:inline-block;
+			margin:0 1px 0 0;
+			
+			a{
+				display:block;
 				padding:5px 15px;
-				margin:0 1px 0 0;
+				background-color:#E8E8E8;
+				text-decoration:none;
+				color:black;	
+				cursor:pointer;
 				font-size:18px;
 				
 				&:hover{
-					background:#DDD;
+					background-color:#DDD;
 				}
+			}
+		}
+	}
+	
+	/* User Goals */
+	.goal-wap{
+		float:left;
+		margin:0 20px 0 0;
+		width:100%;
+		
+		.goal-item{
+			border-bottom:1px solid #EEE;
+			padding:10px 0 8px 0;
+			position:relative;
+			
+			.goal-title{
+				font-size:15px;
+				font-weight:bold;
+				margin:0 0 3px 0;
+				
+				a{
+					text-decoration:none;
+					color:black;
+					
+					&:hover{
+						text-decoration:underline;
+					}
+				}
+			}
+			
+			.goal-reason{
+				font-size:12px;
+				color:gray;
+				margin:0 0 2px 0;
+			}
+			
+			.goal-num-wap{
+				font-size:12px;
+				color:gray;
+				position:absolute;
+				top:10px;
+				right:8px;
+			}
+			
+			.goal-cmd-wap{
+				position:absolute;
+				top:5px;
+				right:5px;
+				
+				.goal-cmd{
+					text-decoration:none;
+					color:black;
+					display:block;
+					background-color:#E8E8E8;
+					border-radius:2px;
+					padding:2px 7px;
+					font-size:12px;
+					cursor:pointer;
+					
+					&:hover{
+						background-color:#DDD;
+					}
+				}
+			}
+		}
+	}
+	
+	/* Dynamics */
+	.dynamic-item{
+		padding:0 5px 5px 0;
+		border-bottom:1px solid #EEE;
+		margin:0 0 5px 0;
+		color:gray;
+		font-size:13px;
+		
+		.dynamic-header{
+			margin:0 0 3px 0;
+			
+			a{
+				text-decoration:none;
+				color:#369;
+				
+				&:hover{
+					text-decoration:underline;
+				}
+			}
+		}
+		
+		.dynamic-log-title{
+			color:black;
+			font-weight:bold;
+			margin:0 0 3px 0;
+			padding:0 0 0 5px;
+		}
+		
+		.dynamic-log-content,
+		.dynamic-goal-reason{
+			font-size:12px;
+			font-family:'宋体';
+			line-height:20px;
+			word-wrap:break-all;
+			margin:0 0 5px 0;
+			padding:0 0 0 5px;		
+		}
+
+		.dynamic-time{
+			text-align:right;
+			color:gray;
+			font-size:12px;
+		}
+	}
+	
+	/* Message */
+	.message-item{
+		border-bottom:1px solid #EEE;
+		font-size:13px;
+		padding:0 0 3px 0;
+		margin:0 5px 5px 5px;
+		
+		.message-content{
+			margin:0 0 5px 0;
+			
+			a{
+				color:#369;
+				text-decoration:none;
+				
+				&:hover{
+					text-decoration:underline;
+				}
+
+			}
+		}
+		
+		.message-time{
+			font-size:12px;
+			text-align:right;
+			color:gray;
+		}
+	}
+	
+	/* Message Leave Dialog */
+	#form-leave-message{
+		#message-content{
+			width:384px;
+			height:150px;
+			margin:0;
+			resize:vertical;
+		}
+	}
+}
+
+// Page Followee Dynamics, Single Dynamics
+// ------------------------------------------------------------
+
+#page-followee-dynamics{
+
+	/* Dynamic Selector */
+	#dynamic-sel-wap{
+		
+		.dynamic-sel{
+			display:inline-block;
+			text-decoration:none;
+			color:black;
+			background-color:#E8E8E8;
+			padding:5px 15px;
+			margin:0 1px 0 0;
+			font-size:18px;
+			
+			&:hover{
+				background:#DDD;
 			}
 		}
 	}
 }
 
-#page-followee-dynamics #main-panel,
+#page-followee-dynamics,
 #page-single-dynamics{
 
 	/* Dynamic Item */
@@ -995,511 +1018,9 @@ select{
 	}
 }
 
-/* New & Edit Goal Form
-------------------------------------------------------------*/
+// Page Admin Followees
+// ------------------------------------------------------------
 
-#page-new-goal,
-#page-edit-goal{
-	form{
-		#goal-title{
-			width:500px;
-		}
-		
-		#goal-why{
-			width:500px;
-		}
-		
-		#goal-type{
-			margin:0 6px 10px 0;
-			padding:3px 2px;
-		}
-	
-		#goal-ispublic{
-			margin:0 0 10px 0;
-			padding:3px 2px;
-		}
-		
-		#goal-starttime{
-			padding:4px 3px;
-			display:none;
-			width:202px;
-		}
-	}
-}
-	
-/* Page Goal Details
-------------------------------------------------------------*/
-
-#page-goal-details{
-	margin-top: 5px;
-
-	#main-panel{
-		width:70%;
-		float:left;
-		position:relative;
-	}
-	
-	#sidebar-panel{
-		width:27%;
-		float:right;
-		position:relative;
-	}
-}
-
-#page-goal-details{
-
-	/* Main Panel */
-	#main-panel{
-		
-		/* Title */
-		#title-wap{
-			margin-bottom: 10px;
-			position:relative;
-		
-			#goal-title{
-				font-size:35px;
-				line-height:35px;
-				margin:0 6px 0 0;
-			}
-		
-			#cmd-edit-goal-title{	
-				text-decoration:none;
-				background-color:#EEE;
-				font-family:'微软雅黑';
-				cursor:pointer;
-				padding:0 5px;
-				margin:0 0 0 5px;
-				position: absolute;
-				top: 5px;
-				right: 0;
-				color:#999;
-				font-size:12px;
-					
-				&:hover{
-					text-shadow:1px 1px 1px white;
-					background-color:#F2F2F2;
-				}
-			}
-			
-			#goal-cmd-wap{
-				position:absolute;
-				top:0;
-				right:0;
-			
-				a{	
-					display:inline-block;
-					padding:2px 10px;
-					margin:0 0 0 8px;
-					background-color:#E8E8E8;
-					text-decoration:none;
-					color:black;	
-					cursor:pointer;
-					font-size:15px;
-					font-weight:bold;
-					text-shadow:0 0 1px gray;
-					
-					&.isCheered{
-						background-color:orange;
-						
-						&:hover{
-							cursor:default;
-						}
-					}
-				}
-			}	
-		}	
-		
-		#goal-reason{
-			font-size:15px;
-			margin:0 0 10px 0;
-			padding: 0 0 10px 0;
-			color: #666;
-			border-bottom: 1px solid lightgray;
-		}
-
-		/* logs */
-		#logs-wap{
-			padding: 5px 0 0 0;
-			
-			#cmd-add-log{
-				text-decoration: none;
-				background-color: #EEE;
-				font-family: '微软雅黑';
-				cursor: pointer;
-				padding: 0 5px;
-				margin: 0 0 0 5px;
-				float: right;
-				color: #999;
-				font-size: 12px;
-					
-				&:hover{
-					text-shadow: 1px 1px 1px white;
-					background-color: #F2F2F2;
-				}				
-			}
-
-			#logs-pager{
-				float: right;
-				margin: 0 0 5px 0;
-				font-size:14px;
-				line-height:14px;
-
-				#page-up,
-				#page-down{
-					font-size:12px;
-					line-height:12px;
-					background-color:#EEE;
-					padding:1px 5px;
-					border:1px solid lightgray;
-					text-decoration:none;
-					color:black;
-					cursor:pointer;
-					
-					&:hover{
-						background-color:#F6F6F6;					
-					}
-				}
-		
-				
-				#page-up{
-					border-right:0px;
-				}
-			}
-			
-			.log-item{
-				border-bottom:1px solid #EEE;
-				margin:0 0 8px 0;
-				
-				.log-title{
-					font-size:16px;
-					font-weight:bold;
-					margin:0 0 5px 0;
-				}
-			
-				.log-content{
-					font-size:13px;
-					line-height:22px;
-					font-family:'宋体';
-					margin:0 0 5px 0;
-					color:#202020;
-				}
-				
-				.log-cmd-time-wap{
-					text-align:right;
-					font-size:12px;
-					margin:0 0 5px 0;
-					
-					.log-time{
-						display:inline-block;
-						color:gray;
-					}
-				}
-				
-				
-				.comments-wap,
-				.new-comment-wap{
-					margin:0 0 0 52px;
-				}
-			}
-		}
-	}
-	
-	/* Sidebar Panel */
-	#sidebar-panel{
-		
-		/* Creator */
-		#creator-wap{
-			.user-icon{
-				text-decoration:none;
-				display:block;
-				float:left;
-				margin:0 10px 10px 0;
-				
-				img{
-					width:40px;
-					height:40px;
-					border:none;
-				}
-			}
-		}
-	}
-
-	/* Log New & Edit Dialog */
-	#dialog-new-log,
-	#dialog-edit-log{
-		overflow:visible;	
-	}
-	
-	#dialog-new-log #form-new-log,
-	#dialog-edit-log #form-edit-log{
-				
-		#log-title{
-			margin:0 0 15px 0;
-			width:454px;
-		}
-	
-		#log-content{
-			width:454px;
-			height:200px;
-			resize:vertical;
-			margin:0;
-		}
-	}
-}
-
-/* Page Person
-------------------------------------------------------------*/
-
-#page-person{
-	#main-panel{
-		width:70%;
-		float:left;
-	}
-	
-	#sidebar-panel{
-		width:28%;
-		float:right;
-	}
-}
-
-#page-person{
-
-	/* Main Panel */
-	#main-panel{
-	
-		/* User Info */
-		#user-info{
-			margin:0 0 0px 0;
-			padding: 0 0 10px 0;
-			position:relative;
-			border-bottom: 1px solid lightgray;
-			
-			#user-avatar{
-				float:left;
-				margin:0 8px 0 0;
-				width:40px;
-				height:40px;
-			}
-			
-			#user-info-wap{
-				margin:0 0 0 48px;
-				
-				 #user-name{
-					font-size:18px;
-					line-height:18px;
-					font-weight:bold;
-				}
-			}
-			
-			#user-cmd-wap{
-				position:absolute;
-				top:0px;
-				right:0px;
-	
-				a{
-					display:inline-block;
-					padding:2px 10px;
-					margin:0 0 0 8px;
-					background-color:#E8E8E8;
-					text-decoration:none;
-					color:black;	
-					cursor:pointer;
-					font-size:15px;
-					font-weight:bold;
-					text-shadow:-1px -1px 1px white;
-						
-					&.isFollowed{
-						background-color:orange;
-						
-						&:hover{
-							cursor:pointer;
-						}
-					}
-
-				}
-			}
-		}
-		
-		/* User Goals Selector */
-		#goal-wap-header{
-			list-style:none;
-			border-bottom:1px solid #EEE;
-			
-			li{
-				display:inline-block;
-				margin:0 1px 0 0;
-				
-				a{
-					display:block;
-					padding:5px 15px;
-					background-color:#E8E8E8;
-					text-decoration:none;
-					color:black;	
-					cursor:pointer;
-					font-size:18px;
-					
-					&:hover{
-						background-color:#DDD;
-					}
-				}
-			}
-		}
-		
-		/* User Goals */
-		.goal-wap{
-			float:left;
-			margin:0 20px 0 0;
-			width:100%;
-			
-			.goal-item{
-				border-bottom:1px solid #EEE;
-				padding:10px 0 8px 0;
-				position:relative;
-				
-				.goal-title{
-					font-size:15px;
-					font-weight:bold;
-					margin:0 0 3px 0;
-					
-					a{
-						text-decoration:none;
-						color:black;
-						
-						&:hover{
-							text-decoration:underline;
-						}
-					}
-				}
-				
-				.goal-reason{
-					font-size:12px;
-					color:gray;
-					margin:0 0 2px 0;
-				}
-				
-				.goal-num-wap{
-					font-size:12px;
-					color:gray;
-					position:absolute;
-					top:10px;
-					right:8px;
-				}
-				
-				.goal-cmd-wap{
-					position:absolute;
-					top:5px;
-					right:5px;
-					
-					.goal-cmd{
-						text-decoration:none;
-						color:black;
-						display:block;
-						background-color:#E8E8E8;
-						border-radius:2px;
-						padding:2px 7px;
-						font-size:12px;
-						cursor:pointer;
-						
-						&:hover{
-							background-color:#DDD;
-						}
-					}
-				}
-			}
-		}
-	}
-	
-	/* Sidebar Panel */
-	#sidebar-panel{
-	
-		/* Dynamics */
-		.dynamic-item{
-			padding:0 5px 5px 0;
-			border-bottom:1px solid #EEE;
-			margin:0 0 5px 0;
-			color:gray;
-			font-size:13px;
-			
-			.dynamic-header{
-				margin:0 0 3px 0;
-				
-				a{
-					text-decoration:none;
-					color:#369;
-					
-					&:hover{
-						text-decoration:underline;
-					}
-				}
-			}
-			
-			.dynamic-log-title{
-				color:black;
-				font-weight:bold;
-				margin:0 0 3px 0;
-				padding:0 0 0 5px;
-			}
-			
-			.dynamic-log-content,
-			.dynamic-goal-reason{
-				font-size:12px;
-				font-family:'宋体';
-				line-height:20px;
-				word-wrap:break-all;
-				margin:0 0 5px 0;
-				padding:0 0 0 5px;		
-			}
-
-			.dynamic-time{
-				text-align:right;
-				color:gray;
-				font-size:12px;
-			}
-		}
-		
-		/* Message */
-		.message-item{
-			border-bottom:1px solid #EEE;
-			font-size:13px;
-			padding:0 0 3px 0;
-			margin:0 5px 5px 5px;
-			
-			.message-content{
-				margin:0 0 5px 0;
-				
-				a{
-					color:#369;
-					text-decoration:none;
-					
-					&:hover{
-						text-decoration:underline;
-					}
-
-				}
-			}
-			
-			.message-time{
-				font-size:12px;
-				text-align:right;
-				color:gray;
-			}
-
-		}
-	}
-	
-	/* Message Leave Dialog */
-	#form-leave-message{
-		#message-content{
-			width:384px;
-			height:150px;
-			margin:0;
-			resize:vertical;
-		}
-	}
-}
-
-/* Page Admin Followees
-------------------------------------------------------------*/
 #page-admin-followees{
 	.followee-item{
 		border-top:1px solid #EEE;
@@ -1572,129 +1093,3 @@ select{
 }
 
 
-/* Page About & Terms
-------------------------------------------------------------*/
-
-/* Layout */
-#page-about,
-#page-terms{
-	#main-panel{
-		width:70%;
-		box-sizing:border-box;
-		float:left;
-		padding:0 20px 10px 0;
-		border-right:1px dashed lightgray;
-		min-height:550px;
-	}
-
-	#sidebar-panel{
-		width:30%;
-		box-sizing:border-box;
-		padding:0 0 0 20px;
-		float:right;
-	}
-}
-
-#page-about,
-#page-terms{
-	p{
-		margin:0 0 12px 0;
-		line-height:22px;
-		font-size:14px;
-	}
-	
-	.main-title{
-		font-weight:bold;
-		font-size:20px;
-		font-family:'微软雅黑';
-		margin:20px 0 15px 0;
-		clear:both;
-		text-indent:0;
-		
-		&:nth-child(1){
-			margin-top:5px;
-		}
-	}
-		
-	.sub-title{
-			font-weight:bold;
-			font-size:15px;
-			clear:both;
-	}
-	
-	/* Main Panel */
-	#main-panel{
-		li{
-			list-style-type:square;
-			font-size:14px;
-			line-height:20px;
-			margin:0 0 10px 20px;
-
-		}
-
-		a{
-			color:#0455A1;
-			text-decoration:none;
-			
-			&:hover{
-				text-decoration:underline;
-			}
-		}
-		
-		blockquote{
-			margin:20px 50px 20px 20px;
-			padding:0 0 0 8px;
-			border-left:4px solid lightgray;
-			
-			p{
-				font-size:12px;
-				line-height:18px;
-				font-family:'微软雅黑';
-				font-style:italic;
-				color:#666;
-			}
-		}
-	}
-	
-	/* Sidebar Panel */
-	#sidebar-panel{
-		#my-avatar{
-			float:left;
-			width:80px;
-			margin:0 0px 10px 0;
-		}
-		
-		#my-intro{
-			margin:-4px 0 0 92px;
-			
-			p{
-				margin:0 0 6px 0;
-				line-height:20px;
-			}
-		}
-		
-		#donate-btn{
-			padding:7px 0 6px 0;
-			margin:0 0 10px 0;
-			display:block;
-			width:200px;
-			text-align:center;
-			font-size:18px;
-			line-height:18px;
-			font-weight:bold;
-			background-color:orange;
-			cursor:pointer;
-			border-radius:50px;
-			text-shadow:-1px -1px 1px #EEE;
-			
-			a{
-				color:#333;
-				text-decoration:none;
-			}
-			
-			&:hover{
-				text-shadow:1px 1px 1px #EEE;
-			}
-		}
-	}
-}

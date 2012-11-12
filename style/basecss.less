@@ -1,0 +1,85 @@
+// Body
+// ------------------------------------------------------------
+
+body{
+	background-color:white;
+	font-family:'微软雅黑';
+	font-size:15px;
+}
+
+// Form Elements
+// ------------------------------------------------------------
+
+input{
+	font-size:14px;
+}
+
+input[type="text"],
+input[type="password"]{
+	padding:5px 7px;
+	margin:0 0 10px 0;
+	width:200px;
+	font-family:'宋体';
+	border:1px solid lightgray;
+	display:block;
+}
+
+input[type='submit'],
+input[type='button']{
+	padding:5px 10px;
+	cursor:pointer;
+	background-color: #1C86EE;
+	color:white;
+	font-weight:bold;
+	font-family:'微软雅黑';
+	line-height:14px;
+	border:none;
+	
+	&:hover{
+		box-shadow: 0 0 3px #1C86EE;
+	}
+}
+
+input.cancel{
+	background-color:lightgray;
+	text-shadow:1px 1px 1px white;
+	color:#666;
+
+	&:hover{
+		box-shadow:0 0 3px lightgray;
+	}
+}
+
+textarea{
+	padding:5px 7px;
+	font-size:14px;
+	font-family:'宋体';
+	line-height:20px;
+	border:1px solid lightgray;
+	margin:0 0 10px 0;
+	display:block;
+}
+
+select{
+	font-size:14px;
+	border:1px solid lightgray;
+	font-family:'宋体';	
+}
+
+// Button
+// ------------------------------------------------------------
+
+.small-cmd{
+	font-size:12px;
+	font-family:'宋体';
+	text-decoration:none;
+	margin:0 6px 0 0;
+	cursor:pointer;
+	color:#0455A1;
+	padding:1px;
+
+	&:hover{
+		background-color:#1C86EE;
+		color:white;		
+	}
+}

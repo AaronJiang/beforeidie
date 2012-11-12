@@ -99,7 +99,7 @@
 			if(!$isCreator){
 				$sm->assign('isCheered', check_goal_is_cheered($userID, $GOAL_ID));
 			}
-			
+
 			// logs pager
 			$logsNum = get_goal_logs_num($goalID);
 			$pagesNum = ($logsNum == 0)? 1: floor(($logsNum + 19) / 20);

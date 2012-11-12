@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"mar",
+				"margin-left"
+			],
+			[
+				"ma",
+				"margin-right"
+			],
+			[
+				"is",
+				"isCreator"
+			],
+			[
 				"referer",
 				"refererUrl"
 			],
@@ -14,10 +26,6 @@
 			[
 				"page-",
 				"page-home"
-			],
-			[
-				"mar",
-				"margin-top"
 			],
 			[
 				"pa",
@@ -42,10 +50,6 @@
 			[
 				"border-bo",
 				"border-bottom"
-			],
-			[
-				"ma",
-				"margin"
 			],
 			[
 				"fon",
@@ -87,23 +91,31 @@
 			"file": "style/style.less",
 			"settings":
 			{
-				"buffer_size": 25823,
+				"buffer_size": 24527,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "view/goal/new.tp",
+			"file": "style/basecss.less",
 			"settings":
 			{
-				"buffer_size": 909,
+				"buffer_size": 0,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "ctrl/GoalC.php",
+			"file": "view/header.tc",
 			"settings":
 			{
-				"buffer_size": 4922,
+				"buffer_size": 2335,
+				"line_ending": "CR"
+			}
+		},
+		{
+			"file": "view/person/person.tp",
+			"settings":
+			{
+				"buffer_size": 2925,
 				"line_ending": "Windows"
 			}
 		}
@@ -115,11 +127,19 @@
 		"selected_items":
 		[
 			[
+				"",
+				"Convert Case: Upper Case"
+			],
+			[
+				"php",
+				"Snippet: <?php echo … ?>"
+			],
+			[
 				"Snippet: ",
 				"Snippet: <?php … ?>"
 			]
 		],
-		"width": 416.0
+		"width": 392.0
 	},
 	"console":
 	{
@@ -136,20 +156,24 @@
 	},
 	"file_history":
 	[
+		"/F/xampp/htdocs/Dream/view/goal/details.tp",
+		"/F/xampp/htdocs/Dream/view/dyn/dyns.tp",
+		"/F/xampp/htdocs/Dream/style/layout.less",
+		"/F/xampp/htdocs/Dream/style/utility.less",
+		"/F/xampp/htdocs/Dream/style/reset.less",
+		"/F/xampp/htdocs/Dream/view/goal/new.tp",
+		"/F/xampp/htdocs/Dream/style/validationEngine.jquery.css",
+		"/F/xampp/htdocs/Dream/ctrl/GoalC.php",
 		"/F/xampp/htdocs/Dream/view/goal/edit.tp",
 		"/F/xampp/htdocs/Dream/view/home/home.tp",
 		"/F/xampp/htdocs/Dream/view/goal/my_goals.tp",
 		"/F/xampp/htdocs/Dream/model/public_funs.php",
-		"/F/xampp/htdocs/Dream/ctrl/GoalC.php",
-		"/F/xampp/htdocs/Dream/view/goal/details.tp",
 		"/F/xampp/htdocs/Dream/ctrl/PersonC.php",
-		"/F/xampp/htdocs/Dream/view/dyn/dyns.tp",
 		"/F/xampp/htdocs/Dream/view/person/person.tp",
 		"/F/xampp/htdocs/Dream/view/dyn/admin_followees.tp",
 		"/F/xampp/htdocs/Dream/model/dynamic_funs.php",
 		"/F/xampp/htdocs/Dream/view/dyn/about_me_dyns.tc",
 		"/F/xampp/htdocs/Dream/view/user_dyns.tc",
-		"/F/xampp/htdocs/Dream/view/goal/new.tp",
 		"/F/xampp/htdocs/Dream/view/header.tc",
 		"/F/xampp/htdocs/Dream/style/style.less",
 		"/F/xampp/htdocs/Dream/ctrl/HomeC.php",
@@ -195,6 +219,33 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			" '>",
+			"idpage",
+			"='-",
+			" '",
+			"idpanel",
+			"='-",
+			"main",
+			"  ",
+			"\n  ",
+			"}",
+			"  ",
+			"key",
+			"value",
+			"key",
+			"\n			",
+			"\n	",
+			"div",
+			" ",
+			"script",
+			"textarea",
+			"select",
+			"option",
+			"div",
+			"input",
+			"	<input type=\"hidden\" name=\"userID\" value='{$userID}' />\n",
+			"value",
+			"	<input type=\"hidden\" name=\"act\" value=\"new_goal\" />",
 			"subtitle",
 			">/</",
 			"GoalC_page_details",
@@ -228,7 +279,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -236,15 +287,15 @@
 					"file": "style/style.less",
 					"settings":
 					{
-						"buffer_size": 25823,
+						"buffer_size": 24527,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								242,
-								242
+								18285,
+								18285
 							]
 						],
 						"settings":
@@ -260,37 +311,10 @@
 				},
 				{
 					"buffer": 1,
-					"file": "view/goal/new.tp",
+					"file": "style/basecss.less",
 					"settings":
 					{
-						"buffer_size": 909,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								564,
-								564
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "ctrl/GoalC.php",
-					"settings":
-					{
-						"buffer_size": 4922,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
@@ -303,11 +327,65 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"auto_name": "",
+							"syntax": "Packages/CSS/CSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "view/header.tc",
+					"settings":
+					{
+						"buffer_size": 2335,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2024,
+								2024
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3720.0,
+						"translation.y": 420.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "view/person/person.tp",
+					"settings":
+					{
+						"buffer_size": 2925,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1114,
+								1114
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 780.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -357,12 +435,40 @@
 		"selected_items":
 		[
 			[
-				"goal",
+				"per",
+				"view/person/person.tp"
+			],
+			[
+				"de",
+				"view/goal/details.tp"
+			],
+			[
+				"deta",
+				"view/goal/details.tp"
+			],
+			[
+				"dy",
+				"view/dyn/dyns.tp"
+			],
+			[
+				"head",
+				"view/header.tc"
+			],
+			[
+				"",
+				"style/style.less"
+			],
+			[
+				"goalc",
 				"ctrl/GoalC.php"
 			],
 			[
 				"new",
 				"view/goal/new.tp"
+			],
+			[
+				"goal",
+				"ctrl/GoalC.php"
 			],
 			[
 				"edi",
@@ -377,10 +483,6 @@
 				"model/public_funs.php"
 			],
 			[
-				"goalc",
-				"ctrl/GoalC.php"
-			],
-			[
 				"my",
 				"view/goal/my_goals.tp"
 			],
@@ -393,14 +495,6 @@
 				"view/dyn/admin_followees.tp"
 			],
 			[
-				"per",
-				"view/person/person.tp"
-			],
-			[
-				"dy",
-				"view/dyn/dyns.tp"
-			],
-			[
 				"det",
 				"view/goal/details.tp"
 			],
@@ -409,16 +503,8 @@
 				"view/dyn/about_me_dyns.tc"
 			],
 			[
-				"head",
-				"view/header.tc"
-			],
-			[
 				"hea",
 				"view/header.tc"
-			],
-			[
-				"deta",
-				"view/goal/details.tp"
 			],
 			[
 				"hoe",
@@ -429,20 +515,12 @@
 				"view/goal/details.tp"
 			],
 			[
-				"de",
-				"view/goal/details.tp"
-			],
-			[
 				"sty",
 				"style/style.less"
 			],
 			[
 				"goalfu",
 				"model/goal_funs.php"
-			],
-			[
-				"",
-				"jquery-1.7.2.min.js"
 			]
 		],
 		"width": 0.0
@@ -467,6 +545,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 177.0,
+	"side_bar_width": 198.0,
 	"status_bar_visible": true
 }

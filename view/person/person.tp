@@ -1,10 +1,9 @@
 {include file='../header.tc' title="{$user.Name} 的个人空间" page='page-person'}
 
-<div id='person-page'>
+<div class='row'>
 
-	<div id='main-panel'>
-		
-		<!-- User Info -->		
+	<div class='span9'>
+			
 		<div id='user-info' class='clearfix'>
 			<img id='user-avatar' src='{$user.Avatar}' />
 			
@@ -43,7 +42,7 @@
 	</div>
 
 	<!-- 边栏 -->	
-	<div id="sidebar-panel">
+	<div class='span3'>
 	
 		<!-- 个人动态 -->
 		{include file='../panel_header.tc' 
@@ -107,6 +106,7 @@
 		</a>
 		{/foreach}
 	</div>
+
 </div>
 
 {include file='../footer.tc'}

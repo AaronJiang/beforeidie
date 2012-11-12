@@ -1,0 +1,391 @@
+// Header
+// ------------------------------------------------------------
+
+#header{
+	height: 40px;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	z-index: 10000;
+	background-color: #2B2B2B;
+
+	& +.container{
+		padding-top: 55px;
+	}
+	
+	/* Logo */
+	#logo-link{
+		display: block;
+		background-image: url('../imgs/new.png');
+	    background-repeat: no-repeat;
+		height: 25px;
+		width: 104px;
+		float: left;
+		margin: 8px 5px 0 5px;
+	}
+
+	/* Nav */
+	#nav{
+		float:left;
+		list-style:none;
+	
+		li{
+			float:left;
+			
+			a{
+				text-decoration:none;
+				font-size:15px;
+				color:#CCC;
+				margin:12px 0 0px 20px;
+				display:block;
+				font-family:'宋体';
+				
+				&:hover{
+					color:white;
+				}
+			}
+		}
+	}
+	
+	/* Login State Panel */
+	#account-info{
+		float: right;
+		margin-top: 10px;
+		
+		a{
+			display:inline-block;
+			color:#CCC;
+			font-size:13px;
+			cursor:pointer;
+			margin-left:8px;
+			font-family:'宋体';
+			text-decoration:none;
+			
+			&:hover{
+				color:white;
+			}
+		}
+	}
+}
+
+/* Highlight */
+#page-home #header #nav-home,
+#page-my-goals #header #nav-my-goals,
+#page-followee-dynamics #header #nav-followee-dynamics,
+#page-person #header #nav-person,
+#page-new-goal #header #nav-newgoal{
+	color:white;
+}
+
+// Footer
+// ------------------------------------------------------------
+
+#footer{
+	margin:80px auto 10px auto;
+	font-size:12px;
+	text-align:center;
+	
+	a{
+		color:#0455A1;
+		text-decoration:none;
+		display:inline-block;
+		margin:0 8px 0 0;
+		
+		&:hover{
+			text-decoration:underline;
+		}
+	}
+}
+
+// User Avatar
+// ------------------------------------------------------------
+
+.user-avatar{
+	width:40px;
+	height:40px;
+	float:left;
+	margin:0 10px 10px 0;
+}
+
+.multi-user-avatar{
+	width: 40px;
+	height: 40px;
+	float: left;
+	margin: 0 10px 10px 0;
+	border:none;
+}
+
+// Subtitle
+// ------------------------------------------------------------
+
+.subtitle{
+	font-size: 20px;
+	margin: 0 0 10px 0;
+	
+	a{
+		color:#369;
+		text-decoration:none;
+		
+		&:hover{
+			text-decoration:underline;
+		}
+	}
+}
+
+// Feedback Panel
+// ------------------------------------------------------------
+
+#feedback-panel{
+	position:fixed;
+	right:-200px;
+	top:250px;
+	z-index:1000;
+	
+	#feedback-tag{
+		float:left;
+		width:26px;
+		height:90px;
+		margin:0px 0 0 0;
+		background: url("../imgs/feedback.png");
+		background-position: -28px -8px;
+		cursor:pointer;
+		
+		&:hover{
+			background-position: -83px -8px;	
+		}
+	}
+	
+	#form-feedback{
+		width:200px;
+		box-sizing:border-box;
+		margin:0 0 0 26px;
+		padding:10px 10px;
+		background-color:#F2F2F2;
+		border-top:1px solid #DDD;
+		border-bottom:1px solid #DDD;
+		border-left:1px solid #DDD;
+		
+		&:after{
+			content:".";
+			display:block;
+			height:0px;
+			clear:right;
+			visibility:hidden;
+		}	
+		
+		#feedback-subject,
+		#feedback-content{
+			width:179px;
+			box-sizing:border-box;
+		}
+		
+		#submit-feedback{
+			background-color: #1C86EE;
+			color:white;
+			float:right;
+		}
+	}
+}
+
+
+// Panel Header
+// ------------------------------------------------------------
+
+.panel-header{
+	margin:0 0 10px 0;
+	clear:both;
+
+	&:after{
+		content:".";
+		display:block;
+		height:0px;
+		clear:both;
+		visibility:hidden;	
+	}
+	
+	.panel-title{
+		font-size:18px;
+		color:#1C86EE;
+		font-weight:bold;
+		font-family:'微软雅黑';
+		display:inline-block;
+		padding:0 6px 0 0;
+	}
+
+	.panel-cmd-wapper{
+		font-size:12px;
+		display:inline-block;
+		font-family:'宋体';
+		
+		.panel-underline{
+			color:#EEE;
+			margin:0 0 -2px 0;
+		}
+		
+		.panel-cmd{
+			text-decoration:none;
+			background-color:#EEE;
+			font-family:'微软雅黑';
+			cursor:pointer;
+			padding:0 5px;
+			margin:0 0 0 5px;
+			color:#666;
+			
+			&:hover{
+				text-shadow:1px 1px 1px white;
+				background-color:#F2F2F2;
+			}
+		}
+	}
+}
+
+// Comments
+// ------------------------------------------------------------
+
+/* Comments */
+.comments-wap{
+	border-top:1px solid #EEE;
+	padding:12px 0 0 0;
+	
+	.comment-item{
+		padding:0 0 12px 0;
+		font-size:13px;
+		font-family:'宋体';
+		
+		.comment-poster-profile{
+			height:30px;
+			width:30px;
+			float:left;
+		}
+		
+		.comment-main{
+			margin:-3px 0 0 40px;
+			
+			.comment-header{
+				margin:0 0 3px 0;
+			line-height:20px;
+			}
+			
+			.comment-footer{
+				font-size:12px;
+				line-height:12px;
+				
+				.comment-cmd{
+					color:#369;
+					cursor:pointer;
+					
+					&:hover{
+						color:white;
+						background-color:blue;
+					}
+				}
+
+				.comment-time{
+					color:gray;
+				}
+			}
+		}
+		
+		a{
+			text-decoration:none;
+			color:#369;
+	
+			&:hover{
+			text-decoration:underline;
+			}
+		}
+	}
+}
+
+/* Comment New Form */
+.new-comment-wap{
+	border-top:1px solid #EEE;
+	padding:12px 0 0 0;
+	
+	.avatar{
+		width:30px;
+		height:30px;
+		float:left;
+	}
+	
+	.new-comment-form{
+		margin:0 0 0 40px;
+	
+		.comment-input{
+			border:1px solid #EEE;
+			padding:4px 7px;
+			font-size:13px;
+			font-family:'宋体';
+			line-height:20px;
+			outline:none;
+			margin:0 0 8px 0;
+		}
+		
+		.comment-submit,
+		.comment-cancel{
+			display:block;
+			float:right;
+			padding:5px 10px;
+			margin:0 0 8px 8px;
+			cursor:pointer;
+			font-size:14px;
+			font-weight:bold;
+			line-height:14px;
+		}
+		
+		.comment-submit{
+			background-color:#1C86EE;
+			color:white;
+			
+			&:hover{
+				box-shadow:0 0 3px #1C86EE;
+			}
+		}
+		
+		.comment-cancel{
+			background-color:lightgray;
+			text-shadow:1px 1px 1px white;
+			color:#666;
+			
+			&:hover{
+				box-shadow:0 0 3px lightgray;
+			}
+		}	
+	}
+}
+
+// jQuery Adjust
+// ------------------------------------------------------------
+
+/* datapicker */
+.ui-datepicker{
+	font-size:12px;
+}
+
+.ui-datepicker select.ui-datepicker-year{
+	width:40%;
+	margin-right:5px;
+}
+
+.ui-datepicker select.ui-datepicker-month{
+	width:40%;
+	margin-left:5px;
+}
+
+/* dialog */
+.ui-button-text-only .ui-button-text{
+	padding: .2em 1em;
+}
+
+.ui-dialog{
+	font-size:15px;
+	
+	.ui-dialog-content{
+		padding-top:15px;
+	}
+}
+
+.ui-dialog .ui-dialog-buttonpane button{
+	margin: .5em 0em .5em 0.8em;
+}

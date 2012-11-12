@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-11-10 15:57:32
+<?php /* Smarty version Smarty-3.1.12, created on 2012-11-11 15:32:20
          compiled from "..\view\goal\new.tp" */ ?>
 <?php /*%%SmartyHeaderCode:225625092389e5c3365-55689534%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6b380556e70dbf1c1b12830d20278285b1564333' => 
     array (
       0 => '..\\view\\goal\\new.tp',
-      1 => 1352559260,
+      1 => 1352635293,
       2 => 'file',
     ),
   ),
@@ -29,7 +29,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 <script type="text/javascript">
 	$(document).ready(function(){
-	
 		$('#form-new-goal').validationEngine();
 	});
 </script>
@@ -39,12 +38,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 <form id="form-new-goal" action="GoalC.php" method="post">
 	<div>
-		<input type="text" placeholder="写下你的目标" class='validate[required]' name="title" id="goal-title" autocomplete="off"/>
+		<input type="text" placeholder="写下你的目标" class='validate[required]' name="title" id="goal-title" autocomplete="off" />
 	</div>
 	
 	<div>
 		<textarea rows="8" placeholder="用几句话简单地介绍一下吧" class='validate[required]' name="why" id="goal-why"></textarea>
-	</div>
+	</div>	
 	
 	<div>
 		<select id='goal-ispublic' name='isPublic'>
@@ -52,11 +51,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			<option value='0'>私密</option>
 		</select>
 	</div>
-	
+
 	<input type="hidden" name="act" value="new_goal" />
 	<input type="hidden" name="userID" value='<?php echo $_smarty_tpl->tpl_vars['userID']->value;?>
 ' />
-	
 	<input type="submit" id="create-goal" value="添加" />
 </form>
 
