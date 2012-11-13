@@ -1,4 +1,4 @@
-<p class="main-title">关于我</p>
+<h4>关于我</h4>
 
 <img id='my-avatar' src='../imgs/me.jpg' />
 
@@ -7,8 +7,8 @@
 	<p>hustlzp@qq.com</p>
 </div>
 
-<p class='main-title'>付费支持</p>
+<h4>付费支持</h4>
 
 <p>Goal的运营费用完全从个人生活费中支出，资金有限，欢迎赞助支持！</p>
 
-<span id='donate-btn'><a target='_blank' href='https://me.alipay.com/hustlzp'>Donate 1/10/100 ¥</a></span>
+<a class="btn btn-donate btn-large" target='_blank' href='https://me.alipay.com/hustlzp'>资助</a></span>

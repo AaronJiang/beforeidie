@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-11-11 15:32:20
+<?php /* Smarty version Smarty-3.1.12, created on 2012-11-13 10:31:38
          compiled from "..\view\goal\new.tp" */ ?>
 <?php /*%%SmartyHeaderCode:225625092389e5c3365-55689534%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6b380556e70dbf1c1b12830d20278285b1564333' => 
     array (
       0 => '..\\view\\goal\\new.tp',
-      1 => 1352635293,
+      1 => 1352798564,
       2 => 'file',
     ),
   ),
@@ -34,7 +34,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 </script>
 
 
-<p class='subtitle'>新的 Goal</p>
+<h4 class="page-title">新的 Goal</h4>
 
 <form id="form-new-goal" action="GoalC.php" method="post">
 	<div>
@@ -55,7 +55,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	<input type="hidden" name="act" value="new_goal" />
 	<input type="hidden" name="userID" value='<?php echo $_smarty_tpl->tpl_vars['userID']->value;?>
 ' />
-	<input type="submit" id="create-goal" value="添加" />
+	<input type="submit" class="btn btn-primary" id="create-goal" value="添加" />
 </form>
 
 <?php echo $_smarty_tpl->getSubTemplate ('../footer.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>

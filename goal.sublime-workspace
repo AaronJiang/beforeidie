@@ -4,12 +4,64 @@
 		"selected_items":
 		[
 			[
-				"mar",
-				"margin-left"
+				"ba",
+				"background"
+			],
+			[
+				"fon",
+				"font-family"
+			],
+			[
+				"in",
+				"inline-block"
 			],
 			[
 				"ma",
-				"margin-right"
+				"margin"
+			],
+			[
+				"font",
+				"fontSizeLarge"
+			],
+			[
+				"fontS",
+				"fontSizeSmall"
+			],
+			[
+				"bo",
+				"border-box"
+			],
+			[
+				"bos",
+				"box-sizing"
+			],
+			[
+				"bor",
+				"border"
+			],
+			[
+				"bas",
+				"borderRadiusLarge"
+			],
+			[
+				"gray",
+				"grayLighter"
+			],
+			[
+				"te",
+				"text-decoration"
+			],
+			[
+				"mar",
+				"margin-bottom"
+			],
+			[
+				"co",
+				"color"
+			],
+			[
+				"pa",
+				"padding-top"
 			],
 			[
 				"is",
@@ -26,10 +78,6 @@
 			[
 				"page-",
 				"page-home"
-			],
-			[
-				"pa",
-				"padding"
 			],
 			[
 				"page",
@@ -52,16 +100,8 @@
 				"border-bottom"
 			],
 			[
-				"fon",
-				"font-family"
-			],
-			[
 				"na",
 				"navbarLinkColor"
-			],
-			[
-				"gray",
-				"grayLight"
 			],
 			[
 				"gra",
@@ -91,7 +131,15 @@
 			"file": "style/style.less",
 			"settings":
 			{
-				"buffer_size": 24527,
+				"buffer_size": 14322,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "style/vars.less",
+			"settings":
+			{
+				"buffer_size": 1709,
 				"line_ending": "Windows"
 			}
 		},
@@ -99,7 +147,31 @@
 			"file": "style/basecss.less",
 			"settings":
 			{
-				"buffer_size": 0,
+				"buffer_size": 3001,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "view/goal/my_goals.tp",
+			"settings":
+			{
+				"buffer_size": 1352,
+				"line_ending": "CR"
+			}
+		},
+		{
+			"file": "view/goal/new.tp",
+			"settings":
+			{
+				"buffer_size": 937,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "view/goal/edit.tp",
+			"settings":
+			{
+				"buffer_size": 1113,
 				"line_ending": "Windows"
 			}
 		},
@@ -107,15 +179,15 @@
 			"file": "view/header.tc",
 			"settings":
 			{
-				"buffer_size": 2335,
+				"buffer_size": 2158,
 				"line_ending": "CR"
 			}
 		},
 		{
-			"file": "view/person/person.tp",
+			"file": "style/components.less",
 			"settings":
 			{
-				"buffer_size": 2925,
+				"buffer_size": 5744,
 				"line_ending": "Windows"
 			}
 		}
@@ -156,25 +228,32 @@
 	},
 	"file_history":
 	[
+		"/F/xampp/htdocs/Dream/view/goal/new.tp",
+		"/F/xampp/htdocs/Dream/style/components.less",
+		"/F/xampp/htdocs/Dream/view/home/me.tc",
+		"/F/xampp/htdocs/Dream/view/browser_warning.tp",
+		"/F/xampp/htdocs/Dream/view/home/about.tp",
+		"/F/xampp/htdocs/Dream/view/header.tc",
+		"/F/xampp/htdocs/Dream/view/home/home.tp",
+		"/F/xampp/htdocs/Dream/view/goal/edit.tp",
+		"/F/xampp/htdocs/Dream/view/home/terms.tp",
+		"/F/xampp/htdocs/Dream/view/account/uheader.tc",
+		"/F/xampp/htdocs/Dream/style/utility.less",
+		"/C/Users/lzp/AppData/Local/Temp/Rar$DI25.776/style.less",
+		"/F/xampp/htdocs/Dream/style/layout.less",
+		"/F/xampp/htdocs/Dream/view/person/person.tp",
 		"/F/xampp/htdocs/Dream/view/goal/details.tp",
 		"/F/xampp/htdocs/Dream/view/dyn/dyns.tp",
-		"/F/xampp/htdocs/Dream/style/layout.less",
-		"/F/xampp/htdocs/Dream/style/utility.less",
 		"/F/xampp/htdocs/Dream/style/reset.less",
-		"/F/xampp/htdocs/Dream/view/goal/new.tp",
 		"/F/xampp/htdocs/Dream/style/validationEngine.jquery.css",
 		"/F/xampp/htdocs/Dream/ctrl/GoalC.php",
-		"/F/xampp/htdocs/Dream/view/goal/edit.tp",
-		"/F/xampp/htdocs/Dream/view/home/home.tp",
 		"/F/xampp/htdocs/Dream/view/goal/my_goals.tp",
 		"/F/xampp/htdocs/Dream/model/public_funs.php",
 		"/F/xampp/htdocs/Dream/ctrl/PersonC.php",
-		"/F/xampp/htdocs/Dream/view/person/person.tp",
 		"/F/xampp/htdocs/Dream/view/dyn/admin_followees.tp",
 		"/F/xampp/htdocs/Dream/model/dynamic_funs.php",
 		"/F/xampp/htdocs/Dream/view/dyn/about_me_dyns.tc",
 		"/F/xampp/htdocs/Dream/view/user_dyns.tc",
-		"/F/xampp/htdocs/Dream/view/header.tc",
 		"/F/xampp/htdocs/Dream/style/style.less",
 		"/F/xampp/htdocs/Dream/ctrl/HomeC.php",
 		"/F/xampp/htdocs/Dream/model/goal_funs.php",
@@ -219,6 +298,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"@fontSong",
+			"  ",
+			"sansFontFamily",
+			"微软雅黑",
 			" '>",
 			"idpage",
 			"='-",
@@ -287,42 +370,43 @@
 					"file": "style/style.less",
 					"settings":
 					{
-						"buffer_size": 24527,
+						"buffer_size": 14322,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								18285,
-								18285
+								359,
+								359
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 3,
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 6415.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "style/basecss.less",
+					"file": "style/vars.less",
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 1709,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1381,
+								1394
 							]
 						],
 						"settings":
@@ -331,30 +415,31 @@
 							"syntax": "Packages/CSS/CSS.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 600.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "view/header.tc",
+					"file": "style/basecss.less",
 					"settings":
 					{
-						"buffer_size": 2335,
+						"buffer_size": 3001,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2024,
-								2024
+								411,
+								411
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"auto_name": "",
+							"syntax": "Packages/CSS/CSS.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
@@ -365,18 +450,18 @@
 				},
 				{
 					"buffer": 3,
-					"file": "view/person/person.tp",
+					"file": "view/goal/my_goals.tp",
 					"settings":
 					{
-						"buffer_size": 2925,
+						"buffer_size": 1352,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1114,
-								1114
+								985,
+								985
 							]
 						],
 						"settings":
@@ -385,7 +470,115 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 780.0,
+						"translation.y": 540.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "view/goal/new.tp",
+					"settings":
+					{
+						"buffer_size": 937,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								196,
+								77
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "view/goal/edit.tp",
+					"settings":
+					{
+						"buffer_size": 1113,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								198,
+								78
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "view/header.tc",
+					"settings":
+					{
+						"buffer_size": 2158,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								838,
+								838
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 120.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "style/components.less",
+					"settings":
+					{
+						"buffer_size": 5744,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1355,
+								1355
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1500.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -435,6 +628,70 @@
 		"selected_items":
 		[
 			[
+				"he",
+				"view/header.tc"
+			],
+			[
+				"ed",
+				"view/goal/edit.tp"
+			],
+			[
+				"new",
+				"view/goal/new.tp"
+			],
+			[
+				"my",
+				"view/goal/my_goals.tp"
+			],
+			[
+				"me.tc",
+				"view/home/me.tc"
+			],
+			[
+				"a",
+				"view/home/about.tp"
+			],
+			[
+				"edi",
+				"view/goal/edit.tp"
+			],
+			[
+				"head",
+				"view/header.tc"
+			],
+			[
+				"home",
+				"view/home/home.tp"
+			],
+			[
+				"me",
+				"view/home/me.tc"
+			],
+			[
+				"t",
+				"view/home/terms.tp"
+			],
+			[
+				"ab",
+				"view/home/about.tp"
+			],
+			[
+				"uh",
+				"view/account/uheader.tc"
+			],
+			[
+				"hoe",
+				"view/home/home.tp"
+			],
+			[
+				"b",
+				"view/browser_warning.tp"
+			],
+			[
+				"ter",
+				"view/home/terms.tp"
+			],
+			[
 				"per",
 				"view/person/person.tp"
 			],
@@ -451,10 +708,6 @@
 				"view/dyn/dyns.tp"
 			],
 			[
-				"head",
-				"view/header.tc"
-			],
-			[
 				"",
 				"style/style.less"
 			],
@@ -463,32 +716,12 @@
 				"ctrl/GoalC.php"
 			],
 			[
-				"new",
-				"view/goal/new.tp"
-			],
-			[
 				"goal",
 				"ctrl/GoalC.php"
 			],
 			[
-				"edi",
-				"view/goal/edit.tp"
-			],
-			[
-				"ed",
-				"view/goal/edit.tp"
-			],
-			[
 				"pub",
 				"model/public_funs.php"
-			],
-			[
-				"my",
-				"view/goal/my_goals.tp"
-			],
-			[
-				"home",
-				"view/home/home.tp"
 			],
 			[
 				"ad",
@@ -505,10 +738,6 @@
 			[
 				"hea",
 				"view/header.tc"
-			],
-			[
-				"hoe",
-				"view/home/home.tp"
 			],
 			[
 				"detai",

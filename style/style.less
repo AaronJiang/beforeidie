@@ -1,3 +1,4 @@
+@import "vars.less";
 @import "utility.less";
 @import "reset.less";
 @import "layout.less";
@@ -14,9 +15,9 @@
 	padding: 80px 0 0 0;
 
 	p{
-		text-shadow:1px 1px 1px white;
-		margin:0 0 10px 0;
-		font-size:18px;
+		text-shadow: 1px 1px 1px white;
+		margin: 0 0 10px 0;
+		font-size: 18px;
 	}
 }
 
@@ -24,100 +25,42 @@
 // ------------------------------------------------------------
 
 #page-home{
-
-	/* Goal Type List */
-	#discover-goal-type-list{
-		list-style:none;
-		border-bottom:1px solid gray;
-		padding:0 0 10px 0;
-		width:600px;
-		
-		li{
-			display:inline-block;
-			
-			a{
-				display:block;
-				padding:5px 0;
-				width:60px;
-				text-decoration:none;
-				cursor:pointer;
-				font-size:14px;
-				font-family:'宋体';
-				text-align:center;
-			
-				&:hover{
-					background:deepSkyBlue;
-					color:white;
-				}
-			}
-		}
-	}
 	
 	/* Goal Item */
-	.discover-goal-item{
-		border:1px solid lightgray;
-		margin:0 18px 15px 0;
-		width:400px;
-		float:left;
-		font-size:12px;
-		font-family:'宋体';
-		position:relative;
-		padding:8px 10px;
+	.goal-item{
+		border: 1px solid lightgray;
+		margin: 0 20px 15px 0;
+		width: 300px;
+		float: left;
+		padding: 10px;
 		
-		.discover-goal-title{
-			font-size:16px;
-			font-weight:bold;
-			margin:0 0 5px 0;
-			
-			a{
-				text-decoration:none;
-				color:#222;
-				
-				&:hover{
-					text-decoration:underline;
+		.goal-title{
+			margin: 0 0 5px 0;			
+
+			a {
+				font-size: @fontSizeLarge;
+				font-weight: bold;
+				color: @black;
+
+				&:hover {
+					color: @black;
 				}
 			}
 		}
 		
-		.discover-goal-reason{
-			color: gray;
-			margin: 0 0 3px 0;
+		.goal-reason{
+			color: @gray;
+			margin: 0 0 8px 0;
+			font-family: @altFontFamily;
+			font-size: @fontSizeSmall;
 		}
 		
 		.goal-num-wap{
-			color: gray;
-			position:absolute;
-			bottom:5px;
-			right:8px;
-			
-			span{
-				display:inline-block;
-			}
-
-			a{
-				color:#369;
-				text-decoration:none;
-				
-				&:hover{
-					text-decoration:underline;
-				}
-			}
-		}
-		
-		.follow-cmd{
-			position:absolute;
-			top:-1px;
-			right:-1px;
-			text-decoration:none;
-			color:black;
-			border-bottom-left-radius:5px;
-			padding:3px 8px;
-			background-color:lightgray;
-			
-			&:hover{
-				color:white;
-				background-color:black;
-			}
+			color: @gray;
+			text-align: right;
+			font-size: @fontSizeSmall;
+			line-height: @fontSizeSmall;
+			margin-bottom: 0px;
 		}
 	}
 }
@@ -127,101 +70,22 @@
 
 #page-about,
 #page-terms{
-	p{
-		margin:0 0 12px 0;
-		line-height:22px;
-		font-size:14px;
-	}
-	
-	.main-title{
-		font-weight:bold;
-		font-size:20px;
-		margin:20px 0 15px 0;
-		clear:both;
-		text-indent:0;
-		
-		&:nth-child(1){
-			margin-top:5px;
-		}
-	}
 	
 	/* Main Panel */
 	#main-panel{
-		padding:0 20px 10px 0;
-		border-right:1px dashed lightgray;
-		min-height:550px;
-		
-		li{
-			list-style-type:square;
-			font-size:14px;
-			line-height:20px;
-			margin:0 0 10px 20px;
-
-		}
-
-		a{
-			color:#0455A1;
-			text-decoration:none;
-			
-			&:hover{
-				text-decoration:underline;
-			}
-		}
-		
-		blockquote{
-			margin:20px 50px 20px 20px;
-			padding:0 0 0 8px;
-			border-left:4px solid lightgray;
-			
-			p{
-				font-size:12px;
-				line-height:18px;
-				font-style:italic;
-				color:#666;
-			}
-		}
+		padding: 0 20px 10px 0;
+		border-right: 1px dashed lightgray;
+		min-height: 550px;
 	}
 	
 	#sidebar{
-		padding:0 0 0 20px;
-		
 		#my-avatar{
-			float:left;
-			width:80px;
-			margin:0 0px 10px 0;
+			float: left;
+			width: 80px;
 		}
 		
 		#my-intro{
-			margin:-4px 0 0 92px;
-			
-			p{
-				margin:0 0 6px 0;
-				line-height:20px;
-			}
-		}
-		
-		#donate-btn{
-			padding:7px 0 6px 0;
-			margin:0 0 10px 0;
-			display:block;
-			width:200px;
-			text-align:center;
-			font-size:18px;
-			line-height:18px;
-			font-weight:bold;
-			background-color:orange;
-			cursor:pointer;
-			border-radius:50px;
-			text-shadow:-1px -1px 1px #EEE;
-			
-			a{
-				color:#333;
-				text-decoration:none;
-			}
-			
-			&:hover{
-				text-shadow:1px 1px 1px #EEE;
-			}
+			margin: -4px 0 0 95px;
 		}
 	}
 }
@@ -233,48 +97,48 @@
 #page-register,
 #page-active-account,
 #page-forgot-pwd,
-#page-reset-pwd{
-	background-color:#E8E8E8;
+#page-reset-pwd {
+	background-color: #E8E8E8;
 	
-	#login-slogan{
-		font-size:22px;
-		line-height:22px;
-		margin:150px auto 30px auto;
-		text-align:center;
-		text-shadow:1px 1px 2px white;
+	#login-slogan {
+		font-size : 22px;
+		line-height : 22px;
+		margin : 150px auto 30px auto;
+		text-align : center;
+		text-shadow :1px 1px 2px white;
 		
 		#logo{
-			vertical-align:text-bottom;
-			padding:0 0 1px 0;
+			vertical-align : text-bottom;
+			padding : 0 0 1px 0;
 		}
 	}
 	
-	#form-wap{
+	#form-wap {
 		border-top:1px solid #BBB;
 		border-bottom:1px solid #BBB;
 		box-shadow:0 0 6px #AAA;
 		padding:40px 0 25px 0;
 		background-color:#F8F8F8;
 
-		#account-message{
+		#account-message {
 			margin:0 0 20px 0;
 			text-align:center;
 			font-size:18px;
 		}
 		
 		form{
-			width:400px;
-			margin:0 auto;
-			display:block;
-			border-radius:5px;
+			width: 400px;
+			margin: 0 auto;
+			display: block;
+			border-radius: 5px;
 			
 			input[type='text'],
 			input[type='password']{
-				width:100%;
-				box-sizing:border-box;
-				font-size:20px;
-				font-family:'微软雅黑';
-				margin-bottom:20px;
+				width: 100%;
+				box-sizing: border-box;
+				font-size: 20px;
+				font-family: '微软雅黑';
+				margin-bottom: 20px;
 			}
 			
 			.form-footer{
@@ -288,7 +152,7 @@
 				}
 				
 				input[type='submit']{
-					font-family:'微软雅黑';
+					font-family: '微软雅黑';
 					font-size:20px;
 					line-height:20px;
 					padding:6px 20px;
@@ -344,104 +208,65 @@
 	/* Goals Panel */
 	#content-goals{
 		
-		&:after{
-			content:".";
-			display:block;
-			height:0px;
-			clear:both;
-			visibility:hidden;
-		}
-		
-		.goal-item{
-			background-color:white;
-			width:170px;
-			height:200px;
-			float:left;
-			margin:0 20px 20px 0;
-			position:relative;
-			overflow:hidden;
-			border:1px solid #CCC;
+		.goal-item {
+			width: 170px;
+			height: 200px;
+			box-sizing: border-box;
+			float: left;
+			margin: 0 20px 20px 0;
+			position: relative;
+			overflow: hidden;
+			border: 1px solid #CCC;
 			
 			&:hover{
-				background-color:#F7F7F7;
+				background-color: darken(@white, 5%);
 			}
 			
 			.goal-link{
-				display:block;
-				padding:8px 10px 10px 10px;
-				color:black;
-				text-decoration:none;
+				display: block;
+				padding: 10px 10px;
+				color: @black;
+				text-decoration: none;
 				
 				.goal-title{
-					font-size:18px;
-					font-weight:bold;
-					margin:0 0 5px 0;
-					
-					a{
-						text-decoration:none;
-						color:black;
-					}
+					font-size: @fontSizeLarger;
+					font-weight: bold;
+					margin: 0 0 5px 0;
 				}
 				
 				.goal-why{
-					font-size:15px;
-					line-height:20px;
-					margin-top:5px;
-					color:#666;
-					font-family:"宋体";
+					color: @gray;
+					font-family: @altFontFamily;
 				}
 				
 				.goal-info-wap{
-					position:absolute;
-					font-size:12px;
-					bottom:6px;
-					left:11px;
-					z-index:0;
-					color:#666;
-					
-					.goal-starttime,
-					.goal-endtime{
-						font-size:12px;
-						color:#666;
-						margin-top:2px;
-					}
+					position: absolute;
+					font-size: @fontSizeSmall;
+					bottom: 6px;
+					left: 11px;
+					z-index: 0;
+					color: @gray;
 				}
 			}
 			
 			.goal-cmd-wap{
-				position:absolute;
-				bottom:-32px;
-				left:0;
-				z-index:100;
-				width:170px;
-				background:black;
-				opacity:0.8;
-				text-align:right;
-				
+				position: absolute;
+				bottom: -30px;
+				left: 0;
+				z-index: 100;
+				width: 170px;
+				box-sizing: border-box;
+				background: @black;
+				opacity: 0.8;
+				text-align: right;
+
 				.goal-cmd{
-					color:black;
-					font-size:12px;
-					font-family:'宋体';
-					display:inline-block;
-					margin:6px 6px 6px 0;
-					border-radius:3px;
-					background-color:white;
-					text-decoration:none;
-					padding:3px 5px;
-					cursor:pointer;
+					background-color: darken(@white, 5%);
+					font-family: @altFontFamily;
+					margin: 6px 6px 6px 0;
 				}
 			}
 		}
-	}
-	
-	/* Delay Dialog */
-	#form-delay-goal #goal-starttime{
-		font-size:15px;
-		padding:4px 3px;
-		margin:0;
-		border:1px solid lightgray;
-		width:202px;
-		display:inline-block;
 	}
 }
 
@@ -517,31 +342,29 @@
 			top:0;
 			right:0;
 		
-			a{	
-					display:inline-block;
-					padding:2px 10px;
-					margin:0 0 0 8px;
-					background-color:#E8E8E8;
-					text-decoration:none;
-					color:black;	
-					cursor:pointer;
-					font-size:15px;
-					font-weight:bold;
-					text-shadow:0 0 1px gray;
+			a {
+				display:inline-block;
+				padding:2px 10px;
+				margin: 0 0 0 8px;
+				background-color: #E8E8E8;
+				text-decoration:none;
+				color:black;	
+				cursor:pointer;
+				font-size:15px;
+				font-weight:bold;
+				text-shadow:0 0 1px gray;
+				
+				&.isCheered{
+					background-color:orange;
 					
-					&.isCheered{
-						background-color:orange;
-						
-						&:hover{
-							cursor:default;
-						}
+					&:hover{
+						cursor:default;
 					}
 				}
 			}	
 		}	
 		
 		#goal-reason{
-			font-size:15px;
 			margin:0 0 10px 0;
 			padding: 0 0 10px 0;
 			color: #666;
@@ -1091,5 +914,3 @@
 		}
 	}
 }
-
-

@@ -8,7 +8,7 @@
 </script>
 {/literal}
 
-<p class='subtitle'>新的 Goal</p>
+<h4 class="page-title">新的 Goal</h4>
 
 <form id="form-new-goal" action="GoalC.php" method="post">
 	<div>
@@ -28,7 +28,7 @@
 
 	<input type="hidden" name="act" value="new_goal" />
 	<input type="hidden" name="userID" value='{$userID}' />
-	<input type="submit" id="create-goal" value="添加" />
+	<input type="submit" class="btn btn-primary" id="create-goal" value="添加" />
 </form>
 
 {include file='../footer.tc'}

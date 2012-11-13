@@ -1,53 +1,91 @@
 // Body
 // ------------------------------------------------------------
 
-body{
-	background-color:white;
-	font-family:'微软雅黑';
-	font-size:15px;
+body {
+	background-color: @bodyBackground;
+	font-family: @baseFontFamily;
+	font-size: @baseFontSize;
+	line-height: @baseLineHeight;
+	color: @textColor;
+}
+
+p {
+	margin: 0 0 @baseLineHeight / 2;
+}
+
+// Headings
+// -------------------------
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0 0 (@baseLineHeight / 2) 0;
+	font-family: @headingsFontFamily;
+	font-weight: @headingsFontWeight;
+	line-height: @baseLineHeight;
+	color: @headingsColor;
+}
+
+h4.page-title{
+	font-weight: normal;
+}
+
+h1, h2, h3 { line-height: @baseLineHeight * 2; }
+
+h1 { font-size: @baseFontSize * 2.75; } // ~38px
+h2 { font-size: @baseFontSize * 2.25; } // ~32px
+h3 { font-size: @baseFontSize * 1.75; } // ~24px
+h4 { font-size: @baseFontSize * 1.25; } // ~18px
+h5 { font-size: @baseFontSize; }	// ~15px
+h6 { font-size: @baseFontSize * 0.85; } // ~12px
+
+// List
+// -------------------------
+
+ul {
+	li {
+		margin: 0 0 @baseLineHeight / 2;
+	}
+}
+
+// Blockquotes
+// -------------------------
+blockquote {
+	padding: 0 0 0 15px;
+	margin: 0 0 @baseLineHeight 0;
+	border-left: 5px solid @grayLighter;
+	
+	p {
+    	margin-bottom: 0;
+	}
+}
+
+// Link
+// ------------------------------------------------------------
+
+a {
+  color: @linkColor;
+  text-decoration: none;
+
+  &:hover{
+  	color: @linkColorHover;
+  	text-decoration: underline;  	
+  }
 }
 
 // Form Elements
 // ------------------------------------------------------------
 
-input{
-	font-size:14px;
+input {
+	font-size: @baseFontSize;
 }
 
 input[type="text"],
 input[type="password"]{
-	padding:5px 7px;
-	margin:0 0 10px 0;
-	width:200px;
-	font-family:'宋体';
-	border:1px solid lightgray;
+	padding: 5px 7px;
+	margin: 0 0 10px 0;
+	width: 200px;
+	font-family: '宋体';
+	border: 1px solid lightgray;
 	display:block;
-}
-
-input[type='submit'],
-input[type='button']{
-	padding:5px 10px;
-	cursor:pointer;
-	background-color: #1C86EE;
-	color:white;
-	font-weight:bold;
-	font-family:'微软雅黑';
-	line-height:14px;
-	border:none;
-	
-	&:hover{
-		box-shadow: 0 0 3px #1C86EE;
-	}
-}
-
-input.cancel{
-	background-color:lightgray;
-	text-shadow:1px 1px 1px white;
-	color:#666;
-
-	&:hover{
-		box-shadow:0 0 3px lightgray;
-	}
 }
 
 textarea{
@@ -67,9 +105,62 @@ select{
 }
 
 // Button
-// ------------------------------------------------------------
+// -------------------------
 
-.small-cmd{
+.btn {
+	display: inline-block;
+	padding: 5px 10px;
+	margin-bottom: 0; // For input.btn
+	font-size: @baseFontSize;
+	line-height: @baseFontSize;
+	text-align: center;
+	vertical-align: middle;
+	cursor: pointer;
+	border: 0;
+	border-radius: @baseBorderRadius;
+	color: @black;
+	background-color: @grayLighter;
+
+	&:hover {
+		text-decoration: none;
+		color: @black;
+		background-color: darken(@grayLighter, 5%);
+	}
+}
+
+.btn-primary {
+	color: @white;
+	background-color: #1C86EE;
+
+	&:hover {
+		color: @white;
+		background-color: darken(#1C86EE, 5%);
+	}
+}
+
+.btn-donate {
+	color: @black;
+	background-color: @orange;
+
+	&:hover {
+		color: @black;
+		background-color: spin(@orange, 5%);
+	}	
+}
+
+.btn-large {
+	font-size: @fontSizeLarge;
+	padding: @paddingLarge;
+	border-radius: @borderRadiusLarge;
+}
+
+.btn-small {
+	font-size: @fontSizeSmall;
+	padding: @paddingSmall;
+	border-radius: @borderRadiusSmall;	
+}
+
+.small-cmd {
 	font-size:12px;
 	font-family:'宋体';
 	text-decoration:none;

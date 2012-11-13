@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-11-12 02:22:23
+<?php /* Smarty version Smarty-3.1.12, created on 2012-11-13 09:17:04
          compiled from "..\view\home\me.tc" */ ?>
 <?php /*%%SmartyHeaderCode:12608509331aeb4af09-89571696%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'cd954100a5061309f958c31622b7bfab788e7f0b' => 
     array (
       0 => '..\\view\\home\\me.tc',
-      1 => 1352683217,
+      1 => 1352794616,
       2 => 'file',
     ),
   ),
@@ -19,7 +19,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'unifunc' => 'content_509331aeb52e77_99080410',
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_509331aeb52e77_99080410')) {function content_509331aeb52e77_99080410($_smarty_tpl) {?><p class="main-title">关于我</p>
+<?php if ($_valid && !is_callable('content_509331aeb52e77_99080410')) {function content_509331aeb52e77_99080410($_smarty_tpl) {?><h4>关于我</h4>
 
 <img id='my-avatar' src='../imgs/me.jpg' />
 
@@ -28,8 +28,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	<p>hustlzp@qq.com</p>
 </div>
 
-<p class='main-title'>付费支持</p>
+<h4>付费支持</h4>
 
 <p>Goal的运营费用完全从个人生活费中支出，资金有限，欢迎赞助支持！</p>
 
-<span id='donate-btn'><a target='_blank' href='https://me.alipay.com/hustlzp'>Donate 1/10/100 ¥</a></span><?php }} ?>
+<a class="btn btn-donate btn-large" target='_blank' href='https://me.alipay.com/hustlzp'>资助</a></span><?php }} ?>
