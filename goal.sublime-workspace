@@ -4,12 +4,32 @@
 		"selected_items":
 		[
 			[
-				"ba",
-				"background"
+				"fon",
+				"fontSizeSmall"
 			],
 			[
-				"fon",
-				"font-family"
+				"font",
+				"fontSizeSmall"
+			],
+			[
+				"gr",
+				"gray"
+			],
+			[
+				"lih",
+				"lightgray"
+			],
+			[
+				"li",
+				"baseLineHeight"
+			],
+			[
+				"bas",
+				"baseFontSize"
+			],
+			[
+				"ba",
+				"background"
 			],
 			[
 				"in",
@@ -18,10 +38,6 @@
 			[
 				"ma",
 				"margin"
-			],
-			[
-				"font",
-				"fontSizeLarge"
 			],
 			[
 				"fontS",
@@ -38,10 +54,6 @@
 			[
 				"bor",
 				"border"
-			],
-			[
-				"bas",
-				"borderRadiusLarge"
 			],
 			[
 				"gray",
@@ -131,7 +143,7 @@
 			"file": "style/style.less",
 			"settings":
 			{
-				"buffer_size": 14322,
+				"buffer_size": 13133,
 				"line_ending": "Windows"
 			}
 		},
@@ -147,47 +159,23 @@
 			"file": "style/basecss.less",
 			"settings":
 			{
-				"buffer_size": 3001,
+				"buffer_size": 3098,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "view/goal/my_goals.tp",
+			"file": "view/goal/details.tp",
 			"settings":
 			{
-				"buffer_size": 1352,
-				"line_ending": "CR"
-			}
-		},
-		{
-			"file": "view/goal/new.tp",
-			"settings":
-			{
-				"buffer_size": 937,
+				"buffer_size": 5488,
 				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "view/goal/edit.tp",
-			"settings":
-			{
-				"buffer_size": 1113,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "view/header.tc",
-			"settings":
-			{
-				"buffer_size": 2158,
-				"line_ending": "CR"
 			}
 		},
 		{
 			"file": "style/components.less",
 			"settings":
 			{
-				"buffer_size": 5744,
+				"buffer_size": 5429,
 				"line_ending": "Windows"
 			}
 		}
@@ -228,14 +216,16 @@
 	},
 	"file_history":
 	[
+		"/F/xampp/htdocs/Dream/view/goal/logs.tc",
 		"/F/xampp/htdocs/Dream/view/goal/new.tp",
+		"/F/xampp/htdocs/Dream/view/goal/edit.tp",
 		"/F/xampp/htdocs/Dream/style/components.less",
+		"/F/xampp/htdocs/Dream/view/header.tc",
+		"/F/xampp/htdocs/Dream/view/goal/my_goals.tp",
 		"/F/xampp/htdocs/Dream/view/home/me.tc",
 		"/F/xampp/htdocs/Dream/view/browser_warning.tp",
 		"/F/xampp/htdocs/Dream/view/home/about.tp",
-		"/F/xampp/htdocs/Dream/view/header.tc",
 		"/F/xampp/htdocs/Dream/view/home/home.tp",
-		"/F/xampp/htdocs/Dream/view/goal/edit.tp",
 		"/F/xampp/htdocs/Dream/view/home/terms.tp",
 		"/F/xampp/htdocs/Dream/view/account/uheader.tc",
 		"/F/xampp/htdocs/Dream/style/utility.less",
@@ -247,7 +237,6 @@
 		"/F/xampp/htdocs/Dream/style/reset.less",
 		"/F/xampp/htdocs/Dream/style/validationEngine.jquery.css",
 		"/F/xampp/htdocs/Dream/ctrl/GoalC.php",
-		"/F/xampp/htdocs/Dream/view/goal/my_goals.tp",
 		"/F/xampp/htdocs/Dream/model/public_funs.php",
 		"/F/xampp/htdocs/Dream/ctrl/PersonC.php",
 		"/F/xampp/htdocs/Dream/view/dyn/admin_followees.tp",
@@ -298,6 +287,14 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"}",
+			"{",
+			"}",
+			"// Page Admin Followees\n// ------------------------------------------------------------\n\n#page-admin-followees{\n	.followee-item{\n		border-top:1px solid #EEE;\n		margin:0 0 0px 0;\n		padding:10px 0 10px 0;\n		position:relative;\n		width:700px;\n		\n		&:last-child{\n			border-bottom:1px solid #EEE;		\n		}\n		\n		.user-avatar{\n			width:40px;\n			height:40px;\n			float:left;\n		}\n		\n		.user-info{\n			margin:0 0 0 50px;\n			\n			.user-name{\n				font-size:15px;\n				font-family:'';\n				font-weight:bold;\n				margin:0 0 10px 0;\n				\n				a{\n					text-decoration:none;\n					color:black;\n					\n					&:hover{\n						text-decoration:underline;\n					}\n				}\n			}\n			\n			.goal-info{\n				font-size:12px;\n				line-height:12px;\n				color:#444;\n				\n				b{\n					color:black;\n				}\n			}\n		}\n		\n		.cmd-wap {\n			position:absolute;\n			top:15px;\n			right:0px;\n			\n			.cmd {\n				padding:3px 10px;\n				font-size:15px;\n				line-height:15px;\n				font-weight:bold;\n				background-color:lightgray;\n				text-decoration:none;\n				color:white;\n				text-shadow:0px 0px 1px black;\n				\n				&:hover {\n					box-shadow:0px 0px 2px lightgray;\n				}\n			}\n		}\n	}\n{",
+			"{*+}",
+			"{ }",
+			"}",
+			"{",
 			"@fontSong",
 			"  ",
 			"sansFontFamily",
@@ -357,7 +354,7 @@
 		"show_context": true,
 		"use_buffer2": true,
 		"whole_word": false,
-		"wrap": true
+		"wrap": false
 	},
 	"groups":
 	[
@@ -370,15 +367,15 @@
 					"file": "style/style.less",
 					"settings":
 					{
-						"buffer_size": 14322,
+						"buffer_size": 13133,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								359,
-								359
+								6797,
+								6797
 							]
 						],
 						"settings":
@@ -388,7 +385,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 6415.0,
+						"translation.y": 7649.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -405,8 +402,8 @@
 						"selection":
 						[
 							[
-								1381,
-								1394
+								1339,
+								1325
 							]
 						],
 						"settings":
@@ -415,7 +412,7 @@
 							"syntax": "Packages/CSS/CSS.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 600.0,
+						"translation.y": 780.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -425,15 +422,15 @@
 					"file": "style/basecss.less",
 					"settings":
 					{
-						"buffer_size": 3001,
+						"buffer_size": 3098,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								411,
-								411
+								1968,
+								1969
 							]
 						],
 						"settings":
@@ -443,25 +440,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 420.0,
+						"translation.y": 2040.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "view/goal/my_goals.tp",
+					"file": "view/goal/details.tp",
 					"settings":
 					{
-						"buffer_size": 1352,
+						"buffer_size": 5488,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								985,
-								985
+								4389,
+								4389
 							]
 						],
 						"settings":
@@ -470,106 +467,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 540.0,
+						"translation.y": 3900.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 4,
-					"file": "view/goal/new.tp",
-					"settings":
-					{
-						"buffer_size": 937,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								196,
-								77
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "view/goal/edit.tp",
-					"settings":
-					{
-						"buffer_size": 1113,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								198,
-								78
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "view/header.tc",
-					"settings":
-					{
-						"buffer_size": 2158,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								838,
-								838
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 120.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
 					"file": "style/components.less",
 					"settings":
 					{
-						"buffer_size": 5744,
+						"buffer_size": 5429,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1355,
-								1355
+								1580,
+								1580
 							]
 						],
 						"settings":
@@ -578,7 +494,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1500.0,
+						"translation.y": 1714.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -627,6 +543,18 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"co",
+				"style/components.less"
+			],
+			[
+				"lo",
+				"view/goal/logs.tc"
+			],
+			[
+				"de",
+				"view/goal/details.tp"
+			],
 			[
 				"he",
 				"view/header.tc"
@@ -694,10 +622,6 @@
 			[
 				"per",
 				"view/person/person.tp"
-			],
-			[
-				"de",
-				"view/goal/details.tp"
 			],
 			[
 				"deta",

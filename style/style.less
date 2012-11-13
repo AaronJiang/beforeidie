@@ -8,7 +8,7 @@
 // Page Browser Warning
 // ------------------------------------------------------------
 
-#page-browser-warning{
+#page-browser-warning {
 	z-index: 100000;
 	text-align: center;
 	background: #FAFAFA url('../imgs/bg.png');
@@ -24,7 +24,7 @@
 // Page Home
 // ------------------------------------------------------------
 
-#page-home{
+#page-home {
 	
 	/* Goal Item */
 	.goal-item{
@@ -218,28 +218,28 @@
 			overflow: hidden;
 			border: 1px solid #CCC;
 			
-			&:hover{
+			&:hover {
 				background-color: darken(@white, 5%);
 			}
 			
-			.goal-link{
+			.goal-link {
 				display: block;
 				padding: 10px 10px;
 				color: @black;
 				text-decoration: none;
 				
-				.goal-title{
+				.goal-title {
 					font-size: @fontSizeLarger;
 					font-weight: bold;
 					margin: 0 0 5px 0;
 				}
 				
-				.goal-why{
+				.goal-why {
 					color: @gray;
 					font-family: @altFontFamily;
 				}
 				
-				.goal-info-wap{
+				.goal-info-wap {
 					position: absolute;
 					font-size: @fontSizeSmall;
 					bottom: 6px;
@@ -249,21 +249,21 @@
 				}
 			}
 			
-			.goal-cmd-wap{
+			.goal-cmd-wap {
 				position: absolute;
 				bottom: -30px;
 				left: 0;
 				z-index: 100;
 				width: 170px;
 				box-sizing: border-box;
-				background: @black;
+				background-color: @black;
 				opacity: 0.8;
 				text-align: right;
 
-				.goal-cmd{
-					background-color: darken(@white, 5%);
+				.goal-cmd {
+					background-color: darken(@white, 2%);
 					font-family: @altFontFamily;
-					margin: 6px 6px 6px 0;
+					margin: 5px 5px 5px 0;
 				}
 			}
 		}
@@ -274,31 +274,9 @@
 // ------------------------------------------------------------
 
 #page-new-goal,
-#page-edit-goal{
-	form{
-		#goal-title{
-			width:500px;
-		}
-		
-		#goal-why{
-			width:500px;
-		}
-		
-		#goal-type{
-			margin:0 6px 10px 0;
-			padding:3px 2px;
-		}
-	
-		#goal-ispublic{
-			margin:0 0 10px 0;
-			padding:3px 2px;
-		}
-		
-		#goal-starttime{
-			padding:4px 3px;
-			display:none;
-			width:202px;
-		}
+#page-edit-goal {
+	#goal-title, #goal-why {
+		width: 500px;
 	}
 }
 	
@@ -306,99 +284,60 @@
 // ------------------------------------------------------------
 
 #page-goal-details{
-	margin-top: 5px;
 
 	/* Title */
-	#title-wap{
+	#title-wap {
 		margin-bottom: 10px;
-		position:relative;
+		position: relative;
 		
-		#goal-title{
-			font-size:35px;
-			line-height:35px;
-			margin:0 6px 0 0;
-		}
-		
-		#cmd-edit-goal-title{	
-			text-decoration:none;
-			background-color:#EEE;
-			cursor:pointer;
-			padding:0 5px;
-			margin:0 0 0 5px;
-			position: absolute;
-			top: 5px;
-			right: 0;
-			color:#999;
-			font-size:12px;
-					
-			&:hover{
-				text-shadow:1px 1px 1px white;
-				background-color:#F2F2F2;
-			}
+		#goal-title {
+			font-weight: normal;
 		}
 			
 		#goal-cmd-wap{
-			position:absolute;
-			top:0;
-			right:0;
+			position: absolute;
+			top: 0;
+			right: 0;
 		
 			a {
-				display:inline-block;
-				padding:2px 10px;
 				margin: 0 0 0 8px;
-				background-color: #E8E8E8;
-				text-decoration:none;
-				color:black;	
-				cursor:pointer;
-				font-size:15px;
-				font-weight:bold;
-				text-shadow:0 0 1px gray;
 				
 				&.isCheered{
-					background-color:orange;
+					background-color: @orange;
 					
 					&:hover{
+						background-color: spin(@orange, 5%);
 						cursor:default;
 					}
 				}
 			}	
 		}	
+	}
+	
+	#goal-reason{
+		margin:0 0 10px 0;
+		padding: 0 0 10px 0;
+		color: @gray;
+		border-bottom: 1px solid @grayLight;
+	}
+
+	/* logs */
+	#logs-wap{
+		padding: 5px 0 0 0;
 		
-		#goal-reason{
-			margin:0 0 10px 0;
-			padding: 0 0 10px 0;
-			color: #666;
-			border-bottom: 1px solid lightgray;
+		#cmd-add-log{
+			margin: 0 0 5px 5px;
+			float: right;
 		}
 
-		/* logs */
-		#logs-wap{
-			padding: 5px 0 0 0;
-			
-			#cmd-add-log{
-				text-decoration: none;
-				background-color: #EEE;
-				cursor: pointer;
-				padding: 0 5px;
-				margin: 0 0 5px 5px;
-				float: right;
-				color: #999;
-				font-size: 12px;
-					
-				&:hover{
-					text-shadow: 1px 1px 1px white;
-					background-color: #F2F2F2;
-				}				
-			}
+		#logs-pager{
+			float: right;
+			margin: 0 0 5px 0;
+			font-size:14px;
+			line-height:14px;
 
-			#logs-pager{
-				float: right;
-				margin: 0 0 5px 0;
-				font-size:14px;
-				line-height:14px;
-
-				#page-up,
-				#page-down{
+			#page-up,
+			#page-down{
 				font-size:12px;
 				line-height:12px;
 				background-color:#EEE;
@@ -407,48 +346,45 @@
 				text-decoration:none;
 				color:black;
 				cursor:pointer;
-				
+			
 				&:hover{
-					background-color:#F6F6F6;					
+					background-color:#F6F6F6;
 				}
 			}
-	
-			
+
 			#page-up{
 				border-right:0px;
 			}
 		}
 		
 		.log-item{
-			border-bottom:1px solid #EEE;
+			border-bottom: 1px solid #EEE;
 			clear: both;
 			margin:0 0 8px 0;
 			
 			.log-title{
-				font-size:16px;
-				font-weight:bold;
-				margin:0 0 5px 0;
+				font-size: @fontSizeLarge;
+				font-weight: bold;
+				margin: 0 0 5px 0;
 			}
 		
 			.log-content{
-				font-size:13px;
-				line-height:22px;
-				font-family:'宋体';
-				margin:0 0 5px 0;
-				color:#202020;
+				font-size: @fontSizeSmall;
+				font-family: @altFontFamily;
+				margin: 0 0 10px 0;
+				color: @gray;
 			}
 			
-			.log-cmd-time-wap{
-				text-align:right;
-				font-size:12px;
-				margin:0 0 5px 0;
+			.log-footer{
+				text-align: right;
+				font-size: @fontSizeSmall;
+				line-height: @fontSizeSmall;
+				margin:0 0 10px 0;
 				
 				.log-time{
-					display:inline-block;
-					color:gray;
+					color: @gray;
 				}
 			}
-			
 			
 			.comments-wap,
 			.new-comment-wap{
@@ -456,42 +392,26 @@
 			}
 		}
 	}
-	
-	/* Creator */
-	#creator-wap{
-		.user-icon{
-			text-decoration:none;
-			display:block;
-			float:left;
-			margin:0 10px 10px 0;
-			
-			img{
-				width:40px;
-				height:40px;
-				border:none;
-			}
-		}
-	}
 
 	/* Log New & Edit Dialog */
 	#dialog-new-log,
 	#dialog-edit-log{
-		overflow:visible;	
+		overflow: visible;	
 	}
 	
 	#dialog-new-log #form-new-log,
 	#dialog-edit-log #form-edit-log{
 				
 		#log-title{
-			margin:0 0 15px 0;
-			width:454px;
+			margin: 0 0 15px 0;
+			width: 454px;
 		}
 	
 		#log-content{
-			width:454px;
-			height:200px;
-			resize:vertical;
-			margin:0;
+			width: 454px;
+			height: 200px;
+			resize: vertical;
+			margin: 0;
 		}
 	}
 }
@@ -549,7 +469,6 @@
 						cursor:pointer;
 					}
 				}
-
 			}
 		}
 	}
@@ -704,7 +623,6 @@
 				&:hover{
 					text-decoration:underline;
 				}
-
 			}
 		}
 		
@@ -892,12 +810,12 @@
 			}
 		}
 		
-		.cmd-wap{
+		.cmd-wap {
 			position:absolute;
 			top:15px;
 			right:0px;
 			
-			.cmd{
+			.cmd {
 				padding:3px 10px;
 				font-size:15px;
 				line-height:15px;
@@ -907,7 +825,7 @@
 				color:white;
 				text-shadow:0px 0px 1px black;
 				
-				&:hover{
+				&:hover {
 					box-shadow:0px 0px 2px lightgray;
 				}
 			}

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-11-11 17:04:26
+<?php /* Smarty version Smarty-3.1.12, created on 2012-11-13 16:56:39
          compiled from "..\view\goal\details.tp" */ ?>
 <?php /*%%SmartyHeaderCode:1933950938337f31405-89020659%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6c71f1ce3e74505d967d613caadd6976236f3c18' => 
     array (
       0 => '..\\view\\goal\\details.tp',
-      1 => 1352649864,
+      1 => 1352822158,
       2 => 'file',
     ),
   ),
@@ -191,34 +191,32 @@ $(document).ready(function(){
 
 		<!-- Title -->
 		<div id='title-wap'>
-			<span id='goal-title'><?php echo $_smarty_tpl->tpl_vars['goal']->value['Title'];?>
-</span>
-
-			<?php if ($_smarty_tpl->tpl_vars['isCreator']->value){?>
-			<a id='cmd-edit-goal-title' href='GoalC.php?act=edit&goalID=<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
-'>修改</a>
-			<?php }?>
+			<h1 id='goal-title'><?php echo $_smarty_tpl->tpl_vars['goal']->value['Title'];?>
+</h1>
 			
 			<div id='goal-cmd-wap'>	
-				<?php if (!$_smarty_tpl->tpl_vars['isCreator']->value){?>
+			<?php if ($_smarty_tpl->tpl_vars['isCreator']->value){?>
+				<a id='cmd-edit-goal' class="btn btn-small" href='GoalC.php?act=edit&goalID=<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
+'>修改</a>
+			<?php }else{ ?>
 				<?php if ($_smarty_tpl->tpl_vars['isCheered']->value){?>
-				<a class='isCheered'>已鼓励</a>
+				<a class='btn btn-small isCheered'>已鼓励</a>
 				<?php }else{ ?>
-				<a href="GoalC.php?act=cheer_goal&userID=<?php echo $_smarty_tpl->tpl_vars['userID']->value;?>
+				<a class='btn btn-small' href="GoalC.php?act=cheer_goal&userID=<?php echo $_smarty_tpl->tpl_vars['userID']->value;?>
 &goalID=<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
 ">鼓励</a>
 				<?php }?>
-				<?php }?>
+			<?php }?>
 			</div>
 		</div>
 		
 		<!-- Reason -->
-		<p id='goal-reason'><?php echo $_smarty_tpl->tpl_vars['goal']->value['Reason'];?>
-</p>
+		<div id='goal-reason'><?php echo $_smarty_tpl->tpl_vars['goal']->value['Reason'];?>
+</div>
 		
 		<!-- Logs -->
 		<div id='logs-wap'>
-			<a id="cmd-add-log">添加</a>
+			<a class="btn btn-small" id="cmd-add-log">添加</a>
 
 			<!--
 			<div id='logs-pager'>
@@ -242,9 +240,9 @@ $(document).ready(function(){
 			<?php echo $_smarty_tpl->getSubTemplate ('../panel_header.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'创建者'), 0);?>
 
 			
-			<a class='user-icon' href="PersonC.php?act=person&userID=<?php echo $_smarty_tpl->tpl_vars['creator']->value['UserID'];?>
+			<a href="PersonC.php?act=person&userID=<?php echo $_smarty_tpl->tpl_vars['creator']->value['UserID'];?>
 ">
-				<img src="<?php echo $_smarty_tpl->tpl_vars['creatorAvatar']->value;?>
+				<img class='avatar avatar-multi' src="<?php echo $_smarty_tpl->tpl_vars['creatorAvatar']->value;?>
 " title="<?php echo $_smarty_tpl->tpl_vars['creator']->value['Username'];?>
 " />
 			</a>
@@ -263,7 +261,7 @@ $_smarty_tpl->tpl_vars['cheerer']->_loop = true;
 ?>
 			<a href="PersonC.php?act=person&userID=<?php echo $_smarty_tpl->tpl_vars['cheerer']->value['UserID'];?>
 ">
-				<img class='user-icon' src="<?php echo $_smarty_tpl->tpl_vars['cheerer']->value['Avatar'];?>
+				<img class='avatar avatar-multi' src="<?php echo $_smarty_tpl->tpl_vars['cheerer']->value['Avatar'];?>
 " title="<?php echo $_smarty_tpl->tpl_vars['cheerer']->value['Username'];?>
 " />
 			</a>

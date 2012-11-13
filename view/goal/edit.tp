@@ -27,7 +27,7 @@
 	</div>
 
 	<div>
-		<input type="submit" class="btn btn-primary" value="确定" id="update-goal" />
+		<input type="submit" class="btn btn-primary" value="确定" />
 	</div>
 	
 	<input type="hidden" name="refererUrl" value="{$refererUrl}">

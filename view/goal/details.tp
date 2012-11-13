@@ -153,29 +153,27 @@ $(document).ready(function(){
 
 		<!-- Title -->
 		<div id='title-wap'>
-			<span id='goal-title'>{$goal.Title}</span>
-
-			{if $isCreator}
-			<a id='cmd-edit-goal-title' href='GoalC.php?act=edit&goalID={$goal.GoalID}'>修改</a>
-			{/if}
+			<h1 id='goal-title'>{$goal.Title}</h1>
 			
 			<div id='goal-cmd-wap'>	
-				{if !$isCreator}
+			{if $isCreator}
+				<a id='cmd-edit-goal' class="btn btn-small" href='GoalC.php?act=edit&goalID={$goal.GoalID}'>修改</a>
+			{else}
 				{if $isCheered}
-				<a class='isCheered'>已鼓励</a>
+				<a class='btn btn-small isCheered'>已鼓励</a>
 				{else}
-				<a href="GoalC.php?act=cheer_goal&userID={$userID}&goalID={$goal.GoalID}">鼓励</a>
+				<a class='btn btn-small' href="GoalC.php?act=cheer_goal&userID={$userID}&goalID={$goal.GoalID}">鼓励</a>
 				{/if}
-				{/if}
+			{/if}
 			</div>
 		</div>
 		
 		<!-- Reason -->
-		<p id='goal-reason'>{$goal.Reason}</p>
+		<div id='goal-reason'>{$goal.Reason}</div>
 		
 		<!-- Logs -->
 		<div id='logs-wap'>
-			<a id="cmd-add-log">添加</a>
+			<a class="btn btn-small" id="cmd-add-log">添加</a>
 
 			<!--
 			<div id='logs-pager'>
@@ -195,12 +193,10 @@ $(document).ready(function(){
 
 		<!-- Creator -->
 		<div id='creator-wap'>
-			{include file='../panel_header.tc'
-				title='创建者'
-			}
+			{include file='../panel_header.tc' title='创建者'}
 			
-			<a class='user-icon' href="PersonC.php?act=person&userID={$creator.UserID}">
-				<img src="{$creatorAvatar}" title="{$creator.Username}" />
+			<a href="PersonC.php?act=person&userID={$creator.UserID}">
+				<img class='avatar avatar-multi' src="{$creatorAvatar}" title="{$creator.Username}" />
 			</a>
 		</div>
 
@@ -216,7 +212,7 @@ $(document).ready(function(){
 			
 			{foreach $cheerers as $cheerer}
 			<a href="PersonC.php?act=person&userID={$cheerer.UserID}">
-				<img class='user-icon' src="{$cheerer.Avatar}" title="{$cheerer.Username}" />
+				<img class='avatar avatar-multi' src="{$cheerer.Avatar}" title="{$cheerer.Username}" />
 			</a>
 			{/foreach}
 			{/if}

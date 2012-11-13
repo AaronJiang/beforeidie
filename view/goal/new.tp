@@ -16,7 +16,7 @@
 	</div>
 	
 	<div>
-		<textarea rows="8" placeholder="用几句话简单地介绍一下吧" class='validate[required]' name="why" id="goal-why"></textarea>
+		<textarea rows="8" placeholder="一句话简单介绍一下吧" class='validate[required]' name="why" id="goal-why"></textarea>
 	</div>	
 	
 	<div>
