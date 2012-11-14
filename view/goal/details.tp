@@ -43,7 +43,7 @@ $(document).ready(function(){
 		PAGE_NUM -=1; 
 		load_logs(PAGE_NUM);
 	});
-	
+
 	//下一页
 	$('#page-down').click(function(){
 		if(PAGE_NUM >= TOTAL_PAGE_NUM)
@@ -160,7 +160,7 @@ $(document).ready(function(){
 				<a id='cmd-edit-goal' class="btn btn-small" href='GoalC.php?act=edit&goalID={$goal.GoalID}'>修改</a>
 			{else}
 				{if $isCheered}
-				<a class='btn btn-small isCheered'>已鼓励</a>
+				<a class='btn btn-small'>已鼓励</a>
 				{else}
 				<a class='btn btn-small' href="GoalC.php?act=cheer_goal&userID={$userID}&goalID={$goal.GoalID}">鼓励</a>
 				{/if}

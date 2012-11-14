@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-11-10 14:15:26
+<?php /* Smarty version Smarty-3.1.12, created on 2012-11-14 16:34:20
          compiled from "..\view\dyn\admin_followees.tp" */ ?>
 <?php /*%%SmartyHeaderCode:26103509e526107bf15-11920175%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a4115c3d0a6e22b8eb06d923337ce20e5d42e3fb' => 
     array (
       0 => '..\\view\\dyn\\admin_followees.tp',
-      1 => 1352553323,
+      1 => 1352907258,
       2 => 'file',
     ),
   ),
@@ -29,8 +29,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <?php if ($_valid && !is_callable('content_509e526118efc1_19367870')) {function content_509e526118efc1_19367870($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ('../header.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'管理我的关注','page'=>'page-admin-followees'), 0);?>
 
 
-<p class='subtitle'>我的关注 / <?php echo $_smarty_tpl->tpl_vars['followeesNum']->value;?>
-</p>
+<h4 class='page-title'>我的关注 / <?php echo $_smarty_tpl->tpl_vars['followeesNum']->value;?>
+</h4>
 
 <?php  $_smarty_tpl->tpl_vars['fow'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['fow']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['followees']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}

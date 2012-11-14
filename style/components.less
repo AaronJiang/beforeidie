@@ -97,11 +97,15 @@
 .avatar{
 	width:40px;
 	height:40px;
-	margin:0 10px 10px 0;
 }
 
 .avatar-multi{
 	float: left;
+	margin:0 10px 10px 0;
+}
+
+.avatar-large {
+	
 }
 
 // Feedback Panel
@@ -165,48 +169,24 @@
 
 .panel-header{
 	margin:0 0 10px 0;
-	clear:both;
 
-	&:after{
-		content:".";
-		display:block;
-		height:0px;
-		clear:both;
-		visibility:hidden;	
-	}
+	.clearfix;
 	
 	.panel-title{
-		font-size:18px;
-		color:#1C86EE;
-		font-weight:bold;
-		font-family:'微软雅黑';
+		font-size: @fontSizeLarger;
+		color: @blueSky;
+		font-weight: bold;
 		display:inline-block;
-		padding:0 6px 0 0;
+		padding: 0 6px 0 0;
 	}
 
 	.panel-cmd-wapper{
-		font-size:12px;
-		display:inline-block;
+		font-size: @fontSizeSmall;
+		display: inline-block;
 		font-family:'宋体';
 		
 		.panel-underline{
-			color:#EEE;
-			margin:0 0 -2px 0;
-		}
-		
-		.panel-cmd{
-			text-decoration:none;
-			background-color:#EEE;
-			font-family:'微软雅黑';
-			cursor:pointer;
-			padding:0 5px;
-			margin:0 0 0 5px;
-			color:#666;
-			
-			&:hover{
-				text-shadow:1px 1px 1px white;
-				background-color:#F2F2F2;
-			}
+			color: @grayLighter;
 		}
 	}
 }

@@ -4,16 +4,20 @@
 		"selected_items":
 		[
 			[
-				"fon",
-				"fontSizeSmall"
+				"gr",
+				"grayLight"
 			],
 			[
 				"font",
+				"fontSizeLarge"
+			],
+			[
+				"fot",
 				"fontSizeSmall"
 			],
 			[
-				"gr",
-				"gray"
+				"fon",
+				"fontSizeSmall"
 			],
 			[
 				"lih",
@@ -130,10 +134,6 @@
 			[
 				"border-top-r",
 				"border-top-left-radius"
-			],
-			[
-				"fot",
-				"font-family"
 			]
 		]
 	},
@@ -143,7 +143,7 @@
 			"file": "style/style.less",
 			"settings":
 			{
-				"buffer_size": 13133,
+				"buffer_size": 11016,
 				"line_ending": "Windows"
 			}
 		},
@@ -151,7 +151,7 @@
 			"file": "style/vars.less",
 			"settings":
 			{
-				"buffer_size": 1709,
+				"buffer_size": 1742,
 				"line_ending": "Windows"
 			}
 		},
@@ -159,15 +159,7 @@
 			"file": "style/basecss.less",
 			"settings":
 			{
-				"buffer_size": 3098,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "view/goal/details.tp",
-			"settings":
-			{
-				"buffer_size": 5488,
+				"buffer_size": 3143,
 				"line_ending": "Windows"
 			}
 		},
@@ -175,7 +167,15 @@
 			"file": "style/components.less",
 			"settings":
 			{
-				"buffer_size": 5429,
+				"buffer_size": 5093,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "view/person/person.tp",
+			"settings":
+			{
+				"buffer_size": 2818,
 				"line_ending": "Windows"
 			}
 		}
@@ -216,6 +216,10 @@
 	},
 	"file_history":
 	[
+		"/F/xampp/htdocs/Dream/view/dyn/admin_followees.tp",
+		"/F/xampp/htdocs/Dream/view/panel_header.tc",
+		"/F/xampp/htdocs/Dream/view/goal/details.tp",
+		"/F/xampp/htdocs/Dream/ctrl/GoalC.php",
 		"/F/xampp/htdocs/Dream/view/goal/logs.tc",
 		"/F/xampp/htdocs/Dream/view/goal/new.tp",
 		"/F/xampp/htdocs/Dream/view/goal/edit.tp",
@@ -232,14 +236,11 @@
 		"/C/Users/lzp/AppData/Local/Temp/Rar$DI25.776/style.less",
 		"/F/xampp/htdocs/Dream/style/layout.less",
 		"/F/xampp/htdocs/Dream/view/person/person.tp",
-		"/F/xampp/htdocs/Dream/view/goal/details.tp",
 		"/F/xampp/htdocs/Dream/view/dyn/dyns.tp",
 		"/F/xampp/htdocs/Dream/style/reset.less",
 		"/F/xampp/htdocs/Dream/style/validationEngine.jquery.css",
-		"/F/xampp/htdocs/Dream/ctrl/GoalC.php",
 		"/F/xampp/htdocs/Dream/model/public_funs.php",
 		"/F/xampp/htdocs/Dream/ctrl/PersonC.php",
-		"/F/xampp/htdocs/Dream/view/dyn/admin_followees.tp",
 		"/F/xampp/htdocs/Dream/model/dynamic_funs.php",
 		"/F/xampp/htdocs/Dream/view/dyn/about_me_dyns.tc",
 		"/F/xampp/htdocs/Dream/view/user_dyns.tc",
@@ -367,15 +368,15 @@
 					"file": "style/style.less",
 					"settings":
 					{
-						"buffer_size": 13133,
+						"buffer_size": 11016,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6797,
-								6797
+								7880,
+								7880
 							]
 						],
 						"settings":
@@ -385,7 +386,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 7649.0,
+						"translation.y": 9581.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -395,15 +396,15 @@
 					"file": "style/vars.less",
 					"settings":
 					{
-						"buffer_size": 1709,
+						"buffer_size": 1742,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1339,
-								1325
+								531,
+								531
 							]
 						],
 						"settings":
@@ -412,7 +413,7 @@
 							"syntax": "Packages/CSS/CSS.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 780.0,
+						"translation.y": 240.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -422,15 +423,15 @@
 					"file": "style/basecss.less",
 					"settings":
 					{
-						"buffer_size": 3098,
+						"buffer_size": 3143,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1968,
-								1969
+								1302,
+								1302
 							]
 						],
 						"settings":
@@ -440,52 +441,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2040.0,
+						"translation.y": 900.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "view/goal/details.tp",
-					"settings":
-					{
-						"buffer_size": 5488,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4389,
-								4389
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 3900.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
 					"file": "style/components.less",
 					"settings":
 					{
-						"buffer_size": 5429,
+						"buffer_size": 5093,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1580,
-								1580
+								1601,
+								1601
 							]
 						],
 						"settings":
@@ -494,7 +468,34 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1714.0,
+						"translation.y": 1640.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "view/person/person.tp",
+					"settings":
+					{
+						"buffer_size": 2818,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1922,
+								1922
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 720.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -543,6 +544,22 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"per",
+				"view/person/person.tp"
+			],
+			[
+				"ad",
+				"view/dyn/admin_followees.tp"
+			],
+			[
+				"pan",
+				"view/panel_header.tc"
+			],
+			[
+				"goalc",
+				"ctrl/GoalC.php"
+			],
 			[
 				"co",
 				"style/components.less"
@@ -620,10 +637,6 @@
 				"view/home/terms.tp"
 			],
 			[
-				"per",
-				"view/person/person.tp"
-			],
-			[
 				"deta",
 				"view/goal/details.tp"
 			],
@@ -636,20 +649,12 @@
 				"style/style.less"
 			],
 			[
-				"goalc",
-				"ctrl/GoalC.php"
-			],
-			[
 				"goal",
 				"ctrl/GoalC.php"
 			],
 			[
 				"pub",
 				"model/public_funs.php"
-			],
-			[
-				"ad",
-				"view/dyn/admin_followees.tp"
 			],
 			[
 				"det",

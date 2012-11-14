@@ -5,18 +5,15 @@
 	<div class='span9'>
 			
 		<div id='user-info' class='clearfix'>
-			<img id='user-avatar' src='{$user.Avatar}' />
-			
-			<div id='user-info-wap'>
-				<span id='user-name'>{$user.Name} 的个人主页</span>
-			</div>
+			<img class='avatar' id="user-avatar" src='{$user.Avatar}' />
+			<div id='user-name'>{$user.Name} 的个人主页</div>
 		
 			{if !$isMe}
 			<div id='user-cmd-wap'>
 				{if $isFollowed}
-				<a class='isFollowed' href='DynC.php?act=disfollow_user&followerID={$currUserID}&followeeID={$user.ID}'>已关注</a>
+				<a class="btn btn-primary" href='DynC.php?act=disfollow_user&followerID={$currUserID}&followeeID={$user.ID}'>已关注</a>
 				{else}
-				<a href='PersonC.php?act=follow_user&followerID={$currUserID}&followeeID={$user.ID}'>关注</a>
+				<a class="btn" href='PersonC.php?act=follow_user&followerID={$currUserID}&followeeID={$user.ID}'>关注</a>
 				{/if}
 			</div>
 			{/if}
@@ -25,16 +22,12 @@
 		<div class='goal-wap'>
 			{foreach $goals as $goal}
 			<div class='goal-item'>
-				<p class='goal-title'>
-					<a href='GoalC.php?act=details&goalID={$goal.GoalID}'>{$goal.Title}</a>
-				</p>
-				
-				<p class='goal-reason'>{$goal.Reason}</p>
-				<div class='goal-num-wap'>
-					<span>{$goal.logsNum} 记录</span>
-					<span>/</span> 
-					<span>{$goal.cheersNum} 鼓励</span>
+				<div>
+					<a class='goal-title' href='GoalC.php?act=details&goalID={$goal.GoalID}'>{$goal.Title}</a>
 				</div>
+				
+				<div class='goal-reason'>{$goal.Reason}</div>
+				<div class='goal-num-wap'>{$goal.logsNum} 记录 / {$goal.cheersNum} 鼓励</div>
 			</div>
 			{/foreach}
 		</div>
@@ -55,26 +48,24 @@
 
 		{if $dyn.Type == 'newLog'}
 		<div class='dynamic-item clearfix'>
-			<p class='dynamic-header'>
-				<span>在</span>
-				<a href='GoalC.php?act=details&goalID={$dyn.GoalID}' class='dynamic-goal-title'>{$dyn.GoalTitle}</a>
-				<span>中写到：</span>
-			</p>
+			<div class='dynamic-header'>
+				在 <a href='GoalC.php?act=details&goalID={$dyn.GoalID}' class='dynamic-goal-title'>{$dyn.GoalTitle}</a> 中写到：
+			</div>
+
 			{if $dyn.LogTitle != ""}
-			<p class='dynamic-log-title'>{$dyn.LogTitle}</p>
+			<div class='dynamic-log-title'>{$dyn.LogTitle}</div>
 			{/if}
-			<p class='dynamic-log-content'>{$dyn.LogContent}</p>
-			<p class='dynamic-time'>{$dyn.Time}</p>
+			<div class='dynamic-log-content'>{$dyn.LogContent}</div>
+			<div class='dynamic-time'>{$dyn.Time}</div>
 		</div>
 		
 		{elseif $dyn.Type == 'newGoal'}
 		<div class='dynamic-item clearfix'>
-			<p class='dynamic-header'>
-				<span>设立目标</span>
-				<a href='GoalC.php?act=details&goalID={$dyn.GoalID}' class='dynamic-goal-title'>{$dyn.GoalTitle}</a>
-			</p>
-			<p class='dynamic-goal-reason'>{$dyn.GoalReason}</p>
-			<p class='dynamic-time'>{$dyn.Time}</p>
+			<div class='dynamic-header'>
+				设立目标 <a href='GoalC.php?act=details&goalID={$dyn.GoalID}' class='dynamic-goal-title'>{$dyn.GoalTitle}</a>
+			</div>
+			<div class='dynamic-goal-reason'>{$dyn.GoalReason}</div>
+			<div class='dynamic-time'>{$dyn.Time}</div>
 		</div>
 		{/if}	
 
@@ -89,7 +80,7 @@
 			
 		{foreach $followers as $follower}
 		<a href='PersonC.php?act=person&userID={$follower.UserID}' title='{$follower.Username}'>
-			<img class='multi-user-profile' src='{$follower.Avatar}' />
+			<img class='avatar avatar-multi' src='{$follower.Avatar}' />
 		</a>
 		{/foreach}
 		
@@ -102,7 +93,7 @@
 			
 		{foreach $followees as $followee}
 		<a href='PersonC.php?act=person&userID={$followee.UserID}' title='{$followee.Username}'>
-			<img class='multi-user-profile' src='{$followee.Avatar}' />
+			<img class='avatar avatar-multi' src='{$followee.Avatar}' />
 		</a>
 		{/foreach}
 	</div>

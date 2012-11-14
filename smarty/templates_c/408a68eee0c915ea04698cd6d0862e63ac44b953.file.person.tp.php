@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-11-12 02:24:42
+<?php /* Smarty version Smarty-3.1.12, created on 2012-11-14 17:15:36
          compiled from "..\view\person\person.tp" */ ?>
 <?php /*%%SmartyHeaderCode:4986509235e2350e62-48954490%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '408a68eee0c915ea04698cd6d0862e63ac44b953' => 
     array (
       0 => '..\\view\\person\\person.tp',
-      1 => 1352681909,
+      1 => 1352909711,
       2 => 'file',
     ),
   ),
@@ -44,22 +44,19 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	<div class='span9'>
 			
 		<div id='user-info' class='clearfix'>
-			<img id='user-avatar' src='<?php echo $_smarty_tpl->tpl_vars['user']->value['Avatar'];?>
+			<img class='avatar' id="user-avatar" src='<?php echo $_smarty_tpl->tpl_vars['user']->value['Avatar'];?>
 ' />
-			
-			<div id='user-info-wap'>
-				<span id='user-name'><?php echo $_smarty_tpl->tpl_vars['user']->value['Name'];?>
- 的个人主页</span>
-			</div>
+			<div id='user-name'><?php echo $_smarty_tpl->tpl_vars['user']->value['Name'];?>
+ 的个人主页</div>
 		
 			<?php if (!$_smarty_tpl->tpl_vars['isMe']->value){?>
 			<div id='user-cmd-wap'>
 				<?php if ($_smarty_tpl->tpl_vars['isFollowed']->value){?>
-				<a class='isFollowed' href='DynC.php?act=disfollow_user&followerID=<?php echo $_smarty_tpl->tpl_vars['currUserID']->value;?>
+				<a class="btn btn-primary" href='DynC.php?act=disfollow_user&followerID=<?php echo $_smarty_tpl->tpl_vars['currUserID']->value;?>
 &followeeID=<?php echo $_smarty_tpl->tpl_vars['user']->value['ID'];?>
 '>已关注</a>
 				<?php }else{ ?>
-				<a href='PersonC.php?act=follow_user&followerID=<?php echo $_smarty_tpl->tpl_vars['currUserID']->value;?>
+				<a class="btn" href='PersonC.php?act=follow_user&followerID=<?php echo $_smarty_tpl->tpl_vars['currUserID']->value;?>
 &followeeID=<?php echo $_smarty_tpl->tpl_vars['user']->value['ID'];?>
 '>关注</a>
 				<?php }?>
@@ -74,21 +71,17 @@ foreach ($_from as $_smarty_tpl->tpl_vars['goal']->key => $_smarty_tpl->tpl_vars
 $_smarty_tpl->tpl_vars['goal']->_loop = true;
 ?>
 			<div class='goal-item'>
-				<p class='goal-title'>
-					<a href='GoalC.php?act=details&goalID=<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
+				<div>
+					<a class='goal-title' href='GoalC.php?act=details&goalID=<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
 '><?php echo $_smarty_tpl->tpl_vars['goal']->value['Title'];?>
 </a>
-				</p>
-				
-				<p class='goal-reason'><?php echo $_smarty_tpl->tpl_vars['goal']->value['Reason'];?>
-</p>
-				<div class='goal-num-wap'>
-					<span><?php echo $_smarty_tpl->tpl_vars['goal']->value['logsNum'];?>
- 记录</span>
-					<span>/</span> 
-					<span><?php echo $_smarty_tpl->tpl_vars['goal']->value['cheersNum'];?>
- 鼓励</span>
 				</div>
+				
+				<div class='goal-reason'><?php echo $_smarty_tpl->tpl_vars['goal']->value['Reason'];?>
+</div>
+				<div class='goal-num-wap'><?php echo $_smarty_tpl->tpl_vars['goal']->value['logsNum'];?>
+ 记录 / <?php echo $_smarty_tpl->tpl_vars['goal']->value['cheersNum'];?>
+ 鼓励</div>
 			</div>
 			<?php } ?>
 		</div>
@@ -110,35 +103,33 @@ $_smarty_tpl->tpl_vars['dyn']->_loop = true;
 
 		<?php if ($_smarty_tpl->tpl_vars['dyn']->value['Type']=='newLog'){?>
 		<div class='dynamic-item clearfix'>
-			<p class='dynamic-header'>
-				<span>在</span>
-				<a href='GoalC.php?act=details&goalID=<?php echo $_smarty_tpl->tpl_vars['dyn']->value['GoalID'];?>
+			<div class='dynamic-header'>
+				在 <a href='GoalC.php?act=details&goalID=<?php echo $_smarty_tpl->tpl_vars['dyn']->value['GoalID'];?>
 ' class='dynamic-goal-title'><?php echo $_smarty_tpl->tpl_vars['dyn']->value['GoalTitle'];?>
-</a>
-				<span>中写到：</span>
-			</p>
+</a> 中写到：
+			</div>
+
 			<?php if ($_smarty_tpl->tpl_vars['dyn']->value['LogTitle']!=''){?>
-			<p class='dynamic-log-title'><?php echo $_smarty_tpl->tpl_vars['dyn']->value['LogTitle'];?>
-</p>
+			<div class='dynamic-log-title'><?php echo $_smarty_tpl->tpl_vars['dyn']->value['LogTitle'];?>
+</div>
 			<?php }?>
-			<p class='dynamic-log-content'><?php echo $_smarty_tpl->tpl_vars['dyn']->value['LogContent'];?>
-</p>
-			<p class='dynamic-time'><?php echo $_smarty_tpl->tpl_vars['dyn']->value['Time'];?>
-</p>
+			<div class='dynamic-log-content'><?php echo $_smarty_tpl->tpl_vars['dyn']->value['LogContent'];?>
+</div>
+			<div class='dynamic-time'><?php echo $_smarty_tpl->tpl_vars['dyn']->value['Time'];?>
+</div>
 		</div>
 		
 		<?php }elseif($_smarty_tpl->tpl_vars['dyn']->value['Type']=='newGoal'){?>
 		<div class='dynamic-item clearfix'>
-			<p class='dynamic-header'>
-				<span>设立目标</span>
-				<a href='GoalC.php?act=details&goalID=<?php echo $_smarty_tpl->tpl_vars['dyn']->value['GoalID'];?>
+			<div class='dynamic-header'>
+				设立目标 <a href='GoalC.php?act=details&goalID=<?php echo $_smarty_tpl->tpl_vars['dyn']->value['GoalID'];?>
 ' class='dynamic-goal-title'><?php echo $_smarty_tpl->tpl_vars['dyn']->value['GoalTitle'];?>
 </a>
-			</p>
-			<p class='dynamic-goal-reason'><?php echo $_smarty_tpl->tpl_vars['dyn']->value['GoalReason'];?>
-</p>
-			<p class='dynamic-time'><?php echo $_smarty_tpl->tpl_vars['dyn']->value['Time'];?>
-</p>
+			</div>
+			<div class='dynamic-goal-reason'><?php echo $_smarty_tpl->tpl_vars['dyn']->value['GoalReason'];?>
+</div>
+			<div class='dynamic-time'><?php echo $_smarty_tpl->tpl_vars['dyn']->value['Time'];?>
+</div>
 		</div>
 		<?php }?>	
 
@@ -156,7 +147,7 @@ $_smarty_tpl->tpl_vars['follower']->_loop = true;
 		<a href='PersonC.php?act=person&userID=<?php echo $_smarty_tpl->tpl_vars['follower']->value['UserID'];?>
 ' title='<?php echo $_smarty_tpl->tpl_vars['follower']->value['Username'];?>
 '>
-			<img class='multi-user-profile' src='<?php echo $_smarty_tpl->tpl_vars['follower']->value['Avatar'];?>
+			<img class='avatar avatar-multi' src='<?php echo $_smarty_tpl->tpl_vars['follower']->value['Avatar'];?>
 ' />
 		</a>
 		<?php } ?>
@@ -173,7 +164,7 @@ $_smarty_tpl->tpl_vars['followee']->_loop = true;
 		<a href='PersonC.php?act=person&userID=<?php echo $_smarty_tpl->tpl_vars['followee']->value['UserID'];?>
 ' title='<?php echo $_smarty_tpl->tpl_vars['followee']->value['Username'];?>
 '>
-			<img class='multi-user-profile' src='<?php echo $_smarty_tpl->tpl_vars['followee']->value['Avatar'];?>
+			<img class='avatar avatar-multi' src='<?php echo $_smarty_tpl->tpl_vars['followee']->value['Avatar'];?>
 ' />
 		</a>
 		<?php } ?>

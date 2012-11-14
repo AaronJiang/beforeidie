@@ -64,9 +64,10 @@ blockquote {
 a {
   color: @linkColor;
   text-decoration: none;
+  display: inline-block;
 
   &:hover{
-  	color: @linkColorHover;
+  	color: @linkColor;
   	text-decoration: underline;  	
   }
 }
@@ -95,7 +96,7 @@ textarea{
 	line-height: @baseLineHeight;
 	border: 1px solid @grayLighter;
 	margin: 0 0 10px 0;
-	display:block;
+	display: block;
 }
 
 select{
@@ -120,23 +121,23 @@ select{
 	cursor: pointer;
 	border: 0;
 	border-radius: @baseBorderRadius;
-	color: @black;
+	color: @grayDark;
 	background-color: @grayLighter;
 
 	&:hover {
 		text-decoration: none;
-		color: @black;
+		color: @grayDark;
 		background-color: darken(@grayLighter, 5%);
 	}
 }
 
 .btn-primary {
 	color: @white;
-	background-color: #1C86EE;
+	background-color: @blueSky;
 
 	&:hover {
 		color: @white;
-		background-color: darken(#1C86EE, 5%);
+		background-color: darken(@blueSky, 5%);
 	}
 }
 
@@ -160,6 +161,10 @@ select{
 	font-size: @fontSizeSmall;
 	padding: @paddingSmall;
 	border-radius: @borderRadiusSmall;	
+}
+
+.btn-tiny {
+
 }
 
 .small-cmd {

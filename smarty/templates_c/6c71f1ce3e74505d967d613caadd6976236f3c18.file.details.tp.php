@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-11-13 16:56:39
+<?php /* Smarty version Smarty-3.1.12, created on 2012-11-14 16:41:56
          compiled from "..\view\goal\details.tp" */ ?>
 <?php /*%%SmartyHeaderCode:1933950938337f31405-89020659%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6c71f1ce3e74505d967d613caadd6976236f3c18' => 
     array (
       0 => '..\\view\\goal\\details.tp',
-      1 => 1352822158,
+      1 => 1352907715,
       2 => 'file',
     ),
   ),
@@ -81,7 +81,7 @@ $(document).ready(function(){
 		PAGE_NUM -=1; 
 		load_logs(PAGE_NUM);
 	});
-	
+
 	//下一页
 	$('#page-down').click(function(){
 		if(PAGE_NUM >= TOTAL_PAGE_NUM)
@@ -200,7 +200,7 @@ $(document).ready(function(){
 '>修改</a>
 			<?php }else{ ?>
 				<?php if ($_smarty_tpl->tpl_vars['isCheered']->value){?>
-				<a class='btn btn-small isCheered'>已鼓励</a>
+				<a class='btn btn-small'>已鼓励</a>
 				<?php }else{ ?>
 				<a class='btn btn-small' href="GoalC.php?act=cheer_goal&userID=<?php echo $_smarty_tpl->tpl_vars['userID']->value;?>
 &goalID=<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>

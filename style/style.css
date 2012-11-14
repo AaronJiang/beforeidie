@@ -171,9 +171,10 @@ blockquote p {
 a {
   color: #336699;
   text-decoration: none;
+  display: inline-block;
 }
 a:hover {
-  color: #204060;
+  color: #336699;
   text-decoration: underline;
 }
 input {
@@ -215,17 +216,17 @@ select {
   cursor: pointer;
   border: 0;
   border-radius: 4px;
-  color: #000000;
+  color: #333333;
   background-color: #eeeeee;
 }
 .btn:hover {
   text-decoration: none;
-  color: #000000;
+  color: #333333;
   background-color: #e1e1e1;
 }
 .btn-primary {
   color: #ffffff;
-  background-color: #1C86EE;
+  background-color: #1c86ee;
 }
 .btn-primary:hover {
   color: #ffffff;
@@ -342,10 +343,10 @@ select {
 .avatar {
   width: 40px;
   height: 40px;
-  margin: 0 10px 10px 0;
 }
 .avatar-multi {
   float: left;
+  margin: 0 10px 10px 0;
 }
 #feedback-panel {
   position: fixed;
@@ -394,44 +395,30 @@ select {
 }
 .panel-header {
   margin: 0 0 10px 0;
-  clear: both;
 }
+.panel-header:before,
 .panel-header:after {
-  content: ".";
-  display: block;
-  height: 0px;
-  clear: both;
   visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
 }
 .panel-header .panel-title {
-  font-size: 18px;
-  color: #1C86EE;
+  font-size: 17.5px;
+  color: #1c86ee;
   font-weight: bold;
-  font-family: '微软雅黑';
   display: inline-block;
   padding: 0 6px 0 0;
 }
 .panel-header .panel-cmd-wapper {
-  font-size: 12px;
+  font-size: 11.9px;
   display: inline-block;
   font-family: '宋体';
 }
 .panel-header .panel-cmd-wapper .panel-underline {
-  color: #EEE;
-  margin: 0 0 -2px 0;
-}
-.panel-header .panel-cmd-wapper .panel-cmd {
-  text-decoration: none;
-  background-color: #EEE;
-  font-family: '微软雅黑';
-  cursor: pointer;
-  padding: 0 5px;
-  margin: 0 0 0 5px;
-  color: #666;
-}
-.panel-header .panel-cmd-wapper .panel-cmd:hover {
-  text-shadow: 1px 1px 1px white;
-  background-color: #F2F2F2;
+  color: #eeeeee;
 }
 /* Comments */
 .comments-wap {
@@ -831,15 +818,8 @@ select {
 #page-goal-details #title-wap #goal-cmd-wap a {
   margin: 0 0 0 8px;
 }
-#page-goal-details #title-wap #goal-cmd-wap a.isCheered {
-  background-color: #f89406;
-}
-#page-goal-details #title-wap #goal-cmd-wap a.isCheered:hover {
-  background-color: #f8a806;
-  cursor: default;
-}
 #page-goal-details #goal-reason {
-  margin: 0 0 10px 0;
+  margin: 0 0 5px 0;
   padding: 0 0 10px 0;
   color: #555555;
   border-bottom: 1px solid #999999;
@@ -848,7 +828,6 @@ select {
   padding: 5px 0 0 0;
 }
 #page-goal-details #logs-wap #cmd-add-log {
-  margin: 0 0 5px 5px;
   float: right;
 }
 #page-goal-details #logs-wap #logs-pager {
@@ -923,15 +902,9 @@ select {
 #page-person {
   /* User Info */
 
-  /* User Goals Selector */
-
   /* User Goals */
 
   /* Dynamics */
-
-  /* Message */
-
-  /* Message Leave Dialog */
 
 }
 #page-person #user-info {
@@ -942,16 +915,11 @@ select {
 }
 #page-person #user-info #user-avatar {
   float: left;
-  margin: 0 8px 0 0;
-  width: 40px;
-  height: 40px;
 }
-#page-person #user-info #user-info-wap {
+#page-person #user-info #user-name {
   margin: 0 0 0 48px;
-}
-#page-person #user-info #user-info-wap #user-name {
-  font-size: 18px;
-  line-height: 18px;
+  font-size: 17.5px;
+  line-height: 17.5px;
   font-weight: bold;
 }
 #page-person #user-info #user-cmd-wap {
@@ -959,159 +927,53 @@ select {
   top: 0px;
   right: 0px;
 }
-#page-person #user-info #user-cmd-wap a {
-  display: inline-block;
-  padding: 2px 10px;
-  margin: 0 0 0 8px;
-  background-color: #E8E8E8;
-  text-decoration: none;
-  color: black;
-  cursor: pointer;
-  font-size: 15px;
-  font-weight: bold;
-  text-shadow: -1px -1px 1px #ffffff;
-}
-#page-person #user-info #user-cmd-wap a.isFollowed {
-  background-color: orange;
-}
-#page-person #user-info #user-cmd-wap a.isFollowed:hover {
-  cursor: pointer;
-}
-#page-person #goal-wap-header {
-  list-style: none;
-  border-bottom: 1px solid #EEE;
-}
-#page-person #goal-wap-header li {
-  display: inline-block;
-  margin: 0 1px 0 0;
-}
-#page-person #goal-wap-header li a {
-  display: block;
-  padding: 5px 15px;
-  background-color: #E8E8E8;
-  text-decoration: none;
-  color: black;
-  cursor: pointer;
-  font-size: 18px;
-}
-#page-person #goal-wap-header li a:hover {
-  background-color: #DDD;
-}
-#page-person .goal-wap {
-  float: left;
-  margin: 0 20px 0 0;
-  width: 100%;
-}
 #page-person .goal-wap .goal-item {
   border-bottom: 1px solid #EEE;
-  padding: 10px 0 8px 0;
+  padding: 8px 0;
   position: relative;
 }
 #page-person .goal-wap .goal-item .goal-title {
-  font-size: 15px;
   font-weight: bold;
   margin: 0 0 3px 0;
-}
-#page-person .goal-wap .goal-item .goal-title a {
-  text-decoration: none;
-  color: black;
-}
-#page-person .goal-wap .goal-item .goal-title a:hover {
-  text-decoration: underline;
+  color: #000000;
 }
 #page-person .goal-wap .goal-item .goal-reason {
-  font-size: 12px;
-  color: gray;
-  margin: 0 0 2px 0;
+  font-size: 11.9px;
+  color: #555555;
 }
 #page-person .goal-wap .goal-item .goal-num-wap {
-  font-size: 12px;
-  color: gray;
   position: absolute;
   top: 10px;
-  right: 8px;
-}
-#page-person .goal-wap .goal-item .goal-cmd-wap {
-  position: absolute;
-  top: 5px;
   right: 5px;
-}
-#page-person .goal-wap .goal-item .goal-cmd-wap .goal-cmd {
-  text-decoration: none;
-  color: black;
-  display: block;
-  background-color: #E8E8E8;
-  border-radius: 2px;
-  padding: 2px 7px;
-  font-size: 12px;
-  cursor: pointer;
-}
-#page-person .goal-wap .goal-item .goal-cmd-wap .goal-cmd:hover {
-  background-color: #DDD;
+  font-size: 11.9px;
+  color: #555555;
 }
 #page-person .dynamic-item {
   padding: 0 5px 5px 0;
-  border-bottom: 1px solid #EEE;
+  border-bottom: 1px solid #eeeeee;
   margin: 0 0 5px 0;
-  color: gray;
-  font-size: 13px;
 }
 #page-person .dynamic-item .dynamic-header {
   margin: 0 0 3px 0;
 }
-#page-person .dynamic-item .dynamic-header a {
-  text-decoration: none;
-  color: #369;
-}
-#page-person .dynamic-item .dynamic-header a:hover {
-  text-decoration: underline;
-}
 #page-person .dynamic-item .dynamic-log-title {
-  color: black;
   font-weight: bold;
   margin: 0 0 3px 0;
   padding: 0 0 0 5px;
 }
 #page-person .dynamic-item .dynamic-log-content,
 #page-person .dynamic-item .dynamic-goal-reason {
-  font-size: 12px;
+  font-size: 11.9px;
   font-family: '宋体';
-  line-height: 20px;
   word-wrap: break-all;
   margin: 0 0 5px 0;
   padding: 0 0 0 5px;
+  color: #555555;
 }
 #page-person .dynamic-item .dynamic-time {
   text-align: right;
-  color: gray;
-  font-size: 12px;
-}
-#page-person .message-item {
-  border-bottom: 1px solid #EEE;
-  font-size: 13px;
-  padding: 0 0 3px 0;
-  margin: 0 5px 5px 5px;
-}
-#page-person .message-item .message-content {
-  margin: 0 0 5px 0;
-}
-#page-person .message-item .message-content a {
-  color: #369;
-  text-decoration: none;
-}
-#page-person .message-item .message-content a:hover {
-  text-decoration: underline;
-}
-#page-person .message-item .message-time {
-  font-size: 12px;
-  text-align: right;
-  color: gray;
-}
-#page-person #form-leave-message #message-content {
-  width: 384px;
-  height: 150px;
-  margin: 0;
-  resize: vertical;
+  color: #555555;
+  font-size: 11.9px;
 }
 #page-followee-dynamics {
   /* Dynamic Selector */
