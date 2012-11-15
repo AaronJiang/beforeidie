@@ -14,7 +14,7 @@ $(document).ready(function(){
 </script>
 {/literal}
 
-<p class='subtitle'>更改密码</p>
+<h4 class='page-title'>更改密码</h4>
 
 <form id='form-change-pwd' action='AccountC.php' method='post'>
 	<input type='password' class='validate[required]' autocomplete='off' placeholder='原密码' name='originalPwd' />
@@ -24,8 +24,8 @@ $(document).ready(function(){
 	<input type='password' class='validate[required, equals[newPwd]]' autocomplete='off' equalto='#newPwd' placeholder='重复新密码' name='reNewPwd' />
 
 	<div>
-		<input type='submit' value='修改'>
-		<input type='button' class='cancel' id='cancel-btn' value='取消'>
+		<input class="btn btn-primary" type='submit' value='修改'>
+		<input class='btn' type='button' id='cancel-btn' value='取消'>
 	</div>
 
 	<input type='hidden' name='userID' value='{$userID}'>

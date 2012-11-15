@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-11-15 05:50:18
+<?php /* Smarty version Smarty-3.1.12, created on 2012-11-15 08:29:34
          compiled from "F:\xampp\htdocs\Dream\view\comments.tc" */ ?>
 <?php /*%%SmartyHeaderCode:1241750938339146ed8-30444502%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '26a12ddba87bc519fb4994ab00bae57986a2e86a' => 
     array (
       0 => 'F:\\xampp\\htdocs\\Dream\\view\\comments.tc',
-      1 => 1352954955,
+      1 => 1352964297,
       2 => 'file',
     ),
   ),

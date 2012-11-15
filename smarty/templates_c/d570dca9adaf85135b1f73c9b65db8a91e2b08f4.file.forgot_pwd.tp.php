@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-11-15 03:11:04
+<?php /* Smarty version Smarty-3.1.12, created on 2012-11-15 08:21:26
          compiled from "..\view\account\forgot_pwd.tp" */ ?>
 <?php /*%%SmartyHeaderCode:1519450a44f38471af6-75371155%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd570dca9adaf85135b1f73c9b65db8a91e2b08f4' => 
     array (
       0 => '..\\view\\account\\forgot_pwd.tp',
-      1 => 1351698713,
+      1 => 1352964085,
       2 => 'file',
     ),
   ),
@@ -15,13 +15,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.12',
+  'unifunc' => 'content_50a44f38635f24_38596767',
   'variables' => 
   array (
     'from' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.12',
-  'unifunc' => 'content_50a44f38635f24_38596767',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_50a44f38635f24_38596767')) {function content_50a44f38635f24_38596767($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ('uheader.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'忘记密码','page'=>'page-forgot-pwd'), 0);?>
 
@@ -67,7 +67,7 @@ $(document).ready(function(){
 		<input type='text' class='validate[required]' placeholder='邮箱' autocomplete='off' name='email' />
 		
 		<div class='form-footer'>
-			<input type='submit' value='提交' />
+			<input class="btn btn-large btn-primary" type='submit' value='提交' />
 			<input type='hidden' name='act' value='send_reset_pwd_email' />
 		</div>
 	</form>

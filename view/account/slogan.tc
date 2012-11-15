@@ -1,1 +1,1 @@
-<p id='login-slogan'>	<span>已经有 <b>{$sInfo.usersNum}</b> 位用户，</span>	<span>在 <img id='logo' src='../imgs/new.png' /> 设立了 <b>{$sInfo.goalsNum}</b> 个目标，</span>	<span>写下了 <b>{$sInfo.logsNum}</b> 条记录</span><p>
+<p id='login-slogan'>	已经有 <b>{$sInfo.usersNum}</b> 位用户，在 <img id='logo' src='../imgs/new.png' /> 设立了 <b>{$sInfo.goalsNum}</b> 个目标，写下了 <b>{$sInfo.logsNum}</b> 条记录<p>

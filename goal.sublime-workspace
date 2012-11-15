@@ -4,8 +4,36 @@
 		"selected_items":
 		[
 			[
+				"grayL",
+				"grayLight"
+			],
+			[
+				"gr",
+				"gray"
+			],
+			[
+				"base",
+				"baseFontFamily"
+			],
+			[
 				"font",
-				"fontSizeSmall"
+				"fontSizeLarger"
+			],
+			[
+				"bor",
+				"border"
+			],
+			[
+				"in",
+				"input"
+			],
+			[
+				"gra",
+				"grayLight"
+			],
+			[
+				"PA",
+				"padding-right"
 			],
 			[
 				"te",
@@ -14,14 +42,6 @@
 			[
 				"co",
 				"comment"
-			],
-			[
-				"gra",
-				"grayLighter"
-			],
-			[
-				"gr",
-				"grayLighter"
 			],
 			[
 				"fon",
@@ -34,10 +54,6 @@
 			[
 				"bo",
 				"borderRadiusSmall"
-			],
-			[
-				"bor",
-				"border-bottom"
 			],
 			[
 				"tex",
@@ -70,10 +86,6 @@
 			[
 				"bas",
 				"baseFontSize"
-			],
-			[
-				"in",
-				"inline-block"
 			],
 			[
 				"ma",
@@ -147,7 +159,7 @@
 			"file": "style/style.less",
 			"settings":
 			{
-				"buffer_size": 10173,
+				"buffer_size": 9896,
 				"line_ending": "Windows"
 			}
 		},
@@ -155,7 +167,7 @@
 			"file": "style/vars.less",
 			"settings":
 			{
-				"buffer_size": 1804,
+				"buffer_size": 1716,
 				"line_ending": "Windows"
 			}
 		},
@@ -163,7 +175,7 @@
 			"file": "style/basecss.less",
 			"settings":
 			{
-				"buffer_size": 3156,
+				"buffer_size": 3248,
 				"line_ending": "Windows"
 			}
 		},
@@ -220,6 +232,15 @@
 	},
 	"file_history":
 	[
+		"/F/xampp/htdocs/Dream/view/account/change_pwd.tp",
+		"/F/xampp/htdocs/Dream/view/account/forgot_pwd.tp",
+		"/F/xampp/htdocs/Dream/view/account/uheader.tc",
+		"/F/xampp/htdocs/Dream/view/account/reset_pwd.tp",
+		"/F/xampp/htdocs/Dream/view/account/slogan.tc",
+		"/F/xampp/htdocs/Dream/view/account/active.tp",
+		"/F/xampp/htdocs/Dream/view/account/register.tp",
+		"/F/xampp/htdocs/Dream/view/account/login.tp",
+		"/F/xampp/htdocs/Dream/.gitignore",
 		"/F/xampp/htdocs/Dream/js/goal-comment.js",
 		"/F/xampp/htdocs/Dream/view/account/details.tp",
 		"/F/xampp/htdocs/Dream/view/comments.tc",
@@ -246,7 +267,6 @@
 		"/F/xampp/htdocs/Dream/view/home/about.tp",
 		"/F/xampp/htdocs/Dream/view/home/home.tp",
 		"/F/xampp/htdocs/Dream/view/home/terms.tp",
-		"/F/xampp/htdocs/Dream/view/account/uheader.tc",
 		"/F/xampp/htdocs/Dream/style/utility.less",
 		"/C/Users/lzp/AppData/Local/Temp/Rar$DI25.776/style.less",
 		"/F/xampp/htdocs/Dream/style/layout.less",
@@ -300,6 +320,11 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"cancel",
+			"subtitle",
+			"Page Home",
+			"page Home",
+			"page home",
 			"subtitle",
 			"'",
 			"'\n\"",
@@ -389,15 +414,15 @@
 					"file": "style/style.less",
 					"settings":
 					{
-						"buffer_size": 10173,
+						"buffer_size": 9896,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								701,
-								701
+								2253,
+								2253
 							]
 						],
 						"settings":
@@ -407,7 +432,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 460.0,
+						"translation.y": 764.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -417,15 +442,15 @@
 					"file": "style/vars.less",
 					"settings":
 					{
-						"buffer_size": 1804,
+						"buffer_size": 1716,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1467,
-								1467
+								1575,
+								1575
 							]
 						],
 						"settings":
@@ -434,7 +459,7 @@
 							"syntax": "Packages/CSS/CSS.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 780.0,
+						"translation.y": 840.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -444,15 +469,15 @@
 					"file": "style/basecss.less",
 					"settings":
 					{
-						"buffer_size": 3156,
+						"buffer_size": 3248,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3011,
-								3011
+								227,
+								227
 							]
 						],
 						"settings":
@@ -462,7 +487,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2889.0,
+						"translation.y": 180.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -479,8 +504,8 @@
 						"selection":
 						[
 							[
-								3410,
-								3410
+								127,
+								127
 							]
 						],
 						"settings":
@@ -489,7 +514,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 4020.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -506,8 +531,8 @@
 						"selection":
 						[
 							[
-								88,
-								88
+								665,
+								665
 							]
 						],
 						"settings":
@@ -565,6 +590,22 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"for",
+				"view/account/forgot_pwd.tp"
+			],
+			[
+				"re",
+				"view/account/register.tp"
+			],
+			[
+				"lo",
+				"view/account/login.tp"
+			],
+			[
+				"sty",
+				"style/style.less"
+			],
 			[
 				"goal",
 				"js/goal-comment.js"
@@ -640,10 +681,6 @@
 			[
 				"co",
 				"style/components.less"
-			],
-			[
-				"lo",
-				"view/goal/logs.tc"
 			],
 			[
 				"he",
@@ -728,10 +765,6 @@
 			[
 				"detai",
 				"view/goal/details.tp"
-			],
-			[
-				"sty",
-				"style/style.less"
 			],
 			[
 				"goalfu",

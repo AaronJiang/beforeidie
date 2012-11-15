@@ -25,7 +25,7 @@
 	<form id='form-send-active-email' action='AccountC.php' method='post'>
 		<div class='form-footer'>
 			<a href='AccountC.php?act=pLogin'>登陆</a>
-			<input type='submit' value='再发一次' />
+			<input class="btn btn-large btn-primary" type='submit' value='再发一次' />
 		</div>
 
 		<input type='hidden' value='{$email}' name='email' />

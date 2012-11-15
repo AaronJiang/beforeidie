@@ -14,7 +14,7 @@ p {
 }
 
 // Headings
-// -------------------------
+// ------------------------------------------------------------
 
 h1, h2, h3, h4, h5, h6 {
 	margin: 0 0 (@baseLineHeight / 2) 0;
@@ -38,7 +38,7 @@ h5 { font-size: @baseFontSize; }	// ~15px
 h6 { font-size: @baseFontSize * 0.85; } // ~12px
 
 // List
-// -------------------------
+// ------------------------------------------------------------
 
 ul {
 	li {
@@ -47,7 +47,8 @@ ul {
 }
 
 // Blockquotes
-// -------------------------
+// ------------------------------------------------------------
+
 blockquote {
 	padding: 0 0 0 15px;
 	margin: 0 0 @baseLineHeight 0;
@@ -82,13 +83,18 @@ input[type="text"],
 input[type="password"]{
 	padding: 5px 7px;
 	margin: 0 0 10px 0;
-	width: 200px;
+	width: 250px;
 	font-family: '宋体';
 	border: 1px solid @grayLighter;
-	display:block;
+	display: block;
 }
 
-textarea{
+input[type="submit"],
+input[type="button"] {
+	border: 0;
+}
+
+textarea {
 	padding: 5px 7px;
 	font-size: @baseFontSize;
 	font-family: @altFontFamily;
@@ -98,7 +104,7 @@ textarea{
 	display: block;
 }
 
-select{
+select {
 	font-size: 14px;
 	border: 1px solid @grayLighter;
 	font-family: @altFontFamily;
@@ -107,7 +113,7 @@ select{
 }
 
 // Button
-// -------------------------
+// ------------------------------------------------------------
 
 .btn {
 	display: inline-block;
@@ -133,19 +139,16 @@ select{
 .btn-large {
 	font-size: @fontSizeLarge;
 	padding: @paddingLarge;
-	border-radius: @borderRadiusLarge;
 }
 
 .btn-small {
 	font-size: @fontSizeSmall;
 	padding: @paddingSmall;
-	border-radius: @borderRadiusSmall;	
 }
 
 .btn-tiny {
 	font-size: @fontSizeSmall;
 	padding: @paddingTiny;
-	border-radius: @borderRadiusTiny ;
 }
 
 .btn-primary {
@@ -178,5 +181,3 @@ select{
 		color: @white;		
 	}
 }
-
-

@@ -97,14 +97,14 @@
 #page-active-account,
 #page-forgot-pwd,
 #page-reset-pwd {
-	background-color: #E8E8E8;
+	background-color: @grayLighter;
 	
 	#login-slogan {
-		font-size : 22px;
+		font-size: 22px;
 		line-height : 22px;
-		margin : 150px auto 30px auto;
-		text-align : center;
-		text-shadow :1px 1px 2px white;
+		margin: 150px auto 30px auto;
+		text-align: center;
+		text-shadow: 1px 1px 2px white;
 		
 		#logo{
 			vertical-align : text-bottom;
@@ -113,60 +113,43 @@
 	}
 	
 	#form-wap {
-		border-top:1px solid #BBB;
-		border-bottom:1px solid #BBB;
-		box-shadow:0 0 6px #AAA;
-		padding:40px 0 25px 0;
-		background-color:#F8F8F8;
+		border-top: 1px solid #BBB;
+		border-bottom: 1px solid #BBB;
+		box-shadow: 0 0 6px #AAA;
+		padding: 40px 0 25px 0;
+		background-color: #F8F8F8;
 
 		#account-message {
 			margin:0 0 20px 0;
-			text-align:center;
-			font-size:18px;
+			text-align: center;
+			font-size: @fontSizeLarger;
 		}
 		
 		form{
 			width: 400px;
 			margin: 0 auto;
 			display: block;
-			border-radius: 5px;
 			
 			input[type='text'],
-			input[type='password']{
+			input[type='password'] {
 				width: 100%;
 				box-sizing: border-box;
 				font-size: 20px;
-				font-family: '微软雅黑';
+				font-family: @baseFontFamily;
 				margin-bottom: 20px;
 			}
 			
-			.form-footer{
-				text-align:right;
+			.form-footer {
+				text-align: right;
 				
-				a{
-					margin:0 12px 0 0;
-					padding:0 0 0 0;
-					line-height:15px;
-					color:#369;
+				a {
+					margin: 0 8px 0 0;
 				}
 				
-				input[type='submit']{
-					font-family: '微软雅黑';
-					font-size:20px;
-					line-height:20px;
-					padding:6px 20px;
-					margin:0;
-					border:0;
-					vertical-align:text-bottom;
-					background-color:#55B8EE;
-					border-radius:2px;
-					color:white;
-					font-weight:bold;
-					text-shadow:1px 1px 1px gray;
-
-					&:hover{
-						box-shadow:0 0 5px #55B8EE;
-					}
+				input[type='submit'] {
+					font-family: @baseFontFamily;
+					vertical-align: text-bottom;
+					font-weight: bold;
 				}
 			}
 		}
@@ -181,7 +164,7 @@
 	#table-account-details{
 		border-spacing: 0;
 		border-collapse: collapse;
-		margin:15px 0 0 0;
+		margin: 15px 0 0 0;
 		
 		td{
 			padding: 0 10px 10px 0;
@@ -249,11 +232,12 @@
 				background-color: @black;
 				opacity: 0.8;
 				text-align: right;
+				padding-right: 8px;
 
 				.goal-cmd {
 					background-color: darken(@white, 2%);
 					font-family: @altFontFamily;
-					margin: 5px 5px 5px 0;
+					margin: 5px 0 5px 3px;
 				}
 			}
 		}
