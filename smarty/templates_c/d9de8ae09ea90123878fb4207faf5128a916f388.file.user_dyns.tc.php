@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-11-10 14:03:12
+<?php /* Smarty version Smarty-3.1.12, created on 2012-11-15 04:10:29
          compiled from "..\view\user_dyns.tc" */ ?>
 <?php /*%%SmartyHeaderCode:2319509235dd643059-74947621%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd9de8ae09ea90123878fb4207faf5128a916f388' => 
     array (
       0 => '..\\view\\user_dyns.tc',
-      1 => 1352552020,
+      1 => 1352948980,
       2 => 'file',
     ),
   ),
@@ -36,10 +36,8 @@ $_smarty_tpl->tpl_vars['dyn']->_loop = true;
 		
 	<a href="PersonC.php?act=person&userID=<?php echo $_smarty_tpl->tpl_vars['dyn']->value['PosterID'];?>
 ">
-		<img class='dynamic-poster-profile' 
-			title="<?php echo $_smarty_tpl->tpl_vars['dyn']->value['Poster'];?>
-"
-			src="<?php echo $_smarty_tpl->tpl_vars['dyn']->value['PosterAvatar'];?>
+		<img class="avatar avatar-side" title="<?php echo $_smarty_tpl->tpl_vars['dyn']->value['Poster'];?>
+" src="<?php echo $_smarty_tpl->tpl_vars['dyn']->value['PosterAvatar'];?>
 " />
 	</a>
 
@@ -68,7 +66,7 @@ $_smarty_tpl->tpl_vars['dyn']->_loop = true;
 
 		
 		<div class='dynamic-footer'>
-			<a class='small-cmd cmd-new-comment'
+			<a class="btn btn-tiny btn-cmd cmd-new-comment"
 				data-poster-id="<?php echo $_smarty_tpl->tpl_vars['userID']->value;?>
 "
 				data-log-id="<?php echo $_smarty_tpl->tpl_vars['dyn']->value['LogID'];?>
@@ -77,8 +75,8 @@ $_smarty_tpl->tpl_vars['dyn']->_loop = true;
 				data-avatar-url="<?php echo $_smarty_tpl->tpl_vars['userAvatar']->value;?>
 "
 				>回复</a>
-			<p class='dynamic-time'><?php echo $_smarty_tpl->tpl_vars['dyn']->value['Time'];?>
-</p>
+			<span class='dynamic-time'><?php echo $_smarty_tpl->tpl_vars['dyn']->value['Time'];?>
+</span>
 		</div>
 	</div>
 
@@ -116,13 +114,13 @@ $_smarty_tpl->tpl_vars['comm']->_loop = true;
 		
 		<div class='dynamic-footer'>
 			<?php if (!$_smarty_tpl->tpl_vars['dyn']->value['isCheered']){?>
-			<a class='small-cmd' href="GoalC.php?act=cheer&userID=<?php echo $_smarty_tpl->tpl_vars['userID']->value;?>
+			<a class='btn btn-tiny btn-cmd' href="GoalC.php?act=cheer&userID=<?php echo $_smarty_tpl->tpl_vars['userID']->value;?>
 &goalID=<?php echo $_smarty_tpl->tpl_vars['dyn']->value['GoalID'];?>
 ">鼓励</a>
 			<?php }?>
 			
-			<p class='dynamic-time'><?php echo $_smarty_tpl->tpl_vars['dyn']->value['Time'];?>
-</p>
+			<span class='dynamic-time'><?php echo $_smarty_tpl->tpl_vars['dyn']->value['Time'];?>
+</span>
 		</div>
 	</div>
 	<?php }?>

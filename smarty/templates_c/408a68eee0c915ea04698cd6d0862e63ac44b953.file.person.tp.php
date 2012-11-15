@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-11-14 17:15:36
+<?php /* Smarty version Smarty-3.1.12, created on 2012-11-15 03:17:33
          compiled from "..\view\person\person.tp" */ ?>
 <?php /*%%SmartyHeaderCode:4986509235e2350e62-48954490%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '408a68eee0c915ea04698cd6d0862e63ac44b953' => 
     array (
       0 => '..\\view\\person\\person.tp',
-      1 => 1352909711,
+      1 => 1352945850,
       2 => 'file',
     ),
   ),
@@ -44,7 +44,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 	<div class='span9'>
 			
 		<div id='user-info' class='clearfix'>
-			<img class='avatar' id="user-avatar" src='<?php echo $_smarty_tpl->tpl_vars['user']->value['Avatar'];?>
+			<img class='avatar avatar-side' src='<?php echo $_smarty_tpl->tpl_vars['user']->value['Avatar'];?>
 ' />
 			<div id='user-name'><?php echo $_smarty_tpl->tpl_vars['user']->value['Name'];?>
  的个人主页</div>

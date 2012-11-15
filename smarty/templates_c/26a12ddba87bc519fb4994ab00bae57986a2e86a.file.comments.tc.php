@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-11-03 02:27:43
+<?php /* Smarty version Smarty-3.1.12, created on 2012-11-15 05:50:18
          compiled from "F:\xampp\htdocs\Dream\view\comments.tc" */ ?>
 <?php /*%%SmartyHeaderCode:1241750938339146ed8-30444502%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '26a12ddba87bc519fb4994ab00bae57986a2e86a' => 
     array (
       0 => 'F:\\xampp\\htdocs\\Dream\\view\\comments.tc',
-      1 => 1351906031,
+      1 => 1352954955,
       2 => 'file',
     ),
   ),
@@ -27,12 +27,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_509383391f22f6_62583688')) {function content_509383391f22f6_62583688($_smarty_tpl) {?>
 
-<div class='comment-item clearfix'>
+<div class='comment-item'>
 	
 	
-	<a href="person.php?userID=<?php echo $_smarty_tpl->tpl_vars['comm']->value['PosterID'];?>
+	<a href="PersonC.php?act=person&userID=<?php echo $_smarty_tpl->tpl_vars['comm']->value['PosterID'];?>
 ">
-		<img class="comment-poster-profile"
+		<img class="avatar avatar-side avatar-small"
 			title="<?php echo $_smarty_tpl->tpl_vars['comm']->value['Poster'];?>
 "
 			src="<?php echo $_smarty_tpl->tpl_vars['comm']->value['Avatar'];?>
@@ -64,7 +64,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<div class='comment-footer'>
 			<span class='comment-time'><?php echo $_smarty_tpl->tpl_vars['comm']->value['Time'];?>
 </span>
-			<span class='comment-cmd cmd-new-comment'
+			<span class='btn btn-tiny btn-cmd cmd-new-comment'
 				data-log-id="<?php echo $_smarty_tpl->tpl_vars['comm']->value['LogID'];?>
 "
 				data-parent-comment-id="<?php echo $_smarty_tpl->tpl_vars['comm']->value['CommentID'];?>
@@ -74,7 +74,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 				data-is-root='0'
 				data-avatar-url="<?php echo $_smarty_tpl->tpl_vars['userAvatar']->value;?>
 "
-				>回复<span>
+				>回复</span>
 		</div>
 	</div>
 </div><?php }} ?>

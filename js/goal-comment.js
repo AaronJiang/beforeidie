@@ -10,11 +10,13 @@ $(document).ready(function () {
 
 		//构建 HTML 块
 		var html = "<div class='new-comment-wap clearfix'>"
-					+ "<img class='avatar' src='" + avatarUrl + "'>"
+					+ "<img class='avatar avatar-side avatar-small' src='" + avatarUrl + "'>"
 					+ "<div class='new-comment-form'>"
 						+ "<div class='comment-input' contenteditable='true'></div>"
-						+ "<span class='comment-submit'>回复</span>"
-						+ "<span class='comment-cancel'>取消</span>"
+						+ "<div class='comment-cmd-wap'>"
+							+ "<span class='btn cmd-comment'>取消</span>"
+							+ "<span class='btn btn-primary cmd-comment'>回复</span>"
+						+ "</div>"
 					+ "</div>"
 				+ "</div>";
 

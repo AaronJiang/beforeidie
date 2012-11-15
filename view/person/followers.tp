@@ -1,12 +1,12 @@
 {include file='../header.tc' title="关注 {$username} 的人们" page='page-followers'}
 
-<p class='subtitle'>关注 <a href='PersonC.php?act=person&userID={$userID}'>{$username}</a> 的人们：</p>
+<h4 class="page-title">
+	关注 <a href="PersonC.php?act=person&userID={$userID}">{$username}</a> 的人们：
+</h4>
 
 {foreach $followers as $fow}
-<a href='PersonC.php?act=person&userID={$fow.UserID}'>
-	<img class='user-icon'
-		src='{$fow.Avatar}'
-		title='{$fow.Username}' />
+<a href="PersonC.php?act=person&userID={$fow.UserID}">
+	<img class="user-icon" src="{$fow.Avatar}" title="{$fow.Username}" />
 </a>
 {/foreach}
 

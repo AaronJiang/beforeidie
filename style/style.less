@@ -17,7 +17,7 @@
 	p{
 		text-shadow: 1px 1px 1px white;
 		margin: 0 0 10px 0;
-		font-size: 18px;
+		font-size: @fontSizeLarger;
 	}
 }
 
@@ -28,11 +28,11 @@
 	
 	/* Goal Item */
 	.goal-item{
-		border: 1px solid lightgray;
+		border: 1px solid @grayLight;
 		margin: 0 20px 15px 0;
 		width: 300px;
 		float: left;
-		padding: 10px;
+		padding: 10px 10px 5px 10px;
 		
 		.goal-title{
 			margin: 0 0 5px 0;			
@@ -59,7 +59,6 @@
 			color: @gray;
 			text-align: right;
 			font-size: @fontSizeSmall;
-			line-height: @fontSizeSmall;
 			margin-bottom: 0px;
 		}
 	}
@@ -74,7 +73,7 @@
 	/* Main Panel */
 	#main-panel{
 		padding: 0 20px 10px 0;
-		border-right: 1px dashed lightgray;
+		border-right: 1px dashed @grayLight;
 		min-height: 550px;
 	}
 	
@@ -180,22 +179,13 @@
 #page-account-details{
 
 	#table-account-details{
-		border-spacing:0;
-		border-collapse:collapse;
+		border-spacing: 0;
+		border-collapse: collapse;
 		margin:15px 0 0 0;
 		
 		td{
-			padding:0 10px 10px 0;
-			vertical-align:top;
-			
-			#avatar{
-				vertical-align:text-bottom;
-				margin:0 5px 0 0;
-			}
-			
-			.small-cmd{
-				margin:0;
-			}
+			padding: 0 10px 10px 0;
+			vertical-align: top;
 		}
 	}
 }
@@ -323,8 +313,6 @@
 		#logs-pager{
 			float: right;
 			margin: 0 0 5px 0;
-			font-size:14px;
-			line-height:14px;
 
 			#page-up,
 			#page-down{
@@ -350,7 +338,7 @@
 		.log-item{
 			border-bottom: 1px solid #EEE;
 			clear: both;
-			margin:0 0 8px 0;
+			margin: 0 0 8px 0;
 			
 			.log-title{
 				font-size: @fontSizeLarge;
@@ -361,15 +349,14 @@
 			.log-content{
 				font-size: @fontSizeSmall;
 				font-family: @altFontFamily;
-				margin: 0 0 10px 0;
+				margin: 0 0 5px 0;
 				color: @gray;
 			}
 			
 			.log-footer{
 				text-align: right;
 				font-size: @fontSizeSmall;
-				line-height: @fontSizeSmall;
-				margin:0 0 10px 0;
+				margin: 0 0 5px 0;
 				
 				.log-time{
 					color: @gray;
@@ -413,24 +400,19 @@
 
 	/* User Info */
 	#user-info{
-		margin:0 0 0px 0;
 		padding: 0 0 10px 0;
-		position:relative;
-		border-bottom: 1px solid lightgray;
-		
-		#user-avatar{
-			float: left;
-		}
+		margin: 0 0 10px 0;
+		position: relative;
+		border-bottom: 1px solid @grayLight;
 		
 		#user-name {
 			margin: 0 0 0 48px;
 			font-size: @fontSizeLarger;
-			line-height: @fontSizeLarger;
 			font-weight: bold;
 		}
 		
 		#user-cmd-wap{
-			position:absolute;
+			position: absolute;
 			top: 0px;
 			right: 0px;
 		}
@@ -441,7 +423,8 @@
 		
 		.goal-item{
 			border-bottom: 1px solid #EEE;
-			padding: 8px 0;
+			padding: 0 0 10px 0;
+			margin: 0 0 10px 0;
 			position: relative;
 			
 			.goal-title{
@@ -457,7 +440,7 @@
 			
 			.goal-num-wap{
 				position: absolute;
-				top: 10px;
+				top: 0;
 				right: 5px;
 				font-size: @fontSizeSmall;
 				color: @gray;
@@ -472,7 +455,8 @@
 		margin: 0 0 5px 0;
 		
 		.dynamic-header{
-			margin:0 0 3px 0;
+			margin: 0 0 3px 0;
+			font-family: @altFontFamily;
 		}
 		
 		.dynamic-log-title{
@@ -488,7 +472,7 @@
 			word-wrap: break-all;
 			margin: 0 0 5px 0;
 			padding: 0 0 0 5px;
-			color: @gray;	
+			color: @gray;
 		}
 
 		.dynamic-time{
@@ -506,18 +490,18 @@
 
 	/* Dynamic Selector */
 	#dynamic-sel-wap{
+		border-bottom: 1px solid @grayLighter;		
 		
 		.dynamic-sel{
-			display:inline-block;
-			text-decoration:none;
-			color:black;
-			background-color:#E8E8E8;
-			padding:5px 15px;
-			margin:0 1px 0 0;
-			font-size:18px;
-			
+			color: @grayDarker;
+			background-color: @grayLighter;
+			padding: 8px 15px;
+			font-size: @fontSizeLarger;
+			display: inline-block;
+
 			&:hover{
-				background:#DDD;
+				background-color: @grayLighter;
+				text-decoration: none;
 			}
 		}
 	}
@@ -528,63 +512,41 @@
 
 	/* Dynamic Item */
 	.dynamic-item{
-		width:700px;
-		padding:15px 0 0 0;
-		border-top:1px solid #EEE;
-		color:gray;
-		font-size:14px;
-		position:relative;
-		
-		/* Avatar */
-		.dynamic-poster-profile{
-			width:40px;
-			height:40px;
-			float:left;
-		}
+		width: 700px;
+		padding: 15px 0 0 0;
+		border-top: 1px solid @grayLighter;
+		position: relative;
 		
 		/* Dynamic Content */
 		.dynamic-content-wap{
-			margin:0 0 0 55px;
+			margin: 0 0 0 55px;
 			
 			.dynamic-header{
-				margin:0 0 10px 0;
-				font-family:'宋体';
-				line-height:14px;
-					
-				a{
-					text-decoration:none;
-					color:#369;
-					
-					&:hover{
-						text-decoration:underline;
-					}
-				}
+				margin: -3px 0 5px 0;
+				font-family: @altFontFamily;
 			}
 				
 			.dynamic-log-title{
-				line-height:14px;
-				color:black;
-				font-weight:bold;
-				margin:0 0 8px 0;
+				color: @black;
+				font-weight: bold;
+				margin: 0px 0 5px 0;
 			}
 			
 			.dynamic-log-content,
 			.dynamic-goal-reason{
-				font-size:12px;
-				font-family:'宋体';
-				line-height:20px;
-				word-wrap:break-all;
-				margin:0 0 5px 0;
+				font-size: @fontSizeSmall;
+				font-family: @altFontFamily;
+				word-wrap: break-all;
+				margin: 0 0 5px 0;
 			}
 	
 			.dynamic-footer{
-				font-size:12px;
-				margin:0 0 5px 0;
-				text-align:right;
+				font-size: @fontSizeSmall;
+				margin: 0 0 5px 0;
+				text-align: right;
 					
 				.dynamic-time{
-					display:inline-block;
-					color:gray;
+					color: @gray;
 				}			
 			}
 		}
@@ -592,25 +554,18 @@
 		/* Comments */
 		.comments-wap,
 		.new-comment-wap{
-			margin-left:55px;
+			margin-left: 55px;
 		}
 	}
 	
 	#more-dyns{
-		width:700px;
-		text-align:center;
-		background-color:#EEE;
-		padding:10px 0;
-		cursor:pointer;
-		font-size:15px;
-		line-height:15px;
-		color:#666;
-		font-family:'';
-		border:1px solid #EAEEA;
-			
-		&:hover{
-			background-color:#F2F2F2;
-		}
+		width: 700px;
+		text-align: center;
+		background-color: @grayLighter;
+		padding: 8px 0;
+		cursor: pointer;
+		color: @gray;
+		border: 1px solid @grayLighter;
 	}
 }
 
@@ -619,45 +574,27 @@
 
 #page-admin-followees{
 	.followee-item{
-		border-top:1px solid #EEE;
-		margin:0 0 0px 0;
-		padding:10px 0 10px 0;
-		position:relative;
-		width:700px;
+		border-top: 1px solid @grayLighter;
+		margin: 0 0 0px 0;
+		padding: 10px 0;
+		position: relative;
+		width: 700px;
 		
 		&:last-child{
-			border-bottom:1px solid #EEE;		
-		}
-		
-		.user-avatar{
-			width:40px;
-			height:40px;
-			float:left;
+			border-bottom: 1px solid #EEE;		
 		}
 		
 		.user-info{
-			margin:0 0 0 50px;
+			margin: 0 0 0 50px;
 			
 			.user-name{
-				font-size:15px;
-				font-family:'';
-				font-weight:bold;
-				margin:0 0 10px 0;
-				
-				a{
-					text-decoration:none;
-					color:black;
-					
-					&:hover{
-						text-decoration:underline;
-					}
-				}
+				font-weight: bold;
+				margin: 0 0 10px 0;
 			}
 			
 			.goal-info{
-				font-size:12px;
-				line-height:12px;
-				color:#444;
+				font-size: @fontSizeSmall;
+				color: @grayDarker;
 				
 				b{
 					color:black;
@@ -666,23 +603,16 @@
 		}
 		
 		.cmd-wap {
-			position:absolute;
-			top:15px;
-			right:0px;
+			position: absolute;
+			top: 15px;
+			right: 0px;
 			
 			.cmd {
-				padding:3px 10px;
-				font-size:15px;
-				line-height:15px;
-				font-weight:bold;
-				background-color:lightgray;
-				text-decoration:none;
-				color:white;
-				text-shadow:0px 0px 1px black;
-				
-				&:hover {
-					box-shadow:0px 0px 2px lightgray;
-				}
+				padding: 3px 10px;
+				font-weight: bold;
+				background-color: @grayLight;
+				text-decoration: none;
+				color: @white;
 			}
 		}
 	}

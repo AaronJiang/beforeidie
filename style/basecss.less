@@ -62,13 +62,12 @@ blockquote {
 // ------------------------------------------------------------
 
 a {
-  color: @linkColor;
-  text-decoration: none;
-  display: inline-block;
+	color: @linkColor;
+	text-decoration: none;
 
-  &:hover{
-  	color: @linkColor;
-  	text-decoration: underline;  	
+	&:hover{
+		color: @linkColor;
+		text-decoration: underline;  	
   }
 }
 
@@ -131,6 +130,24 @@ select{
 	}
 }
 
+.btn-large {
+	font-size: @fontSizeLarge;
+	padding: @paddingLarge;
+	border-radius: @borderRadiusLarge;
+}
+
+.btn-small {
+	font-size: @fontSizeSmall;
+	padding: @paddingSmall;
+	border-radius: @borderRadiusSmall;	
+}
+
+.btn-tiny {
+	font-size: @fontSizeSmall;
+	padding: @paddingTiny;
+	border-radius: @borderRadiusTiny ;
+}
+
 .btn-primary {
 	color: @white;
 	background-color: @blueSky;
@@ -151,33 +168,15 @@ select{
 	}	
 }
 
-.btn-large {
-	font-size: @fontSizeLarge;
-	padding: @paddingLarge;
-	border-radius: @borderRadiusLarge;
-}
-
-.btn-small {
-	font-size: @fontSizeSmall;
-	padding: @paddingSmall;
-	border-radius: @borderRadiusSmall;	
-}
-
-.btn-tiny {
-
-}
-
-.small-cmd {
-	font-size:12px;
-	font-family:'宋体';
-	text-decoration:none;
-	margin:0 6px 0 0;
-	cursor:pointer;
-	color:#0455A1;
-	padding:1px;
+.btn-cmd {
+	background-color: @white;
+	font-family: @altFontFamily;
+	color: @linkColor;
 
 	&:hover{
-		background-color:#1C86EE;
-		color:white;		
+		background-color: @blueSky;
+		color: @white;		
 	}
 }
+
+

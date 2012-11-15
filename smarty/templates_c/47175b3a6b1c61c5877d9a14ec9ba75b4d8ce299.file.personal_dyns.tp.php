@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-11-01 09:47:01
+<?php /* Smarty version Smarty-3.1.12, created on 2012-11-15 03:39:05
          compiled from "..\view\person\personal_dyns.tp" */ ?>
 <?php /*%%SmartyHeaderCode:19056509235dc270314-42588637%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '47175b3a6b1c61c5877d9a14ec9ba75b4d8ce299' => 
     array (
       0 => '..\\view\\person\\personal_dyns.tp',
-      1 => 1351759589,
+      1 => 1352947144,
       2 => 'file',
     ),
   ),
@@ -80,12 +80,14 @@ $(document).ready(function(){
 </script>
 
 
-<p class='subtitle'><a href="PersonC.php?act=person&userID=<?php echo $_smarty_tpl->tpl_vars['userID']->value;?>
+<h4 class="page-title">
+	<a href="PersonC.php?act=person&userID=<?php echo $_smarty_tpl->tpl_vars['userID']->value;?>
 "><?php echo $_smarty_tpl->tpl_vars['username']->value;?>
-</a> 的动态</p>
+</a> 的动态
+</h4>
 
-<div id='dyns'></div>
-<div id='more-dyns'>更多动态</div>
+<div id="dyns"></div>
+<div id="more-dyns">更多动态</div>
 
 <?php echo $_smarty_tpl->getSubTemplate ('../footer.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 <?php }} ?>

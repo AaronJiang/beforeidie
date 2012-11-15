@@ -1,12 +1,12 @@
 {include file='../header.tc' title="{$username} 关注的人们" page='page-followees'}
 
-<p class='subtitle'><a href='PersonC.php?act=person&userID={$userID}'>{$username}</a> 关注的人们：</p>
+<h4 class="page-title">
+	<a href='PersonC.php?act=person&userID={$userID}'>{$username}</a> 关注的人们：
+</h4>
 
 {foreach $followees as $fow}
 <a href='PersonC.php?act=person&userID={$fow.UserID}'>
-	<img class='user-icon'
-		src='{$fow.Avatar}'
-		title='{$fow.Username}' />
+	<img class='avatar avatar-multi' src='{$fow.Avatar}'title='{$fow.Username}' />
 </a>
 {/foreach}
 

@@ -50,9 +50,11 @@ $(document).ready(function(){
 </script>
 {/literal}
 
-<p class='subtitle'><a href="PersonC.php?act=person&userID={$userID}">{$username}</a> 的动态</p>
+<h4 class="page-title">
+	<a href="PersonC.php?act=person&userID={$userID}">{$username}</a> 的动态
+</h4>
 
-<div id='dyns'></div>
-<div id='more-dyns'>更多动态</div>
+<div id="dyns"></div>
+<div id="more-dyns">更多动态</div>
 
 {include file='../footer.tc'}

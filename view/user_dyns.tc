@@ -3,9 +3,7 @@
 	
 	{* avatar *}	
 	<a href="PersonC.php?act=person&userID={$dyn.PosterID}">
-		<img class='dynamic-poster-profile' 
-			title="{$dyn.Poster}"
-			src="{$dyn.PosterAvatar}" />
+		<img class="avatar avatar-side" title="{$dyn.Poster}" src="{$dyn.PosterAvatar}" />
 	</a>
 
 	{* 写下新的 Log *}
@@ -27,13 +25,13 @@
 
 		{* footer *}
 		<div class='dynamic-footer'>
-			<a class='small-cmd cmd-new-comment'
+			<a class="btn btn-tiny btn-cmd cmd-new-comment"
 				data-poster-id="{$userID}"
 				data-log-id="{$dyn.LogID}"
 				data-is-root='1'
 				data-avatar-url="{$userAvatar}"
 				>回复</a>
-			<p class='dynamic-time'>{$dyn.Time}</p>
+			<span class='dynamic-time'>{$dyn.Time}</span>
 		</div>
 	</div>
 
@@ -61,10 +59,10 @@
 		{* footer *}
 		<div class='dynamic-footer'>
 			{if !$dyn.isCheered}
-			<a class='small-cmd' href="GoalC.php?act=cheer&userID={$userID}&goalID={$dyn.GoalID}">鼓励</a>
+			<a class='btn btn-tiny btn-cmd' href="GoalC.php?act=cheer&userID={$userID}&goalID={$dyn.GoalID}">鼓励</a>
 			{/if}
 			
-			<p class='dynamic-time'>{$dyn.Time}</p>
+			<span class='dynamic-time'>{$dyn.Time}</span>
 		</div>
 	</div>
 	{/if}

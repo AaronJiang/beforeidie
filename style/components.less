@@ -18,7 +18,7 @@
 	#logo-link{
 		display: block;
 		background-image: url('../imgs/new.png');
-	  background-repeat: no-repeat;
+		background-repeat: no-repeat;
 		height: 25px;
 		width: 104px;
 		float: left;
@@ -27,22 +27,21 @@
 
 	/* Nav */
 	#nav{
-		float:left;
+		float: left;
 
 		li{
-			list-style:none;
-			float:left;
-			
+			list-style: none;
+			float: left;
+
 			a{
-				text-decoration:none;
-				font-size:15px;
-				color:#CCC;
-				margin:12px 0 0px 20px;
-				display:block;
-				font-family:'宋体';
+				text-decoration: none;
+				color: @grayLighter;
+				margin: 10px 0 0 20px;
+				display: block;
+				font-family: @altFontFamily;
 				
 				&:hover{
-					color:white;
+					color: @white;
 				}
 			}
 		}
@@ -54,16 +53,15 @@
 		margin-top: 10px;
 		
 		a{
-			display:inline-block;
-			color:#CCC;
-			font-size:13px;
-			cursor:pointer;
-			margin-left:8px;
-			font-family:'宋体';
-			text-decoration:none;
+			display: inline-block;
+			color: @grayLighter;
+			font-size: @fontSizeSmall; 
+			margin-left: 8px;
+			font-family: @altFontFamily;
+			text-decoration: none;
 			
 			&:hover{
-				color:white;
+				color: @white;
 			}
 		}
 	}
@@ -87,7 +85,7 @@
 	text-align: center;
 	
 	a{
-		margin: 0 8px 0 0;
+		margin: 0 3px 0 0;
 	}
 }
 
@@ -104,8 +102,18 @@
 	margin:0 10px 10px 0;
 }
 
+.avatar-side{
+	float: left;
+}
+
 .avatar-large {
-	
+	width: 80px;
+	height: 80px;
+}
+
+.avatar-small {
+	width: 30px;
+	height: 30px;	
 }
 
 // Feedback Panel
@@ -176,7 +184,7 @@
 		font-size: @fontSizeLarger;
 		color: @blueSky;
 		font-weight: bold;
-		display:inline-block;
+		display: inline-block;
 		padding: 0 6px 0 0;
 	}
 
@@ -196,54 +204,26 @@
 
 /* Comments */
 .comments-wap{
-	border-top:1px solid #EEE;
-	padding:12px 0 0 0;
+	border-top: 1px solid @grayLighter;
+	padding: 10px 0 0 0;
 	
 	.comment-item{
-		padding:0 0 12px 0;
-		font-size:13px;
-		font-family:'宋体';
-		
-		.comment-poster-profile{
-			height:30px;
-			width:30px;
-			float:left;
-		}
+		padding: 0 0 10px 0;
+		font-size: @fontSizeSmall;
+		font-family: @altFontFamily;
 		
 		.comment-main{
-			margin:-3px 0 0 40px;
+			margin: 0 0 0 40px;
 			
 			.comment-header{
-				margin:0 0 3px 0;
-			line-height:20px;
+				margin: 0 0 3px 0;
+				line-height: @fontSizeSmall;
 			}
 			
 			.comment-footer{
-				font-size:12px;
-				line-height:12px;
-				
-				.comment-cmd{
-					color:#369;
-					cursor:pointer;
-					
-					&:hover{
-						color:white;
-						background-color:blue;
-					}
-				}
-
 				.comment-time{
-					color:gray;
+					color: @gray;
 				}
-			}
-		}
-		
-		a{
-			text-decoration:none;
-			color:#369;
-	
-			&:hover{
-			text-decoration:underline;
 			}
 		}
 	}
@@ -251,58 +231,30 @@
 
 /* Comment New Form */
 .new-comment-wap{
-	border-top:1px solid #EEE;
-	padding:12px 0 0 0;
+	border-top: 1px solid @grayLighter;
+	padding: 12px 0 0 0;
 	
-	.avatar{
-		width:30px;
-		height:30px;
-		float:left;
-	}
+	.new-comment-form {
+		margin: 0 0 0 40px;
 	
-	.new-comment-form{
-		margin:0 0 0 40px;
-	
-		.comment-input{
-			border:1px solid #EEE;
-			padding:4px 7px;
-			font-size:13px;
-			font-family:'宋体';
-			line-height:20px;
-			outline:none;
-			margin:0 0 8px 0;
+		.comment-input {
+			border: 1px solid @grayLighter;
+			padding: 4px 7px;
+			font-family: @altFontFamily;
+			margin: 0 0 8px 0;
 		}
-		
-		.comment-submit,
-		.comment-cancel{
-			display:block;
-			float:right;
-			padding:5px 10px;
-			margin:0 0 8px 8px;
-			cursor:pointer;
-			font-size:14px;
-			font-weight:bold;
-			line-height:14px;
+
+		.comment-cmd-wap {
+			margin: 0 0 8px 0;
+			text-align: right;
+
+			.cmd-comment {
+				margin: 0 0 0 8px;
+				cursor: pointer;
+				font-family: @altFontFamily;
+			}			
 		}
-		
-		.comment-submit{
-			background-color:#1C86EE;
-			color:white;
-			
-			&:hover{
-				box-shadow:0 0 3px #1C86EE;
-			}
-		}
-		
-		.comment-cancel{
-			background-color:lightgray;
-			text-shadow:1px 1px 1px white;
-			color:#666;
-			
-			&:hover{
-				box-shadow:0 0 3px lightgray;
-			}
-		}	
+
 	}
 }
 
