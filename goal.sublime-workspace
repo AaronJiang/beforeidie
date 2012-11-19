@@ -194,6 +194,14 @@
 				"buffer_size": 1006,
 				"line_ending": "Windows"
 			}
+		},
+		{
+			"file": "view/user_dyns.tc",
+			"settings":
+			{
+				"buffer_size": 1940,
+				"line_ending": "Windows"
+			}
 		}
 	],
 	"build_system": "",
@@ -232,6 +240,8 @@
 	},
 	"file_history":
 	[
+		"/F/xampp/htdocs/classic/index.php",
+		"/F/xampp/htdocs/poem/application/config/config.php",
 		"/F/xampp/htdocs/Dream/view/account/change_pwd.tp",
 		"/F/xampp/htdocs/Dream/view/account/forgot_pwd.tp",
 		"/F/xampp/htdocs/Dream/view/account/uheader.tc",
@@ -406,7 +416,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 5,
 			"sheets":
 			[
 				{
@@ -504,8 +514,8 @@
 						"selection":
 						[
 							[
-								127,
-								127
+								266,
+								266
 							]
 						],
 						"settings":
@@ -542,6 +552,33 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 180.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "view/user_dyns.tc",
+					"settings":
+					{
+						"buffer_size": 1940,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								172,
+								172
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -591,6 +628,10 @@
 		"selected_items":
 		[
 			[
+				"dy",
+				"view/user_dyns.tc"
+			],
+			[
 				"for",
 				"view/account/forgot_pwd.tp"
 			],
@@ -633,10 +674,6 @@
 			[
 				"us",
 				"view/user_dyns.tc"
-			],
-			[
-				"dy",
-				"view/dyn/dyns.tp"
 			],
 			[
 				"fol",
