@@ -38,6 +38,7 @@
 	<div class='span3'>
 	
 		<!-- 个人动态 -->
+		<!--
 		{include file='../panel_header.tc' 
 			title='TA的动态'
 			cmd='全部'
@@ -70,6 +71,7 @@
 		{/if}	
 
 		{/foreach}
+		-->
 		
 		<!-- 关注TA的人 -->	
 		{include file='../panel_header.tc' 

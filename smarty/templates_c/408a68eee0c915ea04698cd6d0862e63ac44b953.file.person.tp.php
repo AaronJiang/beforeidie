@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-11-15 03:17:33
+<?php /* Smarty version Smarty-3.1.12, created on 2012-11-22 03:20:58
          compiled from "..\view\person\person.tp" */ ?>
 <?php /*%%SmartyHeaderCode:4986509235e2350e62-48954490%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '408a68eee0c915ea04698cd6d0862e63ac44b953' => 
     array (
       0 => '..\\view\\person\\person.tp',
-      1 => 1352945850,
+      1 => 1353550856,
       2 => 'file',
     ),
   ),
@@ -92,6 +92,7 @@ $_smarty_tpl->tpl_vars['goal']->_loop = true;
 	<div class='span3'>
 	
 		<!-- 个人动态 -->
+		<!--
 		<?php echo $_smarty_tpl->getSubTemplate ('../panel_header.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'TA的动态','cmd'=>'全部','link'=>"PersonC.php?act=personal_dyns&userID=".((string)$_smarty_tpl->tpl_vars['user']->value['ID'])), 0);?>
 
 		
@@ -134,6 +135,7 @@ $_smarty_tpl->tpl_vars['dyn']->_loop = true;
 		<?php }?>	
 
 		<?php } ?>
+		-->
 		
 		<!-- 关注TA的人 -->	
 		<?php echo $_smarty_tpl->getSubTemplate ('../panel_header.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'关注TA的人','cmd'=>"全部 / ".((string)$_smarty_tpl->tpl_vars['followersNum']->value),'link'=>"PersonC.php?act=followers&userID=".((string)$_smarty_tpl->tpl_vars['user']->value['ID'])), 0);?>

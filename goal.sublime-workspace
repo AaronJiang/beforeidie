@@ -202,6 +202,14 @@
 				"buffer_size": 1940,
 				"line_ending": "Windows"
 			}
+		},
+		{
+			"file": "view/person/person.tp",
+			"settings":
+			{
+				"buffer_size": 2826,
+				"line_ending": "Windows"
+			}
 		}
 	],
 	"build_system": "",
@@ -416,7 +424,7 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -431,8 +439,8 @@
 						"selection":
 						[
 							[
-								2253,
-								2253
+								1416,
+								1416
 							]
 						],
 						"settings":
@@ -442,7 +450,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 764.0,
+						"translation.y": 904.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -551,7 +559,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 180.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -578,7 +586,34 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 420.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "view/person/person.tp",
+					"settings":
+					{
+						"buffer_size": 2826,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2007,
+								2007
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 600.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -627,6 +662,10 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"per",
+				"view/person/person.tp"
+			],
 			[
 				"dy",
 				"view/user_dyns.tc"
@@ -698,10 +737,6 @@
 			[
 				"ac",
 				"ctrl/AccountC.php"
-			],
-			[
-				"per",
-				"view/person/person.tp"
 			],
 			[
 				"ad",
