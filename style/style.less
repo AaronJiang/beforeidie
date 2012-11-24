@@ -21,49 +21,6 @@
 	}
 }
 
-// Page Discover
-// ------------------------------------------------------------
-
-#page-discover {
-	
-	/* Goal Item */
-	.goal-item{
-		border: 1px solid @grayLight;
-		margin: 0 20px 15px 0;
-		width: 300px;
-		float: left;
-		padding: 10px 10px 5px 10px;
-		
-		.goal-title{
-			margin: 0 0 5px 0;			
-
-			a {
-				font-size: @fontSizeLarge;
-				font-weight: bold;
-				color: @black;
-
-				&:hover {
-					color: @black;
-				}
-			}
-		}
-		
-		.goal-reason{
-			color: @gray;
-			margin: 0 0 8px 0;
-			font-family: @altFontFamily;
-			font-size: @fontSizeSmall;
-		}
-		
-		.goal-num-wap{
-			color: @gray;
-			text-align: right;
-			font-size: @fontSizeSmall;
-			margin-bottom: 0px;
-		}
-	}
-}
-
 // Page About, Terms
 // ------------------------------------------------------------
 
@@ -169,77 +126,6 @@
 		td{
 			padding: 0 10px 10px 0;
 			vertical-align: top;
-		}
-	}
-}
-
-// Page My Goals
-// ------------------------------------------------------------
-
-#page-my-goals{
-	
-	/* Goals Panel */
-	#content-goals{
-		
-		.goal-item {
-			width: 170px;
-			height: 200px;
-			box-sizing: border-box;
-			float: left;
-			margin: 0 20px 20px 0;
-			position: relative;
-			overflow: hidden;
-			border: 1px solid #CCC;
-			
-			&:hover {
-				background-color: darken(@white, 5%);
-			}
-			
-			.goal-link {
-				display: block;
-				padding: 10px 10px;
-				color: @black;
-				text-decoration: none;
-				
-				.goal-title {
-					font-size: @fontSizeLarger;
-					font-weight: bold;
-					margin: 0 0 5px 0;
-				}
-				
-				.goal-why {
-					color: @gray;
-					font-family: @altFontFamily;
-				}
-				
-				.goal-info-wap {
-					position: absolute;
-					font-size: @fontSizeSmall;
-					bottom: 6px;
-					left: 11px;
-					z-index: 0;
-					color: @gray;
-				}
-			}
-			
-			.goal-cmd-wap {
-				position: absolute;
-				bottom: -30px;
-				left: 0;
-				z-index: 100;
-				width: 170px;
-				box-sizing: border-box;
-				background-color: @black;
-				opacity: 0.8;
-				text-align: right;
-				padding-right: 8px;
-
-				.goal-cmd {
-					background-color: darken(@white, 2%);
-					font-family: @altFontFamily;
-					margin: 5px 0 5px 3px;
-				}
-			}
 		}
 	}
 }
@@ -388,9 +274,9 @@
 		position: relative;
 		
 		#user-info{
-			margin: 0 0 0 52px;
+			margin: 0 0 0 72px;
 			
-			#user-name{
+			#username{
 				margin-bottom: 5px;
 			}
 
@@ -435,14 +321,14 @@
 			margin: 0 0 0 55px;
 			
 			.dynamic-header{
-				margin: -3px 0 5px 0;
+				margin: -3px 0 7px 0;
 				font-family: @altFontFamily;
 			}
 				
 			.dynamic-log-title{
 				color: @black;
 				font-weight: bold;
-				margin: 0px 0 5px 0;
+				margin: 0 0 5px 0;
 			}
 			
 			.dynamic-log-content,
@@ -472,7 +358,6 @@
 	}
 	
 	#more-dyns{
-		width: 700px;
 		text-align: center;
 		background-color: @grayLighter;
 		padding: 8px 0;
@@ -547,6 +432,49 @@
 			position: absolute;
 			top: 10px;
 			right: 0px;
+		}
+	}
+}
+
+// Page Discover
+// ------------------------------------------------------------
+
+#page-discover {
+	
+	/* Goal Item */
+	.goal-item{
+		border: 1px solid @grayLight;
+		margin: 0 20px 15px 0;
+		width: 300px;
+		float: left;
+		padding: 10px 10px 5px 10px;
+		
+		.goal-title{
+			margin: 0 0 5px 0;			
+
+			a {
+				font-size: @fontSizeLarge;
+				font-weight: bold;
+				color: @black;
+
+				&:hover {
+					color: @black;
+				}
+			}
+		}
+		
+		.goal-reason{
+			color: @gray;
+			margin: 0 0 8px 0;
+			font-family: @altFontFamily;
+			font-size: @fontSizeSmall;
+		}
+		
+		.goal-num-wap{
+			color: @gray;
+			text-align: right;
+			font-size: @fontSizeSmall;
+			margin-bottom: 0px;
 		}
 	}
 }

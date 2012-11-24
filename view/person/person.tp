@@ -79,10 +79,10 @@ $(document).ready(function(){
 	<div class='span9'>
 			
 		<div id='user-info-wap' class='clearfix'>
-			<img class='avatar avatar-side' src='{$user.Avatar}' />
+			<img class='avatar avatar-side avatar-large' src='{$user.Avatar}' />
 
 			<div id="user-info">
-				<h4 id='user-name'>{$user.Name} 的个人主页</h4>
+				<h4 id='username'>{$user.Name} 的个人主页</h4>
 				<div id="follow-info-wap">
 					<a href="PersonC.php?act=followees&userID={$user.ID}"><b>{$followeesNum}</b> 关注</a>
 					<span> / </span>

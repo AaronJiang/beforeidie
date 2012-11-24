@@ -8,32 +8,8 @@
 	$action = $_REQUEST['act'];
 	
 	switch($action){
-	
-	// my goals
-	
-		// get view
-		case "my_goals":
-			$sm = new sm('goal');
+			
 
-			// goals			
-			@session_start();
-			$userID = $_SESSION['valid_user_id'];
-			$sm->assign('goals', get_goals($userID, true));
-			
-			$sm->display('my_goals.tp');
-			break;
-			
-		// start goal
-		case "start_goal":
-			start_goal($_REQUEST['goalID']);
-			redirect('Goal', 'my_goals', array('goalType' => 'now'));
-			break;
-			
-		// drop goal
-		case "drop_goal":
-			drop_goal($_REQUEST['goalID']);
-			page_jump_back();
-			break;
 
 	// new goal
 	

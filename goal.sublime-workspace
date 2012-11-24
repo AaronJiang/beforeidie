@@ -4,16 +4,16 @@
 		"selected_items":
 		[
 			[
-				"d",
-				"data"
-			],
-			[
 				"fon",
-				"fontSizeSmall"
+				"fontSizeLarger"
 			],
 			[
 				"font",
 				"font-size"
+			],
+			[
+				"d",
+				"data"
 			],
 			[
 				"per",
@@ -232,10 +232,42 @@
 	"buffers":
 	[
 		{
+			"file": "style/style.less",
+			"settings":
+			{
+				"buffer_size": 7693,
+				"line_ending": "Windows"
+			}
+		},
+		{
 			"file": "view/person/person.tp",
 			"settings":
 			{
-				"buffer_size": 3059,
+				"buffer_size": 3071,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "view/header.tc",
+			"settings":
+			{
+				"buffer_size": 2013,
+				"line_ending": "CR"
+			}
+		},
+		{
+			"file": "ctrl/PersonC.php",
+			"settings":
+			{
+				"buffer_size": 4827,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "view/person/about_me_dyns.tc",
+			"settings":
+			{
+				"buffer_size": 2103,
 				"line_ending": "Windows"
 			}
 		}
@@ -276,21 +308,21 @@
 	},
 	"file_history":
 	[
+		"/F/xampp/htdocs/Goal/ctrl/PublicC.php",
+		"/F/xampp/htdocs/Goal/ctrl/GoalC.php",
+		"/F/xampp/htdocs/Goal/view/person/about_me_dyns.tc",
 		"/F/xampp/htdocs/Goal/style/style.less",
 		"/F/xampp/htdocs/Goal/view/person/person.tp",
 		"/F/xampp/htdocs/Goal/style/basecss.less",
 		"/F/xampp/htdocs/Goal/style/components.less",
 		"/F/xampp/htdocs/Goal/ctrl/PersonC.php",
 		"/F/xampp/htdocs/Goal/view/header.tc",
-		"/F/xampp/htdocs/Goal/view/person/about_me_dyns.tc",
-		"/F/xampp/htdocs/Goal/ctrl/GoalC.php",
 		"/F/xampp/htdocs/Goal/model/dynamic_funs.php",
 		"/F/xampp/htdocs/Goal/view/person/dyns.tc",
 		"/F/xampp/htdocs/Goal/ctrl/DynC.php",
 		"/F/xampp/htdocs/Goal/view/discover/discover.tp",
 		"/F/xampp/htdocs/Goal/view/goal/details.tp",
 		"/F/xampp/htdocs/Goal/view/account/details.tp",
-		"/F/xampp/htdocs/Goal/ctrl/PublicC.php",
 		"/F/xampp/htdocs/Goal/view/dyn/dyns.tp",
 		"/F/xampp/htdocs/Goal/ctrl/AccountC.php",
 		"/F/xampp/htdocs/Goal/ctrl/DiscoverC.php",
@@ -519,23 +551,50 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 4,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "view/person/person.tp",
+					"file": "style/style.less",
 					"settings":
 					{
-						"buffer_size": 3059,
+						"buffer_size": 7693,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								404,
-								404
+								4501,
+								4501
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 5138.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "view/person/person.tp",
+					"settings":
+					{
+						"buffer_size": 3071,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1671,
+								1671
 							]
 						],
 						"settings":
@@ -544,7 +603,88 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1320.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "view/header.tc",
+					"settings":
+					{
+						"buffer_size": 2013,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 240.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "ctrl/PersonC.php",
+					"settings":
+					{
+						"buffer_size": 4827,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4795,
+								4795
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 3625.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "view/person/about_me_dyns.tc",
+					"settings":
+					{
+						"buffer_size": 2103,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1869,
+								1869
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 180.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -594,8 +734,20 @@
 		"selected_items":
 		[
 			[
+				"ab",
+				"view/person/about_me_dyns.tc"
+			],
+			[
+				"sty",
+				"style/style.less"
+			],
+			[
 				"per",
-				"view/person/person.tp"
+				"ctrl/PersonC.php"
+			],
+			[
+				"goal",
+				"ctrl/GoalC.php"
 			],
 			[
 				"a",
@@ -662,10 +814,6 @@
 				"view/person/person.tp"
 			],
 			[
-				"sty",
-				"style/style.less"
-			],
-			[
 				"head",
 				"application/views/public/header.php"
 			],
@@ -692,10 +840,6 @@
 			[
 				"lo",
 				"view/account/login.tp"
-			],
-			[
-				"goal",
-				"js/goal-comment.js"
 			],
 			[
 				"com",
@@ -768,10 +912,6 @@
 			[
 				"t",
 				"view/home/terms.tp"
-			],
-			[
-				"ab",
-				"view/home/about.tp"
 			],
 			[
 				"uh",

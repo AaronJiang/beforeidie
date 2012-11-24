@@ -1,14 +1,12 @@
 {foreach $dyns as $dyn}
-<div class='dynamic-item clearfix new-comment-parent'>
-			
-	{* avatar *}
+<div class='dynamic-item new-comment-parent'>
+
 	<a href="PersonC.php?act=person&userID={$dyn.PosterID}">
-		<img class='avatar avatar-side' 
-			title="{$dyn.Poster}"
-			src="{$dyn.PosterAvatar}" />
+		<img class="avatar avatar-side" title="{$dyn.Poster}" src="{$dyn.PosterAvatar}" />
 	</a>		
 	
-	{* 若为针对 Goal 的评论 *}		
+	{* 针对 Goal 的评论 *}
+
 	{if $dyn.Type == 'newCommentOnMyLog'}
 	<div class='dynamic-content-wap'>
 		<div class='dynamic-header'>
@@ -38,7 +36,8 @@
 	</div>
 	{/if}
 	
-	{* 若为针对 Comment 的评论 *}
+	{* 针对 Comment 的评论 *}
+
 	{elseif $dyn.Type == 'newCommentOnOtherLog'}
 	<div class='dynamic-content-wap'>
 		{* header *}
@@ -64,16 +63,17 @@
 	</div>
 	{/if}
 
-	{* 若为关注 *}
+	{* 关注 *}
+
 	{elseif $dyn.Type == 'newFollow'}			
 	<div class='dynamic-content-wap'>
-		<p class='dynamic-header'>
+		<div class='dynamic-header'>
 			<a href="Personc.php?act=person&userID={$dyn.PosterID}">{$dyn.Poster}</a>
 			<span>关注了我</span>
-		</p>
+		</div>
 
 		<div class='dynamic-footer'>
-			<p class='dynamic-time'>{$dyn.Time}</p>
+			<span class='dynamic-time'>{$dyn.Time}</span>
 		</div>
 	</div>
 	{/if}

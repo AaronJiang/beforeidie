@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-11-24 14:46:27
+<?php /* Smarty version Smarty-3.1.12, created on 2012-11-24 16:36:17
          compiled from "..\view\person\person.tp" */ ?>
 <?php /*%%SmartyHeaderCode:4986509235e2350e62-48954490%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '408a68eee0c915ea04698cd6d0862e63ac44b953' => 
     array (
       0 => '..\\view\\person\\person.tp',
-      1 => 1353764526,
+      1 => 1353771323,
       2 => 'file',
     ),
   ),
@@ -114,11 +114,11 @@ $(document).ready(function(){
 	<div class='span9'>
 			
 		<div id='user-info-wap' class='clearfix'>
-			<img class='avatar avatar-side' src='<?php echo $_smarty_tpl->tpl_vars['user']->value['Avatar'];?>
+			<img class='avatar avatar-side avatar-large' src='<?php echo $_smarty_tpl->tpl_vars['user']->value['Avatar'];?>
 ' />
 
 			<div id="user-info">
-				<h4 id='user-name'><?php echo $_smarty_tpl->tpl_vars['user']->value['Name'];?>
+				<h4 id='username'><?php echo $_smarty_tpl->tpl_vars['user']->value['Name'];?>
  的个人主页</h4>
 				<div id="follow-info-wap">
 					<a href="PersonC.php?act=followees&userID=<?php echo $_smarty_tpl->tpl_vars['user']->value['ID'];?>

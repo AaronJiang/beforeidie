@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-11-24 14:34:15
+<?php /* Smarty version Smarty-3.1.12, created on 2012-11-24 16:29:11
          compiled from "..\view\person\about_me_dyns.tc" */ ?>
 <?php /*%%SmartyHeaderCode:2253950b0cadf92f710-23234456%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b16b4c02a02209974b08387777754a4c0f95f9a4' => 
     array (
       0 => '..\\view\\person\\about_me_dyns.tc',
-      1 => 1353764052,
+      1 => 1353770949,
       2 => 'file',
     ),
   ),
@@ -29,19 +29,17 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 foreach ($_from as $_smarty_tpl->tpl_vars['dyn']->key => $_smarty_tpl->tpl_vars['dyn']->value){
 $_smarty_tpl->tpl_vars['dyn']->_loop = true;
 ?>
-<div class='dynamic-item clearfix new-comment-parent'>
-			
-	
+<div class='dynamic-item new-comment-parent'>
+
 	<a href="PersonC.php?act=person&userID=<?php echo $_smarty_tpl->tpl_vars['dyn']->value['PosterID'];?>
 ">
-		<img class='avatar avatar-side' 
-			title="<?php echo $_smarty_tpl->tpl_vars['dyn']->value['Poster'];?>
-"
-			src="<?php echo $_smarty_tpl->tpl_vars['dyn']->value['PosterAvatar'];?>
+		<img class="avatar avatar-side" title="<?php echo $_smarty_tpl->tpl_vars['dyn']->value['Poster'];?>
+" src="<?php echo $_smarty_tpl->tpl_vars['dyn']->value['PosterAvatar'];?>
 " />
 	</a>		
 	
-			
+	
+
 	<?php if ($_smarty_tpl->tpl_vars['dyn']->value['Type']=='newCommentOnMyLog'){?>
 	<div class='dynamic-content-wap'>
 		<div class='dynamic-header'>
@@ -85,6 +83,7 @@ $_smarty_tpl->tpl_vars['comm']->_loop = true;
 	<?php }?>
 	
 	
+
 	<?php }elseif($_smarty_tpl->tpl_vars['dyn']->value['Type']=='newCommentOnOtherLog'){?>
 	<div class='dynamic-content-wap'>
 		
@@ -122,18 +121,19 @@ $_smarty_tpl->tpl_vars['comm']->_loop = true;
 	<?php }?>
 
 	
+
 	<?php }elseif($_smarty_tpl->tpl_vars['dyn']->value['Type']=='newFollow'){?>			
 	<div class='dynamic-content-wap'>
-		<p class='dynamic-header'>
+		<div class='dynamic-header'>
 			<a href="Personc.php?act=person&userID=<?php echo $_smarty_tpl->tpl_vars['dyn']->value['PosterID'];?>
 "><?php echo $_smarty_tpl->tpl_vars['dyn']->value['Poster'];?>
 </a>
 			<span>关注了我</span>
-		</p>
+		</div>
 
 		<div class='dynamic-footer'>
-			<p class='dynamic-time'><?php echo $_smarty_tpl->tpl_vars['dyn']->value['Time'];?>
-</p>
+			<span class='dynamic-time'><?php echo $_smarty_tpl->tpl_vars['dyn']->value['Time'];?>
+</span>
 		</div>
 	</div>
 	<?php }?>
