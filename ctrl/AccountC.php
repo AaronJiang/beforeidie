@@ -39,7 +39,7 @@
 				setcookie("ue", base64_encode($email), time()+3600*24*30);	//用户邮箱ue（一个月）
 				setcookie("ua", base64_encode("You are authed!"), time()+3600*24*2);	//用户授权ua（2天）
 
-				redirect('Home', 'home');
+				redirect('Person', 'person');
 			}
 			elseif(check_unactive_user_by_email($email, $pwd)){
 				setcookie("ue", base64_encode($email), time()+3600*24*30);	//用户邮箱ue（1个月）

@@ -19,12 +19,12 @@
 			$('#form-send-active-email').detach();
 		});
 	</script>
-	<p id='account-message'>亲，账户激活成功，马上 <a href='AccountC.php?act=pLogin'>登陆</a> 吧！</p>
+	<p id='account-message'>亲，账户激活成功，马上 <a href='AccountC.php?act=login'>登陆</a> 吧！</p>
 	{/if}
 
 	<form id='form-send-active-email' action='AccountC.php' method='post'>
 		<div class='form-footer'>
-			<a href='AccountC.php?act=pLogin'>登陆</a>
+			<a href='AccountC.php?act=login'>登陆</a>
 			<input class="btn btn-large btn-primary" type='submit' value='再发一次' />
 		</div>
 

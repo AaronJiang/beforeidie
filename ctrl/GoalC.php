@@ -94,11 +94,6 @@
 			// isCreator
 			$isCreator = check_goal_ownership($goalID, $_SESSION['valid_user_id']);
 			$sm->assign('isCreator', $isCreator? 1: 0);
-			
-			// isCheered
-			if(!$isCreator){
-				$sm->assign('isCheered', check_goal_is_cheered($userID, $GOAL_ID));
-			}
 
 			// logs pager
 			$logsNum = get_goal_logs_num($goalID);
@@ -110,33 +105,7 @@
 			$sm->assign('creator', $creator);
 			$sm->assign('creatorAvatar', get_gravatar($creator['UserID']));
 			
-			// cheerers
-			$cheerers = get_goal_cheerers($goalID, 16);
-			foreach($cheerers as &$cheerer){
-				$cheerer['Avatar'] = get_gravatar($cheerer['UserID']);
-			}
-			$sm->assign('cheerersNum', count($cheerers));
-			$sm->assign('cheerers', $cheerers);
-			
 			$sm->display('details.tp');
-			break;
-		
-		// update goal reason
-		case "update_goal_reason":
-			update_goal_reason($_REQUEST['goalID'], $_REQUEST['goalReason']);
-			page_jump_back();
-			break;
-		
-		// update goal title
-		case "update_goal_title":
-			update_goal_title($_REQUEST['goalID'], $_REQUEST['goalTitle']);
-			page_jump_back();
-			break;
-
-		// cheer goal
-		case "cheer_goal":
-			cheer($_REQUEST['userID'], $_REQUEST['goalID']);
-			page_jump_back();
 			break;
 
 		// get logs
@@ -185,30 +154,6 @@
 		case "update_log":
 			update_log($_REQUEST['logID'], $_REQUEST['logTitle'], $_REQUEST['logContent']);
 			page_jump_back();
-			break;
-			
-	// goal cheerers
-		
-		// get view
-		case "cheerers":
-			$sm = new sm('goal');
-			
-			// goalID
-			$goalID = $_REQUEST['goalID'];
-			$sm->assign('goalID', $goalID);
-			
-			// goalTitle			
-			$goal = get_goal_by_ID($goalID);
-			$sm->assign('goalTitle', $goal['Title']);
-			
-			// cheerers
-			@$cheerers = get_goal_cheerers($goalID);
-			foreach($cheerers as &$cheerer){
-				$cheerer['Avatar'] = get_gravatar($cheerer['UserID']);
-			}
-			$sm->assign('cheerers', $cheerers);
-			
-			$sm->display('cheerers.tp');
 			break;
 	}
 ?>

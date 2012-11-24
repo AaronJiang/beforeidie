@@ -1,13 +1,24 @@
 {include file='../header.tc' title="{$username} 关注的人们" page='page-followees'}
 
 <h4 class="page-title">
-	<a href='PersonC.php?act=person&userID={$userID}'>{$username}</a> 关注的人们：
+	<a href='PersonC.php?act=person&userID={$userID}'>{$username}</a> 关注的人 / {$followeesNum}
 </h4>
 
 {foreach $followees as $fow}
-<a href='PersonC.php?act=person&userID={$fow.UserID}'>
-	<img class='avatar avatar-multi' src='{$fow.Avatar}'title='{$fow.Username}' />
-</a>
+<div class='followee-item clearfix'>
+	<a href="PersonC.php?act=person&userID={$fow.UserID}">
+		<img class='avatar avatar-side' title="{$fow.Username}" src="{$fow.Avatar}" />
+	</a>
+		
+	<div class='user-info'>
+		<div class='user-name'><a href="PersonC.php?act=person&userID={$fow.UserID}">{$fow.Username}</a></div>
+		<div class='goal-info'><b>{$fow.GoalsNum}</b> 目标</div>
+	</div>
+	
+	<div class='cmd-wap'>
+		<a class='btn btn-primary' href="DynC.php?act=disfollow_user&followerID={$userID}&followeeID={$fow.UserID}">取消关注</a>
+	</div>
+</div>
 {/foreach}
 
 {include file='../footer.tc'}

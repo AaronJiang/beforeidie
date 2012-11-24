@@ -21,10 +21,10 @@
 	}
 }
 
-// Page Home
+// Page Discover
 // ------------------------------------------------------------
 
-#page-home {
+#page-discover {
 	
 	/* Goal Item */
 	.goal-item{
@@ -383,94 +383,28 @@
 #page-person{
 
 	/* User Info */
-	#user-info{
-		padding: 0 0 10px 0;
-		margin: 0 0 10px 0;
+	#user-info-wap{
+		margin: 0 0 15px 0;
 		position: relative;
-		border-bottom: 1px solid @grayLight;
 		
-		#user-name {
-			margin: 0 0 0 48px;
-			font-size: @fontSizeLarger;
-			font-weight: bold;
+		#user-info{
+			margin: 0 0 0 52px;
+			
+			#user-name{
+				margin-bottom: 5px;
+			}
+
+			#follow-info-wap{
+				font-size: @fontSizeSmall;
+			}
 		}
-		
+
 		#user-cmd-wap{
 			position: absolute;
 			top: 0px;
 			right: 0px;
 		}
 	}
-	
-	/* User Goals */
-	.goal-wap{
-		
-		.goal-item{
-			border-bottom: 1px solid #EEE;
-			padding: 0 0 10px 0;
-			margin: 0 0 10px 0;
-			position: relative;
-			
-			.goal-title{
-				font-weight: bold;
-				margin: 0 0 3px 0;
-				color: @black;
-			}
-			
-			.goal-reason{
-				font-size: @fontSizeSmall;
-				color: @gray;
-			}
-			
-			.goal-num-wap{
-				position: absolute;
-				top: 0;
-				right: 5px;
-				font-size: @fontSizeSmall;
-				color: @gray;
-			}
-		}
-	}
-	
-	/* Dynamics */
-	.dynamic-item{
-		padding: 0 5px 5px 0;
-		border-bottom: 1px solid @grayLighter;
-		margin: 0 0 5px 0;
-		
-		.dynamic-header{
-			margin: 0 0 3px 0;
-			font-family: @altFontFamily;
-		}
-		
-		.dynamic-log-title{
-			font-weight: bold;
-			margin: 0 0 3px 0;
-			padding: 0 0 0 5px;
-		}
-		
-		.dynamic-log-content,
-		.dynamic-goal-reason{
-			font-size: @fontSizeSmall;
-			font-family: @altFontFamily;
-			word-wrap: break-all;
-			margin: 0 0 5px 0;
-			padding: 0 0 0 5px;
-			color: @gray;
-		}
-
-		.dynamic-time{
-			text-align: right;
-			color: @gray;
-			font-size: @fontSizeSmall;
-		}
-	}
-}
-
-// Page Followee Dynamics, Single Dynamics
-// ------------------------------------------------------------
-
-#page-followee-dynamics{
 
 	/* Dynamic Selector */
 	#dynamic-sel-wap{
@@ -479,8 +413,8 @@
 		.dynamic-sel{
 			color: @grayDarker;
 			background-color: @grayLighter;
-			padding: 8px 15px;
-			font-size: @fontSizeLarger;
+			padding: 5px 15px;
+			font-size: @fontSizeLarge;
 			display: inline-block;
 
 			&:hover{
@@ -489,16 +423,11 @@
 			}
 		}
 	}
-}
-
-#page-followee-dynamics,
-#page-single-dynamics{
 
 	/* Dynamic Item */
 	.dynamic-item{
-		width: 700px;
 		padding: 15px 0 0 0;
-		border-top: 1px solid @grayLighter;
+		border-bottom: 1px solid @grayLighter;
 		position: relative;
 		
 		/* Dynamic Content */
@@ -551,15 +480,47 @@
 		color: @gray;
 		border: 1px solid @grayLighter;
 	}
+
+	/* User Goals */
+	.goal-wap{
+		
+		.goal-item{
+			border-top: 1px solid #EEE;
+			padding: 10px 0 0 0;
+			margin: 0 0 5px 0;
+			position: relative;
+			
+			.goal-title{
+				font-weight: bold;
+				display: block;
+				margin: 0 0 5px 0;
+				font-size: 15px;
+				color: @black;
+			}
+			
+			.goal-reason{
+				font-size: @fontSizeSmall;
+				color: @gray;
+			}
+			
+			.goal-num-wap{
+				position: absolute;
+				top: 5px;
+				right: 0;
+				font-size: @fontSizeSmall;
+				color: @gray;
+			}
+		}
+	}
 }
 
-// Page Admin Followees
+// Page Followers & Followees
 // ------------------------------------------------------------
 
-#page-admin-followees{
+#page-followers,
+#page-followees{
 	.followee-item{
 		border-top: 1px solid @grayLighter;
-		margin: 0 0 0px 0;
 		padding: 10px 0;
 		position: relative;
 		width: 700px;
@@ -573,31 +534,19 @@
 			
 			.user-name{
 				font-weight: bold;
-				margin: 0 0 10px 0;
+				margin: 0 0 3px 0;
 			}
 			
 			.goal-info{
 				font-size: @fontSizeSmall;
 				color: @grayDarker;
-				
-				b{
-					color:black;
-				}
 			}
 		}
 		
 		.cmd-wap {
 			position: absolute;
-			top: 15px;
+			top: 10px;
 			right: 0px;
-			
-			.cmd {
-				padding: 3px 10px;
-				font-weight: bold;
-				background-color: @grayLight;
-				text-decoration: none;
-				color: @white;
-			}
 		}
 	}
 }

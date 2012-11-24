@@ -31,6 +31,23 @@
 		
 		return $array;
 	}
+
+	// 获取某用户的目标总数
+	function get_goals_num($userID, $isMe){
+		$query = "SELECT count(*) as goalsNum\n"
+				. "FROM goals\n"
+				. "WHERE goals.UserID = ". $userID. "\n";
+
+		if(!$isMe){
+			$query .= "IsPublic = 1\n";
+		}
+
+
+		$result = db_exec($query);
+		$row = $result->fetch_assoc();
+
+		return $row["goalsNum"];
+	}
 	
 	//获取热门目标
 	function get_hot_goals($userID){
@@ -152,24 +169,6 @@
 		$query = "UPDATE goals SET Reason = '". $goalReason. "' WHERE GoalID = ". $goalID;
 		
 		return db_exec($query);
-	}
-	
-	//获取对应类型的目标个数
-	function get_goals_num($userID, $goalType, $isMe){	
-		$query = "SELECT COUNT(*) as num\n"
-				. "FROM goals\n"
-				. "WHERE UserID = ". $userID. "\n"
-				. "AND GoalType = '". $goalType ."'\n";
-
-		if(!$isMe){
-			$query .= "AND IsPublic = 1";
-		}
-		
-		$result = db_exec($query);
-		
-		$num = $result->fetch_assoc();
-
-		return $num['num'];
 	}
 	
 	//检查 Goal 的所有权

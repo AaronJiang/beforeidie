@@ -158,12 +158,6 @@ $(document).ready(function(){
 			<div id='goal-cmd-wap'>	
 			{if $isCreator}
 				<a id='cmd-edit-goal' class="btn btn-small" href='GoalC.php?act=edit&goalID={$goal.GoalID}'>修改</a>
-			{else}
-				{if $isCheered}
-				<a class='btn btn-small'>已鼓励</a>
-				{else}
-				<a class='btn btn-small' href="GoalC.php?act=cheer_goal&userID={$userID}&goalID={$goal.GoalID}">鼓励</a>
-				{/if}
 			{/if}
 			</div>
 		</div>
@@ -173,8 +167,10 @@ $(document).ready(function(){
 		
 		<!-- Logs -->
 		<div id='logs-wap'>
+			{if $isCreator}
 			<a class="btn btn-small" id="cmd-add-log">添加</a>
-
+			{/if}
+			
 			<!--
 			<div id='logs-pager'>
 				<span id='curr-page-num'>1</span>
@@ -198,24 +194,6 @@ $(document).ready(function(){
 			<a href="PersonC.php?act=person&userID={$creator.UserID}">
 				<img class='avatar avatar-multi' src="{$creatorAvatar}" title="{$creator.Username}" />
 			</a>
-		</div>
-
-		<!-- Cheerers -->
-		<div>
-			{if $cheerersNum != 0}
-			{include file='../panel_header.tc'
-				title='鼓励者'
-				cmd="全部/{$cheerersNum}"
-				cmdID='cmd-all-cheerers'
-				link="GoalC.php?act=cheerers&goalID={$goal.GoalID}"
-			}
-			
-			{foreach $cheerers as $cheerer}
-			<a href="PersonC.php?act=person&userID={$cheerer.UserID}">
-				<img class='avatar avatar-multi' src="{$cheerer.Avatar}" title="{$cheerer.Username}" />
-			</a>
-			{/foreach}
-			{/if}
 		</div>
 	</div>
 

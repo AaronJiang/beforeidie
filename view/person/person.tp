@@ -1,12 +1,94 @@
-{include file='../header.tc' title="{$user.Name} 的个人空间" page='page-person'}
+{include file='../header.tc' title="{$user.Name} 的个人主页" page='page-person'}
+
+<script type='text/javascript' src='../js/goal-comment.js'></script>
+<script type='text/javascript'>
+
+{literal}
+
+//获取 URL 中的参数
+function getQueryStr(name) {
+	var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); 
+	var r = window.location.search.substr(1).match(reg); 
+
+	if (r != null) 
+		return unescape(r[2]);
+
+	return null; 
+}
+
+//按需加载动态
+function load_dyns(dynType, userID, pageIndex, numPerPage, isMe, callback){
+	var data = {
+		'userID': userID,
+		'pageIndex': pageIndex,
+		'numPerPage': numPerPage,
+		'isMe': isMe
+	};
+
+	if(dynType == 'followees'){
+		data['act'] = 'get_dyns';
+	} else if(dynType == 'aboutme'){
+		data['act'] = 'get_about_me_dyns';
+	}
+
+	$.get('PersonC.php', data, function(data){
+		$('#dyns').append(data);
+		$('#more-dyns').show();	
+		callback();
+	});	
+}
+
+$(document).ready(function(){
+
+{/literal}
+
+	//初始化翻页参数
+	var userID = {$user.ID},
+		pageIndex = 1,
+		numPerPage = 20,
+		isMe = {$isMe};
+
+{literal}
+
+	//加载第一页
+	$('#more-dyns').hide();
+
+	//获取 URL 中的动态类型
+	var dynType = getQueryStr('dynType')? getQueryStr('dynType'): 'followees';
+
+	load_dyns(dynType, userID, pageIndex, numPerPage, isMe, function(){
+		if($('.dynamic-item').length < 5){
+			$('#more-dyns').detach();
+		} else {
+			//加载更多动态
+			$('#more-dyns').click(function(){
+				pageIndex += 1;
+				load_dyns(userID, pageIndex, numPerPage, isMe);
+			});		
+		}
+	});
+});
+
+{/literal}
+
+</script>
+
 
 <div class='row'>
 
 	<div class='span9'>
 			
-		<div id='user-info' class='clearfix'>
+		<div id='user-info-wap' class='clearfix'>
 			<img class='avatar avatar-side' src='{$user.Avatar}' />
-			<div id='user-name'>{$user.Name} 的个人主页</div>
+
+			<div id="user-info">
+				<h4 id='user-name'>{$user.Name} 的个人主页</h4>
+				<div id="follow-info-wap">
+					<a href="PersonC.php?act=followees&userID={$user.ID}"><b>{$followeesNum}</b> 关注</a>
+					<span> / </span>
+					<a href="PersonC.php?act=followers&userID={$user.ID}"><b>{$followersNum}</b> 被关注</a>
+				</div>
+			</div>
 		
 			{if !$isMe}
 			<div id='user-cmd-wap'>
@@ -18,7 +100,21 @@
 			</div>
 			{/if}
 		</div>
-		
+
+		<div id='dynamic-sel-wap'>
+			<a class='dynamic-sel' href='PersonC.php?act=person&userID={$user.ID}&dynType=followees'>动态消息</a>
+			<a class='dynamic-sel' href='PersonC.php?act=person&userID={$user.ID}&dynType=aboutme'>与我相关</a>
+		</div>
+
+		<div id="dyns"></div>
+		<div id="more-dyns">更多</div>
+	</div>
+
+	<!-- 边栏 -->	
+	<div class='span3'>
+
+		{include file='../panel_header.tc' title="{if $isMe}我{else}TA{/if}的目标"}
+
 		<div class='goal-wap'>
 			{foreach $goals as $goal}
 			<div class='goal-item'>
@@ -27,77 +123,10 @@
 				</div>
 				
 				<div class='goal-reason'>{$goal.Reason}</div>
-				<div class='goal-num-wap'>{$goal.logsNum} 记录 / {$goal.cheersNum} 鼓励</div>
+				<div class='goal-num-wap'>{$goal.logsNum} 记录</div>
 			</div>
 			{/foreach}
 		</div>
-
-	</div>
-
-	<!-- 边栏 -->	
-	<div class='span3'>
-	
-		<!-- 个人动态 -->
-		<!--
-		{include file='../panel_header.tc' 
-			title='TA的动态'
-			cmd='全部'
-			link="PersonC.php?act=personal_dyns&userID={$user.ID}"
-		}
-		
-		{foreach $dyns as $dyn}
-
-		{if $dyn.Type == 'newLog'}
-		<div class='dynamic-item clearfix'>
-			<div class='dynamic-header'>
-				在 <a href='GoalC.php?act=details&goalID={$dyn.GoalID}' class='dynamic-goal-title'>{$dyn.GoalTitle}</a> 中写到：
-			</div>
-
-			{if $dyn.LogTitle != ""}
-			<div class='dynamic-log-title'>{$dyn.LogTitle}</div>
-			{/if}
-			<div class='dynamic-log-content'>{$dyn.LogContent}</div>
-			<div class='dynamic-time'>{$dyn.Time}</div>
-		</div>
-		
-		{elseif $dyn.Type == 'newGoal'}
-		<div class='dynamic-item clearfix'>
-			<div class='dynamic-header'>
-				设立目标 <a href='GoalC.php?act=details&goalID={$dyn.GoalID}' class='dynamic-goal-title'>{$dyn.GoalTitle}</a>
-			</div>
-			<div class='dynamic-goal-reason'>{$dyn.GoalReason}</div>
-			<div class='dynamic-time'>{$dyn.Time}</div>
-		</div>
-		{/if}	
-
-		{/foreach}
-		-->
-		
-		<!-- 关注TA的人 -->	
-		{include file='../panel_header.tc' 
-			title='关注TA的人'
-			cmd="全部 / {$followersNum}"
-			link="PersonC.php?act=followers&userID={$user.ID}"
-		}			
-			
-		{foreach $followers as $follower}
-		<a href='PersonC.php?act=person&userID={$follower.UserID}' title='{$follower.Username}'>
-			<img class='avatar avatar-multi' src='{$follower.Avatar}' />
-		</a>
-		{/foreach}
-		
-		<!-- TA关注的人 -->		
-		{include file='../panel_header.tc' 
-			title='TA关注的人'
-			cmd="全部 / {$followeesNum}"
-			link="PersonC.php?act=followees&userID={$user.ID}"
-		}			
-			
-		{foreach $followees as $followee}
-		<a href='PersonC.php?act=person&userID={$followee.UserID}' title='{$followee.Username}'>
-			<img class='avatar avatar-multi' src='{$followee.Avatar}' />
-		</a>
-		{/foreach}
 	</div>
 
 </div>

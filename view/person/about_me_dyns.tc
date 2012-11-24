@@ -3,7 +3,7 @@
 			
 	{* avatar *}
 	<a href="PersonC.php?act=person&userID={$dyn.PosterID}">
-		<img class='dynamic-poster-profile' 
+		<img class='avatar avatar-side' 
 			title="{$dyn.Poster}"
 			src="{$dyn.PosterAvatar}" />
 	</a>		
@@ -12,13 +12,13 @@
 	{if $dyn.Type == 'newCommentOnMyLog'}
 	<div class='dynamic-content-wap'>
 		<div class='dynamic-header'>
-			<a class='dynamic-goal-creater' href="PersonC.php?userID={$dyn.PosterID}">{$dyn.Poster}</a>
+			<a href="PersonC.php?userID={$dyn.PosterID}">{$dyn.Poster}</a>
 			{if $dyn.CommentIsRoot}
 			<span>评论了我的目标</span>
-			<a href="GoalC.php?act=details&goalID={$dyn.GoalID}" class='dynamic-goal-title'>{$dyn.GoalTitle}</a>
+			<a href="GoalC.php?act=details&goalID={$dyn.GoalID}">{$dyn.GoalTitle}</a>
 			{else}
 			<span>在我的目标</span>
-			<a href="GoalC.php?act=details&goalID={$dyn.GoalID}" class='dynamic-goal-title'>{$dyn.GoalTitle}</a>
+			<a href="GoalC.php?act=details&goalID={$dyn.GoalID}">{$dyn.GoalTitle}</a>
 			<span>中回复</span>
 			{/if}
 			<span>：</span>
@@ -38,14 +38,14 @@
 	</div>
 	{/if}
 	
-	{* 若为针对 Comment 的评论 *}				
+	{* 若为针对 Comment 的评论 *}
 	{elseif $dyn.Type == 'newCommentOnOtherLog'}
 	<div class='dynamic-content-wap'>
 		{* header *}
 		<div class='dynamic-header'>
 			<a class='dynamic-goal-creater' href="PersonC.php?act=person&userID={$dyn.PosterID}">{$dyn.Poster}</a>
 			<span>在目标</span>
-			<a href="GoalC.php?act=details&goalID={$dyn.GoalID}" class='dynamic-goal-title'>{$dyn.GoalTitle}</a>
+			<a href="GoalC.php?act=details&goalID={$dyn.GoalID}">{$dyn.GoalTitle}</a>
 			<span>中回复：</span>
 		</div>
 						
@@ -63,28 +63,12 @@
 		{/foreach}
 	</div>
 	{/if}
-	
-	{* 鼓励	*}
-	{elseif $dyn.Type == 'newCheer'}
-	<div class='dynamic-content-wap'>
-		{* header *}
-		<p class='dynamic-header'>
-			<a class='dynamic-goal-creater' href="PersonC.php?act=person&userID={$dyn.PosterID}">{$dyn.Poster}</a>
-			<span>鼓励了我的目标</span>
-			<a href="GoalC.php?act=details&goalID={$dyn.GoalID}" class='dynamic-goal-title'>{$dyn.GoalTitle}</a>
-		</p>
 
-		{* footer *}
-		<div class='dynamic-footer'>
-			<p class='dynamic-time'>{$dyn.Time}</p>
-		</div>
-	</div>
-
-	{* 若为关注 *}	
+	{* 若为关注 *}
 	{elseif $dyn.Type == 'newFollow'}			
 	<div class='dynamic-content-wap'>
 		<p class='dynamic-header'>
-			<a class='dynamic-goal-creater' href="Personc.php?act=person&userID={$dyn.PosterID}">{$dyn.Poster}</a>
+			<a href="Personc.php?act=person&userID={$dyn.PosterID}">{$dyn.Poster}</a>
 			<span>关注了我</span>
 		</p>
 

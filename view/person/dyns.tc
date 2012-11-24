@@ -30,7 +30,11 @@
 				data-log-id="{$dyn.LogID}"
 				data-is-root='1'
 				data-avatar-url="{$userAvatar}"
-				>回复</a>
+				>回复
+				{if $dyn.commentsNum != 0}
+				({$dyn.commentsNum})
+				{/if}
+				</a>
 			<span class='dynamic-time'>{$dyn.Time}</span>
 		</div>
 	</div>
@@ -58,10 +62,6 @@
 	
 		{* footer *}
 		<div class='dynamic-footer'>
-			{if !$dyn.isCheered}
-			<a class='btn btn-tiny btn-cmd' href="GoalC.php?act=cheer&userID={$userID}&goalID={$dyn.GoalID}">鼓励</a>
-			{/if}
-			
 			<span class='dynamic-time'>{$dyn.Time}</span>
 		</div>
 	</div>

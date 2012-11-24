@@ -147,7 +147,7 @@
 
 		//生成激活 Url
 		$activeCode = gene_active_code($emailTo);
-		$activeUrl = "http://localhost/Dream/ctrl/AccountC.php?act=active_account&email=". $emailTo. "&activeCode=". $activeCode;
+		$activeUrl = "http://localhost/Goal/ctrl/AccountC.php?act=active_account&email=". $emailTo. "&activeCode=". $activeCode;
 
 		//邮件内容
 		$mailbody = "<h1 style='font-size:15px;font-family:微软雅黑;'>点击以下链接，激活你在Goal上的账户：</h1>";
@@ -164,7 +164,7 @@
 		
 		//生成激活 Url
 		$activeCode = gene_active_code($emailTo);
-		$activeUrl = "http://localhost/Dream/ctrl/AccountC.php?act=verify_reset_code&email=". $emailTo. "&resetCode=". $activeCode;
+		$activeUrl = "http://localhost/Goal/ctrl/AccountC.php?act=verify_reset_code&email=". $emailTo. "&resetCode=". $activeCode;
 
 		//邮件内容
 		$mailbody = "<h1 style='font-size:15px;font-family:微软雅黑;'>点击以下链接，重置你在Goal上的账户密码：</h1>";

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-11-14 16:41:56
+<?php /* Smarty version Smarty-3.1.12, created on 2012-11-24 13:16:26
          compiled from "..\view\goal\details.tp" */ ?>
 <?php /*%%SmartyHeaderCode:1933950938337f31405-89020659%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6c71f1ce3e74505d967d613caadd6976236f3c18' => 
     array (
       0 => '..\\view\\goal\\details.tp',
-      1 => 1352907715,
+      1 => 1353759385,
       2 => 'file',
     ),
   ),
@@ -22,13 +22,9 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'goal' => 0,
     'userID' => 0,
     'isCreator' => 0,
-    'isCheered' => 0,
     'pagesNum' => 0,
     'creator' => 0,
     'creatorAvatar' => 0,
-    'cheerersNum' => 0,
-    'cheerers' => 0,
-    'cheerer' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -198,14 +194,6 @@ $(document).ready(function(){
 			<?php if ($_smarty_tpl->tpl_vars['isCreator']->value){?>
 				<a id='cmd-edit-goal' class="btn btn-small" href='GoalC.php?act=edit&goalID=<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
 '>修改</a>
-			<?php }else{ ?>
-				<?php if ($_smarty_tpl->tpl_vars['isCheered']->value){?>
-				<a class='btn btn-small'>已鼓励</a>
-				<?php }else{ ?>
-				<a class='btn btn-small' href="GoalC.php?act=cheer_goal&userID=<?php echo $_smarty_tpl->tpl_vars['userID']->value;?>
-&goalID=<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
-">鼓励</a>
-				<?php }?>
 			<?php }?>
 			</div>
 		</div>
@@ -216,8 +204,10 @@ $(document).ready(function(){
 		
 		<!-- Logs -->
 		<div id='logs-wap'>
+			<?php if ($_smarty_tpl->tpl_vars['isCreator']->value){?>
 			<a class="btn btn-small" id="cmd-add-log">添加</a>
-
+			<?php }?>
+			
 			<!--
 			<div id='logs-pager'>
 				<span id='curr-page-num'>1</span>
@@ -246,27 +236,6 @@ $(document).ready(function(){
 " title="<?php echo $_smarty_tpl->tpl_vars['creator']->value['Username'];?>
 " />
 			</a>
-		</div>
-
-		<!-- Cheerers -->
-		<div>
-			<?php if ($_smarty_tpl->tpl_vars['cheerersNum']->value!=0){?>
-			<?php echo $_smarty_tpl->getSubTemplate ('../panel_header.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'鼓励者','cmd'=>"全部/".((string)$_smarty_tpl->tpl_vars['cheerersNum']->value),'cmdID'=>'cmd-all-cheerers','link'=>"GoalC.php?act=cheerers&goalID=".((string)$_smarty_tpl->tpl_vars['goal']->value['GoalID'])), 0);?>
-
-			
-			<?php  $_smarty_tpl->tpl_vars['cheerer'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['cheerer']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['cheerers']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['cheerer']->key => $_smarty_tpl->tpl_vars['cheerer']->value){
-$_smarty_tpl->tpl_vars['cheerer']->_loop = true;
-?>
-			<a href="PersonC.php?act=person&userID=<?php echo $_smarty_tpl->tpl_vars['cheerer']->value['UserID'];?>
-">
-				<img class='avatar avatar-multi' src="<?php echo $_smarty_tpl->tpl_vars['cheerer']->value['Avatar'];?>
-" title="<?php echo $_smarty_tpl->tpl_vars['cheerer']->value['Username'];?>
-" />
-			</a>
-			<?php } ?>
-			<?php }?>
 		</div>
 	</div>
 

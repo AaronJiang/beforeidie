@@ -1,13 +1,20 @@
 {include file='../header.tc' title="关注 {$username} 的人们" page='page-followers'}
 
 <h4 class="page-title">
-	关注 <a href="PersonC.php?act=person&userID={$userID}">{$username}</a> 的人们：
+	关注 <a href="PersonC.php?act=person&userID={$userID}">{$username}</a> 的人 / {$followersNum}
 </h4>
 
 {foreach $followers as $fow}
-<a href="PersonC.php?act=person&userID={$fow.UserID}">
-	<img class="user-icon" src="{$fow.Avatar}" title="{$fow.Username}" />
-</a>
+<div class='followee-item clearfix'>
+	<a href="PersonC.php?act=person&userID={$fow.UserID}">
+		<img class='avatar avatar-side' title="{$fow.Username}" src="{$fow.Avatar}" />
+	</a>
+		
+	<div class='user-info'>
+		<div class='user-name'><a href="PersonC.php?act=person&userID={$fow.UserID}">{$fow.Username}</a></div>
+		<div class='goal-info'><b>{$fow.GoalsNum}</b> 目标</div>
+	</div>
+</div>
 {/foreach}
 
 {include file='../footer.tc'}

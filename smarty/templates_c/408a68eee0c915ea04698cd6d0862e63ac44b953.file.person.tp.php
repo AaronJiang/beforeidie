@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-11-22 03:20:58
+<?php /* Smarty version Smarty-3.1.12, created on 2012-11-24 14:42:01
          compiled from "..\view\person\person.tp" */ ?>
 <?php /*%%SmartyHeaderCode:4986509235e2350e62-48954490%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '408a68eee0c915ea04698cd6d0862e63ac44b953' => 
     array (
       0 => '..\\view\\person\\person.tp',
-      1 => 1353550856,
+      1 => 1353764520,
       2 => 'file',
     ),
   ),
@@ -21,33 +21,115 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
     'user' => 0,
     'isMe' => 0,
+    'followeesNum' => 0,
+    'followersNum' => 0,
     'isFollowed' => 0,
     'currUserID' => 0,
     'goals' => 0,
     'goal' => 0,
-    'dyns' => 0,
-    'dyn' => 0,
-    'followersNum' => 0,
-    'followers' => 0,
-    'follower' => 0,
-    'followeesNum' => 0,
-    'followees' => 0,
-    'followee' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_509235e26c2e46_48079691')) {function content_509235e26c2e46_48079691($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ('../header.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>((string)$_smarty_tpl->tpl_vars['user']->value['Name'])." 的个人空间",'page'=>'page-person'), 0);?>
+<?php if ($_valid && !is_callable('content_509235e26c2e46_48079691')) {function content_509235e26c2e46_48079691($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ('../header.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>((string)$_smarty_tpl->tpl_vars['user']->value['Name'])." 的个人主页",'page'=>'page-person'), 0);?>
+
+
+<script type='text/javascript' src='../js/goal-comment.js'></script>
+<script type='text/javascript'>
+
+
+
+//获取 URL 中的参数
+function getQueryStr(name) {
+	var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); 
+	var r = window.location.search.substr(1).match(reg); 
+
+	if (r != null) 
+		return unescape(r[2]);
+
+	return null; 
+}
+
+//按需加载动态
+function load_dyns(dynType, userID, pageIndex, numPerPage, isMe, callback){
+	var data = {
+		'userID': userID,
+		'pageIndex': pageIndex,
+		'numPerPage': numPerPage,
+		'isMe': isMe
+	};
+
+	if(dynType == 'followees'){
+		data['act'] = 'get_dyns';
+	} else if(dynType == 'aboutme'){
+		data['act'] = 'get_about_me_dyns';
+	}
+
+	$.get('PersonC.php', data, function(data){
+		$('#dyns').append(data);
+		$('#more-dyns').show();	
+		callback();
+	});	
+}
+
+$(document).ready(function(){
+
+
+
+	//初始化翻页参数
+	var userID = <?php echo $_smarty_tpl->tpl_vars['user']->value['ID'];?>
+,
+		pageIndex = 1,
+		numPerPage = 20,
+		isMe = <?php echo $_smarty_tpl->tpl_vars['isMe']->value;?>
+;
+
+
+
+	//加载第一页
+	$('#more-dyns').hide();
+
+	//获取 URL 中的动态类型
+	var dynType = getQueryStr('dynType')? getQueryStr('dynType'): 'followees';
+
+	load_dyns(dynType, userID, pageIndex, numPerPage, isMe, function(){
+		if($('.dynamic-item').length < 5){
+			$('#more-dyns').detach();
+		} else {
+			//加载更多动态
+			$('#more-dyns').click(function(){
+				pageIndex += 1;
+				load_dyns(userID, pageIndex, numPerPage, isMe);
+			});		
+		}
+	});
+});
+
+
+
+</script>
 
 
 <div class='row'>
 
 	<div class='span9'>
 			
-		<div id='user-info' class='clearfix'>
+		<div id='user-info-wap' class='clearfix'>
 			<img class='avatar avatar-side' src='<?php echo $_smarty_tpl->tpl_vars['user']->value['Avatar'];?>
 ' />
-			<div id='user-name'><?php echo $_smarty_tpl->tpl_vars['user']->value['Name'];?>
- 的个人主页</div>
+
+			<div id="user-info">
+				<h4 id='user-name'><?php echo $_smarty_tpl->tpl_vars['user']->value['Name'];?>
+ 的个人主页</h4>
+				<div id="follow-info-wap">
+					<a href="PersonC.php?act=followees&userID=<?php echo $_smarty_tpl->tpl_vars['user']->value['ID'];?>
+"><b><?php echo $_smarty_tpl->tpl_vars['followeesNum']->value;?>
+</b> 关注</a>
+					<span> / </span>
+					<a href="PersonC.php?act=followers&userID=<?php echo $_smarty_tpl->tpl_vars['user']->value['ID'];?>
+"><b><?php echo $_smarty_tpl->tpl_vars['followersNum']->value;?>
+</b> 被关注</a>
+				</div>
+			</div>
 		
 			<?php if (!$_smarty_tpl->tpl_vars['isMe']->value){?>
 			<div id='user-cmd-wap'>
@@ -63,7 +145,24 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			</div>
 			<?php }?>
 		</div>
-		
+
+		<div id='dynamic-sel-wap'>
+			<a class='dynamic-sel' href='PersonC.php?act=person&userID=<?php echo $_smarty_tpl->tpl_vars['user']->value['ID'];?>
+&dynType=followees'>动态消息</a>
+			<a class='dynamic-sel' href='PersonC.php?act=person&userID=<?php echo $_smarty_tpl->tpl_vars['user']->value['ID'];?>
+&dynType=aboutme'>与我相关</a>
+		</div>
+
+		<div id="dyns"></div>
+		<div id="more-dyns">更多</div>
+	</div>
+
+	<!-- 边栏 -->	
+	<div class='span3'>
+
+		<?php ob_start();?><?php if ($_smarty_tpl->tpl_vars['isMe']->value){?><?php echo "我";?><?php }else{ ?><?php echo "TA";?><?php }?><?php $_tmp1=ob_get_clean();?><?php echo $_smarty_tpl->getSubTemplate ('../panel_header.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>$_tmp1."的目标"), 0);?>
+
+
 		<div class='goal-wap'>
 			<?php  $_smarty_tpl->tpl_vars['goal'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['goal']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['goals']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
@@ -80,96 +179,10 @@ $_smarty_tpl->tpl_vars['goal']->_loop = true;
 				<div class='goal-reason'><?php echo $_smarty_tpl->tpl_vars['goal']->value['Reason'];?>
 </div>
 				<div class='goal-num-wap'><?php echo $_smarty_tpl->tpl_vars['goal']->value['logsNum'];?>
- 记录 / <?php echo $_smarty_tpl->tpl_vars['goal']->value['cheersNum'];?>
- 鼓励</div>
+ 记录</div>
 			</div>
 			<?php } ?>
 		</div>
-
-	</div>
-
-	<!-- 边栏 -->	
-	<div class='span3'>
-	
-		<!-- 个人动态 -->
-		<!--
-		<?php echo $_smarty_tpl->getSubTemplate ('../panel_header.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'TA的动态','cmd'=>'全部','link'=>"PersonC.php?act=personal_dyns&userID=".((string)$_smarty_tpl->tpl_vars['user']->value['ID'])), 0);?>
-
-		
-		<?php  $_smarty_tpl->tpl_vars['dyn'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['dyn']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['dyns']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['dyn']->key => $_smarty_tpl->tpl_vars['dyn']->value){
-$_smarty_tpl->tpl_vars['dyn']->_loop = true;
-?>
-
-		<?php if ($_smarty_tpl->tpl_vars['dyn']->value['Type']=='newLog'){?>
-		<div class='dynamic-item clearfix'>
-			<div class='dynamic-header'>
-				在 <a href='GoalC.php?act=details&goalID=<?php echo $_smarty_tpl->tpl_vars['dyn']->value['GoalID'];?>
-' class='dynamic-goal-title'><?php echo $_smarty_tpl->tpl_vars['dyn']->value['GoalTitle'];?>
-</a> 中写到：
-			</div>
-
-			<?php if ($_smarty_tpl->tpl_vars['dyn']->value['LogTitle']!=''){?>
-			<div class='dynamic-log-title'><?php echo $_smarty_tpl->tpl_vars['dyn']->value['LogTitle'];?>
-</div>
-			<?php }?>
-			<div class='dynamic-log-content'><?php echo $_smarty_tpl->tpl_vars['dyn']->value['LogContent'];?>
-</div>
-			<div class='dynamic-time'><?php echo $_smarty_tpl->tpl_vars['dyn']->value['Time'];?>
-</div>
-		</div>
-		
-		<?php }elseif($_smarty_tpl->tpl_vars['dyn']->value['Type']=='newGoal'){?>
-		<div class='dynamic-item clearfix'>
-			<div class='dynamic-header'>
-				设立目标 <a href='GoalC.php?act=details&goalID=<?php echo $_smarty_tpl->tpl_vars['dyn']->value['GoalID'];?>
-' class='dynamic-goal-title'><?php echo $_smarty_tpl->tpl_vars['dyn']->value['GoalTitle'];?>
-</a>
-			</div>
-			<div class='dynamic-goal-reason'><?php echo $_smarty_tpl->tpl_vars['dyn']->value['GoalReason'];?>
-</div>
-			<div class='dynamic-time'><?php echo $_smarty_tpl->tpl_vars['dyn']->value['Time'];?>
-</div>
-		</div>
-		<?php }?>	
-
-		<?php } ?>
-		-->
-		
-		<!-- 关注TA的人 -->	
-		<?php echo $_smarty_tpl->getSubTemplate ('../panel_header.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'关注TA的人','cmd'=>"全部 / ".((string)$_smarty_tpl->tpl_vars['followersNum']->value),'link'=>"PersonC.php?act=followers&userID=".((string)$_smarty_tpl->tpl_vars['user']->value['ID'])), 0);?>
-			
-			
-		<?php  $_smarty_tpl->tpl_vars['follower'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['follower']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['followers']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['follower']->key => $_smarty_tpl->tpl_vars['follower']->value){
-$_smarty_tpl->tpl_vars['follower']->_loop = true;
-?>
-		<a href='PersonC.php?act=person&userID=<?php echo $_smarty_tpl->tpl_vars['follower']->value['UserID'];?>
-' title='<?php echo $_smarty_tpl->tpl_vars['follower']->value['Username'];?>
-'>
-			<img class='avatar avatar-multi' src='<?php echo $_smarty_tpl->tpl_vars['follower']->value['Avatar'];?>
-' />
-		</a>
-		<?php } ?>
-		
-		<!-- TA关注的人 -->		
-		<?php echo $_smarty_tpl->getSubTemplate ('../panel_header.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'TA关注的人','cmd'=>"全部 / ".((string)$_smarty_tpl->tpl_vars['followeesNum']->value),'link'=>"PersonC.php?act=followees&userID=".((string)$_smarty_tpl->tpl_vars['user']->value['ID'])), 0);?>
-			
-			
-		<?php  $_smarty_tpl->tpl_vars['followee'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['followee']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['followees']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['followee']->key => $_smarty_tpl->tpl_vars['followee']->value){
-$_smarty_tpl->tpl_vars['followee']->_loop = true;
-?>
-		<a href='PersonC.php?act=person&userID=<?php echo $_smarty_tpl->tpl_vars['followee']->value['UserID'];?>
-' title='<?php echo $_smarty_tpl->tpl_vars['followee']->value['Username'];?>
-'>
-			<img class='avatar avatar-multi' src='<?php echo $_smarty_tpl->tpl_vars['followee']->value['Avatar'];?>
-' />
-		</a>
-		<?php } ?>
 	</div>
 
 </div>
