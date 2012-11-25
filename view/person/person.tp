@@ -63,7 +63,7 @@ $(document).ready(function(){
 			//加载更多动态
 			$('#more-dyns').click(function(){
 				pageIndex += 1;
-				load_dyns(userID, pageIndex, numPerPage, isMe);
+				load_dyns(dynType, userID, pageIndex, numPerPage, isMe);
 			});		
 		}
 	});

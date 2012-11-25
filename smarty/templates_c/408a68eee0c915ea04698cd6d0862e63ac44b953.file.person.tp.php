@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-11-24 16:36:17
+<?php /* Smarty version Smarty-3.1.12, created on 2012-11-25 17:31:34
          compiled from "..\view\person\person.tp" */ ?>
 <?php /*%%SmartyHeaderCode:4986509235e2350e62-48954490%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '408a68eee0c915ea04698cd6d0862e63ac44b953' => 
     array (
       0 => '..\\view\\person\\person.tp',
-      1 => 1353771323,
+      1 => 1353861077,
       2 => 'file',
     ),
   ),
@@ -98,7 +98,7 @@ $(document).ready(function(){
 			//加载更多动态
 			$('#more-dyns').click(function(){
 				pageIndex += 1;
-				load_dyns(userID, pageIndex, numPerPage, isMe);
+				load_dyns(dynType, userID, pageIndex, numPerPage, isMe);
 			});		
 		}
 	});
