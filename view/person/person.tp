@@ -82,7 +82,7 @@ $(document).ready(function(){
 			<img class='avatar avatar-side avatar-large' src='{$user.Avatar}' />
 
 			<div id="user-info">
-				<h4 id='username'>{$user.Name} 的个人主页</h4>
+				<h4 id='username'>{$user.Name} 的主页</h4>
 				<div id="follow-info-wap">
 					<a href="PersonC.php?act=followees&userID={$user.ID}"><b>{$followeesNum}</b> 关注</a>
 					<span> / </span>
@@ -106,15 +106,26 @@ $(document).ready(function(){
 			<a class='dynamic-sel' href='PersonC.php?act=person&userID={$user.ID}&dynType=aboutme'>与我相关</a>
 		</div>
 
+		<!--
+		<div class='goal-wap'>
+			{foreach $goals as $goal}
+			<div class='goal-item'>
+				<div>
+					<a class='goal-title' href='GoalC.php?act=details&goalID={$goal.GoalID}'>{$goal.Title}</a>
+				</div>
+				
+				<div class='goal-reason'>{$goal.Reason}</div>
+			</div>
+			{/foreach}
+		</div>
+		-->
 		<div id="dyns"></div>
 		<div id="more-dyns">更多</div>
 	</div>
 
-	<!-- 边栏 -->	
 	<div class='span3'>
-
-		{include file='../panel_header.tc' title="{if $isMe}我{else}TA{/if}的目标"}
-
+		{include file='../panel_header.tc' title='我想'}
+		
 		<div class='goal-wap'>
 			{foreach $goals as $goal}
 			<div class='goal-item'>

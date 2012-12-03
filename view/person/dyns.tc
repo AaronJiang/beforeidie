@@ -6,55 +6,13 @@
 		<img class="avatar avatar-side" title="{$dyn.Poster}" src="{$dyn.PosterAvatar}" />
 	</a>
 
-	{* 写下新的 Log *}
-	{if $dyn.Type == 'newLog'}
-	<div class='dynamic-content-wap'>
-		{* header *}
-		<p class='dynamic-header'>	
-			<a class="dynamic-goal-creater" href="PersonC.php?act=person&userID={$dyn.PosterID}">{$dyn.Poster}</a>
-			<span>在目标</span>
-			<a href="GoalC.php?act=details&goalID={$dyn.GoalID}" class='dynamic-goal-title'>{$dyn.GoalTitle}</a>
-			<span>中写到</span>
-		</p>
-
-		{* log *}
-		{if $dyn.LogTitle != ""}
-		<p class='dynamic-log-title'>{$dyn.LogTitle}</p>
-		{/if}
-		<p class='dynamic-log-content'>{$dyn.LogContent}</p>
-
-		{* footer *}
-		<div class='dynamic-footer'>
-			<a class="btn btn-tiny btn-cmd cmd-new-comment"
-				data-poster-id="{$userID}"
-				data-log-id="{$dyn.LogID}"
-				data-is-root='1'
-				data-avatar-url="{$userAvatar}"
-				>回复
-				{if $dyn.commentsNum != 0}
-				({$dyn.commentsNum})
-				{/if}
-				</a>
-			<span class='dynamic-time'>{$dyn.Time}</span>
-		</div>
-	</div>
-
-	{* comments *}
-	{if $dyn.commentsNum != 0}
-	<div class='comments-wap'>
-		{foreach $dyn.comments as $comm}
-		{include file='comments.tc'}
-		{/foreach}
-	</div>
-	{/if}
-
 	{* 设立新的 Goal *}
-	{elseif $dyn.Type == 'newGoal'}
+	{if $dyn.Type == 'newGoal'}
 	<div class='dynamic-content-wap'>
 	
 		<p class='dynamic-header'>
 			<a class='dynamic-goal-creater' href="PersonC.php?act=person&userID={$dyn.PosterID}">{$dyn.Poster}</a>
-			<span>设立了目标</span>
+			<span>想</span>
 			<a href="GoalC.php?act=details&goalID={$dyn.GoalID}" class='dynamic-goal-title'>{$dyn.GoalTitle}</a>
 		</p>
 		

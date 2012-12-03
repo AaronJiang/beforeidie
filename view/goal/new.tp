@@ -8,15 +8,15 @@
 </script>
 {/literal}
 
-<h4 class="page-title">新的 Goal</h4>
+<h4 class="page-title">新的</h4>
 
 <form id="form-new-goal" action="GoalC.php" method="post">
 	<div>
-		<input type="text" placeholder="写下你的目标" class='validate[required]' name="title" id="goal-title" autocomplete="off" />
+		<input type="text" placeholder="我想" class='validate[required]' name="title" id="goal-title" autocomplete="off" />
 	</div>
 	
 	<div>
-		<textarea rows="8" placeholder="一句话简单介绍一下吧" class='validate[required]' name="why" id="goal-why"></textarea>
+		<textarea rows="8" placeholder="一句话简单介绍下！" class='validate[required]' name="why" id="goal-why"></textarea>
 	</div>	
 	
 	<div>

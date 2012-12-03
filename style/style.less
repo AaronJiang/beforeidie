@@ -173,69 +173,34 @@
 	}
 
 	/* logs */
-	#logs-wap{
+	#log-wap{
 		padding: 5px 0 0 0;
+		clear: both;
+		margin: 0 0 8px 0;
 		
 		#cmd-add-log{
 			float: right;
 		}
-
-		#logs-pager{
-			float: right;
+		
+		.log-title{
+			font-size: @fontSizeLarge;
+			font-weight: bold;
 			margin: 0 0 5px 0;
-
-			#page-up,
-			#page-down{
-				font-size: 12px;
-				line-height: 12px;
-				background-color:#EEE;
-				padding:1px 5px;
-				border:1px solid lightgray;
-				text-decoration:none;
-				color:black;
-				cursor:pointer;
-			
-				&:hover{
-					background-color:#F6F6F6;
-				}
-			}
-
-			#page-up{
-				border-right:0px;
-			}
+		}
+	
+		.log-content{
+			font-family: @altFontFamily;
+			line-height: 22px;
+			margin: 0 0 5px 0;
 		}
 		
-		.log-item{
-			border-bottom: 1px solid #EEE;
-			clear: both;
-			margin: 0 0 8px 0;
+		.log-footer{
+			text-align: right;
+			font-size: @fontSizeSmall;
+			margin: 0 0 5px 0;
 			
-			.log-title{
-				font-size: @fontSizeLarge;
-				font-weight: bold;
-				margin: 0 0 5px 0;
-			}
-		
-			.log-content{
-				font-size: @fontSizeSmall;
-				font-family: @altFontFamily;
-				margin: 0 0 5px 0;
+			.log-time{
 				color: @gray;
-			}
-			
-			.log-footer{
-				text-align: right;
-				font-size: @fontSizeSmall;
-				margin: 0 0 5px 0;
-				
-				.log-time{
-					color: @gray;
-				}
-			}
-			
-			.comments-wap,
-			.new-comment-wap{
-				margin:0 0 0 52px;
 			}
 		}
 	}

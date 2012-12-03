@@ -10,7 +10,6 @@
 	switch($action){
 			
 
-
 	// new goal
 	
 		// get view
@@ -70,16 +69,14 @@
 			// isCreator
 			$isCreator = check_goal_ownership($goalID, $_SESSION['valid_user_id']);
 			$sm->assign('isCreator', $isCreator? 1: 0);
-
-			// logs pager
-			$logsNum = get_goal_logs_num($goalID);
-			$pagesNum = ($logsNum == 0)? 1: floor(($logsNum + 19) / 20);
-			$sm->assign('pagesNum', $pagesNum);
 			
 			// creator info
 			$creator = get_goal_owner($goalID);
 			$sm->assign('creator', $creator);
 			$sm->assign('creatorAvatar', get_gravatar($creator['UserID']));
+
+			// log
+			$sm->assign('log', get_log($goalID));
 			
 			$sm->display('details.tp');
 			break;
@@ -120,15 +117,13 @@
 		
 		// new log
 		case "new_log":
-			$logTitle = isset($_REQUEST['logTitle'])? $_REQUEST['logTitle']: '';
-			new_log($logTitle, $_REQUEST['logContent'], $_REQUEST['typeID'], $_REQUEST['goalID']);
-			update_goal_updatetime($_REQUEST['goalID'], now_time());
+			new_log($_REQUEST['logContent'], $_REQUEST['goalID']);
 			page_jump_back();
 			break;
 			
 		// update log
 		case "update_log":
-			update_log($_REQUEST['logID'], $_REQUEST['logTitle'], $_REQUEST['logContent']);
+			update_log($_REQUEST['logID'], $_REQUEST['logContent']);
 			page_jump_back();
 			break;
 	}

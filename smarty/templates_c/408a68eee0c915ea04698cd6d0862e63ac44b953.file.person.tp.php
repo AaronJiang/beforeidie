@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-11-25 17:31:34
+<?php /* Smarty version Smarty-3.1.12, created on 2012-12-03 09:05:18
          compiled from "..\view\person\person.tp" */ ?>
 <?php /*%%SmartyHeaderCode:4986509235e2350e62-48954490%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '408a68eee0c915ea04698cd6d0862e63ac44b953' => 
     array (
       0 => '..\\view\\person\\person.tp',
-      1 => 1353861077,
+      1 => 1354521841,
       2 => 'file',
     ),
   ),
@@ -119,7 +119,7 @@ $(document).ready(function(){
 
 			<div id="user-info">
 				<h4 id='username'><?php echo $_smarty_tpl->tpl_vars['user']->value['Name'];?>
- 的个人主页</h4>
+ 的主页</h4>
 				<div id="follow-info-wap">
 					<a href="PersonC.php?act=followees&userID=<?php echo $_smarty_tpl->tpl_vars['user']->value['ID'];?>
 "><b><?php echo $_smarty_tpl->tpl_vars['followeesNum']->value;?>
@@ -153,16 +153,34 @@ $(document).ready(function(){
 &dynType=aboutme'>与我相关</a>
 		</div>
 
+		<!--
+		<div class='goal-wap'>
+			<?php  $_smarty_tpl->tpl_vars['goal'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['goal']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['goals']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['goal']->key => $_smarty_tpl->tpl_vars['goal']->value){
+$_smarty_tpl->tpl_vars['goal']->_loop = true;
+?>
+			<div class='goal-item'>
+				<div>
+					<a class='goal-title' href='GoalC.php?act=details&goalID=<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
+'><?php echo $_smarty_tpl->tpl_vars['goal']->value['Title'];?>
+</a>
+				</div>
+				
+				<div class='goal-reason'><?php echo $_smarty_tpl->tpl_vars['goal']->value['Reason'];?>
+</div>
+			</div>
+			<?php } ?>
+		</div>
+		-->
 		<div id="dyns"></div>
 		<div id="more-dyns">更多</div>
 	</div>
 
-	<!-- 边栏 -->	
 	<div class='span3'>
+		<?php echo $_smarty_tpl->getSubTemplate ('../panel_header.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'我想'), 0);?>
 
-		<?php ob_start();?><?php if ($_smarty_tpl->tpl_vars['isMe']->value){?><?php echo "我";?><?php }else{ ?><?php echo "TA";?><?php }?><?php $_tmp1=ob_get_clean();?><?php echo $_smarty_tpl->getSubTemplate ('../panel_header.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>$_tmp1."的目标"), 0);?>
-
-
+		
 		<div class='goal-wap'>
 			<?php  $_smarty_tpl->tpl_vars['goal'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['goal']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['goals']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}

@@ -3,60 +3,8 @@
 <script type='text/javascript' src='../js/goal-comment.js'></script>
 <script type="text/javascript">
 
+{literal}
 $(document).ready(function(){
-	//全局变量
-	var GOAL_ID = {$goal.GoalID},
-		USER_ID = {$userID};
-
-	/* Pager
-	----------------------------------------------------*/
-	
-	var PAGE_NUM = 1,	//当前页数
-		NUM_PER_PAGE = 20,
-		TOTAL_PAGE_NUM = $('#total-page-num').text(),	//总页数
-		isCreator = {$isCreator};
-
-	{literal}	
-	//加载函数
-	function load_logs(pageNum){
-		var data = {
-			act: 'get_logs',
-			'goalID': GOAL_ID,
-			'pageNum': pageNum,
-			'numPerPage': NUM_PER_PAGE,
-			'isCreator': isCreator
-		};
-		
-		$('#logs').load('GoalC.php', data, function(){
-			$('#curr-page-num').text(pageNum);	
-		});
-	}
-	
-	//加载第一页
-	load_logs(PAGE_NUM);
-	
-	//上一页
-	$('#page-up').click(function(){
-		if(PAGE_NUM <= 1)
-			return;
-		
-		PAGE_NUM -=1; 
-		load_logs(PAGE_NUM);
-	});
-
-	//下一页
-	$('#page-down').click(function(){
-		if(PAGE_NUM >= TOTAL_PAGE_NUM)
-			return;
-			
-		PAGE_NUM += 1;
-		load_logs(PAGE_NUM);
-	});
-	
-	//若不是 Goal 创建者，则停止执行 js 代码
-	if(!isCreator){
-		return;
-	}
 
 	/* New Log
 	----------------------------------------------------*/
@@ -131,20 +79,9 @@ $(document).ready(function(){
 			scroll: false
 		});
 	});
-
-	/* Delete Log
-	----------------------------------------------------*/
-
-	//记录删除警告框
-	$('.log-cmd-delete').live('click', function(){
-		if(!confirm("确定删除此记录？")){
-			return false;
-		}
-	});
-	
-	{/literal}
 });
 
+{/literal}
 </script>
 
 <div class='row'>
@@ -165,23 +102,42 @@ $(document).ready(function(){
 		<!-- Reason -->
 		<div id='goal-reason'>{$goal.Reason}</div>
 		
-		<!-- Logs -->
-		<div id='logs-wap'>
-			{if $isCreator}
-			<a class="btn btn-small" id="cmd-add-log">添加</a>
-			{/if}
-			
-			<!--
-			<div id='logs-pager'>
-				<span id='curr-page-num'>1</span>
-				<span>/</span>
-				<span id='total-page-num'>{$pagesNum}</span>
-				<a id='page-up' >上页</a
-				><a id='page-down'>下页</a>
-			</div>
-			-->
+		<!-- Log -->
+		<div id='log-wap'>
 
-			<div id='logs'></div>
+			<div id='log-wap' class='new-comment-parent'>
+
+				{* 内容 *}
+				<div class="log-content" contenteditable="false">{$log.LogContent}</div>
+						
+				{* 操作按钮 *}
+				<div class='log-footer'>
+					<a class='btn btn-tiny btn-cmd cmd-new-comment' 
+						data-log-id="{$log.LogID}"
+						data-poster-id="{$userID}"
+						data-is-root='1'
+						data-avatar-url="{$userAvatar}"
+						>回复{if $log.commentsNum != 0}({$log.commentsNum}){/if}</a>
+
+					{if $isCreator}
+					<a class='btn btn-tiny btn-cmd log-cmd-edit' 
+						data-log-id="{$log.LogID}">编辑</a>
+					{/if}
+			
+					{* 时间 *}
+					<span class='log-time'>{$log.LogTime}</span>
+				</div>
+						
+				{* 回复 *}
+				{if $log.commentsNum != 0}
+				<div class='comments-wap'>
+					{foreach $log.comments as $comm}
+					{include file='../comments.tc'}
+					{/foreach}
+				</div>
+				{/if}
+
+			</div>
 		</div>
 	</div>
 
@@ -204,10 +160,8 @@ $(document).ready(function(){
 <!-- 添加记录 -->
 <div id='dialog-new-log'>
 	<form id="form-new-log" action="GoalC.php" method="post">
-		<input type='text' id='log-title' autocomplete='off' placeholder='标题（可不填）' name='logTitle' />	
 		<textarea id="log-content" class='validate[required]' autocomplete='off' placeholder="内容" name="logContent"></textarea>
 		<input type="hidden" name="goalID" value="{$goal.GoalID}" />
-		<input type="hidden" name="typeID" value="1" />
 		<input type="hidden" name="act" value="new_log" />
 	</form>	
 </div>
@@ -215,7 +169,6 @@ $(document).ready(function(){
 <!-- 修改记录 -->
 <div id='dialog-edit-log'>
 	<form id="form-edit-log" action="GoalC.php" method="post">
-		<input type='text' id='log-title' autocomplete='off' placeholder='标题（可不填）' name='logTitle'>
 		<textarea id="log-content" class='validate[required]' autocomplete='off' placeholder="内容" name="logContent"></textarea>	
 		<input type="hidden" name="logID" />
 		<input type="hidden" name="act" value="update_log" />

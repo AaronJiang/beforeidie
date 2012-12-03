@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-11-24 13:16:26
+<?php /* Smarty version Smarty-3.1.12, created on 2012-12-03 09:43:23
          compiled from "..\view\goal\details.tp" */ ?>
 <?php /*%%SmartyHeaderCode:1933950938337f31405-89020659%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6c71f1ce3e74505d967d613caadd6976236f3c18' => 
     array (
       0 => '..\\view\\goal\\details.tp',
-      1 => 1353759385,
+      1 => 1354524198,
       2 => 'file',
     ),
   ),
@@ -20,9 +20,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'variables' => 
   array (
     'goal' => 0,
-    'userID' => 0,
     'isCreator' => 0,
-    'pagesNum' => 0,
+    'log' => 0,
+    'userID' => 0,
+    'userAvatar' => 0,
     'creator' => 0,
     'creatorAvatar' => 0,
   ),
@@ -34,63 +35,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <script type='text/javascript' src='../js/goal-comment.js'></script>
 <script type="text/javascript">
 
+
 $(document).ready(function(){
-	//全局变量
-	var GOAL_ID = <?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
-,
-		USER_ID = <?php echo $_smarty_tpl->tpl_vars['userID']->value;?>
-;
-
-	/* Pager
-	----------------------------------------------------*/
-	
-	var PAGE_NUM = 1,	//当前页数
-		NUM_PER_PAGE = 20,
-		TOTAL_PAGE_NUM = $('#total-page-num').text(),	//总页数
-		isCreator = <?php echo $_smarty_tpl->tpl_vars['isCreator']->value;?>
-;
-
-		
-	//加载函数
-	function load_logs(pageNum){
-		var data = {
-			act: 'get_logs',
-			'goalID': GOAL_ID,
-			'pageNum': pageNum,
-			'numPerPage': NUM_PER_PAGE,
-			'isCreator': isCreator
-		};
-		
-		$('#logs').load('GoalC.php', data, function(){
-			$('#curr-page-num').text(pageNum);	
-		});
-	}
-	
-	//加载第一页
-	load_logs(PAGE_NUM);
-	
-	//上一页
-	$('#page-up').click(function(){
-		if(PAGE_NUM <= 1)
-			return;
-		
-		PAGE_NUM -=1; 
-		load_logs(PAGE_NUM);
-	});
-
-	//下一页
-	$('#page-down').click(function(){
-		if(PAGE_NUM >= TOTAL_PAGE_NUM)
-			return;
-			
-		PAGE_NUM += 1;
-		load_logs(PAGE_NUM);
-	});
-	
-	//若不是 Goal 创建者，则停止执行 js 代码
-	if(!isCreator){
-		return;
-	}
 
 	/* New Log
 	----------------------------------------------------*/
@@ -165,19 +111,8 @@ $(document).ready(function(){
 			scroll: false
 		});
 	});
-
-	/* Delete Log
-	----------------------------------------------------*/
-
-	//记录删除警告框
-	$('.log-cmd-delete').live('click', function(){
-		if(!confirm("确定删除此记录？")){
-			return false;
-		}
-	});
-	
-	
 });
+
 
 </script>
 
@@ -202,24 +137,54 @@ $(document).ready(function(){
 		<div id='goal-reason'><?php echo $_smarty_tpl->tpl_vars['goal']->value['Reason'];?>
 </div>
 		
-		<!-- Logs -->
-		<div id='logs-wap'>
-			<?php if ($_smarty_tpl->tpl_vars['isCreator']->value){?>
-			<a class="btn btn-small" id="cmd-add-log">添加</a>
-			<?php }?>
-			
-			<!--
-			<div id='logs-pager'>
-				<span id='curr-page-num'>1</span>
-				<span>/</span>
-				<span id='total-page-num'><?php echo $_smarty_tpl->tpl_vars['pagesNum']->value;?>
-</span>
-				<a id='page-up' >上页</a
-				><a id='page-down'>下页</a>
-			</div>
-			-->
+		<!-- Log -->
+		<div id='log-wap'>
 
-			<div id='logs'></div>
+			<div id='log-wap' class='new-comment-parent'>
+
+				
+				<div class="log-content" contenteditable="false"><?php echo $_smarty_tpl->tpl_vars['log']->value['LogContent'];?>
+</div>
+						
+				
+				<div class='log-footer'>
+					<a class='btn btn-tiny btn-cmd cmd-new-comment' 
+						data-log-id="<?php echo $_smarty_tpl->tpl_vars['log']->value['LogID'];?>
+"
+						data-poster-id="<?php echo $_smarty_tpl->tpl_vars['userID']->value;?>
+"
+						data-is-root='1'
+						data-avatar-url="<?php echo $_smarty_tpl->tpl_vars['userAvatar']->value;?>
+"
+						>回复<?php if ($_smarty_tpl->tpl_vars['log']->value['commentsNum']!=0){?>(<?php echo $_smarty_tpl->tpl_vars['log']->value['commentsNum'];?>
+)<?php }?></a>
+
+					<?php if ($_smarty_tpl->tpl_vars['isCreator']->value){?>
+					<a class='btn btn-tiny btn-cmd log-cmd-edit' 
+						data-log-id="<?php echo $_smarty_tpl->tpl_vars['log']->value['LogID'];?>
+">编辑</a>
+					<?php }?>
+			
+					
+					<span class='log-time'><?php echo $_smarty_tpl->tpl_vars['log']->value['LogTime'];?>
+</span>
+				</div>
+						
+				
+				<?php if ($_smarty_tpl->tpl_vars['log']->value['commentsNum']!=0){?>
+				<div class='comments-wap'>
+					<?php  $_smarty_tpl->tpl_vars['comm'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['comm']->_loop = false;
+ $_from = $_smarty_tpl->tpl_vars['log']->value['comments']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['comm']->key => $_smarty_tpl->tpl_vars['comm']->value){
+$_smarty_tpl->tpl_vars['comm']->_loop = true;
+?>
+					<?php echo $_smarty_tpl->getSubTemplate ('../comments.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+
+					<?php } ?>
+				</div>
+				<?php }?>
+
+			</div>
 		</div>
 	</div>
 
@@ -246,11 +211,9 @@ $(document).ready(function(){
 <!-- 添加记录 -->
 <div id='dialog-new-log'>
 	<form id="form-new-log" action="GoalC.php" method="post">
-		<input type='text' id='log-title' autocomplete='off' placeholder='标题（可不填）' name='logTitle' />	
 		<textarea id="log-content" class='validate[required]' autocomplete='off' placeholder="内容" name="logContent"></textarea>
 		<input type="hidden" name="goalID" value="<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
 " />
-		<input type="hidden" name="typeID" value="1" />
 		<input type="hidden" name="act" value="new_log" />
 	</form>	
 </div>
@@ -258,7 +221,6 @@ $(document).ready(function(){
 <!-- 修改记录 -->
 <div id='dialog-edit-log'>
 	<form id="form-edit-log" action="GoalC.php" method="post">
-		<input type='text' id='log-title' autocomplete='off' placeholder='标题（可不填）' name='logTitle'>
 		<textarea id="log-content" class='validate[required]' autocomplete='off' placeholder="内容" name="logContent"></textarea>	
 		<input type="hidden" name="logID" />
 		<input type="hidden" name="act" value="update_log" />

@@ -243,7 +243,7 @@
 			"file": "view/person/person.tp",
 			"settings":
 			{
-				"buffer_size": 3080,
+				"buffer_size": 3448,
 				"line_ending": "Windows"
 			}
 		},
@@ -251,7 +251,7 @@
 			"file": "view/header.tc",
 			"settings":
 			{
-				"buffer_size": 2013,
+				"buffer_size": 1996,
 				"line_ending": "CR"
 			}
 		},
@@ -559,7 +559,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -574,8 +574,8 @@
 						"selection":
 						[
 							[
-								7484,
-								7484
+								7379,
+								7379
 							]
 						],
 						"settings":
@@ -584,7 +584,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 8840.0,
+						"translation.y": 8900.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -594,15 +594,15 @@
 					"file": "view/person/person.tp",
 					"settings":
 					{
-						"buffer_size": 3080,
+						"buffer_size": 3448,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								2878,
+								2878
 							]
 						],
 						"settings":
@@ -611,7 +611,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1320.0,
+						"translation.y": 1080.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -621,15 +621,15 @@
 					"file": "view/header.tc",
 					"settings":
 					{
-						"buffer_size": 2013,
+						"buffer_size": 1996,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1862,
+								1862
 							]
 						],
 						"settings":
@@ -638,7 +638,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 240.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -665,7 +665,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3625.0,
+						"translation.y": 625.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -769,6 +769,10 @@
 		"selected_items":
 		[
 			[
+				"hea",
+				"view/header.tc"
+			],
+			[
 				"ab",
 				"view/person/about_me_dyns.tc"
 			],
@@ -807,10 +811,6 @@
 			[
 				"pu",
 				"ctrl/PublicC.php"
-			],
-			[
-				"hea",
-				"view/header.tc"
 			],
 			[
 				"dyn",
