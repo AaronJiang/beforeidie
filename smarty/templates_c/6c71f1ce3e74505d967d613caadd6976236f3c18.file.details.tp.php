@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-12-03 09:43:23
+<?php /* Smarty version Smarty-3.1.12, created on 2012-12-03 15:15:53
          compiled from "..\view\goal\details.tp" */ ?>
 <?php /*%%SmartyHeaderCode:1933950938337f31405-89020659%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6c71f1ce3e74505d967d613caadd6976236f3c18' => 
     array (
       0 => '..\\view\\goal\\details.tp',
-      1 => 1354524198,
+      1 => 1354544114,
       2 => 'file',
     ),
   ),
@@ -91,7 +91,7 @@ $(document).ready(function(){
 	});
 	
 	//打开记录修改框
-	$('.log-cmd-edit').live('click', function(){
+	$('.cmd-edit-log').live('click', function(){
 		//ID
 		var logID = $(this).data('log-id');
 		$("#form-edit-log input[name='logID']").val(logID);
@@ -111,6 +111,55 @@ $(document).ready(function(){
 			scroll: false
 		});
 	});
+
+	// 更新标题
+	$('#goal-title').blur(function(){
+		var goalTitle = $(this).text(),
+			goalID = $(this).data('goal-id');
+
+		$.ajax({
+			url: 'GoalC.php',
+			type: 'POST',
+			data: {
+				'act': 'update_goal_title',
+				'goalID': goalID,
+				'goalTitle': goalTitle
+			}
+		});
+	});
+
+	// 更新描述
+	$('#goal-reason').blur(function(){
+		var goalReason = $(this).text(),
+			goalID = $(this).data('goal-id');
+
+		$.ajax({
+			url: 'GoalC.php',
+			type: 'POST',
+			data: {
+				'act': 'update_goal_reason',
+				'goalID': goalID,
+				'goalReason': goalReason
+			}
+		});
+	});
+
+
+	// 更新内容
+	$('#log-content').blur(function(){
+		var logID = $(this).data('log-id');
+		var logContent = $(this).html();
+
+		$.ajax({
+			url: 'GoalC.php',
+			type: 'POST',
+			data: {
+				'act': 'update_log',
+				'logID': logID,
+				'logContent': logContent 
+			}
+		});
+	});
 });
 
 
@@ -122,69 +171,61 @@ $(document).ready(function(){
 
 		<!-- Title -->
 		<div id='title-wap'>
-			<h1 id='goal-title'><?php echo $_smarty_tpl->tpl_vars['goal']->value['Title'];?>
-</h1>
+			<h2 id="goal-title" data-goal-id="<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
+" contenteditable="true"><?php echo $_smarty_tpl->tpl_vars['goal']->value['Title'];?>
+</h2>
 			
-			<div id='goal-cmd-wap'>	
-			<?php if ($_smarty_tpl->tpl_vars['isCreator']->value){?>
-				<a id='cmd-edit-goal' class="btn btn-small" href='GoalC.php?act=edit&goalID=<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
+			<div id='goal-cmd-wap'>
+				<!--
+				<?php if ($_smarty_tpl->tpl_vars['isCreator']->value){?>
+				<a id='cmd-edit-goal' href='GoalC.php?act=edit&goalID=<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
 '>修改</a>
-			<?php }?>
+				<?php }?>
+				
+				<a class='btn btn-small cmd-edit-log' data-log-id="<?php echo $_smarty_tpl->tpl_vars['log']->value['LogID'];?>
+">编辑</a>
+
+				<a class='btn btn-small cmd-new-comment' 
+					data-log-id="<?php echo $_smarty_tpl->tpl_vars['log']->value['LogID'];?>
+"
+					data-poster-id="<?php echo $_smarty_tpl->tpl_vars['userID']->value;?>
+"
+					data-is-root='1'
+					data-avatar-url="<?php echo $_smarty_tpl->tpl_vars['userAvatar']->value;?>
+"
+				>回复<?php if ($_smarty_tpl->tpl_vars['log']->value['commentsNum']!=0){?>(<?php echo $_smarty_tpl->tpl_vars['log']->value['commentsNum'];?>
+)<?php }?></a>-->
 			</div>
 		</div>
 		
 		<!-- Reason -->
-		<div id='goal-reason'><?php echo $_smarty_tpl->tpl_vars['goal']->value['Reason'];?>
+		<div id='goal-reason' data-goal-id="<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
+" contenteditable="true"><?php echo $_smarty_tpl->tpl_vars['goal']->value['Reason'];?>
 </div>
 		
 		<!-- Log -->
-		<div id='log-wap'>
+		<div id='log-wap' class='new-comment-parent'>
 
-			<div id='log-wap' class='new-comment-parent'>
-
-				
-				<div class="log-content" contenteditable="false"><?php echo $_smarty_tpl->tpl_vars['log']->value['LogContent'];?>
-</div>
-						
-				
-				<div class='log-footer'>
-					<a class='btn btn-tiny btn-cmd cmd-new-comment' 
-						data-log-id="<?php echo $_smarty_tpl->tpl_vars['log']->value['LogID'];?>
-"
-						data-poster-id="<?php echo $_smarty_tpl->tpl_vars['userID']->value;?>
-"
-						data-is-root='1'
-						data-avatar-url="<?php echo $_smarty_tpl->tpl_vars['userAvatar']->value;?>
-"
-						>回复<?php if ($_smarty_tpl->tpl_vars['log']->value['commentsNum']!=0){?>(<?php echo $_smarty_tpl->tpl_vars['log']->value['commentsNum'];?>
-)<?php }?></a>
-
-					<?php if ($_smarty_tpl->tpl_vars['isCreator']->value){?>
-					<a class='btn btn-tiny btn-cmd log-cmd-edit' 
-						data-log-id="<?php echo $_smarty_tpl->tpl_vars['log']->value['LogID'];?>
-">编辑</a>
-					<?php }?>
+			<div id="log-content" data-log-id="<?php echo $_smarty_tpl->tpl_vars['log']->value['LogID'];?>
+" contenteditable="true"><?php echo $_smarty_tpl->tpl_vars['log']->value['LogContent'];?>
+</div>	
 			
-					
-					<span class='log-time'><?php echo $_smarty_tpl->tpl_vars['log']->value['LogTime'];?>
-</span>
-				</div>
-						
-				
-				<?php if ($_smarty_tpl->tpl_vars['log']->value['commentsNum']!=0){?>
-				<div class='comments-wap'>
-					<?php  $_smarty_tpl->tpl_vars['comm'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['comm']->_loop = false;
- $_from = $_smarty_tpl->tpl_vars['log']->value['comments']; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
-foreach ($_from as $_smarty_tpl->tpl_vars['comm']->key => $_smarty_tpl->tpl_vars['comm']->value){
-$_smarty_tpl->tpl_vars['comm']->_loop = true;
-?>
-					<?php echo $_smarty_tpl->getSubTemplate ('../comments.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
-
-					<?php } ?>
-				</div>
-				<?php }?>
-
+			<div class="log-footer">
+				<!--<a class='cmd-new-comment' 
+					data-log-id="<?php echo $_smarty_tpl->tpl_vars['log']->value['LogID'];?>
+"
+					data-poster-id="<?php echo $_smarty_tpl->tpl_vars['userID']->value;?>
+"
+					data-is-root='1'
+					data-avatar-url="<?php echo $_smarty_tpl->tpl_vars['userAvatar']->value;?>
+"
+				>回复<?php if ($_smarty_tpl->tpl_vars['log']->value['commentsNum']!=0){?>(<?php echo $_smarty_tpl->tpl_vars['log']->value['commentsNum'];?>
+)<?php }?></a>
+				<span class='log-time'><?php echo $_smarty_tpl->tpl_vars['log']->value['LogTime'];?>
+</span>-->
 			</div>
+					
+			
 		</div>
 	</div>
 

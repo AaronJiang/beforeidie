@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-11-15 03:13:40
+<?php /* Smarty version Smarty-3.1.12, created on 2012-12-03 14:10:53
          compiled from "..\view\goal\edit.tp" */ ?>
 <?php /*%%SmartyHeaderCode:17491509e2f5b59e7c5-65278564%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'ded67ae390f7b771dd2e3f2c97cc883c55ce3785' => 
     array (
       0 => '..\\view\\goal\\edit.tp',
-      1 => 1352818577,
+      1 => 1354538978,
       2 => 'file',
     ),
   ),
@@ -35,7 +35,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 </script>
 
 
-<h4 class='page-title'>编辑 Goal</h4>
+<h3 class='page-title'>编辑 Goal</h3>
 
 <form id="form-edit-goal" action="GoalC.php" method="post">
 	<div>

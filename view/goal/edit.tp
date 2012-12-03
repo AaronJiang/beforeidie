@@ -8,7 +8,7 @@
 </script>
 {/literal}
 
-<h4 class='page-title'>编辑 Goal</h4>
+<h3 class='page-title'>编辑 Goal</h3>
 
 <form id="form-edit-goal" action="GoalC.php" method="post">
 	<div>

@@ -59,7 +59,7 @@ $(document).ready(function(){
 	});
 	
 	//打开记录修改框
-	$('.log-cmd-edit').live('click', function(){
+	$('.cmd-edit-log').live('click', function(){
 		//ID
 		var logID = $(this).data('log-id');
 		$("#form-edit-log input[name='logID']").val(logID);
@@ -79,6 +79,55 @@ $(document).ready(function(){
 			scroll: false
 		});
 	});
+
+	// 更新标题
+	$('#goal-title').blur(function(){
+		var goalTitle = $(this).text(),
+			goalID = $(this).data('goal-id');
+
+		$.ajax({
+			url: 'GoalC.php',
+			type: 'POST',
+			data: {
+				'act': 'update_goal_title',
+				'goalID': goalID,
+				'goalTitle': goalTitle
+			}
+		});
+	});
+
+	// 更新描述
+	$('#goal-reason').blur(function(){
+		var goalReason = $(this).text(),
+			goalID = $(this).data('goal-id');
+
+		$.ajax({
+			url: 'GoalC.php',
+			type: 'POST',
+			data: {
+				'act': 'update_goal_reason',
+				'goalID': goalID,
+				'goalReason': goalReason
+			}
+		});
+	});
+
+
+	// 更新内容
+	$('#log-content').blur(function(){
+		var logID = $(this).data('log-id');
+		var logContent = $(this).html();
+
+		$.ajax({
+			url: 'GoalC.php',
+			type: 'POST',
+			data: {
+				'act': 'update_log',
+				'logID': logID,
+				'logContent': logContent 
+			}
+		});
+	});
 });
 
 {/literal}
@@ -90,54 +139,52 @@ $(document).ready(function(){
 
 		<!-- Title -->
 		<div id='title-wap'>
-			<h1 id='goal-title'>{$goal.Title}</h1>
+			<h2 id="goal-title" data-goal-id="{$goal.GoalID}" contenteditable="true">{$goal.Title}</h2>
 			
-			<div id='goal-cmd-wap'>	
-			{if $isCreator}
-				<a id='cmd-edit-goal' class="btn btn-small" href='GoalC.php?act=edit&goalID={$goal.GoalID}'>修改</a>
-			{/if}
+			<div id='goal-cmd-wap'>
+				<!--
+				{if $isCreator}
+				<a id='cmd-edit-goal' href='GoalC.php?act=edit&goalID={$goal.GoalID}'>修改</a>
+				{/if}
+				
+				<a class='btn btn-small cmd-edit-log' data-log-id="{$log.LogID}">编辑</a>
+
+				<a class='btn btn-small cmd-new-comment' 
+					data-log-id="{$log.LogID}"
+					data-poster-id="{$userID}"
+					data-is-root='1'
+					data-avatar-url="{$userAvatar}"
+				>回复{if $log.commentsNum != 0}({$log.commentsNum}){/if}</a>-->
 			</div>
 		</div>
 		
 		<!-- Reason -->
-		<div id='goal-reason'>{$goal.Reason}</div>
+		<div id='goal-reason' data-goal-id="{$goal.GoalID}" contenteditable="true">{$goal.Reason}</div>
 		
 		<!-- Log -->
-		<div id='log-wap'>
+		<div id='log-wap' class='new-comment-parent'>
 
-			<div id='log-wap' class='new-comment-parent'>
-
-				{* 内容 *}
-				<div class="log-content" contenteditable="false">{$log.LogContent}</div>
-						
-				{* 操作按钮 *}
-				<div class='log-footer'>
-					<a class='btn btn-tiny btn-cmd cmd-new-comment' 
-						data-log-id="{$log.LogID}"
-						data-poster-id="{$userID}"
-						data-is-root='1'
-						data-avatar-url="{$userAvatar}"
-						>回复{if $log.commentsNum != 0}({$log.commentsNum}){/if}</a>
-
-					{if $isCreator}
-					<a class='btn btn-tiny btn-cmd log-cmd-edit' 
-						data-log-id="{$log.LogID}">编辑</a>
-					{/if}
+			<div id="log-content" data-log-id="{$log.LogID}" contenteditable="true">{$log.LogContent}</div>	
 			
-					{* 时间 *}
-					<span class='log-time'>{$log.LogTime}</span>
-				</div>
-						
-				{* 回复 *}
-				{if $log.commentsNum != 0}
-				<div class='comments-wap'>
-					{foreach $log.comments as $comm}
-					{include file='../comments.tc'}
-					{/foreach}
-				</div>
-				{/if}
-
+			<div class="log-footer">
+				<!--<a class='cmd-new-comment' 
+					data-log-id="{$log.LogID}"
+					data-poster-id="{$userID}"
+					data-is-root='1'
+					data-avatar-url="{$userAvatar}"
+				>回复{if $log.commentsNum != 0}({$log.commentsNum}){/if}</a>
+				<span class='log-time'>{$log.LogTime}</span>-->
 			</div>
+					
+			{* 回复 
+			{if $log.commentsNum != 0}
+			<div class='comments-wap'>
+				{foreach $comments as $comm}
+				{include file='../comments.tc'}
+				{/foreach}
+			</div>
+			{/if}
+			*}
 		</div>
 	</div>
 

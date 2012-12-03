@@ -147,11 +147,12 @@
 
 	/* Title */
 	#title-wap {
-		margin-bottom: 10px;
 		position: relative;
 		
 		#goal-title {
 			font-weight: normal;
+			outline: none;
+			margin-bottom: 5px;
 		}
 			
 		#goal-cmd-wap{
@@ -159,17 +160,26 @@
 			top: 0;
 			right: 0;
 		
-			a {
-				margin: 0 0 0 8px;
+			#cmd-edit-goal {
+				color: @grayLighter;
+				font-size: @fontSizeSmall;
+
+				&:hover{
+					color: @grayLight;
+					cursor: pointer;
+				}
 			}	
 		}	
 	}
 	
 	#goal-reason{
-		margin:0 0 5px 0;
+		margin:0 0 15px 0;
 		padding: 0 0 10px 0;
-		color: @gray;
+		outline: none;
+		font-size: @fontSizeLarge;
 		border-bottom: 1px solid @grayLight;
+		font-family: @altFontFamily;
+		//font-style: italic;
 	}
 
 	/* logs */
@@ -181,17 +191,17 @@
 		#cmd-add-log{
 			float: right;
 		}
-		
-		.log-title{
-			font-size: @fontSizeLarge;
-			font-weight: bold;
-			margin: 0 0 5px 0;
-		}
 	
-		.log-content{
+		#log-content{
 			font-family: @altFontFamily;
-			line-height: 22px;
+			font-size: @fontSizeLarge;
+			line-height: 25px;
 			margin: 0 0 5px 0;
+			outline: none;
+
+			div{
+				margin-bottom: 15px;
+			}
 		}
 		
 		.log-footer{
@@ -201,6 +211,15 @@
 			
 			.log-time{
 				color: @gray;
+			}
+
+			.cmd-new-comment{
+				color: @grayLighter;
+
+				&:hover{
+					color: @grayLight;
+					cursor: pointer;
+				}
 			}
 		}
 	}
@@ -213,11 +232,6 @@
 	
 	#dialog-new-log #form-new-log,
 	#dialog-edit-log #form-edit-log{
-				
-		#log-title{
-			margin: 0 0 15px 0;
-			width: 454px;
-		}
 	
 		#log-content{
 			width: 454px;
@@ -239,10 +253,13 @@
 		position: relative;
 		
 		#user-info{
-			margin: 0 0 0 72px;
+			margin: 0px 0 0 72px;
 			
 			#username{
 				margin-bottom: 5px;
+				font-size: 25px;
+				line-height: 25px;
+				font-weight: normal;
 			}
 
 			#follow-info-wap{

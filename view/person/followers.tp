@@ -1,8 +1,8 @@
 {include file='../header.tc' title="关注 {$username} 的人们" page='page-followers'}
 
-<h4 class="page-title">
+<h3 class="page-title">
 	关注 <a href="PersonC.php?act=person&userID={$userID}">{$username}</a> 的人 / {$followersNum}
-</h4>
+</h3>
 
 {foreach $followers as $fow}
 <div class='followee-item clearfix'>

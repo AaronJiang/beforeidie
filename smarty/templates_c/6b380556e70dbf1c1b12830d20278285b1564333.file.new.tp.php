@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-12-03 09:04:38
+<?php /* Smarty version Smarty-3.1.12, created on 2012-12-03 14:43:33
          compiled from "..\view\goal\new.tp" */ ?>
 <?php /*%%SmartyHeaderCode:225625092389e5c3365-55689534%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6b380556e70dbf1c1b12830d20278285b1564333' => 
     array (
       0 => '..\\view\\goal\\new.tp',
-      1 => 1354521876,
+      1 => 1354542212,
       2 => 'file',
     ),
   ),
@@ -34,15 +34,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 </script>
 
 
-<h4 class="page-title">新的</h4>
+<h3 class="page-title">我想</h3>
 
 <form id="form-new-goal" action="GoalC.php" method="post">
 	<div>
-		<input type="text" placeholder="我想" class='validate[required]' name="title" id="goal-title" autocomplete="off" />
+		<input type="text" placeholder="" class='validate[required]' name="title" id="goal-title" autocomplete="off" />
 	</div>
 	
 	<div>
-		<textarea rows="8" placeholder="一句话简单介绍下！" class='validate[required]' name="why" id="goal-why"></textarea>
+		<textarea rows="5" placeholder="一句话简单介绍下！" class='validate[required]' name="why" id="goal-why"></textarea>
 	</div>	
 	
 	<div>

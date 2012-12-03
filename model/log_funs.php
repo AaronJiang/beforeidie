@@ -38,7 +38,7 @@
 			$logContent = addslashes($logContent);
 		}
 
-		$logContent = nl2br($logContent);
+		//$logContent = nl2br($logContent);
 		
 		$query = "UPDATE goal_logs\n"
 				. "SET LogContent = '". $logContent. "'\n"

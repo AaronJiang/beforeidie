@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-12-03 09:05:18
+<?php /* Smarty version Smarty-3.1.12, created on 2012-12-03 15:09:51
          compiled from "..\view\person\person.tp" */ ?>
 <?php /*%%SmartyHeaderCode:4986509235e2350e62-48954490%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '408a68eee0c915ea04698cd6d0862e63ac44b953' => 
     array (
       0 => '..\\view\\person\\person.tp',
-      1 => 1354521841,
+      1 => 1354543470,
       2 => 'file',
     ),
   ),
@@ -118,8 +118,8 @@ $(document).ready(function(){
 ' />
 
 			<div id="user-info">
-				<h4 id='username'><?php echo $_smarty_tpl->tpl_vars['user']->value['Name'];?>
- 的主页</h4>
+				<div id='username'><?php echo $_smarty_tpl->tpl_vars['user']->value['Name'];?>
+ 的主页</div>
 				<div id="follow-info-wap">
 					<a href="PersonC.php?act=followees&userID=<?php echo $_smarty_tpl->tpl_vars['user']->value['ID'];?>
 "><b><?php echo $_smarty_tpl->tpl_vars['followeesNum']->value;?>
@@ -149,8 +149,10 @@ $(document).ready(function(){
 		<div id='dynamic-sel-wap'>
 			<a class='dynamic-sel' href='PersonC.php?act=person&userID=<?php echo $_smarty_tpl->tpl_vars['user']->value['ID'];?>
 &dynType=followees'>动态消息</a>
+			<?php if ($_smarty_tpl->tpl_vars['isMe']->value){?>
 			<a class='dynamic-sel' href='PersonC.php?act=person&userID=<?php echo $_smarty_tpl->tpl_vars['user']->value['ID'];?>
 &dynType=aboutme'>与我相关</a>
+			<?php }?>
 		</div>
 
 		<!--
@@ -180,7 +182,7 @@ $_smarty_tpl->tpl_vars['goal']->_loop = true;
 	<div class='span3'>
 		<?php echo $_smarty_tpl->getSubTemplate ('../panel_header.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'我想'), 0);?>
 
-		
+
 		<div class='goal-wap'>
 			<?php  $_smarty_tpl->tpl_vars['goal'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['goal']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['goals']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
@@ -196,8 +198,6 @@ $_smarty_tpl->tpl_vars['goal']->_loop = true;
 				
 				<div class='goal-reason'><?php echo $_smarty_tpl->tpl_vars['goal']->value['Reason'];?>
 </div>
-				<div class='goal-num-wap'><?php echo $_smarty_tpl->tpl_vars['goal']->value['logsNum'];?>
- 记录</div>
 			</div>
 			<?php } ?>
 		</div>

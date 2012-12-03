@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-11-24 05:18:01
+<?php /* Smarty version Smarty-3.1.12, created on 2012-12-03 14:29:10
          compiled from "..\view\person\followees.tp" */ ?>
 <?php /*%%SmartyHeaderCode:24351509e3652ec2016-83359460%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'b51219e890a25f6d9064b205593e61b0fe6f0a61' => 
     array (
       0 => '..\\view\\person\\followees.tp',
-      1 => 1353726092,
+      1 => 1354538987,
       2 => 'file',
     ),
   ),
@@ -30,12 +30,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <?php if ($_valid && !is_callable('content_509e365302e6d4_40956103')) {function content_509e365302e6d4_40956103($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ('../header.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>((string)$_smarty_tpl->tpl_vars['username']->value)." 关注的人们",'page'=>'page-followees'), 0);?>
 
 
-<h4 class="page-title">
+<h3 class="page-title">
 	<a href='PersonC.php?act=person&userID=<?php echo $_smarty_tpl->tpl_vars['userID']->value;?>
 '><?php echo $_smarty_tpl->tpl_vars['username']->value;?>
 </a> 关注的人 / <?php echo $_smarty_tpl->tpl_vars['followeesNum']->value;?>
 
-</h4>
+</h3>
 
 <?php  $_smarty_tpl->tpl_vars['fow'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['fow']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['followees']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}

@@ -16,7 +16,6 @@
 		case 'new':
 			$sm = new sm('goal');
 
-			// userID
 			@session_start();
 			$sm->assign('userID', $_SESSION['valid_user_id']);
 
@@ -26,7 +25,7 @@
 		// create a new goal
 		case "new_goal":
 			$goalID = new_goal($_REQUEST['userID'], $_REQUEST['title'], $_REQUEST['why'], $_REQUEST['isPublic']);
-			redirect('Goal', 'my_goals');
+			redirect('Person', 'person', array('userID' => $_REQUEST['userID']));
 			break;
 		
 	// edit goal
@@ -51,9 +50,9 @@
 			page_jump($_REQUEST['refererUrl']);
 			break;
 	
-	// goal details
+	// page goal details
 		
-		// get views
+		// view
 		case 'details':
 			$sm = new sm('goal');
 			
@@ -75,9 +74,15 @@
 			$sm->assign('creator', $creator);
 			$sm->assign('creatorAvatar', get_gravatar($creator['UserID']));
 
-			// log
-			$sm->assign('log', get_log($goalID));
-			
+			// log content
+			$log = get_log($goalID);
+			$sm->assign('log', $log);
+			$sm->assign('userAvatar', get_gravatar($userID));
+
+			// comments
+			$comments = get_log_comments_full($log['LogID']);
+			$sm->assign('comments', $comments);
+
 			$sm->display('details.tp');
 			break;
 
@@ -108,20 +113,25 @@
 			$output = $sm->fetch('logs.tc');
 			echo $output;
 			break;
-		
-		// delete log
+
+		case "update_goal_title":
+			update_goal_title($_REQUEST['goalID'], $_REQUEST['goalTitle']);
+			break;
+
+		case "update_goal_reason":
+			update_goal_reason($_REQUEST['goalID'], $_REQUEST['goalReason']);
+			break;
+
 		case "delete_log":
 			delete_log($_REQUEST['logID']);
 			page_jump_back();
 			break;
 		
-		// new log
 		case "new_log":
 			new_log($_REQUEST['logContent'], $_REQUEST['goalID']);
 			page_jump_back();
 			break;
 			
-		// update log
 		case "update_log":
 			update_log($_REQUEST['logID'], $_REQUEST['logContent']);
 			page_jump_back();

@@ -82,7 +82,7 @@ $(document).ready(function(){
 			<img class='avatar avatar-side avatar-large' src='{$user.Avatar}' />
 
 			<div id="user-info">
-				<h4 id='username'>{$user.Name} 的主页</h4>
+				<div id='username'>{$user.Name} 的主页</div>
 				<div id="follow-info-wap">
 					<a href="PersonC.php?act=followees&userID={$user.ID}"><b>{$followeesNum}</b> 关注</a>
 					<span> / </span>
@@ -103,7 +103,9 @@ $(document).ready(function(){
 
 		<div id='dynamic-sel-wap'>
 			<a class='dynamic-sel' href='PersonC.php?act=person&userID={$user.ID}&dynType=followees'>动态消息</a>
+			{if $isMe}
 			<a class='dynamic-sel' href='PersonC.php?act=person&userID={$user.ID}&dynType=aboutme'>与我相关</a>
+			{/if}
 		</div>
 
 		<!--
@@ -125,7 +127,7 @@ $(document).ready(function(){
 
 	<div class='span3'>
 		{include file='../panel_header.tc' title='我想'}
-		
+
 		<div class='goal-wap'>
 			{foreach $goals as $goal}
 			<div class='goal-item'>
@@ -134,7 +136,6 @@ $(document).ready(function(){
 				</div>
 				
 				<div class='goal-reason'>{$goal.Reason}</div>
-				<div class='goal-num-wap'>{$goal.logsNum} 记录</div>
 			</div>
 			{/foreach}
 		</div>
