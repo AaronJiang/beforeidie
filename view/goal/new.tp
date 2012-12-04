@@ -1,34 +1,17 @@
-{include file='../header.tc' title='新的Goal' page='page-new-goal'}
+{include file='../header.tc' title="新" page='page-new-goal'}
+
+<script type="text/javascript">
 
 {literal}
-<script type="text/javascript">
-	$(document).ready(function(){
-		$('#form-new-goal').validationEngine();
-	});
+$(document).ready(function(){
+	$('#goal-title').focus();
+});
+
 </script>
 {/literal}
 
-<h3 class="page-title">我想</h3>
+<h2 id="goal-title" contenteditable="true"></h2>
 
-<form id="form-new-goal" action="GoalC.php" method="post">
-	<div>
-		<input type="text" placeholder="" class='validate[required]' name="title" id="goal-title" autocomplete="off" />
-	</div>
-	
-	<div>
-		<textarea rows="5" placeholder="一句话简单介绍下！" class='validate[required]' name="why" id="goal-why"></textarea>
-	</div>	
-	
-	<div>
-		<select id='goal-ispublic' name='isPublic'>
-			<option value='1'>公开</option>
-			<option value='0'>私密</option>
-		</select>
-	</div>
-
-	<input type="hidden" name="act" value="new_goal" />
-	<input type="hidden" name="userID" value='{$userID}' />
-	<input type="submit" class="btn btn-primary" id="create-goal" value="添加" />
-</form>
+<div id="log-content" contenteditable="true"></div>	
 
 {include file='../footer.tc'}

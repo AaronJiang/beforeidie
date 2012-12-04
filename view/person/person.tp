@@ -1,146 +1,25 @@
 {include file='../header.tc' title="{$user.Name} 的个人主页" page='page-person'}
 
 <script type='text/javascript' src='../js/goal-comment.js'></script>
-<script type='text/javascript'>
 
-{literal}
+<div id='user-info-wap' class='clearfix'>
+	<img class='avatar avatar-side' src='{$user.Avatar}' />
 
-//获取 URL 中的参数
-function getQueryStr(name) {
-	var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); 
-	var r = window.location.search.substr(1).match(reg); 
+	<div id="user-info">
+		<div id='username'>{$user.Name}想 :</div>
+	</div>
+</div>
 
-	if (r != null) 
-		return unescape(r[2]);
-
-	return null; 
-}
-
-//按需加载动态
-function load_dyns(dynType, userID, pageIndex, numPerPage, isMe, callback){
-	var data = {
-		'userID': userID,
-		'pageIndex': pageIndex,
-		'numPerPage': numPerPage,
-		'isMe': isMe
-	};
-
-	if(dynType == 'followees'){
-		data['act'] = 'get_dyns';
-	} else if(dynType == 'aboutme'){
-		data['act'] = 'get_about_me_dyns';
-	}
-
-	$.get('PersonC.php', data, function(data){
-		$('#dyns').append(data);
-		$('#more-dyns').show();	
-		callback();
-	});	
-}
-
-$(document).ready(function(){
-
-{/literal}
-
-	//初始化翻页参数
-	var userID = {$user.ID},
-		pageIndex = 1,
-		numPerPage = 20,
-		isMe = {$isMe};
-
-{literal}
-
-	//加载第一页
-	$('#more-dyns').hide();
-
-	//获取 URL 中的动态类型
-	var dynType = getQueryStr('dynType')? getQueryStr('dynType'): 'followees';
-
-	load_dyns(dynType, userID, pageIndex, numPerPage, isMe, function(){
-		if($('.dynamic-item').length < 5){
-			$('#more-dyns').detach();
-		} else {
-			//加载更多动态
-			$('#more-dyns').click(function(){
-				pageIndex += 1;
-				load_dyns(dynType, userID, pageIndex, numPerPage, isMe);
-			});		
-		}
-	});
-});
-
-{/literal}
-
-</script>
-
-
-<div class='row'>
-
-	<div class='span9'>
-			
-		<div id='user-info-wap' class='clearfix'>
-			<img class='avatar avatar-side avatar-large' src='{$user.Avatar}' />
-
-			<div id="user-info">
-				<div id='username'>{$user.Name} 的主页</div>
-				<div id="follow-info-wap">
-					<a href="PersonC.php?act=followees&userID={$user.ID}"><b>{$followeesNum}</b> 关注</a>
-					<span> / </span>
-					<a href="PersonC.php?act=followers&userID={$user.ID}"><b>{$followersNum}</b> 被关注</a>
-				</div>
-			</div>
+<div class='goal-wap'>
+	{foreach $goals as $goal}
+	<div class='goal-item'>
+		<div>
+			<a class='goal-title' href='GoalC.php?act=details&goalID={$goal.GoalID}'>{$goal.Title}</a>
+		</div>
 		
-			{if !$isMe}
-			<div id='user-cmd-wap'>
-				{if $isFollowed}
-				<a class="btn btn-primary" href='DynC.php?act=disfollow_user&followerID={$currUserID}&followeeID={$user.ID}'>已关注</a>
-				{else}
-				<a class="btn" href='PersonC.php?act=follow_user&followerID={$currUserID}&followeeID={$user.ID}'>关注</a>
-				{/if}
-			</div>
-			{/if}
-		</div>
-
-		<div id='dynamic-sel-wap'>
-			<a class='dynamic-sel' href='PersonC.php?act=person&userID={$user.ID}&dynType=followees'>动态消息</a>
-			{if $isMe}
-			<a class='dynamic-sel' href='PersonC.php?act=person&userID={$user.ID}&dynType=aboutme'>与我相关</a>
-			{/if}
-		</div>
-
-		<!--
-		<div class='goal-wap'>
-			{foreach $goals as $goal}
-			<div class='goal-item'>
-				<div>
-					<a class='goal-title' href='GoalC.php?act=details&goalID={$goal.GoalID}'>{$goal.Title}</a>
-				</div>
-				
-				<div class='goal-reason'>{$goal.Reason}</div>
-			</div>
-			{/foreach}
-		</div>
-		-->
-		<div id="dyns"></div>
-		<div id="more-dyns">更多</div>
+		<div class='goal-reason'></div>
 	</div>
-
-	<div class='span3'>
-		{include file='../panel_header.tc' title='我想'}
-
-		<div class='goal-wap'>
-			{foreach $goals as $goal}
-			<div class='goal-item'>
-				<div>
-					<a class='goal-title' href='GoalC.php?act=details&goalID={$goal.GoalID}'>{$goal.Title}</a>
-				</div>
-				
-				<div class='goal-reason'>{$goal.Reason}</div>
-			</div>
-			{/foreach}
-		</div>
-	</div>
-
+	{/foreach}
 </div>
 
 {include file='../footer.tc'}

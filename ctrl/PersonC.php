@@ -123,12 +123,6 @@
 			
 			$sm->display('about_me_dyns.tc');
 			break;
-
-		// start goal
-		case "start_goal":
-			start_goal($_REQUEST['goalID']);
-			redirect('Goal', 'my_goals', array('goalType' => 'now'));
-			break;
 			
 		// drop goal
 		case "drop_goal":

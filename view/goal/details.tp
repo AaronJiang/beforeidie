@@ -6,80 +6,6 @@
 {literal}
 $(document).ready(function(){
 
-	/* New Log
-	----------------------------------------------------*/
-	
-	//初始化记录增加框
-	$('#dialog-new-log').dialog({
-		autoOpen: false,
-		modal: true,
-		resizable: false,
-		title: '记录点滴',
-		width: 500,
-		buttons: {
-			'添加': function(){
-				$('#form-new-log').submit();
-			},
-			'取消': function(){
-				$(this).dialog('close');
-			}
-		}	
-	});
-	
-	//打开记录增加框
-	$('#cmd-add-log').click(function(){
-		$('#dialog-new-log').dialog('open');
-		
-		//验证表单
-		$('#form-new-log').validationEngine({
-			promptPosition: 'topLeft',
-			scroll: false
-		});
-	});
-
-	/* Edit Log
-	----------------------------------------------------*/
-	
-	//初始化记录修改框
-	$('#dialog-edit-log').dialog({
-		autoOpen: false,
-		modal: true,
-		draggable: false,
-		resizable: false,
-		title: '编辑',
-		width: 500,
-		buttons: {
-			'保存': function(){
-				$('#form-edit-log').submit();
-			},
-			'取消': function(){
-				$(this).dialog('close');
-			}
-		}	
-	});
-	
-	//打开记录修改框
-	$('.cmd-edit-log').live('click', function(){
-		//ID
-		var logID = $(this).data('log-id');
-		$("#form-edit-log input[name='logID']").val(logID);
-		
-		//标题
-		var logTitle = $(this).parent().parent().find('.log-title').first().text();
-		$("#form-edit-log #log-title").val(logTitle);
-		
-		//内容
-		var logContent = $(this).parent().parent().find('.log-content').first().text();
-		$("#form-edit-log #log-content").val(logContent);
-		
-		$('#dialog-edit-log').dialog('open');
-		
-		$('#form-edit-log').validationEngine({
-			promptPosition: 'topLeft',
-			scroll: false
-		});
-	});
-
 	// 更新标题
 	$('#goal-title').blur(function(){
 		var goalTitle = $(this).text(),
@@ -95,23 +21,6 @@ $(document).ready(function(){
 			}
 		});
 	});
-
-	// 更新描述
-	$('#goal-reason').blur(function(){
-		var goalReason = $(this).text(),
-			goalID = $(this).data('goal-id');
-
-		$.ajax({
-			url: 'GoalC.php',
-			type: 'POST',
-			data: {
-				'act': 'update_goal_reason',
-				'goalID': goalID,
-				'goalReason': goalReason
-			}
-		});
-	});
-
 
 	// 更新内容
 	$('#log-content').blur(function(){
@@ -133,95 +42,38 @@ $(document).ready(function(){
 {/literal}
 </script>
 
-<div class='row'>
 
-	<div class='span9'>
+<!-- Title -->
+<div id='title-wap'>
+	<h2 id="goal-title" data-goal-id="{$goal.GoalID}" contenteditable="true">{$goal.Title}</h2>
+	
+	<div id='goal-cmd-wap'></div>
+</div>
 
-		<!-- Title -->
-		<div id='title-wap'>
-			<h2 id="goal-title" data-goal-id="{$goal.GoalID}" contenteditable="true">{$goal.Title}</h2>
-			
-			<div id='goal-cmd-wap'>
-				<!--
-				{if $isCreator}
-				<a id='cmd-edit-goal' href='GoalC.php?act=edit&goalID={$goal.GoalID}'>修改</a>
-				{/if}
-				
-				<a class='btn btn-small cmd-edit-log' data-log-id="{$log.LogID}">编辑</a>
+<!-- Log -->
+<div id='log-wap' class='new-comment-parent'>
 
-				<a class='btn btn-small cmd-new-comment' 
-					data-log-id="{$log.LogID}"
-					data-poster-id="{$userID}"
-					data-is-root='1'
-					data-avatar-url="{$userAvatar}"
-				>回复{if $log.commentsNum != 0}({$log.commentsNum}){/if}</a>-->
-			</div>
-		</div>
-		
-		<!-- Reason -->
-		<div id='goal-reason' data-goal-id="{$goal.GoalID}" contenteditable="true">{$goal.Reason}</div>
-		
-		<!-- Log -->
-		<div id='log-wap' class='new-comment-parent'>
-
-			<div id="log-content" data-log-id="{$log.LogID}" contenteditable="true">{$log.LogContent}</div>	
-			
-			<div class="log-footer">
-				<!--<a class='cmd-new-comment' 
-					data-log-id="{$log.LogID}"
-					data-poster-id="{$userID}"
-					data-is-root='1'
-					data-avatar-url="{$userAvatar}"
-				>回复{if $log.commentsNum != 0}({$log.commentsNum}){/if}</a>
-				<span class='log-time'>{$log.LogTime}</span>-->
-			</div>
-					
-			{* 回复 
-			{if $log.commentsNum != 0}
-			<div class='comments-wap'>
-				{foreach $comments as $comm}
-				{include file='../comments.tc'}
-				{/foreach}
-			</div>
-			{/if}
-			*}
-		</div>
+	<div id="log-content" data-log-id="{$log.LogID}" contenteditable="true">{$log.LogContent}</div>	
+	
+	<div class="log-footer">
+		<!--<a class='cmd-new-comment' 
+			data-log-id="{$log.LogID}"
+			data-poster-id="{$userID}"
+			data-is-root='1'
+			data-avatar-url="{$userAvatar}"
+		>回复{if $log.commentsNum != 0}({$log.commentsNum}){/if}</a>
+		<span class='log-time'>{$log.LogTime}</span>-->
 	</div>
-
-	<div class='span3'>
-
-		<!-- Creator -->
-		<div id='creator-wap'>
-			{include file='../panel_header.tc' title='创建者'}
 			
-			<a href="PersonC.php?act=person&userID={$creator.UserID}">
-				<img class='avatar avatar-multi' src="{$creatorAvatar}" title="{$creator.Username}" />
-			</a>
-		</div>
+	{* 回复 
+	{if $log.commentsNum != 0}
+	<div class='comments-wap'>
+		{foreach $comments as $comm}
+		{include file='../comments.tc'}
+		{/foreach}
 	</div>
-
+	{/if}
+	*}
 </div>
-
-{if $isCreator}
-
-<!-- 添加记录 -->
-<div id='dialog-new-log'>
-	<form id="form-new-log" action="GoalC.php" method="post">
-		<textarea id="log-content" class='validate[required]' autocomplete='off' placeholder="内容" name="logContent"></textarea>
-		<input type="hidden" name="goalID" value="{$goal.GoalID}" />
-		<input type="hidden" name="act" value="new_log" />
-	</form>	
-</div>
-
-<!-- 修改记录 -->
-<div id='dialog-edit-log'>
-	<form id="form-edit-log" action="GoalC.php" method="post">
-		<textarea id="log-content" class='validate[required]' autocomplete='off' placeholder="内容" name="logContent"></textarea>	
-		<input type="hidden" name="logID" />
-		<input type="hidden" name="act" value="update_log" />
-	</form>	
-</div>
-
-{/if}
 
 {include file='../footer.tc'}

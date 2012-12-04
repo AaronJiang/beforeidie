@@ -27,28 +27,6 @@
 			$goalID = new_goal($_REQUEST['userID'], $_REQUEST['title'], $_REQUEST['why'], $_REQUEST['isPublic']);
 			redirect('Person', 'person', array('userID' => $_REQUEST['userID']));
 			break;
-		
-	// edit goal
-	
-		// get view
-		case 'edit':
-			$sm = new sm('goal');
-			
-			// goal
-			$goalID = $_REQUEST['goalID'];
-		 	$goal = get_goal_by_ID($goalID);
-			$sm->assign('goal', $goal);
-
-			// referer url
-			$sm->assign('refererUrl', $_SERVER['HTTP_REFERER']);
-			
-			$sm->display('edit.tp');
-			break;
-			
-		case "update_goal":
-			update_goal($_REQUEST['goalID'], $_REQUEST['title'], $_REQUEST['why'], $_REQUEST['isPublic']);
-			page_jump($_REQUEST['refererUrl']);
-			break;
 	
 	// page goal details
 		
@@ -86,50 +64,12 @@
 			$sm->display('details.tp');
 			break;
 
-		// get logs
-		case "get_logs":
-			$sm = new sm('goal');
-			
-			// userID, userAvatar
-			@session_start();
-			$userID = $_SESSION['valid_user_id'];
-			$sm->assign('userID', $userID);
-			$sm->assign('userAvatar', get_gravatar($userID));
-
-			// isCreator
-			$sm->assign('isCreator', $_REQUEST['isCreator']);
-			
-			// logs
-			$logs = get_logs($_REQUEST['goalID'], $_REQUEST['pageNum'], $_REQUEST['numPerPage']);
-			foreach($logs as &$log){
-				// comments, commentsNum
-				$comments = get_log_comments_full($log['LogID']);
-				$log['commentsNum'] = count($comments);
-				$log['comments'] = $comments;
-			}
-			$sm->assign('logsNum', count($logs));
-			$sm->assign('logs', $logs);
-			
-			$output = $sm->fetch('logs.tc');
-			echo $output;
-			break;
-
 		case "update_goal_title":
 			update_goal_title($_REQUEST['goalID'], $_REQUEST['goalTitle']);
 			break;
 
 		case "update_goal_reason":
 			update_goal_reason($_REQUEST['goalID'], $_REQUEST['goalReason']);
-			break;
-
-		case "delete_log":
-			delete_log($_REQUEST['logID']);
-			page_jump_back();
-			break;
-		
-		case "new_log":
-			new_log($_REQUEST['logContent'], $_REQUEST['goalID']);
-			page_jump_back();
 			break;
 			
 		case "update_log":

@@ -9,11 +9,6 @@
 	width: 100%;
 	z-index: 10000;
 	background-color: #2B2B2B;
-
-	& +.container{
-		padding-top: 55px;
-		min-height: 600px;
-	}
 	
 	/* Logo */
 	#logo-link{
@@ -23,9 +18,10 @@
 		//height: 25px;
 		//width: 104px;
 		float: left;
-		margin: 8px 5px 0 5px;
+		margin: 8px 5px 0 0px;
 		color: @white;
 		font-size: 22px;
+		//font-family: '幼圆';
 		//font-weight: bold;
 
 		&:hover{
@@ -75,6 +71,14 @@
 	}
 }
 
+// Content
+// ------------------------------------------------------------
+
+#content-wap{
+	padding-top: 55px;
+	min-height: 600px;
+}
+
 // Footer
 // ------------------------------------------------------------
 
@@ -111,8 +115,8 @@
 }
 
 .avatar-large{
-	width: 60px;
-	height: 60px;
+	width: 50px;
+	height: 50px;
 }
 
 .avatar-small {

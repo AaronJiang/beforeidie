@@ -9,14 +9,11 @@
 		return $results->fetch_assoc();	
 	}
 	
-	//获取某个用户的某种类型的全部目标
+	//获取某用户的全部目标
 	function get_goals($userID, $isMe){
-		$query = "SELECT a.GoalID, a.Title, a.Reason, a.UserID, IFNULL(b.logsNum, 0) as logsNum\n"
-				. "FROM goals as a\n"
-					. "LEFT JOIN\n"
-					. "(SELECT GoalID, count(*) as logsNum FROM goal_logs GROUP BY GoalID) as b\n"
-					. "ON a.GoalID = b.GoalID\n"
-				. "WHERE a.UserID = ". $userID. "\n";
+		$query = "SELECT GoalID, Title, UserID\n"
+				. "FROM goals\n"
+				. "WHERE UserID = ". $userID. "\n";
 		
 		if(!$isMe){
 			$query .= "AND IsPublic = 1\n";
@@ -51,15 +48,10 @@
 	
 	//获取热门目标
 	function get_hot_goals($userID){
-		$sql = "SELECT goals.GoalID, goals.Title, goals.Reason\n"
+		$sql = "SELECT GoalID, Title\n"
 	    	. "FROM goals\n"
-			. "LEFT JOIN\n"
-				. "(SELECT goal_logs.GoalID, COUNT(*) AS LogsNum\n"
-				. "FROM goal_logs GROUP BY goal_logs.GoalID) AS c1\n"
-			. "ON goals.GoalID = c1.GoalID\n"
 			. "WHERE goals.isPublic = 1\n"
 			//. "AND goals.UserID != ". $userID. "\n"
-			. "ORDER BY c1.LogsNum\n"
 			. "LIMIT 0, 20\n";
 		
 		$result = db_exec($sql);
@@ -177,16 +169,6 @@
 		$result = db_exec($query);
 		
 		return ($result->num_rows > 0)? true: false;
-	}
-	
-	//检查是否已经完成
-	function check_goal_is_finished($goalID){
-		$query = "select GoalType from goals where GoalID = ". $goalID;
-		$result = db_exec($query);
-		
-		$row = $result->fetch_assoc();
-		
-		return $row['GoalType'] == "finish"? true: false;
 	}
 	
 	//获取某个 Goal 的创建者信息

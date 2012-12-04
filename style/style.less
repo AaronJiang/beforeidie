@@ -133,10 +133,29 @@
 // Page New Goal, Edit Goal
 // ------------------------------------------------------------
 
-#page-new-goal,
-#page-edit-goal {
-	#goal-title, #goal-why {
-		width: 500px;
+#page-new-goal{
+	#goal-title{
+		border-bottom: 4px double @grayLight;
+		padding: 10px 0 15px 0;
+		margin: 0 0 25px 0;
+		text-align: center;
+		font-weight: normal;
+		outline: none;
+
+	}
+
+	#log-content{
+		font-family: @altFontFamily;
+		font-size: @fontSizeLarge;
+		line-height: 25px;
+		margin: 0 0 5px 0;
+		padding: 0 5px;
+		min-height: 500px;
+		outline: none;
+
+		div{
+			margin-bottom: 15px;
+		}
 	}
 }
 	
@@ -146,13 +165,17 @@
 #page-goal-details{
 
 	/* Title */
-	#title-wap {
+	#title-wap{
 		position: relative;
+		border-bottom: 4px double @grayLight;
+		padding: 10px 0 15px 0;
+		margin: 0 0 25px 0;
+		text-align: center;
 		
-		#goal-title {
+		#goal-title{
 			font-weight: normal;
 			outline: none;
-			margin-bottom: 5px;
+			margin-bottom: 0px;
 		}
 			
 		#goal-cmd-wap{
@@ -160,7 +183,7 @@
 			top: 0;
 			right: 0;
 		
-			#cmd-edit-goal {
+			#cmd-edit-goal{
 				color: @grayLighter;
 				font-size: @fontSizeSmall;
 
@@ -171,33 +194,17 @@
 			}	
 		}	
 	}
-	
-	#goal-reason{
-		margin:0 0 15px 0;
-		padding: 0 0 10px 0;
-		outline: none;
-		font-size: @fontSizeLarge;
-		border-bottom: 1px solid @grayLight;
-		font-family: @altFontFamily;
-		//font-style: italic;
-	}
 
 	/* logs */
 	#log-wap{
-		padding: 5px 0 0 0;
-		clear: both;
-		margin: 0 0 8px 0;
-		
-		#cmd-add-log{
-			float: right;
-		}
 	
 		#log-content{
 			font-family: @altFontFamily;
 			font-size: @fontSizeLarge;
 			line-height: 25px;
-			margin: 0 0 5px 0;
+			padding: 0 5px;
 			outline: none;
+			min-height: 500px;
 
 			div{
 				margin-bottom: 15px;
@@ -223,23 +230,6 @@
 			}
 		}
 	}
-
-	/* Log New & Edit Dialog */
-	#dialog-new-log,
-	#dialog-edit-log{
-		overflow: visible;	
-	}
-	
-	#dialog-new-log #form-new-log,
-	#dialog-edit-log #form-edit-log{
-	
-		#log-content{
-			width: 454px;
-			height: 200px;
-			resize: vertical;
-			margin: 0;
-		}
-	}
 }
 
 // Page Person
@@ -253,7 +243,7 @@
 		position: relative;
 		
 		#user-info{
-			margin: 0px 0 0 72px;
+			margin: 0 0 0 50px;
 			
 			#username{
 				margin-bottom: 5px;
@@ -274,82 +264,9 @@
 		}
 	}
 
-	/* Dynamic Selector */
-	#dynamic-sel-wap{
-		border-bottom: 1px solid @grayLighter;		
-		
-		.dynamic-sel{
-			color: @grayDarker;
-			background-color: @grayLighter;
-			padding: 5px 15px;
-			font-size: @fontSizeLarge;
-			display: inline-block;
-
-			&:hover{
-				background-color: @grayLighter;
-				text-decoration: none;
-			}
-		}
-	}
-
-	/* Dynamic Item */
-	.dynamic-item{
-		padding: 15px 0 0 0;
-		border-bottom: 1px solid @grayLighter;
-		position: relative;
-		
-		/* Dynamic Content */
-		.dynamic-content-wap{
-			margin: 0 0 0 55px;
-			
-			.dynamic-header{
-				margin: -3px 0 7px 0;
-				font-family: @altFontFamily;
-			}
-				
-			.dynamic-log-title{
-				color: @black;
-				font-weight: bold;
-				margin: 0 0 5px 0;
-			}
-			
-			.dynamic-log-content,
-			.dynamic-goal-reason{
-				font-size: @fontSizeSmall;
-				font-family: @altFontFamily;
-				word-wrap: break-all;
-				margin: 0 0 5px 0;
-			}
-	
-			.dynamic-footer{
-				font-size: @fontSizeSmall;
-				margin: 0 0 5px 0;
-				text-align: right;
-					
-				.dynamic-time{
-					color: @gray;
-				}			
-			}
-		}
-		
-		/* Comments */
-		.comments-wap,
-		.new-comment-wap{
-			margin-left: 55px;
-		}
-	}
-	
-	#more-dyns{
-		text-align: center;
-		background-color: @grayLighter;
-		padding: 8px 0;
-		cursor: pointer;
-		color: @gray;
-		border: 1px solid @grayLighter;
-	}
-
 	/* User Goals */
 	.goal-wap{
+		//margin: 0 0 0 50px;
 		
 		.goal-item{
 			border-top: 1px solid #EEE;
