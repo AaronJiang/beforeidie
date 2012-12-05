@@ -4,7 +4,7 @@
 
 {literal}
 $(document).ready(function(){
-	$('#goal-title').focus();
+	//$('#goal-title').focus();
 });
 
 </script>

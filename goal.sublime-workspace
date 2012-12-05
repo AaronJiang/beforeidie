@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"in",
+				"inline-block"
+			],
+			[
 				"tex",
 				"text-align"
 			],
@@ -90,10 +94,6 @@
 			[
 				"fontSize",
 				"fontSizeLarge"
-			],
-			[
-				"in",
-				"input	Tag"
 			],
 			[
 				"work",
@@ -259,7 +259,7 @@
 			"file": "style/style.less",
 			"settings":
 			{
-				"buffer_size": 6070,
+				"buffer_size": 6066,
 				"line_ending": "Windows"
 			}
 		},
@@ -267,7 +267,7 @@
 			"file": "view/person/person.tp",
 			"settings":
 			{
-				"buffer_size": 608,
+				"buffer_size": 690,
 				"line_ending": "Windows"
 			}
 		},
@@ -308,6 +308,14 @@
 			"settings":
 			{
 				"buffer_size": 4384,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "view/goal/new.tp",
+			"settings":
+			{
+				"buffer_size": 324,
 				"line_ending": "Windows"
 			}
 		}
@@ -594,7 +602,7 @@
 	"groups":
 	[
 		{
-			"selected": 6,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -602,15 +610,15 @@
 					"file": "style/style.less",
 					"settings":
 					{
-						"buffer_size": 6070,
+						"buffer_size": 6066,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4372,
-								4372
+								3404,
+								3404
 							]
 						],
 						"settings":
@@ -619,7 +627,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 4745.0,
+						"translation.y": 3646.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -629,15 +637,15 @@
 					"file": "view/person/person.tp",
 					"settings":
 					{
-						"buffer_size": 608,
+						"buffer_size": 690,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								544,
-								544
+								459,
+								459
 							]
 						],
 						"settings":
@@ -781,7 +789,33 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2820.0,
+						"translation.y": 2580.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "view/goal/new.tp",
+					"settings":
+					{
+						"buffer_size": 324,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								138,
+								138
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -831,6 +865,10 @@
 		"selected_items":
 		[
 			[
+				"new",
+				"view/goal/new.tp"
+			],
+			[
 				"dis",
 				"view/discover/discover.tp"
 			],
@@ -841,10 +879,6 @@
 			[
 				"hea",
 				"view/header.tc"
-			],
-			[
-				"new",
-				"view/goal/new.tp"
 			],
 			[
 				"per",

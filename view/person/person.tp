@@ -3,10 +3,13 @@
 <script type='text/javascript' src='../js/goal-comment.js'></script>
 
 <div id='user-info-wap' class='clearfix'>
-	<img class='avatar avatar-side' src='{$user.Avatar}' />
+	<img class='avatar avatar-side avatar-large' src='{$user.Avatar}' />
 
 	<div id="user-info">
-		<div id='username'>{$user.Name}想 :</div>
+		<div id="username">{$user.Name}</div>
+		<div id="other-info-wap">
+			<div><a href='#'>1 收藏</a></div>
+		</div>
 	</div>
 </div>
 

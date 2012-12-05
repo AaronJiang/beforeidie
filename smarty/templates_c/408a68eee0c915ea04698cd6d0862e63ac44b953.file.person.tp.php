@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-12-04 13:52:24
+<?php /* Smarty version Smarty-3.1.12, created on 2012-12-05 02:33:52
          compiled from "..\view\person\person.tp" */ ?>
 <?php /*%%SmartyHeaderCode:4986509235e2350e62-48954490%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '408a68eee0c915ea04698cd6d0862e63ac44b953' => 
     array (
       0 => '..\\view\\person\\person.tp',
-      1 => 1354625501,
+      1 => 1354671209,
       2 => 'file',
     ),
   ),
@@ -31,12 +31,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <script type='text/javascript' src='../js/goal-comment.js'></script>
 
 <div id='user-info-wap' class='clearfix'>
-	<img class='avatar avatar-side' src='<?php echo $_smarty_tpl->tpl_vars['user']->value['Avatar'];?>
+	<img class='avatar avatar-side avatar-large' src='<?php echo $_smarty_tpl->tpl_vars['user']->value['Avatar'];?>
 ' />
 
 	<div id="user-info">
-		<div id='username'><?php echo $_smarty_tpl->tpl_vars['user']->value['Name'];?>
-想 :</div>
+		<div id="username"><?php echo $_smarty_tpl->tpl_vars['user']->value['Name'];?>
+</div>
+		<div id="other-info-wap">
+			<div><a href='#'>1 收藏</a></div>
+		</div>
 	</div>
 </div>
 
