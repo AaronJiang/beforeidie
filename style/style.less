@@ -135,8 +135,8 @@
 
 #page-new-goal{
 	#goal-title{
-		border-bottom: 4px double @grayLight;
-		padding: 10px 0 15px 0;
+		border-bottom: 1px solid @grayLight;
+		padding: 10px 0 18px 0;
 		margin: 0 0 25px 0;
 		text-align: center;
 		font-weight: normal;
@@ -167,8 +167,8 @@
 	/* Title */
 	#title-wap{
 		position: relative;
-		border-bottom: 4px double @grayLight;
-		padding: 10px 0 15px 0;
+		border-bottom: 1px solid @grayLight;
+		padding: 10px 0 3px 0;
 		margin: 0 0 25px 0;
 		text-align: center;
 		
@@ -176,6 +176,16 @@
 			font-weight: normal;
 			outline: none;
 			margin-bottom: 0px;
+		}
+
+		#goal-creator{
+			text-align: right;
+			//font-style: italic;
+			color: @grayLighter;
+
+			a{
+				color: @grayLighter;
+			}
 		}
 			
 		#goal-cmd-wap{
@@ -200,8 +210,8 @@
 	
 		#log-content{
 			font-family: @altFontFamily;
-			font-size: 18px;
-			line-height: 25px;
+			font-size: 16px;
+			line-height: 28px;
 			padding: 0 5px;
 			outline: none;
 			min-height: 500px;
@@ -239,11 +249,11 @@
 
 	/* User Info */
 	#user-info-wap{
-		margin: 0 0 15px 0;
+		margin: 0 0 10px 0;
 		position: relative;
 		
 		#user-info{
-			margin: 0 0 0 60px;
+			margin: 0 0 0 62px;
 			
 			#username{
 				margin-bottom: 5px;
@@ -270,21 +280,17 @@
 		
 		.goal-item{
 			border-top: 1px solid #EEE;
-			padding: 10px 0 0 0;
-			margin: 0 0 5px 0;
+			padding: 15px 0;
+			//margin: 0 0 5px 0;
 			position: relative;
 			
 			.goal-title{
 				font-weight: bold;
 				display: inline-block;
-				margin: 0 0 5px 0;
+				//margin: 0 0 5px 0;
 				font-size: 15px;
 				color: @black;
-			}
-			
-			.goal-reason{
-				font-size: @fontSizeSmall;
-				color: @gray;
+				font-size: @fontSizeLarge;
 			}
 			
 			.goal-num-wap{
@@ -344,7 +350,7 @@
 	.goal-item{
 		border: 1px solid @grayLight;
 		margin: 0 20px 15px 0;
-		width: 270px;
+		width: 250px;
 		float: left;
 		padding: 10px 10px 5px 10px;
 		

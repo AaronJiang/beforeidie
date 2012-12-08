@@ -8,13 +8,13 @@ $(document).ready(function(){
 	$('#form-change-pwd').validationEngine();
 	
 	$("#cancel-btn").click(function(){
-		window.location = "account_page_details.php";
+		window.history.go(-1);
 	});
 });
 </script>
 {/literal}
 
-<h4 class='page-title'>更改密码</h4>
+<h3 class='page-title'>更改密码</h3>
 
 <form id='form-change-pwd' action='AccountC.php' method='post'>
 	<input type='password' class='validate[required]' autocomplete='off' placeholder='原密码' name='originalPwd' />

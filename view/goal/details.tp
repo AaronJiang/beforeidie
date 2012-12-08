@@ -46,8 +46,8 @@ $(document).ready(function(){
 <!-- Title -->
 <div id='title-wap'>
 	<h2 id="goal-title" data-goal-id="{$goal.GoalID}" contenteditable="true">{$goal.Title}</h2>
-	
 	<div id='goal-cmd-wap'></div>
+	<div id="goal-creator">by <a href="PersonC.php?act=person&userID={$creator.UserID}">{$creator.Username}</a></div>
 </div>
 
 <!-- Log -->

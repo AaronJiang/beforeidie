@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-11-15 08:25:12
+<?php /* Smarty version Smarty-3.1.12, created on 2012-12-08 03:07:22
          compiled from "..\view\account\change_pwd.tp" */ ?>
 <?php /*%%SmartyHeaderCode:70450a49883532c20-26678769%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c6b9be761aa2ebb18f2730ea449058621d3ea3fb' => 
     array (
       0 => '..\\view\\account\\change_pwd.tp',
-      1 => 1352964294,
+      1 => 1354932429,
       2 => 'file',
     ),
   ),
@@ -34,13 +34,13 @@ $(document).ready(function(){
 	$('#form-change-pwd').validationEngine();
 	
 	$("#cancel-btn").click(function(){
-		window.location = "account_page_details.php";
+		window.history.go(-1);
 	});
 });
 </script>
 
 
-<h4 class='page-title'>更改密码</h4>
+<h3 class='page-title'>更改密码</h3>
 
 <form id='form-change-pwd' action='AccountC.php' method='post'>
 	<input type='password' class='validate[required]' autocomplete='off' placeholder='原密码' name='originalPwd' />

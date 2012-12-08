@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-12-04 13:56:31
+<?php /* Smarty version Smarty-3.1.12, created on 2012-12-08 02:53:01
          compiled from "..\view\goal\details.tp" */ ?>
 <?php /*%%SmartyHeaderCode:1933950938337f31405-89020659%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6c71f1ce3e74505d967d613caadd6976236f3c18' => 
     array (
       0 => '..\\view\\goal\\details.tp',
-      1 => 1354625667,
+      1 => 1354931579,
       2 => 'file',
     ),
   ),
@@ -20,6 +20,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'variables' => 
   array (
     'goal' => 0,
+    'creator' => 0,
     'log' => 0,
     'userID' => 0,
     'userAvatar' => 0,
@@ -77,8 +78,10 @@ $(document).ready(function(){
 	<h2 id="goal-title" data-goal-id="<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
 " contenteditable="true"><?php echo $_smarty_tpl->tpl_vars['goal']->value['Title'];?>
 </h2>
-	
 	<div id='goal-cmd-wap'></div>
+	<div id="goal-creator">by <a href="PersonC.php?act=person&userID=<?php echo $_smarty_tpl->tpl_vars['creator']->value['UserID'];?>
+"><?php echo $_smarty_tpl->tpl_vars['creator']->value['Username'];?>
+</a></div>
 </div>
 
 <!-- Log -->
