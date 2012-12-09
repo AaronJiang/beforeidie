@@ -24,7 +24,7 @@ $(document).ready(function(){
 	});
 
 	// 更新内容
-	$('#log-content').blur(function(){
+	$('#goal-content').blur(function(){
 		var goalID = $(this).data('goal-id'),
 			content = $(this).html();
 

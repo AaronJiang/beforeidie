@@ -1,17 +1,16 @@
 <?php
 
 	include_once('setup.php');
-	
+
 	browser_check();
 	auth_check();
-	
+
 	$action = $_REQUEST['act'];
-	
+
 	switch($action){
-			
 
 	// page new goal
-	
+
 		// view
 		case 'new':
 			$sm = new sm('goal');
@@ -25,26 +24,26 @@
 		case "new_goal":
 			new_goal($_REQUEST['userID'], $_REQUEST['title'], $_REQUEST['content'], 1);
 			break;
-	
+
 	// page goal details
-		
+
 		// view
 		case 'details':
 			$sm = new sm('goal');
-			
+
 			// userID
 			@session_start();
 			$userID = $_SESSION['valid_user_id'];
 			$sm->assign('userID', $userID);
-			
+
 			// goal
 			$goalID = $_REQUEST['goalID'];	
 			$sm->assign('goal', get_goal_by_ID($goalID));
-			
+
 			// isCreator
 			$isCreator = check_goal_ownership($goalID, $_SESSION['valid_user_id']);
 			$sm->assign('isCreator', $isCreator? 1: 0);
-			
+
 			// creator info
 			$creator = get_goal_owner($goalID);
 			$sm->assign('creator', $creator);
@@ -62,7 +61,7 @@
 			break;
 
 		case "update_goal":
-			update_goal($_REQUEST['goalID'], $_REQUEST['goalTitle'], $_REQUEST['goalContent']);
+			ECHO update_goal($_REQUEST['goalID'], $_REQUEST['goalTitle'], $_REQUEST['goalContent'])? 1: 0;
 			break;
 	}
 ?>

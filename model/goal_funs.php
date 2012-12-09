@@ -84,19 +84,25 @@
 		
 		if(!get_magic_quotes_gpc()){
 			$title = addslashes($title);
-			$reason = addslashes($content);
+			$content = addslashes($content);
 		}
 		
 		$query = "INSERT INTO goals (UserID, Title, Content, IsPublic)\n"
 				. "VALUES (". $userID. ", '". $title. "', '". $content. "', ". $isPublic. ")";
 		
 		$result = db_exec($query);
-
-		echo $query;
 	}
 
 	function update_goal($goalID, $title, $content){
+		if(!get_magic_quotes_gpc()){
+			$title = addslashes($title);
+			$content = addslashes($content);
+		}
+		
 		$query = "UPDATE goals SET Title = '". $title. "', Content = '". $content. "' WHERE GoalID = ". $goalID;
+
+		ECHO $query;
+		
 		return db_exec($query);
 	}
 	

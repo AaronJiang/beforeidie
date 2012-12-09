@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-12-09 09:10:12
+<?php /* Smarty version Smarty-3.1.12, created on 2012-12-09 10:41:34
          compiled from "..\view\account\change_pwd.tp" */ ?>
 <?php /*%%SmartyHeaderCode:70450a49883532c20-26678769%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c6b9be761aa2ebb18f2730ea449058621d3ea3fb' => 
     array (
       0 => '..\\view\\account\\change_pwd.tp',
-      1 => 1355040611,
+      1 => 1355040628,
       2 => 'file',
     ),
   ),

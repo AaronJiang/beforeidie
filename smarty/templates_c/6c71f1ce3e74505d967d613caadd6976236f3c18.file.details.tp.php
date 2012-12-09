@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-12-09 09:44:40
+<?php /* Smarty version Smarty-3.1.12, created on 2012-12-09 11:46:17
          compiled from "..\view\goal\details.tp" */ ?>
 <?php /*%%SmartyHeaderCode:1933950938337f31405-89020659%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6c71f1ce3e74505d967d613caadd6976236f3c18' => 
     array (
       0 => '..\\view\\goal\\details.tp',
-      1 => 1355042663,
+      1 => 1355048424,
       2 => 'file',
     ),
   ),
@@ -51,7 +51,7 @@ $(document).ready(function(){
 	});
 
 	// 更新内容
-	$('#log-content').blur(function(){
+	$('#goal-content').blur(function(){
 		var goalID = $(this).data('goal-id'),
 			content = $(this).html();
 
@@ -68,6 +68,7 @@ $(document).ready(function(){
 	*/
 
 	$(window).unload(function(){
+	//$('#goal-content').blur(function(){
 		var goalID = $('#goal-title').data('goal-id'),
 			goalTitle = $('#goal-title').text(),
 			goalContent = $('#goal-content').html();
