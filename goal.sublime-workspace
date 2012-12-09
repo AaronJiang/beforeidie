@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"fi",
+				"function"
+			],
+			[
 				"btn-",
 				"btn-new-goal"
 			],
@@ -267,7 +271,7 @@
 			"file": "style/style.less",
 			"settings":
 			{
-				"buffer_size": 5865,
+				"buffer_size": 5287,
 				"line_ending": "Windows"
 			}
 		}
@@ -308,17 +312,17 @@
 	},
 	"file_history":
 	[
+		"/F/xampp/htdocs/Goal/view/goal/details.tp",
+		"/F/xampp/htdocs/Goal/ctrl/GoalC.php",
+		"/F/xampp/htdocs/Goal/model/goal_funs.php",
+		"/F/xampp/htdocs/Goal/view/goal/new.tp",
 		"/F/xampp/htdocs/Goal/view/home/about.tp",
 		"/F/xampp/htdocs/Goal/view/account/change_pwd.tp",
 		"/F/xampp/htdocs/Goal/view/home/terms.tp",
 		"/F/xampp/htdocs/Goal/view/home/me.tc",
 		"/F/xampp/htdocs/Goal/view/footer.tc",
-		"/F/xampp/htdocs/Goal/view/goal/new.tp",
-		"/F/xampp/htdocs/Goal/ctrl/GoalC.php",
-		"/F/xampp/htdocs/Goal/model/goal_funs.php",
 		"/F/xampp/htdocs/Goal/model/account_funs.php",
 		"/F/xampp/htdocs/Goal/model/data_funs.inc",
-		"/F/xampp/htdocs/Goal/view/goal/details.tp",
 		"/F/xampp/htdocs/Goal/style/layout.less",
 		"/F/xampp/htdocs/Goal/style/basecss.less",
 		"/F/xampp/htdocs/Goal/ctrl/DiscoverC.php",
@@ -565,15 +569,15 @@
 					"file": "style/style.less",
 					"settings":
 					{
-						"buffer_size": 5865,
+						"buffer_size": 5287,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								360,
-								360
+								5287,
+								5287
 							]
 						],
 						"settings":
@@ -582,7 +586,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2950.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -632,6 +636,22 @@
 		"selected_items":
 		[
 			[
+				"goal",
+				"model/goal_funs.php"
+			],
+			[
+				"goalc",
+				"ctrl/GoalC.php"
+			],
+			[
+				"deta",
+				"view/goal/details.tp"
+			],
+			[
+				"new",
+				"view/goal/new.tp"
+			],
+			[
 				"cha",
 				"view/account/change_pwd.tp"
 			],
@@ -642,10 +662,6 @@
 			[
 				"ab",
 				"view/home/about.tp"
-			],
-			[
-				"new",
-				"view/goal/new.tp"
 			],
 			[
 				"ne",
@@ -712,16 +728,8 @@
 				"model/dynamic_funs.php"
 			],
 			[
-				"deta",
-				"view/goal/details.tp"
-			],
-			[
 				"sty",
 				"style/style.less"
-			],
-			[
-				"goal",
-				"ctrl/GoalC.php"
 			],
 			[
 				"a",
@@ -818,10 +826,6 @@
 			[
 				"pan",
 				"view/panel_header.tc"
-			],
-			[
-				"goalc",
-				"ctrl/GoalC.php"
 			],
 			[
 				"co",

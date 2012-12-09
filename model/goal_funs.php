@@ -94,6 +94,11 @@
 
 		echo $query;
 	}
+
+	function update_goal($goalID, $title, $content){
+		$query = "UPDATE goals SET Title = '". $title. "', Content = '". $content. "' WHERE GoalID = ". $goalID;
+		return db_exec($query);
+	}
 	
 	//更新目标的题目
 	function update_goal_title($goalID, $goalTitle){

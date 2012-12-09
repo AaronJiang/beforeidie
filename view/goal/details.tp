@@ -6,6 +6,7 @@
 {literal}
 $(document).ready(function(){
 
+	/*
 	// 更新标题
 	$('#goal-title').blur(function(){
 		var goalTitle = $(this).text(),
@@ -37,43 +38,35 @@ $(document).ready(function(){
 			}
 		});
 	});
+	*/
+
+	$(window).unload(function(){
+		var goalID = $('#goal-title').data('goal-id'),
+			goalTitle = $('#goal-title').text(),
+			goalContent = $('#goal-content').html();
+			
+		$.ajax({
+			url: 'GoalC.php',
+			type: 'POST',
+			async: false,
+			data: {
+				'act': 'update_goal',
+				'goalID': goalID,
+				'goalTitle': goalTitle,
+				'goalContent': goalContent
+			}
+		});
+	});
 });
 
 {/literal}
 </script>
 
-
-<!-- Title -->
 <div id='title-wap'>
 	<h2 id="goal-title" data-goal-id="{$goal.GoalID}" contenteditable="true">{$goal.Title}</h2>
-	<div id='goal-cmd-wap'></div>
 	<div id="goal-creator">by <a href="PersonC.php?act=person&userID={$creator.UserID}">{$creator.Username}</a></div>
 </div>
 
-<!-- Log -->
-<div id='log-wap' class='new-comment-parent'>
-
-	<div id="log-content" data-goal-id="{$goal.GoalID}" contenteditable="true">{$goal.Content}</div>	
-	
-	<div class="log-footer">
-		<!--<a class='cmd-new-comment' 
-			data-log-id="{$log.LogID}"
-			data-poster-id="{$userID}"
-			data-is-root='1'
-			data-avatar-url="{$userAvatar}"
-		>回复{if $log.commentsNum != 0}({$log.commentsNum}){/if}</a>
-		<span class='log-time'>{$log.LogTime}</span>-->
-	</div>
-			
-	{* 回复 
-	{if $log.commentsNum != 0}
-	<div class='comments-wap'>
-		{foreach $comments as $comm}
-		{include file='../comments.tc'}
-		{/foreach}
-	</div>
-	{/if}
-	*}
-</div>
+<div id="goal-content" data-goal-id="{$goal.GoalID}" contenteditable="true">{$goal.Content}</div>	
 
 {include file='../footer.tc'}

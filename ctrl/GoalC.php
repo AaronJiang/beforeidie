@@ -10,9 +10,9 @@
 	switch($action){
 			
 
-	// new goal
+	// page new goal
 	
-		// get view
+		// view
 		case 'new':
 			$sm = new sm('goal');
 
@@ -22,7 +22,6 @@
 			$sm->display('new.tp');
 			break;
 
-		// create a new goal
 		case "new_goal":
 			new_goal($_REQUEST['userID'], $_REQUEST['title'], $_REQUEST['content'], 1);
 			break;
@@ -51,13 +50,6 @@
 			$sm->assign('creator', $creator);
 			$sm->assign('creatorAvatar', get_gravatar($creator['UserID']));
 
-
-			// comments
-			/*
-			$comments = get_log_comments_full($log['LogID']);
-			$sm->assign('comments', $comments);
-			*/
-
 			$sm->display('details.tp');
 			break;
 
@@ -66,8 +58,11 @@
 			break;
 			
 		case "update_goal_content":
-			update_goal_content($_REQUEST['goalID'], $_REQUEST['content']);
-			page_jump_back();
+			update_goal_content($_REQUEST['goalID'], $_REQUEST['goalContent']);
+			break;
+
+		case "update_goal":
+			update_goal($_REQUEST['goalID'], $_REQUEST['goalTitle'], $_REQUEST['goalContent']);
 			break;
 	}
 ?>

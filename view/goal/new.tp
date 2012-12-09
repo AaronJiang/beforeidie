@@ -4,7 +4,6 @@
 
 {literal}
 $(document).ready(function(){
-	$('#goal-title').focus();
 
 	$("#btn-new-goal").click(function(){
 
@@ -33,7 +32,7 @@ $(document).ready(function(){
 
 <h2 id="goal-title" data-user-id="{$userID}" contenteditable="true"></h2>
 
-<div id="goal-content" contenteditable="true"></div>
+<div id="goal-content" contenteditable="true"><div></div></div>
 
 <a id="btn-new-goal" class="btn btn-primary">确定</a>
 
