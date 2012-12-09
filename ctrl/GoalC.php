@@ -24,8 +24,7 @@
 
 		// create a new goal
 		case "new_goal":
-			$goalID = new_goal($_REQUEST['userID'], $_REQUEST['title'], $_REQUEST['why'], $_REQUEST['isPublic']);
-			redirect('Person', 'person', array('userID' => $_REQUEST['userID']));
+			new_goal($_REQUEST['userID'], $_REQUEST['title'], $_REQUEST['content'], 1);
 			break;
 	
 	// page goal details
@@ -52,14 +51,12 @@
 			$sm->assign('creator', $creator);
 			$sm->assign('creatorAvatar', get_gravatar($creator['UserID']));
 
-			// log content
-			$log = get_log($goalID);
-			$sm->assign('log', $log);
-			$sm->assign('userAvatar', get_gravatar($userID));
 
 			// comments
+			/*
 			$comments = get_log_comments_full($log['LogID']);
 			$sm->assign('comments', $comments);
+			*/
 
 			$sm->display('details.tp');
 			break;
@@ -67,13 +64,9 @@
 		case "update_goal_title":
 			update_goal_title($_REQUEST['goalID'], $_REQUEST['goalTitle']);
 			break;
-
-		case "update_goal_reason":
-			update_goal_reason($_REQUEST['goalID'], $_REQUEST['goalReason']);
-			break;
 			
-		case "update_log":
-			update_log($_REQUEST['logID'], $_REQUEST['logContent']);
+		case "update_goal_content":
+			update_goal_content($_REQUEST['goalID'], $_REQUEST['content']);
 			page_jump_back();
 			break;
 	}

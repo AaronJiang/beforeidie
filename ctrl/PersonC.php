@@ -36,9 +36,6 @@
 										
 			// goals
 			$goals = get_goals($userID, false);
-			foreach($goals as &$goal){
-				$goal['logsNum'] = get_goal_logs_num($goal['GoalID']);
-			}
 			$sm->assign('goals', $goals);
 			
 			// followersNum

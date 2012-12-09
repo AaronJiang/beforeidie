@@ -16,11 +16,7 @@
 <div class='goal-wap'>
 	{foreach $goals as $goal}
 	<div class='goal-item'>
-		<div>
-			<a class='goal-title' href='GoalC.php?act=details&goalID={$goal.GoalID}'>{$goal.Title}</a>
-		</div>
-		
-		<div class='goal-reason'></div>
+		<a class='goal-title' href='GoalC.php?act=details&goalID={$goal.GoalID}'>{$goal.Title}</a>
 	</div>
 	{/foreach}
 </div>

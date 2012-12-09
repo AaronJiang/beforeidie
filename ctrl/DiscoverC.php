@@ -25,9 +25,6 @@
 				$creator = get_goal_owner($goal['GoalID']);
 				$goal['CreatorID'] = $creator['UserID'];
 				$goal['Creator'] = $creator['Username'];
-				
-				// logsNum, cheersNum
-				$goal['LogsNum'] = get_goal_logs_num($goal['GoalID']);
 			}
 			$sm->assign('hotGoals', $hotGoals);
 			

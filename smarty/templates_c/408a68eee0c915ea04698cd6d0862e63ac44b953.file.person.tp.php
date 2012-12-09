@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-12-08 02:52:56
+<?php /* Smarty version Smarty-3.1.12, created on 2012-12-09 05:56:47
          compiled from "..\view\person\person.tp" */ ?>
 <?php /*%%SmartyHeaderCode:4986509235e2350e62-48954490%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '408a68eee0c915ea04698cd6d0862e63ac44b953' => 
     array (
       0 => '..\\view\\person\\person.tp',
-      1 => 1354931555,
+      1 => 1355029004,
       2 => 'file',
     ),
   ),
@@ -50,13 +50,9 @@ foreach ($_from as $_smarty_tpl->tpl_vars['goal']->key => $_smarty_tpl->tpl_vars
 $_smarty_tpl->tpl_vars['goal']->_loop = true;
 ?>
 	<div class='goal-item'>
-		<div>
-			<a class='goal-title' href='GoalC.php?act=details&goalID=<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
+		<a class='goal-title' href='GoalC.php?act=details&goalID=<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
 '><?php echo $_smarty_tpl->tpl_vars['goal']->value['Title'];?>
 </a>
-		</div>
-		
-		<div class='goal-reason'></div>
 	</div>
 	<?php } ?>
 </div>

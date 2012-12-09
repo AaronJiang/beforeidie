@@ -4,14 +4,37 @@
 
 {literal}
 $(document).ready(function(){
-	//$('#goal-title').focus();
+	$('#goal-title').focus();
+
+	$("#btn-new-goal").click(function(){
+
+		var title = $('#goal-title').text(),
+			content = $('#goal-content').html(),
+			userID = $('#goal-title').data('user-id');
+
+		$.ajax({
+			url: 'GoalC.php',
+			type: 'POST',
+			data: {
+				'act': 'new_goal',
+				'userID': userID,
+				'title': title,
+				'content': content
+			},
+			success: function(){
+				window.history.go(-1);
+			}
+		});
+	});
 });
 
 </script>
 {/literal}
 
-<h2 id="goal-title" contenteditable="true"></h2>
+<h2 id="goal-title" data-user-id="{$userID}" contenteditable="true"></h2>
 
-<div id="log-content" contenteditable="true"></div>	
+<div id="goal-content" contenteditable="true"></div>
+
+<a id="btn-new-goal" class="btn btn-primary">确定</a>
 
 {include file='../footer.tc'}

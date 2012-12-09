@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-12-08 02:53:01
+<?php /* Smarty version Smarty-3.1.12, created on 2012-12-09 06:11:36
          compiled from "..\view\goal\details.tp" */ ?>
 <?php /*%%SmartyHeaderCode:1933950938337f31405-89020659%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6c71f1ce3e74505d967d613caadd6976236f3c18' => 
     array (
       0 => '..\\view\\goal\\details.tp',
-      1 => 1354931579,
+      1 => 1355029775,
       2 => 'file',
     ),
   ),
@@ -54,16 +54,16 @@ $(document).ready(function(){
 
 	// 更新内容
 	$('#log-content').blur(function(){
-		var logID = $(this).data('log-id');
-		var logContent = $(this).html();
+		var goalID = $(this).data('goal-id'),
+			content = $(this).html();
 
 		$.ajax({
 			url: 'GoalC.php',
 			type: 'POST',
 			data: {
-				'act': 'update_log',
-				'logID': logID,
-				'logContent': logContent 
+				'act': 'update_goal_content',
+				'goalID': goalID,
+				'content': content 
 			}
 		});
 	});
@@ -87,8 +87,8 @@ $(document).ready(function(){
 <!-- Log -->
 <div id='log-wap' class='new-comment-parent'>
 
-	<div id="log-content" data-log-id="<?php echo $_smarty_tpl->tpl_vars['log']->value['LogID'];?>
-" contenteditable="true"><?php echo $_smarty_tpl->tpl_vars['log']->value['LogContent'];?>
+	<div id="log-content" data-goal-id="<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
+" contenteditable="true"><?php echo $_smarty_tpl->tpl_vars['goal']->value['Content'];?>
 </div>	
 	
 	<div class="log-footer">

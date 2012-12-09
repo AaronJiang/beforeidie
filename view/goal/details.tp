@@ -24,16 +24,16 @@ $(document).ready(function(){
 
 	// 更新内容
 	$('#log-content').blur(function(){
-		var logID = $(this).data('log-id');
-		var logContent = $(this).html();
+		var goalID = $(this).data('goal-id'),
+			content = $(this).html();
 
 		$.ajax({
 			url: 'GoalC.php',
 			type: 'POST',
 			data: {
-				'act': 'update_log',
-				'logID': logID,
-				'logContent': logContent 
+				'act': 'update_goal_content',
+				'goalID': goalID,
+				'content': content 
 			}
 		});
 	});
@@ -53,7 +53,7 @@ $(document).ready(function(){
 <!-- Log -->
 <div id='log-wap' class='new-comment-parent'>
 
-	<div id="log-content" data-log-id="{$log.LogID}" contenteditable="true">{$log.LogContent}</div>	
+	<div id="log-content" data-goal-id="{$goal.GoalID}" contenteditable="true">{$goal.Content}</div>	
 	
 	<div class="log-footer">
 		<!--<a class='cmd-new-comment' 

@@ -39,7 +39,6 @@
 			$query .= "IsPublic = 1\n";
 		}
 
-
 		$result = db_exec($query);
 		$row = $result->fetch_assoc();
 
@@ -61,7 +60,7 @@
 			array_push($array, $row);
 		}
 		
-		return $array;		
+		return $array;
 	}
 
 	//获取所有目标的总数
@@ -72,82 +71,28 @@
 		
 		return $row['goals_num'];	
 	}
-
-	//删除目标
-	function delete_goal($goalID){
-		$goalID	= trim($goalID);
-
-		$query = "delete from goals where GoalID = ". $goalID;
-		$result = db_exec($query);
-	
-		return $result? "true": "false";
-	}
 	
 	//新增目标
-	function new_goal($userID, $title, $reason, $isPublic){
+	function new_goal($userID, $title, $content, $isPublic){
 		$title = trim($title);
-		$reason = trim($reason);
-		$goalType = trim($goalType);
+		$reason = trim($content);
 	
-		if(!$title || !$reason){
+		if(!$title || !$content){
 			echo "You have not enter all the required details!";
 			exit;
 		}
 		
 		if(!get_magic_quotes_gpc()){
 			$title = addslashes($title);
-			$reason = addslashes($reason);
+			$reason = addslashes($content);
 		}
 		
-		$query = "insert into goals (UserID, Title, Reason, CreateTime, IsPublic) ";
-		$query .= "values (". $userID. ", '". $title. "', '". $reason. "', NOW(), ". $isPublic. ")";
+		$query = "INSERT INTO goals (UserID, Title, Content, IsPublic)\n"
+				. "VALUES (". $userID. ", '". $title. "', '". $content. "', ". $isPublic. ")";
 		
 		$result = db_exec($query);
-		
-		//return $result? mysql_insert_id(): 'false';
-	}
 
-	//更新目标
-	function update_goal($goalID, $title, $reason, $isPublic){
-		$goalID = trim($goalID);
-		$title = trim($title);
-		$reason = trim($reason);
-	
-		if(!$title || !$reason){
-			echo "You have not enter all the required details!";
-			exit;
-		}
-		
-		if(!get_magic_quotes_gpc()){
-			$title = addslashes($title);
-			$reason = addslashes($reason);
-		}
-	
-		$query = "update goals set Title = '". $title. "', Reason = '". $reason. "', UpdateTime = '". now_time(). "', IsPublic = ". $isPublic. " where GoalID = ". $goalID;
-		$result = db_exec($query);
-		
-		return $result? "true": "false";
-	}
-	
-	//更新目标的最后修改时间
-	function update_goal_updatetime($goalID, $updateTime){
-		$goalID = trim($goalID);
-		$updateTime = trim($updateTime);
-		
-		if(!$goalID || !$updateTime){
-			echo "You have not enter all the required details!";
-			exit;
-		}
-		
-		if(!get_magic_quotes_gpc()){
-			$goalID = addslashes($goalID);
-			$updateTime = addslashes($updateTime);
-		}
-		
-		$query = "UPDATE goals SET UpdateTime = '". $updateTime. "' WHERE GoalID = ". $goalID;
-		$result = db_exec($query);
-		
-		return $result? 'true': 'false';
+		echo $query;
 	}
 	
 	//更新目标的题目
@@ -155,11 +100,10 @@
 		$query = "UPDATE goals SET Title = '". $goalTitle. "' WHERE GoalID = ". $goalID;
 		return db_exec($query);
 	}
-	
-	//更新目标的愿景
-	function update_goal_reason($goalID, $goalReason){
-		$query = "UPDATE goals SET Reason = '". $goalReason. "' WHERE GoalID = ". $goalID;
-		
+
+	// 更新目标的内容
+	function update_goal_content($goalID, $content){
+		$query = "UPDATE goals SET Content = '". $content. "' WHERE GoalID = ". $goalID;
 		return db_exec($query);
 	}
 	
