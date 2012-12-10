@@ -8,7 +8,7 @@
 	<div id="user-info">
 		<div id="username">{$user.Name}</div>
 		<div id="other-info-wap">
-			<div><a href='#'>1 收藏</a></div>
+			<div><a href='#'>1 喜欢</a></div>
 		</div>
 	</div>
 </div>

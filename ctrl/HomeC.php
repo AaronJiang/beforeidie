@@ -8,20 +8,12 @@
 
 	switch($action){
 
-	// about
+	// page about
 	
-		// get view
+		// view
 		case "about":
 			$sm = new sm('home');
 			$sm->display('about.tp');
-			break;
-		
-	// terms
-		
-		// get view
-		case "terms":
-			$sm = new sm('home');
-			$sm->display('terms.tp');
 			break;
 	}
 

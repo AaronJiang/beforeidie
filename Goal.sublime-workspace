@@ -336,23 +336,25 @@
 	},
 	"file_history":
 	[
+		"/F/xampp/htdocs/Goal/ctrl/AccountC.php",
 		"/F/xampp/htdocs/Goal/view/header.tc",
+		"/F/xampp/htdocs/Goal/ctrl/HomeC.php",
+		"/F/xampp/htdocs/Goal/view/home/terms.tp",
+		"/F/xampp/htdocs/Goal/view/home/about.tp",
+		"/F/xampp/htdocs/Goal/view/footer.tc",
+		"/F/xampp/htdocs/Goal/view/person/person.tp",
 		"/F/xampp/htdocs/Goal/style/basecss.less",
 		"/F/xampp/htdocs/Goal/style/vars.less",
 		"/F/xampp/htdocs/Goal/view/goal/details.tp",
 		"/F/xampp/htdocs/Goal/ctrl/GoalC.php",
 		"/F/xampp/htdocs/Goal/model/goal_funs.php",
 		"/F/xampp/htdocs/Goal/view/goal/new.tp",
-		"/F/xampp/htdocs/Goal/view/home/about.tp",
 		"/F/xampp/htdocs/Goal/view/account/change_pwd.tp",
-		"/F/xampp/htdocs/Goal/view/home/terms.tp",
 		"/F/xampp/htdocs/Goal/view/home/me.tc",
-		"/F/xampp/htdocs/Goal/view/footer.tc",
 		"/F/xampp/htdocs/Goal/model/account_funs.php",
 		"/F/xampp/htdocs/Goal/model/data_funs.inc",
 		"/F/xampp/htdocs/Goal/style/layout.less",
 		"/F/xampp/htdocs/Goal/ctrl/DiscoverC.php",
-		"/F/xampp/htdocs/Goal/view/person/person.tp",
 		"/F/xampp/htdocs/Goal/model/log_funs.php",
 		"/F/xampp/htdocs/Goal/view/account/slogan.tc",
 		"/F/xampp/htdocs/Goal/ctrl/PersonC.php",
@@ -376,8 +378,6 @@
 		"/F/xampp/htdocs/Goal/style/style.less",
 		"/F/xampp/htdocs/Goal/ctrl/DynC.php",
 		"/F/xampp/htdocs/Goal/view/dyn/dyns.tp",
-		"/F/xampp/htdocs/Goal/ctrl/AccountC.php",
-		"/F/xampp/htdocs/Goal/ctrl/HomeC.php",
 		"/F/xampp/htdocs/Goal/view/home/home.tp",
 		"/F/xampp/htdocs/Goal/view/dyn/admin_followees.tp",
 		"/F/xampp/htdocs/Goal/view/account/active.tp",
@@ -637,7 +637,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 240.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -741,6 +741,30 @@
 		"selected_items":
 		[
 			[
+				"foo",
+				"view/footer.tc"
+			],
+			[
+				"ab",
+				"view/home/about.tp"
+			],
+			[
+				"ter",
+				"view/home/terms.tp"
+			],
+			[
+				"per",
+				"view/person/person.tp"
+			],
+			[
+				"hea",
+				"view/header.tc"
+			],
+			[
+				"accou",
+				"ctrl/AccountC.php"
+			],
+			[
 				"head",
 				"view/header.tc"
 			],
@@ -773,14 +797,6 @@
 				"view/account/change_pwd.tp"
 			],
 			[
-				"foo",
-				"view/footer.tc"
-			],
-			[
-				"ab",
-				"view/home/about.tp"
-			],
-			[
 				"ne",
 				"view/goal/new.tp"
 			],
@@ -791,10 +807,6 @@
 			[
 				"dis",
 				"ctrl/DiscoverC.php"
-			],
-			[
-				"per",
-				"ctrl/PersonC.php"
 			],
 			[
 				"sl",
@@ -815,10 +827,6 @@
 			[
 				"go",
 				"model/goal_funs.php"
-			],
-			[
-				"hea",
-				"view/header.tc"
 			],
 			[
 				"f",
@@ -975,10 +983,6 @@
 			[
 				"b",
 				"view/browser_warning.tp"
-			],
-			[
-				"ter",
-				"view/home/terms.tp"
 			],
 			[
 				"",

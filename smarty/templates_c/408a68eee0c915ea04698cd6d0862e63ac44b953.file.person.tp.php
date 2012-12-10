@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-12-09 05:56:47
+<?php /* Smarty version Smarty-3.1.12, created on 2012-12-10 16:20:56
          compiled from "..\view\person\person.tp" */ ?>
 <?php /*%%SmartyHeaderCode:4986509235e2350e62-48954490%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '408a68eee0c915ea04698cd6d0862e63ac44b953' => 
     array (
       0 => '..\\view\\person\\person.tp',
-      1 => 1355029004,
+      1 => 1355152839,
       2 => 'file',
     ),
   ),
@@ -38,7 +38,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 		<div id="username"><?php echo $_smarty_tpl->tpl_vars['user']->value['Name'];?>
 </div>
 		<div id="other-info-wap">
-			<div><a href='#'>1 收藏</a></div>
+			<div><a href='#'>1 喜欢</a></div>
 		</div>
 	</div>
 </div>

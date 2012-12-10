@@ -16,8 +16,7 @@
 
 			// slogan info
 			$sm->assign('sInfo', array('usersNum' => get_all_users_num(),
-											'goalsNum' => get_all_goals_num(),
-											'logsNum' => get_all_logs_num()));
+										'goalsNum' => get_all_goals_num()));
 											
 			// Cookie email
 			$sm->assign('email', @base64_decode($_COOKIE['ue']));
@@ -58,8 +57,7 @@
 
 			// slogan info
 			$sm->assign('sInfo', array('usersNum' => get_all_users_num(),
-										'goalsNum' => get_all_goals_num(),
-										'logsNum' => get_all_logs_num()));
+										'goalsNum' => get_all_goals_num()));
 										
 			$sm->display('register.tp');	
 			break;
@@ -85,8 +83,7 @@
 			
 			// slogan info
 			$sm->assign('sInfo', array('usersNum' => get_all_users_num(),
-										'goalsNum' => get_all_goals_num(),
-										'logsNum' => get_all_logs_num()));
+										'goalsNum' => get_all_goals_num()));
 
 			// from
 			$sm->assign('from', $_REQUEST['from']);
@@ -121,16 +118,15 @@
 			}
 			break;			
 		
-	// forgor password
+	// page forgor password
 	
-		// get view
+		// view
 		case 'forgot_pwd':
 			$sm = new sm('account');
 
 			// slogan info
 			$sm->assign('sInfo', array('usersNum' => get_all_users_num(),
-										'goalsNum' => get_all_goals_num(),
-										'logsNum' => get_all_logs_num()));
+										'goalsNum' => get_all_goals_num()));
 			
 			// from
 			$sm->assign('from', $_REQUEST['from']);
@@ -166,8 +162,7 @@
 			
 			// slogan info
 			$sm->assign('sInfo', array('usersNum' => get_all_users_num(),
-										'goalsNum' => get_all_goals_num(),
-										'logsNum' => get_all_logs_num()));
+										'goalsNum' => get_all_goals_num()));
 										
 			// email
 			$sm->assign('email', $_REQUEST['email']);

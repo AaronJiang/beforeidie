@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-12-09 09:05:03
+<?php /* Smarty version Smarty-3.1.12, created on 2012-12-10 16:23:45
          compiled from "..\view\home\terms.tp" */ ?>
 <?php /*%%SmartyHeaderCode:21699509331ae95b517-66440483%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7f151bd63da9cff1706b5cbfef4baf975f3d8c9f' => 
     array (
       0 => '..\\view\\home\\terms.tp',
-      1 => 1355040262,
+      1 => 1355152998,
       2 => 'file',
     ),
   ),
@@ -23,18 +23,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 
 <div>
-
-	<h4>使用条款</h4>
-
-	<ul>
-		<li>本站不允许您发布任何带有政治、色情、暴力、诽谤、侮辱、威胁、猥亵、攻击或其他违反法律或公共秩序的文字或图片，也不允许您发布侵害他人名誉、隐私、商业机密、商标权、著作权、专利权或其他知识产权的文字或图片。管理员有权利删除不合适的内容。</li>
-
-		<li>本站对由注册会员发布的任何内容不享有版权，内容的版权属于原始发布者，如果您需要拷贝、转载或引用部分内容，请提前获取发布者本人的许可。对于发布不当内容而带来的法律责任，也由发布者本人承担，如有必要，本站将配合司法机关进行相应的调查。</li>
-	
-		<li>对于黑客入侵等情形所造成的资料丢失或外流，本站不必负法律责任。</li>
-
-		<li>本站希望能长期为您提供服务，但保留暂停或终止服务的权利。</li>
-	</ul>
 	
 	<h4>隐私保护</h4>
 
