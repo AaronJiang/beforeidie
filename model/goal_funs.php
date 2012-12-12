@@ -50,7 +50,7 @@
 		$sql = "SELECT GoalID, Title\n"
 	    	. "FROM goals\n"
 			. "WHERE goals.isPublic = 1\n"
-			//. "AND goals.UserID != ". $userID. "\n"
+			. "AND goals.UserID != ". $userID. "\n"
 			. "LIMIT 0, 20\n";
 		
 		$result = db_exec($sql);

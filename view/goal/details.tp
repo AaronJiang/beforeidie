@@ -3,42 +3,9 @@
 <script type='text/javascript' src='../js/goal-comment.js'></script>
 <script type="text/javascript">
 
+{if $isCreator}
 {literal}
 $(document).ready(function(){
-
-	/*
-	// 更新标题
-	$('#goal-title').blur(function(){
-		var goalTitle = $(this).text(),
-			goalID = $(this).data('goal-id');
-
-		$.ajax({
-			url: 'GoalC.php',
-			type: 'POST',
-			data: {
-				'act': 'update_goal_title',
-				'goalID': goalID,
-				'goalTitle': goalTitle
-			}
-		});
-	});
-
-	// 更新内容
-	$('#goal-content').blur(function(){
-		var goalID = $(this).data('goal-id'),
-			content = $(this).html();
-
-		$.ajax({
-			url: 'GoalC.php',
-			type: 'POST',
-			data: {
-				'act': 'update_goal_content',
-				'goalID': goalID,
-				'content': content 
-			}
-		});
-	});
-	*/
 
 	$(window).unload(function(){
 		var goalID = $('#goal-title').data('goal-id'),
@@ -58,15 +25,16 @@ $(document).ready(function(){
 		});
 	});
 });
-
 {/literal}
+{/if}
+
 </script>
 
 <div id='title-wap'>
-	<h2 id="goal-title" data-goal-id="{$goal.GoalID}" contenteditable="true">{$goal.Title}</h2>
+	<h2 id="goal-title" data-goal-id="{$goal.GoalID}" contenteditable="{if $isCreator}true{else}false{/if}">{$goal.Title}</h2>
 	<div id="goal-creator">by <a href="PersonC.php?act=person&userID={$creator.UserID}">{$creator.Username}</a></div>
 </div>
 
-<div id="goal-content" data-goal-id="{$goal.GoalID}" contenteditable="true">{$goal.Content}</div>	
+<div id="goal-content" data-goal-id="{$goal.GoalID}" contenteditable="{if $isCreator}true{else}false{/if}">{$goal.Content}</div>	
 
 {include file='../footer.tc'}
