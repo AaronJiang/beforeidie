@@ -6,12 +6,12 @@
 	function get_goal_by_ID($goalID){
 		$query = "SELECT * FROM goals WHERE GoalID = ". $goalID;
 		$results = db_exec($query);
-		return $results->fetch_assoc();	
+		return $results->fetch_assoc();
 	}
 	
 	//获取某用户的全部目标
 	function get_goals($userID, $isMe){
-		$query = "SELECT GoalID, Title, UserID\n"
+		$query = "SELECT GoalID, Title, UserID, IsPublic\n"
 				. "FROM goals\n"
 				. "WHERE UserID = ". $userID. "\n";
 		
@@ -139,7 +139,12 @@
 	function drop_goal($goalID){
 		$query = "DELETE FROM goals WHERE GoalID = ". $goalID;
 		$result = db_exec($query);
-		
 		return $result? "true": "false";
+	}
+
+	function change_goal_state($goalID, $isPublic){
+		$setValue = $isPublic? 0: 1;
+		$query = "UPDATE goals SET IsPublic = ". $setValue. " WHERE GoalID = ". $goalID;
+		return db_exec($query);
 	}
 ?>

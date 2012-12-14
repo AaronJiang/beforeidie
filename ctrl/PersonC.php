@@ -26,16 +26,16 @@
 			$currUserID = $_SESSION['valid_user_id'];
 			$sm->assign('currUserID', $currUserID);
 			
-			// isMe
-			$isMe = ($userID == $currUserID)? 1: 0;
-			$sm->assign('isMe', $isMe);
+			// isCreator
+			$isCreator = ($userID == $currUserID)? 1: 0;
+			$sm->assign('isCreator', $isCreator);
 
 			// isFollowed
 			$isFollowed = check_is_followed($currUserID, $userID);
 			$sm->assign('isFollowed', $isFollowed);
 										
 			// goals
-			$goals = get_goals($userID, false);
+			$goals = get_goals($userID, $isCreator);
 			$sm->assign('goals', $goals);
 			
 			// followersNum
@@ -45,6 +45,12 @@
 			$sm->assign('followeesNum', get_followees_num($userID));
 			
 			$sm->display('person.tp');
+			break;
+
+		// change_goal_state
+		case "change_goal_state":
+			$isSucc = change_goal_state($_REQUEST['goalID'], $_REQUEST['isPublic']);
+			echo $isSucc? 1: 0;
 			break;
 			
 		// follow users
@@ -123,8 +129,7 @@
 			
 		// drop goal
 		case "drop_goal":
-			drop_goal($_REQUEST['goalID']);
-			page_jump_back();
+			echo drop_goal($_REQUEST['goalID'])? 1: 0;
 			break;
 			
 	// followers

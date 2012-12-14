@@ -52,16 +52,13 @@
 			$sm->display('details.tp');
 			break;
 
-		case "update_goal_title":
-			update_goal_title($_REQUEST['goalID'], $_REQUEST['goalTitle']);
-			break;
-			
-		case "update_goal_content":
-			update_goal_content($_REQUEST['goalID'], $_REQUEST['goalContent']);
-			break;
-
 		case "update_goal":
 			ECHO update_goal($_REQUEST['goalID'], $_REQUEST['goalTitle'], $_REQUEST['goalContent'])? 1: 0;
+			break;
+
+		case "change_goal_state":
+			$isSucc = change_goal_state($_REQUEST['goalID'], $_REQUEST['isPublic']);
+			echo $isSucc? 1: 0;
 			break;
 	}
 ?>

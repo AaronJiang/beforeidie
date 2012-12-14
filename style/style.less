@@ -116,7 +116,6 @@
 		text-align: center;
 		font-weight: normal;
 		outline: none;
-
 	}
 
 	#goal-content{
@@ -148,24 +147,46 @@
 		border-bottom: 1px solid @grayLight;
 		padding: 10px 0 15px 0;
 		margin: 0 0 25px 0;
-		text-align: center;
 
 		#goal-title{
 			font-weight: normal;
 			outline: none;
 			margin-bottom: 0px;
+			text-align: center;
 		}
 
-		#goal-creator{
+		#extra-info-wap{
 			position: absolute;
 			bottom: 2px;
 			right: 5px;
-			font-style: italic;
-			color: @grayLighter;
-
-			a{
+			
+			#goal-creator{
+				bottom: 2px;
+				right: 5px;
+				font-style: italic;
 				color: @grayLighter;
+
+				a{
+					display: inline-block;
+					color: @grayLighter;
+				}
 			}
+
+			.btn-lock{
+				display: inline-block;
+				vertical-align: -12%;
+				width: 14px;
+				height: 14px;
+				margin-right: 2px;
+				background: url('../imgs/bs.png');
+				background-position: -287px -24px;
+				background-repeat: no-repeat;
+				opacity: 0.8;
+				cursor: pointer;
+			}
+			.btn-lock-false{
+				opacity: 0.2;
+			}	
 		}
 	}
 
@@ -224,21 +245,66 @@
 			padding: 15px 0;
 			position: relative;
 			
+			.goal-index{
+				padding: 0 20px 0 15px;
+				font-family: 'Century Gothic';
+				font-size: @fontSizeLarge;
+				//color: @grayLight;
+			}
+
 			.goal-title{
 				font-weight: bold;
 				display: inline-block;
-				font-size: 15px;
+				//font-size: 16px;
 				color: @black;
 				font-size: @fontSizeLarge;
 			}
 			
-			.goal-num-wap{
+			.extra-info-wap{
 				position: absolute;
-				top: 5px;
-				right: 0;
-				font-size: @fontSizeSmall;
-				color: @gray;
+				top: 18px;
+				right: 18px;
+
+				.btn-lock{
+					width: 14px;
+					height: 14px;
+					display: inline-block;
+					background: url('../imgs/bs.png');
+					background-position: -287px -24px;
+					background-repeat: no-repeat;
+					opacity: 0.8;
+					cursor: pointer;
+					margin-right: 5px;
+
+					&:hover{
+						opacity:0.9;
+					}
+				}
+				.btn-lock-false{
+					opacity: 0.1;
+
+					&:hover{
+						opacity: 0.2;
+					}
+				}
+
+				.btn-remove{
+					width: 14px;
+					height: 14px;
+					display: inline-block;
+					background: url('../imgs/bs.png');
+					background-position: -312px 0;
+					background-repeat: no-repeat;
+					opacity: 0.1;
+					cursor: pointer;
+
+					&:hover{
+						opacity: 0.2;
+					}
+				}
 			}
+
+
 		}
 	}
 }

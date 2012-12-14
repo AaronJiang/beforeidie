@@ -7,6 +7,7 @@
 {literal}
 $(document).ready(function(){
 
+	// 退出页面时更新
 	$(window).unload(function(){
 		var goalID = $('#goal-title').data('goal-id'),
 			goalTitle = $('#goal-title').text(),
@@ -24,6 +25,38 @@ $(document).ready(function(){
 			}
 		});
 	});
+
+	// 切换状态
+	$('.btn-lock').click(function(){
+		var goalID = $(this).attr('data-goal-id'),
+			isPublic = $(this).attr('data-is-public'),
+			btn = $(this);
+
+		$.ajax({
+			url: 'GoalC.php',
+			type: 'POST',
+			data: {
+				'act': 'change_goal_state',
+				'goalID': goalID,
+				'isPublic': isPublic
+			},
+			success: function(isSucc){
+				if(isSucc){
+					// 切换图标样式
+					if(isPublic == 1){
+						// 若之前为 unlock
+						$(btn).removeClass('btn-lock-false');
+						$(btn).attr({'title': '开锁啦', 'data-is-public': 0});
+					} else {
+						// 若之前为 lock
+						$(btn).addClass('btn-lock-false');
+						$(btn).attr({'title': '锁起来，只给自己看', 'data-is-public': 1});
+					}
+				}
+			}
+		});
+	});
+
 });
 {/literal}
 {/if}
@@ -32,7 +65,18 @@ $(document).ready(function(){
 
 <div id='title-wap'>
 	<h2 id="goal-title" data-goal-id="{$goal.GoalID}" contenteditable="{if $isCreator}true{else}false{/if}">{$goal.Title}</h2>
-	<div id="goal-creator">by <a href="PersonC.php?act=person&userID={$creator.UserID}">{$creator.Username}</a></div>
+	<div id="extra-info-wap">
+		{if $isCreator}
+			{if $goal.IsPublic}
+			<span data-goal-id="{$goal.GoalID}" data-is-public="1" class="btn-lock btn-lock-false" title="锁起来，只给自己看"></span>
+			{else}
+			<span data-goal-id="{$goal.GoalID}" data-is-public="0" class="btn-lock" title="开锁啦"></span>
+			{/if}
+		{else}
+			<span id="goal-creator">by <a href="PersonC.php?act=person&userID={$creator.UserID}">{$creator.Username}</a></span>	
+		{/if}
+	</div>
+
 </div>
 
 <div id="goal-content" data-goal-id="{$goal.GoalID}" contenteditable="{if $isCreator}true{else}false{/if}">{$goal.Content}</div>	

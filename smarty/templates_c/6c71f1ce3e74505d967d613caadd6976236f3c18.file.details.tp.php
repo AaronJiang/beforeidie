@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-12-12 16:41:18
+<?php /* Smarty version Smarty-3.1.12, created on 2012-12-14 03:50:54
          compiled from "..\view\goal\details.tp" */ ?>
 <?php /*%%SmartyHeaderCode:1933950938337f31405-89020659%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6c71f1ce3e74505d967d613caadd6976236f3c18' => 
     array (
       0 => '..\\view\\goal\\details.tp',
-      1 => 1355326876,
+      1 => 1355453452,
       2 => 'file',
     ),
   ),
@@ -35,6 +35,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 $(document).ready(function(){
 
+	// 退出页面时更新
 	$(window).unload(function(){
 		var goalID = $('#goal-title').data('goal-id'),
 			goalTitle = $('#goal-title').text(),
@@ -52,6 +53,38 @@ $(document).ready(function(){
 			}
 		});
 	});
+
+	// 切换状态
+	$('.btn-lock').click(function(){
+		var goalID = $(this).attr('data-goal-id'),
+			isPublic = $(this).attr('data-is-public'),
+			btn = $(this);
+
+		$.ajax({
+			url: 'GoalC.php',
+			type: 'POST',
+			data: {
+				'act': 'change_goal_state',
+				'goalID': goalID,
+				'isPublic': isPublic
+			},
+			success: function(isSucc){
+				if(isSucc){
+					// 切换图标样式
+					if(isPublic == 1){
+						// 若之前为 unlock
+						$(btn).removeClass('btn-lock-false');
+						$(btn).attr({'title': '开锁啦', 'data-is-public': 0});
+					} else {
+						// 若之前为 lock
+						$(btn).addClass('btn-lock-false');
+						$(btn).attr({'title': '锁起来，只给自己看', 'data-is-public': 1});
+					}
+				}
+			}
+		});
+	});
+
 });
 
 <?php }?>
@@ -62,9 +95,22 @@ $(document).ready(function(){
 	<h2 id="goal-title" data-goal-id="<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
 " contenteditable="<?php if ($_smarty_tpl->tpl_vars['isCreator']->value){?>true<?php }else{ ?>false<?php }?>"><?php echo $_smarty_tpl->tpl_vars['goal']->value['Title'];?>
 </h2>
-	<div id="goal-creator">by <a href="PersonC.php?act=person&userID=<?php echo $_smarty_tpl->tpl_vars['creator']->value['UserID'];?>
+	<div id="extra-info-wap">
+		<?php if ($_smarty_tpl->tpl_vars['isCreator']->value){?>
+			<?php if ($_smarty_tpl->tpl_vars['goal']->value['IsPublic']){?>
+			<span data-goal-id="<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
+" data-is-public="1" class="btn-lock btn-lock-false" title="锁起来，只给自己看"></span>
+			<?php }else{ ?>
+			<span data-goal-id="<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
+" data-is-public="0" class="btn-lock" title="开锁啦"></span>
+			<?php }?>
+		<?php }else{ ?>
+			<span id="goal-creator">by <a href="PersonC.php?act=person&userID=<?php echo $_smarty_tpl->tpl_vars['creator']->value['UserID'];?>
 "><?php echo $_smarty_tpl->tpl_vars['creator']->value['Username'];?>
-</a></div>
+</a></span>	
+		<?php }?>
+	</div>
+
 </div>
 
 <div id="goal-content" data-goal-id="<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>

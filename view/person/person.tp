@@ -1,6 +1,74 @@
 {include file='../header.tc' title="{$user.Name} 的个人主页" page='page-person'}
 
 <script type='text/javascript' src='../js/goal-comment.js'></script>
+<script type="text/javascript">
+
+{literal}
+$(document).ready(function(){
+
+	// 标号
+	$('.goal-index').each(function(index){
+		$(this).text(index + 1);
+	})
+
+	// 锁 & 解锁
+	$('.btn-lock').click(function(){
+		var goalID = $(this).attr('data-goal-id'),
+			isPublic = $(this).attr('data-is-public'),
+			btn = $(this);
+
+		$.ajax({
+			url: 'PersonC.php',
+			type: 'POST',
+			data: {
+				'act': 'change_goal_state',
+				'goalID': goalID,
+				'isPublic': isPublic
+			},
+			success: function(isSucc){
+				if(isSucc){
+					// 切换图标样式
+					if(isPublic == 1){
+						// 若之前为 unlock
+						$(btn).removeClass('btn-lock-false');
+						$(btn).attr({'title': '开锁啦', 'data-is-public': 0});
+					} else {
+						// 若之前为 lock
+						$(btn).addClass('btn-lock-false');
+						$(btn).attr({'title': '锁起来，只给自己看', 'data-is-public': 1});
+					}
+				}
+			}
+		});
+	});
+
+	// 删除
+	$('.btn-remove').click(function(){
+		var goalID = $(this).attr('data-goal-id'),
+			goalTitle = $(this).attr('data-goal-title'),
+			isSure = confirm('确定去掉 ' + goalTitle + " ?"),
+			goalItem = $(this).parents('.goal-item').first();
+
+		if(isSure){
+			$.ajax({
+				url: 'PersonC.php',
+				type: 'POST',
+				data: {
+					'act': 'drop_goal',
+					'goalID': goalID
+				},
+				success: function(isSucc){
+					if(isSucc){
+						$(goalItem).detach();
+					}
+				}
+			})
+		}
+	});
+});
+
+{/literal}
+</script>
 
 <div id='user-info-wap' class='clearfix'>
 	<img class='avatar avatar-side avatar-large' src='{$user.Avatar}' />
@@ -15,8 +83,22 @@
 
 <div class='goal-wap'>
 	{foreach $goals as $goal}
-	<div class='goal-item'>
-		<a class='goal-title' href='GoalC.php?act=details&goalID={$goal.GoalID}'>{$goal.Title}</a>
+	<div class="goal-item">
+		<span class='goal-index'></span>
+		<a class="goal-title" href='GoalC.php?act=details&goalID={$goal.GoalID}'>{$goal.Title}</a>
+
+		{if $isCreator}
+		<div class="extra-info-wap">
+			{if $goal.IsPublic}
+			<span class="btn-lock btn-lock-false" data-goal-id="{$goal.GoalID}" data-is-public="1" title="锁起来，只给自己看"></span>
+			{else}
+			<span class="btn-lock" data-goal-id="{$goal.GoalID}" data-is-public="0" title="开锁啦"></span>
+			{/if}
+
+			<span class="btn-remove" data-goal-id="{$goal.GoalID}" data-goal-title="{$goal.Title}" title="去掉它"></span>
+		</div>
+		{/if}
+
 	</div>
 	{/foreach}
 </div>

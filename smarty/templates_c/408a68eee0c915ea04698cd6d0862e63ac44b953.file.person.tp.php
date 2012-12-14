@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-12-10 16:20:56
+<?php /* Smarty version Smarty-3.1.12, created on 2012-12-14 04:45:48
          compiled from "..\view\person\person.tp" */ ?>
 <?php /*%%SmartyHeaderCode:4986509235e2350e62-48954490%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '408a68eee0c915ea04698cd6d0862e63ac44b953' => 
     array (
       0 => '..\\view\\person\\person.tp',
-      1 => 1355152839,
+      1 => 1355456608,
       2 => 'file',
     ),
   ),
@@ -22,6 +22,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'user' => 0,
     'goals' => 0,
     'goal' => 0,
+    'isCreator' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -29,6 +30,74 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 
 <script type='text/javascript' src='../js/goal-comment.js'></script>
+<script type="text/javascript">
+
+
+$(document).ready(function(){
+
+	// 标号
+	$('.goal-index').each(function(index){
+		$(this).text(index + 1);
+	})
+
+	// 锁 & 解锁
+	$('.btn-lock').click(function(){
+		var goalID = $(this).attr('data-goal-id'),
+			isPublic = $(this).attr('data-is-public'),
+			btn = $(this);
+
+		$.ajax({
+			url: 'PersonC.php',
+			type: 'POST',
+			data: {
+				'act': 'change_goal_state',
+				'goalID': goalID,
+				'isPublic': isPublic
+			},
+			success: function(isSucc){
+				if(isSucc){
+					// 切换图标样式
+					if(isPublic == 1){
+						// 若之前为 unlock
+						$(btn).removeClass('btn-lock-false');
+						$(btn).attr({'title': '开锁啦', 'data-is-public': 0});
+					} else {
+						// 若之前为 lock
+						$(btn).addClass('btn-lock-false');
+						$(btn).attr({'title': '锁起来，只给自己看', 'data-is-public': 1});
+					}
+				}
+			}
+		});
+	});
+
+	// 删除
+	$('.btn-remove').click(function(){
+		var goalID = $(this).attr('data-goal-id'),
+			goalTitle = $(this).attr('data-goal-title'),
+			isSure = confirm('确定去掉 ' + goalTitle + " ?"),
+			goalItem = $(this).parents('.goal-item').first();
+
+		if(isSure){
+			$.ajax({
+				url: 'PersonC.php',
+				type: 'POST',
+				data: {
+					'act': 'drop_goal',
+					'goalID': goalID
+				},
+				success: function(isSucc){
+					if(isSucc){
+						$(goalItem).detach();
+					}
+				}
+			})
+		}
+	});
+});
+
+
+</script>
 
 <div id='user-info-wap' class='clearfix'>
 	<img class='avatar avatar-side avatar-large' src='<?php echo $_smarty_tpl->tpl_vars['user']->value['Avatar'];?>
@@ -49,10 +118,28 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 foreach ($_from as $_smarty_tpl->tpl_vars['goal']->key => $_smarty_tpl->tpl_vars['goal']->value){
 $_smarty_tpl->tpl_vars['goal']->_loop = true;
 ?>
-	<div class='goal-item'>
-		<a class='goal-title' href='GoalC.php?act=details&goalID=<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
+	<div class="goal-item">
+		<span class='goal-index'></span>
+		<a class="goal-title" href='GoalC.php?act=details&goalID=<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
 '><?php echo $_smarty_tpl->tpl_vars['goal']->value['Title'];?>
 </a>
+
+		<?php if ($_smarty_tpl->tpl_vars['isCreator']->value){?>
+		<div class="extra-info-wap">
+			<?php if ($_smarty_tpl->tpl_vars['goal']->value['IsPublic']){?>
+			<span class="btn-lock btn-lock-false" data-goal-id="<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
+" data-is-public="1" title="锁起来，只给自己看"></span>
+			<?php }else{ ?>
+			<span class="btn-lock" data-goal-id="<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
+" data-is-public="0" title="开锁啦"></span>
+			<?php }?>
+
+			<span class="btn-remove" data-goal-id="<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
+" data-goal-title="<?php echo $_smarty_tpl->tpl_vars['goal']->value['Title'];?>
+" title="去掉它"></span>
+		</div>
+		<?php }?>
+
 	</div>
 	<?php } ?>
 </div>
