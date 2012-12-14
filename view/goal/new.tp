@@ -5,11 +5,28 @@
 {literal}
 $(document).ready(function(){
 
-	$("#btn-new-goal").click(function(){
+	$('#goal-title').focus();
+
+	// 切换lock状态
+	$('.btn-lock').click(function(){
+		var isPublic = $(this).attr('data-is-public');
+
+		if(isPublic == 1){
+			$(this).removeClass('btn-lock-false');
+			$(this).attr({'data-is-public': 0}); 
+		} else {
+			$(this).addClass('btn-lock-false');
+			$(this).attr({'data-is-public': 1});
+		}
+	});
+
+	// 新建
+	$('#btn-new-goal').click(function(){
 
 		var title = $('#goal-title').text(),
 			content = $('#goal-content').html(),
-			userID = $('#goal-title').data('user-id');
+			userID = $('#goal-title').attr('data-user-id'),
+			isPublic = $('.btn-lock').first().attr('data-is-public');
 
 		$.ajax({
 			url: 'GoalC.php',
@@ -18,7 +35,8 @@ $(document).ready(function(){
 				'act': 'new_goal',
 				'userID': userID,
 				'title': title,
-				'content': content
+				'content': content,
+				'isPublic': isPublic
 			},
 			success: function(){
 				window.history.go(-1);
@@ -30,7 +48,10 @@ $(document).ready(function(){
 </script>
 {/literal}
 
-<h2 id="goal-title" data-user-id="{$userID}" contenteditable="true"></h2>
+<div id="goal-title-wap">
+	<h2 id="goal-title" data-user-id="{$userID}" contenteditable="true"></h2>
+	<span class="btn-icon btn-lock btn-lock-false" data-is-public="1"></span>
+</div>
 
 <div id="goal-content" contenteditable="true"><div></div></div>
 

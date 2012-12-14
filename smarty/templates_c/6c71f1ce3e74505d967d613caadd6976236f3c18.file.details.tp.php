@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-12-14 03:50:54
+<?php /* Smarty version Smarty-3.1.12, created on 2012-12-14 10:52:02
          compiled from "..\view\goal\details.tp" */ ?>
 <?php /*%%SmartyHeaderCode:1933950938337f31405-89020659%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6c71f1ce3e74505d967d613caadd6976236f3c18' => 
     array (
       0 => '..\\view\\goal\\details.tp',
-      1 => 1355453452,
+      1 => 1355478375,
       2 => 'file',
     ),
   ),
@@ -21,6 +21,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
     'goal' => 0,
     'isCreator' => 0,
+    'isLike' => 0,
     'creator' => 0,
   ),
   'has_nocache_code' => false,
@@ -31,11 +32,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <script type='text/javascript' src='../js/goal-comment.js'></script>
 <script type="text/javascript">
 
-<?php if ($_smarty_tpl->tpl_vars['isCreator']->value){?>
 
 $(document).ready(function(){
 
-	// 退出页面时更新
+	// save
 	$(window).unload(function(){
 		var goalID = $('#goal-title').data('goal-id'),
 			goalTitle = $('#goal-title').text(),
@@ -54,7 +54,7 @@ $(document).ready(function(){
 		});
 	});
 
-	// 切换状态
+	// lock
 	$('.btn-lock').click(function(){
 		var goalID = $(this).attr('data-goal-id'),
 			isPublic = $(this).attr('data-is-public'),
@@ -69,7 +69,7 @@ $(document).ready(function(){
 				'isPublic': isPublic
 			},
 			success: function(isSucc){
-				if(isSucc){
+				if(isSucc == 1){
 					// 切换图标样式
 					if(isPublic == 1){
 						// 若之前为 unlock
@@ -85,9 +85,40 @@ $(document).ready(function(){
 		});
 	});
 
+	// like
+	$('.btn-like').click(function(){
+		var goalID = $(this).attr('data-goal-id'),
+			userID = $(this).attr('data-user-id'),
+			isLike = $(this).attr('data-is-like'),
+			btn = $(this);
+
+		$.ajax({
+			url: 'GoalC.php',
+			type: 'POST',
+			data: {
+				'act': 'change_goal_like',
+				'goalID': goalID,
+				'userID': userID,
+				'isLike': isLike
+			},
+			success: function(isSucc){
+				if(isSucc == 1){
+					if(isLike == 1){
+						// 若之前为 like
+						$(btn).addClass('btn-like-false');
+						$(btn).attr('data-is-like', 0);
+					} else {
+						// 若之前为 unlike
+						$(btn).removeClass('btn-like-false');
+						$(btn).attr('data-is-like', 1);
+					}
+				}
+			}
+		})
+	});
+
 });
 
-<?php }?>
 
 </script>
 
@@ -97,17 +128,32 @@ $(document).ready(function(){
 </h2>
 	<div id="extra-info-wap">
 		<?php if ($_smarty_tpl->tpl_vars['isCreator']->value){?>
+
+			<!-- lock -->
 			<?php if ($_smarty_tpl->tpl_vars['goal']->value['IsPublic']){?>
-			<span data-goal-id="<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
-" data-is-public="1" class="btn-lock btn-lock-false" title="锁起来，只给自己看"></span>
+			<span class="btn-icon btn-lock btn-lock-false" data-goal-id="<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
+" data-is-public="1" title="锁起来，只给自己看"></span>
 			<?php }else{ ?>
-			<span data-goal-id="<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
-" data-is-public="0" class="btn-lock" title="开锁啦"></span>
+			<span class="btn-icon btn-lock" data-goal-id="<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
+" data-is-public="0" title="开锁啦"></span>
 			<?php }?>
+
 		<?php }else{ ?>
+
+			<!-- like -->
+			<?php if ($_smarty_tpl->tpl_vars['isLike']->value){?>
+			<span class="btn-icon btn-like" data-goal-id="<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
+" data-user-id="<?php echo $_SESSION['valid_user_id'];?>
+" data-is-like="1"></span>
+			<?php }else{ ?>
+			<span class="btn-icon btn-like btn-like-false" data-goal-id="<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
+" data-user-id="<?php echo $_SESSION['valid_user_id'];?>
+" data-is-like="0"></span>
+			<?php }?>
+			
 			<span id="goal-creator">by <a href="PersonC.php?act=person&userID=<?php echo $_smarty_tpl->tpl_vars['creator']->value['UserID'];?>
 "><?php echo $_smarty_tpl->tpl_vars['creator']->value['Username'];?>
-</a></span>	
+</a></span>
 		<?php }?>
 	</div>
 

@@ -22,7 +22,7 @@
 			break;
 
 		case "new_goal":
-			new_goal($_REQUEST['userID'], $_REQUEST['title'], $_REQUEST['content'], 1);
+			new_goal($_REQUEST['userID'], $_REQUEST['title'], $_REQUEST['content'], $_REQUEST['isPublic']);
 			break;
 
 	// page goal details
@@ -44,6 +44,11 @@
 			$isCreator = check_goal_ownership($goalID, $_SESSION['valid_user_id']);
 			$sm->assign('isCreator', $isCreator? 1: 0);
 
+			// isLike
+			if(!$isCreator){
+				$sm->assign('isLike', check_goal_like($goalID, $_SESSION['valid_user_id'])? 1: 0);
+			}
+
 			// creator info
 			$creator = get_goal_owner($goalID);
 			$sm->assign('creator', $creator);
@@ -53,12 +58,15 @@
 			break;
 
 		case "update_goal":
-			ECHO update_goal($_REQUEST['goalID'], $_REQUEST['goalTitle'], $_REQUEST['goalContent'])? 1: 0;
+			echo update_goal($_REQUEST['goalID'], $_REQUEST['goalTitle'], $_REQUEST['goalContent'])? 1: 0;
 			break;
 
 		case "change_goal_state":
-			$isSucc = change_goal_state($_REQUEST['goalID'], $_REQUEST['isPublic']);
-			echo $isSucc? 1: 0;
+			echo change_goal_state($_REQUEST['goalID'], $_REQUEST['isPublic'])? 1: 0;
+			break;
+
+		case "change_goal_like":
+			echo change_goal_like($_REQUEST['goalID'], $_REQUEST['userID'], $_REQUEST['isLike'])? 1: 0;
 			break;
 	}
 ?>

@@ -21,6 +21,9 @@
 									'Name' => get_username_by_id($userID),
 									'Avatar' => get_gravatar($userID)));
 
+			// likesNum
+			$sm->assign('likesNum', get_likes_num($userID));
+
 			// currUserID
 			@session_start();
 			$currUserID = $_SESSION['valid_user_id'];
@@ -131,6 +134,10 @@
 		case "drop_goal":
 			echo drop_goal($_REQUEST['goalID'])? 1: 0;
 			break;
+
+	// likes
+		case 'likes':
+			$sm = new sm('person');
 			
 	// followers
 		

@@ -3,11 +3,10 @@
 <script type='text/javascript' src='../js/goal-comment.js'></script>
 <script type="text/javascript">
 
-{if $isCreator}
 {literal}
 $(document).ready(function(){
 
-	// 退出页面时更新
+	// save
 	$(window).unload(function(){
 		var goalID = $('#goal-title').data('goal-id'),
 			goalTitle = $('#goal-title').text(),
@@ -26,7 +25,7 @@ $(document).ready(function(){
 		});
 	});
 
-	// 切换状态
+	// lock
 	$('.btn-lock').click(function(){
 		var goalID = $(this).attr('data-goal-id'),
 			isPublic = $(this).attr('data-is-public'),
@@ -41,7 +40,7 @@ $(document).ready(function(){
 				'isPublic': isPublic
 			},
 			success: function(isSucc){
-				if(isSucc){
+				if(isSucc == 1){
 					// 切换图标样式
 					if(isPublic == 1){
 						// 若之前为 unlock
@@ -57,9 +56,40 @@ $(document).ready(function(){
 		});
 	});
 
+	// like
+	$('.btn-like').click(function(){
+		var goalID = $(this).attr('data-goal-id'),
+			userID = $(this).attr('data-user-id'),
+			isLike = $(this).attr('data-is-like'),
+			btn = $(this);
+
+		$.ajax({
+			url: 'GoalC.php',
+			type: 'POST',
+			data: {
+				'act': 'change_goal_like',
+				'goalID': goalID,
+				'userID': userID,
+				'isLike': isLike
+			},
+			success: function(isSucc){
+				if(isSucc == 1){
+					if(isLike == 1){
+						// 若之前为 like
+						$(btn).addClass('btn-like-false');
+						$(btn).attr('data-is-like', 0);
+					} else {
+						// 若之前为 unlike
+						$(btn).removeClass('btn-like-false');
+						$(btn).attr('data-is-like', 1);
+					}
+				}
+			}
+		})
+	});
+
 });
 {/literal}
-{/if}
 
 </script>
 
@@ -67,13 +97,24 @@ $(document).ready(function(){
 	<h2 id="goal-title" data-goal-id="{$goal.GoalID}" contenteditable="{if $isCreator}true{else}false{/if}">{$goal.Title}</h2>
 	<div id="extra-info-wap">
 		{if $isCreator}
+
+			<!-- lock -->
 			{if $goal.IsPublic}
-			<span data-goal-id="{$goal.GoalID}" data-is-public="1" class="btn-lock btn-lock-false" title="锁起来，只给自己看"></span>
+			<span class="btn-icon btn-lock btn-lock-false" data-goal-id="{$goal.GoalID}" data-is-public="1" title="锁起来，只给自己看"></span>
 			{else}
-			<span data-goal-id="{$goal.GoalID}" data-is-public="0" class="btn-lock" title="开锁啦"></span>
+			<span class="btn-icon btn-lock" data-goal-id="{$goal.GoalID}" data-is-public="0" title="开锁啦"></span>
 			{/if}
+
 		{else}
-			<span id="goal-creator">by <a href="PersonC.php?act=person&userID={$creator.UserID}">{$creator.Username}</a></span>	
+
+			<!-- like -->
+			{if $isLike}
+			<span class="btn-icon btn-like" data-goal-id="{$goal.GoalID}" data-user-id="{$smarty.session.valid_user_id}" data-is-like="1"></span>
+			{else}
+			<span class="btn-icon btn-like btn-like-false" data-goal-id="{$goal.GoalID}" data-user-id="{$smarty.session.valid_user_id}" data-is-like="0"></span>
+			{/if}
+			
+			<span id="goal-creator">by <a href="PersonC.php?act=person&userID={$creator.UserID}">{$creator.Username}</a></span>
 		{/if}
 	</div>
 

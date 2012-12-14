@@ -105,17 +105,44 @@
 	}
 }
 
-// Page New Goal, Edit Goal
+// Page New Goal
 // ------------------------------------------------------------
 
 #page-new-goal{
-	#goal-title{
+	#goal-title-wap{
 		border-bottom: 1px solid @grayLight;
 		padding: 10px 0 15px 0;
 		margin: 0 0 25px 0;
 		text-align: center;
 		font-weight: normal;
 		outline: none;
+		position: relative;
+
+		#goal-title{
+			text-align: center;
+			font-weight: normal;
+			outline: none;
+			margin-bottom: 0px;
+		}
+
+		.btn-lock{
+			position: absolute;
+			bottom: 5px;
+			right: 5px;
+			background-position: -287px -24px;
+			opacity: 0.8;
+
+			&:hover{
+				opacity:0.9;
+			}
+		}
+		.btn-lock-false{
+			opacity: 0.1;
+
+			&:hover{
+				opacity: 0.2;
+			}
+		}
 	}
 
 	#goal-content{
@@ -161,11 +188,8 @@
 			right: 5px;
 			
 			#goal-creator{
-				bottom: 2px;
-				right: 5px;
 				font-style: italic;
 				color: @grayLighter;
-
 				a{
 					display: inline-block;
 					color: @grayLighter;
@@ -173,20 +197,38 @@
 			}
 
 			.btn-lock{
-				display: inline-block;
+				margin-right: 3px;
 				vertical-align: -12%;
-				width: 14px;
-				height: 14px;
 				margin-right: 2px;
-				background: url('../imgs/bs.png');
 				background-position: -287px -24px;
-				background-repeat: no-repeat;
 				opacity: 0.8;
-				cursor: pointer;
+
+				&:hover{
+					opacity: 0.9;
+				}
 			}
 			.btn-lock-false{
-				opacity: 0.2;
-			}	
+				opacity: 0.1;
+
+				&:hover{
+					opacity: 0.2;
+				}
+			}
+
+			.btn-like{
+				vertical-align: -12%;
+				background-position: -96px 0;
+				opacity: 0.8;
+				&:hover{
+					opacity: 0.9;
+				}
+			}
+			.btn-like-false{
+				opacity: 0.1;
+				&:hover{
+					opacity: 0.2;
+				}
+			}
 		}
 	}
 
@@ -255,7 +297,6 @@
 			.goal-title{
 				font-weight: bold;
 				display: inline-block;
-				//font-size: 16px;
 				color: @black;
 				font-size: @fontSizeLarge;
 			}
@@ -266,14 +307,8 @@
 				right: 18px;
 
 				.btn-lock{
-					width: 14px;
-					height: 14px;
-					display: inline-block;
-					background: url('../imgs/bs.png');
 					background-position: -287px -24px;
-					background-repeat: no-repeat;
 					opacity: 0.8;
-					cursor: pointer;
 					margin-right: 5px;
 
 					&:hover{
@@ -289,22 +324,14 @@
 				}
 
 				.btn-remove{
-					width: 14px;
-					height: 14px;
-					display: inline-block;
-					background: url('../imgs/bs.png');
 					background-position: -312px 0;
-					background-repeat: no-repeat;
 					opacity: 0.1;
-					cursor: pointer;
 
 					&:hover{
 						opacity: 0.2;
 					}
 				}
 			}
-
-
 		}
 	}
 }

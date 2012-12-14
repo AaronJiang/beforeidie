@@ -4,24 +4,56 @@
 		"selected_items":
 		[
 			[
-				"fon",
-				"fontSizeLarge"
+				"is",
+				"isCreator"
+			],
+			[
+				"SE",
+				"SELECT"
+			],
+			[
+				"from",
+				"FROM"
+			],
+			[
+				"USER",
+				"userID"
+			],
+			[
+				"GOAL",
+				"goalID"
+			],
+			[
+				"User",
+				"UserID"
 			],
 			[
 				"goal",
-				"goalItem"
+				"goalID"
+			],
+			[
+				"btn",
+				"btn-lock"
+			],
+			[
+				"ba",
+				"background-position"
+			],
+			[
+				"bo",
+				"bottom"
 			],
 			[
 				"data",
-				"data-goal-id"
+				"data-is-public"
+			],
+			[
+				"fon",
+				"font-family"
 			],
 			[
 				"goa",
 				"goalID"
-			],
-			[
-				"is",
-				"isSucc"
 			],
 			[
 				"data-goal",
@@ -30,10 +62,6 @@
 			[
 				"cl",
 				"click"
-			],
-			[
-				"btn",
-				"btn-remove"
 			],
 			[
 				"mar",
@@ -50,10 +78,6 @@
 			[
 				"Goal",
 				"GoalID"
-			],
-			[
-				"ba",
-				"background-repeat"
 			],
 			[
 				"fi",
@@ -212,10 +236,6 @@
 				"text-align"
 			],
 			[
-				"bo",
-				"borderRadiusSmall"
-			],
-			[
 				"gray",
 				"grayLight"
 			],
@@ -291,31 +311,7 @@
 			"file": "style/style.less",
 			"settings":
 			{
-				"buffer_size": 6489,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "view/person/person.tp",
-			"settings":
-			{
-				"buffer_size": 2436,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "ctrl/PersonC.php",
-			"settings":
-			{
-				"buffer_size": 4764,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "model/goal_funs.php",
-			"settings":
-			{
-				"buffer_size": 3485,
+				"buffer_size": 6628,
 				"line_ending": "Windows"
 			}
 		},
@@ -323,15 +319,31 @@
 			"file": "view/goal/details.tp",
 			"settings":
 			{
-				"buffer_size": 2081,
+				"buffer_size": 3113,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "style/vars.less",
+			"file": "ctrl/GoalC.php",
 			"settings":
 			{
-				"buffer_size": 1732,
+				"buffer_size": 1569,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "view/person/person.tp",
+			"settings":
+			{
+				"buffer_size": 2888,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "ctrl/PersonC.php",
+			"settings":
+			{
+				"buffer_size": 4886,
 				"line_ending": "Windows"
 			}
 		}
@@ -372,30 +384,32 @@
 	},
 	"file_history":
 	[
+		"/F/xampp/htdocs/Goal/model/like_funs.php",
+		"/F/xampp/htdocs/Goal/model/goal_funs.php",
+		"/F/xampp/htdocs/Goal/model/follower_funs.php",
+		"/F/xampp/htdocs/Goal/model/data_funs.inc",
+		"/F/xampp/htdocs/Goal/view/header.tc",
+		"/F/xampp/htdocs/Goal/style/basecss.less",
+		"/F/xampp/htdocs/Goal/view/person/person.tp",
+		"/F/xampp/htdocs/Goal/style/components.less",
+		"/F/xampp/htdocs/Goal/ctrl/PersonC.php",
+		"/F/xampp/htdocs/Goal/view/goal/new.tp",
+		"/F/xampp/htdocs/Goal/style/vars.less",
 		"/F/xampp/htdocs/Goal/ctrl/GoalC.php",
 		"/F/xampp/htdocs/Goal/view/goal/details.tp",
-		"/F/xampp/htdocs/Goal/model/goal_funs.php",
 		"/F/xampp/htdocs/Goal/view/account/details.tp",
-		"/F/xampp/htdocs/Goal/style/components.less",
 		"/F/xampp/htdocs/Goal/ctrl/AccountC.php",
-		"/F/xampp/htdocs/Goal/view/header.tc",
 		"/F/xampp/htdocs/Goal/ctrl/HomeC.php",
 		"/F/xampp/htdocs/Goal/view/home/terms.tp",
 		"/F/xampp/htdocs/Goal/view/home/about.tp",
 		"/F/xampp/htdocs/Goal/view/footer.tc",
-		"/F/xampp/htdocs/Goal/view/person/person.tp",
-		"/F/xampp/htdocs/Goal/style/basecss.less",
-		"/F/xampp/htdocs/Goal/style/vars.less",
-		"/F/xampp/htdocs/Goal/view/goal/new.tp",
 		"/F/xampp/htdocs/Goal/view/account/change_pwd.tp",
 		"/F/xampp/htdocs/Goal/view/home/me.tc",
 		"/F/xampp/htdocs/Goal/model/account_funs.php",
-		"/F/xampp/htdocs/Goal/model/data_funs.inc",
 		"/F/xampp/htdocs/Goal/style/layout.less",
 		"/F/xampp/htdocs/Goal/ctrl/DiscoverC.php",
 		"/F/xampp/htdocs/Goal/model/log_funs.php",
 		"/F/xampp/htdocs/Goal/view/account/slogan.tc",
-		"/F/xampp/htdocs/Goal/ctrl/PersonC.php",
 		"/F/xampp/htdocs/Goal/imgs/confuse.png",
 		"/F/xampp/htdocs/Goal/view/discover/discover.tp",
 		"/F/xampp/htdocs/flight/application/controllers/flight.php",
@@ -497,9 +511,7 @@
 		"/C/Users/lzp/AppData/Roaming/Sublime Text 2/Packages/Default/Default (Windows).sublime-keymap",
 		"/F/xampp/htdocs/poem/static/bs/variables.less",
 		"/F/xampp/htdocs/poem/poem.sublime-project",
-		"/F/xampp/htdocs/poem/poem.sublime-workspace",
-		"/C/Users/lzp/Desktop/bootstrap.min.js",
-		"/F/xampp/htdocs/poem/main.js"
+		"/F/xampp/htdocs/poem/poem.sublime-workspace"
 	],
 	"find":
 	{
@@ -623,7 +635,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -631,15 +643,15 @@
 					"file": "style/style.less",
 					"settings":
 					{
-						"buffer_size": 6489,
+						"buffer_size": 6628,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4372,
-								4372
+								3330,
+								3330
 							]
 						],
 						"settings":
@@ -648,25 +660,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 4195.0,
+						"translation.y": 1815.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "view/person/person.tp",
+					"file": "view/goal/details.tp",
 					"settings":
 					{
-						"buffer_size": 2436,
+						"buffer_size": 3113,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1727,
-								1727
+								1623,
+								1623
 							]
 						],
 						"settings":
@@ -675,25 +687,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1653.0,
+						"translation.y": 1022.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "ctrl/PersonC.php",
+					"file": "ctrl/GoalC.php",
 					"settings":
 					{
-						"buffer_size": 4764,
+						"buffer_size": 1569,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3454,
-								3454
+								452,
+								452
 							]
 						],
 						"settings":
@@ -702,52 +714,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2052.0,
+						"translation.y": 513.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "model/goal_funs.php",
+					"file": "view/person/person.tp",
 					"settings":
 					{
-						"buffer_size": 3485,
+						"buffer_size": 2888,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								209,
-								209
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 57.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "view/goal/details.tp",
-					"settings":
-					{
-						"buffer_size": 2081,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								625,
-								625
+								1620,
+								1620
 							]
 						],
 						"settings":
@@ -756,33 +741,34 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 57.0,
+						"translation.y": 1026.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "style/vars.less",
+					"buffer": 4,
+					"file": "ctrl/PersonC.php",
 					"settings":
 					{
-						"buffer_size": 1732,
+						"buffer_size": 4886,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								980,
-								968
+								3586,
+								3586
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/CSS/CSS.tmLanguage"
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 342.0,
+						"translation.y": 1026.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -832,6 +818,22 @@
 		"selected_items":
 		[
 			[
+				"per",
+				"ctrl/PersonC.php"
+			],
+			[
+				"head",
+				"view/header.tc"
+			],
+			[
+				"new",
+				"view/goal/new.tp"
+			],
+			[
+				"goalc",
+				"ctrl/GoalC.php"
+			],
+			[
 				"go",
 				"ctrl/GoalC.php"
 			],
@@ -842,14 +844,6 @@
 			[
 				"goal",
 				"model/goal_funs.php"
-			],
-			[
-				"per",
-				"ctrl/PersonC.php"
-			],
-			[
-				"goalc",
-				"ctrl/GoalC.php"
 			],
 			[
 				"foo",
@@ -872,20 +866,12 @@
 				"ctrl/AccountC.php"
 			],
 			[
-				"head",
-				"view/header.tc"
-			],
-			[
 				"goalfu",
 				"model/goal_funs.php"
 			],
 			[
 				"deta",
 				"view/goal/details.tp"
-			],
-			[
-				"new",
-				"view/goal/new.tp"
 			],
 			[
 				"cha",

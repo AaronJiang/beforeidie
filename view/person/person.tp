@@ -6,12 +6,12 @@
 {literal}
 $(document).ready(function(){
 
-	// 标号
+	// index
 	$('.goal-index').each(function(index){
 		$(this).text(index + 1);
 	})
 
-	// 锁 & 解锁
+	// lock
 	$('.btn-lock').click(function(){
 		var goalID = $(this).attr('data-goal-id'),
 			isPublic = $(this).attr('data-is-public'),
@@ -42,7 +42,7 @@ $(document).ready(function(){
 		});
 	});
 
-	// 删除
+	// delete
 	$('.btn-remove').click(function(){
 		var goalID = $(this).attr('data-goal-id'),
 			goalTitle = $(this).attr('data-goal-title'),
@@ -76,7 +76,8 @@ $(document).ready(function(){
 	<div id="user-info">
 		<div id="username">{$user.Name}</div>
 		<div id="other-info-wap">
-			<div><a href='#'>1 喜欢</a></div>
+			以免当我生命终结时，发现自己，从来没有活过。
+			<!--<div><a href='#'>{$likesNum} 喜欢</a></div>-->
 		</div>
 	</div>
 </div>
@@ -86,18 +87,32 @@ $(document).ready(function(){
 	<div class="goal-item">
 		<span class='goal-index'></span>
 		<a class="goal-title" href='GoalC.php?act=details&goalID={$goal.GoalID}'>{$goal.Title}</a>
-
-		{if $isCreator}
+		
 		<div class="extra-info-wap">
+		{if $isCreator}
+
+			<!-- lock -->
 			{if $goal.IsPublic}
-			<span class="btn-lock btn-lock-false" data-goal-id="{$goal.GoalID}" data-is-public="1" title="锁起来，只给自己看"></span>
+			<span class="btn-icon btn-lock btn-lock-false" data-goal-id="{$goal.GoalID}" data-is-public="1" title="锁起来，只给自己看"></span>
 			{else}
-			<span class="btn-lock" data-goal-id="{$goal.GoalID}" data-is-public="0" title="开锁啦"></span>
+			<span class="btn-icon btn-lock" data-goal-id="{$goal.GoalID}" data-is-public="0" title="开锁啦"></span>
 			{/if}
 
-			<span class="btn-remove" data-goal-id="{$goal.GoalID}" data-goal-title="{$goal.Title}" title="去掉它"></span>
-		</div>
+			<!-- delete -->
+			<span class="btn-icon btn-remove" data-goal-id="{$goal.GoalID}" data-goal-title="{$goal.Title}" title="去掉它"></span>
+
+		{else}
+
+			<!-- like 
+			{if $IsLike}
+			<span class="btn-icon btn-like" data-goal-id="{$goal.GoalID}" data-user-id="{$smarty.session.valid_user_id}" title="不喜欢啦"></span>
+			{else}
+			<span class="btn-icon btn-like-false" data-goal-id="{$goal.GoalID}" data-user-id="{$smarty.session.valid_user_id}" title="喜欢"></span>
+			{/if}
+			-->
+
 		{/if}
+		</div>
 
 	</div>
 	{/foreach}

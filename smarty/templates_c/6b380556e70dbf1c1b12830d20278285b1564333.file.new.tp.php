@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-12-09 09:44:01
+<?php /* Smarty version Smarty-3.1.12, created on 2012-12-14 10:19:45
          compiled from "..\view\goal\new.tp" */ ?>
 <?php /*%%SmartyHeaderCode:225625092389e5c3365-55689534%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6b380556e70dbf1c1b12830d20278285b1564333' => 
     array (
       0 => '..\\view\\goal\\new.tp',
-      1 => 1355042540,
+      1 => 1355472255,
       2 => 'file',
     ),
   ),
@@ -31,11 +31,28 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 $(document).ready(function(){
 
-	$("#btn-new-goal").click(function(){
+	$('#goal-title').focus();
+
+	// 切换lock状态
+	$('.btn-lock').click(function(){
+		var isPublic = $(this).attr('data-is-public');
+
+		if(isPublic == 1){
+			$(this).removeClass('btn-lock-false');
+			$(this).attr({'data-is-public': 0}); 
+		} else {
+			$(this).addClass('btn-lock-false');
+			$(this).attr({'data-is-public': 1});
+		}
+	});
+
+	// 新建
+	$('#btn-new-goal').click(function(){
 
 		var title = $('#goal-title').text(),
 			content = $('#goal-content').html(),
-			userID = $('#goal-title').data('user-id');
+			userID = $('#goal-title').attr('data-user-id'),
+			isPublic = $('.btn-lock').first().attr('data-is-public');
 
 		$.ajax({
 			url: 'GoalC.php',
@@ -44,7 +61,8 @@ $(document).ready(function(){
 				'act': 'new_goal',
 				'userID': userID,
 				'title': title,
-				'content': content
+				'content': content,
+				'isPublic': isPublic
 			},
 			success: function(){
 				window.history.go(-1);
@@ -56,8 +74,11 @@ $(document).ready(function(){
 </script>
 
 
-<h2 id="goal-title" data-user-id="<?php echo $_smarty_tpl->tpl_vars['userID']->value;?>
+<div id="goal-title-wap">
+	<h2 id="goal-title" data-user-id="<?php echo $_smarty_tpl->tpl_vars['userID']->value;?>
 " contenteditable="true"></h2>
+	<span class="btn-icon btn-lock btn-lock-false" data-is-public="1"></span>
+</div>
 
 <div id="goal-content" contenteditable="true"><div></div></div>
 
