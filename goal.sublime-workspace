@@ -311,7 +311,7 @@
 			"file": "style/style.less",
 			"settings":
 			{
-				"buffer_size": 6646,
+				"buffer_size": 6621,
 				"line_ending": "Windows"
 			}
 		},
@@ -651,15 +651,15 @@
 					"file": "style/style.less",
 					"settings":
 					{
-						"buffer_size": 6646,
+						"buffer_size": 6621,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								5132,
+								5132
 							]
 						],
 						"settings":
@@ -668,7 +668,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 5529.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
