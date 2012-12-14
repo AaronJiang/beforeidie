@@ -75,17 +75,15 @@ $(document).ready(function(){
 
 	<div id="user-info">
 		<div id="username">{$user.Name}</div>
-		<div id="other-info-wap">
-			以免当我生命终结时，发现自己，从来没有活过。
-			<!--<div><a href='#'>{$likesNum} 喜欢</a></div>-->
-		</div>
+		<div id="other-info-wap">以免当我生命终结时，发现自己，从来没有活过。</div>
+		<div id="likes"><a href='#'>{$likesNum} <span class='btn-icon btn-like'></span></a></div>
 	</div>
 </div>
 
 <div class='goal-wap'>
 	{foreach $goals as $goal}
 	<div class="goal-item">
-		<span class='goal-index'></span>
+		<!--<span class='goal-index'></span>-->
 		<a class="goal-title" href='GoalC.php?act=details&goalID={$goal.GoalID}'>{$goal.Title}</a>
 		
 		<div class="extra-info-wap">
@@ -100,16 +98,6 @@ $(document).ready(function(){
 
 			<!-- delete -->
 			<span class="btn-icon btn-remove" data-goal-id="{$goal.GoalID}" data-goal-title="{$goal.Title}" title="去掉它"></span>
-
-		{else}
-
-			<!-- like 
-			{if $IsLike}
-			<span class="btn-icon btn-like" data-goal-id="{$goal.GoalID}" data-user-id="{$smarty.session.valid_user_id}" title="不喜欢啦"></span>
-			{else}
-			<span class="btn-icon btn-like-false" data-goal-id="{$goal.GoalID}" data-user-id="{$smarty.session.valid_user_id}" title="喜欢"></span>
-			{/if}
-			-->
 
 		{/if}
 		</div>

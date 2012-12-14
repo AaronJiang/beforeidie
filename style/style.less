@@ -241,7 +241,7 @@
 		min-height: 500px;
 
 		div{
-			margin-bottom: 15px;
+			margin-bottom: 16px;
 		}
 	}
 }
@@ -253,58 +253,71 @@
 
 	/* User Info */
 	#user-info-wap{
-		margin: 0 0 10px 0;
+		margin: 0 0 15px 5px;
 		position: relative;
 		
 		#user-info{
-			margin: 0 0 0 62px;
+			margin: 0 0 0 65px;
 			
 			#username{
-				margin-bottom: 4px;
-				font-size: 30px;
-				line-height: 30px;
+				margin-bottom: 6px;
+				font-size: 28px;
+				line-height: 28px;
 				font-weight: normal;
+				//font-family: @altFontFamily;
 			}
 
 			#other-info-wap{
 				font-size: @fontSizeSmall;
 				color: @gray;
 			}
-		}
 
-		#user-cmd-wap{
-			position: absolute;
-			top: 0px;
-			right: 0px;
+			#likes{
+				position: absolute;
+				top: 5px;
+				right: 10px;
+				font-size: @fontSizeSmall;
+
+				a{
+					color: @grayLight;
+					text-decoration: none;
+				}
+
+				.btn-like{
+					vertical-align: -12%;
+					background-position: -96px 0;
+					opacity: 0.8;
+				}
+			}
 		}
 	}
 
 	/* User Goals */
 	.goal-wap{
-		//margin: 0 0 0 50px;
-		
 		.goal-item{
 			border-top: 1px solid #EEE;
-			padding: 15px 0;
+			padding: 17px 0;
 			position: relative;
 			
 			.goal-index{
-				padding: 0 15px 0 15px;
+				padding: 0 15px 0 10px;
 				font-family: 'Century Gothic';
 				font-size: @fontSizeLarge;
 			}
 
 			.goal-title{
-				font-weight: bold;
+				//font-weight: bold;
+				padding-left: 5px;
 				display: inline-block;
 				color: @black;
 				font-size: @fontSizeLarge;
+				font-family: '宋体';
 			}
 			
 			.extra-info-wap{
 				position: absolute;
-				top: 16px;
-				right: 18px;
+				top: 20px;
+				right: 10px;
 
 				.btn-lock{
 					background-position: -287px -24px;

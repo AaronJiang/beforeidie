@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"pa",
+				"padding-left"
+			],
+			[
+				"fon",
+				"font-family"
+			],
+			[
+				"te",
+				"text-decoration"
+			],
+			[
 				"gr",
 				"gray"
 			],
@@ -50,10 +62,6 @@
 			[
 				"data",
 				"data-is-public"
-			],
-			[
-				"fon",
-				"font-family"
 			],
 			[
 				"goa",
@@ -232,16 +240,8 @@
 				"padding-right"
 			],
 			[
-				"te",
-				"text-align"
-			],
-			[
 				"gray",
 				"grayLight"
-			],
-			[
-				"pa",
-				"page-followee-dynamics"
 			],
 			[
 				"fot",
@@ -311,15 +311,15 @@
 			"file": "style/style.less",
 			"settings":
 			{
-				"buffer_size": 6621,
+				"buffer_size": 6878,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "view/goal/details.tp",
+			"file": "view/person/person.tp",
 			"settings":
 			{
-				"buffer_size": 3113,
+				"buffer_size": 2591,
 				"line_ending": "Windows"
 			}
 		},
@@ -332,14 +332,6 @@
 			}
 		},
 		{
-			"file": "view/person/person.tp",
-			"settings":
-			{
-				"buffer_size": 2888,
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "ctrl/PersonC.php",
 			"settings":
 			{
@@ -348,11 +340,19 @@
 			}
 		},
 		{
-			"file": "view/header.tc",
+			"file": "style/components.less",
 			"settings":
 			{
-				"buffer_size": 2016,
-				"line_ending": "CR"
+				"buffer_size": 3989,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "style/vars.less",
+			"settings":
+			{
+				"buffer_size": 1732,
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -392,12 +392,14 @@
 	},
 	"file_history":
 	[
+		"/F/xampp/htdocs/Goal/view/goal/details.tp",
+		"/F/xampp/htdocs/Goal/view/header.tc",
+		"/F/xampp/htdocs/Goal/view/person/dyns.tc",
 		"/F/xampp/htdocs/Goal/style/style.less",
 		"/F/xampp/htdocs/Goal/model/like_funs.php",
 		"/F/xampp/htdocs/Goal/model/goal_funs.php",
 		"/F/xampp/htdocs/Goal/model/follower_funs.php",
 		"/F/xampp/htdocs/Goal/model/data_funs.inc",
-		"/F/xampp/htdocs/Goal/view/header.tc",
 		"/F/xampp/htdocs/Goal/style/basecss.less",
 		"/F/xampp/htdocs/Goal/view/person/person.tp",
 		"/F/xampp/htdocs/Goal/style/components.less",
@@ -405,7 +407,6 @@
 		"/F/xampp/htdocs/Goal/view/goal/new.tp",
 		"/F/xampp/htdocs/Goal/style/vars.less",
 		"/F/xampp/htdocs/Goal/ctrl/GoalC.php",
-		"/F/xampp/htdocs/Goal/view/goal/details.tp",
 		"/F/xampp/htdocs/Goal/view/account/details.tp",
 		"/F/xampp/htdocs/Goal/ctrl/AccountC.php",
 		"/F/xampp/htdocs/Goal/ctrl/HomeC.php",
@@ -429,7 +430,6 @@
 		"/F/xampp/htdocs/Goal/view/person/followees.tp",
 		"/F/xampp/htdocs/Goal/view/goal/edit.tp",
 		"/F/xampp/htdocs/Goal/model/dynamic_funs.php",
-		"/F/xampp/htdocs/Goal/view/person/dyns.tc",
 		"/F/xampp/htdocs/Goal/style/reset.less",
 		"/F/xampp/htdocs/flight/index.php",
 		"/F/xampp/htdocs/Goal/view/person/about_me_dyns.tc",
@@ -651,15 +651,15 @@
 					"file": "style/style.less",
 					"settings":
 					{
-						"buffer_size": 6621,
+						"buffer_size": 6878,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5132,
-								5132
+								4469,
+								4469
 							]
 						],
 						"settings":
@@ -668,25 +668,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 5529.0,
+						"translation.y": 4922.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "view/goal/details.tp",
+					"file": "view/person/person.tp",
 					"settings":
 					{
-						"buffer_size": 3113,
+						"buffer_size": 2591,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1623,
-								1623
+								1798,
+								1798
 							]
 						],
 						"settings":
@@ -695,7 +695,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1022.0,
+						"translation.y": 1254.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -729,33 +729,6 @@
 				},
 				{
 					"buffer": 3,
-					"file": "view/person/person.tp",
-					"settings":
-					{
-						"buffer_size": 2888,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1620,
-								1620
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 798.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
 					"file": "ctrl/PersonC.php",
 					"settings":
 					{
@@ -776,34 +749,60 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1026.0,
+						"translation.y": 190.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "view/header.tc",
+					"buffer": 4,
+					"file": "style/components.less",
 					"settings":
 					{
-						"buffer_size": 2016,
+						"buffer_size": 3989,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1646,
-								1646
+								1065,
+								1065
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"syntax": "Packages/CSS/CSS.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 247.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "style/vars.less",
+					"settings":
+					{
+						"buffer_size": 1732,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								957,
+								943
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 399.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
