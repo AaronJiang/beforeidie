@@ -1,13 +1,14 @@
 {include file='../header.tc' title='关于' page='page-about'}
 
 <div>
-	<h4>关于我想</h4>
+	<h3 class='page-title'>关于我想</h3>
 
 	<p>你可以把发自内心想要的、想做的、想实现的保存在这里，无论它看起来如何的不值一提或不切实际，请坚信：You've got to find what you love。</p>
 
-	<h4>作者</h4>
+	<h3 class='page-title'>作者</h3>
 
-	<p>hustlzp，毕业于HUST光电学院，对本专业无爱，考研遂转投计算机阵营，方向机器视觉，大爱Web开发。联系方式 : hustlzp[at]qq.com</p>
+	<p>hustlzp，毕业于HUST光电学院，对本专业无爱，考研转投计算机阵营，方向机器视觉，业余大爱Web开发。</p>
+	<p>联系方式 : hustlzp[at]qq.com</p>
 </div>
 
 {include file='../footer.tc'}
