@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"te",
+				"text-align"
+			],
+			[
 				"mar",
 				"margin-left"
 			],
@@ -38,10 +42,6 @@
 			[
 				"fon",
 				"font-family"
-			],
-			[
-				"te",
-				"text-decoration"
 			],
 			[
 				"gr",
@@ -323,7 +323,39 @@
 			"file": "style/style.less",
 			"settings":
 			{
-				"buffer_size": 6989,
+				"buffer_size": 7046,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "style/layout.less",
+			"settings":
+			{
+				"buffer_size": 535,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "view/person/person.tp",
+			"settings":
+			{
+				"buffer_size": 2957,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "view/header.tc",
+			"settings":
+			{
+				"buffer_size": 1870,
+				"line_ending": "CR"
+			}
+		},
+		{
+			"file": "view/goal/new.tp",
+			"settings":
+			{
+				"buffer_size": 1808,
 				"line_ending": "Windows"
 			}
 		}
@@ -627,15 +659,15 @@
 					"file": "style/style.less",
 					"settings":
 					{
-						"buffer_size": 6989,
+						"buffer_size": 7046,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6984,
-								6984
+								3261,
+								3261
 							]
 						],
 						"settings":
@@ -644,7 +676,115 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 7461.0,
+						"translation.y": 3128.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "style/layout.less",
+					"settings":
+					{
+						"buffer_size": 535,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								22,
+								22
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "view/person/person.tp",
+					"settings":
+					{
+						"buffer_size": 2957,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2278,
+								2278
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1767.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "view/header.tc",
+					"settings":
+					{
+						"buffer_size": 1870,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1370,
+								1370
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 57.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "view/goal/new.tp",
+					"settings":
+					{
+						"buffer_size": 1808,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								765,
+								765
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 228.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -694,6 +834,18 @@
 		"selected_items":
 		[
 			[
+				"per",
+				"view/person/person.tp"
+			],
+			[
+				"new",
+				"view/goal/new.tp"
+			],
+			[
+				"hea",
+				"view/header.tc"
+			],
+			[
 				"bas",
 				"style/basecss.less"
 			],
@@ -704,10 +856,6 @@
 			[
 				"ab",
 				"view/home/about.tp"
-			],
-			[
-				"hea",
-				"view/header.tc"
 			],
 			[
 				"com",
@@ -736,14 +884,6 @@
 			[
 				"head",
 				"view/header.tc"
-			],
-			[
-				"per",
-				"ctrl/PersonC.php"
-			],
-			[
-				"new",
-				"view/goal/new.tp"
 			],
 			[
 				"goalc",

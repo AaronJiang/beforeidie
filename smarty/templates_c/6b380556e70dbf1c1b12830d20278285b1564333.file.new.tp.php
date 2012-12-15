@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-12-14 10:19:45
+<?php /* Smarty version Smarty-3.1.12, created on 2012-12-15 08:37:36
          compiled from "..\view\goal\new.tp" */ ?>
 <?php /*%%SmartyHeaderCode:225625092389e5c3365-55689534%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6b380556e70dbf1c1b12830d20278285b1564333' => 
     array (
       0 => '..\\view\\goal\\new.tp',
-      1 => 1355472255,
+      1 => 1355557053,
       2 => 'file',
     ),
   ),
@@ -44,6 +44,31 @@ $(document).ready(function(){
 			$(this).addClass('btn-lock-false');
 			$(this).attr({'data-is-public': 1});
 		}
+	});
+
+	// 避免意外的关闭
+	$(window).unload(function(){
+
+		var title = $('#goal-title').text(),
+			content = $('#goal-content').html(),
+			userID = $('#goal-title').attr('data-user-id'),
+			isPublic = $('.btn-lock').first().attr('data-is-public');
+
+		$.ajax({
+			url: 'GoalC.php',
+			type: 'POST',
+			async: false,
+			data: {
+				'act': 'new_goal',
+				'userID': userID,
+				'title': title,
+				'content': content,
+				'isPublic': isPublic
+			},
+			success: function(){
+				window.history.go(-1);
+			}
+		});
 	});
 
 	// 新建

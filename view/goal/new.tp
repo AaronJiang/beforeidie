@@ -20,6 +20,31 @@ $(document).ready(function(){
 		}
 	});
 
+	// 避免意外的关闭
+	$(window).unload(function(){
+
+		var title = $('#goal-title').text(),
+			content = $('#goal-content').html(),
+			userID = $('#goal-title').attr('data-user-id'),
+			isPublic = $('.btn-lock').first().attr('data-is-public');
+
+		$.ajax({
+			url: 'GoalC.php',
+			type: 'POST',
+			async: false,
+			data: {
+				'act': 'new_goal',
+				'userID': userID,
+				'title': title,
+				'content': content,
+				'isPublic': isPublic
+			},
+			success: function(){
+				window.history.go(-1);
+			}
+		});
+	});
+
 	// 新建
 	$('#btn-new-goal').click(function(){
 

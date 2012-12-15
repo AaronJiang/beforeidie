@@ -24,11 +24,9 @@ $(document).ready(function(){
 	});
 
 	// index
-	/*
 	$('.goal-index').each(function(index){
 		$(this).text(index + 1);
 	});
-	*/
 
 	// lock
 	$('.btn-lock').click(function(){
@@ -102,7 +100,7 @@ $(document).ready(function(){
 <div class='goal-wap'>
 	{foreach $goals as $goal}
 	<div class="goal-item">
-		<!--<span class='goal-index'></span>-->
+		<span class='goal-index'></span>
 		<a class="goal-title" href='GoalC.php?act=details&goalID={$goal.GoalID}'>{$goal.Title}</a>
 		
 		{if $isCreator}
