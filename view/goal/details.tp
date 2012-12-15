@@ -97,29 +97,25 @@ $(document).ready(function(){
 	<h2 id="goal-title" data-goal-id="{$goal.GoalID}" contenteditable="{if $isCreator}true{else}false{/if}">{$goal.Title}</h2>
 	<div id="extra-info-wap">
 		{if $isCreator}
-
 			<!-- lock -->
 			{if $goal.IsPublic}
 			<span class="btn-icon btn-lock btn-lock-false" data-goal-id="{$goal.GoalID}" data-is-public="1" title="锁起来，只给自己看"></span>
 			{else}
 			<span class="btn-icon btn-lock" data-goal-id="{$goal.GoalID}" data-is-public="0" title="开锁啦"></span>
 			{/if}
-
 		{else}
-
-			<!-- like -->
-			{if $isLike}
-			<span class="btn-icon btn-like" data-goal-id="{$goal.GoalID}" data-user-id="{$smarty.session.valid_user_id}" data-is-like="1"></span>
-			{else}
-			<span class="btn-icon btn-like btn-like-false" data-goal-id="{$goal.GoalID}" data-user-id="{$smarty.session.valid_user_id}" data-is-like="0"></span>
-			{/if}
-			
 			<span id="goal-creator">by <a href="PersonC.php?act=person&userID={$creator.UserID}">{$creator.Username}</a></span>
 		{/if}
 	</div>
-
 </div>
 
-<div id="goal-content" data-goal-id="{$goal.GoalID}" contenteditable="{if $isCreator}true{else}false{/if}">{$goal.Content}</div>	
+<div id="goal-content" data-goal-id="{$goal.GoalID}" contenteditable="{if $isCreator}true{else}false{/if}">{$goal.Content}</div>
+
+<!-- like -->
+{if $isLike}
+<span class="btn-icon btn-like" data-goal-id="{$goal.GoalID}" data-user-id="{$smarty.session.valid_user_id}" data-is-like="1"></span>
+{else}
+<span class="btn-icon btn-like btn-like-false" data-goal-id="{$goal.GoalID}" data-user-id="{$smarty.session.valid_user_id}" data-is-like="0"></span>
+{/if}
 
 {include file='../footer.tc'}

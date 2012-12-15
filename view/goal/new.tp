@@ -23,8 +23,12 @@ $(document).ready(function(){
 	// 避免意外的关闭
 	$(window).unload(function(){
 
-		var title = $('#goal-title').text(),
-			content = $('#goal-content').html(),
+		var title = $.trim($('#goal-title').text());
+
+		if(title == '')
+			return;
+
+		var	content = $('#goal-content').html(),
 			userID = $('#goal-title').attr('data-user-id'),
 			isPublic = $('.btn-lock').first().attr('data-is-public');
 
@@ -48,8 +52,12 @@ $(document).ready(function(){
 	// 新建
 	$('#btn-new-goal').click(function(){
 
-		var title = $('#goal-title').text(),
-			content = $('#goal-content').html(),
+		var title = $.trim($('#goal-title').text());
+
+		if(title == '')
+			return;
+
+		var	content = $('#goal-content').html(),
 			userID = $('#goal-title').attr('data-user-id'),
 			isPublic = $('.btn-lock').first().attr('data-is-public');
 

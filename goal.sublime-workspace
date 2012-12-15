@@ -4,12 +4,24 @@
 		"selected_items":
 		[
 			[
-				"te",
-				"text-align"
+				"mar",
+				"margin-bottom"
 			],
 			[
-				"mar",
-				"margin-left"
+				"u",
+				"userID"
+			],
+			[
+				"pa",
+				"padding-bottom"
+			],
+			[
+				"gra",
+				"grayLighter"
+			],
+			[
+				"te",
+				"text-align"
 			],
 			[
 				"get_gra",
@@ -34,10 +46,6 @@
 			[
 				"ba",
 				"background"
-			],
-			[
-				"pa",
-				"padding-left"
 			],
 			[
 				"fon",
@@ -244,10 +252,6 @@
 				"baseFontFamily"
 			],
 			[
-				"gra",
-				"grayLight"
-			],
-			[
 				"PA",
 				"padding-right"
 			],
@@ -323,39 +327,7 @@
 			"file": "style/style.less",
 			"settings":
 			{
-				"buffer_size": 7046,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "style/layout.less",
-			"settings":
-			{
-				"buffer_size": 535,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "view/person/person.tp",
-			"settings":
-			{
-				"buffer_size": 2957,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "view/header.tc",
-			"settings":
-			{
-				"buffer_size": 1870,
-				"line_ending": "CR"
-			}
-		},
-		{
-			"file": "view/goal/new.tp",
-			"settings":
-			{
-				"buffer_size": 1808,
+				"buffer_size": 7251,
 				"line_ending": "Windows"
 			}
 		}
@@ -396,16 +368,20 @@
 	},
 	"file_history":
 	[
-		"/F/xampp/htdocs/Goal/view/home/about.tp",
-		"/F/xampp/htdocs/Goal/view/account/details.tp",
-		"/F/xampp/htdocs/Goal/style/basecss.less",
-		"/F/xampp/htdocs/Goal/view/header.tc",
-		"/F/xampp/htdocs/Goal/style/components.less",
-		"/F/xampp/htdocs/Goal/view/footer.tc",
+		"/F/xampp/htdocs/Goal/ctrl/DiscoverC.php",
+		"/F/xampp/htdocs/Goal/view/discover/discover.tp",
+		"/F/xampp/htdocs/Goal/view/goal/details.tp",
 		"/F/xampp/htdocs/Goal/view/person/person.tp",
 		"/F/xampp/htdocs/Goal/ctrl/PersonC.php",
-		"/F/xampp/htdocs/Goal/view/goal/details.tp",
+		"/F/xampp/htdocs/Goal/view/account/details.tp",
 		"/F/xampp/htdocs/Goal/model/goal_funs.php",
+		"/F/xampp/htdocs/Goal/view/goal/new.tp",
+		"/F/xampp/htdocs/Goal/view/header.tc",
+		"/F/xampp/htdocs/Goal/style/layout.less",
+		"/F/xampp/htdocs/Goal/view/home/about.tp",
+		"/F/xampp/htdocs/Goal/style/basecss.less",
+		"/F/xampp/htdocs/Goal/style/components.less",
+		"/F/xampp/htdocs/Goal/view/footer.tc",
 		"/F/xampp/htdocs/Goal/model/account_funs.php",
 		"/F/xampp/htdocs/Goal/ctrl/AccountC.php",
 		"/F/xampp/htdocs/Goal/ctrl/GoalC.php",
@@ -415,17 +391,13 @@
 		"/F/xampp/htdocs/Goal/style/style.less",
 		"/F/xampp/htdocs/Goal/model/like_funs.php",
 		"/F/xampp/htdocs/Goal/model/follower_funs.php",
-		"/F/xampp/htdocs/Goal/view/goal/new.tp",
 		"/F/xampp/htdocs/Goal/ctrl/HomeC.php",
 		"/F/xampp/htdocs/Goal/view/home/terms.tp",
 		"/F/xampp/htdocs/Goal/view/account/change_pwd.tp",
 		"/F/xampp/htdocs/Goal/view/home/me.tc",
-		"/F/xampp/htdocs/Goal/style/layout.less",
-		"/F/xampp/htdocs/Goal/ctrl/DiscoverC.php",
 		"/F/xampp/htdocs/Goal/model/log_funs.php",
 		"/F/xampp/htdocs/Goal/view/account/slogan.tc",
 		"/F/xampp/htdocs/Goal/imgs/confuse.png",
-		"/F/xampp/htdocs/Goal/view/discover/discover.tp",
 		"/F/xampp/htdocs/flight/application/controllers/flight.php",
 		"/F/xampp/htdocs/flight/application/controllers/ticket.php",
 		"/C/Users/lzp/Desktop/flight/application/config/database.php",
@@ -541,6 +513,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"where",
+			"select",
+			"reason",
 			"into",
 			"userID",
 			"Name",
@@ -659,15 +634,15 @@
 					"file": "style/style.less",
 					"settings":
 					{
-						"buffer_size": 7046,
+						"buffer_size": 7251,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3261,
-								3261
+								3861,
+								3861
 							]
 						],
 						"settings":
@@ -676,115 +651,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3128.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "style/layout.less",
-					"settings":
-					{
-						"buffer_size": 535,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								22,
-								22
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "view/person/person.tp",
-					"settings":
-					{
-						"buffer_size": 2957,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2278,
-								2278
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1767.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "view/header.tc",
-					"settings":
-					{
-						"buffer_size": 1870,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1370,
-								1370
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 57.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "view/goal/new.tp",
-					"settings":
-					{
-						"buffer_size": 1808,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								765,
-								765
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 228.0,
+						"translation.y": 3309.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -835,11 +702,23 @@
 		[
 			[
 				"per",
-				"view/person/person.tp"
+				"ctrl/PersonC.php"
+			],
+			[
+				"de",
+				"view/goal/details.tp"
 			],
 			[
 				"new",
 				"view/goal/new.tp"
+			],
+			[
+				"goa",
+				"model/goal_funs.php"
+			],
+			[
+				"dis",
+				"view/discover/discover.tp"
 			],
 			[
 				"hea",
@@ -848,10 +727,6 @@
 			[
 				"bas",
 				"style/basecss.less"
-			],
-			[
-				"de",
-				"view/account/details.tp"
 			],
 			[
 				"ab",
@@ -876,10 +751,6 @@
 			[
 				"a",
 				"model/account_funs.php"
-			],
-			[
-				"goa",
-				"ctrl/GoalC.php"
 			],
 			[
 				"head",
@@ -920,10 +791,6 @@
 			[
 				"ne",
 				"view/goal/new.tp"
-			],
-			[
-				"dis",
-				"ctrl/DiscoverC.php"
 			],
 			[
 				"sl",

@@ -214,21 +214,6 @@
 					opacity: 0.2;
 				}
 			}
-
-			.btn-like{
-				vertical-align: -12%;
-				background-position: -96px 0;
-				opacity: 0.8;
-				&:hover{
-					opacity: 0.9;
-				}
-			}
-			.btn-like-false{
-				opacity: 0.1;
-				&:hover{
-					opacity: 0.2;
-				}
-			}
 		}
 	}
 
@@ -242,6 +227,22 @@
 
 		div{
 			margin-bottom: 16px;
+		}
+	}
+
+	.btn-like{
+		float: right;
+		margin-right: 5px;
+		background-position: -96px 0;
+		opacity: 0.8;
+		&:hover{
+			opacity: 0.9;
+		}
+	}
+	.btn-like-false{
+		opacity: 0.2;
+		&:hover{
+			opacity: 0.3;
 		}
 	}
 }
@@ -392,21 +393,28 @@
 // ------------------------------------------------------------
 
 #page-discover {
+
+	.page-title{
+		margin-bottom: 20px;
+	}
 	
 	/* Goal Item */
 	.goal-item{
-		border: 1px solid @grayLight;
-		margin: 0 20px 15px 0;
-		width: 250px;
+		border: 1px solid @grayLighter;
+		margin: 0 20px 20px 0;
+		width: 150px;
+		height: 180px;
 		float: left;
-		padding: 10px 10px 5px 10px;
+		position: relative;
+		padding: 12px 12px;
 		
 		.goal-title{
-			margin: 0 0 3px 0;			
+			margin-bottom: 10px;
+			padding-bottom: 10px;
+			border-bottom: 1px dashed @grayLighter;	
 
 			a {
 				font-size: @fontSizeLarge;
-				font-weight: bold;
 				color: @black;
 
 				&:hover {
@@ -415,17 +423,24 @@
 			}
 		}
 		
-		.goal-reason{
-			color: @gray;
+		.goal-content{
+			color: @grayLight;
 			font-family: @altFontFamily;
 			font-size: @fontSizeSmall;
 		}
 		
-		.goal-num-wap{
-			color: @gray;
+		.goal-info-wap{
+			position: absolute;
+			right: 10px;
+			bottom: 5px;
+			color: @grayLight;
 			text-align: right;
 			font-size: @fontSizeSmall;
 			margin-bottom: 0px;
+
+			a{
+				color: @grayLight;
+			}
 		}
 	}
 }

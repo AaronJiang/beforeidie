@@ -47,11 +47,14 @@
 	
 	//获取热门目标
 	function get_hot_goals($userID){
-		$sql = "SELECT GoalID, Title\n"
+		$sql = "SELECT GoalID, Title, Content\n"
 	    	. "FROM goals\n"
 			. "WHERE goals.isPublic = 1\n"
 			. "AND goals.UserID != ". $userID. "\n"
-			. "LIMIT 0, 20\n";
+			. "AND goals.GoalID NOT IN\n"
+				. "(SELECT GoalID FROM likes WHERE UserID = ". $userID. ")\n"
+			. "ORDER BY CreateTime DESC\n"
+			. "LIMIT 0, 15";
 		
 		$result = db_exec($sql);
 		
@@ -65,7 +68,7 @@
 
 	//获取所有目标的总数
 	function get_all_goals_num(){
-		$query = "select count(*) as goals_num from goals";
+		$query = "SELECT count(*) as goals_num from goals";
 		$result = db_exec($query);
 		$row = $result->fetch_assoc();
 		
@@ -76,11 +79,6 @@
 	function new_goal($userID, $title, $content, $isPublic){
 		$title = trim($title);
 		$reason = trim($content);
-	
-		if(!$title || !$content){
-			echo "You have not enter all the required details!";
-			exit;
-		}
 		
 		if(!get_magic_quotes_gpc()){
 			$title = addslashes($title);
@@ -120,7 +118,7 @@
 	
 	//检查 Goal 的所有权
 	function check_goal_ownership($goalID, $userID){
-		$query = "select * from goals where GoalID = ". $goalID. " and UserID = ". $userID;
+		$query = "SELECT * from goals WHERE GoalID = ". $goalID. " and UserID = ". $userID;
 		$result = db_exec($query);
 		
 		return ($result->num_rows > 0)? true: false;
@@ -128,8 +126,8 @@
 	
 	//获取某个 Goal 的创建者信息
 	function get_goal_owner($goalID){
-		$query = "select users.Username, users.UserID from users, goals "
-			. "where users.UserID = goals.UserID and goals.GoalID = ". $goalID;
+		$query = "SELECT users.Username, users.UserID from users, goals "
+				. "WHERE users.UserID = goals.UserID and goals.GoalID = ". $goalID;
 		$result = db_exec($query);
 		
 		return $result->fetch_assoc();
