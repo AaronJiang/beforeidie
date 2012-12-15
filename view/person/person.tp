@@ -1,4 +1,4 @@
-{include file='../header.tc' title="{$user.Name} 的个人主页" page='page-person'}
+{include file='../header.tc' title="{$user.Username} 的个人主页" page='page-person'}
 
 <script type='text/javascript' src='../js/goal-comment.js'></script>
 <script type="text/javascript">
@@ -6,10 +6,29 @@
 {literal}
 $(document).ready(function(){
 
+	// signature
+	$(window).unload(function(){
+		var signature = $('#signature').text(),
+			userID = $('#signature').attr('data-user-id');
+
+		$.ajax({
+			url: 'PersonC.php',
+			type: 'POST',
+			async: false,
+			data: {
+				'act': 'update_signature',
+				'userID': userID,
+				'signature': signature
+			}
+		});
+	});
+
 	// index
+	/*
 	$('.goal-index').each(function(index){
 		$(this).text(index + 1);
-	})
+	});
+	*/
 
 	// lock
 	$('.btn-lock').click(function(){
@@ -62,7 +81,7 @@ $(document).ready(function(){
 						$(goalItem).detach();
 					}
 				}
-			})
+			});
 		}
 	});
 });
@@ -70,12 +89,12 @@ $(document).ready(function(){
 {/literal}
 </script>
 
-<div id='user-info-wap' class='clearfix'>
-	<img class='avatar avatar-side avatar-large' src='{$user.Avatar}' />
+<div id='user-info-wap'>
+	<img class='avatar avatar-side avatar-large' src='{$user.AvatarUrl}' />
 
 	<div id="user-info">
-		<div id="username">{$user.Name}</div>
-		<div id="other-info-wap">以免当我生命终结时，发现自己，从来没有活过。</div>
+		<div id="username">{$user.Username}</div>
+		<div id="signature" contenteditable="true" placeholder="个性签名" data-user-id="{$user.UserID}">{$user.Signature}</div>
 		<div id="likes"><a href='#'>{$likesNum} <span class='btn-icon btn-like'></span></a></div>
 	</div>
 </div>
@@ -86,8 +105,8 @@ $(document).ready(function(){
 		<!--<span class='goal-index'></span>-->
 		<a class="goal-title" href='GoalC.php?act=details&goalID={$goal.GoalID}'>{$goal.Title}</a>
 		
-		<div class="extra-info-wap">
 		{if $isCreator}
+		<div class="extra-info-wap">
 
 			<!-- lock -->
 			{if $goal.IsPublic}
@@ -98,9 +117,9 @@ $(document).ready(function(){
 
 			<!-- delete -->
 			<span class="btn-icon btn-remove" data-goal-id="{$goal.GoalID}" data-goal-title="{$goal.Title}" title="去掉它"></span>
-
-		{/if}
+		
 		</div>
+		{/if}
 
 	</div>
 	{/foreach}

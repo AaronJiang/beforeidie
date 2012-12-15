@@ -4,6 +4,30 @@
 		"selected_items":
 		[
 			[
+				"get_gra",
+				"get_gravatar_by_email"
+			],
+			[
+				"is",
+				"isSucc"
+			],
+			[
+				"dat",
+				"data"
+			],
+			[
+				"data",
+				"data-user-id"
+			],
+			[
+				"ex",
+				"exit"
+			],
+			[
+				"ba",
+				"background"
+			],
+			[
 				"pa",
 				"padding-left"
 			],
@@ -18,10 +42,6 @@
 			[
 				"gr",
 				"gray"
-			],
-			[
-				"is",
-				"isCreator"
 			],
 			[
 				"SE",
@@ -52,16 +72,8 @@
 				"btn-lock"
 			],
 			[
-				"ba",
-				"background-position"
-			],
-			[
 				"bo",
 				"bottom"
-			],
-			[
-				"data",
-				"data-is-public"
 			],
 			[
 				"goa",
@@ -311,47 +323,7 @@
 			"file": "style/style.less",
 			"settings":
 			{
-				"buffer_size": 6878,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "view/person/person.tp",
-			"settings":
-			{
-				"buffer_size": 2591,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "ctrl/GoalC.php",
-			"settings":
-			{
-				"buffer_size": 1569,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "ctrl/PersonC.php",
-			"settings":
-			{
-				"buffer_size": 4886,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "style/components.less",
-			"settings":
-			{
-				"buffer_size": 3989,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "style/vars.less",
-			"settings":
-			{
-				"buffer_size": 1732,
+				"buffer_size": 6857,
 				"line_ending": "Windows"
 			}
 		}
@@ -392,30 +364,30 @@
 	},
 	"file_history":
 	[
+		"/F/xampp/htdocs/Goal/view/person/person.tp",
+		"/F/xampp/htdocs/Goal/ctrl/PersonC.php",
 		"/F/xampp/htdocs/Goal/view/goal/details.tp",
-		"/F/xampp/htdocs/Goal/view/header.tc",
+		"/F/xampp/htdocs/Goal/model/goal_funs.php",
+		"/F/xampp/htdocs/Goal/model/account_funs.php",
+		"/F/xampp/htdocs/Goal/ctrl/AccountC.php",
+		"/F/xampp/htdocs/Goal/view/account/details.tp",
+		"/F/xampp/htdocs/Goal/ctrl/GoalC.php",
+		"/F/xampp/htdocs/Goal/model/data_funs.inc",
 		"/F/xampp/htdocs/Goal/view/person/dyns.tc",
+		"/F/xampp/htdocs/Goal/view/header.tc",
+		"/F/xampp/htdocs/Goal/style/vars.less",
+		"/F/xampp/htdocs/Goal/style/components.less",
 		"/F/xampp/htdocs/Goal/style/style.less",
 		"/F/xampp/htdocs/Goal/model/like_funs.php",
-		"/F/xampp/htdocs/Goal/model/goal_funs.php",
 		"/F/xampp/htdocs/Goal/model/follower_funs.php",
-		"/F/xampp/htdocs/Goal/model/data_funs.inc",
 		"/F/xampp/htdocs/Goal/style/basecss.less",
-		"/F/xampp/htdocs/Goal/view/person/person.tp",
-		"/F/xampp/htdocs/Goal/style/components.less",
-		"/F/xampp/htdocs/Goal/ctrl/PersonC.php",
 		"/F/xampp/htdocs/Goal/view/goal/new.tp",
-		"/F/xampp/htdocs/Goal/style/vars.less",
-		"/F/xampp/htdocs/Goal/ctrl/GoalC.php",
-		"/F/xampp/htdocs/Goal/view/account/details.tp",
-		"/F/xampp/htdocs/Goal/ctrl/AccountC.php",
 		"/F/xampp/htdocs/Goal/ctrl/HomeC.php",
 		"/F/xampp/htdocs/Goal/view/home/terms.tp",
 		"/F/xampp/htdocs/Goal/view/home/about.tp",
 		"/F/xampp/htdocs/Goal/view/footer.tc",
 		"/F/xampp/htdocs/Goal/view/account/change_pwd.tp",
 		"/F/xampp/htdocs/Goal/view/home/me.tc",
-		"/F/xampp/htdocs/Goal/model/account_funs.php",
 		"/F/xampp/htdocs/Goal/style/layout.less",
 		"/F/xampp/htdocs/Goal/ctrl/DiscoverC.php",
 		"/F/xampp/htdocs/Goal/model/log_funs.php",
@@ -537,6 +509,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"into",
+			"userID",
+			"Name",
+			"from",
 			"Trebuchet",
 			"num",
 			"unload",
@@ -651,15 +627,15 @@
 					"file": "style/style.less",
 					"settings":
 					{
-						"buffer_size": 6878,
+						"buffer_size": 6857,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4469,
-								4469
+								4414,
+								4414
 							]
 						],
 						"settings":
@@ -668,141 +644,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 4922.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "view/person/person.tp",
-					"settings":
-					{
-						"buffer_size": 2591,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1798,
-								1798
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1254.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "ctrl/GoalC.php",
-					"settings":
-					{
-						"buffer_size": 1569,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								452,
-								452
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 513.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "ctrl/PersonC.php",
-					"settings":
-					{
-						"buffer_size": 4886,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3586,
-								3586
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 190.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "style/components.less",
-					"settings":
-					{
-						"buffer_size": 3989,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1065,
-								1065
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "style/vars.less",
-					"settings":
-					{
-						"buffer_size": 1732,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								957,
-								943
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 399.0,
+						"translation.y": 4694.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -852,16 +694,40 @@
 		"selected_items":
 		[
 			[
+				"de",
+				"view/account/details.tp"
+			],
+			[
+				"acc",
+				"ctrl/AccountC.php"
+			],
+			[
+				"goal",
+				"model/goal_funs.php"
+			],
+			[
+				"a",
+				"model/account_funs.php"
+			],
+			[
+				"goa",
+				"ctrl/GoalC.php"
+			],
+			[
 				"hea",
+				"view/header.tc"
+			],
+			[
+				"com",
+				"style/components.less"
+			],
+			[
+				"head",
 				"view/header.tc"
 			],
 			[
 				"per",
 				"ctrl/PersonC.php"
-			],
-			[
-				"head",
-				"view/header.tc"
 			],
 			[
 				"new",
@@ -874,14 +740,6 @@
 			[
 				"go",
 				"ctrl/GoalC.php"
-			],
-			[
-				"de",
-				"view/goal/details.tp"
-			],
-			[
-				"goal",
-				"model/goal_funs.php"
 			],
 			[
 				"foo",
@@ -916,10 +774,6 @@
 				"view/goal/new.tp"
 			],
 			[
-				"goa",
-				"model/goal_funs.php"
-			],
-			[
 				"dis",
 				"ctrl/DiscoverC.php"
 			],
@@ -930,10 +784,6 @@
 			[
 				"log",
 				"model/log_funs.php"
-			],
-			[
-				"acc",
-				"model/account_funs.php"
 			],
 			[
 				"goac",
@@ -966,10 +816,6 @@
 			[
 				"sty",
 				"style/style.less"
-			],
-			[
-				"a",
-				"view/person/about_me_dyns.tc"
 			],
 			[
 				"pu",
@@ -1026,10 +872,6 @@
 			[
 				"lo",
 				"view/account/login.tp"
-			],
-			[
-				"com",
-				"view/comments.tc"
 			],
 			[
 				"comm",

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-11-24 03:31:30
+<?php /* Smarty version Smarty-3.1.12, created on 2012-12-15 04:04:02
          compiled from "..\view\account\active.tp" */ ?>
 <?php /*%%SmartyHeaderCode:2584250b031823b1e91-35544556%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '700aa5430e44c45064cac750a22fdbd48a9fd754' => 
     array (
       0 => '..\\view\\account\\active.tp',
-      1 => 1352964115,
+      1 => 1353724494,
       2 => 'file',
     ),
   ),
@@ -15,14 +15,14 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.12',
+  'unifunc' => 'content_50b03182539725_29154801',
   'variables' => 
   array (
     'from' => 0,
     'email' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.12',
-  'unifunc' => 'content_50b03182539725_29154801',
 ),false); /*/%%SmartyHeaderCode%%*/?>
 <?php if ($_valid && !is_callable('content_50b03182539725_29154801')) {function content_50b03182539725_29154801($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ('uheader.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>'激活','page'=>'page-active-account'), 0);?>
 
@@ -47,12 +47,12 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 			$('#form-send-active-email').detach();
 		});
 	</script>
-	<p id='account-message'>亲，账户激活成功，马上 <a href='AccountC.php?act=pLogin'>登陆</a> 吧！</p>
+	<p id='account-message'>亲，账户激活成功，马上 <a href='AccountC.php?act=login'>登陆</a> 吧！</p>
 	<?php }?>
 
 	<form id='form-send-active-email' action='AccountC.php' method='post'>
 		<div class='form-footer'>
-			<a href='AccountC.php?act=pLogin'>登陆</a>
+			<a href='AccountC.php?act=login'>登陆</a>
 			<input class="btn btn-large btn-primary" type='submit' value='再发一次' />
 		</div>
 

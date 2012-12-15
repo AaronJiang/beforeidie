@@ -9,17 +9,15 @@
 	
 	switch($action){
 	
-	// person
+	// page person
 		
-		// get view
+		// view
 		case 'person':
 			$sm = new sm('person');
 			
-			// userID, username, userAvatar
+			// userinfo
 			$userID = isset($_REQUEST['userID'])? $_REQUEST['userID']: $_SESSION['valid_user_id'];
-			$sm->assign('user', array('ID' => $userID,
-									'Name' => get_username_by_id($userID),
-									'Avatar' => get_gravatar($userID)));
+			$sm->assign('user', get_user_by_id($userID));
 
 			// likesNum
 			$sm->assign('likesNum', get_likes_num($userID));
@@ -50,87 +48,25 @@
 			$sm->display('person.tp');
 			break;
 
-		// change_goal_state
 		case "change_goal_state":
 			$isSucc = change_goal_state($_REQUEST['goalID'], $_REQUEST['isPublic']);
 			echo $isSucc? 1: 0;
 			break;
-			
-		// follow users
+
+		case "update_signature":
+			echo update_signature($_REQUEST['userID'], $_REQUEST['signature'])? 1: 0;
+			break;
+
 		case "follow_user":
 			follow_user($_REQUEST['followerID'], $_REQUEST['followeeID']);
-			page_jump($_SERVER['HTTP_REFERER']);
+			page_jump_back();
 			break;
 
-		// disfollow user
 		case "disfollow_user":
 			disfollow_user($_REQUEST['followerID'], $_REQUEST['followeeID']);
-			page_jump($_SERVER['HTTP_REFERER']);			
-			break;
-
-		// get dynamics
-		case 'get_dyns':
-			$sm = new sm('person');
-			
-			//userID, userAvatar
-			@session_start();
-			$userID = $_SESSION['valid_user_id'];
-			$sm->assign('userID', $userID);
-			$userAvatar = get_gravatar($userID);
-			$sm->assign('userAvatar', $userAvatar);
-			
-			// dyns
-			$dynUserID = $_REQUEST['userID'];
-			$dyns = get_dynamics($dynUserID, $_REQUEST['pageIndex'], $_REQUEST['numPerPage'], $_REQUEST['isMe']);
-			
-			foreach($dyns as &$dyn){
-				// poster avatar
-				$dyn['PosterAvatar'] = get_gravatar($dyn['PosterID']);
-				
-				//comments
-				if($dyn['Type'] == 'newLog' || $dyn['Type'] == 'finishGoal'){
-					// comments, commentsNum
-					$comments = get_log_comments_full($dyn['LogID']);
-					$dyn['commentsNum'] = count($comments);
-					$dyn['comments'] = $comments;
-				}
-			}
-			$sm->assign('dyns', $dyns);
-
-			$output = $sm->fetch('dyns.tc');
-			echo $output;
-			break;
-
-		// get about me dynamics
-		case 'get_about_me_dyns':
-			$sm = new sm('person');
-			
-			//userID, userAvatar
-			@@session_start();
-			$userID = $_SESSION['valid_user_id'];
-			$sm->assign('userID', $userID);
-			$userAvatar = get_gravatar($userID);
-			$sm->assign('userAvatar', $userAvatar);
-			
-			// dyns
-			$dyns = get_dynamics_about_me($_REQUEST['userID'], $_REQUEST['pageIndex'], $_REQUEST['numPerPage']);
-			foreach($dyns as &$dyn){
-				$dyn['PosterAvatar'] = get_gravatar($dyn['PosterID']);
-				
-				//comments
-				if($dyn['Type'] == 'newCommentOnMyLog' || $dyn['Type'] == 'newCommentOnOtherLog'){
-					// commentsNum
-					$comments = get_log_comments_full($dyn['LogID']);
-					$dyn['commentsNum'] = count($comments);
-					$dyn['comments'] = $comments;
-				}
-			}
-			$sm->assign('dyns', $dyns);
-			
-			$sm->display('about_me_dyns.tc');
+			page_jump_back();			
 			break;
 			
-		// drop goal
 		case "drop_goal":
 			echo drop_goal($_REQUEST['goalID'])? 1: 0;
 			break;

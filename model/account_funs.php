@@ -2,12 +2,19 @@
 	require_once('public_funs.php');
 	require_once('smtp.php');
 
+	// 获取用户信息
+	function get_user_by_id($userID){
+		$query = "SELECT * FROM users WHERE UserID = ". $userID;
+		$result = db_exec($query);
+		return $result->fetch_assoc();
+	}
+
 	//验证用户 by 邮箱和密码
 	function check_user_by_email($email, $pwd){
 		$query = "select * from users where Email = '". $email. "' and Password = '". sha1($pwd). "' and IsActive = 1";
 		$result = db_exec($query);
 
-		return ($result->num_rows > 0)? true: false;
+		return ($result->num_rows > 0);
 	}
 	
 	//验证未激活用户 by 邮箱和密码
@@ -15,25 +22,21 @@
 		$query = "select * from users where Email = '". $email. "' and Password = '". sha1($pwd). "' and IsActive = 0";
 		$result = db_exec($query);
 		
-		return ($result->num_rows > 0)? true: false;		
+		return ($result->num_rows > 0);		
 	}
 	
 	//验证用户ID和密码是否存在
-	function check_user_by_id($userID, $pwd){
-		$userState = "";
-	
+	function check_user_by_id($userID, $pwd){	
 		$query = "select * from users where UserID = ". $userID. " and Password = '". sha1($pwd). "' and IsActive = 1";
 		$result = db_exec($query);
 		
-		return ($result->num_rows > 0)? true: false;
+		return ($result->num_rows > 0);
 	}
 	
 	//用户注册
 	function new_user($username, $pwd, $email){
-		$query = "insert into users (Username, Password, Email) values ('". $username. "', '". sha1($pwd). "', '". $email. "')";
-		$result = db_exec($query);
-		
-		return $result? true: false;
+		$query = "INSERT INTO users (Username, Password, Email, AvatarUrl, Signature) VALUES ('". $username. "', '". sha1($pwd). "', '". $email. "', '". get_gravatar_by_email($email). "', '签名')";
+		return db_exec($query);
 	}
 	
 	//验证用户是否已经登录
@@ -84,8 +87,17 @@
 	//修改密码
 	function change_pwd($userID, $newPwd){
 		$query = "update users set Password = '". sha1($newPwd). "' where UserID = ". $userID;
-		$result = db_exec($query);
-		return $result? true: false;
+		return db_exec($query);
+	}
+
+	// 修改签名
+	function update_signature($userID, $signature){
+		if(!get_magic_quotes_gpc()){
+			$signature = addslashes($signature);
+		}
+
+		$query = "UPDATE users SET Signature = '". $signature. "' WHERE UserID = ". $userID;
+		return db_exec($query);
 	}
 	
 	//获取用户总数
@@ -98,22 +110,20 @@
 	}
 	
 	//获取用户在 Gravatar 上的头像
-	function get_user_profile($userID){
-		$email = get_email_by_id($userID);
-		$hash = md5(strtolower(trim($email)));
-		return "http://www.gravatar.com/avatar/". $hash;
-	}
-	
-	//获取用户在 Gravatar 上的头像
 	function get_gravatar($userID){
 		$email = get_email_by_id($userID);
 		$hash = md5(strtolower(trim($email)));
 		return "http://www.gravatar.com/avatar/". $hash;
 	}
+
+	function get_gravatar_by_email($email){
+		$hash = md5(strtolower(trim($email)));
+		return "http://www.gravatar.com/avatar/". $hash;		
+	}
 	
 	//检验某用户是否已在 Gravatar 注册
 	function validate_gravatar($userID) {
-		$uri = get_user_profile($userID). '?d=404';
+		$uri = get_gravatar($userID). '?d=404';
 		
 		$headers = @get_headers($uri);
 		

@@ -4,6 +4,5 @@
 	require_once('account_funs.php');
 	require_once('follower_funs.php');
 	require_once('comment_funs.php');
-	require_once('dynamic_funs.php');
 	require_once('like_funs.php');
 ?>
