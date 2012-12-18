@@ -15,8 +15,13 @@
 		case 'new':
 			$sm = new sm('goal');
 
+			// userID
 			@session_start();
-			$sm->assign('userID', $_SESSION['valid_user_id']);
+			$userID = $_SESSION['valid_user_id'];
+			$sm->assign('userID', $userID);
+
+			// goalNum
+			$sm->assign('isFull', (get_goals_num($userID, true) == 10));
 
 			$sm->display('new.tp');
 			break;
@@ -41,12 +46,12 @@
 			$sm->assign('goal', get_goal_by_ID($goalID));
 
 			// isCreator
-			$isCreator = check_goal_ownership($goalID, $_SESSION['valid_user_id']);
-			$sm->assign('isCreator', $isCreator? 1: 0);
+			$isCreator = check_goal_ownership($goalID, $userID);
+			$sm->assign('isCreator', $isCreator);
 
 			// isLike
 			if(!$isCreator){
-				$sm->assign('isLike', check_goal_like($goalID, $_SESSION['valid_user_id'])? 1: 0);
+				$sm->assign('isLike', check_goal_like($goalID, $userID));
 			}
 
 			// creator info

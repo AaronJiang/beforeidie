@@ -112,10 +112,12 @@ $(document).ready(function(){
 <div id="goal-content" data-goal-id="{$goal.GoalID}" contenteditable="{if $isCreator}true{else}false{/if}">{$goal.Content}</div>
 
 <!-- like -->
-{if $isLike}
-<span class="btn-icon btn-like" data-goal-id="{$goal.GoalID}" data-user-id="{$smarty.session.valid_user_id}" data-is-like="1"></span>
-{else}
-<span class="btn-icon btn-like btn-like-false" data-goal-id="{$goal.GoalID}" data-user-id="{$smarty.session.valid_user_id}" data-is-like="0"></span>
+{if !$isCreator}
+	{if $isLike}
+	<span class="btn-icon btn-like" data-goal-id="{$goal.GoalID}" data-user-id="{$smarty.session.valid_user_id}" data-is-like="1"></span>
+	{else}
+	<span class="btn-icon btn-like btn-like-false" data-goal-id="{$goal.GoalID}" data-user-id="{$smarty.session.valid_user_id}" data-is-like="0"></span>
+	{/if}
 {/if}
 
 {include file='../footer.tc'}

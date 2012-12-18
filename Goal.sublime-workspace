@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"goal",
+				"goalNum"
+			],
+			[
 				"mar",
 				"margin-bottom"
 			],
@@ -74,10 +78,6 @@
 			[
 				"User",
 				"UserID"
-			],
-			[
-				"goal",
-				"goalID"
 			],
 			[
 				"btn",
@@ -330,6 +330,38 @@
 				"buffer_size": 7251,
 				"line_ending": "Windows"
 			}
+		},
+		{
+			"file": "view/goal/details.tp",
+			"settings":
+			{
+				"buffer_size": 3115,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "view/goal/new.tp",
+			"settings":
+			{
+				"buffer_size": 1949,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "ctrl/GoalC.php",
+			"settings":
+			{
+				"buffer_size": 1633,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "view/person/person.tp",
+			"settings":
+			{
+				"buffer_size": 3068,
+				"line_ending": "Windows"
+			}
 		}
 	],
 	"build_system": "",
@@ -368,13 +400,13 @@
 	},
 	"file_history":
 	[
+		"/F/xampp/htdocs/Goal/model/goal_funs.php",
 		"/F/xampp/htdocs/Goal/ctrl/DiscoverC.php",
 		"/F/xampp/htdocs/Goal/view/discover/discover.tp",
 		"/F/xampp/htdocs/Goal/view/goal/details.tp",
 		"/F/xampp/htdocs/Goal/view/person/person.tp",
 		"/F/xampp/htdocs/Goal/ctrl/PersonC.php",
 		"/F/xampp/htdocs/Goal/view/account/details.tp",
-		"/F/xampp/htdocs/Goal/model/goal_funs.php",
 		"/F/xampp/htdocs/Goal/view/goal/new.tp",
 		"/F/xampp/htdocs/Goal/view/header.tc",
 		"/F/xampp/htdocs/Goal/style/layout.less",
@@ -626,7 +658,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -651,7 +683,115 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3309.0,
+						"translation.y": 289.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "view/goal/details.tp",
+					"settings":
+					{
+						"buffer_size": 3115,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1253,
+								1253
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "view/goal/new.tp",
+					"settings":
+					{
+						"buffer_size": 1949,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								84,
+								84
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "ctrl/GoalC.php",
+					"settings":
+					{
+						"buffer_size": 1633,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1043,
+								1043
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "view/person/person.tp",
+					"settings":
+					{
+						"buffer_size": 3068,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1940,
+								1940
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1809.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -702,15 +842,19 @@
 		[
 			[
 				"per",
-				"ctrl/PersonC.php"
+				"view/person/person.tp"
 			],
 			[
-				"de",
-				"view/goal/details.tp"
+				"goal",
+				"model/goal_funs.php"
 			],
 			[
 				"new",
 				"view/goal/new.tp"
+			],
+			[
+				"de",
+				"view/goal/details.tp"
 			],
 			[
 				"goa",
@@ -743,10 +887,6 @@
 			[
 				"acc",
 				"ctrl/AccountC.php"
-			],
-			[
-				"goal",
-				"model/goal_funs.php"
 			],
 			[
 				"a",

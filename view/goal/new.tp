@@ -1,5 +1,11 @@
 {include file='../header.tc' title="新" page='page-new-goal'}
 
+{if $isFull}
+
+<p>已经有16个啦！想一想，排除一些次要的</p>
+
+{else}
+
 <script type="text/javascript">
 
 {literal}
@@ -89,5 +95,7 @@ $(document).ready(function(){
 <div id="goal-content" contenteditable="true"><div></div></div>
 
 <a id="btn-new-goal" class="btn btn-primary">确定</a>
+
+{/if}
 
 {include file='../footer.tc'}

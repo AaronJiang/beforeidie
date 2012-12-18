@@ -77,6 +77,11 @@ $(document).ready(function(){
 				success: function(isSucc){
 					if(isSucc){
 						$(goalItem).detach();
+
+						// refresh index
+						$('.goal-index').each(function(index){
+							$(this).text(index + 1);
+						});
 					}
 				}
 			});
