@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-11-15 08:21:26
+<?php /* Smarty version Smarty-3.1.12, created on 2012-12-20 16:39:27
          compiled from "..\view\account\forgot_pwd.tp" */ ?>
 <?php /*%%SmartyHeaderCode:1519450a44f38471af6-75371155%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd570dca9adaf85135b1f73c9b65db8a91e2b08f4' => 
     array (
       0 => '..\\view\\account\\forgot_pwd.tp',
-      1 => 1352964085,
+      1 => 1356009139,
       2 => 'file',
     ),
   ),
@@ -39,7 +39,7 @@ $(document).ready(function(){
 <div id='form-wap'>
 	
 	<?php if ($_smarty_tpl->tpl_vars['from']->value=="login"){?>
-	<p id='account-message'>亲，请输入你的邮箱，我们会把密码重置链接发过去哦！</p>
+	<p id='account-message'>亲，输入你的邮箱，我们会把密码重置链接发过去哦！</p>
 	
 	<?php }elseif($_smarty_tpl->tpl_vars['from']->value=="sended"){?>
 	<p id='account-message'>亲，密码重置链接已发送，请进入邮箱完成重置操作吧！</p>

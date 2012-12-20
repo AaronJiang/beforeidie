@@ -13,10 +13,6 @@
 		// get view
 		case 'login':
 			$sm = new sm('account');
-
-			// slogan info
-			$sm->assign('sInfo', array('usersNum' => get_all_users_num(),
-										'goalsNum' => get_all_goals_num()));
 											
 			// Cookie email
 			$sm->assign('email', @base64_decode($_COOKIE['ue']));
@@ -49,20 +45,15 @@
 			}
 			break;
 			
-	// register
+	// page register
 	
-		// get view
+		// view
 		case "register":
 			$sm = new sm('account');
-
-			// slogan info
-			$sm->assign('sInfo', array('usersNum' => get_all_users_num(),
-										'goalsNum' => get_all_goals_num()));
 										
 			$sm->display('register.tp');	
 			break;
-		
-		// register
+
 		case "new_user":
 			$email = $_REQUEST['email'];
 			$username = $_REQUEST['username'];
@@ -75,15 +66,11 @@
 			redirect('Account', 'active', array('from' => 'register', 'email' => $_REQUEST['email']));
 			break;
 	
-	// active
+	// page active
 	
-		// get view
+		// view
 		case 'active':
 			$sm = new sm('account');
-			
-			// slogan info
-			$sm->assign('sInfo', array('usersNum' => get_all_users_num(),
-										'goalsNum' => get_all_goals_num()));
 
 			// from
 			$sm->assign('from', $_REQUEST['from']);
@@ -93,15 +80,13 @@
 
 			$sm->display('active.tp');		
 			break;
-		
-		// send active email
+
 		case "send_active_email":
 			$email = $_REQUEST['email'];
 			send_active_email($email);
 			redirect('Account', 'active', array('from' => 'sended', 'email' => $email));
 			break;
 
-		// active account
 		case "active_account":
 			$activeCode = $_REQUEST['activeCode'];
 			$email = $_REQUEST['email'];
@@ -123,27 +108,31 @@
 		// view
 		case 'forgot_pwd':
 			$sm = new sm('account');
-
-			// slogan info
-			$sm->assign('sInfo', array('usersNum' => get_all_users_num(),
-										'goalsNum' => get_all_goals_num()));
 			
 			// from
 			$sm->assign('from', $_REQUEST['from']);
 			
 			$sm->display('forgot_pwd.tp');	
 			break;
-			
-		// send reset password email
+
 		case "send_reset_pwd_email":
 			$email = $_REQUEST['email'];
 			send_reset_pwd_email($email);
 			redirect('Account', 'forgot_pwd', array('from' => 'sended'));
 			break;
 		
-	// reset password
+	// page reset password
 
-		// verify reset code
+		// view
+		case 'reset_pwd':
+			$sm = new sm('account');
+
+			// email
+			$sm->assign('email', $_REQUEST['email']);
+
+			$sm->display('reset_pwd.tp');		
+			break;
+
 		case "verify_reset_code":
 			$email = $_REQUEST['email'];
 			$resetCode = $_REQUEST['resetCode'];
@@ -155,22 +144,7 @@
 				redirect('Account', 'forgot_pwd', array('from' => 'resetFailed', 'email' => $email));
 			}
 			break;
-		
-		// get view
-		case 'reset_pwd':
-			$sm = new sm('account');
-			
-			// slogan info
-			$sm->assign('sInfo', array('usersNum' => get_all_users_num(),
-										'goalsNum' => get_all_goals_num()));
-										
-			// email
-			$sm->assign('email', $_REQUEST['email']);
 
-			$sm->display('reset_pwd.tp');		
-			break;		
-		
-		// reset password
 		case "reset_password":
 			$email = $_REQUEST['email'];
 			$pwd = $_REQUEST['pwd'];
@@ -187,9 +161,9 @@
 		
 
 	
-	// account details
+	// page account details
 	
-		// get view
+		// view
 		case 'details':
 			$sm = new sm('account');
 			
@@ -203,9 +177,9 @@
 			$sm->display('details.tp');		
 			break;
 	
-	// account change password
+	// page account change password
 	
-		// get views
+		// view
 		case 'change_pwd':
 			$sm = new sm('account');
 			
@@ -215,8 +189,7 @@
 			
 			$sm->display('change_pwd.tp');		
 			break;
-		
-		// change password
+
 		case "change_password":
 			$isExist = check_user_by_id($_REQUEST['userID'], $_REQUEST['originalPwd']);
 			

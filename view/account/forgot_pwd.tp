@@ -12,7 +12,7 @@ $(document).ready(function(){
 <div id='form-wap'>
 	
 	{if $from == "login"}
-	<p id='account-message'>亲，请输入你的邮箱，我们会把密码重置链接发过去哦！</p>
+	<p id='account-message'>亲，输入你的邮箱，我们会把密码重置链接发过去哦！</p>
 	
 	{elseif $from == "sended"}
 	<p id='account-message'>亲，密码重置链接已发送，请进入邮箱完成重置操作吧！</p>

@@ -1,1 +1,4 @@
-<p id='login-slogan'>	已经有 <b>{$sInfo.usersNum}</b> 位用户，在 <img id='logo' src='../imgs/new.png' /> 写下了 <b>{$sInfo.goalsNum}</b> 个目标<p>
+<div id="slogan-wap">
+	<p id="slogan">You've got to find what you love.<p>
+	<p id="sayer">—&nbsp;&nbsp;Steven Jobs&nbsp;&nbsp;—</p>
+</div>

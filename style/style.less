@@ -31,30 +31,37 @@
 #page-reset-pwd {
 	background-color: @grayLighter;
 	
-	#login-slogan {
-		font-size: 22px;
-		line-height : 22px;
-		margin: 150px auto 30px auto;
-		text-align: center;
-		text-shadow: 1px 1px 2px white;
+	#slogan-wap{
+		width: 650px;
+		margin: 120px auto 20px auto;
 		
-		#logo{
-			vertical-align : text-bottom;
-			padding : 0 0 1px 0;
+		#slogan {
+			font-size: 35px;
+			line-height : 35px;
+			margin-bottom: 20px;
+			text-align: center;
+			text-shadow: 1px 1px 2px white;
+			font-family: @altFontFamily;
+		}
+
+		#sayer{
+			text-align: center;
+			font-size: @fontSizeLarger;
 		}
 	}
+
 	
 	#form-wap {
 		border-top: 1px solid #BBB;
 		border-bottom: 1px solid #BBB;
 		box-shadow: 0 0 6px #AAA;
-		padding: 40px 0 25px 0;
+		padding: 35px 0 25px 0;
 		background-color: #F8F8F8;
 
 		#account-message {
 			margin:0 0 20px 0;
+			font-size: @fontSizeLarge;
 			text-align: center;
-			font-size: @fontSizeLarger;
 		}
 		
 		form{
@@ -66,7 +73,6 @@
 			input[type='password'] {
 				width: 100%;
 				box-sizing: border-box;
-				font-size: 20px;
 				font-family: @baseFontFamily;
 				margin-bottom: 20px;
 			}
@@ -393,10 +399,6 @@
 // ------------------------------------------------------------
 
 #page-discover {
-
-	.page-title{
-		margin-bottom: 20px;
-	}
 	
 	/* Goal Item */
 	.goal-item{
@@ -450,5 +452,39 @@
 #page-about{
 	p{
 		font-family: @altFontFamily;
+	}
+}
+
+// Page Likes
+// ------------------------------------------------------------
+#page-likes{
+	.goal-item{
+		border-top: 1px solid @grayLighter;
+		padding: 12px 5px 10px 5px;
+		position: relative;
+
+		.goal-title{
+			font-family: @altFontFamily;
+			font-size: @fontSizeLarge;
+			margin-bottom: 5px;
+
+			a{
+				color: @black;
+			}
+			
+		}
+
+		.goal-content{
+			font-size: @fontSizeSmall;
+			font-family: #altFontFamily;
+			color: @grayLight;
+		}
+
+		.goal-creator{
+			position: absolute;
+			font-size: @fontSizeSmall;
+			bottom: 5px;
+			right: 5px;
+		}
 	}
 }

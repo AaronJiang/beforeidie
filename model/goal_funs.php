@@ -99,8 +99,6 @@
 		
 		$query = "UPDATE goals SET Title = '". $title. "', Content = '". $content. "' WHERE GoalID = ". $goalID;
 
-		ECHO $query;
-		
 		return db_exec($query);
 	}
 	

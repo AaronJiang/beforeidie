@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-12-18 16:59:16
+<?php /* Smarty version Smarty-3.1.12, created on 2012-12-20 16:14:19
          compiled from "..\view\person\person.tp" */ ?>
 <?php /*%%SmartyHeaderCode:4986509235e2350e62-48954490%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '408a68eee0c915ea04698cd6d0862e63ac44b953' => 
     array (
       0 => '..\\view\\person\\person.tp',
-      1 => 1355846355,
+      1 => 1356015157,
       2 => 'file',
     ),
   ),
@@ -132,8 +132,9 @@ $(document).ready(function(){
 		<div id="signature" contenteditable="true" placeholder="个性签名" data-user-id="<?php echo $_smarty_tpl->tpl_vars['user']->value['UserID'];?>
 "><?php echo $_smarty_tpl->tpl_vars['user']->value['Signature'];?>
 </div>
+		<!--
 		<div id="likes"><a href='#'><?php echo $_smarty_tpl->tpl_vars['likesNum']->value;?>
- <span class='btn-icon btn-like'></span></a></div>
+ <span class='btn-icon btn-like'></span></a></div>-->
 	</div>
 </div>
 

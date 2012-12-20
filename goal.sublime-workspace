@@ -4,6 +4,34 @@
 		"selected_items":
 		[
 			[
+				"font",
+				"fontSizeLarge"
+			],
+			[
+				"f",
+				"font-family"
+			],
+			[
+				"fon",
+				"font-weight"
+			],
+			[
+				"gr",
+				"grayLight"
+			],
+			[
+				"pa",
+				"padding"
+			],
+			[
+				"bor",
+				"border-top"
+			],
+			[
+				"sess",
+				"session_start"
+			],
+			[
 				"goal",
 				"goalNum"
 			],
@@ -14,10 +42,6 @@
 			[
 				"u",
 				"userID"
-			],
-			[
-				"pa",
-				"padding-bottom"
 			],
 			[
 				"gra",
@@ -50,14 +74,6 @@
 			[
 				"ba",
 				"background"
-			],
-			[
-				"fon",
-				"font-family"
-			],
-			[
-				"gr",
-				"gray"
 			],
 			[
 				"SE",
@@ -124,20 +140,12 @@
 				"content"
 			],
 			[
-				"font",
-				"font-style"
-			],
-			[
 				"in",
 				"inline-block"
 			],
 			[
 				"tex",
 				"text-align"
-			],
-			[
-				"bor",
-				"border"
 			],
 			[
 				"update_goal",
@@ -327,39 +335,7 @@
 			"file": "style/style.less",
 			"settings":
 			{
-				"buffer_size": 7251,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "view/goal/details.tp",
-			"settings":
-			{
-				"buffer_size": 3115,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "view/goal/new.tp",
-			"settings":
-			{
-				"buffer_size": 1949,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "ctrl/GoalC.php",
-			"settings":
-			{
-				"buffer_size": 1633,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "view/person/person.tp",
-			"settings":
-			{
-				"buffer_size": 3068,
+				"buffer_size": 7829,
 				"line_ending": "Windows"
 			}
 		}
@@ -400,35 +376,39 @@
 	},
 	"file_history":
 	[
-		"/F/xampp/htdocs/Goal/model/goal_funs.php",
-		"/F/xampp/htdocs/Goal/ctrl/DiscoverC.php",
-		"/F/xampp/htdocs/Goal/view/discover/discover.tp",
+		"/F/xampp/htdocs/Goal/view/account/slogan.tc",
+		"/F/xampp/htdocs/Goal/ctrl/AccountC.php",
 		"/F/xampp/htdocs/Goal/view/goal/details.tp",
 		"/F/xampp/htdocs/Goal/view/person/person.tp",
+		"/F/xampp/htdocs/Goal/view/like/like.tp",
+		"/F/xampp/htdocs/Goal/view/discover/discover.tp",
+		"/F/xampp/htdocs/Goal/model/like_funs.php",
+		"/F/xampp/htdocs/Goal/ctrl/LikeC.php",
+		"/F/xampp/htdocs/Goal/ctrl/DiscoverC.php",
+		"/F/xampp/htdocs/Goal/model/goal_funs.php",
+		"/F/xampp/htdocs/Goal/view/goal/new.tp",
+		"/F/xampp/htdocs/Goal/ctrl/GoalC.php",
+		"/F/xampp/htdocs/Goal/view/header.tc",
+		"/F/xampp/htdocs/Goal/view/account/login.tp",
+		"/F/xampp/htdocs/Goal/view/account/forgot_pwd.tp",
 		"/F/xampp/htdocs/Goal/ctrl/PersonC.php",
 		"/F/xampp/htdocs/Goal/view/account/details.tp",
-		"/F/xampp/htdocs/Goal/view/goal/new.tp",
-		"/F/xampp/htdocs/Goal/view/header.tc",
 		"/F/xampp/htdocs/Goal/style/layout.less",
 		"/F/xampp/htdocs/Goal/view/home/about.tp",
 		"/F/xampp/htdocs/Goal/style/basecss.less",
 		"/F/xampp/htdocs/Goal/style/components.less",
 		"/F/xampp/htdocs/Goal/view/footer.tc",
 		"/F/xampp/htdocs/Goal/model/account_funs.php",
-		"/F/xampp/htdocs/Goal/ctrl/AccountC.php",
-		"/F/xampp/htdocs/Goal/ctrl/GoalC.php",
 		"/F/xampp/htdocs/Goal/model/data_funs.inc",
 		"/F/xampp/htdocs/Goal/view/person/dyns.tc",
 		"/F/xampp/htdocs/Goal/style/vars.less",
 		"/F/xampp/htdocs/Goal/style/style.less",
-		"/F/xampp/htdocs/Goal/model/like_funs.php",
 		"/F/xampp/htdocs/Goal/model/follower_funs.php",
 		"/F/xampp/htdocs/Goal/ctrl/HomeC.php",
 		"/F/xampp/htdocs/Goal/view/home/terms.tp",
 		"/F/xampp/htdocs/Goal/view/account/change_pwd.tp",
 		"/F/xampp/htdocs/Goal/view/home/me.tc",
 		"/F/xampp/htdocs/Goal/model/log_funs.php",
-		"/F/xampp/htdocs/Goal/view/account/slogan.tc",
 		"/F/xampp/htdocs/Goal/imgs/confuse.png",
 		"/F/xampp/htdocs/flight/application/controllers/flight.php",
 		"/F/xampp/htdocs/flight/application/controllers/ticket.php",
@@ -523,11 +503,7 @@
 		"/F/xampp/htdocs/Dream/ctrl/HomeC.php",
 		"/F/xampp/htdocs/Dream/model/goal_funs.php",
 		"/F/xampp/htdocs/Dream/model/data_funs.inc",
-		"/F/xampp/htdocs/Dream/model/step_funs.php",
-		"/C/Users/lzp/AppData/Roaming/Sublime Text 2/Packages/Default/Default (Windows).sublime-keymap",
-		"/F/xampp/htdocs/poem/static/bs/variables.less",
-		"/F/xampp/htdocs/poem/poem.sublime-project",
-		"/F/xampp/htdocs/poem/poem.sublime-workspace"
+		"/F/xampp/htdocs/Dream/model/step_funs.php"
 	],
 	"find":
 	{
@@ -545,6 +521,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"like",
 			"where",
 			"select",
 			"reason",
@@ -658,7 +635,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -666,15 +643,15 @@
 					"file": "style/style.less",
 					"settings":
 					{
-						"buffer_size": 7251,
+						"buffer_size": 7829,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3861,
-								3861
+								1012,
+								1012
 							]
 						],
 						"settings":
@@ -683,115 +660,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 289.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "view/goal/details.tp",
-					"settings":
-					{
-						"buffer_size": 3115,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1253,
-								1253
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "view/goal/new.tp",
-					"settings":
-					{
-						"buffer_size": 1949,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								84,
-								84
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "ctrl/GoalC.php",
-					"settings":
-					{
-						"buffer_size": 1633,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1043,
-								1043
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "view/person/person.tp",
-					"settings":
-					{
-						"buffer_size": 3068,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1940,
-								1940
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1809.0,
+						"translation.y": 513.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -841,12 +710,40 @@
 		"selected_items":
 		[
 			[
-				"per",
-				"view/person/person.tp"
+				"accc",
+				"ctrl/AccountC.php"
+			],
+			[
+				"sl",
+				"view/account/slogan.tc"
+			],
+			[
+				"likes",
+				"model/like_funs.php"
+			],
+			[
+				"dis",
+				"view/discover/discover.tp"
+			],
+			[
+				"like",
+				"model/like_funs.php"
 			],
 			[
 				"goal",
 				"model/goal_funs.php"
+			],
+			[
+				"hea",
+				"view/header.tc"
+			],
+			[
+				"for",
+				"view/account/forgot_pwd.tp"
+			],
+			[
+				"per",
+				"view/person/person.tp"
 			],
 			[
 				"new",
@@ -859,14 +756,6 @@
 			[
 				"goa",
 				"model/goal_funs.php"
-			],
-			[
-				"dis",
-				"view/discover/discover.tp"
-			],
-			[
-				"hea",
-				"view/header.tc"
 			],
 			[
 				"bas",
@@ -931,10 +820,6 @@
 			[
 				"ne",
 				"view/goal/new.tp"
-			],
-			[
-				"sl",
-				"view/account/slogan.tc"
 			],
 			[
 				"log",
@@ -1011,10 +896,6 @@
 			[
 				"less",
 				"static/main.less"
-			],
-			[
-				"for",
-				"view/account/forgot_pwd.tp"
 			],
 			[
 				"re",
@@ -1127,6 +1008,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 198.0,
+	"side_bar_width": 191.0,
 	"status_bar_visible": true
 }
