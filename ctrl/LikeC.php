@@ -8,7 +8,7 @@
 	$action = $_REQUEST['act'];
 
 	switch($action){
-		case "like":
+		case "mylikes":
 			$sm = new sm('like');
 
 			@session_start();
@@ -24,7 +24,7 @@
 			$sm->display('like.tp');
 			break;
 
-		case "":
+		case "dislike":
 			break;
 	}
 

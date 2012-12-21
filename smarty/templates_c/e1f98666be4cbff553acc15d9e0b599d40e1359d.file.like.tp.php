@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-12-20 15:50:28
+<?php /* Smarty version Smarty-3.1.12, created on 2012-12-21 14:20:34
          compiled from "..\view\like\like.tp" */ ?>
 <?php /*%%SmartyHeaderCode:1655150d31e1e15ec11-80859775%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'e1f98666be4cbff553acc15d9e0b599d40e1359d' => 
     array (
       0 => '..\\view\\like\\like.tp',
-      1 => 1356014988,
+      1 => 1356095989,
       2 => 'file',
     ),
   ),
@@ -27,7 +27,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <?php if ($_valid && !is_callable('content_50d31e1e23baa7_31703929')) {function content_50d31e1e23baa7_31703929($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ('../header.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>"收藏",'page'=>'page-likes'), 0);?>
 
 
-<h3 class='page-title'>我的收藏</h3>
+<h3 class='page-title'>收藏</h3>
 
 <?php  $_smarty_tpl->tpl_vars['goal'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['goal']->_loop = false;
  $_from = $_smarty_tpl->tpl_vars['goals']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}

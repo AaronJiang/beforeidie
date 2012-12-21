@@ -10,7 +10,6 @@
 	
 	// header
 	
-		// logout
 		case "logout":
 			@session_start();
 			@session_destroy();
@@ -21,27 +20,15 @@
 			redirect('Account', 'login');
 			break;
 	
-	// comments
-	
-		// new comment
-		case "new_comment":
-			new_comment($_REQUEST['comment'], $_REQUEST['posterID'], $_REQUEST['logID'], $_REQUEST['parentCommentID'], $_REQUEST['isRoot']);
-			page_jump_back();		
-			break;
-	
 	// feedback panel
 	
-		// send feedback
 		case "send_feedback":
 			$mailSubject = '[Goal意见反馈]';
 	
 			@session_start();
-			$mailContent = "<h1 style='margin:0 0 10px 0;font-size:15px'>"
-							. "<a href='http://hustlzp.com/goal/person.php?userID=". $_SESSION['valid_user_id']. "'>"
-								. $_SESSION['valid_user']
-							. "</a>"
-							. " 说："
-						. "</h1>";
+			$mailContent = "<!DOCTYPE html><html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8' /></head><body>";
+			$mailContent .= "<h1 style='margin:0 0 10px 0;font-size:15px'><a href='http://hustlzp.com/woxiang/PersonC.php?at=person&userID=". $_SESSION['valid_user_id']. "'>". $_SESSION['valid_user']. "</a> 说：</h1>";
+			$mailContent .= "</body></html>";
 	
 			if(trim($_REQUEST['feedbackSubject']) != ""){
 				$mailContent .= "<p style='margin:0 0 10px 0;font-size:16px;font-weight:bold;font-family:微软雅黑;'>". $_REQUEST['feedbackSubject']. "</p>";
@@ -55,7 +42,7 @@
 		
 	// browser warning
 	
-		// get view
+		// view
 		case "browser_warning":
 			$sm = new sm();
 			$sm->display("browser_warning.tp");

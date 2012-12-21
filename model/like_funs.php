@@ -26,11 +26,11 @@
 	}
 
 	function get_likes($userID){
-		$query = "SELECT goals.GoalID, goals.Title, goals.Content, goals.UserID, users.UserID, users.Username\n"
+		$query = "SELECT goals.GoalID, goals.Title, goals.Content, users.UserID, users.Username\n"
 				. "FROM likes, goals, users\n"
 				. "WHERE likes.UserID = ". $userID. "\n"
 				. "AND likes.GoalID = goals.GoalID\n"
-				. "AND likes.UserID = users.UserID";
+				. "AND goals.UserID = users.UserID";
 
 		$result = db_exec($query);
 
@@ -41,5 +41,4 @@
 		
 		return $array;
 	}
-
 ?>

@@ -4,6 +4,46 @@
 		"selected_items":
 		[
 			[
+				"mar",
+				"margin"
+			],
+			[
+				"mai",
+				"mailContent"
+			],
+			[
+				"u",
+				"users"
+			],
+			[
+				"U",
+				"update_signature"
+			],
+			[
+				"fo",
+				"foreach	foreach …"
+			],
+			[
+				"av",
+				"avatarUrl"
+			],
+			[
+				"ava",
+				"AvatarUrl"
+			],
+			[
+				"a",
+				"array"
+			],
+			[
+				"F",
+				"FROM"
+			],
+			[
+				"get_",
+				"get_gravatar"
+			],
+			[
 				"pa",
 				"padding-bottom"
 			],
@@ -34,14 +74,6 @@
 			[
 				"goal",
 				"goalNum"
-			],
-			[
-				"mar",
-				"margin-bottom"
-			],
-			[
-				"u",
-				"userID"
 			],
 			[
 				"gra",
@@ -335,7 +367,39 @@
 			"file": "style/style.less",
 			"settings":
 			{
-				"buffer_size": 7852,
+				"buffer_size": 7895,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "model/public_funs.php",
+			"settings":
+			{
+				"buffer_size": 2205,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "view/header.tc",
+			"settings":
+			{
+				"buffer_size": 1923,
+				"line_ending": "CR"
+			}
+		},
+		{
+			"file": "ctrl/PublicC.php",
+			"settings":
+			{
+				"buffer_size": 1313,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "model/account_funs.php",
+			"settings":
+			{
+				"buffer_size": 6174,
 				"line_ending": "Windows"
 			}
 		}
@@ -376,29 +440,30 @@
 	},
 	"file_history":
 	[
-		"/F/xampp/htdocs/Goal/view/account/slogan.tc",
-		"/F/xampp/htdocs/Goal/ctrl/AccountC.php",
-		"/F/xampp/htdocs/Goal/view/goal/details.tp",
+		"/F/xampp/htdocs/Goal/view/home/about.tp",
 		"/F/xampp/htdocs/Goal/view/person/person.tp",
-		"/F/xampp/htdocs/Goal/view/like/like.tp",
-		"/F/xampp/htdocs/Goal/view/discover/discover.tp",
-		"/F/xampp/htdocs/Goal/model/like_funs.php",
-		"/F/xampp/htdocs/Goal/ctrl/LikeC.php",
-		"/F/xampp/htdocs/Goal/ctrl/DiscoverC.php",
-		"/F/xampp/htdocs/Goal/model/goal_funs.php",
-		"/F/xampp/htdocs/Goal/view/goal/new.tp",
-		"/F/xampp/htdocs/Goal/ctrl/GoalC.php",
 		"/F/xampp/htdocs/Goal/view/header.tc",
+		"/F/xampp/htdocs/Goal/ctrl/LikeC.php",
+		"/F/xampp/htdocs/Goal/view/goal/new.tp",
+		"/F/xampp/htdocs/Goal/view/like/like.tp",
+		"/F/xampp/htdocs/Goal/view/account/slogan.tc",
+		"/F/xampp/htdocs/Goal/model/account_funs.php",
+		"/F/xampp/htdocs/Goal/ctrl/PublicC.php",
+		"/F/xampp/htdocs/Goal/model/like_funs.php",
+		"/F/xampp/htdocs/Goal/style/components.less",
+		"/F/xampp/htdocs/Goal/ctrl/PersonC.php",
+		"/F/xampp/htdocs/Goal/model/goal_funs.php",
+		"/F/xampp/htdocs/Goal/ctrl/AccountC.php",
+		"/F/xampp/htdocs/Goal/view/footer.tc",
+		"/F/xampp/htdocs/Goal/view/goal/details.tp",
+		"/F/xampp/htdocs/Goal/view/discover/discover.tp",
+		"/F/xampp/htdocs/Goal/ctrl/DiscoverC.php",
+		"/F/xampp/htdocs/Goal/ctrl/GoalC.php",
 		"/F/xampp/htdocs/Goal/view/account/login.tp",
 		"/F/xampp/htdocs/Goal/view/account/forgot_pwd.tp",
-		"/F/xampp/htdocs/Goal/ctrl/PersonC.php",
 		"/F/xampp/htdocs/Goal/view/account/details.tp",
 		"/F/xampp/htdocs/Goal/style/layout.less",
-		"/F/xampp/htdocs/Goal/view/home/about.tp",
 		"/F/xampp/htdocs/Goal/style/basecss.less",
-		"/F/xampp/htdocs/Goal/style/components.less",
-		"/F/xampp/htdocs/Goal/view/footer.tc",
-		"/F/xampp/htdocs/Goal/model/account_funs.php",
 		"/F/xampp/htdocs/Goal/model/data_funs.inc",
 		"/F/xampp/htdocs/Goal/view/person/dyns.tc",
 		"/F/xampp/htdocs/Goal/style/vars.less",
@@ -421,7 +486,6 @@
 		"/F/xampp/htdocs/Goal/style/reset.less",
 		"/F/xampp/htdocs/flight/index.php",
 		"/F/xampp/htdocs/Goal/view/person/about_me_dyns.tc",
-		"/F/xampp/htdocs/Goal/ctrl/PublicC.php",
 		"/F/xampp/htdocs/Goal/ctrl/DynC.php",
 		"/F/xampp/htdocs/Goal/view/dyn/dyns.tp",
 		"/F/xampp/htdocs/Goal/view/home/home.tp",
@@ -635,7 +699,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -643,15 +707,15 @@
 					"file": "style/style.less",
 					"settings":
 					{
-						"buffer_size": 7852,
+						"buffer_size": 7895,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1478,
-								1478
+								6953,
+								6953
 							]
 						],
 						"settings":
@@ -660,7 +724,115 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1053.0,
+						"translation.y": 8545.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "model/public_funs.php",
+					"settings":
+					{
+						"buffer_size": 2205,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								245,
+								245
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "view/header.tc",
+					"settings":
+					{
+						"buffer_size": 1923,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								30,
+								30
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "ctrl/PublicC.php",
+					"settings":
+					{
+						"buffer_size": 1313,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								830,
+								830
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 60.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "model/account_funs.php",
+					"settings":
+					{
+						"buffer_size": 6174,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4781,
+								4781
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 3480.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -710,6 +882,66 @@
 		"selected_items":
 		[
 			[
+				"ac",
+				"model/account_funs.php"
+			],
+			[
+				"pub",
+				"ctrl/PublicC.php"
+			],
+			[
+				"ab",
+				"view/home/about.tp"
+			],
+			[
+				"her",
+				"view/header.tc"
+			],
+			[
+				"new",
+				"view/goal/new.tp"
+			],
+			[
+				"hea",
+				"view/header.tc"
+			],
+			[
+				"acc",
+				"model/account_funs.php"
+			],
+			[
+				"slo",
+				"view/account/slogan.tc"
+			],
+			[
+				"lik",
+				"view/like/like.tp"
+			],
+			[
+				"like",
+				"view/like/like.tp"
+			],
+			[
+				"likefu",
+				"model/like_funs.php"
+			],
+			[
+				"goal",
+				"model/goal_funs.php"
+			],
+			[
+				"per",
+				"ctrl/PersonC.php"
+			],
+			[
+				"he",
+				"view/header.tc"
+			],
+			[
+				"fo",
+				"view/footer.tc"
+			],
+			[
 				"accc",
 				"ctrl/AccountC.php"
 			],
@@ -726,28 +958,8 @@
 				"view/discover/discover.tp"
 			],
 			[
-				"like",
-				"model/like_funs.php"
-			],
-			[
-				"goal",
-				"model/goal_funs.php"
-			],
-			[
-				"hea",
-				"view/header.tc"
-			],
-			[
 				"for",
 				"view/account/forgot_pwd.tp"
-			],
-			[
-				"per",
-				"view/person/person.tp"
-			],
-			[
-				"new",
-				"view/goal/new.tp"
 			],
 			[
 				"de",
@@ -762,20 +974,8 @@
 				"style/basecss.less"
 			],
 			[
-				"ab",
-				"view/home/about.tp"
-			],
-			[
 				"com",
 				"style/components.less"
-			],
-			[
-				"fo",
-				"view/footer.tc"
-			],
-			[
-				"acc",
-				"ctrl/AccountC.php"
 			],
 			[
 				"a",
@@ -858,10 +1058,6 @@
 				"ctrl/PublicC.php"
 			],
 			[
-				"ac",
-				"ctrl/AccountC.php"
-			],
-			[
 				"dynf",
 				"model/dynamic_funs.php"
 			],
@@ -922,20 +1118,12 @@
 				"view/browser_warning.tp"
 			],
 			[
-				"pub",
-				"ctrl/PublicC.php"
-			],
-			[
 				"pan",
 				"view/panel_header.tc"
 			],
 			[
 				"co",
 				"style/components.less"
-			],
-			[
-				"he",
-				"view/header.tc"
 			],
 			[
 				"my",
