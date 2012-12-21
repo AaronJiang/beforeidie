@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"pa",
+				"padding-bottom"
+			],
+			[
 				"font",
 				"fontSizeLarge"
 			],
@@ -18,10 +22,6 @@
 			[
 				"gr",
 				"grayLight"
-			],
-			[
-				"pa",
-				"padding"
 			],
 			[
 				"bor",
@@ -335,7 +335,7 @@
 			"file": "style/style.less",
 			"settings":
 			{
-				"buffer_size": 7829,
+				"buffer_size": 7852,
 				"line_ending": "Windows"
 			}
 		}
@@ -643,15 +643,15 @@
 					"file": "style/style.less",
 					"settings":
 					{
-						"buffer_size": 7829,
+						"buffer_size": 7852,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1012,
-								1012
+								1478,
+								1478
 							]
 						],
 						"settings":
@@ -660,7 +660,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 513.0,
+						"translation.y": 1053.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-12-20 16:14:19
+<?php /* Smarty version Smarty-3.1.12, created on 2012-12-21 04:12:57
          compiled from "..\view\person\person.tp" */ ?>
 <?php /*%%SmartyHeaderCode:4986509235e2350e62-48954490%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '408a68eee0c915ea04698cd6d0862e63ac44b953' => 
     array (
       0 => '..\\view\\person\\person.tp',
-      1 => 1356015157,
+      1 => 1356059556,
       2 => 'file',
     ),
   ),
@@ -20,10 +20,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   'variables' => 
   array (
     'user' => 0,
+    'isCreator' => 0,
     'likesNum' => 0,
     'goals' => 0,
     'goal' => 0,
-    'isCreator' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -34,7 +34,18 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <script type="text/javascript">
 
 
+
 $(document).ready(function(){
+	
+	// index
+	$('.goal-index').each(function(index){
+		$(this).text(index + 1);
+	});
+
+
+
+<?php if ($_smarty_tpl->tpl_vars['isCreator']->value){?>
+	
 
 	// signature
 	$(window).unload(function(){
@@ -51,11 +62,6 @@ $(document).ready(function(){
 				'signature': signature
 			}
 		});
-	});
-
-	// index
-	$('.goal-index').each(function(index){
-		$(this).text(index + 1);
 	});
 
 	// lock
@@ -117,8 +123,11 @@ $(document).ready(function(){
 			});
 		}
 	});
-});
 
+	
+<?php }?>
+
+});
 
 </script>
 
@@ -129,7 +138,7 @@ $(document).ready(function(){
 	<div id="user-info">
 		<div id="username"><?php echo $_smarty_tpl->tpl_vars['user']->value['Username'];?>
 </div>
-		<div id="signature" contenteditable="true" placeholder="个性签名" data-user-id="<?php echo $_smarty_tpl->tpl_vars['user']->value['UserID'];?>
+		<div id="signature" contenteditable="<?php if ($_smarty_tpl->tpl_vars['isCreator']->value){?>true<?php }else{ ?>false<?php }?>" data-user-id="<?php echo $_smarty_tpl->tpl_vars['user']->value['UserID'];?>
 "><?php echo $_smarty_tpl->tpl_vars['user']->value['Signature'];?>
 </div>
 		<!--

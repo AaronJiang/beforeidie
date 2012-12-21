@@ -189,4 +189,25 @@
 		$query = "UPDATE users SET Password = '". sha1($pwd). "' WHERE Email = '". $email. "'";
 		return db_exec($query);
 	}
+
+	// 获取用户
+	function get_users(){
+		$query = "SELECT * FROM users WHERE UserID > 2";
+		$result = db_exec($query);
+
+		$array = array();
+
+		while ($row = $result->fetch_assoc()) {
+			array_push($array, $row);
+		}
+
+		return $array;
+	}
+
+	// 更新用户的头像url
+	function update_avatar_url($userID, $avatarUrl){
+		$query = "UPDATE users SET AvatarUrl = '". $avatarUrl. "'\n"
+				. "WHERE UserID = ". $userID;
+		return db_exec($query);
+	}
 ?>

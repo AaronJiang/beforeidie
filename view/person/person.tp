@@ -4,7 +4,18 @@
 <script type="text/javascript">
 
 {literal}
+
 $(document).ready(function(){
+	
+	// index
+	$('.goal-index').each(function(index){
+		$(this).text(index + 1);
+	});
+
+{/literal}
+
+{if $isCreator}
+	{literal}
 
 	// signature
 	$(window).unload(function(){
@@ -21,11 +32,6 @@ $(document).ready(function(){
 				'signature': signature
 			}
 		});
-	});
-
-	// index
-	$('.goal-index').each(function(index){
-		$(this).text(index + 1);
 	});
 
 	// lock
@@ -87,9 +93,12 @@ $(document).ready(function(){
 			});
 		}
 	});
+
+	{/literal}
+{/if}
+
 });
 
-{/literal}
 </script>
 
 <div id='user-info-wap'>
@@ -97,7 +106,7 @@ $(document).ready(function(){
 
 	<div id="user-info">
 		<div id="username">{$user.Username}</div>
-		<div id="signature" contenteditable="true" placeholder="个性签名" data-user-id="{$user.UserID}">{$user.Signature}</div>
+		<div id="signature" contenteditable="{if $isCreator}true{else}false{/if}" data-user-id="{$user.UserID}">{$user.Signature}</div>
 		<!--
 		<div id="likes"><a href='#'>{$likesNum} <span class='btn-icon btn-like'></span></a></div>-->
 	</div>

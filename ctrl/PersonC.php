@@ -13,14 +13,12 @@
 		
 		// view
 		case 'person':
+
 			$sm = new sm('person');
 			
 			// userinfo
 			$userID = isset($_REQUEST['userID'])? $_REQUEST['userID']: $_SESSION['valid_user_id'];
 			$sm->assign('user', get_user_by_id($userID));
-
-			//echo get_gravatar($userID);
-			//exit();
 
 			// likesNum
 			$sm->assign('likesNum', get_likes_num($userID));
