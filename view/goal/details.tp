@@ -94,7 +94,8 @@ $(document).ready(function(){
 </script>
 
 <div id='title-wap'>
-	<h2 id="goal-title" data-goal-id="{$goal.GoalID}" contenteditable="{if $isCreator}true{else}false{/if}">{$goal.Title}</h2>
+	<h2 id="pre">Before {if $isCreator}I{else}he{/if} die {if $isCreator}I{else}he{/if} want to</h2>
+	<h2 id="goal-title" data-goal-id="{$goal.GoalID}" contenteditable="{if $isCreator}true{else}false{/if}"> {$goal.Title}</h2>
 	<div id="extra-info-wap">
 		{if $isCreator}
 			<!-- lock -->

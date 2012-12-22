@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"mar",
+				"margin-bottom"
+			],
+			[
 				"fon",
 				"fontSizeSmall"
 			],
@@ -18,10 +22,6 @@
 			[
 				"tr",
 				"true"
-			],
-			[
-				"mar",
-				"margin"
 			],
 			[
 				"mai",
@@ -371,7 +371,7 @@
 			"file": "style/style.less",
 			"settings":
 			{
-				"buffer_size": 7783,
+				"buffer_size": 7869,
 				"line_ending": "Windows"
 			}
 		},
@@ -379,32 +379,32 @@
 			"file": "view/home/about.tp",
 			"settings":
 			{
-				"buffer_size": 821,
+				"buffer_size": 838,
 				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "style/basecss.less",
-			"settings":
-			{
-				"buffer_size": 3494,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "style/components.less",
-			"settings":
-			{
-				"buffer_size": 4027,
-				"line_ending": "Windows"
 			}
 		},
 		{
 			"file": "view/header.tc",
 			"settings":
 			{
-				"buffer_size": 1975,
+				"buffer_size": 1924,
 				"line_ending": "CR"
+			}
+		},
+		{
+			"file": "view/goal/new.tp",
+			"settings":
+			{
+				"buffer_size": 2066,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "view/goal/details.tp",
+			"settings":
+			{
+				"buffer_size": 3214,
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -444,8 +444,9 @@
 	},
 	"file_history":
 	[
-		"/F/xampp/htdocs/Goal/view/person/person.tp",
 		"/F/xampp/htdocs/Goal/style/basecss.less",
+		"/F/xampp/htdocs/Goal/style/components.less",
+		"/F/xampp/htdocs/Goal/view/person/person.tp",
 		"/F/xampp/htdocs/Goal/view/discover/discover.tp",
 		"/F/xampp/htdocs/Goal/style/utility.less",
 		"/F/xampp/htdocs/Goal/view/account/details.tp",
@@ -464,7 +465,6 @@
 		"/F/xampp/htdocs/Goal/ctrl/LikeC.php",
 		"/F/xampp/htdocs/Goal/view/like/like.tp",
 		"/F/xampp/htdocs/Goal/model/like_funs.php",
-		"/F/xampp/htdocs/Goal/style/components.less",
 		"/F/xampp/htdocs/Goal/ctrl/PersonC.php",
 		"/F/xampp/htdocs/Goal/model/goal_funs.php",
 		"/F/xampp/htdocs/Goal/ctrl/AccountC.php",
@@ -703,7 +703,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -711,15 +711,15 @@
 					"file": "style/style.less",
 					"settings":
 					{
-						"buffer_size": 7783,
+						"buffer_size": 7869,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								797,
-								797
+								3350,
+								3350
 							]
 						],
 						"settings":
@@ -728,7 +728,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 3690.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -738,95 +738,15 @@
 					"file": "view/home/about.tp",
 					"settings":
 					{
-						"buffer_size": 821,
+						"buffer_size": 838,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								637,
-								637
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "style/basecss.less",
-					"settings":
-					{
-						"buffer_size": 3494,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 720.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "style/components.less",
-					"settings":
-					{
-						"buffer_size": 4027,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1117,
-								1117
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1140.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "view/header.tc",
-					"settings":
-					{
-						"buffer_size": 1975,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1750,
-								1750
+								552,
+								552
 							]
 						],
 						"settings":
@@ -836,6 +756,87 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "view/header.tc",
+					"settings":
+					{
+						"buffer_size": 1924,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1689,
+								1689
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 360.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "view/goal/new.tp",
+					"settings":
+					{
+						"buffer_size": 2066,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1724,
+								1724
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1620.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "view/goal/details.tp",
+					"settings":
+					{
+						"buffer_size": 3214,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2079,
+								2079
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1620.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -885,6 +886,14 @@
 		"selected_items":
 		[
 			[
+				"de",
+				"view/goal/details.tp"
+			],
+			[
+				"new",
+				"view/goal/new.tp"
+			],
+			[
 				"hea",
 				"view/header.tc"
 			],
@@ -923,10 +932,6 @@
 			[
 				"foo",
 				"view/footer.tc"
-			],
-			[
-				"new",
-				"view/goal/new.tp"
 			],
 			[
 				"sl",
@@ -987,10 +992,6 @@
 			[
 				"for",
 				"view/account/forgot_pwd.tp"
-			],
-			[
-				"de",
-				"view/goal/details.tp"
 			],
 			[
 				"goa",

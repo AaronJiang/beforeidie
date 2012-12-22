@@ -95,6 +95,7 @@ $(document).ready(function(){
 {/literal}
 
 <div id="goal-title-wap">
+	<h2 id="pre">Before I die I want to</h2>
 	<h2 id="goal-title" data-user-id="{$userID}" contenteditable="true"></h2>
 	<span class="btn-icon btn-lock btn-lock-false" data-is-public="1"></span>
 </div>
