@@ -27,7 +27,7 @@
 	
 			@session_start();
 			$mailContent = "<!DOCTYPE html><html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8' /></head><body>";
-			$mailContent .= "<h1 style='margin:0 0 10px 0;font-size:15px'><a href='http://hustlzp.com/woxiang/PersonC.php?at=person&userID=". $_SESSION['valid_user_id']. "'>". $_SESSION['valid_user']. "</a> 说：</h1>";
+			$mailContent .= "<h1 style='margin:0 0 10px 0;font-size:15px'><a href='http://hustlzp.com/beforeidie/PersonC.php?at=person&userID=". $_SESSION['valid_user_id']. "'>". $_SESSION['valid_user']. "</a> 说：</h1>";
 			$mailContent .= "</body></html>";
 	
 			if(trim($_REQUEST['feedbackSubject']) != ""){

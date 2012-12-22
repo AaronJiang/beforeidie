@@ -384,14 +384,6 @@
 			}
 		},
 		{
-			"file": "view/header.tc",
-			"settings":
-			{
-				"buffer_size": 1923,
-				"line_ending": "CR"
-			}
-		},
-		{
 			"file": "ctrl/PublicC.php",
 			"settings":
 			{
@@ -404,6 +396,14 @@
 			"settings":
 			{
 				"buffer_size": 6174,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "ctrl/utility.php",
+			"settings":
+			{
+				"buffer_size": 1184,
 				"line_ending": "Windows"
 			}
 		}
@@ -444,12 +444,14 @@
 	},
 	"file_history":
 	[
+		"/F/xampp/htdocs/Goal/view/header.tc",
+		"/F/xampp/htdocs/Goal/model/smtp.php",
+		"/F/xampp/htdocs/Goal/style/utility.less",
 		"/F/xampp/htdocs/Goal/view/goal/logs.tc",
 		"/F/xampp/htdocs/Goal/view/goal/new.tp",
 		"/F/xampp/htdocs/Goal/view/goal/details.tp",
 		"/F/xampp/htdocs/Goal/view/home/about.tp",
 		"/F/xampp/htdocs/Goal/view/person/person.tp",
-		"/F/xampp/htdocs/Goal/view/header.tc",
 		"/F/xampp/htdocs/Goal/ctrl/LikeC.php",
 		"/F/xampp/htdocs/Goal/view/like/like.tp",
 		"/F/xampp/htdocs/Goal/view/account/slogan.tc",
@@ -569,9 +571,7 @@
 		"/F/xampp/htdocs/Dream/ctrl/PersonC.php",
 		"/F/xampp/htdocs/Dream/model/dynamic_funs.php",
 		"/F/xampp/htdocs/Dream/view/dyn/about_me_dyns.tc",
-		"/F/xampp/htdocs/Dream/ctrl/HomeC.php",
-		"/F/xampp/htdocs/Dream/model/goal_funs.php",
-		"/F/xampp/htdocs/Dream/model/data_funs.inc"
+		"/F/xampp/htdocs/Dream/ctrl/HomeC.php"
 	],
 	"find":
 	{
@@ -762,33 +762,6 @@
 				},
 				{
 					"buffer": 2,
-					"file": "view/header.tc",
-					"settings":
-					{
-						"buffer_size": 1923,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								702,
-								702
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
 					"file": "ctrl/PublicC.php",
 					"settings":
 					{
@@ -799,8 +772,8 @@
 						"selection":
 						[
 							[
-								830,
-								830
+								54,
+								64
 							]
 						],
 						"settings":
@@ -809,13 +782,13 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 60.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 3,
 					"file": "model/account_funs.php",
 					"settings":
 					{
@@ -826,8 +799,8 @@
 						"selection":
 						[
 							[
-								4781,
-								4781
+								4890,
+								4890
 							]
 						],
 						"settings":
@@ -836,7 +809,34 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3480.0,
+						"translation.y": 3300.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "ctrl/utility.php",
+					"settings":
+					{
+						"buffer_size": 1184,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1184,
+								1184
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 420.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -885,6 +885,10 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"pu",
+				"model/public_funs.php"
+			],
 			[
 				"new",
 				"view/goal/new.tp"
@@ -1056,10 +1060,6 @@
 			[
 				"sty",
 				"style/style.less"
-			],
-			[
-				"pu",
-				"ctrl/PublicC.php"
 			],
 			[
 				"dynf",

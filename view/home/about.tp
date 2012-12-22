@@ -1,19 +1,21 @@
 {include file='../header.tc' title='关于' page='page-about'}
 
 <div>
-	<h3 class='page-title'>关于我想</h3>
+	<h3 class='page-title'>关于</h3>
 
-	<p>孤独是自成体系的世界、自由和思想；寂寞是病，药方是喧嚣和人群。</p>
+	<p>
+		It's easy to get caught up in the day-to-day life and forget what really matters to you.<br/>我们总是很容易就陷入日常生活的琐碎之中，而忘记了对我们来说真正重要的是什么。
+	</p>
 
-	<p>寂寞了，不妨去聊qq、摇微信、刷微博、唱K。但如果你碰巧来到了“我想”，我希望你是孤独地使用它。静下来，听听自己内心的声音，并把它们刻录成文字。这里没有评论、没有关注、没有动态，关于社交网络的一切，几乎没有。</p>
+	<p>Candy Chang在 <a href="http://v.youku.com/v_show/id_XNDg0NTExNTcy.html">TED演讲</a> 上的一句话，让人深受触动。至亲的去世让Candy开始频繁地思考死亡的存在，她将街区的一面废墙改造成了黑板，并在上面写下了“在我死亡之前我想...”（Before I die I want to...），路过的人们开始纷纷写下自己的答案，最后遍布了整块黑板墙。每个人的声音就这样被放大，有的让人欢笑，有的让人陷入沉思。最重要的是，当人们带着思考审视这面墙上的所有答案时，每个人或许又一次清澈地看到了自己。</p>
 
-	<p>世界太嘈杂，“我想”希望能够提供给你一个不受干扰的安静角落，把自己发自内心所想（想达成的目标、想实现的梦想、想过的生活）保存在这里，无论它看起来如何的不值一提或不切实际，请坚信：You’ve got to find what you love。</p>
+	<p>国人常常避讳谈论死亡，认为它是消极的、不详的。但是当我们面对着死亡进行思考时，那些生命中真正重要的东西，才会慢慢浮现。</p>
 
-	<p>尽情畅想吧！</p>
+	<p>所以，在你离开这个世界之前，你想？</p>
 
-	<h3 class="page-title">作者</h3>
+	<h3 class="page-title">创作者</h3>
 
-	<p>hustlzp，毕业于HUST光电学院，本科期间对专业无爱，考研毅然投奔计算机阵营，方向机器视觉，业余大爱Web开发，PHPer。</p>
+	<p>hustlzp，毕业于HUST光电学院，本科期间对专业无爱，考研毅然投奔计算机阵营，方向机器视觉，业余大爱Web开发，PHP菜鸟一枚。</p>
 	
 	<p>联系方式 : hustlzp[at]qq.com</p>
 </div>

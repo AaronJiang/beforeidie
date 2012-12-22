@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-12-21 14:34:18
+<?php /* Smarty version Smarty-3.1.12, created on 2012-12-22 09:29:25
          compiled from "..\view\person\person.tp" */ ?>
 <?php /*%%SmartyHeaderCode:4986509235e2350e62-48954490%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '408a68eee0c915ea04698cd6d0862e63ac44b953' => 
     array (
       0 => '..\\view\\person\\person.tp',
-      1 => 1356096482,
+      1 => 1356164922,
       2 => 'file',
     ),
   ),
@@ -47,6 +47,7 @@ $(document).ready(function(){
 <?php if ($_smarty_tpl->tpl_vars['isCreator']->value){?>
 	
 
+	/*
 	// signature
 	$(window).unload(function(){
 		var signature = $('#signature').text(),
@@ -63,6 +64,7 @@ $(document).ready(function(){
 			}
 		});
 	});
+	*/
 
 	// lock
 	$('.btn-lock').click(function(){
@@ -99,7 +101,7 @@ $(document).ready(function(){
 	$('.btn-remove').click(function(){
 		var goalID = $(this).attr('data-goal-id'),
 			goalTitle = $(this).attr('data-goal-title'),
-			isSure = confirm('确定去掉 ' + goalTitle + " ?"),
+			isSure = confirm('确定舍弃 ' + goalTitle + " ?"),
 			goalItem = $(this).parents('.goal-item').first();
 
 		if(isSure){
@@ -131,18 +133,15 @@ $(document).ready(function(){
 
 </script>
 
-<div id='user-info-wap'>
+<div id='user-info-wap' class="clearleft">
 	<img class='avatar avatar-side avatar-large' src='<?php echo $_smarty_tpl->tpl_vars['user']->value['AvatarUrl'];?>
 ' />
 
 	<div id="user-info">
-		<div id="username"><?php echo $_smarty_tpl->tpl_vars['user']->value['Username'];?>
+		<div id="title">Before <?php if ($_smarty_tpl->tpl_vars['isCreator']->value){?>I<?php }else{ ?>he<?php }?> die <?php if ($_smarty_tpl->tpl_vars['isCreator']->value){?>I<?php }else{ ?>he<?php }?> want to...</div>
+		<div id="username">by <?php echo $_smarty_tpl->tpl_vars['user']->value['Username'];?>
 </div>
-		<div id="signature" contenteditable="<?php if ($_smarty_tpl->tpl_vars['isCreator']->value){?>true<?php }else{ ?>false<?php }?>" data-user-id="<?php echo $_smarty_tpl->tpl_vars['user']->value['UserID'];?>
-"><?php echo $_smarty_tpl->tpl_vars['user']->value['Signature'];?>
-</div>
-		<!--
-		<div id="likes"><a href='#'><?php echo $_smarty_tpl->tpl_vars['likesNum']->value;?>
+		<!--<div id="likes"><a href='#'><?php echo $_smarty_tpl->tpl_vars['likesNum']->value;?>
  <span class='btn-icon btn-like'></span></a></div>-->
 	</div>
 </div>

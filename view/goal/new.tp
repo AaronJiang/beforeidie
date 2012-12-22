@@ -2,7 +2,7 @@
 
 {if $isFull}
 
-<p>已经有16个啦！</p>
+<p>已经达到16个了，让生命保持简单。</p>
 
 {else}
 
@@ -101,7 +101,7 @@ $(document).ready(function(){
 
 <div id="goal-content" contenteditable="true"><div></div></div>
 
-<a id="btn-new-goal" class="btn btn-primary">确定</a>
+<a id="btn-new-goal" class="btn btn-primary">添加</a>
 
 {/if}
 

@@ -158,7 +158,7 @@
 		//生成激活 Url
 		$activeCode = gene_active_code($emailTo);
 		//$activeUrl = "http://localhost/Goal/ctrl/AccountC.php?act=active_account&email=". $emailTo. "&activeCode=". $activeCode;
-		$activeUrl = "http://hustlzp.com/woxiang/ctrl/AccountC.php?act=active_account&email=". $emailTo. "&activeCode=". $activeCode;
+		$activeUrl = "http://hustlzp.com/beforeidie/ctrl/AccountC.php?act=active_account&email=". $emailTo. "&activeCode=". $activeCode;
 
 		//邮件内容
 		$mailbody = "<!DOCTYPE html><html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8' /></head><body>";
@@ -178,7 +178,7 @@
 		//生成激活 Url
 		$activeCode = gene_active_code($emailTo);
 		//$activeUrl = "http://localhost/Goal/ctrl/AccountC.php?act=verify_reset_code&email=". $emailTo. "&resetCode=". $activeCode;
-		$activeUrl = "http://hustlzp.com/woxiang/ctrl/AccountC.php?act=verify_reset_code&email=". $emailTo. "&resetCode=". $activeCode;
+		$activeUrl = "http://hustlzp.com/beforeidie/ctrl/AccountC.php?act=verify_reset_code&email=". $emailTo. "&resetCode=". $activeCode;
 
 		//邮件内容
 		$mailbody = "<!DOCTYPE html><html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8' /></head><body>";

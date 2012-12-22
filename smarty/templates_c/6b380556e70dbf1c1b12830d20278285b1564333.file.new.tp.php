@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-12-20 15:47:05
+<?php /* Smarty version Smarty-3.1.12, created on 2012-12-22 08:10:24
          compiled from "..\view\goal\new.tp" */ ?>
 <?php /*%%SmartyHeaderCode:225625092389e5c3365-55689534%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6b380556e70dbf1c1b12830d20278285b1564333' => 
     array (
       0 => '..\\view\\goal\\new.tp',
-      1 => 1356013102,
+      1 => 1356159459,
       2 => 'file',
     ),
   ),
@@ -29,12 +29,15 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 <?php if ($_smarty_tpl->tpl_vars['isFull']->value){?>
 
-<p>已经有16个啦！想一想，排除一些次要的</p>
+<p>已经达到16个了，让生命保持简单。</p>
 
 <?php }else{ ?>
 
 <script type="text/javascript">
 
+
+
+var isSaved = false;
 
 $(document).ready(function(){
 
@@ -55,6 +58,9 @@ $(document).ready(function(){
 
 	// 避免意外的关闭
 	$(window).unload(function(){
+
+		if(isSaved == true)
+			return;
 
 		var title = $.trim($('#goal-title').text());
 
@@ -105,6 +111,7 @@ $(document).ready(function(){
 				'isPublic': isPublic
 			},
 			success: function(){
+				isSaved = true;
 				window.history.go(-1);
 			}
 		});
@@ -122,7 +129,7 @@ $(document).ready(function(){
 
 <div id="goal-content" contenteditable="true"><div></div></div>
 
-<a id="btn-new-goal" class="btn btn-primary">确定</a>
+<a id="btn-new-goal" class="btn btn-primary">添加</a>
 
 <?php }?>
 

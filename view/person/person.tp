@@ -17,6 +17,7 @@ $(document).ready(function(){
 {if $isCreator}
 	{literal}
 
+	/*
 	// signature
 	$(window).unload(function(){
 		var signature = $('#signature').text(),
@@ -33,6 +34,7 @@ $(document).ready(function(){
 			}
 		});
 	});
+	*/
 
 	// lock
 	$('.btn-lock').click(function(){
@@ -69,7 +71,7 @@ $(document).ready(function(){
 	$('.btn-remove').click(function(){
 		var goalID = $(this).attr('data-goal-id'),
 			goalTitle = $(this).attr('data-goal-title'),
-			isSure = confirm('确定去掉 ' + goalTitle + " ?"),
+			isSure = confirm('确定舍弃 ' + goalTitle + " ?"),
 			goalItem = $(this).parents('.goal-item').first();
 
 		if(isSure){
@@ -101,14 +103,13 @@ $(document).ready(function(){
 
 </script>
 
-<div id='user-info-wap'>
+<div id='user-info-wap' class="clearleft">
 	<img class='avatar avatar-side avatar-large' src='{$user.AvatarUrl}' />
 
 	<div id="user-info">
-		<div id="username">{$user.Username}</div>
-		<div id="signature" contenteditable="{if $isCreator}true{else}false{/if}" data-user-id="{$user.UserID}">{$user.Signature}</div>
-		<!--
-		<div id="likes"><a href='#'>{$likesNum} <span class='btn-icon btn-like'></span></a></div>-->
+		<div id="title">Before {if $isCreator}I{else}he{/if} die {if $isCreator}I{else}he{/if} want to...</div>
+		<div id="username">by {$user.Username}</div>
+		<!--<div id="likes"><a href='#'>{$likesNum} <span class='btn-icon btn-like'></span></a></div>-->
 	</div>
 </div>
 
