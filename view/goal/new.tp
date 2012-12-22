@@ -9,6 +9,9 @@
 <script type="text/javascript">
 
 {literal}
+
+var isSaved = false;
+
 $(document).ready(function(){
 
 	$('#goal-title').focus();
@@ -28,6 +31,9 @@ $(document).ready(function(){
 
 	// 避免意外的关闭
 	$(window).unload(function(){
+
+		if(isSaved == true)
+			return;
 
 		var title = $.trim($('#goal-title').text());
 
@@ -78,6 +84,7 @@ $(document).ready(function(){
 				'isPublic': isPublic
 			},
 			success: function(){
+				isSaved = true;
 				window.history.go(-1);
 			}
 		});
