@@ -374,38 +374,6 @@
 				"buffer_size": 7869,
 				"line_ending": "Windows"
 			}
-		},
-		{
-			"file": "view/home/about.tp",
-			"settings":
-			{
-				"buffer_size": 838,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "view/header.tc",
-			"settings":
-			{
-				"buffer_size": 1924,
-				"line_ending": "CR"
-			}
-		},
-		{
-			"file": "view/goal/new.tp",
-			"settings":
-			{
-				"buffer_size": 2066,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "view/goal/details.tp",
-			"settings":
-			{
-				"buffer_size": 3214,
-				"line_ending": "Windows"
-			}
 		}
 	],
 	"build_system": "",
@@ -444,6 +412,12 @@
 	},
 	"file_history":
 	[
+		"/F/xampp/htdocs/beforeidie/beforeidie.sublime-workspace",
+		"/F/xampp/htdocs/beforeidie/beforeidie.sublime-project",
+		"/C/Users/lzp/Desktop/ss",
+		"/C/Users/lzp/Desktop/goal (2).sql",
+		"/F/xampp/htdocs/beforeidie/view/footer.tc",
+		"/F/xampp/htdocs/beforeidie/view/header.tc",
 		"/F/xampp/htdocs/Goal/style/basecss.less",
 		"/F/xampp/htdocs/Goal/style/components.less",
 		"/F/xampp/htdocs/Goal/view/person/person.tp",
@@ -565,13 +539,7 @@
 		"/F/xampp/htdocs/Dream/view/home/home.tp",
 		"/F/xampp/htdocs/Dream/view/home/terms.tp",
 		"/F/xampp/htdocs/Dream/style/utility.less",
-		"/C/Users/lzp/AppData/Local/Temp/Rar$DI25.776/style.less",
-		"/F/xampp/htdocs/Dream/style/layout.less",
-		"/F/xampp/htdocs/Dream/style/reset.less",
-		"/F/xampp/htdocs/Dream/style/validationEngine.jquery.css",
-		"/F/xampp/htdocs/Dream/model/public_funs.php",
-		"/F/xampp/htdocs/Dream/ctrl/PersonC.php",
-		"/F/xampp/htdocs/Dream/model/dynamic_funs.php"
+		"/C/Users/lzp/AppData/Local/Temp/Rar$DI25.776/style.less"
 	],
 	"find":
 	{
@@ -703,7 +671,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -718,8 +686,8 @@
 						"selection":
 						[
 							[
-								3213,
-								3213
+								272,
+								272
 							]
 						],
 						"settings":
@@ -728,115 +696,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3521.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "view/home/about.tp",
-					"settings":
-					{
-						"buffer_size": 838,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								552,
-								552
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
 						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "view/header.tc",
-					"settings":
-					{
-						"buffer_size": 1924,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1689,
-								1689
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 80.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "view/goal/new.tp",
-					"settings":
-					{
-						"buffer_size": 2066,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1724,
-								1724
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 220.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "view/goal/details.tp",
-					"settings":
-					{
-						"buffer_size": 3214,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2341,
-								2341
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1800.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -886,6 +746,10 @@
 		"selected_items":
 		[
 			[
+				"dis",
+				"view/discover/discover.tp"
+			],
+			[
 				"de",
 				"view/goal/details.tp"
 			],
@@ -904,10 +768,6 @@
 			[
 				"bas",
 				"style/basecss.less"
-			],
-			[
-				"dis",
-				"view/discover/discover.tp"
 			],
 			[
 				"per",
@@ -1191,7 +1051,7 @@
 		[
 			[
 				"",
-				"/F/xampp/htdocs/Dream/goal.sublime-project"
+				"/F/xampp/htdocs/beforeidie/beforeidie.sublime-project"
 			],
 			[
 				"po",
