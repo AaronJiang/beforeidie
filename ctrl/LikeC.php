@@ -3,12 +3,13 @@
 	include_once('setup.php');
 
 	browser_check();
-	auth_check();
+	
 
 	$action = $_REQUEST['act'];
 
 	switch($action){
 		case "mylikes":
+			auth_check();
 			$sm = new sm('like');
 
 			@session_start();

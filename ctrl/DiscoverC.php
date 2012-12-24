@@ -3,7 +3,6 @@
 	include_once('setup.php');
 	
 	browser_check();
-	auth_check();
 	
 	$action = $_REQUEST['act'];
 	
@@ -17,7 +16,8 @@
 
 			// hot goals			
 			@session_start();
-			$userID = $_SESSION['valid_user_id'];
+			$userID = isset($_SESSION['valid_user_id'])? $_SESSION['valid_user_id']: -1;
+
 			$hotGoals = get_hot_goals($userID);
 			foreach($hotGoals as &$goal){
 				// creator, creatorID

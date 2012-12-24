@@ -3,6 +3,7 @@
 <script type='text/javascript' src='../js/goal-comment.js'></script>
 <script type="text/javascript">
 
+{if $isCreator}
 {literal}
 $(document).ready(function(){
 
@@ -90,6 +91,7 @@ $(document).ready(function(){
 
 });
 {/literal}
+{/if}
 
 </script>
 
@@ -113,7 +115,7 @@ $(document).ready(function(){
 <div id="goal-content" data-goal-id="{$goal.GoalID}" contenteditable="{if $isCreator}true{else}false{/if}">{$goal.Content}</div>
 
 <!-- like -->
-{if !$isCreator}
+{if !$isCreator && $isLike|default:'unset' == 'unset'}
 	{if $isLike}
 	<span class="btn-icon btn-like" data-goal-id="{$goal.GoalID}" data-user-id="{$smarty.session.valid_user_id}" data-is-like="1"></span>
 	{else}

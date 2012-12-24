@@ -11,13 +11,14 @@
 	// header
 	
 		case "logout":
+			auth_check();
 			@session_start();
 			@session_destroy();
 
 			//删除cookie
 			setcookie("ua", base64_encode("You are authed!"), time()-3600);
 			
-			redirect('Account', 'login');
+			redirect('Discover', 'discover');
 			break;
 	
 	// feedback panel
@@ -25,9 +26,16 @@
 		case "send_feedback":
 			$mailSubject = '[Goal意见反馈]';
 	
-			@session_start();
 			$mailContent = "<!DOCTYPE html><html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8' /></head><body>";
-			$mailContent .= "<h1 style='margin:0 0 10px 0;font-size:15px'><a href='http://hustlzp.com/beforeidie/PersonC.php?at=person&userID=". $_SESSION['valid_user_id']. "'>". $_SESSION['valid_user']. "</a> 说：</h1>";
+
+			@session_start();
+			if(isset($_SESSION['valid_user_id'])){
+				$mailContent .= "<h1 style='margin:0 0 10px 0;font-size:15px'><a href='http://hustlzp.com/beforeidie/PersonC.php?at=person&userID=". $_SESSION['valid_user_id']. "'>". $_SESSION['valid_user']. "</a> 说：</h1>";	
+			}
+			else{
+				$mailContent .= "<h1 style='margin:0 0 10px 0;font-size:15px'>有人说：</h1>";
+			}
+
 			$mailContent .= "</body></html>";
 	
 			if(trim($_REQUEST['feedbackSubject']) != ""){

@@ -1,4 +1,4 @@
-{include file='../header.tc' title="{$user.Username} 的个人主页" page='page-person'}
+{include file='../header.tc' title="{$user.Username}" page='page-person'}
 
 <script type='text/javascript' src='../js/goal-comment.js'></script>
 <script type="text/javascript">
@@ -16,25 +16,6 @@ $(document).ready(function(){
 
 {if $isCreator}
 	{literal}
-
-	/*
-	// signature
-	$(window).unload(function(){
-		var signature = $('#signature').text(),
-			userID = $('#signature').attr('data-user-id');
-
-		$.ajax({
-			url: 'PersonC.php',
-			type: 'POST',
-			async: false,
-			data: {
-				'act': 'update_signature',
-				'userID': userID,
-				'signature': signature
-			}
-		});
-	});
-	*/
 
 	// lock
 	$('.btn-lock').click(function(){
@@ -104,12 +85,15 @@ $(document).ready(function(){
 </script>
 
 <div id='user-info-wap' class="clearleft">
+	{if $isCreator && !$hasGravatar}
+	<a href="http://en.gravatar.com/" target="_blank" title="去 Gravatar 上传你的头像，全球通用哦，亲！"><img class='avatar avatar-side avatar-large' src='{$user.AvatarUrl}' /></a>
+	{else}
 	<img class='avatar avatar-side avatar-large' src='{$user.AvatarUrl}' />
+	{/if}
 
 	<div id="user-info">
 		<div id="title">Before {if $isCreator}I{else}he{/if} die {if $isCreator}I{else}he{/if} want to...</div>
-		<div id="username">by {$user.Username}</div>
-		<!--<div id="likes"><a href='#'>{$likesNum} <span class='btn-icon btn-like'></span></a></div>-->
+		<div id="username">{$user.Username}</div>
 	</div>
 </div>
 

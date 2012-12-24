@@ -35,12 +35,13 @@
 	
 	//用户注册
 	function new_user($username, $pwd, $email){
-		$query = "INSERT INTO users (Username, Password, Email, AvatarUrl, Signature) VALUES ('". $username. "', '". sha1($pwd). "', '". $email. "', '". get_gravatar_by_email($email). "', '签名')";
+		$query = "INSERT INTO users (Username, Password, Email, AvatarUrl) VALUES ('". $username. "', '". sha1($pwd). "', '". $email. "', '". get_gravatar_by_email($email). "')";
 		return db_exec($query);
 	}
 	
 	//验证用户是否已经登录
 	function is_auth(){
+		@session_start();
 		return isset($_SESSION['valid_user']);
 	}
 	
@@ -87,16 +88,6 @@
 	//修改密码
 	function change_pwd($userID, $newPwd){
 		$query = "update users set Password = '". sha1($newPwd). "' where UserID = ". $userID;
-		return db_exec($query);
-	}
-
-	// 修改签名
-	function update_signature($userID, $signature){
-		if(!get_magic_quotes_gpc()){
-			$signature = addslashes($signature);
-		}
-
-		$query = "UPDATE users SET Signature = '". $signature. "' WHERE UserID = ". $userID;
 		return db_exec($query);
 	}
 	

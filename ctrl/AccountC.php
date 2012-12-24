@@ -12,6 +12,7 @@
 	
 		// get view
 		case 'login':
+			auth_check('login');
 			$sm = new sm('account');
 											
 			// Cookie email
@@ -22,6 +23,7 @@
 		
 		// login
 		case "in":
+			auth_check('login');
 			$email = $_REQUEST['email'];
 			$pwd = $_REQUEST['password'];
 			
@@ -38,7 +40,7 @@
 			}
 			elseif(check_unactive_user_by_email($email, $pwd)){
 				setcookie("ue", base64_encode($email), time()+3600*24*30);	//用户邮箱ue（1个月）
-				redirect('Account.php', 'p_active', array('from' => 'unactive', 'email' => $email));
+				redirect('Account', 'active', array('from' => 'unactive', 'email' => $email));
 			}
 			else{
 				page_jump_back();
@@ -49,12 +51,14 @@
 	
 		// view
 		case "register":
+			auth_check('login');
 			$sm = new sm('account');
 										
 			$sm->display('register.tp');	
 			break;
 
 		case "new_user":
+			auth_check('login');
 			$email = $_REQUEST['email'];
 			$username = $_REQUEST['username'];
 			$password = $_REQUEST['password'];
@@ -70,6 +74,7 @@
 	
 		// view
 		case 'active':
+			auth_check('login');
 			$sm = new sm('account');
 
 			// from
@@ -82,12 +87,14 @@
 			break;
 
 		case "send_active_email":
+			auth_check('login');
 			$email = $_REQUEST['email'];
 			send_active_email($email);
 			redirect('Account', 'active', array('from' => 'sended', 'email' => $email));
 			break;
 
 		case "active_account":
+			auth_check('login');
 			$activeCode = $_REQUEST['activeCode'];
 			$email = $_REQUEST['email'];
 			
@@ -107,6 +114,7 @@
 	
 		// view
 		case 'forgot_pwd':
+			auth_check('login');
 			$sm = new sm('account');
 			
 			// from
@@ -116,6 +124,7 @@
 			break;
 
 		case "send_reset_pwd_email":
+			auth_check('login');
 			$email = $_REQUEST['email'];
 			send_reset_pwd_email($email);
 			redirect('Account', 'forgot_pwd', array('from' => 'sended'));
@@ -125,6 +134,7 @@
 
 		// view
 		case 'reset_pwd':
+			auth_check('login');
 			$sm = new sm('account');
 
 			// email
@@ -134,6 +144,7 @@
 			break;
 
 		case "verify_reset_code":
+			auth_check('login');
 			$email = $_REQUEST['email'];
 			$resetCode = $_REQUEST['resetCode'];
 			
@@ -146,6 +157,7 @@
 			break;
 
 		case "reset_password":
+			auth_check('login');
 			$email = $_REQUEST['email'];
 			$pwd = $_REQUEST['pwd'];
 			
@@ -165,6 +177,7 @@
 	
 		// view
 		case 'details':
+			auth_check();
 			$sm = new sm('account');
 			
 			@session_start();
@@ -181,6 +194,7 @@
 	
 		// view
 		case 'change_pwd':
+			auth_check();
 			$sm = new sm('account');
 			
 			// userID
@@ -191,6 +205,7 @@
 			break;
 
 		case "change_password":
+			auth_check();
 			$isExist = check_user_by_id($_REQUEST['userID'], $_REQUEST['originalPwd']);
 			
 			if($isExist){

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-12-22 09:29:25
+<?php /* Smarty version Smarty-3.1.12, created on 2012-12-24 16:31:56
          compiled from "..\view\person\person.tp" */ ?>
 <?php /*%%SmartyHeaderCode:4986509235e2350e62-48954490%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '408a68eee0c915ea04698cd6d0862e63ac44b953' => 
     array (
       0 => '..\\view\\person\\person.tp',
-      1 => 1356164922,
+      1 => 1356363114,
       2 => 'file',
     ),
   ),
@@ -21,13 +21,13 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   array (
     'user' => 0,
     'isCreator' => 0,
-    'likesNum' => 0,
+    'hasGravatar' => 0,
     'goals' => 0,
     'goal' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_509235e26c2e46_48079691')) {function content_509235e26c2e46_48079691($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ('../header.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>((string)$_smarty_tpl->tpl_vars['user']->value['Username'])." 的个人主页",'page'=>'page-person'), 0);?>
+<?php if ($_valid && !is_callable('content_509235e26c2e46_48079691')) {function content_509235e26c2e46_48079691($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ('../header.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>((string)$_smarty_tpl->tpl_vars['user']->value['Username']),'page'=>'page-person'), 0);?>
 
 
 <script type='text/javascript' src='../js/goal-comment.js'></script>
@@ -46,25 +46,6 @@ $(document).ready(function(){
 
 <?php if ($_smarty_tpl->tpl_vars['isCreator']->value){?>
 	
-
-	/*
-	// signature
-	$(window).unload(function(){
-		var signature = $('#signature').text(),
-			userID = $('#signature').attr('data-user-id');
-
-		$.ajax({
-			url: 'PersonC.php',
-			type: 'POST',
-			async: false,
-			data: {
-				'act': 'update_signature',
-				'userID': userID,
-				'signature': signature
-			}
-		});
-	});
-	*/
 
 	// lock
 	$('.btn-lock').click(function(){
@@ -134,15 +115,18 @@ $(document).ready(function(){
 </script>
 
 <div id='user-info-wap' class="clearleft">
+	<?php if ($_smarty_tpl->tpl_vars['isCreator']->value&&!$_smarty_tpl->tpl_vars['hasGravatar']->value){?>
+	<a href="http://en.gravatar.com/" target="_blank" title="去 Gravatar 上传你的头像，全球通用哦，亲！"><img class='avatar avatar-side avatar-large' src='<?php echo $_smarty_tpl->tpl_vars['user']->value['AvatarUrl'];?>
+' /></a>
+	<?php }else{ ?>
 	<img class='avatar avatar-side avatar-large' src='<?php echo $_smarty_tpl->tpl_vars['user']->value['AvatarUrl'];?>
 ' />
+	<?php }?>
 
 	<div id="user-info">
 		<div id="title">Before <?php if ($_smarty_tpl->tpl_vars['isCreator']->value){?>I<?php }else{ ?>he<?php }?> die <?php if ($_smarty_tpl->tpl_vars['isCreator']->value){?>I<?php }else{ ?>he<?php }?> want to...</div>
-		<div id="username">by <?php echo $_smarty_tpl->tpl_vars['user']->value['Username'];?>
+		<div id="username"><?php echo $_smarty_tpl->tpl_vars['user']->value['Username'];?>
 </div>
-		<!--<div id="likes"><a href='#'><?php echo $_smarty_tpl->tpl_vars['likesNum']->value;?>
- <span class='btn-icon btn-like'></span></a></div>-->
 	</div>
 </div>
 

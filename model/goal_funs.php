@@ -119,7 +119,7 @@
 		$query = "SELECT * from goals WHERE GoalID = ". $goalID. " and UserID = ". $userID;
 		$result = db_exec($query);
 		
-		return ($result->num_rows > 0)? true: false;
+		return ($result->num_rows > 0);
 	}
 	
 	//获取某个 Goal 的创建者信息

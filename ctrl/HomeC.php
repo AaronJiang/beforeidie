@@ -2,7 +2,6 @@
 	include_once('setup.php');
 
 	browser_check();
-	auth_check();
 	
 	$action = $_REQUEST['act'];
 
