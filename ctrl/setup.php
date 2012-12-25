@@ -7,7 +7,7 @@ include_once('utility.php');
 @session_start();
 
 // 重定向函数
-function redirect($ctrl, $act, $paras){
+function redirect($ctrl, $act, $paras=array()){
 	$url = $ctrl. "C.php?act=". $act;
 	
 	if(isset($paras)){
