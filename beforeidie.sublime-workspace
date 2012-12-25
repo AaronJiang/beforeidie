@@ -388,10 +388,42 @@
 			}
 		},
 		{
-			"file": "view/goal/details.tp",
+			"file": "view/header.tc",
 			"settings":
 			{
-				"buffer_size": 3280,
+				"buffer_size": 2275,
+				"line_ending": "CR"
+			}
+		},
+		{
+			"file": "view/account/forgot_pwd.tp",
+			"settings":
+			{
+				"buffer_size": 1315,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "view/account/login.tp",
+			"settings":
+			{
+				"buffer_size": 948,
+				"line_ending": "CR"
+			}
+		},
+		{
+			"file": "view/account/register.tp",
+			"settings":
+			{
+				"buffer_size": 1126,
+				"line_ending": "CR"
+			}
+		},
+		{
+			"file": "view/home/about.tp",
+			"settings":
+			{
+				"buffer_size": 851,
 				"line_ending": "Windows"
 			}
 		}
@@ -432,19 +464,20 @@
 	},
 	"file_history":
 	[
+		"/F/xampp/htdocs/beforeidie/view/goal/details.tp",
+		"/F/xampp/htdocs/beforeidie/view/account/details.tp",
+		"/F/xampp/htdocs/beforeidie/style/components.less",
+		"/F/xampp/htdocs/beforeidie/style/basecss.less",
 		"/F/xampp/htdocs/beforeidie/ctrl/GoalC.php",
 		"/F/xampp/htdocs/beforeidie/ctrl/AccountC.php",
 		"/F/xampp/htdocs/beforeidie/ctrl/PersonC.php",
-		"/F/xampp/htdocs/beforeidie/view/account/details.tp",
 		"/F/xampp/htdocs/beforeidie/view/person/person.tp",
 		"/F/xampp/htdocs/beforeidie/view/comments.tc",
 		"/F/xampp/htdocs/beforeidie/model/account_funs.php",
-		"/F/xampp/htdocs/beforeidie/view/goal/details.tp",
 		"/F/xampp/htdocs/beforeidie/ctrl/DiscoverC.php",
 		"/F/xampp/htdocs/beforeidie/ctrl/utility.php",
 		"/F/xampp/htdocs/beforeidie/view/header.tc",
 		"/F/xampp/htdocs/beforeidie/model/goal_funs.php",
-		"/F/xampp/htdocs/beforeidie/style/components.less",
 		"/F/xampp/htdocs/beforeidie/ctrl/HomeC.php",
 		"/F/xampp/htdocs/beforeidie/view/person/followers.tp",
 		"/F/xampp/htdocs/beforeidie/ctrl/LikeC.php",
@@ -558,8 +591,7 @@
 		"/F/xampp/htdocs/Dream/view/comments.tc",
 		"/F/xampp/htdocs/Dream/view/header.tc",
 		"/F/xampp/htdocs/Dream/view/user_dyns.tc",
-		"/F/xampp/htdocs/Dream/view/goal/logs.tc",
-		"/F/xampp/htdocs/Dream/view/dyn/dyns.tp"
+		"/F/xampp/htdocs/Dream/view/goal/logs.tc"
 	],
 	"find":
 	{
@@ -697,7 +729,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 5,
 			"sheets":
 			[
 				{
@@ -712,8 +744,8 @@
 						"selection":
 						[
 							[
-								3293,
-								3293
+								1649,
+								1649
 							]
 						],
 						"settings":
@@ -722,25 +754,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3618.0,
+						"translation.y": 1202.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "view/goal/details.tp",
+					"file": "view/header.tc",
 					"settings":
 					{
-						"buffer_size": 3280,
+						"buffer_size": 2275,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2136,
-								2136
+								962,
+								962
 							]
 						],
 						"settings":
@@ -749,7 +781,115 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1680.0,
+						"translation.y": 540.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "view/account/forgot_pwd.tp",
+					"settings":
+					{
+						"buffer_size": 1315,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1315,
+								1315
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "view/account/login.tp",
+					"settings":
+					{
+						"buffer_size": 948,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								775,
+								775
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 120.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "view/account/register.tp",
+					"settings":
+					{
+						"buffer_size": 1126,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								946,
+								904
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 360.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "view/home/about.tp",
+					"settings":
+					{
+						"buffer_size": 851,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								667,
+								667
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -799,16 +939,36 @@
 		"selected_items":
 		[
 			[
+				"ab",
+				"view/home/about.tp"
+			],
+			[
+				"re",
+				"view/account/register.tp"
+			],
+			[
+				"lo",
+				"view/account/login.tp"
+			],
+			[
+				"for",
+				"view/account/forgot_pwd.tp"
+			],
+			[
+				"hea",
+				"view/header.tc"
+			],
+			[
+				"de",
+				"view/account/details.tp"
+			],
+			[
 				"det",
 				"view/goal/details.tp"
 			],
 			[
 				"goal",
 				"ctrl/GoalC.php"
-			],
-			[
-				"de",
-				"view/account/details.tp"
 			],
 			[
 				"per",
@@ -847,24 +1007,12 @@
 				"view/account/login.tp"
 			],
 			[
-				"for",
-				"view/account/forgot_pwd.tp"
-			],
-			[
-				"re",
-				"view/account/register.tp"
-			],
-			[
 				"ho",
 				"ctrl/HomeC.php"
 			],
 			[
 				"dis",
 				"ctrl/DiscoverC.php"
-			],
-			[
-				"hea",
-				"view/header.tc"
 			],
 			[
 				"new",
@@ -889,10 +1037,6 @@
 			[
 				"sl",
 				"view/account/slogan.tc"
-			],
-			[
-				"ab",
-				"view/home/about.tp"
 			],
 			[
 				"ac",
@@ -1025,10 +1169,6 @@
 			[
 				"less",
 				"static/main.less"
-			],
-			[
-				"lo",
-				"view/account/login.tp"
 			],
 			[
 				"comm",

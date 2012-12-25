@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-12-24 16:15:28
+<?php /* Smarty version Smarty-3.1.12, created on 2012-12-25 08:39:24
          compiled from "..\view\home\about.tp" */ ?>
 <?php /*%%SmartyHeaderCode:10361509331b607bda8-23690721%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '92ab8f036fcae7ffbfc24d642de6c3dd1c1d467c' => 
     array (
       0 => '..\\view\\home\\about.tp',
-      1 => 1356266732,
+      1 => 1356421132,
       2 => 'file',
     ),
   ),
@@ -33,7 +33,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 	<p>国人常常避讳谈论死亡，认为它是消极的、不详的。但是当我们面对着死亡进行思考时，那些在每个人生命旅途中真正重要的东西，才会慢慢浮现。</p>
 
-	<p>所以，在你离开这个世界之前，你想？</p>
+	<p>世界没有如期末日，但人终有一死。在你离开这个世界之前，你想？</p>
 
 	<h3 class="page-title">创作者</h3>
 

@@ -40,6 +40,7 @@ $(document).ready(function(){
 		<input type='text' class='validate[required]' placeholder='邮箱' autocomplete='off' name='email' />
 		
 		<div class='form-footer'>
+			<a href='AccountC.php?act=login'>登陆</a>
 			<input class="btn btn-large btn-primary" type='submit' value='提交' />
 			<input type='hidden' name='act' value='send_reset_pwd_email' />
 		</div>
