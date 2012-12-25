@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"font",
+				"font-size"
+			],
+			[
 				"_",
 				"_SESSION"
 			],
@@ -82,10 +86,6 @@
 			[
 				"get_",
 				"get_gravatar"
-			],
-			[
-				"font",
-				"fontSizeLarge"
 			],
 			[
 				"f",
@@ -383,7 +383,15 @@
 			"file": "style/style.less",
 			"settings":
 			{
-				"buffer_size": 7319,
+				"buffer_size": 7359,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "view/goal/details.tp",
+			"settings":
+			{
+				"buffer_size": 3280,
 				"line_ending": "Windows"
 			}
 		}
@@ -424,8 +432,8 @@
 	},
 	"file_history":
 	[
-		"/F/xampp/htdocs/beforeidie/ctrl/AccountC.php",
 		"/F/xampp/htdocs/beforeidie/ctrl/GoalC.php",
+		"/F/xampp/htdocs/beforeidie/ctrl/AccountC.php",
 		"/F/xampp/htdocs/beforeidie/ctrl/PersonC.php",
 		"/F/xampp/htdocs/beforeidie/view/account/details.tp",
 		"/F/xampp/htdocs/beforeidie/view/person/person.tp",
@@ -689,7 +697,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -697,15 +705,15 @@
 					"file": "style/style.less",
 					"settings":
 					{
-						"buffer_size": 7319,
+						"buffer_size": 7359,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2848,
-								2848
+								3293,
+								3293
 							]
 						],
 						"settings":
@@ -714,7 +722,34 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3242.0,
+						"translation.y": 3618.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "view/goal/details.tp",
+					"settings":
+					{
+						"buffer_size": 3280,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2136,
+								2136
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1680.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -764,6 +799,14 @@
 		"selected_items":
 		[
 			[
+				"det",
+				"view/goal/details.tp"
+			],
+			[
+				"goal",
+				"ctrl/GoalC.php"
+			],
+			[
 				"de",
 				"view/account/details.tp"
 			],
@@ -782,10 +825,6 @@
 			[
 				"head",
 				"view/header.tc"
-			],
-			[
-				"goal",
-				"model/goal_funs.php"
 			],
 			[
 				"com",
@@ -1050,10 +1089,6 @@
 			[
 				"",
 				"style/style.less"
-			],
-			[
-				"det",
-				"view/goal/details.tp"
 			],
 			[
 				"abou",

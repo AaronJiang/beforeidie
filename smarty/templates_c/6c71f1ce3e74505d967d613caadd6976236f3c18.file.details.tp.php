@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-12-24 16:29:21
+<?php /* Smarty version Smarty-3.1.12, created on 2012-12-25 02:57:30
          compiled from "..\view\goal\details.tp" */ ?>
 <?php /*%%SmartyHeaderCode:1933950938337f31405-89020659%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6c71f1ce3e74505d967d613caadd6976236f3c18' => 
     array (
       0 => '..\\view\\goal\\details.tp',
-      1 => 1356362613,
+      1 => 1356400632,
       2 => 'file',
     ),
   ),
@@ -125,7 +125,10 @@ $(document).ready(function(){
 </script>
 
 <div id='title-wap'>
-	<h2 id="pre">Before <?php if ($_smarty_tpl->tpl_vars['isCreator']->value){?>I die I want<?php }else{ ?>he dies he wants<?php }?> to</h2>
+	<h2 id="pre">
+		Before <?php if ($_smarty_tpl->tpl_vars['isCreator']->value){?>I die I want
+		<?php }else{ ?>he dies he wants
+		<?php }?> to</h2>
 	<h2 id="goal-title" data-goal-id="<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
 " contenteditable="<?php if ($_smarty_tpl->tpl_vars['isCreator']->value){?>true<?php }else{ ?>false<?php }?>"> <?php echo $_smarty_tpl->tpl_vars['goal']->value['Title'];?>
 </h2>
@@ -151,8 +154,8 @@ $(document).ready(function(){
 " contenteditable="<?php if ($_smarty_tpl->tpl_vars['isCreator']->value){?>true<?php }else{ ?>false<?php }?>"><?php echo $_smarty_tpl->tpl_vars['goal']->value['Content'];?>
 </div>
 
-<!-- like -->
-<?php if (!$_smarty_tpl->tpl_vars['isCreator']->value&&(($tmp = @$_smarty_tpl->tpl_vars['isLike']->value)===null||$tmp==='' ? 'unset' : $tmp)=='unset'){?>
+<!-- 不为创造者且isLike不为空 -->
+<?php if (!$_smarty_tpl->tpl_vars['isCreator']->value&&(($tmp = @$_smarty_tpl->tpl_vars['isLike']->value)===null||$tmp==='' ? 'unset' : $tmp)!='unset'){?>
 	<?php if ($_smarty_tpl->tpl_vars['isLike']->value){?>
 	<span class="btn-icon btn-like" data-goal-id="<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
 " data-user-id="<?php echo $_SESSION['valid_user_id'];?>

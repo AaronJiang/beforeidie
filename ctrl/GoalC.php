@@ -53,7 +53,7 @@
 				}
 			}
 			else{
-				$sm->assign('isCreator', FALSE);
+				$isCreator = FALSE;
 			}
 
 			$sm->assign('isCreator', $isCreator);

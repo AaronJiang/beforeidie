@@ -96,7 +96,10 @@ $(document).ready(function(){
 </script>
 
 <div id='title-wap'>
-	<h2 id="pre">Before {if $isCreator}I die I want{else}he dies he wants{/if} to</h2>
+	<h2 id="pre">
+		Before {if $isCreator}I die I want
+		{else}he dies he wants
+		{/if} to</h2>
 	<h2 id="goal-title" data-goal-id="{$goal.GoalID}" contenteditable="{if $isCreator}true{else}false{/if}"> {$goal.Title}</h2>
 	<div id="extra-info-wap">
 		{if $isCreator}
@@ -114,8 +117,8 @@ $(document).ready(function(){
 
 <div id="goal-content" data-goal-id="{$goal.GoalID}" contenteditable="{if $isCreator}true{else}false{/if}">{$goal.Content}</div>
 
-<!-- like -->
-{if !$isCreator && $isLike|default:'unset' == 'unset'}
+<!-- 不为创造者且isLike不为空 -->
+{if !$isCreator && $isLike|default:'unset' != 'unset'}
 	{if $isLike}
 	<span class="btn-icon btn-like" data-goal-id="{$goal.GoalID}" data-user-id="{$smarty.session.valid_user_id}" data-is-like="1"></span>
 	{else}
