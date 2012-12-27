@@ -25,8 +25,16 @@
 			auth_check('login');
 			$email = $_REQUEST['email'];
 			$pwd = $_REQUEST['password'];
-			
-			if(check_user_by_email($email, $pwd)){
+
+			if( ! check_user_by_email($email, $pwd)){
+				echo json_encode(array(array('input-email', false, '用户名或密码错误')));
+			}
+			else if(check_unactive_user_by_email($email, $pwd)){
+				setcookie("ue", base64_encode($email), time()+3600*24*30);	//用户邮箱ue（1个月）
+				echo json_encode(array(array('input-email', false, '用户尚未激活')));
+				//redirect('Account', 'active', array('from' => 'unactive', 'email' => $email));
+			}
+			else{
 				@session_start();
 				$_SESSION['valid_user'] = get_username_by_email($email);
 				$_SESSION['valid_user_id'] = get_userid_by_email($email);
@@ -35,16 +43,12 @@
 				setcookie("ue", base64_encode($email), time()+3600*24*30);	//用户邮箱ue（一个月）
 				setcookie("ua", base64_encode("You are authed!"), time()+3600*24*2);	//用户授权ua（2天）
 
-				redirect('Person', 'person');
-			}
-			elseif(check_unactive_user_by_email($email, $pwd)){
-				setcookie("ue", base64_encode($email), time()+3600*24*30);	//用户邮箱ue（1个月）
-				redirect('Account', 'active', array('from' => 'unactive', 'email' => $email));
-			}
-			else{
-				page_jump_back();
+				// 完成ajax验证
+				echo true;
 			}
 			break;
+
+		// case "validate"
 			
 	// page register
 	
@@ -67,6 +71,26 @@
 			setcookie("ue", base64_encode($email), time()+3600*24*30);	//用户邮箱ue（1个月）
 
 			redirect('Account', 'active', array('from' => 'register', 'email' => $_REQUEST['email']));
+			break;
+
+		case "validate_email_repeat":
+			$email = $_REQUEST['fieldValue'];
+			if(check_email_repeat($email)){
+				echo json_encode(array(array('email'), false));
+			}
+			else{
+				echo json_encode(array(array('email'), true));
+			}
+			break;
+
+		case "validate_name_repeat":
+			$username = $_REQUEST['fieldValue'];
+			if(check_username_repeat($username)){
+				echo json_encode(array(array('username'), false));
+			}
+			else{
+				echo json_encode(array(array('username'), true));
+			}
 			break;
 	
 	// page active
@@ -212,6 +236,19 @@
 				change_pwd($_REQUEST['userID'], $_REQUEST['newPwd']);
 			}
 			redirect('Account', 'details');
+			break;
+
+		case "validate_pwd_correct":
+			@session_start();
+			$userID = $_SESSION['valid_user_id'];
+			$pwd = $_REQUEST['fieldValue'];
+			
+			if(check_pwd_correct($userID, $pwd)){
+				echo json_encode(array(array('originalPwd'), true));
+			}
+			else{
+				echo json_encode(array(array('originalPwd'), false));
+			}
 			break;
 	}
 	

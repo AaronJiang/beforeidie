@@ -18,9 +18,7 @@ $(document).ready(function(){
 		<input type='hidden' name='email' value='{$email}'>
 		
 		<div class='form-footer'>
-			<a href='AccountC.php?act=p_register'>注册</a>
-			<a href='AccountC.php?act=login'>登陆</a>
-			<input class="btn btn-primary btn-large" type='submit' value='提交'>
+			<input class="btn btn-primary btn-large" type='submit' value='重置'>
 		</div>
 		
 		<input type='hidden' name='act' value='reset_password'>

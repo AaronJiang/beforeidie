@@ -11,7 +11,7 @@
 
 	//验证用户 by 邮箱和密码
 	function check_user_by_email($email, $pwd){
-		$query = "SELECT * FROM users WHERE Email = '". $email. "' and Password = '". sha1($pwd). "' and IsActive = 1";
+		$query = "SELECT * FROM users WHERE Email = '". $email. "' and Password = '". sha1($pwd). "'";
 		$result = db_exec($query);
 
 		return ($result->num_rows > 0);
@@ -31,6 +31,30 @@
 		$result = db_exec($query);
 		
 		return ($result->num_rows > 0);
+	}
+
+	// 检查email是否存在
+	function check_email_repeat($email){
+		$query = "SELECT * FROM users WHERE Email = '". $email. "'";
+		$result = db_exec($query);
+
+		return ($result->num_rows > 0);
+	}
+
+	// 检查用户名是否存在
+	function check_username_repeat($username){
+		$query = "SELECT * FROM users WHERE Username = '". $username. "'";
+		$result = db_exec($query);
+
+		return ($result->num_rows > 0);
+	}
+
+	// 检查密码是否正确
+	function check_pwd_correct($userID, $pwd){
+		$query = "SELECT * FROM users WHERE UserID = ". $userID. " AND Password = '". sha1($pwd). "'";
+		$result = db_exec($query);
+
+		return ($result->num_rows > 0);		
 	}
 	
 	//用户注册

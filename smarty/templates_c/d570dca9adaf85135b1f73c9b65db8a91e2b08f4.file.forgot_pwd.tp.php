@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-12-25 06:58:49
+<?php /* Smarty version Smarty-3.1.12, created on 2012-12-27 14:33:29
          compiled from "..\view\account\forgot_pwd.tp" */ ?>
 <?php /*%%SmartyHeaderCode:1519450a44f38471af6-75371155%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'd570dca9adaf85135b1f73c9b65db8a91e2b08f4' => 
     array (
       0 => '..\\view\\account\\forgot_pwd.tp',
-      1 => 1356414901,
+      1 => 1356615148,
       2 => 'file',
     ),
   ),
@@ -54,7 +54,7 @@ $(document).ready(function(){
 	<p id='account-message'>亲，密码重置失败，请输入你的邮箱再发一次吧！</p>
 
 	<?php }elseif($_smarty_tpl->tpl_vars['from']->value=="resetSucc"){?>
-	<p id='account-message'>亲，密码重置成功，马上 <a href='AccountC.php?act=p_login'>登陆</a> 吧！</p>
+	<p id='account-message'>亲，密码重置成功，马上 <a href='AccountC.php?act=login'>登陆</a> 吧！</p>
 	<!-- 移除下方的发送表单 -->
 	<script type='text/javascript'>
 		$(document).ready(function(){
@@ -64,7 +64,7 @@ $(document).ready(function(){
 	<?php }?>
 
 	<form id='form-forgot-pwd' action='AccountC.php' method='post'>
-		<input type='text' class='validate[required]' placeholder='邮箱' autocomplete='off' name='email' />
+		<input type='text' class='validate[required, custom[email, ajax[ajaxEmailRepeat]]]' placeholder='邮箱' autocomplete='off' name='email' />
 		
 		<div class='form-footer'>
 			<a href='AccountC.php?act=login'>登陆</a>

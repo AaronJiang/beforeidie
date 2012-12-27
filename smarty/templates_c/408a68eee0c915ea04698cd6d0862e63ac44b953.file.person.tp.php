@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-12-27 09:55:40
+<?php /* Smarty version Smarty-3.1.12, created on 2012-12-27 14:39:15
          compiled from "..\view\person\person.tp" */ ?>
 <?php /*%%SmartyHeaderCode:4986509235e2350e62-48954490%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '408a68eee0c915ea04698cd6d0862e63ac44b953' => 
     array (
       0 => '..\\view\\person\\person.tp',
-      1 => 1356597804,
+      1 => 1356615548,
       2 => 'file',
     ),
   ),
@@ -134,6 +134,7 @@ $(document).ready(function(){
 			Before she dies she wants to...
 			<?php }?>
 		<?php }?>
+		</div>
 		<div id="username"><?php echo $_smarty_tpl->tpl_vars['user']->value['Username'];?>
 </div>
 	</div>

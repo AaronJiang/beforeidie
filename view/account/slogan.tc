@@ -1,4 +1,4 @@
 <div id="slogan-wap">
-	<p id="slogan">Before I die I want to...<p>
+	<p id="slogan"><a href="AccountC.php?act=login">Before I die I want to...</a><p>
 	<!--<p id="slogan">在我离开这个世界之前，我想...</p>-->
 </div>

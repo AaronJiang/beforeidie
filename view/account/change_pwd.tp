@@ -17,7 +17,7 @@ $(document).ready(function(){
 <h3 class='page-title'>更改密码</h3>
 
 <form id='form-change-pwd' action='AccountC.php' method='post'>
-	<input type='password' class='validate[required]' autocomplete='off' placeholder='原密码' name='originalPwd' />
+	<input type='password' class='validate[required, ajax[ajaxPwdCorrect]]' autocomplete='off' placeholder='原密码' name='originalPwd' id='originalPwd' />
 
 	<input type='password' class='validate[required, minSize[6]]' minlength='6' id='newPwd' autocomplete='off' placeholder='新密码' name='newPwd' />
 
