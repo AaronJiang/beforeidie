@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-12-25 08:39:24
+<?php /* Smarty version Smarty-3.1.12, created on 2012-12-25 17:07:33
          compiled from "..\view\home\about.tp" */ ?>
 <?php /*%%SmartyHeaderCode:10361509331b607bda8-23690721%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '92ab8f036fcae7ffbfc24d642de6c3dd1c1d467c' => 
     array (
       0 => '..\\view\\home\\about.tp',
-      1 => 1356421132,
+      1 => 1356421912,
       2 => 'file',
     ),
   ),
@@ -37,7 +37,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 	<h3 class="page-title">创作者</h3>
 
-	<p>hustlzp，毕业于HUST光电学院，大学四年对本专业无爱，考研毅然投奔计算机阵营，方向机器视觉，业余大爱Web开发，PHP菜鸟一枚。</p>
+	<p>hustlzp，毕业于HUST光电学院，大学四年对本专业无爱，考研毅然投奔计算机阵营，方向机器视觉，业余大爱Web开发，PHP进阶者一枚。</p>
 	
 	<p>联系方式 : hustlzp[at]qq.com</p>
 </div>

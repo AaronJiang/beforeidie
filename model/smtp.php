@@ -1,5 +1,4 @@
-<?
-	
+<?php
 	class smtp
 	{
 		var $smtp_port;

@@ -18,7 +18,7 @@
 
 			// 既未登陆也未设置userID号
 			if( ! isset($_SESSION['valid_user_id']) AND ! isset($_REQUEST['userID'])){
-				exit();
+				redirect('Discover', 'discover');
 			}
 
 			// userinfo

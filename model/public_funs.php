@@ -1,5 +1,5 @@
 <?php
-	require_once('smtp.php');
+	//require_once('smtp.php');
 	
 	//将数组进行 URL 编码
 	function urlencodeAry($data){
@@ -16,8 +16,8 @@
 	//连接数据库
 	function db_conn(){
 
-		//$db = new mysqli('localhost', 'hustlzp', 'xiaowangzi', 'goal');
-		$db = new mysqli('Mysql1001.webweb.com', '98db92_w301_1', 'xiaowangzi', 'db_98db92_w301_1');
+		$db = new mysqli('localhost', 'root', '', 'beforeidie');
+		//$db = new mysqli('Mysql1001.webweb.com', '98db92_w301_1', 'xiaowangzi', 'db_98db92_w301_1');
 
 		if(mysqli_connect_errno()){
 			echo 'Error: Could not connect to the database!';

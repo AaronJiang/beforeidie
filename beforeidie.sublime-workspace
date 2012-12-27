@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"marg",
+				"margin-right"
+			],
+			[
+				"bor",
+				"border-box"
+			],
+			[
 				"font",
 				"font-size"
 			],
@@ -94,10 +102,6 @@
 			[
 				"gr",
 				"grayLight"
-			],
-			[
-				"bor",
-				"border-top"
 			],
 			[
 				"sess",
@@ -383,47 +387,7 @@
 			"file": "style/style.less",
 			"settings":
 			{
-				"buffer_size": 7359,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "model/data_funs.inc",
-			"settings":
-			{
-				"buffer_size": 141,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "model/smtp.php",
-			"settings":
-			{
-				"buffer_size": 8295,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "model/public_funs.php",
-			"settings":
-			{
-				"buffer_size": 2205,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "ctrl/setup.php",
-			"settings":
-			{
-				"buffer_size": 668,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "ctrl/AccountC.php",
-			"settings":
-			{
-				"buffer_size": 4904,
+				"buffer_size": 7385,
 				"line_ending": "Windows"
 			}
 		}
@@ -464,6 +428,18 @@
 	},
 	"file_history":
 	[
+		"/D/xampp/htdocs/beforeidie/style/components.less",
+		"/D/xampp/htdocs/beforeidie/ctrl/PublicC.php",
+		"/D/xampp/htdocs/beforeidie/model/public_funs.php",
+		"/D/xampp/htdocs/beforeidie/js/goal-comment.js",
+		"/D/xampp/htdocs/beforeidie/ctrl/utility.php",
+		"/D/xampp/htdocs/beforeidie/ctrl/AccountC.php",
+		"/D/xampp/htdocs/beforeidie/ctrl/PersonC.php",
+		"/D/xampp/htdocs/beforeidie/ctrl/setup.php",
+		"/D/xampp/htdocs/beforeidie/model/smtp.php",
+		"/D/xampp/htdocs/beforeidie/model/data_funs.inc",
+		"/D/xampp/htdocs/index.php",
+		"/D/xampp/htdocs/beforeidie/style/reset.less",
 		"/F/xampp/htdocs/beforeidie/ctrl/PublicC.php",
 		"/F/xampp/htdocs/beforeidie/model/account_funs.php",
 		"/F/xampp/htdocs/beforeidie/ctrl/HomeC.php",
@@ -579,19 +555,7 @@
 		"/F/xampp/htdocs/classic/system/.htaccess",
 		"/F/xampp/htdocs/poem/application/config/config.php",
 		"/F/xampp/htdocs/Dream/view/account/change_pwd.tp",
-		"/F/xampp/htdocs/Dream/view/account/forgot_pwd.tp",
-		"/F/xampp/htdocs/Dream/view/account/uheader.tc",
-		"/F/xampp/htdocs/Dream/view/account/reset_pwd.tp",
-		"/F/xampp/htdocs/Dream/view/account/slogan.tc",
-		"/F/xampp/htdocs/Dream/view/account/active.tp",
-		"/F/xampp/htdocs/Dream/view/account/register.tp",
-		"/F/xampp/htdocs/Dream/view/account/login.tp",
-		"/F/xampp/htdocs/Dream/.gitignore",
-		"/F/xampp/htdocs/Dream/js/goal-comment.js",
-		"/F/xampp/htdocs/Dream/view/account/details.tp",
-		"/F/xampp/htdocs/Dream/view/comments.tc",
-		"/F/xampp/htdocs/Dream/view/header.tc",
-		"/F/xampp/htdocs/Dream/view/user_dyns.tc"
+		"/F/xampp/htdocs/Dream/view/account/forgot_pwd.tp"
 	],
 	"find":
 	{
@@ -729,7 +693,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -737,15 +701,15 @@
 					"file": "style/style.less",
 					"settings":
 					{
-						"buffer_size": 7359,
+						"buffer_size": 7385,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								560,
-								560
+								1656,
+								1656
 							]
 						],
 						"settings":
@@ -754,140 +718,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "model/data_funs.inc",
-					"settings":
-					{
-						"buffer_size": 141,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								106,
-								106
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "model/smtp.php",
-					"settings":
-					{
-						"buffer_size": 8295,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "model/public_funs.php",
-					"settings":
-					{
-						"buffer_size": 2205,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								349,
-								349
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "ctrl/setup.php",
-					"settings":
-					{
-						"buffer_size": 668,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								201,
-								201
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 120.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "ctrl/AccountC.php",
-					"settings":
-					{
-						"buffer_size": 4904,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 360.0,
+						"translation.y": 1620.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -937,6 +768,18 @@
 		"selected_items":
 		[
 			[
+				"com",
+				"style/components.less"
+			],
+			[
+				"dis",
+				"ctrl/DiscoverC.php"
+			],
+			[
+				"per",
+				"ctrl/PersonC.php"
+			],
+			[
 				"ho",
 				"ctrl/HomeC.php"
 			],
@@ -977,20 +820,12 @@
 				"ctrl/GoalC.php"
 			],
 			[
-				"per",
-				"view/person/person.tp"
-			],
-			[
 				"a",
 				"model/account_funs.php"
 			],
 			[
 				"u",
 				"ctrl/utility.php"
-			],
-			[
-				"com",
-				"style/components.less"
 			],
 			[
 				"pub",
@@ -1007,10 +842,6 @@
 			[
 				"log",
 				"view/account/login.tp"
-			],
-			[
-				"dis",
-				"ctrl/DiscoverC.php"
 			],
 			[
 				"new",
