@@ -10,8 +10,8 @@ $(document).ready(function(){
 	// save
 	$(window).unload(function(){
 		var goalID = $('#goal-title').data('goal-id'),
-			goalTitle = $('#goal-title').text(),
-			goalContent = $('#goal-content').html();
+			goalTitle = $.trim($('#goal-title').text()),
+			goalContent = $.trim($('#goal-content').html());
 			
 		$.ajax({
 			url: 'GoalC.php',

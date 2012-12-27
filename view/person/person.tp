@@ -17,6 +17,53 @@ $(document).ready(function(){
 {if $isCreator}
 	{literal}
 
+	$('.goal-wap').sortable({
+		placeholder: "goal-item-highlight",
+		start: function(event, ui){
+			ui.item.css('border-bottom', '1px solid #F2F2F2');
+			ui.item.css('background-color', '#FAFAFA');
+		},
+		stop: function(event, ui){
+			ui.item.css('border-bottom', 'none');
+			ui.item.css('background-color', 'white');
+
+			// 组装数组
+			var idArray = '',
+				indexArray = '';
+
+			$('.goal-index').each(function(index){
+				if(index != 0){
+					idArray += '&';
+					indexArray += '&';
+				}
+
+				idArray += index;
+				indexArray += $(this).attr('data-goal-id');
+			});
+
+			// 排序
+			$.ajax({
+				url: 'PersonC.php',
+				type: 'POST',
+				data: {
+					act: 'change_goal_index',
+					idArray: idArray,
+					indexArray: indexArray
+				},
+				success: function(isSucc){
+					if(isSucc == 1){
+						alert('yes');
+					}
+				}
+			})
+
+			$('.goal-index').each(function(index){
+				$(this).text(index + 1);
+			});
+		}
+	});
+	$('.goal-wap').disableSelection();
+
 	// lock
 	$('.btn-lock').click(function(){
 		var goalID = $(this).attr('data-goal-id'),
@@ -110,7 +157,7 @@ $(document).ready(function(){
 <div class='goal-wap'>
 	{foreach $goals as $goal}
 	<div class="goal-item">
-		<span class='goal-index'></span>
+		<span class='goal-index' data-goal-id="{$goal.GoalID}"></span>
 		<a class="goal-title" href='GoalC.php?act=details&goalID={$goal.GoalID}'>{$goal.Title}</a>
 		
 		{if $isCreator}

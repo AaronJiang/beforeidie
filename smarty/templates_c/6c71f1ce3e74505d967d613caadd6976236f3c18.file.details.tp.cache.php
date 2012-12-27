@@ -1,22 +1,20 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-12-27 17:18:28
+<?php /* Smarty version Smarty-3.1.12, created on 2012-12-27 14:52:40
          compiled from "..\view\goal\details.tp" */ ?>
-<?php /*%%SmartyHeaderCode:1933950938337f31405-89020659%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:651850dc52a805b016-71859922%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '6c71f1ce3e74505d967d613caadd6976236f3c18' => 
     array (
       0 => '..\\view\\goal\\details.tp',
-      1 => 1356625098,
+      1 => 1356597315,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '1933950938337f31405-89020659',
+  'nocache_hash' => '651850dc52a805b016-71859922',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.12',
-  'unifunc' => 'content_5093833847d1f5_79212337',
   'variables' => 
   array (
     'goal' => 0,
@@ -25,8 +23,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'isLike' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.12',
+  'unifunc' => 'content_50dc52a8183ad8_29312595',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5093833847d1f5_79212337')) {function content_5093833847d1f5_79212337($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ('../header.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>((string)$_smarty_tpl->tpl_vars['goal']->value['Title']),'page'=>'page-goal-details'), 0);?>
+<?php if ($_valid && !is_callable('content_50dc52a8183ad8_29312595')) {function content_50dc52a8183ad8_29312595($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ('../header.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 9999, null, array('title'=>((string)$_smarty_tpl->tpl_vars['goal']->value['Title']),'page'=>'page-goal-details'), 0);?>
 
 
 <script type='text/javascript' src='../js/goal-comment.js'></script>
@@ -39,8 +39,8 @@ $(document).ready(function(){
 	// save
 	$(window).unload(function(){
 		var goalID = $('#goal-title').data('goal-id'),
-			goalTitle = $.trim($('#goal-title').text()),
-			goalContent = $.trim($('#goal-content').html());
+			goalTitle = $('#goal-title').text(),
+			goalContent = $('#goal-content').html();
 			
 		$.ajax({
 			url: 'GoalC.php',
@@ -174,5 +174,5 @@ $(document).ready(function(){
 	<?php }?>
 <?php }?>
 
-<?php echo $_smarty_tpl->getSubTemplate ('../footer.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+<?php echo $_smarty_tpl->getSubTemplate ('../footer.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 9999, null, array(), 0);?>
 <?php }} ?>

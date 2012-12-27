@@ -59,6 +59,13 @@
 			auth_check();
 			echo drop_goal($_REQUEST['goalID'])? 1: 0;
 			break;
+
+		case "change_goal_index":
+			$idArray = explode("&", $_REQUEST['idArray']);
+			$indexArray = explode("&", $_REQUEST['indexArray']);
+
+			echo change_goal_index($idArray, $indexArray)? 1: 0;
+			break;
 	}
 	
 ?>

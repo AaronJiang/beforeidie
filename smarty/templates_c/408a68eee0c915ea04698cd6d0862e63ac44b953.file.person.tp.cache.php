@@ -1,22 +1,20 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-12-27 17:16:19
+<?php /* Smarty version Smarty-3.1.12, created on 2012-12-27 14:52:22
          compiled from "..\view\person\person.tp" */ ?>
-<?php /*%%SmartyHeaderCode:4986509235e2350e62-48954490%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:2882750dc529606ce01-68721232%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '408a68eee0c915ea04698cd6d0862e63ac44b953' => 
     array (
       0 => '..\\view\\person\\person.tp',
-      1 => 1356624868,
+      1 => 1356615548,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '4986509235e2350e62-48954490',
+  'nocache_hash' => '2882750dc529606ce01-68721232',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.12',
-  'unifunc' => 'content_509235e26c2e46_48079691',
   'variables' => 
   array (
     'user' => 0,
@@ -26,8 +24,10 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'goal' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.12',
+  'unifunc' => 'content_50dc529618ed96_88804618',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_509235e26c2e46_48079691')) {function content_509235e26c2e46_48079691($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ('../header.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>((string)$_smarty_tpl->tpl_vars['user']->value['Username']),'page'=>'page-person'), 0);?>
+<?php if ($_valid && !is_callable('content_50dc529618ed96_88804618')) {function content_50dc529618ed96_88804618($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ('../header.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 9999, null, array('title'=>((string)$_smarty_tpl->tpl_vars['user']->value['Username']),'page'=>'page-person'), 0);?>
 
 
 <script type='text/javascript' src='../js/goal-comment.js'></script>
@@ -46,53 +46,6 @@ $(document).ready(function(){
 
 <?php if ($_smarty_tpl->tpl_vars['isCreator']->value){?>
 	
-
-	$('.goal-wap').sortable({
-		placeholder: "goal-item-highlight",
-		start: function(event, ui){
-			ui.item.css('border-bottom', '1px solid #F2F2F2');
-			ui.item.css('background-color', '#FAFAFA');
-		},
-		stop: function(event, ui){
-			ui.item.css('border-bottom', 'none');
-			ui.item.css('background-color', 'white');
-
-			// 组装数组
-			var idArray = '',
-				indexArray = '';
-
-			$('.goal-index').each(function(index){
-				if(index != 0){
-					idArray += '&';
-					indexArray += '&';
-				}
-
-				idArray += index;
-				indexArray += $(this).attr('data-goal-id');
-			});
-
-			// 排序
-			$.ajax({
-				url: 'PersonC.php',
-				type: 'POST',
-				data: {
-					act: 'change_goal_index',
-					idArray: idArray,
-					indexArray: indexArray
-				},
-				success: function(isSucc){
-					if(isSucc == 1){
-						alert('yes');
-					}
-				}
-			})
-
-			$('.goal-index').each(function(index){
-				$(this).text(index + 1);
-			});
-		}
-	});
-	$('.goal-wap').disableSelection();
 
 	// lock
 	$('.btn-lock').click(function(){
@@ -194,8 +147,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['goal']->key => $_smarty_tpl->tpl_vars
 $_smarty_tpl->tpl_vars['goal']->_loop = true;
 ?>
 	<div class="goal-item">
-		<span class='goal-index' data-goal-id="<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
-"></span>
+		<span class='goal-index'></span>
 		<a class="goal-title" href='GoalC.php?act=details&goalID=<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
 '><?php echo $_smarty_tpl->tpl_vars['goal']->value['Title'];?>
 </a>
@@ -224,5 +176,5 @@ $_smarty_tpl->tpl_vars['goal']->_loop = true;
 	<?php } ?>
 </div>
 
-<?php echo $_smarty_tpl->getSubTemplate ('../footer.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
+<?php echo $_smarty_tpl->getSubTemplate ('../footer.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 9999, null, array(), 0);?>
 <?php }} ?>

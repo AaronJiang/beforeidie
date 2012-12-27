@@ -14,10 +14,12 @@
 		$query = "SELECT GoalID, Title, UserID, IsPublic\n"
 				. "FROM goals\n"
 				. "WHERE UserID = ". $userID. "\n";
-		
+
 		if(!$isMe){
 			$query .= "AND IsPublic = 1\n";
 		}
+
+		$query .= "ORDER BY GoalIndex ASC\n";
 		
 		$results = db_exec($query);
 		
@@ -144,5 +146,16 @@
 		$setValue = $isPublic? 0: 1;
 		$query = "UPDATE goals SET IsPublic = ". $setValue. " WHERE GoalID = ". $goalID;
 		return db_exec($query);
+	}
+
+	function change_goal_index($idArray, $indexArray){
+		$isSucc = true;
+
+		for($i=0; $i<count($idArray); $i++){
+			$query = "UPDATE goals SET GoalIndex = ". $idArray[$i]. " WHERE GoalID = ". $indexArray[$i];
+			$isSucc = $isSucc && db_exec($query);
+		}
+
+		return $isSucc;
 	}
 ?>

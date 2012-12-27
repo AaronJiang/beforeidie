@@ -47,7 +47,8 @@
 				text-decoration: none;
 
 				&:hover{
-					text-shadow:0 0 3px @gray;
+					text-shadow:0 0 3px @gray
+					;
 				}
 			}
 		}
@@ -319,17 +320,24 @@
 
 	/* User Goals */
 	.goal-wap{
-		.goal-item{
+		.goal-item-highlight{
+			height: 55px;
+			box-sizing: border-box;
 			border-top: 1px solid #EEE;
+		}
+
+		.goal-item{
+			border-top: 1px solid #F2F2F2;
 			padding: 17px 0;
 			position: relative;
 			
 			.goal-index{
-				width: 62px;
+				width: 66px;
 				display: inline-block;
 				text-align: center;
 				font-family: 'cg';
 				font-size: @fontSizeLarge;
+				cursor: move;
 			}
 
 			.goal-title{
@@ -454,7 +462,6 @@
 			a{
 				color: @black;
 			}
-			
 		}
 
 		.goal-content{
