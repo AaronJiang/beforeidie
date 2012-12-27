@@ -92,7 +92,16 @@ $(document).ready(function(){
 	{/if}
 
 	<div id="user-info">
-		<div id="title">Before {if $isCreator}I{else}he{/if} die {if $isCreator}I{else}he{/if} want to...</div>
+		<div id="title">
+		{if $isCreator}
+			Before I die I want to...
+		{else}
+			{if $user.Sex == 'male'}
+			Before he dies he wants to...
+			{else}
+			Before she dies she wants to...
+			{/if}
+		{/if}
 		<div id="username">{$user.Username}</div>
 	</div>
 </div>

@@ -74,6 +74,17 @@
 		
 		return $row['goals_num'];	
 	}
+
+	//获取某个 Goal 的创建者信息
+	function get_goal_owner($goalID){
+		$query = "SELECT users.Username, users.UserID, users.Sex\n"
+				. "FROM users, goals\n"
+				. "WHERE users.UserID = goals.UserID\n"
+				. "AND goals.GoalID = ". $goalID;
+		$result = db_exec($query);
+		
+		return $result->fetch_assoc();
+	}
 	
 	//新增目标
 	function new_goal($userID, $title, $content, $isPublic){
@@ -120,15 +131,6 @@
 		$result = db_exec($query);
 		
 		return ($result->num_rows > 0);
-	}
-	
-	//获取某个 Goal 的创建者信息
-	function get_goal_owner($goalID){
-		$query = "SELECT users.Username, users.UserID from users, goals "
-				. "WHERE users.UserID = goals.UserID and goals.GoalID = ". $goalID;
-		$result = db_exec($query);
-		
-		return $result->fetch_assoc();
 	}
 	
 	//放弃目标

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-12-25 06:31:19
+<?php /* Smarty version Smarty-3.1.12, created on 2012-12-27 09:33:29
          compiled from "..\view\goal\details.tp" */ ?>
 <?php /*%%SmartyHeaderCode:1933950938337f31405-89020659%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6c71f1ce3e74505d967d613caadd6976236f3c18' => 
     array (
       0 => '..\\view\\goal\\details.tp',
-      1 => 1356401963,
+      1 => 1356597204,
       2 => 'file',
     ),
   ),
@@ -126,9 +126,16 @@ $(document).ready(function(){
 
 <div id='title-wap'>
 	<h2 id="pre">
-		Before <?php if ($_smarty_tpl->tpl_vars['isCreator']->value){?>I die I want
-		<?php }else{ ?>he dies he wants
-		<?php }?> to</h2>
+		<?php if ($_smarty_tpl->tpl_vars['isCreator']->value){?>
+			Before I die I want to
+		<?php }else{ ?>
+			<?php if ($_smarty_tpl->tpl_vars['creator']->value['Sex']=='male'){?>
+			Before he dies he wants to
+			<?php }else{ ?>
+			Before she dies she wants to
+			<?php }?>
+		<?php }?>
+	</h2>
 	<h2 id="goal-title" data-goal-id="<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
 " contenteditable="<?php if ($_smarty_tpl->tpl_vars['isCreator']->value){?>true<?php }else{ ?>false<?php }?>"> <?php echo $_smarty_tpl->tpl_vars['goal']->value['Title'];?>
 </h2>

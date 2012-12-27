@@ -8,9 +8,9 @@
 
 	switch($action){
 	
-	// login
+	// page login
 	
-		// get view
+		// view
 		case 'login':
 			auth_check('login');
 			$sm = new sm('account');
@@ -20,9 +20,8 @@
 			
 			$sm->display('login.tp');
 			break;
-		
-		// login
-		case "in":
+
+		case "plogin":
 			auth_check('login');
 			$email = $_REQUEST['email'];
 			$pwd = $_REQUEST['password'];
@@ -170,9 +169,7 @@
 				redirect('Account', 'forgot_pwd', array('from' => 'resetFailed'));		
 			}
 			break;
-		
 
-	
 	// page account details
 	
 		// view
@@ -182,12 +179,15 @@
 			
 			@session_start();
 			$userID = $_SESSION['valid_user_id'];
-			$sm->assign('user', array('Name' => $_SESSION['valid_user'],
-									'Avatar'=> get_gravatar($userID),
-									'Email' => get_email_by_id($userID),
-									'HasGravatar' => validate_gravatar($userID)));
+			$sm->assign('user', get_user_by_id($userID));
+			$sm->assign('hasGravatar', validate_gravatar($userID));
 
 			$sm->display('details.tp');		
+			break;
+
+		case 'change_sex':
+			auth_check();
+			echo change_sex($_REQUEST['userID'], $_REQUEST['sex'])? 1: 0;
 			break;
 	
 	// page account change password
@@ -201,7 +201,7 @@
 			@session_start();
 			$sm->assign('userID', $_SESSION['valid_user_id']);
 			
-			$sm->display('change_pwd.tp');		
+			$sm->display('change_pwd.tp');
 			break;
 
 		case "change_password":

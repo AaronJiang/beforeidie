@@ -11,7 +11,7 @@
 
 	//验证用户 by 邮箱和密码
 	function check_user_by_email($email, $pwd){
-		$query = "select * from users where Email = '". $email. "' and Password = '". sha1($pwd). "' and IsActive = 1";
+		$query = "SELECT * FROM users WHERE Email = '". $email. "' and Password = '". sha1($pwd). "' and IsActive = 1";
 		$result = db_exec($query);
 
 		return ($result->num_rows > 0);
@@ -19,7 +19,7 @@
 	
 	//验证未激活用户 by 邮箱和密码
 	function check_unactive_user_by_email($email, $pwd){
-		$query = "select * from users where Email = '". $email. "' and Password = '". sha1($pwd). "' and IsActive = 0";
+		$query = "SELECT * FROM users WHERE Email = '". $email. "' and Password = '". sha1($pwd). "' and IsActive = 0";
 		$result = db_exec($query);
 		
 		return ($result->num_rows > 0);		
@@ -27,7 +27,7 @@
 	
 	//验证用户ID和密码是否存在
 	function check_user_by_id($userID, $pwd){	
-		$query = "select * from users where UserID = ". $userID. " and Password = '". sha1($pwd). "' and IsActive = 1";
+		$query = "SELECT * FROM users WHERE UserID = ". $userID. " and Password = '". sha1($pwd). "' and IsActive = 1";
 		$result = db_exec($query);
 		
 		return ($result->num_rows > 0);
@@ -47,7 +47,7 @@
 	
 	//获取用户ID by name
 	function get_userID($username){
-		$query = "select UserID from users where Username = '". $username. "'";
+		$query = "SELECT UserID FROM users WHERE Username = '". $username. "'";
 		$result = db_exec($query);
 		$row = $result->fetch_assoc();
 		return $row['UserID'];
@@ -55,7 +55,7 @@
 	
 	//获取用户名 by ID
 	function get_username_by_id($userID){
-		$query = "select Username from users where UserId = ". $userID;
+		$query = "SELECT Username FROM users WHERE UserId = ". $userID;
 		$result = db_exec($query);
 		$row = $result->fetch_assoc();
 		return $row['Username'];
@@ -63,7 +63,7 @@
 	
 	//获取用户名 by Email
 	function get_username_by_email($email){
-		$query = "select Username from users where Email = '". $email ."'";
+		$query = "SELECT Username FROM users WHERE Email = '". $email ."'";
 		$result = db_exec($query);
 		$row = $result->fetch_assoc();
 		return $row['Username'];	
@@ -71,7 +71,7 @@
 
 	//获取用户ID by Email
 	function get_userid_by_email($email){
-		$query = "select UserID from users where Email = '". $email. "'";
+		$query = "SELECT UserID FROM users WHERE Email = '". $email. "'";
 		$result = db_exec($query);
 		$row = $result->fetch_assoc();
 		return $row['UserID'];	
@@ -79,21 +79,27 @@
 	
 	//获取用户邮箱 by ID
 	function get_email_by_id($userID){
-		$query = "select Email from users where UserID = ". $userID;
+		$query = "SELECT Email FROM users WHERE UserID = ". $userID;
 		$result = db_exec($query);
 		$row = $result->fetch_assoc();
 		return $row['Email'];
 	}
 	
-	//修改密码
+	// 修改密码
 	function change_pwd($userID, $newPwd){
-		$query = "update users set Password = '". sha1($newPwd). "' where UserID = ". $userID;
+		$query = "UPDATE users SET Password = '". sha1($newPwd). "' WHERE UserID = ". $userID;
+		return db_exec($query);
+	}
+
+	// 修改用户性别
+	function change_sex($userID, $sex){
+		$query = "UPDATE users SET Sex = '". $sex. "' WHERE UserID = ". $userID;
 		return db_exec($query);
 	}
 	
 	//获取用户总数
 	function get_all_users_num(){
-		$query = "select count(*) as users_num from users";
+		$query = "SELECT count(*) as users_num FROM users";
 		$result = db_exec($query);
 		$row = $result->fetch_assoc();
 		

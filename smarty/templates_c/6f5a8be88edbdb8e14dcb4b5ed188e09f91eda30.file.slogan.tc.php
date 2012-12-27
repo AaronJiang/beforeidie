@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-12-24 13:55:50
+<?php /* Smarty version Smarty-3.1.12, created on 2012-12-27 09:34:09
          compiled from "..\view\account\slogan.tc" */ ?>
 <?php /*%%SmartyHeaderCode:158055092934e5fa132-92442296%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6f5a8be88edbdb8e14dcb4b5ed188e09f91eda30' => 
     array (
       0 => '..\\view\\account\\slogan.tc',
-      1 => 1356266732,
+      1 => 1356596104,
       2 => 'file',
     ),
   ),

@@ -97,9 +97,16 @@ $(document).ready(function(){
 
 <div id='title-wap'>
 	<h2 id="pre">
-		Before {if $isCreator}I die I want
-		{else}he dies he wants
-		{/if} to</h2>
+		{if $isCreator}
+			Before I die I want to
+		{else}
+			{if $creator.Sex == 'male'}
+			Before he dies he wants to
+			{else}
+			Before she dies she wants to
+			{/if}
+		{/if}
+	</h2>
 	<h2 id="goal-title" data-goal-id="{$goal.GoalID}" contenteditable="{if $isCreator}true{else}false{/if}"> {$goal.Title}</h2>
 	<div id="extra-info-wap">
 		{if $isCreator}

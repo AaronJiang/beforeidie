@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-12-24 16:31:56
+<?php /* Smarty version Smarty-3.1.12, created on 2012-12-27 09:34:20
          compiled from "..\view\person\person.tp" */ ?>
 <?php /*%%SmartyHeaderCode:4986509235e2350e62-48954490%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '408a68eee0c915ea04698cd6d0862e63ac44b953' => 
     array (
       0 => '..\\view\\person\\person.tp',
-      1 => 1356363114,
+      1 => 1356597012,
       2 => 'file',
     ),
   ),
@@ -124,7 +124,16 @@ $(document).ready(function(){
 	<?php }?>
 
 	<div id="user-info">
-		<div id="title">Before <?php if ($_smarty_tpl->tpl_vars['isCreator']->value){?>I<?php }else{ ?>he<?php }?> die <?php if ($_smarty_tpl->tpl_vars['isCreator']->value){?>I<?php }else{ ?>he<?php }?> want to...</div>
+		<div id="title">
+		<?php if ($_smarty_tpl->tpl_vars['isCreator']->value){?>
+			Before I die I want to...
+		<?php }else{ ?>
+			<?php if ($_smarty_tpl->tpl_vars['user']->value['Sex']=='male'){?>
+			Before he dies he wants to...
+			<?php }else{ ?>
+			Before she dies she wants to...
+			<?php }?>
+		<?php }?>
 		<div id="username"><?php echo $_smarty_tpl->tpl_vars['user']->value['Username'];?>
 </div>
 	</div>
