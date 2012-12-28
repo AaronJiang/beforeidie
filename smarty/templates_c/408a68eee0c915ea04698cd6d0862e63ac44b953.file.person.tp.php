@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-12-28 10:24:30
+<?php /* Smarty version Smarty-3.1.12, created on 2012-12-28 11:42:38
          compiled from "..\view\person\person.tp" */ ?>
 <?php /*%%SmartyHeaderCode:4986509235e2350e62-48954490%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '408a68eee0c915ea04698cd6d0862e63ac44b953' => 
     array (
       0 => '..\\view\\person\\person.tp',
-      1 => 1356686668,
+      1 => 1356691339,
       2 => 'file',
     ),
   ),
@@ -60,7 +60,7 @@ $(document).ready(function(){
 			// 组装数组
 			var idArray = '',
 				indexArray = '',
-				isFirstChanged = 1;
+				isFirstChanged = 1;	// 是否为第一个待变更的元素
 
 			$('.goal-index').each(function(index){
 				var preIndex = $(this).attr('data-goal-index');
@@ -103,6 +103,7 @@ $(document).ready(function(){
 			// 重新排序
 			$('.goal-index').each(function(index){
 				$(this).text(index + 1);
+				$(this).attr('data-goal-index', index);
 			});
 		}
 	});
@@ -208,7 +209,7 @@ foreach ($_from as $_smarty_tpl->tpl_vars['goal']->key => $_smarty_tpl->tpl_vars
 $_smarty_tpl->tpl_vars['goal']->_loop = true;
 ?>
 	<div class="goal-item">
-		<span class='goal-index' data-goal-index='<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalIndex'];?>
+		<span class='goal-index <?php if ($_smarty_tpl->tpl_vars['isCreator']->value){?>goal-dragable<?php }?>' data-goal-index='<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalIndex'];?>
 ' data-goal-id="<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
 "></span>
 		<a class="goal-title" href='GoalC.php?act=details&goalID=<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>

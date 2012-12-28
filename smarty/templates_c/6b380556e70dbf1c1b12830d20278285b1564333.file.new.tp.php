@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-12-24 16:07:11
+<?php /* Smarty version Smarty-3.1.12, created on 2012-12-28 11:35:25
          compiled from "..\view\goal\new.tp" */ ?>
 <?php /*%%SmartyHeaderCode:225625092389e5c3365-55689534%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '6b380556e70dbf1c1b12830d20278285b1564333' => 
     array (
       0 => '..\\view\\goal\\new.tp',
-      1 => 1356266732,
+      1 => 1356686771,
       2 => 'file',
     ),
   ),
@@ -29,7 +29,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 
 <?php if ($_smarty_tpl->tpl_vars['isFull']->value){?>
 
-<p>已经达到16个了，让生命保持简单。</p>
+<p>已经有16个愿望了，请让生命保持简单。</p>
 
 <?php }else{ ?>
 
