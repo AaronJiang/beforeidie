@@ -158,17 +158,14 @@
 	function change_goal_index($idArray, $indexArray){
 		$isSucc = true;
 
-		//echo (count($idArray));
-		print_r($idArray);
-
-		echo microtime(). "<br>";
+		//echo microtime(). "<br>";
 
 		for($i=0; $i<count($idArray); $i++){
 			$query = "UPDATE goals SET GoalIndex = ". $idArray[$i]. " WHERE GoalID = ". $indexArray[$i];
 			$isSucc = $isSucc && db_exec($query);
 		}
 
-		echo microtime(). "<br>";
+		//echo microtime(). "<br>";
 
 		return $isSucc;
 	}

@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"data",
+				"data-goal-index"
+			],
+			[
 				"is",
 				"isRemoved"
 			],
@@ -214,10 +218,6 @@
 			[
 				"dat",
 				"data"
-			],
-			[
-				"data",
-				"data-user-id"
 			],
 			[
 				"ex",
@@ -451,7 +451,7 @@
 			"file": "style/style.less",
 			"settings":
 			{
-				"buffer_size": 7580,
+				"buffer_size": 7605,
 				"line_ending": "Windows"
 			}
 		},
@@ -459,7 +459,7 @@
 			"file": "view/person/person.tp",
 			"settings":
 			{
-				"buffer_size": 4295,
+				"buffer_size": 4294,
 				"line_ending": "Windows"
 			}
 		},
@@ -472,14 +472,6 @@
 			}
 		},
 		{
-			"file": "model/goal_funs.php",
-			"settings":
-			{
-				"buffer_size": 4246,
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "ctrl/PersonC.php",
 			"settings":
 			{
@@ -488,18 +480,26 @@
 			}
 		},
 		{
-			"file": "view/goal/new.tp",
+			"file": "model/public_funs.php",
 			"settings":
 			{
-				"buffer_size": 2068,
+				"buffer_size": 2252,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "ctrl/GoalC.php",
+			"file": "model/goal_funs.php",
 			"settings":
 			{
-				"buffer_size": 1705,
+				"buffer_size": 4200,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "ctrl/utility.php",
+			"settings":
+			{
+				"buffer_size": 835,
 				"line_ending": "Windows"
 			}
 		}
@@ -540,7 +540,13 @@
 	},
 	"file_history":
 	[
+		"/C/Users/hustlzp/AppData/Local/Temp/fz3temp-1/utility.php",
+		"/C/Users/hustlzp/AppData/Local/Temp/fz3temp-1/setup.php",
+		"/C/Users/hustlzp/AppData/Local/Temp/fz3temp-1/goal_funs.php",
 		"/D/xampp/htdocs/beforeidie/model/goal_funs.php",
+		"/C/Users/hustlzp/AppData/Local/Temp/fz3temp-1/public_funs.php",
+		"/D/xampp/htdocs/beforeidie/ctrl/GoalC.php",
+		"/D/xampp/htdocs/beforeidie/view/goal/new.tp",
 		"/D/xampp/htdocs/beforeidie/ctrl/PersonC.php",
 		"/D/xampp/htdocs/beforeidie/view/account/forgot_pwd.tp",
 		"/D/xampp/htdocs/beforeidie/model/like_funs.php",
@@ -572,7 +578,6 @@
 		"/D/xampp/htdocs/beforeidie/js/jquery.ui.datepicker-zh-CN.js",
 		"/D/xampp/htdocs/beforeidie/js/jquery.validationEngine.js",
 		"/D/xampp/htdocs/beforeidie/style/vars.less",
-		"/D/xampp/htdocs/beforeidie/ctrl/GoalC.php",
 		"/D/xampp/htdocs/beforeidie/ctrl/PublicC.php",
 		"/D/xampp/htdocs/beforeidie/js/goal-comment.js",
 		"/D/xampp/htdocs/beforeidie/model/smtp.php",
@@ -662,12 +667,7 @@
 		"/F/xampp/htdocs/Goal/ctrl/DynC.php",
 		"/F/xampp/htdocs/Goal/view/dyn/dyns.tp",
 		"/F/xampp/htdocs/Goal/view/home/home.tp",
-		"/F/xampp/htdocs/Goal/view/dyn/admin_followees.tp",
-		"/F/xampp/htdocs/Goal/view/account/active.tp",
-		"/F/xampp/htdocs/Goal/model/cheer_funs.php",
-		"/F/xampp/htdocs/Goal/view/person/personal_dyns.tp",
-		"/F/xampp/htdocs/classic/application/views/work/details.php",
-		"/F/xampp/htdocs/classic/application/views/work/add.php"
+		"/F/xampp/htdocs/Goal/view/dyn/admin_followees.tp"
 	],
 	"find":
 	{
@@ -824,15 +824,15 @@
 					"file": "style/style.less",
 					"settings":
 					{
-						"buffer_size": 7580,
+						"buffer_size": 7605,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5138,
-								5138
+								5382,
+								5382
 							]
 						],
 						"settings":
@@ -841,7 +841,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 6016.0,
+						"translation.y": 6436.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -851,15 +851,15 @@
 					"file": "view/person/person.tp",
 					"settings":
 					{
-						"buffer_size": 4295,
+						"buffer_size": 4294,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								737,
-								737
+								74,
+								74
 							]
 						],
 						"settings":
@@ -868,7 +868,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 369.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -885,8 +885,8 @@
 						"selection":
 						[
 							[
-								2307,
-								2307
+								958,
+								958
 							]
 						],
 						"settings":
@@ -895,40 +895,13 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 780.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "model/goal_funs.php",
-					"settings":
-					{
-						"buffer_size": 4246,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3937,
-								3937
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 2780.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
 					"file": "ctrl/PersonC.php",
 					"settings":
 					{
@@ -955,46 +928,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "view/goal/new.tp",
+					"buffer": 4,
+					"file": "model/public_funs.php",
 					"settings":
 					{
-						"buffer_size": 2068,
+						"buffer_size": 2252,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								84,
-								84
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "ctrl/GoalC.php",
-					"settings":
-					{
-						"buffer_size": 1705,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								314,
-								314
+								654,
+								654
 							]
 						],
 						"settings":
@@ -1003,7 +949,61 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 180.0,
+						"translation.y": 240.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "model/goal_funs.php",
+					"settings":
+					{
+						"buffer_size": 4200,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3931,
+								3931
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1315.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "ctrl/utility.php",
+					"settings":
+					{
+						"buffer_size": 835,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								258,
+								258
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1053,20 +1053,32 @@
 		"selected_items":
 		[
 			[
+				"u",
+				"ctrl/utility.php"
+			],
+			[
+				"hea",
+				"view/header.tc"
+			],
+			[
+				"goal",
+				"model/goal_funs.php"
+			],
+			[
+				"pub",
+				"model/public_funs.php"
+			],
+			[
+				"per",
+				"view/person/person.tp"
+			],
+			[
 				"goa",
 				"ctrl/GoalC.php"
 			],
 			[
 				"new",
 				"view/goal/new.tp"
-			],
-			[
-				"per",
-				"ctrl/PersonC.php"
-			],
-			[
-				"goal",
-				"model/goal_funs.php"
 			],
 			[
 				"for",
@@ -1077,10 +1089,6 @@
 				"model/public_funs.php"
 			],
 			[
-				"u",
-				"ctrl/utility.php"
-			],
-			[
 				"se",
 				"ctrl/setup.php"
 			],
@@ -1089,16 +1097,8 @@
 				"ctrl/utility.php"
 			],
 			[
-				"pub",
-				"model/public_funs.php"
-			],
-			[
 				"acc",
 				"model/account_funs.php"
-			],
-			[
-				"hea",
-				"view/header.tc"
 			],
 			[
 				"de",

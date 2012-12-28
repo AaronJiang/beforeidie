@@ -15,7 +15,10 @@
 	
 	//连接数据库
 	function db_conn(){
-		$db = mysql_pconnect('localhost', 'root', '', TRUE);
+		$db = mysql_pconnect('localhost', 'root', '');
+		mysql_select_db('beforeidie', $db);
+		//$db = mysql_pconnect('Mysql1001.webweb.com', '98db92_w301_1', 'xiaowangzi');
+		//mysql_select_db('db_98db92_w301_1', $db);
 
 		if(!$db){
 			echo 'Error: Could not connect to the database!';
@@ -28,8 +31,7 @@
 	//执行 SQL 语句
 	function db_exec($query){
 		$db = db_conn();
-		mysql_select_db('beforeidie', $db);
-		
+
 		mysql_query("SET NAMES 'UTF8'", $db);
 		return mysql_query($query, $db);
 	}

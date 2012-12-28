@@ -1,6 +1,5 @@
 {include file='../header.tc' title="{$user.Username}" page='page-person'}
 
-<script type='text/javascript' src='../js/goal-comment.js'></script>
 <script type="text/javascript">
 
 {literal}
@@ -64,9 +63,7 @@ $(document).ready(function(){
 					indexArray: indexArray
 				},
 				success: function(isSucc){
-					if(isSucc == 1){
-						alert('yes');
-					}
+					if(isSucc == 1){}
 				}
 			});
 
