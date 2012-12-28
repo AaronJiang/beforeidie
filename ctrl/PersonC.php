@@ -23,6 +23,7 @@
 
 			// userinfo
 			$userID = isset($_REQUEST['userID'])? $_REQUEST['userID']: $_SESSION['valid_user_id'];
+
 			$sm->assign('user', get_user_by_id($userID));
 
 			if(isset($_SESSION['valid_user_id'])){
@@ -44,8 +45,7 @@
 			$sm->assign('isCreator', $isCreator);
 
 			// goals
-			$goals = get_goals($userID, $isCreator);
-			$sm->assign('goals', $goals);
+			$sm->assign('goals', get_goals($userID, $isCreator));
 			
 			$sm->display('person.tp');
 			break;

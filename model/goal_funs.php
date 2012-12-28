@@ -5,8 +5,8 @@
 	//获取单个目标
 	function get_goal_by_ID($goalID){
 		$query = "SELECT * FROM goals WHERE GoalID = ". $goalID;
-		$results = db_exec($query);
-		return $results->fetch_assoc();
+		$result = db_exec($query);
+		return mysql_fetch_assoc($result);
 	}
 	
 	//获取某用户的全部目标
@@ -21,10 +21,10 @@
 
 		$query .= "ORDER BY GoalIndex ASC\n";
 		
-		$results = db_exec($query);
+		$result = db_exec($query);
 		
 		$array = array();
-		while($row = $results->fetch_assoc()){
+		while($row = mysql_fetch_assoc($result)){
 			array_push($array, $row);
 		}
 		
@@ -42,7 +42,7 @@
 		}
 
 		$result = db_exec($query);
-		$row = $result->fetch_assoc();
+		$row = mysql_fetch_assoc($result);
 
 		return $row["goalsNum"];
 	}
@@ -61,7 +61,7 @@
 		$result = db_exec($sql);
 		
 		$array = array();
-		while($row = $result->fetch_assoc()){
+		while($row = mysql_fetch_assoc($result)){
 			array_push($array, $row);
 		}
 		
@@ -72,7 +72,7 @@
 	function get_all_goals_num(){
 		$query = "SELECT count(*) as goals_num from goals";
 		$result = db_exec($query);
-		$row = $result->fetch_assoc();
+		$row = mysql_fetch_assoc($result);
 		
 		return $row['goals_num'];	
 	}
@@ -85,21 +85,30 @@
 				. "AND goals.GoalID = ". $goalID;
 		$result = db_exec($query);
 		
-		return $result->fetch_assoc();
+		return mysql_fetch_assoc($result);
+	}
+
+	function get_max_index($userID){
+		$query = "SELECT MAX(GoalIndex) AS maxGoalIndex FROM goals WHERE UserID = ". $userID;
+		$result = db_exec($query);
+		$row = mysql_fetch_assoc($result);
+
+		return $row['maxGoalIndex'];
 	}
 	
 	//新增目标
 	function new_goal($userID, $title, $content, $isPublic){
 		$title = trim($title);
 		$reason = trim($content);
+		$maxGoalIndex = get_max_index($userID) + 1;
 		
 		if(!get_magic_quotes_gpc()){
 			$title = addslashes($title);
 			$content = addslashes($content);
 		}
 		
-		$query = "INSERT INTO goals (UserID, Title, Content, IsPublic)\n"
-				. "VALUES (". $userID. ", '". $title. "', '". $content. "', ". $isPublic. ")";
+		$query = "INSERT INTO goals (UserID, Title, Content, IsPublic, GoalIndex)\n"
+				. "VALUES (". $userID. ", '". $title. "', '". $content. "', ". $isPublic. ", ". $maxGoalIndex. ")";
 		
 		$result = db_exec($query);
 	}
@@ -111,7 +120,6 @@
 		}
 		
 		$query = "UPDATE goals SET Title = '". $title. "', Content = '". $content. "' WHERE GoalID = ". $goalID;
-
 		return db_exec($query);
 	}
 	
@@ -132,14 +140,13 @@
 		$query = "SELECT * from goals WHERE GoalID = ". $goalID. " and UserID = ". $userID;
 		$result = db_exec($query);
 		
-		return ($result->num_rows > 0);
+		return mysql_num_rows($result) > 0;
 	}
 	
 	//放弃目标
 	function drop_goal($goalID){
 		$query = "DELETE FROM goals WHERE GoalID = ". $goalID;
-		$result = db_exec($query);
-		return $result? "true": "false";
+		return db_exec($query);
 	}
 
 	function change_goal_state($goalID, $isPublic){

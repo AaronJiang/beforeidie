@@ -6,7 +6,7 @@
 	function get_user_by_id($userID){
 		$query = "SELECT * FROM users WHERE UserID = ". $userID;
 		$result = db_exec($query);
-		return $result->fetch_assoc();
+		return mysql_fetch_assoc($result);
 	}
 
 	//验证用户 by 邮箱和密码
@@ -14,7 +14,7 @@
 		$query = "SELECT * FROM users WHERE Email = '". $email. "' and Password = '". sha1($pwd). "'";
 		$result = db_exec($query);
 
-		return ($result->num_rows > 0);
+		return mysql_num_rows($result) > 0;
 	}
 	
 	//验证未激活用户 by 邮箱和密码
@@ -22,7 +22,7 @@
 		$query = "SELECT * FROM users WHERE Email = '". $email. "' and Password = '". sha1($pwd). "' and IsActive = 0";
 		$result = db_exec($query);
 		
-		return ($result->num_rows > 0);		
+		return mysql_num_rows($result) > 0;		
 	}
 	
 	//验证用户ID和密码是否存在
@@ -30,7 +30,7 @@
 		$query = "SELECT * FROM users WHERE UserID = ". $userID. " and Password = '". sha1($pwd). "' and IsActive = 1";
 		$result = db_exec($query);
 		
-		return ($result->num_rows > 0);
+		return mysql_num_rows($result) > 0;
 	}
 
 	// 检查email是否存在
@@ -38,7 +38,7 @@
 		$query = "SELECT * FROM users WHERE Email = '". $email. "'";
 		$result = db_exec($query);
 
-		return ($result->num_rows > 0);
+		return mysql_num_rows($result) > 0;
 	}
 
 	// 检查用户名是否存在
@@ -46,7 +46,7 @@
 		$query = "SELECT * FROM users WHERE Username = '". $username. "'";
 		$result = db_exec($query);
 
-		return ($result->num_rows > 0);
+		return mysql_num_rows($result) > 0;
 	}
 
 	// 检查密码是否正确
@@ -54,7 +54,7 @@
 		$query = "SELECT * FROM users WHERE UserID = ". $userID. " AND Password = '". sha1($pwd). "'";
 		$result = db_exec($query);
 
-		return ($result->num_rows > 0);		
+		return mysql_num_rows($result) > 0;	
 	}
 	
 	//用户注册
@@ -73,7 +73,7 @@
 	function get_userID($username){
 		$query = "SELECT UserID FROM users WHERE Username = '". $username. "'";
 		$result = db_exec($query);
-		$row = $result->fetch_assoc();
+		$row = mysql_fetch_assoc($result);
 		return $row['UserID'];
 	}
 	
@@ -81,7 +81,7 @@
 	function get_username_by_id($userID){
 		$query = "SELECT Username FROM users WHERE UserId = ". $userID;
 		$result = db_exec($query);
-		$row = $result->fetch_assoc();
+		$row = mysql_fetch_assoc($result);
 		return $row['Username'];
 	}
 	
@@ -89,7 +89,7 @@
 	function get_username_by_email($email){
 		$query = "SELECT Username FROM users WHERE Email = '". $email ."'";
 		$result = db_exec($query);
-		$row = $result->fetch_assoc();
+		$row = mysql_fetch_assoc($result);
 		return $row['Username'];	
 	}
 
@@ -97,7 +97,7 @@
 	function get_userid_by_email($email){
 		$query = "SELECT UserID FROM users WHERE Email = '". $email. "'";
 		$result = db_exec($query);
-		$row = $result->fetch_assoc();
+		$row = mysql_fetch_assoc($result);
 		return $row['UserID'];	
 	}
 	
@@ -105,7 +105,7 @@
 	function get_email_by_id($userID){
 		$query = "SELECT Email FROM users WHERE UserID = ". $userID;
 		$result = db_exec($query);
-		$row = $result->fetch_assoc();
+		$row = mysql_fetch_assoc($result);
 		return $row['Email'];
 	}
 	
@@ -125,8 +125,7 @@
 	function get_all_users_num(){
 		$query = "SELECT count(*) as users_num FROM users";
 		$result = db_exec($query);
-		$row = $result->fetch_assoc();
-		
+		$row = mysql_fetch_assoc($result);
 		return $row['users_num'];
 	}
 	
@@ -224,7 +223,7 @@
 
 		$array = array();
 
-		while ($row = $result->fetch_assoc()) {
+		while ($row = mysql_fetch_assoc($result)) {
 			array_push($array, $row);
 		}
 

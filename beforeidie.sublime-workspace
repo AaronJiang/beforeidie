@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"s",
+				"switch	switch …"
+			],
+			[
 				"is",
 				"isSucc"
 			],
@@ -459,7 +463,7 @@
 			"file": "view/header.tc",
 			"settings":
 			{
-				"buffer_size": 2338,
+				"buffer_size": 2358,
 				"line_ending": "CR"
 			}
 		},
@@ -467,23 +471,23 @@
 			"file": "ctrl/PersonC.php",
 			"settings":
 			{
-				"buffer_size": 1472,
+				"buffer_size": 1804,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "model/goal_funs.php",
+			"file": "model/account_funs.php",
 			"settings":
 			{
-				"buffer_size": 3840,
+				"buffer_size": 6703,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "view/goal/details.tp",
+			"file": "ctrl/setup.php",
 			"settings":
 			{
-				"buffer_size": 3398,
+				"buffer_size": 670,
 				"line_ending": "Windows"
 			}
 		}
@@ -524,9 +528,13 @@
 	},
 	"file_history":
 	[
-		"/D/xampp/htdocs/beforeidie/view/account/details.tp",
-		"/D/xampp/htdocs/beforeidie/model/goal_funs.php",
+		"/D/xampp/htdocs/beforeidie/model/public_funs.php",
 		"/D/xampp/htdocs/beforeidie/ctrl/utility.php",
+		"/D/xampp/htdocs/beforeidie/model/goal_funs.php",
+		"/D/xampp/htdocs/beforeidie/view/goal/details.tp",
+		"/D/xampp/htdocs/home.php",
+		"/D/xampp/htdocs/beforeidie/README.md",
+		"/D/xampp/htdocs/beforeidie/view/account/details.tp",
 		"/D/xampp/htdocs/beforeidie/ctrl/setup.php",
 		"/D/xampp/htdocs/beforeidie/smarty/libs/Smarty.class.php",
 		"/D/xampp/htdocs/beforeidie/smarty/cache/6c71f1ce3e74505d967d613caadd6976236f3c18.details.tp.php",
@@ -548,10 +556,8 @@
 		"/D/xampp/htdocs/beforeidie/view/account/login.tp",
 		"/D/xampp/htdocs/beforeidie/view/account/active.tp",
 		"/D/xampp/htdocs/beforeidie/js/jquery.ui.datepicker-zh-CN.js",
-		"/D/xampp/htdocs/beforeidie/model/public_funs.php",
 		"/D/xampp/htdocs/beforeidie/js/jquery.validationEngine.js",
 		"/D/xampp/htdocs/beforeidie/style/vars.less",
-		"/D/xampp/htdocs/beforeidie/view/goal/details.tp",
 		"/D/xampp/htdocs/beforeidie/ctrl/GoalC.php",
 		"/D/xampp/htdocs/beforeidie/ctrl/PersonC.php",
 		"/D/xampp/htdocs/beforeidie/ctrl/PublicC.php",
@@ -649,9 +655,7 @@
 		"/F/xampp/htdocs/Goal/view/person/personal_dyns.tp",
 		"/F/xampp/htdocs/classic/application/views/work/details.php",
 		"/F/xampp/htdocs/classic/application/views/work/add.php",
-		"/F/xampp/htdocs/classic/application/views/home/work.php",
-		"/F/xampp/htdocs/classic/application/views/home/edit.php",
-		"/F/xampp/htdocs/classic/application/config/config.php"
+		"/F/xampp/htdocs/classic/application/views/home/work.php"
 	],
 	"find":
 	{
@@ -799,7 +803,7 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -824,7 +828,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 6916.0,
+						"translation.y": 6196.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -841,8 +845,8 @@
 						"selection":
 						[
 							[
-								1533,
-								1533
+								1329,
+								1329
 							]
 						],
 						"settings":
@@ -851,7 +855,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1339.0,
+						"translation.y": 439.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -861,15 +865,15 @@
 					"file": "view/header.tc",
 					"settings":
 					{
-						"buffer_size": 2338,
+						"buffer_size": 2358,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								15,
+								15
 							]
 						],
 						"settings":
@@ -888,15 +892,15 @@
 					"file": "ctrl/PersonC.php",
 					"settings":
 					{
-						"buffer_size": 1472,
+						"buffer_size": 1804,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1454,
-								1454
+								371,
+								152
 							]
 						],
 						"settings":
@@ -905,25 +909,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 849.0,
+						"translation.y": 180.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 4,
-					"file": "model/goal_funs.php",
+					"file": "model/account_funs.php",
 					"settings":
 					{
-						"buffer_size": 3840,
+						"buffer_size": 6703,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3815,
-								3815
+								206,
+								206
 							]
 						],
 						"settings":
@@ -932,34 +936,33 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2640.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 5,
-					"file": "view/goal/details.tp",
+					"file": "ctrl/setup.php",
 					"settings":
 					{
-						"buffer_size": 3398,
+						"buffer_size": 670,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								581,
-								581
+								7,
+								7
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/PHP/PHP.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 60.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1009,6 +1012,26 @@
 		"selected_items":
 		[
 			[
+				"se",
+				"ctrl/setup.php"
+			],
+			[
+				"ut",
+				"ctrl/utility.php"
+			],
+			[
+				"pub",
+				"model/public_funs.php"
+			],
+			[
+				"acc",
+				"model/account_funs.php"
+			],
+			[
+				"hea",
+				"view/header.tc"
+			],
+			[
 				"de",
 				"view/goal/details.tp"
 			],
@@ -1022,10 +1045,6 @@
 			],
 			[
 				"he",
-				"view/header.tc"
-			],
-			[
-				"hea",
 				"view/header.tc"
 			],
 			[
@@ -1057,10 +1076,6 @@
 				"view/account/login.tp"
 			],
 			[
-				"acc",
-				"model/account_funs.php"
-			],
-			[
 				"cha",
 				"view/account/change_pwd.tp"
 			],
@@ -1071,14 +1086,6 @@
 			[
 				"set",
 				"ctrl/setup.php"
-			],
-			[
-				"ut",
-				"ctrl/utility.php"
-			],
-			[
-				"pub",
-				"model/public_funs.php"
 			],
 			[
 				"log",

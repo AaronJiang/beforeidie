@@ -15,11 +15,9 @@
 	
 	//连接数据库
 	function db_conn(){
+		$db = mysql_pconnect('localhost', 'root', '', TRUE);
 
-		$db = new mysqli('localhost', 'root', '', 'beforeidie');
-		//$db = new mysqli('Mysql1001.webweb.com', '98db92_w301_1', 'xiaowangzi', 'db_98db92_w301_1');
-
-		if(mysqli_connect_errno()){
+		if(!$db){
 			echo 'Error: Could not connect to the database!';
 			exit;
 		}
@@ -30,8 +28,10 @@
 	//执行 SQL 语句
 	function db_exec($query){
 		$db = db_conn();
-		$db->query("SET NAMES 'UTF8'");
-		return $db->query($query);
+		mysql_select_db('beforeidie', $db);
+		
+		mysql_query("SET NAMES 'UTF8'", $db);
+		return mysql_query($query, $db);
 	}
 	
 	//返回当前时间

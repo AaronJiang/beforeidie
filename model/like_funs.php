@@ -4,7 +4,7 @@
 	function check_goal_like($goalID, $userID){
 		$query = "SELECT * FROM likes WHERE GoalID = ". $goalID. " AND UserID = ". $userID;
 		$result = db_exec($query);
-		return ($result->num_rows > 0);
+		return mysql_num_rows($result) > 0;
 	}
 
 	function change_goal_like($goalID, $userID, $isLike){
@@ -20,7 +20,7 @@
 	function get_likes_num($userID){
 		$query = "SELECT COUNT(*) AS num FROM likes WHERE UserID = ". $userID;
 		$result = db_exec($query);
-		$row = $result->fetch_assoc();
+		$row = mysql_fetch_assoc($result);
 
 		return $row['num'];
 	}
@@ -35,7 +35,7 @@
 		$result = db_exec($query);
 
 		$array = array();
-		while($row = $result->fetch_assoc()){
+		while($row = mysql_fetch_assoc($result)){
 			array_push($array, $row);
 		}
 		
