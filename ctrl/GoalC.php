@@ -21,7 +21,7 @@
 			$sm->assign('userID', $userID);
 
 			// goalNum
-			$sm->assign('isFull', (get_goals_num($userID, true) == 10));
+			$sm->assign('isFull', (get_goals_num($userID, true) == 16));
 
 			$sm->display('new.tp');
 			break;

@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-12-28 08:58:00
+<?php /* Smarty version Smarty-3.1.12, created on 2012-12-28 10:24:30
          compiled from "..\view\person\person.tp" */ ?>
 <?php /*%%SmartyHeaderCode:4986509235e2350e62-48954490%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '408a68eee0c915ea04698cd6d0862e63ac44b953' => 
     array (
       0 => '..\\view\\person\\person.tp',
-      1 => 1356679001,
+      1 => 1356686668,
       2 => 'file',
     ),
   ),
@@ -59,17 +59,30 @@ $(document).ready(function(){
 
 			// 组装数组
 			var idArray = '',
-				indexArray = '';
+				indexArray = '',
+				isFirstChanged = 1;
 
 			$('.goal-index').each(function(index){
-				if(index != 0){
-					idArray += '&';
-					indexArray += '&';
-				}
+				var preIndex = $(this).attr('data-goal-index');
 
-				idArray += index;
-				indexArray += $(this).attr('data-goal-id');
+				if(preIndex != index){
+					// 数组开头不加&
+					if(isFirstChanged == 1){
+						isFirstChanged = 0;
+					}else{
+						idArray += '&';
+						indexArray += '&';
+					}
+
+					idArray += index;
+					indexArray += $(this).attr('data-goal-id');
+				}
 			});
+
+			// 若未改动次序，则不发送ajax
+			if(idArray.length == 0){
+				return;
+			}
 
 			// 排序
 			$.ajax({
@@ -85,8 +98,9 @@ $(document).ready(function(){
 						alert('yes');
 					}
 				}
-			})
+			});
 
+			// 重新排序
 			$('.goal-index').each(function(index){
 				$(this).text(index + 1);
 			});
@@ -194,7 +208,8 @@ foreach ($_from as $_smarty_tpl->tpl_vars['goal']->key => $_smarty_tpl->tpl_vars
 $_smarty_tpl->tpl_vars['goal']->_loop = true;
 ?>
 	<div class="goal-item">
-		<span class='goal-index' data-goal-id="<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
+		<span class='goal-index' data-goal-index='<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalIndex'];?>
+' data-goal-id="<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
 "></span>
 		<a class="goal-title" href='GoalC.php?act=details&goalID=<?php echo $_smarty_tpl->tpl_vars['goal']->value['GoalID'];?>
 '><?php echo $_smarty_tpl->tpl_vars['goal']->value['Title'];?>

@@ -11,7 +11,7 @@
 	
 	//获取某用户的全部目标
 	function get_goals($userID, $isMe){
-		$query = "SELECT GoalID, Title, UserID, IsPublic\n"
+		$query = "SELECT GoalID, Title, UserID, IsPublic, GoalIndex\n"
 				. "FROM goals\n"
 				. "WHERE UserID = ". $userID. "\n";
 
@@ -158,10 +158,17 @@
 	function change_goal_index($idArray, $indexArray){
 		$isSucc = true;
 
+		//echo (count($idArray));
+		print_r($idArray);
+
+		echo microtime(). "<br>";
+
 		for($i=0; $i<count($idArray); $i++){
 			$query = "UPDATE goals SET GoalIndex = ". $idArray[$i]. " WHERE GoalID = ". $indexArray[$i];
 			$isSucc = $isSucc && db_exec($query);
 		}
+
+		echo microtime(). "<br>";
 
 		return $isSucc;
 	}
