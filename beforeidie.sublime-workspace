@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"mar",
+				"margin-left"
+			],
+			[
 				"data",
 				"data-goal-index"
 			],
@@ -170,10 +174,6 @@
 			[
 				"iss",
 				"isset"
-			],
-			[
-				"mar",
-				"margin-bottom"
 			],
 			[
 				"ma",
@@ -451,7 +451,7 @@
 			"file": "style/style.less",
 			"settings":
 			{
-				"buffer_size": 7605,
+				"buffer_size": 7670,
 				"line_ending": "Windows"
 			}
 		},
@@ -501,6 +501,30 @@
 			{
 				"buffer_size": 835,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "view/account/details.tp",
+			"settings":
+			{
+				"buffer_size": 1765,
+				"line_ending": "CR"
+			}
+		},
+		{
+			"file": "view/home/about.tp",
+			"settings":
+			{
+				"buffer_size": 852,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "view/account/login.tp",
+			"settings":
+			{
+				"buffer_size": 1228,
+				"line_ending": "CR"
 			}
 		}
 	],
@@ -816,7 +840,7 @@
 	"groups":
 	[
 		{
-			"selected": 6,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -824,15 +848,15 @@
 					"file": "style/style.less",
 					"settings":
 					{
-						"buffer_size": 7605,
+						"buffer_size": 7670,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5382,
-								5382
+								1618,
+								1618
 							]
 						],
 						"settings":
@@ -841,7 +865,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 6436.0,
+						"translation.y": 1427.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1007,6 +1031,87 @@
 						"zoom_level": 1.0
 					},
 					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "view/account/details.tp",
+					"settings":
+					{
+						"buffer_size": 1765,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1452,
+								1440
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1020.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "view/home/about.tp",
+					"settings":
+					{
+						"buffer_size": 852,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								814,
+								814
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 120.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "view/account/login.tp",
+					"settings":
+					{
+						"buffer_size": 1228,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								934,
+								891
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 240.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
 				}
 			]
 		}
@@ -1052,6 +1157,18 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"log",
+				"view/account/login.tp"
+			],
+			[
+				"ab",
+				"view/home/about.tp"
+			],
+			[
+				"de",
+				"view/account/details.tp"
+			],
 			[
 				"u",
 				"ctrl/utility.php"
@@ -1101,10 +1218,6 @@
 				"model/account_funs.php"
 			],
 			[
-				"de",
-				"view/goal/details.tp"
-			],
-			[
 				"he",
 				"view/header.tc"
 			],
@@ -1137,10 +1250,6 @@
 				"ctrl/setup.php"
 			],
 			[
-				"log",
-				"view/account/login.tp"
-			],
-			[
 				"go",
 				"ctrl/GoalC.php"
 			],
@@ -1163,10 +1272,6 @@
 			[
 				"head",
 				"view/header.tc"
-			],
-			[
-				"ab",
-				"view/home/about.tp"
 			],
 			[
 				"det",

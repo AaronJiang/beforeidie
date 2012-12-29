@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-12-28 02:32:17
+<?php /* Smarty version Smarty-3.1.12, created on 2012-12-28 15:12:06
          compiled from "..\view\account\details.tp" */ ?>
 <?php /*%%SmartyHeaderCode:341850937e85584b76-70932658%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'a00dcb74e1141a3480cc56fdeba3d8262ac1de1c' => 
     array (
       0 => '..\\view\\account\\details.tp',
-      1 => 1356625065,
+      1 => 1356703905,
       2 => 'file',
     ),
   ),
@@ -29,6 +29,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 </td>	</tr>	<tr>		<td class='item-header'>头像：</td>		<td>			<img class='avatar avatar-larger' src='<?php echo $_smarty_tpl->tpl_vars['user']->value['AvatarUrl'];?>
 ' />						<span>			<?php if ($_smarty_tpl->tpl_vars['hasGravatar']->value){?>			(<a title='去 Gravatar 更换你的头像' 				target='_blank'				href='http://en.gravatar.com/emails/' 				class='btn btn-tiny btn-cmd'>更换</a>)			<?php }else{ ?>			(<a title='去 Gravatar 上传你的头像，全球通用哦，亲！' 				target='_blank'				href='http://en.gravatar.com/' 				class='btn btn-tiny btn-cmd'>上传</a>)						<?php }?>			</span>		</td>	</tr>	<tr>		<td class='item-header'>性别：</td>		<td id="td-sex">			<input type="radio" data-user-id="<?php echo $_smarty_tpl->tpl_vars['user']->value['UserID'];?>
 " <?php if ($_smarty_tpl->tpl_vars['user']->value['Sex']=='male'){?>checked="checked"<?php }?> name="sex" value="male" /> 男			<input type="radio" data-user-id="<?php echo $_smarty_tpl->tpl_vars['user']->value['UserID'];?>
-" <?php if ($_smarty_tpl->tpl_vars['user']->value['Sex']=='female'){?>checked="checked"<?php }?> name="sex" value="female" /> 女		</td>	</tr>	<tr>		<td class='item-header'>邮箱：</td>		<td><?php echo $_smarty_tpl->tpl_vars['user']->value['Email'];?>
+" <?php if ($_smarty_tpl->tpl_vars['user']->value['Sex']=='female'){?>checked="checked"<?php }?> name="sex" value="female" id="radio-female"/> 女		</td>	</tr>	<tr>		<td class='item-header'>邮箱：</td>		<td><?php echo $_smarty_tpl->tpl_vars['user']->value['Email'];?>
 </td>	</tr>		<tr>		<td class='item-header'>密码：</td>		<td>			<span>				(<a title='更改密码' href='AccountC.php?act=change_pwd' class='btn btn-tiny btn-cmd'>更改</a>)			</span>		</td>	</tr></table><?php echo $_smarty_tpl->getSubTemplate ('../footer.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array(), 0);?>
 <?php }} ?>

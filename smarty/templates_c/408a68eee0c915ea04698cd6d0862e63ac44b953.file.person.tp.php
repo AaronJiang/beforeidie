@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.12, created on 2012-12-28 11:42:38
+<?php /* Smarty version Smarty-3.1.12, created on 2012-12-28 13:20:23
          compiled from "..\view\person\person.tp" */ ?>
 <?php /*%%SmartyHeaderCode:4986509235e2350e62-48954490%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '408a68eee0c915ea04698cd6d0862e63ac44b953' => 
     array (
       0 => '..\\view\\person\\person.tp',
-      1 => 1356691339,
+      1 => 1356694334,
       2 => 'file',
     ),
   ),
@@ -30,7 +30,6 @@ $_valid = $_smarty_tpl->decodeProperties(array (
 <?php if ($_valid && !is_callable('content_509235e26c2e46_48079691')) {function content_509235e26c2e46_48079691($_smarty_tpl) {?><?php echo $_smarty_tpl->getSubTemplate ('../header.tc', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, null, null, array('title'=>((string)$_smarty_tpl->tpl_vars['user']->value['Username']),'page'=>'page-person'), 0);?>
 
 
-<script type='text/javascript' src='../js/goal-comment.js'></script>
 <script type="text/javascript">
 
 
@@ -94,9 +93,7 @@ $(document).ready(function(){
 					indexArray: indexArray
 				},
 				success: function(isSucc){
-					if(isSucc == 1){
-						alert('yes');
-					}
+					if(isSucc == 1){}
 				}
 			});
 
