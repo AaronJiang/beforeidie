@@ -1,0 +1,493 @@
+@import "vars.less";
+@import "utility.less";
+@import "reset.less";
+@import "layout.less";
+@import "basecss.less";
+@import "components.less";
+
+// Page Browser Warning
+// ------------------------------------------------------------
+
+#page-browser-warning {
+	z-index: 100000;
+	text-align: center;
+	background: #FAFAFA url('../imgs/bg.png');
+	padding: 80px 0 0 0;
+
+	p{
+		text-shadow: 1px 1px 1px white;
+		margin: 0 0 10px 0;
+		font-size: @fontSizeLarger;
+	}
+}
+
+// Page Login, Register, Active, Forgot Password, Reset Password 
+// ------------------------------------------------------------
+
+#page-login,
+#page-register,
+#page-active-account,
+#page-forgot-pwd,
+#page-reset-pwd {
+	background-color: @white;
+	
+	#slogan-wap{
+		width: 650px;
+		margin: 120px auto 20px auto;
+		
+		#slogan {
+			font-size: 45px;
+			line-height : 35px;
+			margin-bottom: 30px;
+			text-align: center;
+			font-family: @altFontFamily;
+
+			a{
+				color: @black;
+				text-decoration: none;
+				-webkit-transition: text-shadow 0.1s linear;
+				-moz-transition: text-shadow 0.1s linear;
+				-o-transition: text-shadow 0.1s linear;
+
+				&:hover{
+					text-shadow: 0 0 3px @black;
+				}
+			}
+		}
+	}
+
+	#form-wap {
+		border-top: 1px solid #CCC;
+		border-bottom: 1px solid #CCC;
+		box-shadow: 0 0 8px #AAA;
+		padding: 35px 0 25px 0;
+		background-color: #F8F8F8;
+
+		#account-message {
+			margin:0 0 20px 0;
+			font-size: @fontSizeLarge;
+			text-align: center;
+		}
+		
+		form{
+			width: 400px;
+			margin: 0 auto;
+			display: block;
+			
+			input[type='text'],
+			input[type='password'] {
+				width: 100%;
+				box-sizing: border-box;
+				font-family: @baseFontFamily;
+				margin-bottom: 20px;
+				padding: 6px 12px;
+			}
+			
+			.form-footer {
+				text-align: right;
+				
+				a {
+					margin: 0 3px;
+				}
+
+				.link-gap{
+					color: #D0D0D0;
+				}
+				
+				input[type='submit'] {
+					font-family: @baseFontFamily;
+					vertical-align: text-bottom;
+					font-weight: bold;
+					margin-left: 5px;
+				}
+			}
+		}
+	}
+}
+
+// Page Account Details
+//------------------------------------------------------------
+
+#page-account-info{
+
+	#table-account-details{
+		border-spacing: 0;
+		border-collapse: collapse;
+		margin: 15px 0 0 0;
+		
+		td{
+			padding: 0 10px 10px 0;
+			vertical-align: top;
+
+			#radio-female{
+				margin-left: 5px;
+			}
+		}
+	}
+}
+
+// Page New Goal
+// ------------------------------------------------------------
+
+#page-new-goal{
+
+	#goal-title-wap{
+		border-bottom: 1px solid @grayLight;
+		padding: 10px 0 15px 0;
+		margin: 0 0 25px 0;
+		text-align: center;
+		font-weight: normal;
+		outline: none;
+		position: relative;
+
+		#pre, #goal-title{
+			text-align: center;
+			font-weight: normal;
+			outline: none;
+			margin-bottom: 5px;
+		}
+
+		#pre{
+			margin-bottom: 5px;
+		}
+
+		.btn-lock{
+			position: absolute;
+			bottom: 5px;
+			right: 5px;
+			background-position: -287px -24px;
+			opacity: 0.8;
+
+			&:hover{
+				opacity:0.9;
+			}
+		}
+		.btn-lock-false{
+			opacity: 0.1;
+
+			&:hover{
+				opacity: 0.2;
+			}
+		}
+	}
+
+	#goal-content{
+		font-family: @altFontFamily;
+		font-size: @fontSizeLarge;
+		line-height: 25px;
+		margin: 0 0 5px 0;
+		padding: 0 5px;
+		min-height: 400px;
+		outline: none;
+
+		div{
+			margin-bottom: 15px;
+		}
+	}
+
+	#btn-new-goal{
+		float: right;
+	}
+}
+	
+// Page Goal Details
+// ------------------------------------------------------------
+
+#page-goal-details{
+
+	#title-wap{
+		position: relative;
+		border-bottom: 1px solid @grayLighter;
+		padding: 10px 0 15px 0;
+		margin: 0 0 22px 0;
+
+		#pre, #goal-title{
+			font-weight: normal;
+			outline: none;
+			margin-bottom: 5px;
+			text-align: center;
+		}
+
+		#pre{
+			margin-bottom: 5px;
+		}
+
+		#goal-title{
+			font-size: 30px;
+		}
+
+		#extra-info-wap{
+			position: absolute;
+			bottom: 3px;
+			right: 5px;
+			
+			#goal-creator{
+				font-style: italic;
+				color: @grayLighter;
+				a{
+					display: inline-block;
+					color: @grayLighter;
+				}
+			}
+
+			.btn-lock{
+				margin-right: 3px;
+				vertical-align: -12%;
+				margin-right: 2px;
+				background-position: -287px -24px;
+				opacity: 0.8;
+
+				&:hover{
+					opacity: 0.9;
+				}
+			}
+			.btn-lock-false{
+				opacity: 0.1;
+
+				&:hover{
+					opacity: 0.2;
+				}
+			}
+		}
+	}
+
+	#goal-content{
+		font-family: @altFontFamily;
+		font-size: 16px;
+		line-height: 28px;
+		padding: 0 5px;
+		outline: none;
+		min-height: 400px;
+
+		div{
+			margin-bottom: 16px;
+		}
+	}
+
+	.btn-like{
+		float: right;
+		margin-right: 5px;
+		background-position: -96px 0;
+		opacity: 0.8;
+		&:hover{
+			opacity: 0.9;
+		}
+	}
+	.btn-like-false{
+		opacity: 0.2;
+		&:hover{
+			opacity: 0.3;
+		}
+	}
+}
+
+// Page Person
+// ------------------------------------------------------------
+
+#page-person{
+
+	/* User Info */
+	#user-info-wap{
+		margin: 0 0 15px 5px;
+		position: relative;
+		
+		#user-info{
+			margin: 0 0 0 65px;
+			
+			#title{
+				margin-bottom: 4px;
+				font-size: 30px;
+				line-height: 30px;
+				font-weight: normal;
+			}
+
+			#username{
+				font-size: @fontSizeSmall;
+				color: @gray;
+				outline: none;
+				padding-left: 2px;
+			}
+
+			#likes{
+				position: absolute;
+				top: 6px;
+				right: 10px;
+				font-size: @fontSizeSmall;
+
+				a{
+					color: @grayLight;
+					text-decoration: none;
+				}
+
+				.btn-like{
+					vertical-align: -12%;
+					background-position: -96px 0;
+					opacity: 0.8;
+				}
+			}
+		}
+	}
+
+	/* User Goals */
+	.goal-wap{
+		.goal-item-highlight{
+			height: 55px;
+			box-sizing: border-box;
+			border-top: 1px solid #EEE;
+		}
+
+		.goal-item{
+			border-top: 1px solid #F2F2F2;
+			padding: 17px 0;
+			position: relative;
+			
+			.goal-index{
+				width: 66px;
+				display: inline-block;
+				text-align: center;
+				font-family: 'cg';
+				font-size: @fontSizeLarge;
+			}
+
+			.goal-dragable{
+				cursor: move;
+			}
+
+			.goal-title{
+				padding-left: 0px;
+				display: inline-block;
+				color: @black;
+				font-size: @fontSizeLarge;
+				font-family: @altFontFamily;
+			}
+			
+			.extra-info-wap{
+				position: absolute;
+				top: 20px;
+				right: 10px;
+
+				.btn-lock{
+					background-position: -287px -24px;
+					opacity: 0.8;
+					margin-right: 5px;
+
+					&:hover{
+						opacity:0.9;
+					}
+				}
+				.btn-lock-false{
+					opacity: 0.1;
+
+					&:hover{
+						opacity: 0.2;
+					}
+				}
+
+				.btn-remove{
+					background-position: -312px 0;
+					opacity: 0.1;
+
+					&:hover{
+						opacity: 0.2;
+					}
+				}
+			}
+		}
+	}
+}
+
+// Page Discover
+// ------------------------------------------------------------
+
+#page-discover {
+	
+	/* Goal Item */
+	.goal-item{
+		border: 1px solid @grayLighter;
+		margin: 0 20px 20px 0;
+		box-sizing: border-box;
+		width: 180px;
+		height: 180px;
+		float: left;
+		position: relative;
+		padding: 12px 12px;
+		
+		.goal-title{
+			margin-bottom: 10px;
+			padding-bottom: 10px;
+			border-bottom: 1px dashed @grayLighter;	
+
+			a {
+				font-size: @fontSizeLarge;
+				color: @black;
+
+				&:hover {
+					color: @black;
+				}
+			}
+		}
+		
+		.goal-content{
+			color: @grayLight;
+			font-family: @altFontFamily;
+			font-size: @fontSizeSmall;
+		}
+		
+		.goal-info-wap{
+			position: absolute;
+			right: 10px;
+			bottom: 5px;
+			color: @grayLight;
+			text-align: right;
+			font-size: @fontSizeSmall;
+			margin-bottom: 0px;
+
+			a{
+				color: @grayLight;
+			}
+		}
+	}
+}
+
+// Page About
+// ------------------------------------------------------------
+#page-about{
+	p{
+		font-family: @altFontFamily;
+		line-height: 22px;
+		margin-bottom: 15px;
+	}
+}
+
+// Page Likes
+// ------------------------------------------------------------
+#page-like{
+	.goal-item{
+		border-top: 1px solid @grayLighter;
+		padding: 12px 5px 10px 5px;
+		position: relative;
+
+		.goal-title{
+			font-family: @altFontFamily;
+			font-size: @fontSizeLarge;
+			margin-bottom: 5px;
+
+			a{
+				color: @black;
+			}
+		}
+
+		.goal-content{
+			font-size: @fontSizeSmall;
+			font-family: #altFontFamily;
+			color: @grayLight;
+		}
+
+		.goal-creator{
+			position: absolute;
+			font-size: @fontSizeSmall;
+			bottom: 5px;
+			right: 5px;
+		}
+	}
+}
