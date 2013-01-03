@@ -549,6 +549,21 @@ if ( ! function_exists('redirect'))
 // ------------------------------------------------------------------------
 
 /**
+ * Header Redirect Back
+ *
+ * @access	public
+ */
+
+if ( ! function_exists('redirect_back'))
+{
+	function redirect_back(){
+		header('Location:'. $_SERVER['HTTP_REFERER']);
+	}
+}
+
+// ------------------------------------------------------------------------
+
+/**
  * Parse out the attributes
  *
  * Some of the functions use this

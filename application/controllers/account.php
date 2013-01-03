@@ -263,7 +263,7 @@ class Account extends CI_Controller{
 		$mailbody .= "</body></html>";
 			
 		//发送邮件
-		$this->_send_email($emailTo, $mailsubject, $mailbody);
+		@$this->smtp->sendmail($emailTo, $mailsubject, $mailbody);
 	}
 
 	//生成激活码
@@ -290,9 +290,6 @@ class Account extends CI_Controller{
 		$mailbody .= "</body></html>";
 		
 		//发送邮件
-
-		//$this->_send_email($emailTo, $mailsubject, $mailbody);
-
 		$this->smtp->sendmail($emailTo, $mailsubject, $mailbody);
 	}
 
@@ -302,23 +299,6 @@ class Account extends CI_Controller{
 		$userInfo = $this->Account_model->get_user_by_email($email);
 		return sha1($userInfo->UserID. $userInfo->Username. $email);
 	}
-
-	//发送邮件
-	function _send_email($smtpemailto, $mailsubject, $mailbody){
-		include_once('smtp.php');
-		
-		$smtpserver = "smtp.qq.com";
-		$smtpserverport = 25;
-		$smtpusermail = "hustlzp@qq.com";
-		$smtpuser = "hustlzp@qq.com";
-		$smtppass = "xiaowangzi";
-		$mailtype = "HTML";
-
-		$smtp = new smtp($smtpserver, $smtpserverport, true, $smtpuser, $smtppass);
-		$smtp->debug = FALSE;
-		@$smtp->sendmail($smtpemailto, $smtpusermail, $mailsubject, $mailbody, $mailtype);
-	}
-
 }
 
 ?>

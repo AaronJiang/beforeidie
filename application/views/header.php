@@ -18,7 +18,7 @@
 
 		<div id="feedback-panel">
 			<div id="feedback-tag"></div>
-			<form action="<?= base_url('public/send_feedback') ?>" method="post" id="form-feedback">
+			<form action="<?= base_url('common/send_feedback') ?>" method="post" id="form-feedback">
 				<input id="feedback-subject" name="feedbackSubject" placeholder="主题（可不填）" autocomplete="off" type="text" />
 				<textarea id="feedback-content" class="validate[required]" name="feedbackContent" rows="10" placeholder="建议内容"></textarea>
 				<input class="btn btn-primary" type="submit" value="发送" />

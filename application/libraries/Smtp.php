@@ -12,30 +12,40 @@ class Smtp
 	var $user;
 	var $pass;
 	var $sock;
+	var $from;
+	var $mailtype;
 	
-	function smtp($relay_host = "smtp.qq.com", $smtp_port = 25, $auth = false, $user = "hustlzp@qq.com", $pass = "xiaowangzi")
+	//public function __construct($relay_host = "smtp.qq.com", $smtp_port = 25, $auth = true, $user = "hustlzp@qq.com", $pass = "xiaowangzi")
+	public function __construct($config = array())
 	{
+		$this->smtp_port  = $config['port'];
+		$this->relay_host = $config['host'];
+		$this->auth       = $config['auth'];
+		$this->user       = $config['user'];
+		$this->pass       = $config['pass'];
+
+		$this->from       = $config['from'];
+		$this->mailtype   = $config['mailtype'];
+
+
 		$this->debug      = false;
-		$this->smtp_port  = $smtp_port;
-		$this->relay_host = $relay_host;
 		$this->time_out   = 30;
 		
-		$this->auth = $auth;
-		$this->user = $user;
-		$this->pass = $pass;
-		
-		$this->host_name = "localhost";
-		$this->log_file  = "";
-		$this->sock      = FALSE;
+		$this->host_name  = "localhost";
+		$this->log_file   = "";
+		$this->sock       = FALSE;
 	}
 	
-	function sendmail($to, $subject = "", $body = "", $from = "hustlzp@qq.com", $mailtype = "HTML", $cc = "", $bcc = "", $additional_headers = "")
+	public function sendmail($to = "", $subject = "", $body = "", $cc = "", $bcc = "", $additional_headers = "")
 	{
+		$from = $this->from;
+		$mailtype = $this->mailtype;
+
 		$mail_from = $this->get_address($this->strip_comment($from));
 		
 		$body = ereg_replace("(^|(\r\n))(\\.)", "\\1.\\3", $body);
 		
-		$header .= "MIME-Version:1.0\r\n";
+		$header = "MIME-Version:1.0\r\n";
 		
 		if ($mailtype == "HTML") {
 			$header .= "Content-Type:text/html\r\n";
@@ -292,5 +302,3 @@ class Smtp
 }
 
 /* End of file Someclass.php */
-
-?>
