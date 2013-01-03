@@ -16,24 +16,18 @@ class Account_model extends CI_Model{
 		return $result->row();
 	}
 
-	function get_gravatar_by_id($userID){
-		$query = "SELECT AvatarUrl FROM users WHERE UserID = ". $userID;
+	function get_email_by_id($userID){
+		$query = "SELECT Email FROM users WHERE UserID = ". $userID;
 		$result = $this->db->query($query);
 		$row = $result->row();
-		return $row->AvatarUrl;
-	}
-
-	function gene_gravatar_by_email($email){
-		$hash = md5(strtolower(trim($email)));
-		return "http://www.gravatar.com/avatar/". $hash;		
+		return $row->Email;
 	}
 
 // NEW
 
 	//用户注册
-	function new_user($username, $pwd, $email){
+	function new_user($username, $pwd, $email, $gravatarUrl){
 		$query = "INSERT INTO users (Username, Password, Email, AvatarUrl) VALUES (?, ?, ?, ?)";
-		$gravatarUrl = $this->gene_gravatar_by_email($email);
 		return $this->db->query($query, array($username, sha1($pwd), $email, $gravatarUrl));
 	}
 
@@ -60,20 +54,6 @@ class Account_model extends CI_Model{
 	}
 
 // CHECK
-
-	function check_gravatar($userID){
-		$uri = $this->get_gravatar_by_id($userID). '?d=404';
-		
-		$headers = @get_headers($uri);
-		
-		if (!preg_match("|200|", $headers[0])) {
-			$has_valid_avatar = FALSE;
-		} else {
-			$has_valid_avatar = TRUE;
-		}
-		
-		return $has_valid_avatar;
-	}
 
 	function check_user_pwd_by_email($email, $pwd){
 		$query = "SELECT * FROM users WHERE Email = ? AND Password = ?";

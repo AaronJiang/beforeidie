@@ -15,6 +15,7 @@
 |
 */
 $config['base_url']	= 'http://localhost/beforeidie';
+//$config['base_url']	= 'http://beforeidie.asia';
 
 /*
 |--------------------------------------------------------------------------

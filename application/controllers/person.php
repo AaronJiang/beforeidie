@@ -33,7 +33,8 @@ class Person extends CI_Controller{
 			$data['isCreator'] = ($userID == $_SESSION['valid_user_id']);
 
 			if($data['isCreator']){
-				$data['hasGravatar'] = $this->Account_model->check_gravatar($userID);
+				$email = $this->Account_model->get_email_by_id($userID);
+				$data['hasGravatar'] = $this->gravatar->check_gravatar($email);
 			}
 		} else {
 			$data['isCreator'] = FALSE;

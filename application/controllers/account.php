@@ -64,7 +64,9 @@ class Account extends CI_Controller{
 		$password = $_REQUEST['password'];
 
 		$this->load->model('Account_model');
-		$isSucc = $this->Account_model->new_user($username, $password, $email);
+		// 生成gravatar链接
+		$gravatarUrl = $this->gravatar->gene_gravatar_by_email($email);
+		$isSucc = $this->Account_model->new_user($username, $password, $email, $gravatarUrl);
 		if($isSucc){
 			$this->_send_active_email($email);
 			setcookie("ue", base64_encode($email), time()+3600*24*30);	//用户邮箱ue（1个月）
@@ -288,7 +290,10 @@ class Account extends CI_Controller{
 		$mailbody .= "</body></html>";
 		
 		//发送邮件
-		$this->_send_email($emailTo, $mailsubject, $mailbody);		
+
+		//$this->_send_email($emailTo, $mailsubject, $mailbody);
+
+		$this->smtp->sendmail($emailTo, $mailsubject, $mailbody);
 	}
 
 	//生成激活码
@@ -311,7 +316,7 @@ class Account extends CI_Controller{
 
 		$smtp = new smtp($smtpserver, $smtpserverport, true, $smtpuser, $smtppass);
 		$smtp->debug = FALSE;
-		@$smtp->sendmail($smtpemailto, $smtpusermail, $mailsubject, $mailbody, $mailtype);	
+		@$smtp->sendmail($smtpemailto, $smtpusermail, $mailsubject, $mailbody, $mailtype);
 	}
 
 }
