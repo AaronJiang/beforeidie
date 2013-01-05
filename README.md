@@ -1,6 +1,8 @@
 Before I die I want to...
 ==========
 
+http://beforeidie.asia/
+
 It's easy to get caught up in the day-to-day life and forget what really matters to you.
 我们总是很容易就陷入日常生活的琐碎之中，而忘记了对我们来说真正重要的是什么。
 
