@@ -18,6 +18,8 @@ class Person extends CI_Controller{
 			}
 		}
 
+		//setcookie("ua", base64_encode("You are authed!"), time()-3600);
+
 		$this->load->model('Account_model');
 		$user = $this->Account_model->get_user_by_id($userID);
 
@@ -57,9 +59,9 @@ class Person extends CI_Controller{
 		echo $this->Goal_model->change_goal_index($idArray, $indexArray)? 1: 0;
 	}
 
-	function change_goal_state(){
+	function change_goal_lock(){
 		$this->load->model('Goal_model');
-		echo $this->Goal_model->change_goal_state($_REQUEST['goalID'], $_REQUEST['isPublic'])? 1: 0;
+		echo $this->Goal_model->change_goal_lock($_REQUEST['goalID'], $_REQUEST['isPublic'])? 1: 0;
 	}
 			
 	function drop_goal(){

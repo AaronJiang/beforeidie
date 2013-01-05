@@ -127,13 +127,13 @@ $(document).ready(function(){
 
 <div id="goal-content" data-goal-id="<?= $goal->GoalID ?>"
 	<?php if($isCreator): ?>contenteditable="true"<?php endif; ?>
-	><?= $goal->Content ?></div>
+	><?= stripslashes($goal->Content) ?></div>
 
 <!-- 不为创造者且isLike不为空 -->
 <?php if( ! $isCreator AND isset($isLike)): ?>
 	<?php if($isLike): ?>
-	<span class="btn-icon btn-like" data-goal-id="<?= $goal->GoalID ?>" data-user-id="<?= $currUserID ?>" data-is-like="1"></span>
+	<span class="btn-icon btn-like" title="喜欢" data-goal-id="<?= $goal->GoalID ?>" data-user-id="<?= $currUserID ?>" data-is-like="1"></span>
 	<?php else: ?>
-	<span class="btn-icon btn-like btn-like-false" data-goal-id="<?= $goal->GoalID ?>" data-user-id="<?= $currUserID ?>" data-is-like="0"></span>
+	<span class="btn-icon btn-like btn-like-false" title="喜欢" data-goal-id="<?= $goal->GoalID ?>" data-user-id="<?= $currUserID ?>" data-is-like="0"></span>
 	<?php endif; ?>
 <?php endif; ?>

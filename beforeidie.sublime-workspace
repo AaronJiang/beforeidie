@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"pa",
+				"padding-top"
+			],
+			[
+				"bor",
+				"border-top"
+			],
+			[
 				"from",
 				"from"
 			],
@@ -172,10 +180,6 @@
 				"margin-right"
 			],
 			[
-				"bor",
-				"border-box"
-			],
-			[
 				"font",
 				"font-size"
 			],
@@ -186,10 +190,6 @@
 			[
 				"auth",
 				"auth_check"
-			],
-			[
-				"pa",
-				"padding-left"
 			],
 			[
 				"fo",
@@ -500,34 +500,50 @@
 	"buffers":
 	[
 		{
-			"file": "application/controllers/account.php",
+			"file": "static/style/style.less",
 			"settings":
 			{
-				"buffer_size": 8157,
+				"buffer_size": 7993,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "application/controllers/common.php",
+			"file": "application/views/person/person.php",
 			"settings":
 			{
-				"buffer_size": 1111,
+				"buffer_size": 4582,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "system/helpers/url_helper.php",
+			"file": "application/config/database.php",
 			"settings":
 			{
-				"buffer_size": 12616,
+				"buffer_size": 3516,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "application/views/header.php",
+			"file": "application/views/goal/add.php",
 			"settings":
 			{
-				"buffer_size": 2608,
+				"buffer_size": 2064,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/views/goal/details.php",
+			"settings":
+			{
+				"buffer_size": 3515,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/controllers/person.php",
+			"settings":
+			{
+				"buffer_size": 1750,
 				"line_ending": "Windows"
 			}
 		}
@@ -568,28 +584,50 @@
 	},
 	"file_history":
 	[
-		"/D/xampp/htdocs/beforeidie/application/libraries/Smtp.php",
-		"/D/xampp/htdocs/beforeidie/application/config/smtp.php",
-		"/D/xampp/htdocs/beforeidie/system/core/Loader.php",
-		"/D/xampp/htdocs/beforeidie/system/libraries/Email.php",
-		"/D/xampp/htdocs/beforeidie/application/controllers/smtp.php",
-		"/D/xampp/htdocs/beforeidie/system/core/Controller.php",
+		"/D/xampp/htdocs/beforeidie/application/controllers/account.php",
+		"/D/xampp/htdocs/beforeidie/application/views/account/info.php",
+		"/D/xampp/htdocs/beforeidie/application/controllers/person.php",
+		"/D/xampp/htdocs/beforeidie/application/views/home/about.php",
+		"/D/xampp/htdocs/beforeidie/application/helpers/auth_helper.php",
+		"/D/xampp/htdocs/beforeidie/application/views/person/person.php",
 		"/D/xampp/htdocs/beforeidie/application/config/autoload.php",
-		"/D/xampp/htdocs/beforeidie/application/libraries/Gravatar.php",
-		"/D/xampp/htdocs/beforeidie/application/controllers/smtp2.php",
-		"/D/xampp/htdocs/beforeidie/system/core/Benchmark.php",
+		"/D/xampp/htdocs/beforeidie/application/controllers/common.php",
+		"/D/xampp/htdocs/beforeidie/system/helpers/url_helper.php",
+		"/D/xampp/htdocs/beforeidie/application/controllers/goal.php",
+		"/D/xampp/htdocs/beforeidie/application/views/goal/details.php",
+		"/D/xampp/htdocs/beforeidie/application/models/goal_model.php",
+		"/D/xampp/htdocs/beforeidie/application/config/database.php",
+		"/D/xampp/htdocs/beforeidie/application/views/account/reset_pwd.php",
+		"/D/xampp/htdocs/beforeidie/application/views/account/forgot_pwd.php",
+		"/D/xampp/htdocs/beforeidie/application/views/account/footer.php",
+		"/D/xampp/htdocs/beforeidie/application/views/account/change_pwd.php",
+		"/D/xampp/htdocs/beforeidie/application/views/account/active.php",
+		"/D/xampp/htdocs/beforeidie/.htaccess",
 		"/D/xampp/htdocs/beforeidie/index.php",
 		"/D/xampp/htdocs/beforeidie/application/config/config.php",
+		"/D/xampp/htdocs/beforeidie/application/libraries/Gravatar.php",
+		"/D/xampp/htdocs/beforeidie/static/style/vars.less",
+		"/D/xampp/htdocs/beforeidie/system/core/Controller.php",
+		"/D/xampp/htdocs/beforeidie/application/index.html",
+		"/D/xampp/htdocs/beforeidie/system/core/Output.php",
+		"/D/xampp/htdocs/beforeidie/system/core/CodeIgniter.php",
+		"/D/xampp/htdocs/beforeidie/static/browser_warning.php",
+		"/D/xampp/htdocs/beforeidie/application/config/hooks.php",
+		"/D/xampp/htdocs/beforeidie/application/hooks/browser_check.php",
+		"/D/xampp/htdocs/beforeidie/system/core/Hooks.php",
+		"/D/xampp/htdocs/beforeidie/system/core/Loader.php",
+		"/D/xampp/htdocs/beforeidie/application/views/header.php",
+		"/D/xampp/htdocs/beforeidie/application/libraries/Smtp.php",
+		"/D/xampp/htdocs/beforeidie/application/config/smtp.php",
+		"/D/xampp/htdocs/beforeidie/system/libraries/Email.php",
+		"/D/xampp/htdocs/beforeidie/application/controllers/smtp.php",
+		"/D/xampp/htdocs/beforeidie/application/controllers/smtp2.php",
+		"/D/xampp/htdocs/beforeidie/system/core/Benchmark.php",
 		"/D/xampp/htdocs/beforeidie/application/models/account_model.php",
-		"/D/xampp/htdocs/beforeidie/application/config/database.php",
-		"/D/xampp/htdocs/beforeidie/application/controllers/account.php",
-		"/D/xampp/htdocs/beforeidie/application/controllers/person.php",
 		"/D/xampp/htdocs/beforeidie/system/core/Model.php",
 		"/D/xampp/htdocs/beforeidie/system/libraries/Cart.php",
 		"/D/xampp/htdocs/beforeidie/system/libraries/Driver.php",
 		"/D/xampp/htdocs/beforeidie/application/libraries/gravatar.php",
-		"/D/xampp/htdocs/beforeidie/application/views/home/about.php",
-		"/D/xampp/htdocs/beforeidie/.htaccess",
 		"/D/xampp/htdocs/beforeidie/beforeidie.sublime-workspace",
 		"/C/Users/hustlzp/Desktop/s",
 		"/D/xampp/htdocs/beforeidie_ci/application/views/goal/details.php",
@@ -673,29 +711,7 @@
 		"/F/xampp/htdocs/beforeidie/ctrl/setup.php",
 		"/F/xampp/htdocs/beforeidie/view/account/register.tp",
 		"/F/xampp/htdocs/beforeidie/view/account/login.tp",
-		"/F/xampp/htdocs/beforeidie/view/account/forgot_pwd.tp",
-		"/F/xampp/htdocs/beforeidie/view/header.tc",
-		"/F/xampp/htdocs/beforeidie/view/home/about.tp",
-		"/F/xampp/htdocs/beforeidie/view/goal/details.tp",
-		"/F/xampp/htdocs/beforeidie/view/account/details.tp",
-		"/F/xampp/htdocs/beforeidie/style/components.less",
-		"/F/xampp/htdocs/beforeidie/style/basecss.less",
-		"/F/xampp/htdocs/beforeidie/ctrl/GoalC.php",
-		"/F/xampp/htdocs/beforeidie/ctrl/AccountC.php",
-		"/F/xampp/htdocs/beforeidie/ctrl/PersonC.php",
-		"/F/xampp/htdocs/beforeidie/view/person/person.tp",
-		"/F/xampp/htdocs/beforeidie/view/comments.tc",
-		"/F/xampp/htdocs/beforeidie/ctrl/DiscoverC.php",
-		"/F/xampp/htdocs/beforeidie/ctrl/utility.php",
-		"/F/xampp/htdocs/beforeidie/model/goal_funs.php",
-		"/F/xampp/htdocs/beforeidie/view/person/followers.tp",
-		"/F/xampp/htdocs/beforeidie/ctrl/LikeC.php",
-		"/F/xampp/htdocs/beforeidie/view/discover/discover.tp",
-		"/F/xampp/htdocs/beforeidie/beforeidie.sublime-workspace",
-		"/F/xampp/htdocs/beforeidie/beforeidie.sublime-project",
-		"/C/Users/lzp/Desktop/ss",
-		"/C/Users/lzp/Desktop/goal (2).sql",
-		"/F/xampp/htdocs/beforeidie/view/footer.tc"
+		"/F/xampp/htdocs/beforeidie/view/account/forgot_pwd.tp"
 	],
 	"find":
 	{
@@ -713,6 +729,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"wopus",
 			"hustlzp",
 			"get_gravatar_by_id",
 			"userID",
@@ -855,76 +872,77 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "application/controllers/account.php",
+					"file": "static/style/style.less",
 					"settings":
 					{
-						"buffer_size": 8157,
+						"buffer_size": 7993,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5433,
-								5433
+								6028,
+								6028
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"syntax": "Packages/CSS/CSS.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 7065.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "application/controllers/common.php",
+					"file": "application/views/person/person.php",
 					"settings":
 					{
-						"buffer_size": 1111,
+						"buffer_size": 4582,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								929,
-								929
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.tmLanguage"
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 3129.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "system/helpers/url_helper.php",
+					"file": "application/config/database.php",
 					"settings":
 					{
-						"buffer_size": 12616,
+						"buffer_size": 3516,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								11724,
-								11724
+								0,
+								0
 							]
 						],
 						"settings":
@@ -933,25 +951,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 10549.0,
+						"translation.y": 900.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "application/views/header.php",
+					"file": "application/views/goal/add.php",
 					"settings":
 					{
-						"buffer_size": 2608,
+						"buffer_size": 2064,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								624,
-								624
+								0,
+								0
 							]
 						],
 						"settings":
@@ -960,7 +978,61 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 180.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "application/views/goal/details.php",
+					"settings":
+					{
+						"buffer_size": 3515,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2400.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "application/controllers/person.php",
+					"settings":
+					{
+						"buffer_size": 1750,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 600.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1010,12 +1082,40 @@
 		"selected_items":
 		[
 			[
-				"hea",
-				"application/views/header.php"
-			],
-			[
 				"acc",
 				"application/controllers/account.php"
+			],
+			[
+				"per",
+				"application/controllers/person.php"
+			],
+			[
+				"deta",
+				"application/views/goal/details.php"
+			],
+			[
+				"info",
+				"application/views/account/info.php"
+			],
+			[
+				"add",
+				"application/views/goal/add.php"
+			],
+			[
+				"da",
+				"application/config/database.php"
+			],
+			[
+				"goal",
+				"application/models/goal_model.php"
+			],
+			[
+				"person",
+				"application/views/person/person.php"
+			],
+			[
+				"hea",
+				"application/views/header.php"
 			],
 			[
 				"pers",
@@ -1024,14 +1124,6 @@
 			[
 				"ab",
 				"application/views/home/about.php"
-			],
-			[
-				"goal",
-				"application/models/goal_model.php"
-			],
-			[
-				"deta",
-				"application/views/goal/details.php"
 			],
 			[
 				"foo",
@@ -1048,10 +1140,6 @@
 			[
 				"log",
 				"application/views/account/login.php"
-			],
-			[
-				"per",
-				"application/controllers/person.php"
 			],
 			[
 				"de",
@@ -1116,10 +1204,6 @@
 			[
 				"pu",
 				"ctrl/PublicC.php"
-			],
-			[
-				"person",
-				"view/person/person.tp"
 			],
 			[
 				"sl",

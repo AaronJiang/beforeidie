@@ -14,8 +14,16 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost/beforeidie';
-//$config['base_url']	= 'http://beforeidie.asia';
+
+switch (ENVIRONMENT){
+	case "development":
+		$config['base_url']	= 'http://localhost/beforeidie/';
+		break;
+
+	case "production":
+		$config['base_url']	= 'http://beforeidie.asia/';
+		break;
+}
 
 /*
 |--------------------------------------------------------------------------
@@ -92,7 +100,7 @@ $config['charset'] = 'UTF-8';
 | setting this variable to TRUE (boolean).  See the user guide for details.
 |
 */
-$config['enable_hooks'] = FALSE;
+$config['enable_hooks'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------

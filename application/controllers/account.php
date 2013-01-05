@@ -6,6 +6,8 @@ class Account extends CI_Controller{
 
 	// view
 	function login(){
+		//auth_check('login');
+
 		$data['pageTitle'] = '登陆';
 		$data['pageID'] = 'page-login';
 
@@ -201,7 +203,7 @@ class Account extends CI_Controller{
 		$this->load->model('Account_model');
 
 		$data['user'] = $this->Account_model->get_user_by_id($userID);
-		$data['hasGravatar'] = $this->Account_model->check_gravatar($userID);
+		$data['hasGravatar'] = $this->gravatar->check_gravatar($userID);
 
 		$this->load->view('header.php', $data);
 		$this->load->view('account/info.php', $data);

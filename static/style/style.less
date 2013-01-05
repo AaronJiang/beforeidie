@@ -17,7 +17,8 @@
 	p{
 		text-shadow: 1px 1px 1px white;
 		margin: 0 0 10px 0;
-		font-size: @fontSizeLarger;
+		font-size: 16px;
+		line-height: 22px;
 	}
 }
 
@@ -268,15 +269,15 @@
 		float: right;
 		margin-right: 5px;
 		background-position: -96px 0;
-		opacity: 0.8;
+		opacity: 0.9;
 		&:hover{
-			opacity: 0.9;
+			opacity: 1;
 		}
 	}
 	.btn-like-false{
-		opacity: 0.2;
+		opacity: 0.5;
 		&:hover{
-			opacity: 0.3;
+			opacity: 0.6;
 		}
 	}
 }
@@ -328,6 +329,14 @@
 		}
 	}
 
+	#null-warning{
+		border-top: 1px solid #EEE;
+		padding-left: 4px;
+		padding-top: 10px;
+		font-size: @fontSizeSmall;
+		color: @grayDarker;
+	}
+
 	/* User Goals */
 	.goal-wap{
 		.goal-item-highlight{
@@ -363,7 +372,7 @@
 			
 			.extra-info-wap{
 				position: absolute;
-				top: 20px;
+				top: 19px;
 				right: 10px;
 
 				.btn-lock{

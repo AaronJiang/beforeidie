@@ -75,7 +75,7 @@ $(document).ready(function(){
 			btn = $(this);
 
 		$.ajax({
-			url: "<?=base_url('person/change_goal_state') ?>",
+			url: "<?=base_url('person/change_goal_lock') ?>",
 			type: 'POST',
 			data: {
 				'goalID': goalID,
@@ -133,7 +133,7 @@ $(document).ready(function(){
 
 <div id='user-info-wap' class="clearleft">
 	<?php if($isCreator AND ! $hasGravatar): ?>
-	<a href="http://en.gravatar.com/" target="_blank" title="去 Gravatar 上传你的头像，全球通用哦，亲！"><img class="avatar avatar-side avatar-large" src="<?=$user->AvatarUrl ?>" /></a>
+	<a href="http://cn.gravatar.com/" target="_blank" title="去 Gravatar 上传你的头像，全球通用哦，亲！"><img class="avatar avatar-side avatar-large" src="<?=$user->AvatarUrl ?>" /></a>
 	<?php else: ?>
 	<img class='avatar avatar-side avatar-large' src="<?=$user->AvatarUrl ?>" />
 	<?php endif; ?>
@@ -154,7 +154,14 @@ $(document).ready(function(){
 	</div>
 </div>
 
+<?php if(count($goals) == 0): ?>
+
+<div id="null-warning">还没有任何东东哦，你可以 <a href="<?= base_url('goal/add') ?>">添加</a> 一个条目，或者先随便 <a href="<?= base_url('discover') ?>">逛逛</a> 啦~</div>
+
+<?php else: ?>
+
 <div class='goal-wap'>
+
 	<?php foreach($goals as $goal): ?>
 	<div class="goal-item">
 		<span class='goal-index <?php if($isCreator): ?>goal-dragable<?php endif; ?>' data-goal-index="<?=$goal->GoalIndex ?>" data-goal-id="<?=$goal->GoalID ?>"></span>
@@ -177,3 +184,5 @@ $(document).ready(function(){
 	</div>
 	<?php endforeach; ?>
 </div>
+
+<?php endif; ?>

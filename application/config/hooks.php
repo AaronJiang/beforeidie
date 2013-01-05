@@ -9,7 +9,12 @@
 |	http://codeigniter.com/user_guide/general/hooks.html
 |
 */
-
+$hook['pre_system'] = array(
+						'class'    => '',
+						'function' => 'browser_check',
+						'filename' => 'browser_check.php',
+						'filepath' => 'hooks'
+						);
 
 
 /* End of file hooks.php */

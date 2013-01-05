@@ -49,10 +49,21 @@ $active_group = 'default';
 $active_record = TRUE;
 
 // default
-$db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = '';
-$db['default']['database'] = 'beforeidie';
+switch (ENVIRONMENT){
+	case "development":
+		$db['default']['hostname'] = 'localhost';
+		$db['default']['username'] = 'root';
+		$db['default']['password'] = '';
+		$db['default']['database'] = 'beforeidie';
+		break;
+
+	case "production":
+		$db['default']['hostname'] = 'localhost';
+		$db['default']['username'] = 'hustlzp_001';
+		$db['default']['password'] = 'xiaowangzi';
+		$db['default']['database'] = 'hustlzp_beforeidie';
+		break;
+}
 
 $db['default']['dbdriver'] = 'mysql';
 $db['default']['dbprefix'] = '';
@@ -65,24 +76,6 @@ $db['default']['dbcollat'] = 'utf8_general_ci';
 $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
-
-// wopus
-$db['wopus']['hostname'] = 'localhost';
-$db['wopus']['username'] = 'hustlzp_001';
-$db['wopus']['password'] = 'xiaowangzi';
-$db['wopus']['database'] = 'hustlzp_beforeidie';
-
-$db['wopus']['dbdriver'] = 'mysql';
-$db['wopus']['dbprefix'] = '';
-$db['wopus']['pconnect'] = TRUE;
-$db['wopus']['db_debug'] = TRUE;
-$db['wopus']['cache_on'] = FALSE;
-$db['wopus']['cachedir'] = '';
-$db['wopus']['char_set'] = 'utf8';
-$db['wopus']['dbcollat'] = 'utf8_general_ci';
-$db['wopus']['swap_pre'] = '';
-$db['wopus']['autoinit'] = TRUE;
-$db['wopus']['stricton'] = FALSE;
 
 /* End of file database.php */
 /* Location: ./application/config/database.php */

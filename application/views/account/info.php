@@ -41,12 +41,12 @@ $(document).ready(function(){
 			<?php if($hasGravatar): ?>
 			(<a title='去 Gravatar 更换你的头像' 
 				target='_blank'
-				href='http://en.gravatar.com/emails/' 
+				href='http://cn.gravatar.com/emails/' 
 				class='btn btn-tiny btn-cmd'>更换</a>)
 			<?php else: ?>
 			(<a title='去 Gravatar 上传你的头像，全球通用哦，亲！' 
 				target='_blank'
-				href='http://en.gravatar.com/' 
+				href='http://cn.gravatar.com/' 
 				class='btn btn-tiny btn-cmd'>上传</a>)			
 			<?php endif; ?>
 			</span>

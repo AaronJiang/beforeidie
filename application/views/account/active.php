@@ -22,7 +22,7 @@
 
 	<form id='form-send-active-email' action="<?= base_url('account/send_active_email/') ?>" method='post'>
 		<div class='form-footer'>
-			<a href='AccountC.php?act=login'>登陆</a>
+			<a href="<?= base_url('account/login') ?>">登陆</a>
 			<input class="btn btn-large btn-primary" type='submit' value='再发一次' />
 		</div>
 
