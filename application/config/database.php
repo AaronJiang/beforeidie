@@ -53,7 +53,7 @@ switch (ENVIRONMENT){
 	case "development":
 		$db['default']['hostname'] = 'localhost';
 		$db['default']['username'] = 'root';
-		$db['default']['password'] = '';
+		$db['default']['password'] = 'xiaowangzi';
 		$db['default']['database'] = 'beforeidie';
 		break;
 
