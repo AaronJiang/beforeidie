@@ -2,6 +2,8 @@
 
 class Home extends CI_Controller{
 
+// page about
+
 	function about(){
 		$data['pageTitle'] = '关于';
 		$data['pageID'] = 'page-about';
