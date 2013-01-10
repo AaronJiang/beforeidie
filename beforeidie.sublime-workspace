@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"us",
+				"username"
+			],
+			[
 				"con",
 				"content"
 			],
@@ -78,14 +82,6 @@
 				"buffer_size": 12995,
 				"line_ending": "Unix"
 			}
-		},
-		{
-			"file": "application/controllers/account.php",
-			"settings":
-			{
-				"buffer_size": 8136,
-				"line_ending": "Windows"
-			}
 		}
 	],
 	"build_system": "",
@@ -112,13 +108,16 @@
 	},
 	"file_history":
 	[
+		"/var/www/beforeidie/application/models/goal_model.php",
+		"/var/www/beforeidie/application/models/account_model.php",
+		"/var/www/beforeidie/application/controllers/account.php",
+		"/var/www/beforeidie/application/models/like_model.php",
 		"/var/www/beforeidie/application/controllers/person.php",
 		"/var/www/beforeidie/application/controllers/like.php",
 		"/var/www/beforeidie/application/controllers/home.php",
 		"/var/www/beforeidie/application/controllers/goal.php",
 		"/var/www/beforeidie/application/controllers/discover.php",
 		"/var/www/beforeidie/application/controllers/common.php",
-		"/var/www/beforeidie/application/controllers/account.php",
 		"/var/www/beforeidie/application/views/account/register.php",
 		"/var/www/beforeidie/application/config/database.php",
 		"/var/www/beforeidie/static/style/style.css",
@@ -162,7 +161,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -177,8 +176,8 @@
 						"selection":
 						[
 							[
-								141,
-								141
+								364,
+								364
 							]
 						],
 						"settings":
@@ -214,7 +213,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 306.0,
+						"translation.y": 969.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -231,8 +230,8 @@
 						"selection":
 						[
 							[
-								1979,
-								1979
+								1681,
+								1681
 							]
 						],
 						"settings":
@@ -241,33 +240,6 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 816.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "application/controllers/account.php",
-					"settings":
-					{
-						"buffer_size": 8136,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								436,
-								436
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -316,6 +288,10 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"acc",
+				"application/controllers/account.php"
+			],
 			[
 				"ac",
 				"application/controllers/account.php"
