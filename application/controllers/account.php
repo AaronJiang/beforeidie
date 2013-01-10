@@ -21,8 +21,8 @@ class Account extends CI_Controller{
 	}
 
 	function plogin(){
-		$email = $_REQUEST['email'];
-		$pwd = $_REQUEST['password'];
+		$email = $this->input->get('email');
+		$pwd = $this->input->get('password');
 
 		$this->load->model('Account_model');
 
@@ -61,9 +61,9 @@ class Account extends CI_Controller{
 	}
 
 	function pregister(){
-		$email = $_REQUEST['email'];
-		$username = $_REQUEST['username'];
-		$password = $_REQUEST['password'];
+		$email = $this->input->post('email');
+		$username = $this->input->post('username');
+		$password = $this->input->post('password');
 
 		$this->load->model('Account_model');
 		// 生成gravatar链接
@@ -77,7 +77,7 @@ class Account extends CI_Controller{
 	}
 
 	function check_email_repeat(){
-		$email = $_REQUEST['fieldValue'];
+		$email = $this->input->get('fieldValue');
 		$this->load->model('Account_model');
 
 		if($this->Account_model->check_email_repeat($email)){
@@ -89,7 +89,7 @@ class Account extends CI_Controller{
 	}
 
 	function check_name_repeat(){
-		$username = $_REQUEST['fieldValue'];
+		$username = $this->input->get('fieldValue');
 		$this->load->model('Account_model');
 
 		if($this->Account_model->check_username_repeat($username)){
@@ -117,7 +117,7 @@ class Account extends CI_Controller{
 	}
 
 	function send_active_email(){
-		$email = $_REQUEST['email'];
+		$email = $this->input->post('email');
 		$this->_send_active_email($email);
 		redirect('account/active/sended/'. $email);
 	}
@@ -149,7 +149,7 @@ class Account extends CI_Controller{
 	}	
 
 	function send_reset_pwd_email(){
-		$email = $_REQUEST['email'];
+		$email = $this->input->post['email'];
 		$this->_send_reset_pwd_email($email);
 		redirect('account/forgot_pwd/sended');
 		break;	
@@ -180,8 +180,11 @@ class Account extends CI_Controller{
 	}
 
 	function preset_pwd(){
+		$email = $this->input->post('email');
+		$pwd = $this->input->post('pwd');
+
 		$this->load->model('Account_model');
-		$isReset = $this->Account_model->change_pwd_by_email($_REQUEST['email'], $_REQUEST['pwd']);
+		$isReset = $this->Account_model->change_pwd_by_email($email, $pwd);
 		
 		if($isReset){
 			redirect('account/forgot_pwd/resetSucc');
@@ -211,6 +214,9 @@ class Account extends CI_Controller{
 	}
 
 	function change_sex(){
+		$userID = $this->input->post('userID');
+		$sex = $this->input->post('sex');
+
 		$this->load->model('Account_model');
 		echo $this->Account_model->change_sex($_REQUEST['userID'], $_REQUEST['sex'])? 1: 0;
 	}
@@ -230,7 +236,7 @@ class Account extends CI_Controller{
 
 	function check_pwd(){
 		$userID = $_SESSION['valid_user_id'];
-		$pwd = $_REQUEST['fieldValue'];
+		$pwd = $this->input->get('fieldValue');
 		
 		$this->load->model('Account_model');
 		if($this->Account_model->check_user_pwd_by_id($userID, $pwd)){
@@ -242,8 +248,11 @@ class Account extends CI_Controller{
 	}
 
 	function pchange_pwd(){
+		$userID = $this->input->post('userID');
+		$newPwd = $this->input->post('newPwd');
+
 		$this->load->model('Account_model');
-		$this->Account_model->change_pwd_by_id($_REQUEST['userID'], $_REQUEST['newPwd']);
+		$this->Account_model->change_pwd_by_id($userID, $newPwd);
 		redirect('account/info');
 	}
 
@@ -259,10 +268,8 @@ class Account extends CI_Controller{
 		$activeUrl = base_url('account/active_account/'. $emailTo. '/'. $activeCode);
 
 		//邮件内容
-		$mailbody = "<!DOCTYPE html><html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8' /></head><body>";
 		$mailbody .= "<h1 style='font-size:15px;font-family:微软雅黑;'>点击以下链接，激活你在Beforeidie上的账户：</h1>";
 		$mailbody .= "<a href='". $activeUrl. "'>". $activeUrl. "</a>";
-		$mailbody .= "</body></html>";
 			
 		//发送邮件
 		@$this->smtp->sendmail($emailTo, $mailsubject, $mailbody);
@@ -286,10 +293,8 @@ class Account extends CI_Controller{
 		$activeUrl = base_url('account/verify_reset_code/'. $emailTo. "/". $activeCode);
 
 		//邮件内容
-		$mailbody = "<!DOCTYPE html><html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8' /></head><body>";
 		$mailbody .= "<h1 style='font-size:15px;font-family:微软雅黑;'>点击以下链接，重置你在Beforeidie上的账户密码：</h1>";
 		$mailbody .= "<a href='". $activeUrl. "'>". $activeUrl. "</a>";
-		$mailbody .= "</body></html>";
 		
 		//发送邮件
 		$this->smtp->sendmail($emailTo, $mailsubject, $mailbody);

@@ -40,18 +40,29 @@ class Goal extends CI_Controller{
 	}
 
 	function update_goal(){
+		$goalID = $this->input->post('goalID');
+		$goalTitle = $this->input->post('goalTitle');
+		$goalContent = $this->input->post('goalContent');
+
 		$this->load->model('Goal_model');
-		echo $this->Goal_model->update_goal($_REQUEST['goalID'], $_REQUEST['goalTitle'], $_REQUEST['goalContent'])? 1: 0;
+		echo $this->Goal_model->update_goal($goalID, $goalTitle, $goalContent)? 1: 0;
 	}
 
 	function change_goal_like(){
+		$goalID = $this->input->post('goalID');
+		$userID = $this->input->post('userID');
+		$isLike = $this->input->post('isLike');
+
 		$this->load->model('Like_model');
-		echo $this->Like_model->change_goal_like($_REQUEST['goalID'], $_REQUEST['userID'], $_REQUEST['isLike'])? 1: 0;
+		echo $this->Like_model->change_goal_like($goalID, $userID, $isLike)? 1: 0;
 	}
 
 	function change_goal_lock(){
+		$goalID = $this->input->post('goalID');
+		$isPublic = $this->input->post('isPublic');
+
 		$this->load->model('Goal_model');
-		echo $this->Goal_model->change_goal_lock($_REQUEST['goalID'], $_REQUEST['isPublic'])? 1: 0;		
+		echo $this->Goal_model->change_goal_lock($goalID, $isPublic)? 1: 0;		
 	}
 
 
@@ -76,8 +87,13 @@ class Goal extends CI_Controller{
 	}
 
 	function add_goal(){
+		$userID = $this->input->post('userID');
+		$title = $this->input->post('title');
+		$content = $this->input->post('content');
+		$isPublic = $this->input->post('isPublic');
+
 		$this->load->model('Goal_model');
-		echo $this->Goal_model->new_goal($_REQUEST['userID'], $_REQUEST['title'], $_REQUEST['content'], $_REQUEST['isPublic'])? 1: 0;
+		echo $this->Goal_model->new_goal($userID, $title, $content, $isPublic)? 1: 0;
 	}
 }
 

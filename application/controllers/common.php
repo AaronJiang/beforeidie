@@ -12,10 +12,10 @@ class Common extends CI_Controller{
 
 
 	function send_feedback(){
+		$feedbackSubject = $this->input->post('feedbackSubject');
+		$feedbackContent = $this->input->post('feedbackContent');
 
 		$mailSubject = 'Beforeidie-意见反馈';
-
-		$mailContent = "<!DOCTYPE html><html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8' /></head><body>";
 
 		$mailContent .= "<h1 style='margin:0 0 10px 0;font-size:15px'>";
 
@@ -27,13 +27,12 @@ class Common extends CI_Controller{
 		}
 
 		$mailContent .= "</h1>";
-		$mailContent .= "</body></html>";
 
-		if(trim($_REQUEST['feedbackSubject']) != ""){
-			$mailContent .= "<p style='margin:0 0 10px 0;font-size:16px;font-weight:bold;font-family:微软雅黑;'>". $_REQUEST['feedbackSubject']. "</p>";
+		if(trim($feedbackSubject) != ""){
+			$mailContent .= "<p style='margin:0 0 10px 0;font-size:16px;font-weight:bold;font-family:微软雅黑;'>". $feedbackSubject. "</p>";
 		}
 
-		$mailContent .= "<p style='margin:0;'>". $_REQUEST['feedbackContent']. "</p>";
+		$mailContent .= "<p style='margin:0;'>". $feedbackContent. "</p>";
 
 		@$this->smtp->sendmail('hustlzp@qq.com', $mailSubject, $mailContent);
 		redirect_back();

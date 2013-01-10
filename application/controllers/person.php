@@ -52,21 +52,26 @@ class Person extends CI_Controller{
 	}
 
 	function change_goal_index(){
-		$idArray = explode("&", $_REQUEST['idArray']);
-		$indexArray = explode("&", $_REQUEST['indexArray']);
+		$idArray = explode("&", $this->input->post('idArray'));
+		$indexArray = explode("&", $this->input->post('indexArray'));
 
 		$this->load->model('Goal_model');
 		echo $this->Goal_model->change_goal_index($idArray, $indexArray)? 1: 0;
 	}
 
 	function change_goal_lock(){
+		$goalID = $this->input->post('goalID');
+		$isPublic = $this->input->post('isPublic');
+
 		$this->load->model('Goal_model');
-		echo $this->Goal_model->change_goal_lock($_REQUEST['goalID'], $_REQUEST['isPublic'])? 1: 0;
+		echo $this->Goal_model->change_goal_lock($goalID, $isPublic)? 1: 0;
 	}
 			
 	function drop_goal(){
+		$goalID = $this->input->post('goalID');
+
 		$this->load->model('Goal_model');
-		echo $this->Goal_model->drop_goal($_REQUEST['goalID'])? 1: 0;		
+		echo $this->Goal_model->drop_goal($goalID)? 1: 0;		
 	}
 }
 
