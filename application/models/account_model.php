@@ -5,20 +5,20 @@ class Account_model extends CI_Model{
 // GET
 
 	function get_user_by_id($userID){
-		$query = "SELECT * FROM users WHERE UserID = ". $userID;
-		$result = $this->db->query($query);
+		$query = "SELECT * FROM users WHERE UserID = ?";
+		$result = $this->db->query($query, array($userID));
 		return $result->row();
 	}
 
 	function get_user_by_email($email){
-		$query = "SELECT * FROM users WHERE Email = '". $email. "'";
-		$result = $this->db->query($query);
+		$query = "SELECT * FROM users WHERE Email = ?";
+		$result = $this->db->query($query, array($email));
 		return $result->row();
 	}
 
 	function get_email_by_id($userID){
-		$query = "SELECT Email FROM users WHERE UserID = ". $userID;
-		$result = $this->db->query($query);
+		$query = "SELECT Email FROM users WHERE UserID = ?";
+		$result = $this->db->query($query, array($userID));
 		$row = $result->row();
 		return $row->Email;
 	}
@@ -34,8 +34,8 @@ class Account_model extends CI_Model{
 // UPDATE
 
 	function active_account($email){
-		$query = "UPDATE users SET IsActive = 1 WHERE Email = '". $email. "'";
-		return $this->db->query($query);
+		$query = "UPDATE users SET IsActive = ? WHERE Email = ?";
+		return $this->db->query($query, array(1, $email));
 	}
 
 	function change_pwd_by_email($email, $pwd){
@@ -68,22 +68,22 @@ class Account_model extends CI_Model{
 	}
 
 	function check_user_active($email, $pwd){
-		$query = "SELECT * FROM users WHERE Email = ? AND Password = ? AND IsActive = 1";
-		$result = $this->db->query($query, array($email, sha1($pwd)));
+		$query = "SELECT * FROM users WHERE Email = ? AND Password = ? AND IsActive = ?";
+		$result = $this->db->query($query, array($email, sha1($pwd), 1));
 		return ($result->num_rows > 0);
 	}
 
 	// 检查邮箱是否已存在
 	function check_email_repeat($email){
-		$query = "SELECT * FROM users WHERE Email = '". $email. "'";
-		$result = $this->db->query($query);
+		$query = "SELECT * FROM users WHERE Email = ?";
+		$result = $this->db->query($query, array($email));
 		return ($result->num_rows > 0);
 	}
 
 	// 检查用户名是否已存在
 	function check_username_repeat($username){
-		$query = "SELECT * FROM users WHERE Username = '". $username. "'";
-		$result = $this->db->query($query);
+		$query = "SELECT * FROM users WHERE Username = ?";
+		$result = $this->db->query($query, array($username));
 		return ($result->num_rows > 0);
 	}
 }

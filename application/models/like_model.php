@@ -7,16 +7,16 @@ class Like_model extends CI_Controller{
 	function get_likes($userID){
 		$query = "SELECT goals.GoalID, goals.Title, goals.Content, users.UserID, users.Username\n"
 				. "FROM likes, goals, users\n"
-				. "WHERE likes.UserID = ". $userID. "\n"
+				. "WHERE likes.UserID = ?\n"
 				. "AND likes.GoalID = goals.GoalID\n"
 				. "AND goals.UserID = users.UserID";
-		$result = $this->db->query($query);
+		$result = $this->db->query($query, array($userID));
 		return $result->result();
 	}
 
 	function get_likes_num($userID){
-		$query = "SELECT COUNT(*) AS likesNum FROM likes WHERE UserID = ". $userID;
-		$result = $this->db->query($query);
+		$query = "SELECT COUNT(*) AS likesNum FROM likes WHERE UserID = ?";
+		$result = $this->db->query($query, array($userID));
 		$row = $result->row();
 		return $row->likesNum;
 	}
@@ -24,8 +24,8 @@ class Like_model extends CI_Controller{
 // CHECK
 
 	function check_is_like($goalID, $userID){
-		$query = "SELECT * FROM likes WHERE GoalID = ". $goalID. " AND UserID = ". $userID;
-		$result = $this->db->query($query);
+		$query = "SELECT * FROM likes WHERE GoalID = ? AND UserID = ?";
+		$result = $this->db->query($query, array($goalID, $userID));
 		return ($result->num_rows() > 0);
 	}
 

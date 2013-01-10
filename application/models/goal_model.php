@@ -8,9 +8,9 @@ class Goal_model extends CI_Model{
 	function get_goal_by_ID($goalID){
 		$query = "SELECT goals.*, users.Username, users.Sex AS UserSex\n"
 				. "FROM goals, users\n"
-				. "WHERE goals.GoalID = ". $goalID. "\n"
+				. "WHERE goals.GoalID = ?\n"
 				. "AND goals.UserID = users.UserID";
-		$result = $this->db->query($query);
+		$result = $this->db->query($query, array($goalID));
 		return $result->row();
 	}
 
@@ -18,7 +18,7 @@ class Goal_model extends CI_Model{
 	function get_goals($userID, $isCreator){
 		$query = "SELECT GoalID, Title, UserID, IsPublic, GoalIndex\n"
 				. "FROM goals\n"
-				. "WHERE UserID = ". $userID. "\n";
+				. "WHERE UserID = ?\n";
 
 		if(!$isCreator){
 			$query .= "AND IsPublic = 1\n";
@@ -26,19 +26,19 @@ class Goal_model extends CI_Model{
 
 		$query .= "ORDER BY GoalIndex ASC\n";
 		
-		$result = $this->db->query($query);
+		$result = $this->db->query($query, array($userID));
 		return $result->result();
 	}
 
 	// 获取某用户的目标总数
 	function get_goals_num($userID, $isCreator){
-		$query = "SELECT count(*) AS goalsNum FROM goals WHERE goals.UserID = ". $userID. "\n";
+		$query = "SELECT count(*) AS goalsNum FROM goals WHERE goals.UserID = ?\n";
 
 		if(!$isCreator){
 			$query .= "IsPublic = 1\n";
 		}
 
-		$result = $this->db->query($query);
+		$result = $this->db->query($query, array($userID));
 		$row = $result->row();
 		return $row->goalsNum;
 	}
@@ -48,20 +48,20 @@ class Goal_model extends CI_Model{
 			. "FROM goals, users\n"
 			. "WHERE goals.UserID = users.UserID\n" 
 			. "AND goals.isPublic = 1\n"
-			. "AND goals.UserID != ". $userID. "\n"
+			. "AND goals.UserID != ?\n"
 			. "AND goals.GoalID NOT IN\n"
-				. "(SELECT GoalID FROM likes WHERE UserID = ". $userID. ")\n"
+				. "(SELECT GoalID FROM likes WHERE UserID = ?)\n"
 			. "ORDER BY CreateTime DESC\n"
 			. "LIMIT 0, 15";
 		
-		$result = $this->db->query($query);
+		$result = $this->db->query($query, array($userID, $userID));
 		return $result->result();
 	}
 
 	// 获取某user的goals的最大index
 	function get_max_index($userID){
-		$query = "SELECT MAX(GoalIndex) AS maxGoalIndex FROM goals WHERE UserID = ". $userID;
-		$result = $this->db->query($query);
+		$query = "SELECT MAX(GoalIndex) AS maxGoalIndex FROM goals WHERE UserID = ?";
+		$result = $this->db->query($query, array($userID));
 		$row = $result->row();
 		return $row->maxGoalIndex;
 	}
@@ -88,8 +88,8 @@ class Goal_model extends CI_Model{
 		//echo microtime(). "<br>";
 
 		for($i=0; $i<count($idArray); $i++){
-			$query = "UPDATE goals SET GoalIndex = ". $idArray[$i]. " WHERE GoalID = ". $indexArray[$i];
-			$isSucc = $isSucc && $this->db->query($query);
+			$query = "UPDATE goals SET GoalIndex = ? WHERE GoalID = ?";
+			$isSucc = $isSucc && $this->db->query($query, array($idArray[$i], $indexArray[$i]));
 		}
 
 		//echo microtime(). "<br>";
@@ -99,14 +99,14 @@ class Goal_model extends CI_Model{
 
 	//放弃目标
 	function drop_goal($goalID){
-		$query = "DELETE FROM goals WHERE GoalID = ". $goalID;
-		return $this->db->query($query);
+		$query = "DELETE FROM goals WHERE GoalID = ?";
+		return $this->db->query($query, array($goalID));
 	}
 
 	function change_goal_lock($goalID, $isPublic){
 		$setValue = $isPublic? 0: 1;
-		$query = "UPDATE goals SET IsPublic = ". $setValue. " WHERE GoalID = ". $goalID;
-		return $this->db->query($query);
+		$query = "UPDATE goals SET IsPublic = ? WHERE GoalID = ?";
+		return $this->db->query($query, array($setValue, $goalID));
 	}
 
 }
