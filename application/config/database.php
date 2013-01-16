@@ -60,7 +60,7 @@ switch (ENVIRONMENT){
 	case "production":
 		$db['default']['hostname'] = 'localhost';
 		$db['default']['username'] = 'hustlzp_001';
-		$db['default']['password'] = 'xiaowangzi';
+		$db['default']['password'] = 'xiaowang2013zi';
 		$db['default']['database'] = 'hustlzp_beforeidie';
 		break;
 }

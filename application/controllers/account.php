@@ -169,7 +169,7 @@ class Account extends CI_Controller{
 	function send_reset_pwd_email(){
 		auth_check('login');
 
-		$email = $this->input->post['email'];
+		$email = $this->input->post('email');
 		$this->_send_reset_pwd_email($email);
 		redirect('account/forgot_pwd/sended');
 		break;	
@@ -344,11 +344,11 @@ class Account extends CI_Controller{
 		$activeUrl = base_url('account/verify_reset_code/'. $emailTo. "/". $activeCode);
 
 		//邮件内容
-		$mailbody .= "<h1 style='font-size:15px;font-family:微软雅黑;'>点击以下链接，重置你在Beforeidie上的账户密码：</h1>";
+		$mailbody = "<h1 style='font-size:15px;font-family:微软雅黑;'>点击以下链接，重置你在Beforeidie上的账户密码：</h1>";
 		$mailbody .= "<a href='". $activeUrl. "'>". $activeUrl. "</a>";
 		
 		//发送邮件
-		$this->smtp->sendmail($emailTo, $mailsubject, $mailbody);
+		@$this->smtp->sendmail($emailTo, $mailsubject, $mailbody);
 	}
 
 	//生成激活码
