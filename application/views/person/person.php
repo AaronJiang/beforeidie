@@ -36,8 +36,8 @@ $(document).ready(function(){
 						indexArray += '&';
 					}
 
-					idArray += index;
-					indexArray += $(this).attr('data-goal-id');
+					idArray += $(this).attr('data-goal-id');
+					indexArray += index;
 				}
 			});
 

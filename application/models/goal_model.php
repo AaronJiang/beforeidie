@@ -66,6 +66,13 @@ class Goal_model extends CI_Model{
 		return $row->maxGoalIndex;
 	}
 
+	function get_user_by_goal($goalID){
+		$query = "SELECT UserID FROM goals WHERE GoalID = ?";
+		$result = $this->db->query($query, array($goalID));
+		$row = $result->row();
+		return $row->UserID;
+	}
+
 // NEW
 
 	function new_goal($userID, $title, $content, $isPublic){
@@ -89,7 +96,7 @@ class Goal_model extends CI_Model{
 
 		for($i=0; $i<count($idArray); $i++){
 			$query = "UPDATE goals SET GoalIndex = ? WHERE GoalID = ?";
-			$isSucc = $isSucc && $this->db->query($query, array($idArray[$i], $indexArray[$i]));
+			$isSucc = $isSucc && $this->db->query($query, array($indexArray[$i], $idArray[$i]));
 		}
 
 		//echo microtime(). "<br>";

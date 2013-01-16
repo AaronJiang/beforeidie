@@ -9,7 +9,8 @@ class Like extends CI_Controller{
 		$data['pageID'] = 'page-like';
 
 		$this->load->model('Like_model');
-		$goals = $this->Like_model->get_likes($_SESSION['valid_user_id']);
+		$userID = $_SESSION['valid_user_id'];
+		$goals = $this->Like_model->get_likes($userID);
 
 		foreach ($goals as &$goal) {
 			// 截取定长的中文字符

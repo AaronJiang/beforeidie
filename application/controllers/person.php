@@ -59,6 +59,17 @@ class Person extends CI_Controller{
 		$indexArray = explode("&", $this->input->post('indexArray'));
 
 		$this->load->model('Goal_model');
+
+		// check process auth
+		if(count($idArray) >= 1){
+			$goalUserID = $this->Goal_model->get_user_by_goal($idArray[0]);
+
+			if($_SESSION['valid_user_id'] != $goalUserID){
+				echo 0;
+				return;
+			}
+		}
+
 		echo $this->Goal_model->change_goal_index($idArray, $indexArray)? 1: 0;
 	}
 
@@ -69,6 +80,14 @@ class Person extends CI_Controller{
 		$isPublic = $this->input->post('isPublic');
 
 		$this->load->model('Goal_model');
+
+		// check process auth
+		$goalUserID = $this->Goal_model->get_user_by_goal($goalID);
+		if($_SESSION['valid_user_id'] != $goalUserID){
+			echo 0;
+			return;
+		}
+
 		echo $this->Goal_model->change_goal_lock($goalID, $isPublic)? 1: 0;
 	}
 			
@@ -78,6 +97,14 @@ class Person extends CI_Controller{
 		$goalID = $this->input->post('goalID');
 
 		$this->load->model('Goal_model');
+
+		// check process auth
+		$goalUserID = $this->Goal_model->get_user_by_goal($goalID);
+		if($_SESSION['valid_user_id'] != $goalUserID){
+			echo 0;
+			return;
+		}
+
 		echo $this->Goal_model->drop_goal($goalID)? 1: 0;		
 	}
 }

@@ -247,8 +247,14 @@ class Account extends CI_Controller{
 		$userID = $this->input->post('userID');
 		$sex = $this->input->post('sex');
 
+		// check process auth
+		if($userID != $_SESSION['valid_user_id']){
+			echo 0;
+			return;
+		}
+
 		$this->load->model('Account_model');
-		echo $this->Account_model->change_sex($_REQUEST['userID'], $_REQUEST['sex'])? 1: 0;
+		echo $this->Account_model->change_sex($userID, $sex)? 1: 0;
 	}
 
 // page change password
@@ -286,6 +292,11 @@ class Account extends CI_Controller{
 
 		$userID = $this->input->post('userID');
 		$newPwd = $this->input->post('newPwd');
+
+		// check process auth
+		if($userID != $_SESSION['valid_user_id']){
+			redirect('account/info');
+		}
 
 		$this->load->model('Account_model');
 		$this->Account_model->change_pwd_by_id($userID, $newPwd);

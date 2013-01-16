@@ -49,6 +49,14 @@ class Goal extends CI_Controller{
 		$goalContent = $this->input->post('goalContent');
 
 		$this->load->model('Goal_model');
+
+		// check process auth
+		$goalUserID = $this->Goal_model->get_user_by_goal($goalID);
+		if($_SESSION['valid_user_id'] != $goalUserID){
+			echo 0;
+			return;
+		}
+
 		echo $this->Goal_model->update_goal($goalID, $goalTitle, $goalContent)? 1: 0;
 	}
 
@@ -58,6 +66,12 @@ class Goal extends CI_Controller{
 		$goalID = $this->input->post('goalID');
 		$userID = $this->input->post('userID');
 		$isLike = $this->input->post('isLike');
+
+		// check process auth
+		if($_SESSION['valid_user_id'] != $userID){
+			echo 0;
+			return;
+		}
 
 		$this->load->model('Like_model');
 		echo $this->Like_model->change_goal_like($goalID, $userID, $isLike)? 1: 0;
@@ -70,6 +84,14 @@ class Goal extends CI_Controller{
 		$isPublic = $this->input->post('isPublic');
 
 		$this->load->model('Goal_model');
+
+		// check process auth
+		$goalUserID = $this->Goal_model->get_user_by_goal($goalID);
+		if($_SESSION['valid_user_id'] != $goalUserID){
+			echo 0;
+			return;
+		}
+
 		echo $this->Goal_model->change_goal_lock($goalID, $isPublic)? 1: 0;		
 	}
 
@@ -103,6 +125,11 @@ class Goal extends CI_Controller{
 		$title = $this->input->post('title');
 		$content = $this->input->post('content');
 		$isPublic = $this->input->post('isPublic');
+
+		if($_SESSION['valid_user_id'] != $userID){
+			echo 0;
+			return;
+		}
 
 		$this->load->model('Goal_model');
 		echo $this->Goal_model->new_goal($userID, $title, $content, $isPublic)? 1: 0;

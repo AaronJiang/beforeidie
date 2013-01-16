@@ -18,15 +18,5 @@ $hook['pre_system'] = array(
 						'filepath' => 'hooks'
 						);
 
-// auth check
-/*
-$hook['pre_controller'] = array(
-						'class'    => '',
-						'function' => 'auth_check',
-						'filename' => 'auth_check.php',
-						'filepath' => 'hooks'
-						);
-*/
-
 /* End of file hooks.php */
 /* Location: ./application/config/hooks.php */
