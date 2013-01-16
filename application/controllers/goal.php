@@ -6,6 +6,8 @@ class Goal extends CI_Controller{
 
 	// view
 	function details($goalID = ''){
+		auth_check('public');
+
 		if($goalID == ''){
 			show_404();
 		}
@@ -40,6 +42,8 @@ class Goal extends CI_Controller{
 	}
 
 	function update_goal(){
+		auth_check('private');
+
 		$goalID = $this->input->post('goalID');
 		$goalTitle = $this->input->post('goalTitle');
 		$goalContent = $this->input->post('goalContent');
@@ -49,6 +53,8 @@ class Goal extends CI_Controller{
 	}
 
 	function change_goal_like(){
+		auth_check('private');
+
 		$goalID = $this->input->post('goalID');
 		$userID = $this->input->post('userID');
 		$isLike = $this->input->post('isLike');
@@ -58,6 +64,8 @@ class Goal extends CI_Controller{
 	}
 
 	function change_goal_lock(){
+		auth_check('private');
+
 		$goalID = $this->input->post('goalID');
 		$isPublic = $this->input->post('isPublic');
 
@@ -70,6 +78,8 @@ class Goal extends CI_Controller{
 
 	// view
 	function add(){
+		auth_check('private');
+
 		$data['pageTitle'] = '添加';
 		$data['pageID'] = 'page-new-goal';
 
@@ -87,6 +97,8 @@ class Goal extends CI_Controller{
 	}
 
 	function add_goal(){
+		auth_check('private');
+		
 		$userID = $this->input->post('userID');
 		$title = $this->input->post('title');
 		$content = $this->input->post('content');

@@ -3,6 +3,8 @@
 class Like extends CI_Controller{
 
 	function index(){
+		auth_check('private');
+		
 		$data['pageTitle'] = '收藏';
 		$data['pageID'] = 'page-like';
 

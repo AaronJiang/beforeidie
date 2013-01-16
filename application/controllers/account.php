@@ -6,7 +6,7 @@ class Account extends CI_Controller{
 
 	// view
 	function login(){
-		//auth_check('login');
+		auth_check('login');
 
 		$data['pageTitle'] = '登陆';
 		$data['pageID'] = 'page-login';
@@ -21,6 +21,8 @@ class Account extends CI_Controller{
 	}
 
 	function plogin(){
+		auth_check('login');
+
 		$email = $this->input->get('email');
 		$pwd = $this->input->get('password');
 
@@ -51,6 +53,8 @@ class Account extends CI_Controller{
 
 	// view
 	function register(){
+		auth_check('login');
+
 		$data['pageTitle'] = '注册';
 		$data['pageID'] = 'page-register';
 
@@ -61,6 +65,8 @@ class Account extends CI_Controller{
 	}
 
 	function pregister(){
+		auth_check('login');
+
 		$email = $this->input->post('email');
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
@@ -77,6 +83,8 @@ class Account extends CI_Controller{
 	}
 
 	function check_email_repeat(){
+		auth_check('login');
+
 		$email = $this->input->get('fieldValue');
 		$this->load->model('Account_model');
 
@@ -89,6 +97,8 @@ class Account extends CI_Controller{
 	}
 
 	function check_name_repeat(){
+		auth_check('login');
+
 		$username = $this->input->get('fieldValue');
 		$this->load->model('Account_model');
 
@@ -104,6 +114,8 @@ class Account extends CI_Controller{
 
 	// view
 	function active($from, $email){
+		auth_check('login');
+
 		$data['pageTitle'] = '激活';
 		$data['pageID'] = 'page-active-account';
 
@@ -117,12 +129,16 @@ class Account extends CI_Controller{
 	}
 
 	function send_active_email(){
+		auth_check('login');
+
 		$email = $this->input->post('email');
 		$this->_send_active_email($email);
 		redirect('account/active/sended/'. $email);
 	}
 
 	function active_account($email, $activeCode){
+		auth_check('login');
+
 		if($activeCode == $this->_gene_active_code($email)){
 			$this->load->model('Account_model');
 			$this->Account_model->active_account($email);
@@ -137,6 +153,8 @@ class Account extends CI_Controller{
 
 	// view
 	function forgot_pwd($from){
+		auth_check('login');
+
 		$data['pageTitle'] = '忘记密码';
 		$data['pageID'] = 'page-forgot-pwd';
 
@@ -149,6 +167,8 @@ class Account extends CI_Controller{
 	}	
 
 	function send_reset_pwd_email(){
+		auth_check('login');
+
 		$email = $this->input->post['email'];
 		$this->_send_reset_pwd_email($email);
 		redirect('account/forgot_pwd/sended');
@@ -159,6 +179,8 @@ class Account extends CI_Controller{
 
 	// view
 	function reset_pwd($email){
+		auth_check('login');
+
 		$data['pageTitle'] = '重置密码';
 		$data['pageID'] = 'page-reset-pwd';
 
@@ -171,6 +193,8 @@ class Account extends CI_Controller{
 	}
 
 	function verify_reset_code($email, $reset_pwd_code){
+		auth_check('login');
+
 		if($reset_pwd_code == $this->_gene_reset_pwd_code($email)){
 			redirect('account/reset_pwd/'. $email);
 		}
@@ -180,6 +204,8 @@ class Account extends CI_Controller{
 	}
 
 	function preset_pwd(){
+		auth_check('login');
+
 		$email = $this->input->post('email');
 		$pwd = $this->input->post('pwd');
 
@@ -199,6 +225,8 @@ class Account extends CI_Controller{
 	// view
 
 	function info(){
+		auth_check('private');
+
 		$data['pageTitle'] = '个人资料';
 		$data['pageID'] = 'page-account-info';
 
@@ -214,6 +242,8 @@ class Account extends CI_Controller{
 	}
 
 	function change_sex(){
+		auth_check('private');
+
 		$userID = $this->input->post('userID');
 		$sex = $this->input->post('sex');
 
@@ -224,6 +254,8 @@ class Account extends CI_Controller{
 // page change password
 
 	function change_pwd(){
+		auth_check('private');
+
 		$data['pageTitle'] = '更改密码';
 		$data['pageID'] = 'page-change-pwd';
 
@@ -235,6 +267,8 @@ class Account extends CI_Controller{
 	}
 
 	function check_pwd(){
+		auth_check('private');
+
 		$userID = $_SESSION['valid_user_id'];
 		$pwd = $this->input->get('fieldValue');
 		
@@ -248,6 +282,8 @@ class Account extends CI_Controller{
 	}
 
 	function pchange_pwd(){
+		auth_check('private');
+
 		$userID = $this->input->post('userID');
 		$newPwd = $this->input->post('newPwd');
 
@@ -260,6 +296,7 @@ class Account extends CI_Controller{
 
 	//发送激活邮件
 	function _send_active_email($emailTo){
+		auth_check('login');
 
 		$mailsubject = "Beforeidie-激活账户";
 
@@ -277,6 +314,8 @@ class Account extends CI_Controller{
 
 	//生成激活码
 	function _gene_active_code($email){
+		auth_check('login');
+
 		$this->load->model('Account_model');
 		$userInfo = $this->Account_model->get_user_by_email($email);
 		return sha1($userInfo->UserID. $userInfo->Username. $email);
@@ -284,6 +323,7 @@ class Account extends CI_Controller{
 
 	//发送密码重置邮件
 	function _send_reset_pwd_email($emailTo){
+		auth_check('login');
 
 		$mailsubject = "Beforeidie-重置密码";
 		
@@ -302,6 +342,8 @@ class Account extends CI_Controller{
 
 	//生成激活码
 	function _gene_reset_pwd_code($email){
+		auth_check('login');
+
 		$this->load->model('Account_model');
 		$userInfo = $this->Account_model->get_user_by_email($email);
 		return sha1($userInfo->UserID. $userInfo->Username. $email);

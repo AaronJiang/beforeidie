@@ -4,7 +4,10 @@ class Home extends CI_Controller{
 
 // page about
 
+	// view
 	function about(){
+		auth_check('public');
+		
 		$data['pageTitle'] = '关于';
 		$data['pageID'] = 'page-about';
 

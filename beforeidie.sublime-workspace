@@ -4,12 +4,32 @@
 		"selected_items":
 		[
 			[
-				"us",
-				"username"
+				"dis",
+				"discover"
+			],
+			[
+				"ho",
+				"hook"
+			],
+			[
+				"prin",
+				"print_r"
 			],
 			[
 				"con",
-				"content"
+				"config"
+			],
+			[
+				"ex",
+				"exit"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"us",
+				"username"
 			],
 			[
 				"t",
@@ -68,19 +88,27 @@
 			}
 		},
 		{
-			"file": "application/config/database.php",
+			"file": "application/config/hooks.php",
 			"settings":
 			{
-				"buffer_size": 3526,
+				"buffer_size": 870,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "application/config/config.php",
+			"file": "application/helpers/auth_helper.php",
 			"settings":
 			{
-				"buffer_size": 12995,
-				"line_ending": "Unix"
+				"buffer_size": 766,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/controllers/person.php",
+			"settings":
+			{
+				"buffer_size": 1969,
+				"line_ending": "Windows"
 			}
 		}
 	],
@@ -108,28 +136,39 @@
 	},
 	"file_history":
 	[
-		"/var/www/beforeidie/application/models/goal_model.php",
-		"/var/www/beforeidie/application/models/account_model.php",
-		"/var/www/beforeidie/application/controllers/account.php",
-		"/var/www/beforeidie/application/models/like_model.php",
-		"/var/www/beforeidie/application/controllers/person.php",
 		"/var/www/beforeidie/application/controllers/like.php",
 		"/var/www/beforeidie/application/controllers/home.php",
 		"/var/www/beforeidie/application/controllers/goal.php",
 		"/var/www/beforeidie/application/controllers/discover.php",
 		"/var/www/beforeidie/application/controllers/common.php",
-		"/var/www/beforeidie/application/views/account/register.php",
-		"/var/www/beforeidie/application/config/database.php",
-		"/var/www/beforeidie/static/style/style.css",
+		"/var/www/beforeidie/application/controllers/account.php",
+		"/var/www/beforeidie/application/config/autoload.php",
+		"/var/www/beforeidie/application/hooks/auth_check.php",
+		"/var/www/beforeidie/system/core/CodeIgniter.php",
+		"/var/www/beforeidie/system/core/Hooks.php",
+		"/var/www/beforeidie/application/hooks/browser_check.php",
+		"/var/www/beforeidie/application/helpers/auth_helper.php",
+		"/var/www/beforeidie/system/helpers/url_helper.php",
 		"/var/www/beforeidie/application/config/config.php",
-		"/var/www/beforeidie/.htaccess",
-		"/var/www/beforeidie/README.md",
+		"/var/www/beforeidie/system/core/Controller.php",
+		"/var/www/beforeidie/system/core/URI.php",
+		"/var/www/beforeidie/application/config/database.php",
+		"/var/www/beforeidie/system/core/Config.php",
 		"/var/www/beforeidie/index.php",
+		"/var/www/beforeidie/system/core/Router.php",
+		"/var/www/beforeidie/README.md",
+		"/var/www/beforeidie/application/models/goal_model.php",
+		"/var/www/beforeidie/application/models/account_model.php",
+		"/var/www/beforeidie/application/models/like_model.php",
+		"/var/www/beforeidie/application/controllers/person.php",
+		"/var/www/beforeidie/application/views/account/register.php",
+		"/var/www/beforeidie/static/style/style.css",
+		"/var/www/beforeidie/.htaccess",
 		"/var/www/beforeidie/beforeidie.sublime-project"
 	],
 	"find":
 	{
-		"height": 0.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
@@ -143,6 +182,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"exit",
 			"post"
 		],
 		"highlight": true,
@@ -161,7 +201,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -193,18 +233,44 @@
 				},
 				{
 					"buffer": 1,
-					"file": "application/config/database.php",
+					"file": "application/config/hooks.php",
 					"settings":
 					{
-						"buffer_size": 3526,
+						"buffer_size": 870,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								794,
+								794
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "application/helpers/auth_helper.php",
+					"settings":
+					{
+						"buffer_size": 766,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								482,
+								482
 							]
 						],
 						"settings":
@@ -213,33 +279,34 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 969.0,
+						"translation.y": 153.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "application/config/config.php",
+					"buffer": 3,
+					"file": "application/controllers/person.php",
 					"settings":
 					{
-						"buffer_size": 12995,
+						"buffer_size": 1969,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1681,
-								1681
+								169,
+								169
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/PHP/PHP.tmLanguage"
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 816.0,
+						"translation.y": 51.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -253,7 +320,7 @@
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 33.0
 	},
 	"layout":
 	{
@@ -289,6 +356,14 @@
 		"selected_items":
 		[
 			[
+				"au",
+				"application/config/autoload.php"
+			],
+			[
+				"con",
+				"application/config/config.php"
+			],
+			[
 				"acc",
 				"application/controllers/account.php"
 			],
@@ -323,6 +398,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 148.0,
+	"side_bar_width": 193.0,
 	"status_bar_visible": true
 }

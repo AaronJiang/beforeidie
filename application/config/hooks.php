@@ -9,6 +9,8 @@
 |	http://codeigniter.com/user_guide/general/hooks.html
 |
 */
+
+// browser check 
 $hook['pre_system'] = array(
 						'class'    => '',
 						'function' => 'browser_check',
@@ -16,6 +18,15 @@ $hook['pre_system'] = array(
 						'filepath' => 'hooks'
 						);
 
+// auth check
+/*
+$hook['pre_controller'] = array(
+						'class'    => '',
+						'function' => 'auth_check',
+						'filename' => 'auth_check.php',
+						'filepath' => 'hooks'
+						);
+*/
 
 /* End of file hooks.php */
 /* Location: ./application/config/hooks.php */

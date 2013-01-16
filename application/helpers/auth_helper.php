@@ -3,6 +3,7 @@
 // 权限检测及处理
 function auth_check($state = 'private'){
 
+	/*
 	if( ! isset($_SESSION['valid_user_id'])
 		AND isset($_COOKIE['ua'])
 		AND isset($_COOKIE['ue']))
@@ -16,13 +17,14 @@ function auth_check($state = 'private'){
 		$_SESSION['valid_user'] = $userInfo->Username;
 		$_SESSION['valid_user_id'] = $userInfo->UserID;
 	}
+	*/
 
 	switch($state){
 		// 私有页面/操作，只有登录用户才可进入
 		case 'private':
 			// 若未登录，则跳转浏览页面
 			if( ! isset($_SESSION['valid_user_id'])){
-				redirect('discover');
+				redirect('account/login');
 			}		
 			break;
 

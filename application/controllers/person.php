@@ -6,7 +6,8 @@ class Person extends CI_Controller{
 
 	// view
 	function index($userID = ''){
-
+		auth_check('public');
+	
 		// 获取userID
 		if($userID == ''){
 			if(isset($_SESSION['valid_user_id'])){
@@ -52,6 +53,8 @@ class Person extends CI_Controller{
 	}
 
 	function change_goal_index(){
+		auth_check('private');
+
 		$idArray = explode("&", $this->input->post('idArray'));
 		$indexArray = explode("&", $this->input->post('indexArray'));
 
@@ -60,6 +63,8 @@ class Person extends CI_Controller{
 	}
 
 	function change_goal_lock(){
+		auth_check('private');
+
 		$goalID = $this->input->post('goalID');
 		$isPublic = $this->input->post('isPublic');
 
@@ -68,6 +73,8 @@ class Person extends CI_Controller{
 	}
 			
 	function drop_goal(){
+		auth_check('private');
+		
 		$goalID = $this->input->post('goalID');
 
 		$this->load->model('Goal_model');

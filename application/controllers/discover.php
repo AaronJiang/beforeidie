@@ -3,6 +3,8 @@
 class Discover extends CI_Controller{
 
 	function index(){
+		auth_check('public');
+
 		$data['pageTitle'] = '浏览';
 		$data['pageID'] = 'page-discover';
 

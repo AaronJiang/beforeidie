@@ -3,6 +3,8 @@
 class Common extends CI_Controller{
 
 	function logout(){
+		auth_check('private');
+
 		@session_destroy();
 
 		//删除cookie
@@ -12,6 +14,8 @@ class Common extends CI_Controller{
 
 
 	function send_feedback(){
+		auth_check('public');
+		
 		$feedbackSubject = $this->input->post('feedbackSubject');
 		$feedbackContent = $this->input->post('feedbackContent');
 
