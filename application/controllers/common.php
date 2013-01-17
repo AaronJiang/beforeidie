@@ -15,13 +15,18 @@ class Common extends CI_Controller{
 
 	function send_feedback(){
 		auth_check('public');
-		
-		$feedbackSubject = $this->input->post('feedbackSubject');
+
 		$feedbackContent = $this->input->post('feedbackContent');
+
+		// if both are empty, return
+		if(trim($feedbackContent) == ""){
+			redirect_back();
+		}
 
 		$mailSubject = 'Beforeidie-意见反馈';
 
-		$mailContent .= "<h1 style='margin:0 0 10px 0;font-size:15px'>";
+		// content
+		$mailContent = "<h1 style='margin:0 0 10px 0;font-size:15px'>";
 
 		if(isset($_SESSION['valid_user_id'])){
 			$mailContent .= "<a href='". base_url('person'). "/". $_SESSION['valid_user_id']. "'>". $_SESSION['valid_user']. "</a> 说：";	
@@ -32,11 +37,10 @@ class Common extends CI_Controller{
 
 		$mailContent .= "</h1>";
 
-		if(trim($feedbackSubject) != ""){
-			$mailContent .= "<p style='margin:0 0 10px 0;font-size:16px;font-weight:bold;font-family:微软雅黑;'>". $feedbackSubject. "</p>";
+		if(trim($feedbackContent) != ""){
+			$mailContent .= "<p style='margin:0;'>". $feedbackContent. "</p>";			
 		}
-
-		$mailContent .= "<p style='margin:0;'>". $feedbackContent. "</p>";
+		// end content
 
 		@$this->smtp->sendmail('hustlzp@qq.com', $mailSubject, $mailContent);
 		redirect_back();

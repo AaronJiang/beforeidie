@@ -13,7 +13,7 @@ $(document).ready(function(){
 		<input type='password' class='validate[required, equals[newPwd]]' title='重复一遍又不会怀孕！' placeholder='重复一遍' autocomplete='off' name='re-pwd' />
 
 		<input type='hidden' name='email' value='<?= $email ?>'>
-		
+
 		<div class='form-footer'>
 			<input class="btn btn-primary btn-large" type='submit' value='重置'>
 		</div>

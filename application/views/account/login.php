@@ -8,7 +8,7 @@ $(document).ready(function(){
 
 	function ajaxValidationCallback(status, form, errors, option){
 		if(status == true){
-			//window.location = "<?= base_url('person') ?>";
+			window.location = "<?= base_url('person') ?>";
 		}
 	}
 });
