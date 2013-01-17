@@ -41,8 +41,8 @@ class Account extends CI_Controller{
 			$_SESSION['valid_user_id'] = $userInfo->UserID;
 			
 			//set cookies
-			setcookie("ue", base64_encode($email), time()+3600*24*30);	//用户邮箱ue（一个月）
-			setcookie("ua", base64_encode("You are authed!"), time()+3600*24*2);	//用户授权ua（2天）
+			setcookie("ue", base64_encode($email), time()+3600*24*30, '/');	//用户邮箱ue（一个月）
+			setcookie("ua", base64_encode("You are authed!"), time()+3600*24*2, '/');	//用户授权ua（2天）
 
 			// 完成ajax验证
 			echo true;

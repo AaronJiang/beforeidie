@@ -8,7 +8,7 @@ class Common extends CI_Controller{
 		@session_destroy();
 
 		//删除cookie
-		setcookie("ua", base64_encode("You are authed!"), time()-3600);
+		setcookie("ua", base64_encode("You are authed!"), time()-3600, '/');
 		redirect('discover');
 	}
 
