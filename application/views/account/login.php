@@ -1,16 +1,11 @@
 <script type='text/javascript'>
 
 $(document).ready(function(){
-	$("#form-login").validationEngine({
-		ajaxFormValidation: true,
-		onAjaxFormComplete: ajaxValidationCallback
-	});
+	$("#form-login").validationEngine();
 
-	function ajaxValidationCallback(status, form, errors, option){
-		if(status == true){
-			window.location = "<?= base_url('person') ?>";
-		}
-	}
+	<?php if($loginFailed): ?>
+	$('#input-email').validationEngine('showPrompt', '用户名或密码错误', 'red', '', true);	
+	<?php endif; ?>
 });
 
 </script>

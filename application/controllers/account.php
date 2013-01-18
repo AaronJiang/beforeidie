@@ -14,6 +14,12 @@ class Account extends CI_Controller{
 		// cookie email
 		$data['email'] = @base64_decode($_COOKIE['ue']);
 
+		// if try login but failed, show the warning
+		if(isset($_SESSION['login_failed']) AND $_SESSION['login_failed'] == TRUE){
+			$data['loginFailed'] = TRUE;
+			unset($_SESSION['login_failed']);
+		}
+
 		$this->load->view('account/header.php', $data);
 		$this->load->view('account/slogan.php');
 		$this->load->view('account/login.php', $data);
@@ -23,19 +29,27 @@ class Account extends CI_Controller{
 	function plogin(){
 		auth_check('login');
 
-		$email = $this->input->get('email');
-		$pwd = $this->input->get('password');
+		$email = $this->input->post('email');
+		$pwd = $this->input->post('password');
 
 		$this->load->model('Account_model');
 
+		// username or pwd error
 		if( ! $this->Account_model->check_user_pwd_by_email($email, $pwd)){
-			echo json_encode(array(array('input-email', false, '用户名或密码错误')));
+			$_SESSION['login_failed'] = TRUE;
+			redirect('account/login');
 		}
+		// unactive
 		else if( ! $this->Account_model->check_user_active($email, $pwd)){
-			setcookie("ue", base64_encode($email), time()+3600*24*30);	//用户邮箱ue（1个月）
-			echo json_encode(array(array('input-email', false, '用户尚未激活')));
+			setcookie("ue", base64_encode($email), time()+3600*24*30, '/');	//用户邮箱ue（1个月）
+			redirect('account/active/unactive/'. $email);
 		}
+		// match
 		else{
+			if(isset($_SESSION['login_failed'])){
+				unset($_SESSION['login_failed']);
+			}
+
 			$userInfo = $this->Account_model->get_user_by_email($email);
 			$_SESSION['valid_user'] = $userInfo->Username;
 			$_SESSION['valid_user_id'] = $userInfo->UserID;
@@ -44,8 +58,7 @@ class Account extends CI_Controller{
 			setcookie("ue", base64_encode($email), time()+3600*24*30, '/');	//用户邮箱ue（一个月）
 			setcookie("ua", base64_encode("You are authed!"), time()+3600*24*2, '/');	//用户授权ua（2天）
 
-			// 完成ajax验证
-			echo true;
+			redirect('person');
 		}
 	}
 

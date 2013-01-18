@@ -4,6 +4,30 @@
 		"selected_items":
 		[
 			[
+				"em",
+				"email"
+			],
+			[
+				"ac",
+				"account"
+			],
+			[
+				"input",
+				"input-email"
+			],
+			[
+				"login",
+				"login_failed"
+			],
+			[
+				"iss",
+				"isset"
+			],
+			[
+				"LOG",
+				"login_failed"
+			],
+			[
 				"end",
 				"endif"
 			],
@@ -34,10 +58,6 @@
 			[
 				"redire",
 				"redirect_back"
-			],
-			[
-				"em",
-				"emailTo"
 			],
 			[
 				"go",
@@ -127,7 +147,7 @@
 			"file": "static/style/style.less",
 			"settings":
 			{
-				"buffer_size": 7993,
+				"buffer_size": 7992,
 				"line_ending": "Unix"
 			}
 		},
@@ -140,13 +160,26 @@
 			}
 		},
 		{
-			"contents": "<div>\n	<h3 class='page-title'>关于</h3>\n\n	<p>It's easy to get caught up in the day-to-day life and forget what really matters to you.<br/>我们总是很容易就陷入日常生活的琐碎之中，而忘记了对我们来说真正重要的是什么。</p>\n\n	<p>Candy Chang在 <a href=\"http://v.youku.com/v_show/id_XNDg0NTExNTcy.html\" target=\"_blank\">TED演讲</a> 上的一句话，让人深受触动。国人常常避讳谈论死亡，认为它是消极的、不详的。但是当我们面对着死亡进行思考时，那些在每个人生命旅途中真正重要的东西，才会慢慢浮现。</p>\n\n	<p>我们来到这个世界，压根就没打算活着回去。 在离开之前，你想？</p>\n\n	<h3 class=\"page-title\">创作者</h3>\n\n	<p>hustlzp，毕业于HUST光电学院，大学四年对本专业无爱，考研毅然投奔计算机阵营，方向机器视觉，业余大爱Web开发，PHP进阶者一枚。</p>\n	\n	<p>联系方式 : hustlzp[at]qq.com</p>\n</div>",
 			"file": "application/views/home/about.php",
-			"file_size": 989,
-			"file_write_time": 1358477388000000,
 			"settings":
 			{
-				"buffer_size": 558,
+				"buffer_size": 557,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/views/account/login.php",
+			"settings":
+			{
+				"buffer_size": 1051,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "application/controllers/account.php",
+			"settings":
+			{
+				"buffer_size": 9172,
 				"line_ending": "Windows"
 			}
 		}
@@ -187,6 +220,7 @@
 	},
 	"file_history":
 	[
+		"/var/www/beforeidie/application/views/account/active.php",
 		"/var/www/beforeidie/index.php",
 		"/home/hustlzp/.config/sublime-text-2/Packages/User/less2css.sublime-settings",
 		"/home/hustlzp/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
@@ -267,7 +301,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -275,15 +309,15 @@
 					"file": "static/style/style.less",
 					"settings":
 					{
-						"buffer_size": 7993,
+						"buffer_size": 7992,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7261,
-								7261
+								4234,
+								4234
 							]
 						],
 						"settings":
@@ -292,7 +326,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 7060.0,
+						"translation.y": 4173.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -329,15 +363,15 @@
 					"file": "application/views/home/about.php",
 					"settings":
 					{
-						"buffer_size": 558,
+						"buffer_size": 557,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								390,
-								390
+								389,
+								389
 							]
 						],
 						"settings":
@@ -346,6 +380,60 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "application/views/account/login.php",
+					"settings":
+					{
+						"buffer_size": 1051,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								227,
+								102
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "application/controllers/account.php",
+					"settings":
+					{
+						"buffer_size": 9172,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								293,
+								293
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 153.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -395,6 +483,18 @@
 		"selected_items":
 		[
 			[
+				"ac",
+				"application/views/account/active.php"
+			],
+			[
+				"acc",
+				"application/controllers/account.php"
+			],
+			[
+				"log",
+				"application/views/account/login.php"
+			],
+			[
 				"a",
 				"application/views/home/about.php"
 			],
@@ -419,20 +519,12 @@
 				"application/views/account/reset_pwd.php"
 			],
 			[
-				"acc",
-				"application/controllers/account.php"
-			],
-			[
 				"auth",
 				"application/helpers/auth_helper.php"
 			],
 			[
 				"com",
 				"application/controllers/common.php"
-			],
-			[
-				"log",
-				"application/views/account/login.php"
 			],
 			[
 				"goal",
@@ -453,10 +545,6 @@
 			[
 				"con",
 				"application/config/config.php"
-			],
-			[
-				"ac",
-				"application/controllers/account.php"
 			],
 			[
 				"re",
