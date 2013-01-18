@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"end",
+				"endif"
+			],
+			[
+				"de",
+				"define"
+			],
+			[
 				"fe",
 				"feedback-content"
 			],
@@ -124,29 +132,18 @@
 			}
 		},
 		{
-			"contents": "<!DOCTYPE html>\n<html>\n	<head>\n		<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />\n		<title><?= $pageTitle ?></title>\n\n		<!--<link rel=\"stylesheet\" href=\"<?= base_url('static/style/style.css') ?>\" />-->\n\n		<!-- jQuery & jQuery UI & -->\n		<script type=\"text/javascript\" src=\"<?= base_url('static/js/jquery-1.7.2.min.js') ?>\"></script>\n		<script type=\"text/javascript\" src=\"<?= base_url('static/js/jquery-ui-1.8.22.custom.min.js') ?>\"></script>\n		<link rel=\"stylesheet\" href=\"<?= base_url('static/style/jquery-ui-1.8.22.custom.css') ?>\" />\n		\n		<!-- validation engine -->\n		<script type=\"text/javascript\" src=\"<?= base_url('static/js/jquery.validationEngine-zh_CN.js') ?>\"></script>\n		<script type=\"text/javascript\" src=\"<?= base_url('static/js/jquery.validationEngine.js') ?>\"></script>\n		<link rel=\"stylesheet\" href=\"<?= base_url('static/style/validationEngine.jquery.css') ?>\" type=\"text/css\" />\n\n		<!-- feedback js -->\n		<script type=\"text/javascript\" src=\"<?= base_url('static/js/goal-feedback.js') ?>\"></script>\n\n		<!-- less css -->\n		<link rel=\"stylesheet/less\" type=\"text/css\" href=\"<?= base_url('static/style/style.less') ?>\">\n		<script src=\"<?= base_url('static/js/less-1.3.3.min.js') ?>\" type=\"text/javascript\"></script>c\n	</head>\n\n	<body id=\"<?= $pageID ?>\">\n\n		<div id=\"feedback-panel\">\n			<div id=\"feedback-tag\"></div>\n			<form action=\"<?= base_url('common/send_feedback') ?>\" method=\"post\" id=\"form-feedback\">\n				<textarea id=\"feedback-content\" name=\"feedbackContent\" rows=\"10\" placeholder=\"您的意见\"></textarea>\n				<input class=\"btn btn-primary\" type=\"submit\" value=\"发送\" />\n			</form>\n		</div>\n\n		<div id=\"header\">\n			\n			<div class=\"container\">\n				\n				<ul id=\"nav\">\n					<li><span id=\"logo\" class=\"btn-icon\"></span></li>\n\n					<?php if(isset($_SESSION['valid_user_id'])): ?>\n					<li><a href=\"<?= base_url('person') ?>\">首页</a></li>\n					<li><a href=\"<?= base_url('like') ?>\">收藏</a></li>\n					<?php endif; ?>\n\n					<li><a href=\"<?= base_url('discover') ?>\">浏览</a></li>\n\n					<?php if(isset($_SESSION['valid_user_id'])): ?>\n					<li><a href=\"<?= base_url('goal/add') ?>\">添加</a></li>\n					<?php else: ?>\n					<li><a href=\"<?= base_url('about') ?>\">关于</a></li>\n					<?php endif; ?>\n				</ul>\n				\n				<div id=\"account-info\">\n					<?php if(isset($_SESSION['valid_user_id'])): ?>\n					<a href=\"<?= base_url('account/info') ?>\"><?= $_SESSION['valid_user'] ?></a>\n					<a href=\"<?= base_url('common/logout') ?>\">登出</a>\n					<?php else: ?>\n					<a href=\"<?= base_url('account/login') ?>\">登陆</a>\n					<a href=\"<?= base_url('account/register') ?>\">注册</a>\n					<?php endif; ?>\n				</div>\n			</div>\n		</div>\n\n		<div id=\"content-wap\" class=\"container\">\n",
 			"file": "application/views/header.php",
-			"file_size": 2787,
-			"file_write_time": 1358433573000000,
 			"settings":
 			{
-				"buffer_size": 2674,
+				"buffer_size": 2774,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "application/controllers/common.php",
+			"file": "index.php",
 			"settings":
 			{
-				"buffer_size": 1020,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "static/js/goal-feedback.js",
-			"settings":
-			{
-				"buffer_size": 730,
+				"buffer_size": 6575,
 				"line_ending": "Unix"
 			}
 		}
@@ -176,11 +173,11 @@
 	"file_history":
 	[
 		"/var/www/beforeidie/static/js/goal-feedback.js",
+		"/var/www/beforeidie/application/controllers/common.php",
 		"/home/hustlzp/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
 		"/home/hustlzp/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
 		"/var/www/beforeidie/application/controllers/account.php",
 		"/var/www/beforeidie/application/views/account/login.php",
-		"/var/www/beforeidie/application/controllers/common.php",
 		"/var/www/beforeidie/application/views/header.php",
 		"/var/www/beforeidie/application/helpers/auth_helper.php",
 		"/var/www/beforeidie/application/views/account/reset_pwd.php",
@@ -233,6 +230,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"value",
 			"ctrl+backspace",
 			"exit",
 			"post"
@@ -268,8 +266,8 @@
 						"selection":
 						[
 							[
-								460,
-								460
+								7285,
+								7285
 							]
 						],
 						"settings":
@@ -278,7 +276,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 6719.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -288,15 +286,15 @@
 					"file": "application/views/header.php",
 					"settings":
 					{
-						"buffer_size": 2674,
+						"buffer_size": 2774,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1250,
-								1250
+								1350,
+								1350
 							]
 						],
 						"settings":
@@ -312,50 +310,23 @@
 				},
 				{
 					"buffer": 2,
-					"file": "application/controllers/common.php",
+					"file": "index.php",
 					"settings":
 					{
-						"buffer_size": 1020,
+						"buffer_size": 6575,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								788,
-								788
+								537,
+								537
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 306.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "static/js/goal-feedback.js",
-					"settings":
-					{
-						"buffer_size": 730,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								546,
-								546
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
