@@ -135,31 +135,35 @@
 			"file": "application/views/header.php",
 			"settings":
 			{
-				"buffer_size": 2774,
+				"buffer_size": 2470,
 				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "index.php",
-			"settings":
-			{
-				"buffer_size": 6575,
-				"line_ending": "Unix"
 			}
 		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 0.0,
+		"height": 285.0,
 		"selected_items":
 		[
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Enable Package"
+			],
+			[
+				"pac",
+				"Package Control: Install Package"
+			]
 		],
-		"width": 0.0
+		"width": 449.0
 	},
 	"console":
 	{
-		"height": 0.0
+		"height": 139.0
 	},
 	"distraction_free":
 	{
@@ -172,10 +176,12 @@
 	},
 	"file_history":
 	[
+		"/var/www/beforeidie/index.php",
+		"/home/hustlzp/.config/sublime-text-2/Packages/User/less2css.sublime-settings",
+		"/home/hustlzp/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
 		"/var/www/beforeidie/static/js/goal-feedback.js",
 		"/var/www/beforeidie/application/controllers/common.php",
 		"/home/hustlzp/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
-		"/home/hustlzp/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
 		"/var/www/beforeidie/application/controllers/account.php",
 		"/var/www/beforeidie/application/views/account/login.php",
 		"/var/www/beforeidie/application/views/header.php",
@@ -204,7 +210,6 @@
 		"/var/www/beforeidie/system/core/URI.php",
 		"/var/www/beforeidie/application/config/database.php",
 		"/var/www/beforeidie/system/core/Config.php",
-		"/var/www/beforeidie/index.php",
 		"/var/www/beforeidie/system/core/Router.php",
 		"/var/www/beforeidie/README.md",
 		"/var/www/beforeidie/application/models/account_model.php",
@@ -251,7 +256,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -266,17 +271,17 @@
 						"selection":
 						[
 							[
-								7285,
-								7285
+								7261,
+								7261
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"syntax": "Packages/LESS/LESS.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 6719.0,
+						"translation.y": 7060.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -286,42 +291,15 @@
 					"file": "application/views/header.php",
 					"settings":
 					{
-						"buffer_size": 2774,
+						"buffer_size": 2470,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1350,
-								1350
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "index.php",
-					"settings":
-					{
-						"buffer_size": 6575,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								537,
-								537
+								969,
+								969
 							]
 						],
 						"settings":

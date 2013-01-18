@@ -18,12 +18,7 @@
 		<script type="text/javascript" src="<?= base_url('static/js/goal-feedback.js') ?>"></script>
 
 		<!-- less css -->
-		<?php if(ENVIRONMENT == 'development'): ?>
-		<link rel="stylesheet/less" type="text/css" href="<?= base_url('static/style/style.less') ?>">
-		<script src="<?= base_url('static/js/less-1.3.3.min.js') ?>" type="text/javascript"></script>
-		<?php elseif(ENVIRONMENT == 'production'): ?>
 		<link rel="stylesheet" href="<?= base_url('static/style/style.css') ?>" />
-		<?php endif; ?>
 	</head>
 
 	<body id="<?= $pageID ?>">
