@@ -138,6 +138,17 @@
 				"buffer_size": 2470,
 				"line_ending": "Windows"
 			}
+		},
+		{
+			"contents": "<div>\n	<h3 class='page-title'>关于</h3>\n\n	<p>It's easy to get caught up in the day-to-day life and forget what really matters to you.<br/>我们总是很容易就陷入日常生活的琐碎之中，而忘记了对我们来说真正重要的是什么。</p>\n\n	<p>Candy Chang在 <a href=\"http://v.youku.com/v_show/id_XNDg0NTExNTcy.html\" target=\"_blank\">TED演讲</a> 上的一句话，让人深受触动。国人常常避讳谈论死亡，认为它是消极的、不详的。但是当我们面对着死亡进行思考时，那些在每个人生命旅途中真正重要的东西，才会慢慢浮现。</p>\n\n	<p>我们来到这个世界，压根就没打算活着回去。 在离开之前，你想？</p>\n\n	<h3 class=\"page-title\">创作者</h3>\n\n	<p>hustlzp，毕业于HUST光电学院，大学四年对本专业无爱，考研毅然投奔计算机阵营，方向机器视觉，业余大爱Web开发，PHP进阶者一枚。</p>\n	\n	<p>联系方式 : hustlzp[at]qq.com</p>\n</div>",
+			"file": "application/views/home/about.php",
+			"file_size": 989,
+			"file_write_time": 1358477388000000,
+			"settings":
+			{
+				"buffer_size": 558,
+				"line_ending": "Windows"
+			}
 		}
 	],
 	"build_system": "",
@@ -256,7 +267,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -312,6 +323,32 @@
 						"zoom_level": 1.0
 					},
 					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "application/views/home/about.php",
+					"settings":
+					{
+						"buffer_size": 558,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								390,
+								390
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
 				}
 			]
 		}
@@ -357,6 +394,10 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"a",
+				"application/views/home/about.php"
+			],
 			[
 				"goal-fe",
 				"static/js/goal-feedback.js"
