@@ -126,6 +126,9 @@ class Goal extends CI_Controller{
 		$content = $this->input->post('content');
 		$isPublic = $this->input->post('isPublic');
 
+		//echo $title. $content;
+		//exit();
+
 		if($_SESSION['valid_user_id'] != $userID){
 			echo 0;
 			return;

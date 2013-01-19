@@ -29,22 +29,26 @@ class Account extends CI_Controller{
 	function plogin(){
 		auth_check('login');
 
+		// re-check
+		$this->form_validation->set_rules('password', 'Password', 'required');
+		if($this->form_validation->run() == FALSE){
+			redirect_back();
+		}
+
 		$email = $this->input->post('email');
 		$pwd = $this->input->post('password');
 
 		$this->load->model('Account_model');
-
+		
 		// username or pwd error
 		if( ! $this->Account_model->check_user_pwd_by_email($email, $pwd)){
 			$_SESSION['login_failed'] = TRUE;
 			redirect('account/login');
 		}
-		// unactive
 		else if( ! $this->Account_model->check_user_active($email, $pwd)){
 			setcookie("ue", base64_encode($email), time()+3600*24*30, '/');	//用户邮箱ue（1个月）
 			redirect('account/active/unactive/'. $email);
 		}
-		// match
 		else{
 			if(isset($_SESSION['login_failed'])){
 				unset($_SESSION['login_failed']);

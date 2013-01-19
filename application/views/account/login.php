@@ -1,20 +1,20 @@
 <script type='text/javascript'>
 
 $(document).ready(function(){
-	$("#form-login").validationEngine();
+	//$("#form-login").validationEngine();
 
-	<?php if($loginFailed): ?>
-	$('#input-email').validationEngine('showPrompt', '用户名或密码错误', 'red', '', true);	
+	<?php if(isset($loginFailed) AND $loginFailed == true): ?>
+	$('#input-email').validationEngine('showPrompt', '* 用户名或密码错误', 'red', '', true);	
 	<?php endif; ?>
 });
 
 </script>
 
 <div id='form-wap'>
-	<form id='form-login' action="<?= base_url('account/plogin') ?>" method='post'>
-		<input type='text' class='validate[required, custom[email]]' id='input-email' value="<?= $email ?>" placeholder='邮箱' class='required' minlength="6" autocomplete='off' name='email' />
+	<?= form_open('account/plogin', array('id'=>'form-login')); ?>
+		<input type='text' class='validate[required, custom[email]]' id='input-email' value="<?= $email ?>" placeholder='邮箱' autocomplete='off' name='email' />
 		
-		<input type='password' class='validate[required]' id='login-pwd' placeholder='密码' class='required' minlength="6" autocomplete='off' name='password' />
+		<input type='password' class='validate[required]' id='input-pwd' placeholder='密码' autocomplete='off' name='password' />
 		
 		<div class='form-footer'>
 			<a href="<?= base_url('discover') ?>">逛逛</a>

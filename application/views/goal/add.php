@@ -79,7 +79,8 @@ $(document).ready(function(){
 				'userID': userID,
 				'title': title,
 				'content': content,
-				'isPublic': isPublic
+				'isPublic': isPublic,
+				<?= $this->security->get_csrf_token_name(); ?> : '<?= $this->security->get_csrf_hash(); ?>'
 			},
 			success: function(isSucc){
 				if(isSucc == 1){
