@@ -42,8 +42,6 @@ class Person extends CI_Controller{
 			$data['isCreator'] = FALSE;
 		}
 	
-
-
 		// goals
 		$this->load->model('Goal_model');
 		$data['goals'] = $this->Goal_model->get_goals($userID, $data['isCreator']);
@@ -51,8 +49,6 @@ class Person extends CI_Controller{
 		$this->load->view('header.php', $data);
 		$this->load->view('person/person.php', $data);
 		$this->load->view('footer.php');
-
-		$this->output->enable_profiler(TRUE);
 	}
 
 	function change_goal_index(){
