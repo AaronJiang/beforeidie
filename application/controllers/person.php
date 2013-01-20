@@ -7,19 +7,18 @@ class Person extends CI_Controller{
 	// view
 	function index($userID = ''){
 		auth_check('public');
-	
+
 		// 获取userID
 		if($userID == ''){
 			if(isset($_SESSION['valid_user_id'])){
 				// 进入当前登陆用户的主页
 				$userID = $_SESSION['valid_user_id'];
-			} else {
+			}
+			else{
 				// 若未指定userID且未登录
 				redirect('discover');
 			}
 		}
-
-		//setcookie("ua", base64_encode("You are authed!"), time()-3600);
 
 		$this->load->model('Account_model');
 		$user = $this->Account_model->get_user_by_id($userID);
@@ -37,11 +36,13 @@ class Person extends CI_Controller{
 
 			if($data['isCreator']){
 				$email = $this->Account_model->get_email_by_id($userID);
-				$data['hasGravatar'] = $this->gravatar->check_gravatar($email);
 			}
-		} else {
+		}
+		else{
 			$data['isCreator'] = FALSE;
 		}
+	
+
 
 		// goals
 		$this->load->model('Goal_model');
@@ -50,6 +51,8 @@ class Person extends CI_Controller{
 		$this->load->view('header.php', $data);
 		$this->load->view('person/person.php', $data);
 		$this->load->view('footer.php');
+
+		$this->output->enable_profiler(TRUE);
 	}
 
 	function change_goal_index(){

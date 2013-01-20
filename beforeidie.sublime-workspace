@@ -4,6 +4,194 @@
 		"selected_items":
 		[
 			[
+				"or",
+				"originalPwd"
+			],
+			[
+				"mar",
+				"margin-right"
+			],
+			[
+				"set",
+				"set_message"
+			],
+			[
+				"vali",
+				"valid_user_id"
+			],
+			[
+				"_se",
+				"_SESSION"
+			],
+			[
+				"user",
+				"userID"
+			],
+			[
+				"_sho",
+				"_show_page_change_pwd"
+			],
+			[
+				"us",
+				"userID"
+			],
+			[
+				"base",
+				"base64_encode"
+			],
+			[
+				"bas",
+				"base64_decode"
+			],
+			[
+				"matc",
+				"matches"
+			],
+			[
+				"valid",
+				"valid_email"
+			],
+			[
+				"for",
+				"form_validation"
+			],
+			[
+				"f",
+				"from"
+			],
+			[
+				"A",
+				"AND"
+			],
+			[
+				"re",
+				"return"
+			],
+			[
+				"pos",
+				"post"
+			],
+			[
+				"res",
+				"reset_pwd_code"
+			],
+			[
+				"and",
+				"AND"
+			],
+			[
+				"E",
+				"email"
+			],
+			[
+				"set_",
+				"set_rules"
+			],
+			[
+				"show",
+				"show_page_forgot_pwd"
+			],
+			[
+				"CA",
+				"case"
+			],
+			[
+				"form",
+				"form-forgot-pwd"
+			],
+			[
+				"else",
+				"elseif	elseif …"
+			],
+			[
+				"is",
+				"isSucc"
+			],
+			[
+				"ac",
+				"active"
+			],
+			[
+				"em",
+				"email"
+			],
+			[
+				"sh",
+				"show_page_register"
+			],
+			[
+				"setr",
+				"set_rules"
+			],
+			[
+				"b",
+				"border-radius"
+			],
+			[
+				"co",
+				"color"
+			],
+			[
+				"ba",
+				"background-color"
+			],
+			[
+				"sho",
+				"show_page_login"
+			],
+			[
+				"inpu",
+				"input"
+			],
+			[
+				"check",
+				"check_email_repeat"
+			],
+			[
+				"req",
+				"required"
+			],
+			[
+				"pass",
+				"password"
+			],
+			[
+				"va",
+				"valid_email"
+			],
+			[
+				"_",
+				"_SERVER"
+			],
+			[
+				"en",
+				"encode"
+			],
+			[
+				"csr",
+				"csrf_key"
+			],
+			[
+				"_csrf_set",
+				"_csrf_set_key"
+			],
+			[
+				"goal",
+				"goalNum"
+			],
+			[
+				"conet",
+				"context"
+			],
+			[
+				"strea",
+				"stream_context_create"
+			],
+			[
+				"http_bu",
+				"http_build_query"
+			],
+			[
 				"t",
 				"title"
 			],
@@ -16,20 +204,8 @@
 				"query"
 			],
 			[
-				"form",
-				"form-login"
-			],
-			[
 				"l",
 				"loginFailed"
-			],
-			[
-				"em",
-				"email"
-			],
-			[
-				"ac",
-				"account"
 			],
 			[
 				"input",
@@ -84,10 +260,6 @@
 				"goalUserID"
 			],
 			[
-				"goal",
-				"goalUserID"
-			],
-			[
 				"User",
 				"UserID"
 			],
@@ -98,10 +270,6 @@
 			[
 				"valid_user",
 				"valid_user_id"
-			],
-			[
-				"_se",
-				"_SESSION"
 			],
 			[
 				"dis",
@@ -124,14 +292,6 @@
 				"function"
 			],
 			[
-				"us",
-				"username"
-			],
-			[
-				"is",
-				"isPublic"
-			],
-			[
 				"usr",
 				"userID"
 			],
@@ -142,10 +302,6 @@
 			[
 				"g",
 				"goalContent"
-			],
-			[
-				"user",
-				"userID"
 			],
 			[
 				"T",
@@ -159,47 +315,7 @@
 			"file": "static/style/style.less",
 			"settings":
 			{
-				"buffer_size": 7992,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "application/controllers/account.php",
-			"settings":
-			{
-				"buffer_size": 9307,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "application/views/account/login.php",
-			"settings":
-			{
-				"buffer_size": 1008,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "application/config/config.php",
-			"settings":
-			{
-				"buffer_size": 12994,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "system/core/Security.php",
-			"settings":
-			{
-				"buffer_size": 22006,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "system/core/Input.php",
-			"settings":
-			{
-				"buffer_size": 18324,
+				"buffer_size": 8245,
 				"line_ending": "Unix"
 			}
 		},
@@ -207,31 +323,7 @@
 			"file": "application/controllers/goal.php",
 			"settings":
 			{
-				"buffer_size": 3182,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/var/www/csrf.php",
-			"settings":
-			{
-				"buffer_size": 138,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "application/views/goal/add.php",
-			"settings":
-			{
-				"buffer_size": 2161,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "application/config/database.php",
-			"settings":
-			{
-				"buffer_size": 3531,
+				"buffer_size": 3338,
 				"line_ending": "Unix"
 			}
 		}
@@ -272,43 +364,53 @@
 	},
 	"file_history":
 	[
-		"/var/www/beforeidie/system/helpers/form_helper.php",
-		"/var/www/beforeidie/system/core/CodeIgniter.php",
-		"/var/www/beforeidie/system/helpers/security_helper.php",
+		"/var/www/beforeidie/application/views/account/change_pwd.php",
+		"/var/www/beforeidie/application/controllers/discover.php",
 		"/var/www/beforeidie/application/models/account_model.php",
+		"/var/www/beforeidie/application/controllers/common.php",
+		"/var/www/beforeidie/application/views/header.php",
+		"/var/www/beforeidie/application/views/account/login.php",
+		"/var/www/beforeidie/application/controllers/account.php",
+		"/var/www/beforeidie/static/style/components.less",
+		"/var/www/beforeidie/application/views/account/reset_pwd.php",
+		"/var/www/beforeidie/static/style/basecss.less",
+		"/var/www/beforeidie/application/controllers/person.php",
+		"/var/www/beforeidie/application/views/account/info.php",
+		"/var/www/beforeidie/application/views/person/person.php",
+		"/var/www/beforeidie/application/config/config.php",
+		"/var/www/beforeidie/application/config/autoload.php",
+		"/var/www/beforeidie/application/views/account/forgot_pwd.php",
+		"/var/www/beforeidie/application/views/account/active.php",
+		"/var/www/beforeidie/application/views/account/register.php",
+		"/var/www/beforeidie/application/controllers/goal.php",
+		"/var/www/beforeidie/system/core/CodeIgniter.php",
+		"/var/www/beforeidie/system/core/Benchmark.php",
+		"/var/www/beforeidie/application/views/goal/add.php",
+		"/var/www/beforeidie/application/language/cn/form_validation_lang.php",
+		"/var/www/beforeidie/system/libraries/Form_validation.php",
+		"/var/www/beforeidie/system/language/english/form_validation_lang.php",
+		"/var/www/beforeidie/system/core/Input.php",
+		"/var/www/beforeidie/system/core/Security.php",
+		"/var/www/beforeidie/system/helpers/form_helper.php",
+		"/var/www/csrf.php",
+		"/var/www/beforeidie/application/models/goal_model.php",
+		"/var/www/beforeidie/system/libraries/Encrypt.php",
+		"/var/www/beforeidie/application/config/smtp.php",
+		"/var/www/beforeidie/application/config/database.php",
+		"/var/www/beforeidie/system/helpers/security_helper.php",
 		"/var/www/beforeidie/application/helpers/auth_helper.php",
 		"/var/www/beforeidie/system/database/DB_driver.php",
 		"/var/www/beforeidie/system/database/DB.php",
-		"/var/www/beforeidie/system/core/Security.php",
 		"/var/www/beforeidie/system/helpers/url_helper.php",
-		"/var/www/beforeidie/application/config/autoload.php",
-		"/var/www/beforeidie/system/libraries/Form_validation.php",
-		"/var/www/beforeidie/application/views/account/register.php",
-		"/var/www/beforeidie/system/core/Input.php",
-		"/var/www/beforeidie/application/config/config.php",
-		"/var/www/beforeidie/application/controllers/common.php",
-		"/var/www/beforeidie/application/views/header.php",
-		"/var/www/beforeidie/application/controllers/account.php",
 		"/var/www/beforeidie/application/views/account/header.php",
 		"/var/www/beforeidie/application/views/home/about.php",
-		"/var/www/beforeidie/application/views/account/login.php",
-		"/var/www/beforeidie/application/views/account/active.php",
 		"/var/www/beforeidie/index.php",
 		"/home/hustlzp/.config/sublime-text-2/Packages/User/less2css.sublime-settings",
 		"/home/hustlzp/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
 		"/var/www/beforeidie/static/js/goal-feedback.js",
 		"/home/hustlzp/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
-		"/var/www/beforeidie/application/views/account/reset_pwd.php",
-		"/var/www/beforeidie/application/controllers/person.php",
-		"/var/www/beforeidie/application/config/smtp.php",
-		"/var/www/beforeidie/application/controllers/goal.php",
 		"/home/hustlzp/.config/sublime-text-2/Packages/Default/Default (Linux).sublime-keymap",
-		"/var/www/beforeidie/application/views/person/person.php",
-		"/var/www/beforeidie/application/views/account/forgot_pwd.php",
 		"/var/www/beforeidie/application/config/hooks.php",
-		"/var/www/beforeidie/application/models/goal_model.php",
-		"/var/www/beforeidie/application/views/account/change_pwd.php",
-		"/var/www/beforeidie/application/controllers/discover.php",
 		"/var/www/beforeidie/application/controllers/home.php",
 		"/var/www/beforeidie/application/controllers/like.php",
 		"/var/www/beforeidie/application/hooks/auth_check.php",
@@ -316,7 +418,6 @@
 		"/var/www/beforeidie/application/hooks/browser_check.php",
 		"/var/www/beforeidie/system/core/Controller.php",
 		"/var/www/beforeidie/system/core/URI.php",
-		"/var/www/beforeidie/application/config/database.php",
 		"/var/www/beforeidie/system/core/Config.php",
 		"/var/www/beforeidie/system/core/Router.php",
 		"/var/www/beforeidie/README.md",
@@ -341,6 +442,16 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"OR",
+			"AND",
+			"POST",
+			"b94a48",
+			"fbeed5",
+			"Password",
+			"password",
+			"ajax",
+			"_csrf_set_hash",
+			"_sanitize_globals",
 			"function xss_clean",
 			"xss_clean",
 			"_sanitize_globals",
@@ -375,7 +486,7 @@
 	"groups":
 	[
 		{
-			"selected": 9,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -383,15 +494,15 @@
 					"file": "static/style/style.less",
 					"settings":
 					{
-						"buffer_size": 7992,
+						"buffer_size": 8245,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4234,
-								4234
+								1980,
+								1980
 							]
 						],
 						"settings":
@@ -400,159 +511,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 552.0,
+						"translation.y": 1790.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "application/controllers/account.php",
-					"settings":
-					{
-						"buffer_size": 9307,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								917,
-								917
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 765.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "application/views/account/login.php",
-					"settings":
-					{
-						"buffer_size": 1008,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								301,
-								301
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "application/config/config.php",
-					"settings":
-					{
-						"buffer_size": 12994,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								10537,
-								10537
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 4683.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "system/core/Security.php",
-					"settings":
-					{
-						"buffer_size": 22006,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								10279,
-								10279
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "system/core/Input.php",
-					"settings":
-					{
-						"buffer_size": 18324,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2790,
-								2790
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1688.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
 					"file": "application/controllers/goal.php",
 					"settings":
 					{
-						"buffer_size": 3182,
+						"buffer_size": 3338,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2976,
-								2976
+								2408,
+								2408
 							]
 						],
 						"settings":
@@ -561,88 +538,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1785.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "/var/www/csrf.php",
-					"settings":
-					{
-						"buffer_size": 138,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "application/views/goal/add.php",
-					"settings":
-					{
-						"buffer_size": 2161,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1429,
-								1429
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1020.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "application/config/database.php",
-					"settings":
-					{
-						"buffer_size": 3531,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2889,
-								2889
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 774.0,
+						"translation.y": 357.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -692,12 +588,104 @@
 		"selected_items":
 		[
 			[
-				"add",
-				"application/views/goal/add.php"
+				"head",
+				"application/views/header.php"
+			],
+			[
+				"bas",
+				"static/style/basecss.less"
+			],
+			[
+				"info",
+				"application/views/account/info.php"
+			],
+			[
+				"acc",
+				"application/controllers/account.php"
+			],
+			[
+				"per",
+				"application/controllers/person.php"
+			],
+			[
+				"cha",
+				"application/views/account/change_pwd.php"
+			],
+			[
+				"au",
+				"application/config/autoload.php"
+			],
+			[
+				"con",
+				"application/config/config.php"
+			],
+			[
+				"lo",
+				"application/views/account/login.php"
+			],
+			[
+				"",
+				"application/views/account/forgot_pwd.php"
+			],
+			[
+				"res",
+				"application/views/account/reset_pwd.php"
+			],
+			[
+				"l",
+				"application/views/account/login.php"
+			],
+			[
+				"for",
+				"application/views/account/forgot_pwd.php"
+			],
+			[
+				"person",
+				"application/views/person/person.php"
+			],
+			[
+				"code",
+				"system/core/CodeIgniter.php"
 			],
 			[
 				"goal",
 				"application/controllers/goal.php"
+			],
+			[
+				"ac",
+				"application/views/account/active.php"
+			],
+			[
+				"re",
+				"application/views/account/register.php"
+			],
+			[
+				"auto",
+				"application/config/autoload.php"
+			],
+			[
+				"inut",
+				"system/core/Input.php"
+			],
+			[
+				"sec",
+				"system/core/Security.php"
+			],
+			[
+				"login",
+				"application/views/account/login.php"
+			],
+			[
+				"se",
+				"system/core/Security.php"
+			],
+			[
+				"smtp",
+				"application/config/smtp.php"
+			],
+			[
+				"add",
+				"application/views/goal/add.php"
 			],
 			[
 				"codeig",
@@ -708,40 +696,8 @@
 				"system/database/DB_driver.php"
 			],
 			[
-				"acc",
-				"application/models/account_model.php"
-			],
-			[
-				"code",
-				"system/core/CodeIgniter.php"
-			],
-			[
-				"con",
-				"application/config/config.php"
-			],
-			[
-				"re",
-				"application/views/account/register.php"
-			],
-			[
 				"co",
 				"application/controllers/common.php"
-			],
-			[
-				"ac",
-				"application/models/account_model.php"
-			],
-			[
-				"login",
-				"application/views/account/login.php"
-			],
-			[
-				"auto",
-				"application/config/autoload.php"
-			],
-			[
-				"head",
-				"application/views/account/header.php"
 			],
 			[
 				"hea",
@@ -764,28 +720,12 @@
 				"application/controllers/common.php"
 			],
 			[
-				"res",
-				"application/views/account/reset_pwd.php"
-			],
-			[
 				"auth",
 				"application/helpers/auth_helper.php"
 			],
 			[
 				"com",
 				"application/controllers/common.php"
-			],
-			[
-				"per",
-				"application/views/person/person.php"
-			],
-			[
-				"for",
-				"application/views/account/forgot_pwd.php"
-			],
-			[
-				"au",
-				"application/config/autoload.php"
 			],
 			[
 				"data",
@@ -806,6 +746,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 253.0,
+	"side_bar_width": 276.0,
 	"status_bar_visible": true
 }

@@ -67,21 +67,27 @@ class Account_model extends CI_Model{
 		return ($result->num_rows > 0);		
 	}
 
-	function check_user_active($email, $pwd){
-		$query = "SELECT * FROM users WHERE Email = ? AND Password = ? AND IsActive = ?";
-		$result = $this->db->query($query, array($email, sha1($pwd), 1));
+	function check_user_active($email){
+		$query = "SELECT * FROM users WHERE Email = ? AND IsActive = ?";
+		$result = $this->db->query($query, array($email, 1));
 		return ($result->num_rows > 0);
+	}
+
+	function check_user_unactive($email){
+		$query = "SELECT * FROM users WHERE Email = ? AND IsActive = ?";
+		$result = $this->db->query($query, array($email, 0));
+		return ($result->num_rows > 0);		
 	}
 
 	// 检查邮箱是否已存在
-	function check_email_repeat($email){
+	function check_email_exist($email){
 		$query = "SELECT * FROM users WHERE Email = ?";
 		$result = $this->db->query($query, array($email));
-		return ($result->num_rows > 0);
+		return ($result->num_rows > 0);		
 	}
 
 	// 检查用户名是否已存在
-	function check_username_repeat($username){
+	function check_username_exist($username){
 		$query = "SELECT * FROM users WHERE Username = ?";
 		$result = $this->db->query($query, array($username));
 		return ($result->num_rows > 0);

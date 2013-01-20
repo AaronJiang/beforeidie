@@ -13,7 +13,8 @@ $(document).ready(function(){
 			data: {
 				async: false,
 				userID: userID,
-				sex: sex
+				sex: sex,
+				<?= $this->security->get_csrf_token_name(); ?>: '<?= $this->security->get_csrf_token_hash(); ?>'
 			},
 			success: function(isSucc){
 				if(isSucc == 1){}
@@ -35,20 +36,13 @@ $(document).ready(function(){
 	<tr>
 		<td class='item-header'>头像：</td>
 		<td>
-			<img class='avatar avatar-larger' src="<?= $user->AvatarUrl ?>" />
+			<a title='去 Gravatar 更换你的头像' target='_blank' href='http://cn.gravatar.com/'><img class='avatar avatar-larger' src="<?= $user->AvatarUrl ?>" /></a>
 			
 			<span>
-			<?php if($hasGravatar): ?>
 			(<a title='去 Gravatar 更换你的头像' 
 				target='_blank'
-				href='http://cn.gravatar.com/emails/' 
-				class='btn btn-tiny btn-cmd'>更换</a>)
-			<?php else: ?>
-			(<a title='去 Gravatar 上传你的头像，全球通用哦，亲！' 
-				target='_blank'
 				href='http://cn.gravatar.com/' 
-				class='btn btn-tiny btn-cmd'>上传</a>)			
-			<?php endif; ?>
+				class='btn btn-tiny btn-cmd'>更换</a>)
 			</span>
 		</td>
 	</tr>

@@ -52,7 +52,8 @@ $(document).ready(function(){
 				type: 'POST',
 				data: {
 					idArray: idArray,
-					indexArray: indexArray
+					indexArray: indexArray,
+					<?= $this->security->get_csrf_token_name(); ?>: '<?= $this->security->get_csrf_token_hash(); ?>'
 				},
 				success: function(isSucc){
 					if(isSucc == 1){}
@@ -79,10 +80,11 @@ $(document).ready(function(){
 			type: 'POST',
 			data: {
 				'goalID': goalID,
-				'isPublic': isPublic
+				'isPublic': isPublic,
+				<?= $this->security->get_csrf_token_name(); ?>: '<?= $this->security->get_csrf_token_hash(); ?>'
 			},
 			success: function(isSucc){
-				if(isSucc){
+				if(isSucc == 1){
 					// 切换图标样式
 					if(isPublic == 1){
 						// 若之前为 unlock
@@ -110,10 +112,11 @@ $(document).ready(function(){
 				url: "<?=base_url('person/drop_goal') ?>",
 				type: 'POST',
 				data: {
-					'goalID': goalID
+					'goalID': goalID,
+					<?= $this->security->get_csrf_token_name(); ?>: '<?= $this->security->get_csrf_token_hash(); ?>'
 				},
 				success: function(isSucc){
-					if(isSucc){
+					if(isSucc == 1){
 						$(goalItem).detach();
 
 						// refresh index
@@ -132,11 +135,7 @@ $(document).ready(function(){
 </script>
 
 <div id='user-info-wap' class="clearleft">
-	<?php if($isCreator AND ! $hasGravatar): ?>
-	<a href="http://cn.gravatar.com/" target="_blank" title="去 Gravatar 上传你的头像，全球通用哦，亲！"><img class="avatar avatar-side avatar-large" src="<?=$user->AvatarUrl ?>" /></a>
-	<?php else: ?>
-	<img class='avatar avatar-side avatar-large' src="<?=$user->AvatarUrl ?>" />
-	<?php endif; ?>
+	<img class='avatar avatar-side avatar-large' src="<?=$user->AvatarUrl ?>" title="<?= $user->Username ?>" />
 
 	<div id="user-info">
 		<div id="title">
@@ -150,7 +149,7 @@ $(document).ready(function(){
 			<?php endif; ?>
 		<?php endif; ?>
 		</div>
-		<div id="username"><?=$user->Username?></div>
+		<div id="username"><?= $user->Username ?></div>
 	</div>
 </div>
 
@@ -183,6 +182,9 @@ $(document).ready(function(){
 		<?php endif; ?>
 	</div>
 	<?php endforeach; ?>
+
+
+
 </div>
 
 <?php endif; ?>

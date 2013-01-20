@@ -1,18 +1,16 @@
 <?php if($isFull): ?>
 
-<p>已经有16个愿望了，请保持简单。</p>
+<p>已经9个了，请保持简单。</p>
 
 <?php else: ?>
 
 <script type="text/javascript">
 
-var isSaved = false;
-
 $(document).ready(function(){
 
 	$('#goal-title').focus();
 
-	// 切换lock状态
+	// switch lock state
 	$('.btn-lock').click(function(){
 		var isPublic = $(this).attr('data-is-public');
 
@@ -25,42 +23,7 @@ $(document).ready(function(){
 		}
 	});
 
-	// 避免意外的关闭
-	$(window).unload(function(){
-
-		/*
-		if( ! isSaved){
-			return;
-		}
-
-		var title = $.trim($('#goal-title').text());
-
-		if(title == '')
-			return;
-
-		var	content = $('#goal-content').html(),
-			userID = $('#goal-title').attr('data-user-id'),
-			isPublic = $('.btn-lock').first().attr('data-is-public');
-
-		$.ajax({
-			url: "<?= base_url('goal/add_goal') ?>",
-			type: 'POST',
-			async: false,
-			data: {
-				'userID': userID,
-				'title': title,
-				'content': content,
-				'isPublic': isPublic
-			},
-			// 成功则跳转
-			success: function(isSucc){
-				if(isSucc == 1){}
-			}
-		});
-		*/
-	});
-
-	// 新建
+	// new goal
 	$('#btn-new-goal').click(function(){
 
 		var title = $.trim($('#goal-title').text());
@@ -80,7 +43,7 @@ $(document).ready(function(){
 				'title': title,
 				'content': content,
 				'isPublic': isPublic,
-				<?= $this->security->get_csrf_token_name(); ?> : '<?= $this->security->get_csrf_hash(); ?>'
+				<?= $this->security->get_csrf_token_name(); ?> : '<?= $this->security->get_csrf_token_hash(); ?>'
 			},
 			success: function(isSucc){
 				if(isSucc == 1){

@@ -166,97 +166,22 @@
 	}
 }
 
-// Comments
+// Form Error Wap
 // ------------------------------------------------------------
+.error-wap{
+	box-sizing: border-box;
+	padding: 8px 12px;
 
-/* Comments */
-.comments-wap{
-	border-top: 1px solid @grayLighter;
-	padding: 10px 0 0 0;
+	//background-color: #f2dede;
+	//border: 1px solid #eed3d7;
+	//color: #b94a48;
+
+	background-color: @grayDarker;
+	border: 1px solid @black;
+	color: @white;
 	
-	.comment-item{
-		padding: 0 0 10px 0;
-		font-size: @fontSizeSmall;
-		font-family: @altFontFamily;
-		
-		.comment-main{
-			margin: 0 0 0 40px;
-			
-			.comment-header{
-				margin: 0 0 3px 0;
-				line-height: @fontSizeSmall;
-			}
-			
-			.comment-footer{
-				.comment-time{
-					color: @gray;
-				}
-			}
-		}
+	p{
+		margin: 0px;
+		line-height: 25px;
 	}
-}
-
-/* Comment New Form */
-.new-comment-wap{
-	border-top: 1px solid @grayLighter;
-	padding: 12px 0 0 0;
-	
-	.new-comment-form {
-		margin: 0 0 0 40px;
-	
-		.comment-input {
-			border: 1px solid @grayLighter;
-			padding: 4px 7px;
-			font-family: @altFontFamily;
-			margin: 0 0 8px 0;
-			outline: none;
-		}
-
-		.comment-cmd-wap {
-			margin: 0 0 8px 0;
-			text-align: right;
-
-			.cmd-comment {
-				margin: 0 0 0 8px;
-				cursor: pointer;
-				font-family: @altFontFamily;
-			}			
-		}
-
-	}
-}
-
-// jQuery Adjust
-// ------------------------------------------------------------
-
-/* datapicker */
-.ui-datepicker{
-	font-size:12px;
-}
-
-.ui-datepicker select.ui-datepicker-year{
-	width:40%;
-	margin-right:5px;
-}
-
-.ui-datepicker select.ui-datepicker-month{
-	width:40%;
-	margin-left:5px;
-}
-
-/* dialog */
-.ui-button-text-only .ui-button-text{
-	padding: .2em 1em;
-}
-
-.ui-dialog{
-	font-size:15px;
-	
-	.ui-dialog-content{
-		padding-top:15px;
-	}
-}
-
-.ui-dialog .ui-dialog-buttonpane button{
-	margin: .5em 0em .5em 0.8em;
 }

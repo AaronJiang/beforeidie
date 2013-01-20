@@ -23,13 +23,15 @@
 
 	<body id="<?= $pageID ?>">
 
+		<?php if(isset($_SESSION['valid_user_id'])): ?>
 		<div id="feedback-panel">
 			<div id="feedback-tag"></div>
-			<form action="<?= base_url('common/send_feedback') ?>" method="post" id="form-feedback">
+			<?= form_open('common/send_feedback', array('id' => 'form-feedback')) ?>
 				<textarea id="feedback-content" name="feedbackContent" rows="10" placeholder="您的意见"></textarea>
 				<input class="btn btn-primary" type="submit" value="发送" />
 			</form>
 		</div>
+		<?php endif; ?>
 
 		<div id="header">
 			

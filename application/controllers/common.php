@@ -14,7 +14,7 @@ class Common extends CI_Controller{
 
 
 	function send_feedback(){
-		auth_check('public');
+		auth_check('private');
 
 		$feedbackContent = $this->input->post('feedbackContent');
 
@@ -25,22 +25,13 @@ class Common extends CI_Controller{
 
 		$mailSubject = 'Beforeidie-意见反馈';
 
-		// content
+		// header
 		$mailContent = "<h1 style='margin:0 0 10px 0;font-size:15px'>";
-
-		if(isset($_SESSION['valid_user_id'])){
-			$mailContent .= "<a href='". base_url('person'). "/". $_SESSION['valid_user_id']. "'>". $_SESSION['valid_user']. "</a> 说：";	
-		}
-		else{
-			$mailContent .= "有人说：";
-		}
-
+		$mailContent .= "<a href='". base_url('person'). "/". $_SESSION['valid_user_id']. "'>". $_SESSION['valid_user']. "</a> 说：";
 		$mailContent .= "</h1>";
 
-		if(trim($feedbackContent) != ""){
-			$mailContent .= "<p style='margin:0;'>". $feedbackContent. "</p>";			
-		}
-		// end content
+		// content
+		$mailContent .= "<p style='margin:0;'>". $feedbackContent. "</p>";
 
 		@$this->smtp->sendmail('hustlzp@qq.com', $mailSubject, $mailContent);
 		redirect_back();

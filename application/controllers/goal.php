@@ -17,10 +17,9 @@ class Goal extends CI_Controller{
 		$goal = $this->Goal_model->get_goal_by_id($goalID);
 		$data['goal'] = $goal;
 
-		// pageinfo
 		$data['pageTitle'] = $goal->Title. ' - '. $goal->Username;
 		$data['pageID'] = 'page-goal-details';
-
+		
 		// isCreator
 		if(isset($_SESSION['valid_user_id'])){
 			$data['isCreator'] = ($goal->UserID == $_SESSION['valid_user_id']);
@@ -50,7 +49,7 @@ class Goal extends CI_Controller{
 
 		$this->load->model('Goal_model');
 
-		// check process auth
+		// cannot change other's data
 		$goalUserID = $this->Goal_model->get_user_by_goal($goalID);
 		if($_SESSION['valid_user_id'] != $goalUserID){
 			echo 0;
@@ -67,7 +66,7 @@ class Goal extends CI_Controller{
 		$userID = $this->input->post('userID');
 		$isLike = $this->input->post('isLike');
 
-		// check process auth
+		// cannot change other's data
 		if($_SESSION['valid_user_id'] != $userID){
 			echo 0;
 			return;
@@ -85,7 +84,7 @@ class Goal extends CI_Controller{
 
 		$this->load->model('Goal_model');
 
-		// check process auth
+		// cannot change other's goal
 		$goalUserID = $this->Goal_model->get_user_by_goal($goalID);
 		if($_SESSION['valid_user_id'] != $goalUserID){
 			echo 0;
@@ -111,7 +110,8 @@ class Goal extends CI_Controller{
 
 		// goalsNum
 		$this->load->model('Goal_model');
-		$data['isFull'] = ($this->Goal_model->get_goals_num($userID, true) >= 16);		
+		$goalsNum = $this->Goal_model->get_goals_num($userID, true);
+		$data['isFull'] = ($goalsNum >= 9);
 
 		$this->load->view('header.php', $data);
 		$this->load->view('goal/add.php', $data);
@@ -126,15 +126,21 @@ class Goal extends CI_Controller{
 		$content = $this->input->post('content');
 		$isPublic = $this->input->post('isPublic');
 
-		//echo $title. $content;
-		//exit();
+		$this->load->model('Goal_model');
+		
+		// cannot > 9
+		$goalNum = $this->Goal_model->get_goals_num($userID, TRUE);
+		if($goalNum >= 9){
+			echo 0;
+			return;
+		}
 
+		// cannot change other's data 
 		if($_SESSION['valid_user_id'] != $userID){
 			echo 0;
 			return;
 		}
 
-		$this->load->model('Goal_model');
 		echo $this->Goal_model->new_goal($userID, $title, $content, $isPublic)? 1: 0;
 	}
 }

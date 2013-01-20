@@ -149,8 +149,8 @@ class CI_Security {
 			$this->csrf_show_error();
 		}
 
-		// Do the tokens match?
-		if ($_POST[$this->_csrf_token_name] != $_COOKIE[$this->_csrf_cookie_name])
+		// Do token_hash match cookie_hash? 
+		if ($_POST[$this->_csrf_token_name] != md5($_COOKIE[$this->_csrf_cookie_name]))
 		{
 			$this->csrf_show_error();
 		}
@@ -161,9 +161,9 @@ class CI_Security {
 
 		// Nothing should last forever
 		unset($_COOKIE[$this->_csrf_cookie_name]);
-		$this->_csrf_set_hash();
+		$this->_csrf_set_hash();	
 		$this->csrf_set_cookie();
-
+	
 		log_message('debug', 'CSRF token verified');
 
 		return $this;
@@ -217,6 +217,20 @@ class CI_Security {
 	public function get_csrf_hash()
 	{
 		return $this->_csrf_hash;
+	}
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * Get CSRF Token Hash
+	 *
+	 * Getter Method
+	 *
+	 * @return 	string 	self::_csrf_token_hash
+	 */
+
+	public function get_csrf_token_hash(){
+		return md5($this->_csrf_hash);
 	}
 
 	// --------------------------------------------------------------------
