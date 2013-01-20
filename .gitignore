@@ -4,6 +4,8 @@
 database.php
 smtp.php
 config.php
+*.sublime-project
+*.sublime-workspace
 
 #################
 ## Eclipse
