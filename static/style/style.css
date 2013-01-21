@@ -71,7 +71,7 @@ select{font-size:14px;border:1px solid #dddddd;font-family:'tb','宋体';padding
 #page-change-pwd .error-wap{width:350px;margin:0 0 20px 0;}
 #page-change-pwd input[type='text'],#page-change-pwd input[type='password']{width:350px;}
 #page-change-pwd input[type='submit']{margin-right:5px;}
-#page-new-goal #goal-title-wap{border-bottom:1px solid #999999;padding:10px 0 15px 0;margin:0 0 25px 0;text-align:center;font-weight:normal;outline:none;position:relative;}#page-new-goal #goal-title-wap #pre,#page-new-goal #goal-title-wap #goal-title{text-align:center;font-weight:normal;}
+#page-new-goal #goal-title-wap{border-bottom:1px solid #999999;padding:5px 0 15px 0;margin:0 0 25px 0;text-align:center;font-weight:normal;outline:none;position:relative;}#page-new-goal #goal-title-wap #pre,#page-new-goal #goal-title-wap #goal-title{text-align:center;font-weight:normal;}
 #page-new-goal #goal-title-wap #pre{margin-bottom:8px;}
 #page-new-goal #goal-title-wap #goal-title{margin-bottom:5px;font-size:30px;outline:none;}
 #page-new-goal #goal-title-wap .btn-lock{position:absolute;bottom:5px;right:5px;background-position:-287px -24px;opacity:0.8;}#page-new-goal #goal-title-wap .btn-lock:hover{opacity:0.9;}
@@ -88,7 +88,7 @@ select{font-size:14px;border:1px solid #dddddd;font-family:'tb','宋体';padding
 #page-goal-details #title-wap #extra-info-wap .btn-like{margin-left:5px;margin-right:2px;vertical-align:-12%;background-position:-96px 0;opacity:0.9;}#page-goal-details #title-wap #extra-info-wap .btn-like:hover{opacity:1;}
 #page-goal-details #title-wap #extra-info-wap .btn-like-false{opacity:0.5;}#page-goal-details #title-wap #extra-info-wap .btn-like-false:hover{opacity:0.6;}
 #page-goal-details #goal-content{font-family:'tb','宋体';font-size:16px;line-height:27px;padding:0 5px;outline:none;min-height:400px;}#page-goal-details #goal-content div{margin-bottom:15px;}
-#page-person{}#page-person #user-info-wap{margin:0 0 15px 5px;position:relative;}#page-person #user-info-wap #user-info{margin:0 0 0 65px;}#page-person #user-info-wap #user-info #title{margin-bottom:4px;font-size:30px;line-height:30px;font-weight:normal;}
+#page-person{}#page-person #user-info-wap{margin:3px 0 18px 5px;position:relative;}#page-person #user-info-wap #user-info{margin:0 0 0 65px;}#page-person #user-info-wap #user-info #title{margin-bottom:4px;font-size:30px;line-height:30px;font-weight:normal;}
 #page-person #user-info-wap #user-info #username{font-size:11.9px;color:#555555;outline:none;padding-left:2px;}
 #page-person #user-info-wap #user-info #likes{position:absolute;top:6px;right:10px;font-size:11.9px;}#page-person #user-info-wap #user-info #likes a{color:#999999;text-decoration:none;}
 #page-person #user-info-wap #user-info #likes .btn-like{vertical-align:-12%;background-position:-96px 0;opacity:0.8;}
