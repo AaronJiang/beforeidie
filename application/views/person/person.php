@@ -2,7 +2,7 @@
 
 $(document).ready(function(){
 	
-	// index
+	// gene index
 	$('.goal-index').each(function(index){
 		$(this).text(index + 1);
 	});
@@ -31,7 +31,8 @@ $(document).ready(function(){
 					// 数组开头不加&
 					if(isFirstChanged == 1){
 						isFirstChanged = 0;
-					}else{
+					}
+					else{
 						idArray += '&';
 						indexArray += '&';
 					}
@@ -41,7 +42,7 @@ $(document).ready(function(){
 				}
 			});
 
-			// 若未改动次序，则不发送ajax
+			// 若未改动次序，则不ajax
 			if(idArray.length == 0){
 				return;
 			}

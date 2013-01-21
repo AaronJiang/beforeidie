@@ -47,7 +47,6 @@ $(document).ready(function(){
 			},
 			success: function(isSucc){
 				if(isSucc == 1){
-					isSaved = true;
 					window.location = "<?= base_url('person') ?>";
 				}
 			}

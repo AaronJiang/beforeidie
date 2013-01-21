@@ -40,18 +40,21 @@ class Goal extends CI_Controller{
 		$this->load->view('footer.php');
 	}
 
+	// ajax
 	function update_goal(){
 		auth_check('private');
 
 		$goalID = $this->input->post('goalID');
-		$goalTitle = $this->input->post('goalTitle');
-		$goalContent = $this->input->post('goalContent');
+		$goalTitle = trim($this->input->post('goalTitle'));
+		$goalContent = trim($this->input->post('goalContent'));
 
 		$this->load->model('Goal_model');
 
-		// cannot change other's data
+		// id check + title not empty
 		$goalUserID = $this->Goal_model->get_user_by_goal($goalID);
-		if($_SESSION['valid_user_id'] != $goalUserID){
+		if( $_SESSION['valid_user_id'] != $goalUserID
+			OR $goalTitle == '')
+		{
 			echo 0;
 			return;
 		}
@@ -59,6 +62,7 @@ class Goal extends CI_Controller{
 		echo $this->Goal_model->update_goal($goalID, $goalTitle, $goalContent)? 1: 0;
 	}
 
+	// ajax
 	function change_goal_like(){
 		auth_check('private');
 
@@ -66,8 +70,10 @@ class Goal extends CI_Controller{
 		$userID = $this->input->post('userID');
 		$isLike = $this->input->post('isLike');
 
-		// cannot change other's data
-		if($_SESSION['valid_user_id'] != $userID){
+		// id check + format check
+		if( $_SESSION['valid_user_id'] != $userID
+			OR ($isLike != 0 AND $isLike != 1))
+		{
 			echo 0;
 			return;
 		}
@@ -76,6 +82,7 @@ class Goal extends CI_Controller{
 		echo $this->Like_model->change_goal_like($goalID, $userID, $isLike)? 1: 0;
 	}
 
+	// ajax
 	function change_goal_lock(){
 		auth_check('private');
 
@@ -84,9 +91,11 @@ class Goal extends CI_Controller{
 
 		$this->load->model('Goal_model');
 
-		// cannot change other's goal
+		// id check + format check
 		$goalUserID = $this->Goal_model->get_user_by_goal($goalID);
-		if($_SESSION['valid_user_id'] != $goalUserID){
+		if( $_SESSION['valid_user_id'] != $goalUserID
+			OR ($isPublic != 0 AND $isPublic != 1))
+		{
 			echo 0;
 			return;
 		}
@@ -118,25 +127,24 @@ class Goal extends CI_Controller{
 		$this->load->view('footer.php');
 	}
 
+	// ajax
 	function add_goal(){
 		auth_check('private');
 		
 		$userID = $this->input->post('userID');
-		$title = $this->input->post('title');
-		$content = $this->input->post('content');
+		$title = trim($this->input->post('title'));
+		$content = trim($this->input->post('content'));
 		$isPublic = $this->input->post('isPublic');
 
 		$this->load->model('Goal_model');
 		
-		// cannot > 9
+		// goalNum cannot > 9 / id check / format check / title cannot empty
 		$goalNum = $this->Goal_model->get_goals_num($userID, TRUE);
-		if($goalNum >= 9){
-			echo 0;
-			return;
-		}
-
-		// cannot change other's data 
-		if($_SESSION['valid_user_id'] != $userID){
+		if( $goalNum >= 9
+			OR $_SESSION['valid_user_id'] != $userID
+			OR ($isPublic != 0 AND $isPublic != 1)
+			OR $title == '')
+		{
 			echo 0;
 			return;
 		}
@@ -144,6 +152,5 @@ class Goal extends CI_Controller{
 		echo $this->Goal_model->new_goal($userID, $title, $content, $isPublic)? 1: 0;
 	}
 }
-
 
 ?>

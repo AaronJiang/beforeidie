@@ -4,6 +4,7 @@ class Account extends CI_Controller{
 
 // page login
 
+	// view
 	function login(){		
 		auth_check('login');
 
@@ -35,7 +36,7 @@ class Account extends CI_Controller{
 				}
 				else{
 					// is active
-					$this->form_validation->set_rules('email', '', 'callback_user_active_check['. $pwd. ']');
+					$this->form_validation->set_rules('email', '', 'callback_user_active_check');
 
 					if($this->form_validation->run() == FALSE){
 						//用户邮箱ue（1个月）
@@ -134,6 +135,9 @@ class Account extends CI_Controller{
 						setcookie("ue", base64_encode($email), time()+3600*24*30, '/');
 						redirect('account/active/register/'. $email);
 					}
+					else{
+						$this->_show_page_register();
+					}
 				}
 			}
 			break;
@@ -204,7 +208,6 @@ class Account extends CI_Controller{
 		auth_check('login');
 
 		$this->load->model('Account_model');
-		$isSucc = 0;
 
 		// not empty & really unactive & match & actived ?
 		if( $email != ''
@@ -368,7 +371,7 @@ class Account extends CI_Controller{
 		return $this->Account_model->check_email_exist($email);	
 	}
 
-// page account details
+// page account info
 
 	// view
 	function info(){
@@ -440,6 +443,9 @@ class Account extends CI_Controller{
 					if($this->Account_model->change_pwd_by_id($userID, $newPwd)){
 						redirect('account/info');
 					}
+					else{
+						$this->_show_page_change_pwd();
+					}
 				}
 			}
 			break;
@@ -498,7 +504,6 @@ class Account extends CI_Controller{
 		
 		//生成激活 Url
 		$activeCode = $this->_gene_reset_pwd_code($emailTo);
-
 		$activeUrl = base_url('account/verify_reset_code/'. $emailTo. "/". $activeCode);
 
 		//邮件内容

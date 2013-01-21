@@ -9,6 +9,10 @@ $(document).ready(function(){
 		var goalID = $('#goal-title').data('goal-id'),
 			goalTitle = $.trim($('#goal-title').text()),
 			goalContent = $.trim($('#goal-content').html());
+
+		if(goalTitle == ''){
+			return;
+		}
 			
 		$.ajax({
 			url: "<?= base_url('goal/update_goal') ?>",
@@ -17,7 +21,8 @@ $(document).ready(function(){
 			data: {
 				'goalID': goalID,
 				'goalTitle': goalTitle,
-				'goalContent': goalContent
+				'goalContent': goalContent,
+				<?= $this->security->get_csrf_token_name(); ?>: '<?= $this->security->get_csrf_token_hash(); ?>'
 			},
 			success: function(isSucc){
 				if(isSucc == 1){}
@@ -36,7 +41,8 @@ $(document).ready(function(){
 			type: 'POST',
 			data: {
 				'goalID': goalID,
-				'isPublic': isPublic
+				'isPublic': isPublic,
+				<?= $this->security->get_csrf_token_name(); ?>: '<?= $this->security->get_csrf_token_hash(); ?>'
 			},
 			success: function(isSucc){
 				if(isSucc == 1){
@@ -70,7 +76,8 @@ $(document).ready(function(){
 			data: {
 				'goalID': goalID,
 				'userID': userID,
-				'isLike': isLike
+				'isLike': isLike,
+				<?= $this->security->get_csrf_token_name(); ?>: '<?= $this->security->get_csrf_token_hash(); ?>'
 			},
 			success: function(isSucc){
 				if(isSucc == 1){
@@ -115,9 +122,9 @@ $(document).ready(function(){
 		<?php if($isCreator): ?>
 			<!-- lock -->
 			<?php if($goal->IsPublic): ?>
-			<span class="btn-icon btn-lock btn-lock-false" data-goal-id="<?= $goal->GoalID ?>" data-is-public="1" title="锁起来，只给自己看"></span>
+			<span class="btn-icon btn-lock btn-lock-false" data-goal-id="<?= $goal->GoalID ?>" data-is-public="1" title="上锁"></span>
 			<?php else: ?>
-			<span class="btn-icon btn-lock" data-goal-id="<?= $goal->GoalID ?>" data-is-public="0" title="开锁啦"></span>
+			<span class="btn-icon btn-lock" data-goal-id="<?= $goal->GoalID ?>" data-is-public="0" title="上锁"></span>
 			<?php endif; ?>
 		<?php else: ?>
 			<span id="goal-creator">by <a href="<?= base_url('person/'.$goal->UserID) ?>"><?= $goal->Username ?></a></span>

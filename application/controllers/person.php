@@ -51,6 +51,7 @@ class Person extends CI_Controller{
 		$this->load->view('footer.php');
 	}
 
+	// ajax
 	function change_goal_index(){
 		auth_check('private');
 
@@ -59,19 +60,19 @@ class Person extends CI_Controller{
 
 		$this->load->model('Goal_model');
 
-		// check process auth
-		if(count($idArray) >= 1){
-			$goalUserID = $this->Goal_model->get_user_by_goal($idArray[0]);
-
-			if($_SESSION['valid_user_id'] != $goalUserID){
-				echo 0;
-				return;
-			}
+		// not empty / count match / id check
+		if( count($idArray) <= 1
+			OR count($idArray) != count($indexArray)
+			OR $_SESSION['valid_user_id'] != $this->Goal_model->get_user_by_goal($idArray[0]))
+		{
+			echo 0;
+			return;
 		}
 
 		echo $this->Goal_model->change_goal_index($idArray, $indexArray)? 1: 0;
 	}
 
+	// ajax
 	function change_goal_lock(){
 		auth_check('private');
 
@@ -80,9 +81,10 @@ class Person extends CI_Controller{
 
 		$this->load->model('Goal_model');
 
-		// check process auth
-		$goalUserID = $this->Goal_model->get_user_by_goal($goalID);
-		if($_SESSION['valid_user_id'] != $goalUserID){
+		// id check
+		if( $_SESSION['valid_user_id'] != $this->Goal_model->get_user_by_goal($goalID)
+			OR ($isPublic != 0 AND $isPublic != 1))
+		{
 			echo 0;
 			return;
 		}
