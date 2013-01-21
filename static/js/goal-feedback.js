@@ -20,10 +20,10 @@ $(document).ready(function(){
 			$('#feedback-panel').animate({'right':'0px'}, 'fast');
 			$('#feedback-content').focus();
 		}
-		else if(rightLen == '0px') {
+		else if(rightLen == '0px'){
 			$('#feedback-panel').animate({'right':'-200px'}, 'fast');
 		}
-		else {
+		else{
 			$('#feedback-panel').animate({'right':'-200px'}, 'fast');
 		}
 	});
