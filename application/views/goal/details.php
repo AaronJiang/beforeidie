@@ -120,27 +120,35 @@ $(document).ready(function(){
 
 	<div id="extra-info-wap">
 		<?php if($isCreator): ?>
+
 			<!-- lock -->
 			<?php if($goal->IsPublic): ?>
 			<span class="btn-icon btn-lock btn-lock-false" data-goal-id="<?= $goal->GoalID ?>" data-is-public="1" title="上锁"></span>
 			<?php else: ?>
 			<span class="btn-icon btn-lock" data-goal-id="<?= $goal->GoalID ?>" data-is-public="0" title="上锁"></span>
 			<?php endif; ?>
+		
 		<?php else: ?>
+
+			<!-- creator -->
 			<span id="goal-creator">by <a href="<?= base_url('person/'.$goal->UserID) ?>"><?= $goal->Username ?></a></span>
+
+			<!-- like -->
+			<?php if(isset($isLike)): ?>
+
+				<?php if($isLike): ?>
+				<span class="btn-icon btn-like" title="喜欢" data-goal-id="<?= $goal->GoalID ?>" data-user-id="<?= $currUserID ?>" data-is-like="1"></span>
+				<?php else: ?>
+				<span class="btn-icon btn-like btn-like-false" title="喜欢" data-goal-id="<?= $goal->GoalID ?>" data-user-id="<?= $currUserID ?>" data-is-like="0"></span>
+				<?php endif; ?>
+
+			<?php endif; ?>
+
 		<?php endif; ?>
 	</div>
 </div>
 
 <div id="goal-content" data-goal-id="<?= $goal->GoalID ?>"
 	<?php if($isCreator): ?>contenteditable="true"<?php endif; ?>
-	><?= stripslashes($goal->Content) ?></div>
-
-<!-- 不为创造者且isLike不为空 -->
-<?php if( ! $isCreator AND isset($isLike)): ?>
-	<?php if($isLike): ?>
-	<span class="btn-icon btn-like" title="喜欢" data-goal-id="<?= $goal->GoalID ?>" data-user-id="<?= $currUserID ?>" data-is-like="1"></span>
-	<?php else: ?>
-	<span class="btn-icon btn-like btn-like-false" title="喜欢" data-goal-id="<?= $goal->GoalID ?>" data-user-id="<?= $currUserID ?>" data-is-like="0"></span>
-	<?php endif; ?>
-<?php endif; ?>
+	><?= stripslashes($goal->Content) ?>
+</div>

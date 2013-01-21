@@ -10,6 +10,10 @@ $(document).ready(function(){
 
 	$('#goal-title').focus();
 
+	$('#goal-content').focus(function(){
+		$('#goal-content-placeholder').detach();
+	})
+
 	// switch lock state
 	$('.btn-lock').click(function(){
 		var isPublic = $(this).attr('data-is-public');
@@ -17,7 +21,8 @@ $(document).ready(function(){
 		if(isPublic == 1){
 			$(this).removeClass('btn-lock-false');
 			$(this).attr({'data-is-public': 0}); 
-		} else {
+		}
+		else{
 			$(this).addClass('btn-lock-false');
 			$(this).attr({'data-is-public': 1});
 		}
@@ -31,7 +36,7 @@ $(document).ready(function(){
 		if(title == '')
 			return;
 
-		var	content = $('#goal-content').html(),
+		var content = $('#goal-content').html(),
 			userID = $('#goal-title').attr('data-user-id'),
 			isPublic = $('.btn-lock').first().attr('data-is-public');
 
@@ -62,7 +67,10 @@ $(document).ready(function(){
 	<span class="btn-icon btn-lock btn-lock-false" data-is-public="1"></span>
 </div>
 
-<div id="goal-content" contenteditable="true"><div></div></div>
+<div id="goal-content" contenteditable="true">
+	<div id='goal-content-placeholder'>内容</div>
+	<div></div>
+</div>
 
 <a id="btn-new-goal" class="btn btn-primary">添加</a>
 

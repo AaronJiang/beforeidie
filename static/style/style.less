@@ -133,13 +133,13 @@
 //------------------------------------------------------------
 #page-change-pwd{
 	.error-wap{
-		width: 400px;
+		width: 350px;
 		margin: 0 0 20px 0;
 	}
 
 	input[type='text'],
 	input[type='password']{
-		width: 400px;
+		width: 350px;
 	}
 
 	input[type='submit']{
@@ -164,13 +164,15 @@
 
 		#pre, #goal-title{
 			text-align: center;
-			font-weight: normal;
-			outline: none;
-			margin-bottom: 5px;
+			font-weight: normal;	
 		}
-
 		#pre{
+			margin-bottom: 8px;
+		}
+		#goal-title{
 			margin-bottom: 5px;
+			font-size: 30px;
+			outline: none;
 		}
 
 		.btn-lock{
@@ -202,6 +204,10 @@
 		min-height: 400px;
 		outline: none;
 
+		#goal-content-placeholder{
+			color: @grayLight;			
+		}
+
 		div{
 			margin-bottom: 15px;
 		}
@@ -221,21 +227,19 @@
 		position: relative;
 		border-bottom: 1px solid @grayLighter;
 		padding: 5px 0 15px 0;
-		margin: 0 0 22px 0;
+		margin: 0 0 25px 0;
 
 		#pre, #goal-title{
 			font-weight: normal;
-			outline: none;
-			margin-bottom: 5px;
 			text-align: center;
 		}
-
 		#pre{
-			margin-bottom: 5px;
+			margin-bottom: 8px;
 		}
-
 		#goal-title{
+			outline: none;
 			font-size: 30px;
+			margin-bottom: 5px;
 		}
 
 		#extra-info-wap{
@@ -252,10 +256,10 @@
 				}
 			}
 
+			// lock btn
 			.btn-lock{
-				margin-right: 3px;
-				vertical-align: -12%;
 				margin-right: 2px;
+				vertical-align: -12%;
 				background-position: -287px -24px;
 				opacity: 0.8;
 
@@ -268,6 +272,26 @@
 
 				&:hover{
 					opacity: 0.2;
+				}
+			}
+
+			// like btn
+			.btn-like{
+				margin-left: 5px;
+				margin-right: 2px;
+				vertical-align: -12%;
+				background-position: -96px 0;
+				opacity: 0.9;
+
+				&:hover{
+					opacity: 1;
+				}
+			}
+			.btn-like-false{
+				opacity: 0.5;
+				
+				&:hover{
+					opacity: 0.6;
 				}
 			}
 		}
@@ -283,22 +307,6 @@
 
 		div{
 			margin-bottom: 15px;
-		}
-	}
-
-	.btn-like{
-		float: right;
-		margin-right: 5px;
-		background-position: -96px 0;
-		opacity: 0.9;
-		&:hover{
-			opacity: 1;
-		}
-	}
-	.btn-like-false{
-		opacity: 0.5;
-		&:hover{
-			opacity: 0.6;
 		}
 	}
 }

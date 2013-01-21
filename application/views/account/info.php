@@ -25,7 +25,7 @@ $(document).ready(function(){
 
 </script>
 
-<h3 class='page-title'>我</h3>
+<h3 class='page-title'>关于我</h3>
 
 <table id='table-account-details'>
 	<tr>
