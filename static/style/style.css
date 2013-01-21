@@ -86,12 +86,11 @@ select{font-size:14px;border:1px solid #dddddd;font-family:'tb','宋体';padding
 #page-goal-details #title-wap #extra-info-wap .btn-lock{margin-right:2px;vertical-align:-12%;background-position:-287px -24px;opacity:0.8;}#page-goal-details #title-wap #extra-info-wap .btn-lock:hover{opacity:0.9;}
 #page-goal-details #title-wap #extra-info-wap .btn-lock-false{opacity:0.1;}#page-goal-details #title-wap #extra-info-wap .btn-lock-false:hover{opacity:0.2;}
 #page-goal-details #title-wap #extra-info-wap .btn-like{margin-left:5px;margin-right:2px;vertical-align:-12%;background-position:-96px 0;opacity:0.9;}#page-goal-details #title-wap #extra-info-wap .btn-like:hover{opacity:1;}
-#page-goal-details #title-wap #extra-info-wap .btn-like-false{opacity:0.5;}#page-goal-details #title-wap #extra-info-wap .btn-like-false:hover{opacity:0.6;}
+#page-goal-details #title-wap #extra-info-wap .btn-like-false{opacity:0.2;}#page-goal-details #title-wap #extra-info-wap .btn-like-false:hover{opacity:0.3;}
 #page-goal-details #goal-content{font-family:'tb','宋体';font-size:16px;line-height:27px;padding:0 5px;outline:none;min-height:400px;}#page-goal-details #goal-content div{margin-bottom:15px;}
 #page-person{}#page-person #user-info-wap{margin:3px 0 18px 5px;position:relative;}#page-person #user-info-wap #user-info{margin:0 0 0 65px;}#page-person #user-info-wap #user-info #title{margin-bottom:4px;font-size:30px;line-height:30px;font-weight:normal;}
 #page-person #user-info-wap #user-info #username{font-size:11.9px;color:#555555;outline:none;padding-left:2px;}
 #page-person #user-info-wap #user-info #likes{position:absolute;top:6px;right:10px;font-size:11.9px;}#page-person #user-info-wap #user-info #likes a{color:#999999;text-decoration:none;}
-#page-person #user-info-wap #user-info #likes .btn-like{vertical-align:-12%;background-position:-96px 0;opacity:0.8;}
 #page-person #null-warning{border-top:1px solid #EEE;padding-left:4px;padding-top:10px;font-size:11.9px;color:#222222;}
 #page-person .goal-wap .goal-item-highlight{height:55px;box-sizing:border-box;border-top:1px solid #EEE;}
 #page-person .goal-wap .goal-item{border-top:1px solid #F2F2F2;padding:17px 0;position:relative;}#page-person .goal-wap .goal-item .goal-index{width:67px;display:inline-block;text-align:center;font-family:'cg';font-size:16.099999999999998px;}
