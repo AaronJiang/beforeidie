@@ -8,11 +8,19 @@
 
 $(document).ready(function(){
 
-	$('#goal-title').focus();
+	$('#goal-title').trigger('focus');
 
+	// simulate placeholder on div
 	$('#goal-content').focus(function(){
-		$('#goal-content-placeholder').detach();
+		$('#goal-content-placeholder').hide();
+	});
+	$('#goal-content').blur(function(){
+		$('#goal-content-placeholder').show();
 	})
+	$('#goal-content-placeholder').click(function(){
+		$(this).hide();
+		$('#goal-content').focus();
+	});
 
 	// switch lock state
 	$('.btn-lock').click(function(){
@@ -67,8 +75,9 @@ $(document).ready(function(){
 	<span class="btn-icon btn-lock btn-lock-false" data-is-public="1"></span>
 </div>
 
+<label id='goal-content-placeholder' style="position:absolute;color:gray;cursor:text;">内容</label>
+
 <div id="goal-content" contenteditable="true">
-	<div id='goal-content-placeholder'>内容</div>
 	<div></div>
 </div>
 
