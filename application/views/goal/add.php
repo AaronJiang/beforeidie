@@ -13,7 +13,7 @@ function simuPlaceholder(selector, placeholder){
 
 	$(label).text(placeholder).css({
 		'position' : 'absolute',
-		'color' : 'lightgray',
+		'color' : 'gray',
 		'cursor' : 'text'
 	}).insertBefore(selector);
 

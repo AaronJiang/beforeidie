@@ -3,7 +3,8 @@
 function browser_check(){
 	$agent = $_SERVER["HTTP_USER_AGENT"];
 
-	if(strpos($agent, "MSIE") === FALSE){
+	// if ie
+	if(strpos($agent, "MSIE") !== FALSE){
 
 		$CFG =& load_class('Config', 'core');
 		$base_url = $CFG->item('base_url');
