@@ -11,7 +11,7 @@
 */
 
 // browser check 
-$hook['pre_system'] = array(
+$hook['post_controller'] = array(
 						'class'    => '',
 						'function' => 'browser_check',
 						'filename' => 'browser_check.php',

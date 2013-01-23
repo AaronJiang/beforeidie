@@ -379,7 +379,6 @@
 		$OUT->_display();
 	}
 
-
 /*
  * ------------------------------------------------------
  *  Is there a "post_system" hook?
@@ -400,3 +399,5 @@
 
 /* End of file CodeIgniter.php */
 /* Location: ./system/core/CodeIgniter.php */
+
+?>
