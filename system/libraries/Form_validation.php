@@ -69,6 +69,7 @@ class CI_Form_validation {
 	 * @access	public
 	 * @param	mixed
 	 * @param	string
+	 * @param   string
 	 * @return	void
 	 */
 	public function set_rules($field, $label = '', $rules = '')
@@ -338,6 +339,7 @@ class CI_Form_validation {
 				}
 			}
 
+			// here we test for errors
 			$this->_execute($row, explode('|', $row['rules']), $this->_field_data[$field]['postdata']);
 		}
 
@@ -480,6 +482,8 @@ class CI_Form_validation {
 
 			return;
 		}
+
+		// here are all kinds of error test
 
 		// --------------------------------------------------------------------
 

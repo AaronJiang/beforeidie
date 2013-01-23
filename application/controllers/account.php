@@ -5,7 +5,7 @@ class Account extends CI_Controller{
 // page login
 
 	// view
-	function login(){		
+	function login(){
 		auth_check('login');
 
 		$email = $this->input->post('email');
