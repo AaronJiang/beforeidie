@@ -101,7 +101,7 @@ $(document).ready(function(){
 </script>
 
 
-<div id='title-wap'>
+<div id='goal-title-wap'>
 	<h2 id="pre">
 		<?php if($isCreator): ?>
 			Before I die I want to

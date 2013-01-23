@@ -111,7 +111,7 @@ class Goal extends CI_Controller{
 		auth_check('private');
 
 		$data['pageTitle'] = '添加';
-		$data['pageID'] = 'page-new-goal';
+		$data['pageID'] = 'page-goal-add';
 
 		// userID
 		$userID = $_SESSION['valid_user_id'];

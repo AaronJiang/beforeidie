@@ -6,21 +6,33 @@
 
 <script type="text/javascript">
 
+// simulate placeholder on any element
+function simuPlaceholder(selector, placeholder){
+
+	var label = document.createElement('label');
+
+	$(label).text(placeholder).css({
+		'position' : 'absolute',
+		'color' : 'lightgray',
+		'cursor' : 'text'
+	}).insertBefore(selector);
+
+	$(label).click(function(){
+		$(this).hide();
+		$(selector).focus();
+	});
+
+	$(selector).focus(function(){
+		$(label).hide();
+	});	
+}
+
 $(document).ready(function(){
 
 	$('#goal-title').trigger('focus');
 
-	// simulate placeholder on div
-	$('#goal-content').focus(function(){
-		$('#goal-content-placeholder').hide();
-	});
-	$('#goal-content').blur(function(){
-		$('#goal-content-placeholder').show();
-	})
-	$('#goal-content-placeholder').click(function(){
-		$(this).hide();
-		$('#goal-content').focus();
-	});
+	// simulate placeholder on goal-content
+	simuPlaceholder('#goal-content', '内容');
 
 	// switch lock state
 	$('.btn-lock').click(function(){
@@ -44,7 +56,7 @@ $(document).ready(function(){
 		if(title == '')
 			return;
 
-		var content = $('#goal-content').html(),
+		var content = $.trim($('#goal-content').html()),
 			userID = $('#goal-title').attr('data-user-id'),
 			isPublic = $('.btn-lock').first().attr('data-is-public');
 
@@ -72,10 +84,11 @@ $(document).ready(function(){
 <div id="goal-title-wap">
 	<h2 id="pre">Before I die I want to</h2>
 	<h2 id="goal-title" data-user-id="<?= $userID ?>" contenteditable="true"></h2>
-	<span class="btn-icon btn-lock btn-lock-false" data-is-public="1"></span>
-</div>
 
-<label id='goal-content-placeholder' style="position:absolute;color:gray;cursor:text;">内容</label>
+	<div id="extra-info-wap">
+		<span class="btn-icon btn-lock btn-lock-false" data-is-public="1"></span>
+	</div>
+</div>
 
 <div id="goal-content" contenteditable="true">
 	<div></div>
