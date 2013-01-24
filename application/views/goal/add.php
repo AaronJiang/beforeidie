@@ -14,7 +14,9 @@ function simuPlaceholder(selector, placeholder){
 	$(label).text(placeholder).css({
 		'position' : 'absolute',
 		'color' : 'gray',
-		'cursor' : 'text'
+		'cursor' : 'text',
+		'font-size' :  '16px',
+		'font-family' : '宋体'
 	}).insertBefore(selector);
 
 	$(label).click(function(){
